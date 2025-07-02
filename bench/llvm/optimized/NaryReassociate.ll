@@ -2219,7 +2219,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i.i: ; preds = %18, %2
   %.pre.i = phi ptr [ %13, %2 ], [ %.pre.pre.i, %18 ]
   %.pre-phi.i.i.i = phi i64 [ 0, %2 ], [ %.pre8.i.i.i, %18 ]
   %19 = phi i32 [ 0, %2 ], [ %.pre.i.i.i, %18 ]
-  %.not9.i.i.i.i.i.i.i = icmp eq ptr %12, %1
+  %.not9.i.i.i.i.i.i.i = icmp eq i32 %8, 1
   br i1 %.not9.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPKNS_5ValueELj4EEC2IPNS_3UseEEERKNS_14iterator_rangeIT_EE.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i.i
@@ -2865,14 +2865,14 @@ define dso_local noundef ptr @_ZN4llvm19NaryReassociatePass24tryReassociateGEPAt
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 134217727
+  %.not82 = icmp eq i32 %24, 1
+  br i1 %.not82, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %6
   %25 = zext nneg i32 %24 to i64
   %26 = sub nsw i64 0, %25
   %27 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %26
   %.05881 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %.not82 = icmp eq ptr %.05881, %1
-  br i1 %.not82, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %6
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %48
 

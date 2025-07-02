@@ -35368,7 +35368,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i6
   %3885 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %3886 = getelementptr i8, ptr %3885, i64 %3
   %3887 = getelementptr i8, ptr %3886, i64 -2
-  %3888 = icmp eq ptr %3885, %3887
+  %3888 = icmp eq i64 %3, 2
   br i1 %3888, label %_ZN9polars_io3csv4read5utils12escape_field17h5f4f6e7b0c5953e1E.exit.i, label %.lr.ph.i.i624
 
 .lr.ph.i.i624:                                    ; preds = %3880, %3894
@@ -36161,7 +36161,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   %4235 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %4236 = getelementptr i8, ptr %4235, i64 %3
   %4237 = getelementptr i8, ptr %4236, i64 -2
-  %4238 = icmp eq ptr %4235, %4237
+  %4238 = icmp eq i64 %3, 2
   br i1 %4238, label %_ZN9polars_io3csv4read5utils12escape_field17h5f4f6e7b0c5953e1E.exit.i667, label %.lr.ph.i.i657
 
 .lr.ph.i.i657:                                    ; preds = %4227, %4244
@@ -40712,7 +40712,7 @@ define noundef i64 @_ZN9polars_io3csv4read5utils12escape_field17h5f4f6e7b0c5953e
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = getelementptr i8, ptr %6, i64 %1
   %8 = getelementptr i8, ptr %7, i64 -2
-  %9 = icmp eq ptr %6, %8
+  %9 = icmp eq i64 %1, 2
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %15

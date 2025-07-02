@@ -6773,7 +6773,7 @@ _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit: ; pr
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = getelementptr ptr, ptr %17, i64 %10
   %19 = getelementptr i8, ptr %18, i64 -8
-  %20 = icmp eq ptr %17, %19
+  %20 = icmp eq i8 %9, 1
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 21:                                               ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit

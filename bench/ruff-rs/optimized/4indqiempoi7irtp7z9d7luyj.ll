@@ -4078,7 +4078,7 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   ]
 
 15:                                               ; preds = %11
-  %16 = icmp eq ptr %.val.i, %13
+  %16 = icmp eq i64 %.val1.i, 1
   br i1 %16, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i", label %17
 
 17:                                               ; preds = %15
@@ -32846,7 +32846,7 @@ define hidden { ptr, i64 } @_ZN11ruff_linter10docstrings8sections14SectionContex
   ]
 
 45:                                               ; preds = %41
-  %46 = icmp eq ptr %38, %43
+  %46 = icmp eq i64 %.sroa.2.0.copyload, 1
   br i1 %46, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i", label %47
 
 47:                                               ; preds = %45
@@ -55356,12 +55356,12 @@ define hidden void @_ZN11ruff_linter5rules12flake8_raise5rules36unnecessary_pare
   store i32 95, ptr %5, align 4, !noalias !4083
   %51 = call noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h86acae139f0bc211E"(ptr noalias noundef nonnull readonly align 1 %.sroa.04.0, i64 noundef %.sroa.4.0, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !4083
+  %.neg.i = zext i1 %51 to i64
   %52 = sext i1 %51 to i64
-  %spec.select9.idx.i = zext i1 %51 to i64
-  %spec.select9.i = getelementptr inbounds nuw i8, ptr %.sroa.04.0, i64 %spec.select9.idx.i
+  %spec.select9.i = getelementptr inbounds nuw i8, ptr %.sroa.04.0, i64 %.neg.i
   %53 = getelementptr i8, ptr %spec.select9.i, i64 %.sroa.4.0
   %54 = getelementptr i8, ptr %53, i64 %52
-  %55 = icmp eq ptr %spec.select9.i, %54
+  %55 = icmp eq i64 %.sroa.4.0, %.neg.i
   br i1 %55, label %"_ZN11ruff_linter5rules12flake8_raise5rules36unnecessary_paren_on_raise_exception36unnecessary_paren_on_raise_exception28_$u7b$$u7b$closure$u7d$$u7d$17hb2a87557b69b4041E.exit.thread", label %56
 
 56:                                               ; preds = %47
@@ -64699,7 +64699,7 @@ define hidden void @_ZN11ruff_linter5rules10pydocstyle7helpers14find_underline17
   ]
 
 13:                                               ; preds = %9
-  %14 = icmp eq ptr %.val, %11
+  %14 = icmp eq i64 %.val3, 1
   br i1 %14, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i", label %15
 
 15:                                               ; preds = %13
@@ -64995,7 +64995,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h5be8680d640a9e18E.exit: ; p
   ]
 
 66:                                               ; preds = %62
-  %67 = icmp eq ptr %.val44, %64
+  %67 = icmp eq i64 %.val45, 1
   br i1 %67, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i", label %68
 
 68:                                               ; preds = %66
@@ -65433,7 +65433,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd79fa6c9b2e0f1c7E.exit.i.i.
   ]
 
 262:                                              ; preds = %258
-  %263 = icmp eq ptr %.val.i, %260
+  %263 = icmp eq i64 %.val3.i, 1
   br i1 %263, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i", label %264
 
 264:                                              ; preds = %262
@@ -65794,7 +65794,7 @@ _ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit.i: ; preds =
   ]
 
 404:                                              ; preds = %400
-  %405 = icmp eq ptr %.val.i61, %402
+  %405 = icmp eq i64 %.val3.i62, 1
   br i1 %405, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i63", label %406
 
 406:                                              ; preds = %404
@@ -66077,7 +66077,7 @@ define hidden void @_ZN11ruff_linter5rules10pydocstyle5rules28newline_after_last
   ]
 
 54:                                               ; preds = %50
-  %55 = icmp eq ptr %47, %52
+  %55 = icmp eq i64 %.sroa.2.0.copyload, 1
   br i1 %55, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i", label %56
 
 56:                                               ; preds = %54
@@ -66451,7 +66451,7 @@ define hidden void @_ZN11ruff_linter5rules10pydocstyle5rules12no_signature12no_s
   br i1 %50, label %57, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i.i.i": ; preds = %46
-  %51 = icmp ne ptr %36, %48
+  %51 = icmp ne i64 %34, 1
   call void @llvm.assume(i1 %51)
   %52 = getelementptr inbounds i8, ptr %47, i64 -2
   %53 = load i8, ptr %52, align 1, !noalias !5015, !noundef !3
@@ -66465,7 +66465,7 @@ define hidden void @_ZN11ruff_linter5rules10pydocstyle5rules12no_signature12no_s
   br label %84
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit19.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i.i.i"
-  %59 = icmp ne ptr %36, %52
+  %59 = icmp ne i64 %34, 2
   call void @llvm.assume(i1 %59)
   %60 = getelementptr inbounds i8, ptr %47, i64 -3
   %61 = load i8, ptr %60, align 1, !noalias !5015, !noundef !3
@@ -66483,7 +66483,7 @@ define hidden void @_ZN11ruff_linter5rules10pydocstyle5rules12no_signature12no_s
   br label %84
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit21.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit19.i.i.i.i"
-  %70 = icmp ne ptr %36, %60
+  %70 = icmp ne i64 %34, 3
   call void @llvm.assume(i1 %70)
   %71 = getelementptr inbounds i8, ptr %47, i64 -4
   %72 = load i8, ptr %71, align 1, !noalias !5015, !noundef !3
@@ -66676,7 +66676,7 @@ define hidden void @_ZN11ruff_linter5rules10pydocstyle5rules19non_imperative_moo
   ]
 
 48:                                               ; preds = %44
-  %49 = icmp eq ptr %41, %46
+  %49 = icmp eq i64 %.sroa.4.0.copyload, 1
   br i1 %49, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i", label %50
 
 50:                                               ; preds = %48

@@ -6025,7 +6025,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZNK4llvm12VPRecipe
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 -8
-  %.not4142 = icmp eq ptr %24, %29
+  %.not4142 = icmp eq i32 %26, 1
   br i1 %.not4142, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm8DebugLocD2Ev.exit

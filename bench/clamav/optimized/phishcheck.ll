@@ -2893,7 +2893,7 @@ string_free.exit.i:                               ; preds = %.preheader.i63, %44
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 %24
   %49 = getelementptr inbounds i8, ptr %48, i64 -1
   store ptr %49, ptr %5, align 8, !tbaa !50
-  %.not49 = icmp ult ptr %16, %49
+  %.not49 = icmp sgt i64 %24, 1
   br i1 %.not49, label %.preheader144, label %.preheader.i70
 
 .preheader.i70:                                   ; preds = %47, %53

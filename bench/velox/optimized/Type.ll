@@ -5218,7 +5218,7 @@ if.then.i.i.i:                                    ; preds = %if.end
   unreachable
 
 _ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i: ; preds = %if.end
-  %cmp.not.i.i.i = icmp eq ptr %add.ptr.i14, %1
+  %cmp.not.i.i.i = icmp eq i64 %sub.ptr.sub.i, 16
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE11_M_allocateEm.exit.thread.i.i, label %for.body.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i

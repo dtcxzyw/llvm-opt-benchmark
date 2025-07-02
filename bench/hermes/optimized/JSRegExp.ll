@@ -5410,22 +5410,23 @@ _ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit:              ; preds = %for.body.i.i.i.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes5regex13MatchCharNode15reverseChildrenEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %chars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %chars_, align 8
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i32, ptr %Size.i, align 8
-  %conv.i = zext i32 %1 to i64
-  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 2
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.idx
-  %cmp.i.i = icmp ne i32 %1, 0
-  %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
-  %cmp19.i.i = icmp ult ptr %0, %__last.addr.08.i.i
-  %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp19.i.i, i1 false
-  br i1 %or.cond.i.i, label %while.body.i.i, label %_ZSt7reverseIPjEvT_S1_.exit
+  %0 = load i32, ptr %Size.i, align 8
+  %cmp19.i.i = icmp ugt i32 %0, 1
+  br i1 %cmp19.i.i, label %while.body.i.i.preheader, label %_ZSt7reverseIPjEvT_S1_.exit
 
-while.body.i.i:                                   ; preds = %entry, %while.body.i.i
-  %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %__last.addr.08.i.i, %entry ]
-  %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %0, %entry ]
+while.body.i.i.preheader:                         ; preds = %entry
+  %chars_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %1 = load ptr, ptr %chars_, align 8
+  %conv.i = zext i32 %0 to i64
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 2
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i.idx
+  %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
+  br label %while.body.i.i
+
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.body.i.i
+  %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %__last.addr.08.i.i, %while.body.i.i.preheader ]
+  %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %1, %while.body.i.i.preheader ]
   %2 = load i32, ptr %__first.addr.010.i.i, align 4
   %3 = load i32, ptr %__last.addr.011.i.i, align 4
   store i32 %3, ptr %__first.addr.010.i.i, align 4

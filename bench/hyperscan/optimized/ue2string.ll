@@ -1714,167 +1714,169 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN3ue211ue2_literal7reverseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
-  %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %4
-  %6 = icmp samesign ne i64 %4, 0
-  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %5, i64 -1
-  %7 = icmp ult ptr %2, %.sroa.0.08.i.i
-  %or.cond.i.i = select i1 %6, i1 %7, i1 false
-  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load i64, ptr %2, align 8
+  %4 = icmp sgt i64 %3, 1
+  br i1 %4, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
 
-.lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
-  %.sroa.0.010.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.08.i.i, %1 ]
-  %.sroa.05.09.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %2, %1 ]
-  %8 = load i8, ptr %.sroa.05.09.i.i, align 1
-  %9 = load i8, ptr %.sroa.0.010.i.i, align 1
-  store i8 %9, ptr %.sroa.05.09.i.i, align 1
-  store i8 %8, ptr %.sroa.0.010.i.i, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i, i64 1
+.lr.ph.i.i.preheader:                             ; preds = %1
+  %5 = load ptr, ptr %0, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %3
+  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %6, i64 -1
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.sroa.0.010.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.08.i.i, %.lr.ph.i.i.preheader ]
+  %.sroa.05.09.i.i = phi ptr [ %9, %.lr.ph.i.i ], [ %5, %.lr.ph.i.i.preheader ]
+  %7 = load i8, ptr %.sroa.05.09.i.i, align 1
+  %8 = load i8, ptr %.sroa.0.010.i.i, align 1
+  store i8 %8, ptr %.sroa.05.09.i.i, align 1
+  store i8 %7, ptr %.sroa.0.010.i.i, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i, i64 1
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.010.i.i, i64 -1
-  %11 = icmp ult ptr %10, %.sroa.0.0.i.i
-  br i1 %11, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit, !llvm.loop !24
+  %10 = icmp ult ptr %9, %.sroa.0.0.i.i
+  br i1 %10, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit, !llvm.loop !24
 
 _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit: ; preds = %.lr.ph.i.i, %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = load i64, ptr %13, align 8
-  %15 = lshr i64 %14, 1
-  %.not15 = icmp ult i64 %14, 2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = load i64, ptr %12, align 8
+  %14 = lshr i64 %13, 1
+  %.not15 = icmp ult i64 %13, 2
   br i1 %.not15, label %._crit_edge, label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit
 
 ._crit_edge:                                      ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
   ret void
 
 _ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit:    ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit, %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12
-  %.014 = phi i64 [ %45, %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12 ], [ 0, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ]
-  %16 = xor i64 %.014, -1
-  %17 = add i64 %14, %16
-  %18 = lshr i64 %.014, 6
-  %19 = load ptr, ptr %12, align 8
-  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %18
-  %21 = load i64, ptr %20, align 8
-  %22 = and i64 %.014, 63
-  %23 = shl nuw i64 1, %22
-  %24 = and i64 %21, %23
-  %.not = icmp eq i64 %24, 0
-  %25 = lshr i64 %17, 6
-  %26 = getelementptr inbounds nuw i64, ptr %19, i64 %25
-  %27 = load i64, ptr %26, align 8
-  %28 = and i64 %17, 63
-  %29 = shl nuw i64 1, %28
-  %30 = and i64 %27, %29
-  %.not13 = icmp eq i64 %30, 0
-  %31 = xor i64 %23, -1
-  %32 = and i64 %21, %31
-  %33 = or i64 %21, %23
-  %storemerge = select i1 %.not13, i64 %32, i64 %33
-  store i64 %storemerge, ptr %20, align 8
-  br i1 %.not, label %39, label %34
+  %.014 = phi i64 [ %44, %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12 ], [ 0, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ]
+  %15 = xor i64 %.014, -1
+  %16 = add i64 %13, %15
+  %17 = lshr i64 %.014, 6
+  %18 = load ptr, ptr %11, align 8
+  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %17
+  %20 = load i64, ptr %19, align 8
+  %21 = and i64 %.014, 63
+  %22 = shl nuw i64 1, %21
+  %23 = and i64 %20, %22
+  %.not = icmp eq i64 %23, 0
+  %24 = lshr i64 %16, 6
+  %25 = getelementptr inbounds nuw i64, ptr %18, i64 %24
+  %26 = load i64, ptr %25, align 8
+  %27 = and i64 %16, 63
+  %28 = shl nuw i64 1, %27
+  %29 = and i64 %26, %28
+  %.not13 = icmp eq i64 %29, 0
+  %30 = xor i64 %22, -1
+  %31 = and i64 %20, %30
+  %32 = or i64 %20, %22
+  %storemerge = select i1 %.not13, i64 %31, i64 %32
+  store i64 %storemerge, ptr %19, align 8
+  br i1 %.not, label %38, label %33
 
-34:                                               ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit
-  %35 = load ptr, ptr %12, align 8
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %25
-  %37 = load i64, ptr %36, align 8
-  %38 = or i64 %37, %29
-  store i64 %38, ptr %36, align 8
+33:                                               ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit
+  %34 = load ptr, ptr %11, align 8
+  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %24
+  %36 = load i64, ptr %35, align 8
+  %37 = or i64 %36, %28
+  store i64 %37, ptr %35, align 8
   br label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12
 
-39:                                               ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit
-  %40 = xor i64 %29, -1
-  %41 = load ptr, ptr %12, align 8
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %25
-  %43 = load i64, ptr %42, align 8
-  %44 = and i64 %43, %40
-  store i64 %44, ptr %42, align 8
+38:                                               ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit
+  %39 = xor i64 %28, -1
+  %40 = load ptr, ptr %11, align 8
+  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %24
+  %42 = load i64, ptr %41, align 8
+  %43 = and i64 %42, %39
+  store i64 %43, ptr %41, align 8
   br label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12
 
-_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12:  ; preds = %34, %39
-  %45 = add nuw nsw i64 %.014, 1
-  %exitcond.not = icmp eq i64 %45, %15
+_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12:  ; preds = %33, %38
+  %44 = add nuw nsw i64 %.014, 1
+  %exitcond.not = icmp eq i64 %44, %14
   br i1 %exitcond.not, label %._crit_edge, label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit, !llvm.loop !25
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue215reverse_literalERKNS_11ue2_literalE(ptr dead_on_unwind noalias nonnull writable sret(%"struct.ue2::ue2_literal") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3ue211ue2_literalC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
-  %7 = icmp samesign ne i64 %5, 0
-  %.sroa.0.08.i.i.i = getelementptr inbounds i8, ptr %6, i64 -1
-  %8 = icmp ult ptr %3, %.sroa.0.08.i.i.i
-  %or.cond.i.i.i = select i1 %7, i1 %8, i1 false
-  br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit.i
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8
+  %5 = icmp sgt i64 %4, 1
+  br i1 %5, label %.lr.ph.i.i.preheader.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit.i
 
-.lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
-  %.sroa.0.010.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.0.08.i.i.i, %2 ]
-  %.sroa.05.09.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %3, %2 ]
-  %9 = load i8, ptr %.sroa.05.09.i.i.i, align 1
-  %10 = load i8, ptr %.sroa.0.010.i.i.i, align 1
-  store i8 %10, ptr %.sroa.05.09.i.i.i, align 1
-  store i8 %9, ptr %.sroa.0.010.i.i.i, align 1
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i, i64 1
+.lr.ph.i.i.preheader.i:                           ; preds = %2
+  %6 = load ptr, ptr %0, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %4
+  %.sroa.0.08.i.i.i = getelementptr inbounds i8, ptr %7, i64 -1
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
+  %.sroa.0.010.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.0.08.i.i.i, %.lr.ph.i.i.preheader.i ]
+  %.sroa.05.09.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i ], [ %6, %.lr.ph.i.i.preheader.i ]
+  %8 = load i8, ptr %.sroa.05.09.i.i.i, align 1
+  %9 = load i8, ptr %.sroa.0.010.i.i.i, align 1
+  store i8 %9, ptr %.sroa.05.09.i.i.i, align 1
+  store i8 %8, ptr %.sroa.0.010.i.i.i, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i, i64 1
   %.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.010.i.i.i, i64 -1
-  %12 = icmp ult ptr %11, %.sroa.0.0.i.i.i
-  br i1 %12, label %.lr.ph.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit.i, !llvm.loop !24
+  %11 = icmp ult ptr %10, %.sroa.0.0.i.i.i
+  br i1 %11, label %.lr.ph.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit.i, !llvm.loop !24
 
 _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit.i: ; preds = %.lr.ph.i.i.i, %2
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = load i64, ptr %14, align 8
-  %16 = lshr i64 %15, 1
-  %.not15.i = icmp ult i64 %15, 2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = load i64, ptr %13, align 8
+  %15 = lshr i64 %14, 1
+  %.not15.i = icmp ult i64 %14, 2
   br i1 %.not15.i, label %_ZN3ue211ue2_literal7reverseEv.exit, label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i
 
 _ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i:  ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit.i, %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12.i
-  %.014.i = phi i64 [ %46, %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12.i ], [ 0, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit.i ]
-  %17 = xor i64 %.014.i, -1
-  %18 = add i64 %15, %17
-  %19 = lshr i64 %.014.i, 6
-  %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %19
-  %22 = load i64, ptr %21, align 8
-  %23 = and i64 %.014.i, 63
-  %24 = shl nuw i64 1, %23
-  %25 = and i64 %22, %24
-  %.not.i = icmp eq i64 %25, 0
-  %26 = lshr i64 %18, 6
-  %27 = getelementptr inbounds nuw i64, ptr %20, i64 %26
-  %28 = load i64, ptr %27, align 8
-  %29 = and i64 %18, 63
-  %30 = shl nuw i64 1, %29
-  %31 = and i64 %28, %30
-  %.not13.i = icmp eq i64 %31, 0
-  %32 = xor i64 %24, -1
-  %33 = and i64 %22, %32
-  %34 = or i64 %22, %24
-  %storemerge.i = select i1 %.not13.i, i64 %33, i64 %34
-  store i64 %storemerge.i, ptr %21, align 8
-  br i1 %.not.i, label %40, label %35
+  %.014.i = phi i64 [ %45, %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12.i ], [ 0, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit.i ]
+  %16 = xor i64 %.014.i, -1
+  %17 = add i64 %14, %16
+  %18 = lshr i64 %.014.i, 6
+  %19 = load ptr, ptr %12, align 8
+  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %18
+  %21 = load i64, ptr %20, align 8
+  %22 = and i64 %.014.i, 63
+  %23 = shl nuw i64 1, %22
+  %24 = and i64 %21, %23
+  %.not.i = icmp eq i64 %24, 0
+  %25 = lshr i64 %17, 6
+  %26 = getelementptr inbounds nuw i64, ptr %19, i64 %25
+  %27 = load i64, ptr %26, align 8
+  %28 = and i64 %17, 63
+  %29 = shl nuw i64 1, %28
+  %30 = and i64 %27, %29
+  %.not13.i = icmp eq i64 %30, 0
+  %31 = xor i64 %23, -1
+  %32 = and i64 %21, %31
+  %33 = or i64 %21, %23
+  %storemerge.i = select i1 %.not13.i, i64 %32, i64 %33
+  store i64 %storemerge.i, ptr %20, align 8
+  br i1 %.not.i, label %39, label %34
 
-35:                                               ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i
-  %36 = load ptr, ptr %13, align 8
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %26
-  %38 = load i64, ptr %37, align 8
-  %39 = or i64 %38, %30
-  store i64 %39, ptr %37, align 8
+34:                                               ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i
+  %35 = load ptr, ptr %12, align 8
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %25
+  %37 = load i64, ptr %36, align 8
+  %38 = or i64 %37, %29
+  store i64 %38, ptr %36, align 8
   br label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12.i
 
-40:                                               ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i
-  %41 = xor i64 %30, -1
-  %42 = load ptr, ptr %13, align 8
-  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %26
-  %44 = load i64, ptr %43, align 8
-  %45 = and i64 %44, %41
-  store i64 %45, ptr %43, align 8
+39:                                               ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i
+  %40 = xor i64 %29, -1
+  %41 = load ptr, ptr %12, align 8
+  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %25
+  %43 = load i64, ptr %42, align 8
+  %44 = and i64 %43, %40
+  store i64 %44, ptr %42, align 8
   br label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12.i
 
-_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12.i: ; preds = %40, %35
-  %46 = add nuw nsw i64 %.014.i, 1
-  %exitcond.not.i = icmp eq i64 %46, %16
+_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12.i: ; preds = %39, %34
+  %45 = add nuw nsw i64 %.014.i, 1
+  %exitcond.not.i = icmp eq i64 %45, %15
   br i1 %exitcond.not.i, label %_ZN3ue211ue2_literal7reverseEv.exit, label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i, !llvm.loop !25
 
 _ZN3ue211ue2_literal7reverseEv.exit:              ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12.i, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit.i

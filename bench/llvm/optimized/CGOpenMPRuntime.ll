@@ -76504,8 +76504,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler28generateI
   %91 = alloca %"class.llvm::Twine", align 8
   %92 = alloca %"class.llvm::Twine", align 8
   %93 = alloca %"class.llvm::Twine", align 8
-  %.idx434 = shl nuw nsw i64 %.8.val, 4
-  %94 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx434
+  %.idx = shl nuw nsw i64 %.8.val, 4
+  %94 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %44) #29
   %95 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %96 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -76522,7 +76522,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler28generateI
   %.not353 = icmp eq i16 %101, 126
   %103 = icmp eq i16 %101, 46
   %spec.select.i.i522 = select i1 %103, ptr %99, ptr null
-  %104 = icmp eq ptr %97, %.0.val
+  %104 = icmp eq i64 %.8.val, 1
   %or.cond376 = select i1 %16, i1 %104, i1 false
   br i1 %or.cond376, label %2256, label %.critedge
 
@@ -77926,8 +77926,8 @@ _ZN4llvm11SmallVectorIPKN5clang9ValueDeclELj4EEC2EOS5_.exit.i.i: ; preds = %806,
   call void @llvm.lifetime.end.p0(i64 1128, ptr nonnull %36) #29
   %820 = call fastcc noundef i64 @_ZNK12_GLOBAL__N_120MappableExprsHandler14getMapTypeBitsEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEEbbbb(i32 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, i1 noundef zeroext %10, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %302)
   %821 = or disjoint i64 %820, -281474976710656
-  %.idx = shl nuw nsw i64 %.8.val3, 4
-  %822 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 %.idx
+  %.idx433 = shl nuw nsw i64 %.8.val3, 4
+  %822 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 %.idx433
   %823 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %824 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %825 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -78288,8 +78288,8 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %_ZN4llvm23
   %1001 = and i8 %1000, -64
   store i8 %1001, ptr %823, align 8, !alias.scope !3983
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %824, i8 0, i64 16, i1 false), !alias.scope !3983
-  %.idx433 = shl nuw nsw i64 %.sroa.571.0.copyload, 4
-  %1002 = getelementptr inbounds nuw i8, ptr %.sroa.069.0.copyload, i64 %.idx433
+  %.idx434 = shl nuw nsw i64 %.sroa.571.0.copyload, 4
+  %1002 = getelementptr inbounds nuw i8, ptr %.sroa.069.0.copyload, i64 %.idx434
   %.not474410 = icmp eq i64 %.sroa.571.0.copyload, 0
   br i1 %.not474410, label %.loopexit, label %.lr.ph412
 

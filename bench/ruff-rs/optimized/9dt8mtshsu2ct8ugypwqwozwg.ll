@@ -295,7 +295,7 @@ _ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4
   br i1 %18, label %25, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h7dc3b967307d4ad2E.exit17.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h7dc3b967307d4ad2E.exit17.i.i.i.i": ; preds = %15
-  %19 = icmp ne ptr %1, %16
+  %19 = icmp ne i64 %2, 1
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds i8, ptr %10, i64 -2
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !64, !noalias !61
@@ -310,7 +310,7 @@ _ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4
   br label %52
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h7dc3b967307d4ad2E.exit19.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h7dc3b967307d4ad2E.exit17.i.i.i.i"
-  %27 = icmp ne ptr %1, %20
+  %27 = icmp ne i64 %2, 2
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds i8, ptr %10, i64 -3
   store ptr %28, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !67, !noalias !61
@@ -329,7 +329,7 @@ _ZN16ruff_source_file8newlines24UniversalNewlineIterator11with_offset17he5485eb4
   br label %52
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h7dc3b967307d4ad2E.exit21.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h7dc3b967307d4ad2E.exit19.i.i.i.i"
-  %38 = icmp ne ptr %1, %28
+  %38 = icmp ne i64 %2, 3
   tail call void @llvm.assume(i1 %38)
   %39 = getelementptr inbounds i8, ptr %10, i64 -4
   store ptr %39, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !70, !noalias !61
@@ -426,7 +426,7 @@ define { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core
   ]
 
 8:                                                ; preds = %4
-  %9 = icmp eq ptr %.val, %6
+  %9 = icmp eq i64 %.val1, 1
   br i1 %9, label %.thread.i, label %10
 
 10:                                               ; preds = %8
@@ -486,7 +486,7 @@ define noundef zeroext i1 @"_ZN88_$LT$ruff_source_file..newlines..Line$u20$as$u2
   ]
 
 9:                                                ; preds = %5
-  %10 = icmp eq ptr %.val, %7
+  %10 = icmp eq i64 %.val1, 1
   br i1 %10, label %.thread.i, label %11
 
 11:                                               ; preds = %9
@@ -548,7 +548,7 @@ define noundef zeroext i1 @"_ZN16ruff_source_file8newlines98_$LT$impl$u20$core..
   ]
 
 9:                                                ; preds = %5
-  %10 = icmp eq ptr %.val, %7
+  %10 = icmp eq i64 %.val1, 1
   br i1 %10, label %.thread.i, label %11
 
 11:                                               ; preds = %9

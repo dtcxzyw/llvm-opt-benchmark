@@ -20078,7 +20078,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.014.037 = phi i64 [ %49, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h70c7aa337430a545E.llvm.17803978538969967659.exit ], [ %.sroa.0.0, %35 ]
   %49 = add nuw i64 %.sroa.014.037, 1
   %50 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %41, i64 %.sroa.014.037
-  %51 = getelementptr inbounds { ptr, { i32, [1 x i32] } }, ptr %42, i64 %.sroa.014.037
+  %.idx = shl nsw i64 %.sroa.014.037, 4
+  %51 = getelementptr inbounds i8, ptr %42, i64 %.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   %52 = getelementptr i8, ptr %51, i64 8
   %.val12.i = load i32, ptr %52, align 8, !noalias !3481, !noundef !9
@@ -20182,7 +20183,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 .split.us.i:                                      ; preds = %91
   %.sroa.0.0.us.i = getelementptr inbounds i8, ptr %51, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.us.i, i64 16, i1 false), !noalias !3481
-  %94 = icmp eq ptr %.sroa.0.0.us.i, %42
+  %94 = icmp eq i64 %.sroa.014.037, 1
   br i1 %94, label %.split51.us.i, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us.i"
 
 "_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us.i": ; preds = %.split.us.i
@@ -20299,7 +20300,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   br i1 %138, label %.split.i, label %.split51.us.i
 
 .split51.us.i:                                    ; preds = %.loopexit.i, %114, %.split.i, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.us.i", %98, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us.i", %.split.us.i
-  %.us-phi.i = phi ptr [ %42, %.split.us.i ], [ %.sroa.0.0.us.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.us.i" ], [ %.sroa.0.0.us.i, %98 ], [ %.sroa.0.0.us.i, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us.i" ], [ %.sroa.0.0.us.i, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us.i" ], [ %.sroa.0.0.i, %.loopexit.i ], [ %.sroa.0.0.i, %114 ], [ %42, %.split.i ]
+  %.us-phi.i = phi ptr [ %.sroa.0.0.us.i, %.split.us.i ], [ %.sroa.0.0.us.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.us.i" ], [ %.sroa.0.0.us.i, %98 ], [ %.sroa.0.0.us.i, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us.i" ], [ %.sroa.0.0.us.i, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us.i" ], [ %.sroa.0.0.i, %.loopexit.i ], [ %.sroa.0.0.i, %114 ], [ %42, %.split.i ]
   store i64 %.sroa.061.0.copyload.i, ptr %.us-phi.i, align 8, !noalias !3500
   %.sroa.4.0..us-phi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
   store i32 %.val12.i, ptr %.sroa.4.0..us-phi.sroa_idx.i, align 8, !noalias !3500

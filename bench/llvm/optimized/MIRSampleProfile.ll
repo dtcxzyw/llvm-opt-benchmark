@@ -5378,7 +5378,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %46, i64 -1
   %49 = load i8, ptr %48, align 1, !tbaa !82
-  %.not.i.i.i.i.i68 = icmp eq ptr %48, %.058
+  %.not.i.i.i.i.i68 = icmp eq i64 %.086, 1
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %50
 
 50:                                               ; preds = %47
@@ -18841,13 +18841,13 @@ _ZNK4llvm14iterator_rangeINS_16idf_ext_iteratorIPKNS_17MachineBasicBlockENS_23df
   %151 = add i64 %150, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %146, ptr align 8 %.sink.i45, i64 %151, i1 false), !noalias !939
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 %141
-  %scevgep255 = getelementptr i8, ptr %146, i64 24
-  %scevgep256 = getelementptr i8, ptr %scevgep255, i64 %150
   %153 = ptrtoint ptr %146 to i64
-  %154 = icmp eq ptr %scevgep256, %146
+  %154 = icmp eq i64 %150, -24
   br i1 %154, label %_ZN4llvm11df_iteratorINS_7InverseIPKNS_17MachineBasicBlockEEENS_23df_iterator_default_setIS4_Lj8EEELb1ENS_11GraphTraitsIS5_EEED2Ev.exit.thread280, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZNK4llvm14iterator_rangeINS_16idf_ext_iteratorIPKNS_17MachineBasicBlockENS_23df_iterator_default_setIS4_Lj8EEEEEE3endEv.exit
+  %scevgep255 = getelementptr i8, ptr %146, i64 24
+  %scevgep256 = getelementptr i8, ptr %scevgep255, i64 %150
   %155 = getelementptr inbounds nuw i8, ptr %122, i64 20
   %156 = getelementptr inbounds nuw i8, ptr %122, i64 12
   %157 = getelementptr inbounds nuw i8, ptr %122, i64 8

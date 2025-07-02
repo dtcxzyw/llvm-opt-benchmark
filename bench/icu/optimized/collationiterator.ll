@@ -4468,17 +4468,20 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit85:      ; preds = %.thread92, %.thread
           to label %.loopexit99 unwind label %.loopexit.split-lp
 
 .loopexit99:                                      ; preds = %181, %319
-  %323 = load ptr, ptr %5, align 8, !tbaa !3
-  %324 = load i32, ptr %6, align 8, !tbaa !94
-  %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds i8, ptr %323, i64 %325
-  %.050107 = getelementptr inbounds i8, ptr %326, i64 -1
-  %327 = icmp ult ptr %323, %.050107
-  br i1 %327, label %.lr.ph, label %.thread88
+  %323 = load i32, ptr %6, align 8, !tbaa !94
+  %324 = icmp sgt i32 %323, 1
+  br i1 %324, label %.lr.ph.preheader, label %.thread88
 
-.lr.ph:                                           ; preds = %.loopexit99, %.lr.ph
-  %.050109 = phi ptr [ %.050, %.lr.ph ], [ %.050107, %.loopexit99 ]
-  %.051108 = phi ptr [ %330, %.lr.ph ], [ %323, %.loopexit99 ]
+.lr.ph.preheader:                                 ; preds = %.loopexit99
+  %325 = load ptr, ptr %5, align 8, !tbaa !3
+  %326 = zext nneg i32 %323 to i64
+  %327 = getelementptr inbounds nuw i8, ptr %325, i64 %326
+  %.050107 = getelementptr inbounds i8, ptr %327, i64 -1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.050109 = phi ptr [ %.050, %.lr.ph ], [ %.050107, %.lr.ph.preheader ]
+  %.051108 = phi ptr [ %330, %.lr.ph ], [ %325, %.lr.ph.preheader ]
   %328 = load i8, ptr %.051108, align 1, !tbaa !43
   %329 = load i8, ptr %.050109, align 1, !tbaa !43
   %330 = getelementptr inbounds nuw i8, ptr %.051108, i64 1

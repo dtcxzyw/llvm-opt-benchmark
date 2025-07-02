@@ -23081,7 +23081,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %102, %100, %_ZN4llv
   %109 = load ptr, ptr %0, align 8, !tbaa !386
   %110 = getelementptr ptr, ptr %108, i64 %107
   %111 = getelementptr i8, ptr %110, i64 -8
-  %112 = icmp eq ptr %108, %111
+  %112 = icmp eq i32 %106, 1
   br i1 %112, label %"_ZN4llvm10interleaveINS_8ArrayRefIPN5clang4ExprEEEZN12_GLOBAL__N_111StmtPrinter25VisitOpenACCWaitConstructEPNS2_20OpenACCWaitConstructEE3$_0NS_11raw_ostreamEKS4_EEvRKT_RT1_T0_RKNS_9StringRefE.exit", label %113
 
 113:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit18

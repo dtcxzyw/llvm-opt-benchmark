@@ -5556,16 +5556,19 @@ define internal fastcc noundef zeroext i1 @_ZL14isNoWrapAddRecPN4llvm5ValueEPKNS
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 134217727
+  %.not4817 = icmp eq i32 %14, 1
+  br i1 %.not4817, label %.critedge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %11
   %15 = zext nneg i32 %14 to i64
   %16 = sub nsw i64 0, %15
   %17 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %16
   %.04316 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.not4817 = icmp eq ptr %.04316, %0
-  br i1 %.not4817, label %.critedge, label %.lr.ph
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %11, %21
-  %.04319 = phi ptr [ %.043, %21 ], [ %.04316, %11 ]
-  %.03918 = phi ptr [ %.342, %21 ], [ null, %11 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
+  %.04319 = phi ptr [ %.043, %21 ], [ %.04316, %.lr.ph.preheader ]
+  %.03918 = phi ptr [ %.342, %21 ], [ null, %.lr.ph.preheader ]
   %18 = load ptr, ptr %.04319, align 8, !tbaa !235
   %19 = load i8, ptr %18, align 8, !tbaa !234
   %20 = icmp eq i8 %19, 17

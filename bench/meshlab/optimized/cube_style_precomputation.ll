@@ -8843,82 +8843,80 @@ _ZN5Eigen12SparseMatrixIdLi0EiE14initAssignmentIS1_EEvRKT_.exit: ; preds = %39, 
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %86
+  br i1 %49, label %50, label %84
 
 50:                                               ; preds = %_ZN5Eigen12SparseMatrixIdLi0EiE14initAssignmentIS1_EEvRKT_.exit
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i32, ptr %52, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %57 = icmp eq ptr %56, %52
-  br i1 %57, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit, label %58
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = load i64, ptr %51, align 8
+  %53 = icmp eq i64 %52, -1
+  br i1 %53, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit, label %54
 
-58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %.idx = shl nsw i64 %54, 2
-  %61 = add nsw i64 %.idx, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %60, ptr align 4 %52, i64 %61, i1 false)
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %.idx = shl nsw i64 %52, 2
+  %59 = add nsw i64 %.idx, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %58, ptr align 4 %56, i64 %59, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
 
-_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit: ; preds = %50, %58
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 56
+_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit: ; preds = %50, %54
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %63 = load i64, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %67 = load i64, ptr %66, align 8
-  %68 = icmp slt i64 %67, %65
-  br i1 %68, label %69, label %_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i
+  %66 = icmp slt i64 %65, %63
+  br i1 %66, label %67, label %_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i
 
-69:                                               ; preds = %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
-  %70 = icmp sgt i64 %65, 2147483647
-  br i1 %70, label %71, label %73
+67:                                               ; preds = %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
+  %68 = icmp sgt i64 %63, 2147483647
+  br i1 %68, label %69, label %71
 
-71:                                               ; preds = %69
-  %72 = tail call ptr @__cxa_allocate_exception(i64 8) #16
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %72, align 8
-  tail call void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #35
+69:                                               ; preds = %67
+  %70 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %70, align 8
+  tail call void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #35
   unreachable
 
-73:                                               ; preds = %69
-  tail call void @_ZN5Eigen8internal17CompressedStorageIdiE10reallocateEl(ptr noundef nonnull align 8 dereferenceable(32) %63, i64 noundef %65)
+71:                                               ; preds = %67
+  tail call void @_ZN5Eigen8internal17CompressedStorageIdiE10reallocateEl(ptr noundef nonnull align 8 dereferenceable(32) %61, i64 noundef %63)
   br label %_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i
 
-_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i: ; preds = %73, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %65, ptr %74, align 8
-  %75 = load i64, ptr %64, align 8
-  %76 = icmp slt i64 %75, 1
-  %77 = icmp eq i64 %65, 0
-  %or.cond.i = or i1 %77, %76
+_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i: ; preds = %71, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %63, ptr %72, align 8
+  %73 = load i64, ptr %62, align 8
+  %74 = icmp slt i64 %73, 1
+  %75 = icmp eq i64 %63, 0
+  %or.cond.i = or i1 %75, %74
   br i1 %or.cond.i, label %_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit, label %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i
 
 _ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i: ; preds = %_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i
-  %.idx.i = shl nsw i64 %65, 3
-  %78 = load ptr, ptr %62, align 8
-  %79 = load ptr, ptr %63, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %79, ptr align 8 %78, i64 %.idx.i, i1 false)
-  %.pre.i = load i64, ptr %74, align 8
-  %80 = icmp eq i64 %.pre.i, 0
-  br i1 %80, label %_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit, label %81
+  %.idx.i = shl nsw i64 %63, 3
+  %76 = load ptr, ptr %60, align 8
+  %77 = load ptr, ptr %61, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %77, ptr align 8 %76, i64 %.idx.i, i1 false)
+  %.pre.i = load i64, ptr %72, align 8
+  %78 = icmp eq i64 %.pre.i, 0
+  br i1 %78, label %_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit, label %79
 
-81:                                               ; preds = %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i
+79:                                               ; preds = %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i
   %.idx7.i = shl nsw i64 %.pre.i, 2
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %85 = load ptr, ptr %84, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %85, ptr align 4 %83, i64 %.idx7.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %83, ptr align 4 %81, i64 %.idx7.i, i1 false)
   br label %_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit
 
-86:                                               ; preds = %_ZN5Eigen12SparseMatrixIdLi0EiE14initAssignmentIS1_EEvRKT_.exit
+84:                                               ; preds = %_ZN5Eigen12SparseMatrixIdLi0EiE14initAssignmentIS1_EEvRKT_.exit
   tail call void @_ZN5Eigen8internal23assign_sparse_to_sparseINS_12SparseMatrixIdLi0EiEES3_EEvRT_RKT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
   br label %_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit
 
-_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit: ; preds = %81, %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i, %_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i, %38, %86, %5
+_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit: ; preds = %79, %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i, %_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i, %38, %84, %5
   ret ptr %0
 }
 
@@ -39373,14 +39371,16 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i:      ; preds = %53, %50
 _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i, %25
   %59 = add nsw i64 %3, %29
   %60 = sdiv i64 %59, 64
+  %.idx = shl nsw i64 %60, 3
   %61 = getelementptr inbounds i64, ptr %1, i64 %60
   %62 = and i64 %59, -9223372036854775745
   %63 = icmp ugt i64 %62, -9223372036854775808
+  %storemerge.idx.i.i.i42.neg = select i1 %63, i64 8, i64 0
   %storemerge.idx.i.i.i42 = select i1 %63, i64 -8, i64 0
   %storemerge.i.i.i43 = getelementptr inbounds i8, ptr %61, i64 %storemerge.idx.i.i.i42
   %64 = trunc i64 %59 to i32
   %65 = and i32 %64, 63
-  %.not.i.i.i = icmp eq ptr %1, %storemerge.i.i.i43
+  %.not.i.i.i = icmp eq i64 %.idx, %storemerge.idx.i.i.i42.neg
   br i1 %.not.i.i.i, label %91, label %66
 
 66:                                               ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
@@ -39570,14 +39570,16 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %151 = zext i32 %.sroa.5.0.lcssa.i.i.i.i.i.i to i64
   %152 = add nsw i64 %3, %151
   %153 = sdiv i64 %152, 64
+  %.idx125 = shl nsw i64 %153, 3
   %154 = getelementptr inbounds i64, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %153
   %155 = and i64 %152, -9223372036854775745
   %156 = icmp ugt i64 %155, -9223372036854775808
+  %storemerge.idx.i.i.i52.neg = select i1 %156, i64 8, i64 0
   %storemerge.idx.i.i.i52 = select i1 %156, i64 -8, i64 0
   %storemerge.i.i.i53 = getelementptr inbounds i8, ptr %154, i64 %storemerge.idx.i.i.i52
   %157 = trunc i64 %152 to i32
   %158 = and i32 %157, 63
-  %.not.i.i.i56 = icmp eq ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, %storemerge.i.i.i53
+  %.not.i.i.i56 = icmp eq i64 %.idx125, %storemerge.idx.i.i.i52.neg
   br i1 %.not.i.i.i56, label %185, label %159
 
 159:                                              ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit
@@ -46695,82 +46697,80 @@ _ZN5Eigen12SparseMatrixIdLi1EiE14initAssignmentIS1_EEvRKT_.exit: ; preds = %39, 
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %86
+  br i1 %49, label %50, label %84
 
 50:                                               ; preds = %_ZN5Eigen12SparseMatrixIdLi1EiE14initAssignmentIS1_EEvRKT_.exit
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i32, ptr %52, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %57 = icmp eq ptr %56, %52
-  br i1 %57, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit, label %58
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = load i64, ptr %51, align 8
+  %53 = icmp eq i64 %52, -1
+  br i1 %53, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit, label %54
 
-58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %.idx = shl nsw i64 %54, 2
-  %61 = add nsw i64 %.idx, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %60, ptr align 4 %52, i64 %61, i1 false)
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %.idx = shl nsw i64 %52, 2
+  %59 = add nsw i64 %.idx, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %58, ptr align 4 %56, i64 %59, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
 
-_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit: ; preds = %50, %58
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 56
+_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit: ; preds = %50, %54
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %63 = load i64, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %67 = load i64, ptr %66, align 8
-  %68 = icmp slt i64 %67, %65
-  br i1 %68, label %69, label %_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i
+  %66 = icmp slt i64 %65, %63
+  br i1 %66, label %67, label %_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i
 
-69:                                               ; preds = %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
-  %70 = icmp sgt i64 %65, 2147483647
-  br i1 %70, label %71, label %73
+67:                                               ; preds = %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
+  %68 = icmp sgt i64 %63, 2147483647
+  br i1 %68, label %69, label %71
 
-71:                                               ; preds = %69
-  %72 = tail call ptr @__cxa_allocate_exception(i64 8) #16
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %72, align 8
-  tail call void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #35
+69:                                               ; preds = %67
+  %70 = tail call ptr @__cxa_allocate_exception(i64 8) #16
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %70, align 8
+  tail call void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #35
   unreachable
 
-73:                                               ; preds = %69
-  tail call void @_ZN5Eigen8internal17CompressedStorageIdiE10reallocateEl(ptr noundef nonnull align 8 dereferenceable(32) %63, i64 noundef %65)
+71:                                               ; preds = %67
+  tail call void @_ZN5Eigen8internal17CompressedStorageIdiE10reallocateEl(ptr noundef nonnull align 8 dereferenceable(32) %61, i64 noundef %63)
   br label %_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i
 
-_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i: ; preds = %73, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %65, ptr %74, align 8
-  %75 = load i64, ptr %64, align 8
-  %76 = icmp slt i64 %75, 1
-  %77 = icmp eq i64 %65, 0
-  %or.cond.i = or i1 %77, %76
+_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i: ; preds = %71, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %63, ptr %72, align 8
+  %73 = load i64, ptr %62, align 8
+  %74 = icmp slt i64 %73, 1
+  %75 = icmp eq i64 %63, 0
+  %or.cond.i = or i1 %75, %74
   br i1 %or.cond.i, label %_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit, label %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i
 
 _ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i: ; preds = %_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i
-  %.idx.i = shl nsw i64 %65, 3
-  %78 = load ptr, ptr %62, align 8
-  %79 = load ptr, ptr %63, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %79, ptr align 8 %78, i64 %.idx.i, i1 false)
-  %.pre.i = load i64, ptr %74, align 8
-  %80 = icmp eq i64 %.pre.i, 0
-  br i1 %80, label %_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit, label %81
+  %.idx.i = shl nsw i64 %63, 3
+  %76 = load ptr, ptr %60, align 8
+  %77 = load ptr, ptr %61, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %77, ptr align 8 %76, i64 %.idx.i, i1 false)
+  %.pre.i = load i64, ptr %72, align 8
+  %78 = icmp eq i64 %.pre.i, 0
+  br i1 %78, label %_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit, label %79
 
-81:                                               ; preds = %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i
+79:                                               ; preds = %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i
   %.idx7.i = shl nsw i64 %.pre.i, 2
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %85 = load ptr, ptr %84, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %85, ptr align 4 %83, i64 %.idx7.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %83, ptr align 4 %81, i64 %.idx7.i, i1 false)
   br label %_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit
 
-86:                                               ; preds = %_ZN5Eigen12SparseMatrixIdLi1EiE14initAssignmentIS1_EEvRKT_.exit
+84:                                               ; preds = %_ZN5Eigen12SparseMatrixIdLi1EiE14initAssignmentIS1_EEvRKT_.exit
   tail call void @_ZN5Eigen8internal23assign_sparse_to_sparseINS_12SparseMatrixIdLi1EiEES3_EEvRT_RKT0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
   br label %_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit
 
-_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit: ; preds = %81, %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i, %_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i, %38, %86, %5
+_ZN5Eigen8internal17CompressedStorageIdiEaSERKS2_.exit: ; preds = %79, %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i, %_ZN5Eigen8internal17CompressedStorageIdiE6resizeEld.exit.i, %38, %84, %5
   ret ptr %0
 }
 

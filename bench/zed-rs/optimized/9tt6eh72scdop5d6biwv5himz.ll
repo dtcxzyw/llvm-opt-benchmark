@@ -1358,7 +1358,7 @@ common.resume:                                    ; preds = %49
   %40 = getelementptr i8, ptr %39, i64 -48
   %41 = icmp ne ptr %40, null
   call void @llvm.assume(i1 %41)
-  %42 = icmp eq ptr %38, %40
+  %42 = icmp eq i32 %16, 1
   br i1 %42, label %"_ZN56_$LT$rope..ChunkSummary$u20$as$u20$sum_tree..Summary$GT$11add_summary17hf0fc754c0a84a691E.exit._crit_edge", label %"_ZN56_$LT$rope..ChunkSummary$u20$as$u20$sum_tree..Summary$GT$11add_summary17hf0fc754c0a84a691E.exit"
 
 "_ZN56_$LT$rope..ChunkSummary$u20$as$u20$sum_tree..Summary$GT$11add_summary17hf0fc754c0a84a691E.exit._crit_edge": ; preds = %"_ZN56_$LT$rope..ChunkSummary$u20$as$u20$sum_tree..Summary$GT$11add_summary17hf0fc754c0a84a691E.exit", %18

@@ -5002,7 +5002,8 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hc81cd5afc8fab83eE.ex
   %.sroa.010.067 = phi i64 [ %105, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h81648758444a41f3E.llvm.13502422003044184407.exit ], [ %.sroa.0.0, %93 ]
   %105 = add i64 %.sroa.010.067, 1
   %106 = getelementptr inbounds { i8, [31 x i8] }, ptr %98, i64 %.sroa.010.067
-  %107 = getelementptr inbounds { i8, [31 x i8] }, ptr %99, i64 %.sroa.010.067
+  %.idx = shl nsw i64 %.sroa.010.067, 5
+  %107 = getelementptr inbounds i8, ptr %99, i64 %.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false)
   %108 = getelementptr inbounds i8, ptr %107, i64 -32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1400)
@@ -5071,7 +5072,7 @@ _ZN4core3ops8function5FnMut8call_mut17hcaa500dcd12ba482E.llvm.135024220030441844
   %129 = getelementptr inbounds nuw i8, ptr %106, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.6.i, ptr noundef nonnull align 2 dereferenceable(30) %129, i64 30, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 8 dereferenceable(32) %108, i64 32, i1 false)
-  %130 = icmp eq ptr %108, %99
+  %130 = icmp eq i64 %.sroa.010.067, 1
   br i1 %130, label %._crit_edge.i30, label %.lr.ph.i28.preheader
 
 .lr.ph.i28.preheader:                             ; preds = %128
@@ -5145,7 +5146,7 @@ _ZN4core3ops8function5FnMut8call_mut17hcaa500dcd12ba482E.llvm.135024220030441844
   unreachable
 
 ._crit_edge.i30:                                  ; preds = %.backedge.i.us62, %_ZN4core3ops8function5FnMut8call_mut17hcaa500dcd12ba482E.llvm.13502422003044184407.exit4.i10.i.us60, %.lr.ph.i28.us46, %140, %.backedge.i.us52, %.backedge.i.us, %_ZN4core3ops8function5FnMut8call_mut17hcaa500dcd12ba482E.llvm.13502422003044184407.exit4.i10.i.us, %128
-  %.sroa.0.0.lcssa.i = phi ptr [ %99, %128 ], [ %99, %.backedge.i.us ], [ %.sroa.0.024.i.us, %_ZN4core3ops8function5FnMut8call_mut17hcaa500dcd12ba482E.llvm.13502422003044184407.exit4.i10.i.us ], [ %.sroa.0.024.i.us47, %.lr.ph.i28.us46 ], [ %99, %.backedge.i.us52 ], [ %.sroa.0.024.i.us47, %140 ], [ %.sroa.0.024.i.us57, %_ZN4core3ops8function5FnMut8call_mut17hcaa500dcd12ba482E.llvm.13502422003044184407.exit4.i10.i.us60 ], [ %99, %.backedge.i.us62 ]
+  %.sroa.0.0.lcssa.i = phi ptr [ %108, %128 ], [ %99, %.backedge.i.us ], [ %.sroa.0.024.i.us, %_ZN4core3ops8function5FnMut8call_mut17hcaa500dcd12ba482E.llvm.13502422003044184407.exit4.i10.i.us ], [ %.sroa.0.024.i.us47, %.lr.ph.i28.us46 ], [ %99, %.backedge.i.us52 ], [ %.sroa.0.024.i.us47, %140 ], [ %.sroa.0.024.i.us57, %_ZN4core3ops8function5FnMut8call_mut17hcaa500dcd12ba482E.llvm.13502422003044184407.exit4.i10.i.us60 ], [ %99, %.backedge.i.us62 ]
   store i8 %109, ptr %.sroa.0.0.lcssa.i, align 8, !noalias !1424
   %.sroa.5.0..sroa.0.0.lcssa.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i, i64 1
   store i8 %.sroa.4.0.copyload.i, ptr %.sroa.5.0..sroa.0.0.lcssa.sroa_idx.i, align 1, !noalias !1424

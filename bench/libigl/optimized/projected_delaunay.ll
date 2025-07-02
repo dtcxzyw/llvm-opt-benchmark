@@ -66636,8 +66636,8 @@ _ZN5boost7movelib13adaptive_xbufIN4CGAL8internal11CC_iteratorINS2_17Compact_cont
   %71 = sub i64 %69, %70
   %72 = shl i64 %69, 3
   %73 = ashr exact i64 %72, 3
-  %.idx.mask = and i64 %69, 2305843009213693951
-  %.not8.i.i = icmp eq i64 %.idx.mask, 0
+  %.mask.i = and i64 %69, 2305843009213693951
+  %.not8.i.i = icmp eq i64 %.mask.i, 0
   br i1 %.not8.i.i, label %_ZN5boost7movelib15detail_adaptive14combine_paramsIPmNS1_4lessEmNS0_13adaptive_xbufIN4CGAL8internal11CC_iteratorINS6_17Compact_containerINS6_37Constrained_triangulation_face_base_2INS6_5EpeckENS6_25Triangulation_face_base_2ISB_NS6_28Triangulation_ds_face_base_2INS6_30Triangulation_data_structure_2INS6_27Triangulation_vertex_base_2ISB_NS6_30Triangulation_ds_vertex_base_2IvEEEENSA_ISB_NSC_ISB_NSD_IvEEEEEEEEEEEEEENS6_7DefaultESQ_SQ_EELb0EEEPSS_mEEEEvT_T0_T1_SX_SX_RT2_RSX_S10_S10_S10_b.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %58, %.lr.ph.i.i
@@ -85855,8 +85855,8 @@ _ZN5boost7movelib13adaptive_xbufIN4CGAL8internal11CC_iteratorINS2_17Compact_cont
   %71 = sub i64 %69, %70
   %72 = shl i64 %69, 3
   %73 = ashr exact i64 %72, 3
-  %.idx.mask = and i64 %69, 2305843009213693951
-  %.not8.i.i = icmp eq i64 %.idx.mask, 0
+  %.mask.i = and i64 %69, 2305843009213693951
+  %.not8.i.i = icmp eq i64 %.mask.i, 0
   br i1 %.not8.i.i, label %_ZN5boost7movelib15detail_adaptive14combine_paramsIPmNS1_4lessEmNS0_13adaptive_xbufIN4CGAL8internal11CC_iteratorINS6_17Compact_containerINS6_37Constrained_triangulation_face_base_2INS6_5EpickENS6_25Triangulation_face_base_2ISB_NS6_28Triangulation_ds_face_base_2INS6_30Triangulation_data_structure_2INS6_27Triangulation_vertex_base_2ISB_NS6_30Triangulation_ds_vertex_base_2IvEEEENSA_ISB_NSC_ISB_NSD_IvEEEEEEEEEEEEEENS6_7DefaultESQ_SQ_EELb0EEEPSS_mEEEEvT_T0_T1_SX_SX_RT2_RSX_S10_S10_S10_b.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %58, %.lr.ph.i.i

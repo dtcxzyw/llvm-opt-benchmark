@@ -6345,7 +6345,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i.i: ; preds = %49, %39
   %.pre.i = phi ptr [ %12, %39 ], [ %.pre.pre.i, %49 ]
   %.pre-phi.i.i.i = phi i64 [ 0, %39 ], [ %.pre8.i.i.i, %49 ]
   %50 = phi i32 [ 0, %39 ], [ %.pre.i.i.i, %49 ]
-  %.not9.i.i.i.i.i.i.i = icmp eq ptr %46, %16
+  %.not9.i.i.i.i.i.i.i = icmp eq i32 %42, 1
   br i1 %.not9.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPKNS_5ValueELj6EEC2IPKNS_3UseEEERKNS_14iterator_rangeIT_EE.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i.i

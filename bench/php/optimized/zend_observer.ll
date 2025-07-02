@@ -319,7 +319,7 @@ define dso_local noundef zeroext i1 @zend_observer_remove_begin_handler(ptr noun
   %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @zend_observers_fcall_list, i64 16), align 8, !tbaa !10
   %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -8
-  %.not31.not.i = icmp ugt ptr %19, %22
+  %.not31.not.i = icmp eq i64 %20, 0
   br i1 %.not31.not.i, label %zend_observer_remove_handler.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %42
@@ -477,7 +477,7 @@ define dso_local noundef zeroext i1 @zend_observer_remove_end_handler(ptr nounde
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %4
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %4
   %23 = getelementptr inbounds i8, ptr %22, i64 -8
-  %.not31.not.i = icmp ugt ptr %21, %23
+  %.not31.not.i = icmp eq i64 %4, 0
   br i1 %.not31.not.i, label %zend_observer_remove_handler.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %43

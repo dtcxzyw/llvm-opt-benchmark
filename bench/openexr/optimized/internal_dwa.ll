@@ -1690,13 +1690,13 @@ define internal fastcc i32 @DwaCompressor_uncompress(ptr noundef nonnull capture
   %.sroa.12.0.copyload = load i64, ptr %.sroa.12.0..sroa_idx, align 1
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.sroa.13.0.copyload = load i64, ptr %.sroa.13.0..sroa_idx, align 1
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %18 = add i64 %2, -88
-  %19 = add i64 %.sroa.5.0.copyload, 88
-  %20 = add i64 %19, %.sroa.6.0.copyload
-  %21 = add i64 %20, %.sroa.7.0.copyload
-  %22 = add i64 %21, %.sroa.8.0.copyload
+  %16 = add i64 %.sroa.6.0.copyload, %.sroa.5.0.copyload
+  %17 = add i64 %16, %.sroa.7.0.copyload
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %2
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %20 = add i64 %2, -88
+  %21 = add i64 %.sroa.8.0.copyload, 88
+  %22 = add i64 %21, %17
   %23 = icmp ult i64 %2, %22
   %24 = icmp ult i64 %2, %.sroa.5.0.copyload
   %or.cond = or i1 %24, %23
@@ -1736,20 +1736,20 @@ define internal fastcc i32 @DwaCompressor_uncompress(ptr noundef nonnull capture
   br label %DwaCompressor_readChannelRules.exit
 
 42:                                               ; preds = %37
-  %43 = icmp ugt i64 %18, 2
+  %43 = icmp ugt i64 %20, 2
   br i1 %43, label %44, label %DwaCompressor_readChannelRules.exit.thread
 
 44:                                               ; preds = %42
-  %45 = load i16, ptr %17, align 2, !tbaa !90
+  %45 = load i16, ptr %19, align 2, !tbaa !90
   %46 = zext i16 %45 to i64
   %47 = icmp ult i16 %45, 2
-  %48 = icmp ult i64 %18, %46
-  %or.cond555 = or i1 %47, %48
-  br i1 %or.cond555, label %DwaCompressor_readChannelRules.exit.thread, label %49
+  %48 = icmp ult i64 %20, %46
+  %or.cond552 = or i1 %47, %48
+  br i1 %or.cond552, label %DwaCompressor_readChannelRules.exit.thread, label %49
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 90
-  %51 = getelementptr inbounds nuw i8, ptr %17, i64 %46
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 %46
   %52 = add nsw i64 %46, -2
   %.not97.i = icmp eq i64 %52, 0
   br i1 %.not97.i, label %._crit_edge.thread.i, label %.lr.ph.i
@@ -1947,7 +1947,7 @@ Classifier_read.exit52.i:                         ; preds = %133, %128, %123, %1
   br i1 %exitcond.not.i, label %DwaCompressor_readChannelRules.exit, label %.lr.ph96.i, !llvm.loop !146
 
 DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exit52.i, %39, %93
-  %.0498 = phi ptr [ %17, %39 ], [ %51, %93 ], [ %51, %Classifier_read.exit52.i ]
+  %.0496 = phi ptr [ %19, %39 ], [ %51, %93 ], [ %51, %Classifier_read.exit52.i ]
   %137 = call fastcc i32 @DwaCompressor_initializeBuffers(ptr noundef %0, ptr noundef %8)
   %.not441 = icmp eq i32 %137, 0
   br i1 %.not441, label %138, label %DwaCompressor_readChannelRules.exit.thread
@@ -1964,776 +1964,729 @@ DwaCompressor_readChannelRules.exit:              ; preds = %Classifier_read.exi
   %146 = load ptr, ptr %145, align 8, !tbaa !91
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %148 = load ptr, ptr %147, align 8, !tbaa !92
-  %149 = getelementptr inbounds i8, ptr %.0498, i64 %.sroa.5.0.copyload
+  %149 = getelementptr inbounds i8, ptr %.0496, i64 %.sroa.5.0.copyload
   %150 = getelementptr inbounds i8, ptr %149, i64 %.sroa.6.0.copyload
   %151 = getelementptr inbounds i8, ptr %150, i64 %.sroa.7.0.copyload
-  %152 = icmp ugt ptr %.0498, %16
+  %152 = icmp ugt ptr %.0496, %18
   %153 = icmp slt i64 %.sroa.5.0.copyload, 0
   %or.cond480 = select i1 %152, i1 true, i1 %153
-  %154 = icmp ugt ptr %149, %16
+  %154 = icmp ugt ptr %149, %18
   %or.cond481 = select i1 %or.cond480, i1 true, i1 %154
-  %155 = icmp ugt ptr %.0498, %150
-  %or.cond482 = select i1 %or.cond481, i1 true, i1 %155
-  %156 = icmp ugt ptr %150, %16
-  %or.cond483 = select i1 %or.cond482, i1 true, i1 %156
-  %157 = icmp ugt ptr %.0498, %151
-  %or.cond484 = select i1 %or.cond483, i1 true, i1 %157
-  %158 = icmp ugt ptr %151, %16
-  %or.cond485 = select i1 %or.cond484, i1 true, i1 %158
-  %159 = getelementptr inbounds nuw i8, ptr %151, i64 %.sroa.8.0.copyload
-  %160 = icmp ugt ptr %159, %16
-  %or.cond487 = select i1 %or.cond485, i1 true, i1 %160
-  br i1 %or.cond487, label %DwaCompressor_readChannelRules.exit.thread, label %161
+  %155 = icmp slt i64 %16, 0
+  %or.cond483 = or i1 %155, %or.cond481
+  %156 = icmp ugt ptr %150, %18
+  %or.cond484 = select i1 %or.cond483, i1 true, i1 %156
+  br i1 %or.cond484, label %DwaCompressor_readChannelRules.exit.thread, label %157
 
-161:                                              ; preds = %138
-  %162 = icmp ugt i64 %.sroa.0.0.copyload, 2
-  br i1 %162, label %DwaCompressor_readChannelRules.exit.thread, label %163
+157:                                              ; preds = %138
+  %158 = icmp slt i64 %17, 0
+  %159 = icmp ugt ptr %151, %18
+  %or.cond485 = select i1 %158, i1 true, i1 %159
+  %160 = getelementptr inbounds nuw i8, ptr %151, i64 %.sroa.8.0.copyload
+  %161 = icmp ugt ptr %160, %18
+  %or.cond487 = select i1 %or.cond485, i1 true, i1 %161
+  br i1 %or.cond487, label %DwaCompressor_readChannelRules.exit.thread, label %162
 
-163:                                              ; preds = %161
+162:                                              ; preds = %157
+  %163 = icmp ugt i64 %.sroa.0.0.copyload, 2
+  br i1 %163, label %DwaCompressor_readChannelRules.exit.thread, label %164
+
+164:                                              ; preds = %162
   tail call fastcc void @DwaCompressor_setupChannelData(ptr noundef %0)
   %.not444 = icmp eq i64 %.sroa.5.0.copyload, 0
-  br i1 %.not444, label %175, label %164
+  br i1 %.not444, label %176, label %165
 
-164:                                              ; preds = %163
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %166 = load i64, ptr %165, align 8, !tbaa !74
-  %167 = icmp ugt i64 %.sroa.4.0.copyload, %166
-  br i1 %167, label %DwaCompressor_readChannelRules.exit.thread, label %168
+165:                                              ; preds = %164
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %167 = load i64, ptr %166, align 8, !tbaa !74
+  %168 = icmp ugt i64 %.sroa.4.0.copyload, %167
+  br i1 %168, label %DwaCompressor_readChannelRules.exit.thread, label %169
 
-168:                                              ; preds = %164
-  %169 = load ptr, ptr %139, align 8, !tbaa !28
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  %171 = load ptr, ptr %170, align 8, !tbaa !65
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %173 = load ptr, ptr %172, align 8, !tbaa !97
-  %174 = tail call i32 @exr_uncompress_buffer(ptr noundef %171, ptr noundef %.0498, i64 noundef %.sroa.5.0.copyload, ptr noundef %173, i64 noundef %.sroa.4.0.copyload, ptr noundef null) #20
-  %.not445 = icmp eq i32 %174, 0
-  br i1 %.not445, label %175, label %DwaCompressor_readChannelRules.exit.thread
+169:                                              ; preds = %165
+  %170 = load ptr, ptr %139, align 8, !tbaa !28
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
+  %172 = load ptr, ptr %171, align 8, !tbaa !65
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %174 = load ptr, ptr %173, align 8, !tbaa !97
+  %175 = tail call i32 @exr_uncompress_buffer(ptr noundef %172, ptr noundef %.0496, i64 noundef %.sroa.5.0.copyload, ptr noundef %174, i64 noundef %.sroa.4.0.copyload, ptr noundef null) #20
+  %.not445 = icmp eq i32 %175, 0
+  br i1 %.not445, label %176, label %DwaCompressor_readChannelRules.exit.thread
 
-175:                                              ; preds = %168, %163
+176:                                              ; preds = %169, %164
   %.not446 = icmp eq i64 %.sroa.6.0.copyload, 0
-  br i1 %.not446, label %198, label %176
+  br i1 %.not446, label %199, label %177
 
-176:                                              ; preds = %175
-  %177 = load ptr, ptr %145, align 8, !tbaa !91
-  %.not447 = icmp eq ptr %177, null
-  br i1 %.not447, label %DwaCompressor_readChannelRules.exit.thread, label %178
+177:                                              ; preds = %176
+  %178 = load ptr, ptr %145, align 8, !tbaa !91
+  %.not447 = icmp eq ptr %178, null
+  br i1 %.not447, label %DwaCompressor_readChannelRules.exit.thread, label %179
 
-178:                                              ; preds = %176
-  %179 = shl nuw i64 %.sroa.11.0.copyload, 1
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %181 = load i64, ptr %180, align 8, !tbaa !149
-  %182 = icmp ugt i64 %179, %181
-  br i1 %182, label %DwaCompressor_readChannelRules.exit.thread, label %183
+179:                                              ; preds = %177
+  %180 = shl nuw i64 %.sroa.11.0.copyload, 1
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %182 = load i64, ptr %181, align 8, !tbaa !149
+  %183 = icmp ugt i64 %180, %182
+  br i1 %183, label %DwaCompressor_readChannelRules.exit.thread, label %184
 
-183:                                              ; preds = %178
+184:                                              ; preds = %179
   switch i64 %.sroa.13.0.copyload, label %DwaCompressor_readChannelRules.exit.thread [
-    i64 0, label %184
-    i64 1, label %191
+    i64 0, label %185
+    i64 1, label %192
   ]
 
-184:                                              ; preds = %183
-  %185 = load ptr, ptr %139, align 8, !tbaa !28
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 184
-  %187 = load ptr, ptr %186, align 8, !tbaa !150
-  %188 = getelementptr inbounds nuw i8, ptr %185, i64 192
-  %189 = load i64, ptr %188, align 8, !tbaa !151
-  %190 = tail call i32 @internal_huf_decompress(ptr noundef %185, ptr noundef %149, i64 noundef %.sroa.6.0.copyload, ptr noundef nonnull %177, i64 noundef %.sroa.11.0.copyload, ptr noundef %187, i64 noundef %189) #20
-  %.not450 = icmp eq i32 %190, 0
-  br i1 %.not450, label %198, label %DwaCompressor_readChannelRules.exit.thread
+185:                                              ; preds = %184
+  %186 = load ptr, ptr %139, align 8, !tbaa !28
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 184
+  %188 = load ptr, ptr %187, align 8, !tbaa !150
+  %189 = getelementptr inbounds nuw i8, ptr %186, i64 192
+  %190 = load i64, ptr %189, align 8, !tbaa !151
+  %191 = tail call i32 @internal_huf_decompress(ptr noundef %186, ptr noundef %149, i64 noundef %.sroa.6.0.copyload, ptr noundef nonnull %178, i64 noundef %.sroa.11.0.copyload, ptr noundef %188, i64 noundef %190) #20
+  %.not450 = icmp eq i32 %191, 0
+  br i1 %.not450, label %199, label %DwaCompressor_readChannelRules.exit.thread
 
-191:                                              ; preds = %183
+192:                                              ; preds = %184
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #20
-  %192 = load ptr, ptr %139, align 8, !tbaa !28
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  %194 = load ptr, ptr %193, align 8, !tbaa !65
-  %195 = call i32 @exr_uncompress_buffer(ptr noundef %194, ptr noundef %149, i64 noundef %.sroa.6.0.copyload, ptr noundef nonnull %177, i64 noundef %179, ptr noundef nonnull %9) #20
-  %.not448 = icmp eq i32 %195, 0
-  br i1 %.not448, label %196, label %.thread
+  %193 = load ptr, ptr %139, align 8, !tbaa !28
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
+  %195 = load ptr, ptr %194, align 8, !tbaa !65
+  %196 = call i32 @exr_uncompress_buffer(ptr noundef %195, ptr noundef %149, i64 noundef %.sroa.6.0.copyload, ptr noundef nonnull %178, i64 noundef %180, ptr noundef nonnull %9) #20
+  %.not448 = icmp eq i32 %196, 0
+  br i1 %.not448, label %197, label %.thread
 
-.thread:                                          ; preds = %191
+.thread:                                          ; preds = %192
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #20
   br label %DwaCompressor_readChannelRules.exit.thread
 
-196:                                              ; preds = %191
-  %197 = load i64, ptr %9, align 8, !tbaa !74
-  %.not449 = icmp eq i64 %179, %197
+197:                                              ; preds = %192
+  %198 = load i64, ptr %9, align 8, !tbaa !74
+  %.not449 = icmp eq i64 %180, %198
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #20
-  br i1 %.not449, label %198, label %DwaCompressor_readChannelRules.exit.thread
+  br i1 %.not449, label %199, label %DwaCompressor_readChannelRules.exit.thread
 
-198:                                              ; preds = %184, %196, %175
+199:                                              ; preds = %185, %197, %176
   %.not451 = icmp eq i64 %.sroa.7.0.copyload, 0
-  br i1 %.not451, label %222, label %199
+  br i1 %.not451, label %223, label %200
 
-199:                                              ; preds = %198
+200:                                              ; preds = %199
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #20
-  %200 = shl nuw i64 %.sroa.12.0.copyload, 1
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %202 = load i64, ptr %201, align 8, !tbaa !152
-  %203 = icmp ugt i64 %200, %202
-  br i1 %203, label %.thread505, label %204
+  %201 = shl nuw i64 %.sroa.12.0.copyload, 1
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %203 = load i64, ptr %202, align 8, !tbaa !152
+  %204 = icmp ugt i64 %201, %203
+  br i1 %204, label %.thread503, label %205
 
-204:                                              ; preds = %199
-  %205 = load ptr, ptr %139, align 8, !tbaa !28
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 184
-  %207 = getelementptr inbounds nuw i8, ptr %205, i64 192
-  %208 = call i32 @internal_decode_alloc_buffer(ptr noundef %205, i32 noundef 3, ptr noundef nonnull %206, ptr noundef nonnull %207, i64 noundef %200) #20
-  %.not453 = icmp eq i32 %208, 0
-  br i1 %.not453, label %209, label %.thread505
+205:                                              ; preds = %200
+  %206 = load ptr, ptr %139, align 8, !tbaa !28
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 184
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 192
+  %209 = call i32 @internal_decode_alloc_buffer(ptr noundef %206, i32 noundef 3, ptr noundef nonnull %207, ptr noundef nonnull %208, i64 noundef %201) #20
+  %.not453 = icmp eq i32 %209, 0
+  br i1 %.not453, label %210, label %.thread503
 
-209:                                              ; preds = %204
-  %210 = load ptr, ptr %139, align 8, !tbaa !28
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
-  %212 = load ptr, ptr %211, align 8, !tbaa !65
-  %213 = getelementptr inbounds nuw i8, ptr %210, i64 184
-  %214 = load ptr, ptr %213, align 8, !tbaa !150
-  %215 = call i32 @exr_uncompress_buffer(ptr noundef %212, ptr noundef %150, i64 noundef %.sroa.7.0.copyload, ptr noundef %214, i64 noundef %200, ptr noundef nonnull %10) #20
-  %.not454 = icmp eq i32 %215, 0
-  %216 = load i64, ptr %10, align 8
-  %.not455 = icmp eq i64 %200, %216
+210:                                              ; preds = %205
+  %211 = load ptr, ptr %139, align 8, !tbaa !28
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 24
+  %213 = load ptr, ptr %212, align 8, !tbaa !65
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 184
+  %215 = load ptr, ptr %214, align 8, !tbaa !150
+  %216 = call i32 @exr_uncompress_buffer(ptr noundef %213, ptr noundef %150, i64 noundef %.sroa.7.0.copyload, ptr noundef %215, i64 noundef %201, ptr noundef nonnull %10) #20
+  %.not454 = icmp eq i32 %216, 0
+  %217 = load i64, ptr %10, align 8
+  %.not455 = icmp eq i64 %201, %217
   %or.cond489 = select i1 %.not454, i1 %.not455, i1 false
-  br i1 %or.cond489, label %217, label %.thread505
+  br i1 %or.cond489, label %218, label %.thread503
 
-.thread505:                                       ; preds = %199, %204, %209
-  %.3.ph = phi i32 [ 23, %209 ], [ %208, %204 ], [ 23, %199 ]
+.thread503:                                       ; preds = %200, %205, %210
+  %.3.ph = phi i32 [ 23, %210 ], [ %209, %205 ], [ 23, %200 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
   br label %DwaCompressor_readChannelRules.exit.thread
 
-217:                                              ; preds = %209
-  %218 = load ptr, ptr %147, align 8, !tbaa !92
-  %219 = load ptr, ptr %139, align 8, !tbaa !28
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 184
-  %221 = load ptr, ptr %220, align 8, !tbaa !150
-  call void @internal_zip_reconstruct_bytes(ptr noundef %218, ptr noundef %221, i64 noundef %200) #20
+218:                                              ; preds = %210
+  %219 = load ptr, ptr %147, align 8, !tbaa !92
+  %220 = load ptr, ptr %139, align 8, !tbaa !28
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 184
+  %222 = load ptr, ptr %221, align 8, !tbaa !150
+  call void @internal_zip_reconstruct_bytes(ptr noundef %219, ptr noundef %222, i64 noundef %201) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
-  br label %223
+  br label %224
 
-222:                                              ; preds = %198
+223:                                              ; preds = %199
   %.not452 = icmp eq i64 %.sroa.12.0.copyload, 0
-  br i1 %.not452, label %223, label %DwaCompressor_readChannelRules.exit.thread
+  br i1 %.not452, label %224, label %DwaCompressor_readChannelRules.exit.thread
 
-223:                                              ; preds = %217, %222
+224:                                              ; preds = %218, %223
   %.not456 = icmp eq i64 %.sroa.10.0.copyload, 0
-  br i1 %.not456, label %245, label %224
+  br i1 %.not456, label %246, label %225
 
-224:                                              ; preds = %223
+225:                                              ; preds = %224
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #20
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %226 = load i64, ptr %225, align 8, !tbaa !136
-  %227 = icmp ugt i64 %.sroa.9.0.copyload, %226
-  br i1 %227, label %.thread510, label %228
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %227 = load i64, ptr %226, align 8, !tbaa !136
+  %228 = icmp ugt i64 %.sroa.9.0.copyload, %227
+  br i1 %228, label %.thread508, label %229
 
-228:                                              ; preds = %224
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %230 = load i64, ptr %229, align 8, !tbaa !74
-  %231 = icmp ugt i64 %.sroa.10.0.copyload, %230
-  br i1 %231, label %.thread510, label %232
+229:                                              ; preds = %225
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %231 = load i64, ptr %230, align 8, !tbaa !74
+  %232 = icmp ugt i64 %.sroa.10.0.copyload, %231
+  br i1 %232, label %.thread508, label %233
 
-232:                                              ; preds = %228
-  %233 = load ptr, ptr %139, align 8, !tbaa !28
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 24
-  %235 = load ptr, ptr %234, align 8, !tbaa !65
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %237 = load ptr, ptr %236, align 8, !tbaa !135
-  %238 = call i32 @exr_uncompress_buffer(ptr noundef %235, ptr noundef %151, i64 noundef %.sroa.8.0.copyload, ptr noundef %237, i64 noundef %.sroa.9.0.copyload, ptr noundef nonnull %11) #20
-  %.not457 = icmp eq i32 %238, 0
-  %239 = load i64, ptr %11, align 8
-  %.not458 = icmp eq i64 %239, %.sroa.9.0.copyload
+233:                                              ; preds = %229
+  %234 = load ptr, ptr %139, align 8, !tbaa !28
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 24
+  %236 = load ptr, ptr %235, align 8, !tbaa !65
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %238 = load ptr, ptr %237, align 8, !tbaa !135
+  %239 = call i32 @exr_uncompress_buffer(ptr noundef %236, ptr noundef %151, i64 noundef %.sroa.8.0.copyload, ptr noundef %238, i64 noundef %.sroa.9.0.copyload, ptr noundef nonnull %11) #20
+  %.not457 = icmp eq i32 %239, 0
+  %240 = load i64, ptr %11, align 8
+  %.not458 = icmp eq i64 %240, %.sroa.9.0.copyload
   %or.cond493 = select i1 %.not457, i1 %.not458, i1 false
-  br i1 %or.cond493, label %240, label %.thread510
+  br i1 %or.cond493, label %241, label %.thread508
 
-.thread510:                                       ; preds = %228, %224, %232
+.thread508:                                       ; preds = %229, %225, %233
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #20
   br label %DwaCompressor_readChannelRules.exit.thread
 
-240:                                              ; preds = %232
-  %241 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %242 = load ptr, ptr %241, align 8, !tbaa !97
-  %243 = load ptr, ptr %236, align 8, !tbaa !135
-  %244 = call i64 @internal_rle_decompress(ptr noundef %242, i64 noundef %.sroa.10.0.copyload, ptr noundef %243, i64 noundef %.sroa.9.0.copyload) #20
-  %.not459 = icmp eq i64 %244, %.sroa.10.0.copyload
+241:                                              ; preds = %233
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %243 = load ptr, ptr %242, align 8, !tbaa !97
+  %244 = load ptr, ptr %237, align 8, !tbaa !135
+  %245 = call i64 @internal_rle_decompress(ptr noundef %243, i64 noundef %.sroa.10.0.copyload, ptr noundef %244, i64 noundef %.sroa.9.0.copyload) #20
+  %.not459 = icmp eq i64 %245, %.sroa.10.0.copyload
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #20
-  br i1 %.not459, label %245, label %DwaCompressor_readChannelRules.exit.thread
+  br i1 %.not459, label %246, label %DwaCompressor_readChannelRules.exit.thread
 
-245:                                              ; preds = %240, %223
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %247 = load i32, ptr %246, align 8, !tbaa !45
-  %248 = icmp sgt i32 %247, 0
-  br i1 %248, label %.lr.ph, label %._crit_edge.thread
+246:                                              ; preds = %241, %224
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %248 = load i32, ptr %247, align 8, !tbaa !45
+  %249 = icmp sgt i32 %248, 0
+  br i1 %249, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %245
-  %249 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %250 = load ptr, ptr %249, align 8, !tbaa !44
-  %wide.trip.count = zext nneg i32 %247 to i64
-  br label %260
+.lr.ph:                                           ; preds = %246
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %251 = load ptr, ptr %250, align 8, !tbaa !44
+  %wide.trip.count = zext nneg i32 %248 to i64
+  br label %261
 
-._crit_edge:                                      ; preds = %260
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %252 = load i32, ptr %251, align 4, !tbaa !49
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %254 = load i32, ptr %253, align 4, !tbaa !49
-  %.not460585 = icmp sgt i32 %252, %254
-  br i1 %.not460585, label %.preheader561, label %.preheader562.lr.ph
+._crit_edge:                                      ; preds = %261
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %253 = load i32, ptr %252, align 4, !tbaa !49
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %255 = load i32, ptr %254, align 4, !tbaa !49
+  %.not460583 = icmp sgt i32 %253, %255
+  br i1 %.not460583, label %.preheader558, label %.preheader559.lr.ph
 
-._crit_edge.thread:                               ; preds = %245
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %256 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  br label %.preheader561
+._crit_edge.thread:                               ; preds = %246
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  br label %.preheader558
 
-.preheader562.lr.ph:                              ; preds = %._crit_edge
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 192
+.preheader559.lr.ph:                              ; preds = %._crit_edge
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  br label %.preheader562
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  br label %.preheader559
 
-260:                                              ; preds = %.lr.ph, %260
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %260 ]
-  %261 = getelementptr inbounds nuw %struct._ChannelData, ptr %250, i64 %indvars.iv, i32 7
-  store i32 0, ptr %261, align 32, !tbaa !105
+261:                                              ; preds = %.lr.ph, %261
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %261 ]
+  %262 = getelementptr inbounds nuw %struct._ChannelData, ptr %251, i64 %indvars.iv, i32 7
+  store i32 0, ptr %262, align 32, !tbaa !105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %260, !llvm.loop !153
+  br i1 %exitcond.not, label %._crit_edge, label %261, !llvm.loop !153
 
-.preheader562:                                    ; preds = %.preheader562.lr.ph, %DctCoderChannelData_push_row.exit
-  %.pre669 = phi i32 [ %.pre670, %DctCoderChannelData_push_row.exit ], [ %247, %.preheader562.lr.ph ]
-  %262 = phi i32 [ %315, %DctCoderChannelData_push_row.exit ], [ %254, %.preheader562.lr.ph ]
-  %263 = phi i32 [ %316, %DctCoderChannelData_push_row.exit ], [ %247, %.preheader562.lr.ph ]
-  %264 = phi i32 [ %317, %DctCoderChannelData_push_row.exit ], [ %247, %.preheader562.lr.ph ]
-  %.0375587 = phi ptr [ %.1376.lcssa, %DctCoderChannelData_push_row.exit ], [ %142, %.preheader562.lr.ph ]
-  %.0407586 = phi i32 [ %318, %DctCoderChannelData_push_row.exit ], [ %252, %.preheader562.lr.ph ]
-  %.not463581 = icmp sgt i32 %264, 0
-  br i1 %.not463581, label %.lr.ph584, label %DctCoderChannelData_push_row.exit
+.preheader559:                                    ; preds = %.preheader559.lr.ph, %._crit_edge582
+  %263 = phi i32 [ %294, %._crit_edge582 ], [ %255, %.preheader559.lr.ph ]
+  %264 = phi i32 [ %295, %._crit_edge582 ], [ %248, %.preheader559.lr.ph ]
+  %265 = phi i32 [ %296, %._crit_edge582 ], [ %248, %.preheader559.lr.ph ]
+  %.0375585 = phi ptr [ %.1376.lcssa, %._crit_edge582 ], [ %142, %.preheader559.lr.ph ]
+  %.0407584 = phi i32 [ %297, %._crit_edge582 ], [ %253, %.preheader559.lr.ph ]
+  %.not463578 = icmp sgt i32 %265, 0
+  br i1 %.not463578, label %.lr.ph581, label %._crit_edge582
 
-.lr.ph584:                                        ; preds = %.preheader562, %312
-  %.pre671 = phi i32 [ %.pre672, %312 ], [ %.pre669, %.preheader562 ]
-  %265 = phi i32 [ %313, %312 ], [ %263, %.preheader562 ]
-  %indvars.iv649 = phi i64 [ %indvars.iv.next650, %312 ], [ 0, %.preheader562 ]
-  %.1376583 = phi ptr [ %.3378.ph, %312 ], [ %.0375587, %.preheader562 ]
-  %266 = load ptr, ptr %257, align 8, !tbaa !44
-  %267 = getelementptr inbounds nuw %struct._ChannelData, ptr %266, i64 %indvars.iv649
-  %268 = getelementptr inbounds nuw i8, ptr %267, i64 448
-  %269 = load ptr, ptr %268, align 32, !tbaa !54
-  %270 = getelementptr inbounds nuw i8, ptr %269, i64 20
-  %271 = load i32, ptr %270, align 4, !tbaa !107
-  %272 = srem i32 %.0407586, %271
-  %.not461 = icmp eq i32 %272, 0
-  br i1 %.not461, label %273, label %312
+.lr.ph581:                                        ; preds = %.preheader559, %291
+  %266 = phi i32 [ %292, %291 ], [ %264, %.preheader559 ]
+  %indvars.iv647 = phi i64 [ %indvars.iv.next648, %291 ], [ 0, %.preheader559 ]
+  %.1376580 = phi ptr [ %.3378.ph, %291 ], [ %.0375585, %.preheader559 ]
+  %267 = load ptr, ptr %258, align 8, !tbaa !44
+  %268 = getelementptr inbounds nuw %struct._ChannelData, ptr %267, i64 %indvars.iv647
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 448
+  %270 = load ptr, ptr %269, align 32, !tbaa !54
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 20
+  %272 = load i32, ptr %271, align 4, !tbaa !107
+  %273 = srem i32 %.0407584, %272
+  %.not461 = icmp eq i32 %273, 0
+  br i1 %.not461, label %274, label %291
 
-273:                                              ; preds = %.lr.ph584
-  %274 = load ptr, ptr %258, align 8, !tbaa !42
-  %275 = getelementptr inbounds nuw i8, ptr %267, i64 408
-  %276 = load i64, ptr %275, align 8, !tbaa !108
-  %277 = getelementptr inbounds nuw i8, ptr %267, i64 400
-  %278 = load i64, ptr %277, align 16, !tbaa !109
-  %279 = icmp eq i64 %276, %278
-  br i1 %279, label %280, label %._crit_edge.i494
+274:                                              ; preds = %.lr.ph581
+  %275 = load ptr, ptr %259, align 8, !tbaa !41
+  %276 = load ptr, ptr %260, align 8, !tbaa !42
+  %277 = call fastcc i32 @DctCoderChannelData_push_row(ptr noundef %275, ptr noundef %276, ptr noundef nonnull %268, ptr noundef %.1376580)
+  %.not462 = icmp eq i32 %277, 0
+  br i1 %.not462, label %278, label %DwaCompressor_readChannelRules.exit.thread
 
-._crit_edge.i494:                                 ; preds = %273
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %267, i64 392
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !110
-  br label %295
+278:                                              ; preds = %274
+  %279 = getelementptr inbounds nuw i8, ptr %270, i64 26
+  %280 = load i16, ptr %279, align 2, !tbaa !60
+  %281 = zext i16 %280 to i32
+  %282 = getelementptr inbounds nuw i8, ptr %268, i64 416
+  store i32 %281, ptr %282, align 32, !tbaa !154
+  %283 = getelementptr inbounds nuw i8, ptr %270, i64 12
+  %284 = load i32, ptr %283, align 4, !tbaa !93
+  %285 = getelementptr inbounds nuw i8, ptr %270, i64 25
+  %286 = load i8, ptr %285, align 1, !tbaa !95
+  %287 = sext i8 %286 to i32
+  %288 = mul nsw i32 %284, %287
+  %289 = sext i32 %288 to i64
+  %290 = getelementptr inbounds i8, ptr %.1376580, i64 %289
+  %.pre = load i32, ptr %247, align 8, !tbaa !45
+  br label %291
 
-280:                                              ; preds = %273
-  %281 = load ptr, ptr %259, align 8, !tbaa !41
-  %282 = icmp eq i64 %276, 0
-  %283 = mul i64 %276, 3
-  %284 = lshr i64 %283, 1
-  %285 = select i1 %282, i64 16, i64 %284
-  %286 = shl i64 %285, 3
-  %287 = call ptr %281(i64 noundef %286) #20
-  %.not.i495 = icmp eq ptr %287, null
-  br i1 %.not.i495, label %DwaCompressor_readChannelRules.exit.thread, label %288
+291:                                              ; preds = %278, %.lr.ph581
+  %292 = phi i32 [ %266, %.lr.ph581 ], [ %.pre, %278 ]
+  %.3378.ph = phi ptr [ %.1376580, %.lr.ph581 ], [ %290, %278 ]
+  %indvars.iv.next648 = add nuw nsw i64 %indvars.iv647, 1
+  %293 = sext i32 %292 to i64
+  %.not463 = icmp slt i64 %indvars.iv.next648, %293
+  br i1 %.not463, label %.lr.ph581, label %._crit_edge582.loopexit, !llvm.loop !155
 
-288:                                              ; preds = %280
-  %289 = getelementptr inbounds nuw i8, ptr %267, i64 392
-  %290 = load ptr, ptr %289, align 8, !tbaa !110
-  %.not26.i = icmp eq ptr %290, null
-  br i1 %.not26.i, label %.thread.i, label %291
+._crit_edge582.loopexit:                          ; preds = %291
+  %.pre661 = load i32, ptr %254, align 4, !tbaa !49
+  br label %._crit_edge582
 
-291:                                              ; preds = %288
-  %292 = load i64, ptr %275, align 8, !tbaa !108
-  %293 = shl i64 %292, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %287, ptr nonnull align 8 %290, i64 %293, i1 false)
-  %294 = load ptr, ptr %289, align 8, !tbaa !110
-  call void %274(ptr noundef %294) #20
-  br label %.thread.i
+._crit_edge582:                                   ; preds = %._crit_edge582.loopexit, %.preheader559
+  %294 = phi i32 [ %263, %.preheader559 ], [ %.pre661, %._crit_edge582.loopexit ]
+  %295 = phi i32 [ %264, %.preheader559 ], [ %292, %._crit_edge582.loopexit ]
+  %296 = phi i32 [ %265, %.preheader559 ], [ %292, %._crit_edge582.loopexit ]
+  %.1376.lcssa = phi ptr [ %.0375585, %.preheader559 ], [ %.3378.ph, %._crit_edge582.loopexit ]
+  %297 = add nsw i32 %.0407584, 1
+  %.not460.not = icmp slt i32 %.0407584, %294
+  br i1 %.not460.not, label %.preheader559, label %.preheader558, !llvm.loop !156
 
-.thread.i:                                        ; preds = %291, %288
-  store ptr %287, ptr %289, align 8, !tbaa !110
-  store i64 %285, ptr %277, align 16, !tbaa !109
-  %.pre28.i = load i64, ptr %275, align 8, !tbaa !108
-  %.pre.pre = load i32, ptr %246, align 8, !tbaa !45
-  br label %295
+.preheader558:                                    ; preds = %._crit_edge582, %._crit_edge.thread, %._crit_edge
+  %.ph = phi ptr [ %254, %._crit_edge ], [ %257, %._crit_edge.thread ], [ %254, %._crit_edge582 ]
+  %.ph671 = phi ptr [ %252, %._crit_edge ], [ %256, %._crit_edge.thread ], [ %252, %._crit_edge582 ]
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %299 = load i32, ptr %298, align 4, !tbaa !113
+  %.not468588 = icmp sgt i32 %299, 0
+  br i1 %.not468588, label %.lr.ph594, label %.preheader556
 
-295:                                              ; preds = %._crit_edge.i494, %.thread.i
-  %.pre = phi i32 [ %.pre671, %._crit_edge.i494 ], [ %.pre.pre, %.thread.i ]
-  %296 = phi i64 [ %276, %._crit_edge.i494 ], [ %.pre28.i, %.thread.i ]
-  %297 = phi ptr [ %.pre.i, %._crit_edge.i494 ], [ %287, %.thread.i ]
-  %298 = getelementptr inbounds nuw ptr, ptr %297, i64 %296
-  store ptr %.1376583, ptr %298, align 8, !tbaa !97
-  %299 = add i64 %296, 1
-  store i64 %299, ptr %275, align 8, !tbaa !108
-  %300 = getelementptr inbounds nuw i8, ptr %269, i64 26
-  %301 = load i16, ptr %300, align 2, !tbaa !60
-  %302 = zext i16 %301 to i32
-  %303 = getelementptr inbounds nuw i8, ptr %267, i64 416
-  store i32 %302, ptr %303, align 32, !tbaa !154
-  %304 = getelementptr inbounds nuw i8, ptr %269, i64 12
-  %305 = load i32, ptr %304, align 4, !tbaa !93
-  %306 = getelementptr inbounds nuw i8, ptr %269, i64 25
-  %307 = load i8, ptr %306, align 1, !tbaa !95
-  %308 = sext i8 %307 to i32
-  %309 = mul nsw i32 %305, %308
-  %310 = sext i32 %309 to i64
-  %311 = getelementptr inbounds i8, ptr %.1376583, i64 %310
-  br label %312
+.lr.ph594:                                        ; preds = %.preheader558
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %302 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %304 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %305 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %306 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %307 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %308 = getelementptr inbounds nuw i8, ptr %12, i64 60
+  %309 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %310 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %311 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %312 = getelementptr inbounds nuw i8, ptr %12, i64 88
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %315 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.pre662 = load ptr, ptr %301, align 8, !tbaa !44
+  br label %333
 
-312:                                              ; preds = %295, %.lr.ph584
-  %.pre672 = phi i32 [ %.pre671, %.lr.ph584 ], [ %.pre, %295 ]
-  %313 = phi i32 [ %265, %.lr.ph584 ], [ %.pre, %295 ]
-  %.3378.ph = phi ptr [ %.1376583, %.lr.ph584 ], [ %311, %295 ]
-  %indvars.iv.next650 = add nuw nsw i64 %indvars.iv649, 1
-  %314 = sext i32 %313 to i64
-  %.not463 = icmp slt i64 %indvars.iv.next650, %314
-  br i1 %.not463, label %.lr.ph584, label %DctCoderChannelData_push_row.exit.loopexit, !llvm.loop !155
+.preheader556:                                    ; preds = %374, %.preheader558
+  %.1387.lcssa = phi ptr [ %148, %.preheader558 ], [ %378, %374 ]
+  %.1380.lcssa = phi ptr [ %146, %.preheader558 ], [ %380, %374 ]
+  %.0368.lcssa = phi i64 [ %.sroa.12.0.copyload, %.preheader558 ], [ %375, %374 ]
+  %.0362.lcssa = phi i64 [ %.sroa.11.0.copyload, %.preheader558 ], [ %376, %374 ]
+  %316 = load i32, ptr %247, align 8, !tbaa !45
+  %.not476617 = icmp sgt i32 %316, 0
+  br i1 %.not476617, label %.lr.ph624, label %DwaCompressor_readChannelRules.exit.thread
 
-DctCoderChannelData_push_row.exit.loopexit:       ; preds = %312
-  %.pre663 = load i32, ptr %253, align 4, !tbaa !49
-  br label %DctCoderChannelData_push_row.exit
+.lr.ph624:                                        ; preds = %.preheader556
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %320 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %322 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %323 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %324 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %325 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %326 = getelementptr inbounds nuw i8, ptr %13, i64 60
+  %327 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %328 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %329 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %332 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  br label %383
 
-DctCoderChannelData_push_row.exit:                ; preds = %DctCoderChannelData_push_row.exit.loopexit, %.preheader562
-  %.pre670 = phi i32 [ %.pre669, %.preheader562 ], [ %.pre672, %DctCoderChannelData_push_row.exit.loopexit ]
-  %315 = phi i32 [ %262, %.preheader562 ], [ %.pre663, %DctCoderChannelData_push_row.exit.loopexit ]
-  %316 = phi i32 [ %263, %.preheader562 ], [ %313, %DctCoderChannelData_push_row.exit.loopexit ]
-  %317 = phi i32 [ %264, %.preheader562 ], [ %313, %DctCoderChannelData_push_row.exit.loopexit ]
-  %.1376.lcssa = phi ptr [ %.0375587, %.preheader562 ], [ %.3378.ph, %DctCoderChannelData_push_row.exit.loopexit ]
-  %318 = add nsw i32 %.0407586, 1
-  %.not460.not = icmp slt i32 %.0407586, %315
-  br i1 %.not460.not, label %.preheader562, label %.preheader561, !llvm.loop !156
-
-.preheader561:                                    ; preds = %DctCoderChannelData_push_row.exit, %._crit_edge.thread, %._crit_edge
-  %.ph = phi ptr [ %253, %._crit_edge ], [ %256, %._crit_edge.thread ], [ %253, %DctCoderChannelData_push_row.exit ]
-  %.ph678 = phi ptr [ %251, %._crit_edge ], [ %255, %._crit_edge.thread ], [ %251, %DctCoderChannelData_push_row.exit ]
-  %319 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %320 = load i32, ptr %319, align 4, !tbaa !113
-  %.not468590 = icmp sgt i32 %320, 0
-  br i1 %.not468590, label %.lr.ph596, label %.preheader559
-
-.lr.ph596:                                        ; preds = %.preheader561
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %323 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %324 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %325 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %326 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %327 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %328 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %329 = getelementptr inbounds nuw i8, ptr %12, i64 60
-  %330 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %331 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %332 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  %333 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %334 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %335 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %336 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.pre664 = load ptr, ptr %322, align 8, !tbaa !44
-  br label %354
-
-.preheader559:                                    ; preds = %395, %.preheader561
-  %.1387.lcssa = phi ptr [ %148, %.preheader561 ], [ %399, %395 ]
-  %.1380.lcssa = phi ptr [ %146, %.preheader561 ], [ %401, %395 ]
-  %.0368.lcssa = phi i64 [ %.sroa.12.0.copyload, %.preheader561 ], [ %396, %395 ]
-  %.0362.lcssa = phi i64 [ %.sroa.11.0.copyload, %.preheader561 ], [ %397, %395 ]
-  %337 = load i32, ptr %246, align 8, !tbaa !45
-  %.not476619 = icmp sgt i32 %337, 0
-  br i1 %.not476619, label %.lr.ph626, label %DwaCompressor_readChannelRules.exit.thread
-
-.lr.ph626:                                        ; preds = %.preheader559
-  %338 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %339 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %340 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %341 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %342 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %343 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %344 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %345 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %346 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %347 = getelementptr inbounds nuw i8, ptr %13, i64 60
-  %348 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %349 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %350 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  %351 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %352 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %353 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  br label %404
-
-354:                                              ; preds = %.lr.ph596, %395
-  %355 = phi ptr [ %.pre664, %.lr.ph596 ], [ %391, %395 ]
-  %indvars.iv652 = phi i64 [ 0, %.lr.ph596 ], [ %indvars.iv.next653, %395 ]
-  %.0362595 = phi i64 [ %.sroa.11.0.copyload, %.lr.ph596 ], [ %397, %395 ]
-  %.0368594 = phi i64 [ %.sroa.12.0.copyload, %.lr.ph596 ], [ %396, %395 ]
-  %.1380593 = phi ptr [ %146, %.lr.ph596 ], [ %401, %395 ]
-  %.1387592 = phi ptr [ %148, %.lr.ph596 ], [ %399, %395 ]
+333:                                              ; preds = %.lr.ph594, %374
+  %334 = phi ptr [ %.pre662, %.lr.ph594 ], [ %370, %374 ]
+  %indvars.iv650 = phi i64 [ 0, %.lr.ph594 ], [ %indvars.iv.next651, %374 ]
+  %.0362593 = phi i64 [ %.sroa.11.0.copyload, %.lr.ph594 ], [ %376, %374 ]
+  %.0368592 = phi i64 [ %.sroa.12.0.copyload, %.lr.ph594 ], [ %375, %374 ]
+  %.1380591 = phi ptr [ %146, %.lr.ph594 ], [ %380, %374 ]
+  %.1387590 = phi ptr [ %148, %.lr.ph594 ], [ %378, %374 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12) #20
-  %356 = load ptr, ptr %321, align 8, !tbaa !114
-  %357 = getelementptr inbounds nuw %struct._CscChannelSet, ptr %356, i64 %indvars.iv652
-  %358 = load i32, ptr %357, align 4, !tbaa !49
-  %359 = getelementptr inbounds nuw i8, ptr %357, i64 8
-  %360 = load i32, ptr %359, align 4, !tbaa !49
-  %361 = sext i32 %358 to i64
-  %362 = getelementptr inbounds %struct._ChannelData, ptr %355, i64 %361
-  %363 = getelementptr inbounds nuw i8, ptr %362, i64 548
-  %364 = load i32, ptr %363, align 4, !tbaa !59
-  %.not464 = icmp eq i32 %364, 1
-  br i1 %.not464, label %365, label %.thread536
+  %335 = load ptr, ptr %300, align 8, !tbaa !114
+  %336 = getelementptr inbounds nuw %struct._CscChannelSet, ptr %335, i64 %indvars.iv650
+  %337 = load i32, ptr %336, align 4, !tbaa !49
+  %338 = getelementptr inbounds nuw i8, ptr %336, i64 8
+  %339 = load i32, ptr %338, align 4, !tbaa !49
+  %340 = sext i32 %337 to i64
+  %341 = getelementptr inbounds %struct._ChannelData, ptr %334, i64 %340
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 548
+  %343 = load i32, ptr %342, align 4, !tbaa !59
+  %.not464 = icmp eq i32 %343, 1
+  br i1 %.not464, label %344, label %.thread533
 
-365:                                              ; preds = %354
-  %366 = getelementptr inbounds nuw i8, ptr %357, i64 4
-  %367 = load i32, ptr %366, align 4, !tbaa !49
-  %368 = sext i32 %367 to i64
-  %369 = getelementptr inbounds %struct._ChannelData, ptr %355, i64 %368
-  %370 = getelementptr inbounds nuw i8, ptr %369, i64 548
-  %371 = load i32, ptr %370, align 4, !tbaa !59
-  %.not465 = icmp eq i32 %371, 1
-  br i1 %.not465, label %372, label %.thread536
+344:                                              ; preds = %333
+  %345 = getelementptr inbounds nuw i8, ptr %336, i64 4
+  %346 = load i32, ptr %345, align 4, !tbaa !49
+  %347 = sext i32 %346 to i64
+  %348 = getelementptr inbounds %struct._ChannelData, ptr %334, i64 %347
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 548
+  %350 = load i32, ptr %349, align 4, !tbaa !59
+  %.not465 = icmp eq i32 %350, 1
+  br i1 %.not465, label %351, label %.thread533
 
-372:                                              ; preds = %365
-  %373 = sext i32 %360 to i64
-  %374 = getelementptr inbounds %struct._ChannelData, ptr %355, i64 %373
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 548
-  %376 = load i32, ptr %375, align 4, !tbaa !59
-  %.not466 = icmp eq i32 %376, 1
-  br i1 %.not466, label %377, label %.thread536
+351:                                              ; preds = %344
+  %352 = sext i32 %339 to i64
+  %353 = getelementptr inbounds %struct._ChannelData, ptr %334, i64 %352
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 548
+  %355 = load i32, ptr %354, align 4, !tbaa !59
+  %.not466 = icmp eq i32 %355, 1
+  br i1 %.not466, label %356, label %.thread533
 
-377:                                              ; preds = %372
-  %378 = shl i64 %.0362595, 1
-  %379 = getelementptr inbounds nuw i8, ptr %.1380593, i64 %378
-  %380 = getelementptr inbounds nuw i8, ptr %362, i64 448
-  %381 = load ptr, ptr %380, align 32, !tbaa !54
-  %382 = getelementptr inbounds nuw i8, ptr %381, i64 12
-  %383 = load i32, ptr %382, align 4, !tbaa !93
-  %384 = getelementptr inbounds nuw i8, ptr %381, i64 8
-  %385 = load i32, ptr %384, align 8, !tbaa !94
+356:                                              ; preds = %351
+  %357 = shl i64 %.0362593, 1
+  %358 = getelementptr inbounds nuw i8, ptr %.1380591, i64 %357
+  %359 = getelementptr inbounds nuw i8, ptr %341, i64 448
+  %360 = load ptr, ptr %359, align 32, !tbaa !54
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 12
+  %362 = load i32, ptr %361, align 4, !tbaa !93
+  %363 = getelementptr inbounds nuw i8, ptr %360, i64 8
+  %364 = load i32, ptr %363, align 8, !tbaa !94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  store ptr %.1380593, ptr %323, align 8, !tbaa !157
-  store ptr %379, ptr %324, align 8, !tbaa !159
-  store ptr %.1387592, ptr %325, align 8, !tbaa !160
-  store i64 %.0368594, ptr %326, align 8, !tbaa !161
-  store ptr @dwaCompressorToLinear, ptr %327, align 8, !tbaa !162
-  store i32 %383, ptr %328, align 8, !tbaa !163
-  store i32 %385, ptr %329, align 4, !tbaa !164
-  store ptr %362, ptr %330, align 8, !tbaa !116
-  store ptr %369, ptr %331, align 8, !tbaa !116
-  store ptr %374, ptr %332, align 8, !tbaa !116
-  store i32 3, ptr %333, align 8, !tbaa !165
-  %386 = load ptr, ptr %334, align 8, !tbaa !41
-  %387 = load ptr, ptr %335, align 8, !tbaa !42
-  %388 = call fastcc i32 @LossyDctDecoder_execute(ptr noundef %386, ptr noundef %387, ptr noundef %12)
-  %389 = load i64, ptr %12, align 8, !tbaa !166
-  %390 = load i64, ptr %336, align 8, !tbaa !167
-  %391 = load ptr, ptr %322, align 8, !tbaa !44
-  %392 = getelementptr inbounds %struct._ChannelData, ptr %391, i64 %361, i32 7
-  store i32 1, ptr %392, align 32, !tbaa !105
-  %393 = getelementptr inbounds %struct._ChannelData, ptr %391, i64 %368, i32 7
-  store i32 1, ptr %393, align 32, !tbaa !105
-  %394 = getelementptr inbounds %struct._ChannelData, ptr %391, i64 %373, i32 7
-  store i32 1, ptr %394, align 32, !tbaa !105
-  %.not467 = icmp eq i32 %388, 0
-  br i1 %.not467, label %395, label %.thread536
+  store ptr %.1380591, ptr %302, align 8, !tbaa !157
+  store ptr %358, ptr %303, align 8, !tbaa !159
+  store ptr %.1387590, ptr %304, align 8, !tbaa !160
+  store i64 %.0368592, ptr %305, align 8, !tbaa !161
+  store ptr @dwaCompressorToLinear, ptr %306, align 8, !tbaa !162
+  store i32 %362, ptr %307, align 8, !tbaa !163
+  store i32 %364, ptr %308, align 4, !tbaa !164
+  store ptr %341, ptr %309, align 8, !tbaa !116
+  store ptr %348, ptr %310, align 8, !tbaa !116
+  store ptr %353, ptr %311, align 8, !tbaa !116
+  store i32 3, ptr %312, align 8, !tbaa !165
+  %365 = load ptr, ptr %313, align 8, !tbaa !41
+  %366 = load ptr, ptr %314, align 8, !tbaa !42
+  %367 = call fastcc i32 @LossyDctDecoder_execute(ptr noundef %365, ptr noundef %366, ptr noundef %12)
+  %368 = load i64, ptr %12, align 8, !tbaa !166
+  %369 = load i64, ptr %315, align 8, !tbaa !167
+  %370 = load ptr, ptr %301, align 8, !tbaa !44
+  %371 = getelementptr inbounds %struct._ChannelData, ptr %370, i64 %340, i32 7
+  store i32 1, ptr %371, align 32, !tbaa !105
+  %372 = getelementptr inbounds %struct._ChannelData, ptr %370, i64 %347, i32 7
+  store i32 1, ptr %372, align 32, !tbaa !105
+  %373 = getelementptr inbounds %struct._ChannelData, ptr %370, i64 %352, i32 7
+  store i32 1, ptr %373, align 32, !tbaa !105
+  %.not467 = icmp eq i32 %367, 0
+  br i1 %.not467, label %374, label %.thread533
 
-.thread536:                                       ; preds = %377, %354, %365, %372
-  %.14.ph = phi i32 [ %388, %377 ], [ 23, %354 ], [ 23, %365 ], [ 23, %372 ]
+.thread533:                                       ; preds = %356, %333, %344, %351
+  %.14.ph = phi i32 [ %367, %356 ], [ 23, %333 ], [ 23, %344 ], [ 23, %351 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12) #20
   br label %DwaCompressor_readChannelRules.exit.thread
 
-395:                                              ; preds = %377
-  %396 = sub i64 %.0368594, %390
-  %397 = sub i64 %.0362595, %389
-  %398 = shl i64 %390, 1
-  %399 = getelementptr inbounds nuw i8, ptr %.1387592, i64 %398
-  %400 = shl i64 %389, 1
-  %401 = getelementptr inbounds nuw i8, ptr %.1380593, i64 %400
+374:                                              ; preds = %356
+  %375 = sub i64 %.0368592, %369
+  %376 = sub i64 %.0362593, %368
+  %377 = shl i64 %369, 1
+  %378 = getelementptr inbounds nuw i8, ptr %.1387590, i64 %377
+  %379 = shl i64 %368, 1
+  %380 = getelementptr inbounds nuw i8, ptr %.1380591, i64 %379
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12) #20
-  %indvars.iv.next653 = add nuw nsw i64 %indvars.iv652, 1
-  %402 = load i32, ptr %319, align 4, !tbaa !113
-  %403 = sext i32 %402 to i64
-  %.not468 = icmp slt i64 %indvars.iv.next653, %403
-  br i1 %.not468, label %354, label %.preheader559, !llvm.loop !168
+  %indvars.iv.next651 = add nuw nsw i64 %indvars.iv650, 1
+  %381 = load i32, ptr %298, align 4, !tbaa !113
+  %382 = sext i32 %381 to i64
+  %.not468 = icmp slt i64 %indvars.iv.next651, %382
+  br i1 %.not468, label %333, label %.preheader556, !llvm.loop !168
 
-404:                                              ; preds = %.lr.ph626, %528
-  %405 = phi i32 [ %337, %.lr.ph626 ], [ %529, %528 ]
-  %indvars.iv660 = phi i64 [ 0, %.lr.ph626 ], [ %indvars.iv.next661, %528 ]
-  %.3365624 = phi i64 [ %.0362.lcssa, %.lr.ph626 ], [ %.4366, %528 ]
-  %.3371623 = phi i64 [ %.0368.lcssa, %.lr.ph626 ], [ %.4372, %528 ]
-  %.4383621 = phi ptr [ %.1380.lcssa, %.lr.ph626 ], [ %.5384, %528 ]
-  %.4390620 = phi ptr [ %.1387.lcssa, %.lr.ph626 ], [ %.5391, %528 ]
-  %406 = load ptr, ptr %338, align 8, !tbaa !44
-  %407 = getelementptr inbounds nuw %struct._ChannelData, ptr %406, i64 %indvars.iv660
-  %408 = getelementptr inbounds nuw i8, ptr %407, i64 448
-  %409 = load ptr, ptr %408, align 32, !tbaa !54
-  %410 = getelementptr inbounds nuw i8, ptr %409, i64 25
-  %411 = load i8, ptr %410, align 1, !tbaa !95
-  %.fr632 = freeze i8 %411
-  %wide.trip.count658 = sext i8 %.fr632 to i64
-  %412 = getelementptr inbounds nuw i8, ptr %407, i64 544
-  %413 = load i32, ptr %412, align 32, !tbaa !105
-  %.not469 = icmp eq i32 %413, 0
-  br i1 %.not469, label %414, label %528
+383:                                              ; preds = %.lr.ph624, %507
+  %384 = phi i32 [ %316, %.lr.ph624 ], [ %508, %507 ]
+  %indvars.iv658 = phi i64 [ 0, %.lr.ph624 ], [ %indvars.iv.next659, %507 ]
+  %.3365622 = phi i64 [ %.0362.lcssa, %.lr.ph624 ], [ %.4366, %507 ]
+  %.3371621 = phi i64 [ %.0368.lcssa, %.lr.ph624 ], [ %.4372, %507 ]
+  %.4383619 = phi ptr [ %.1380.lcssa, %.lr.ph624 ], [ %.5384, %507 ]
+  %.4390618 = phi ptr [ %.1387.lcssa, %.lr.ph624 ], [ %.5391, %507 ]
+  %385 = load ptr, ptr %317, align 8, !tbaa !44
+  %386 = getelementptr inbounds nuw %struct._ChannelData, ptr %385, i64 %indvars.iv658
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 448
+  %388 = load ptr, ptr %387, align 32, !tbaa !54
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 25
+  %390 = load i8, ptr %389, align 1, !tbaa !95
+  %.fr630 = freeze i8 %390
+  %wide.trip.count656 = sext i8 %.fr630 to i64
+  %391 = getelementptr inbounds nuw i8, ptr %386, i64 544
+  %392 = load i32, ptr %391, align 32, !tbaa !105
+  %.not469 = icmp eq i32 %392, 0
+  br i1 %.not469, label %393, label %507
 
-414:                                              ; preds = %404
-  %415 = getelementptr inbounds nuw i8, ptr %409, i64 12
-  %416 = load i32, ptr %415, align 4, !tbaa !93
-  %417 = icmp eq i32 %416, 0
-  br i1 %417, label %422, label %418
+393:                                              ; preds = %383
+  %394 = getelementptr inbounds nuw i8, ptr %388, i64 12
+  %395 = load i32, ptr %394, align 4, !tbaa !93
+  %396 = icmp eq i32 %395, 0
+  br i1 %396, label %401, label %397
 
-418:                                              ; preds = %414
-  %419 = getelementptr inbounds nuw i8, ptr %409, i64 8
-  %420 = load i32, ptr %419, align 8, !tbaa !94
-  %421 = icmp eq i32 %420, 0
-  br i1 %421, label %422, label %423
+397:                                              ; preds = %393
+  %398 = getelementptr inbounds nuw i8, ptr %388, i64 8
+  %399 = load i32, ptr %398, align 8, !tbaa !94
+  %400 = icmp eq i32 %399, 0
+  br i1 %400, label %401, label %402
 
-422:                                              ; preds = %418, %414
-  store i32 1, ptr %412, align 32, !tbaa !105
-  br label %528
+401:                                              ; preds = %397, %393
+  store i32 1, ptr %391, align 32, !tbaa !105
+  br label %507
 
-423:                                              ; preds = %418
-  %424 = getelementptr inbounds nuw i8, ptr %407, i64 548
-  %425 = load i32, ptr %424, align 4, !tbaa !59
-  switch i32 %425, label %DwaCompressor_readChannelRules.exit.thread [
-    i32 1, label %426
-    i32 2, label %442
-    i32 0, label %497
+402:                                              ; preds = %397
+  %403 = getelementptr inbounds nuw i8, ptr %386, i64 548
+  %404 = load i32, ptr %403, align 4, !tbaa !59
+  switch i32 %404, label %DwaCompressor_readChannelRules.exit.thread [
+    i32 1, label %405
+    i32 2, label %421
+    i32 0, label %476
   ]
 
-426:                                              ; preds = %423
+405:                                              ; preds = %402
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %13) #20
-  %427 = getelementptr inbounds nuw i8, ptr %409, i64 24
-  %428 = load i8, ptr %427, align 8, !tbaa !124
-  %.not474 = icmp eq i8 %428, 0
+  %406 = getelementptr inbounds nuw i8, ptr %388, i64 24
+  %407 = load i8, ptr %406, align 8, !tbaa !124
+  %.not474 = icmp eq i8 %407, 0
   %spec.select491 = select i1 %.not474, ptr @dwaCompressorToLinear, ptr null
-  %429 = shl i64 %.3365624, 1
-  %430 = getelementptr inbounds nuw i8, ptr %.4383621, i64 %429
+  %408 = shl i64 %.3365622, 1
+  %409 = getelementptr inbounds nuw i8, ptr %.4383619, i64 %408
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  store ptr %.4383621, ptr %341, align 8, !tbaa !157
-  store ptr %430, ptr %342, align 8, !tbaa !159
-  store ptr %.4390620, ptr %343, align 8, !tbaa !160
-  store i64 %.3371623, ptr %344, align 8, !tbaa !161
-  store ptr %spec.select491, ptr %345, align 8, !tbaa !162
-  store i32 %416, ptr %346, align 8, !tbaa !163
-  store i32 %420, ptr %347, align 4, !tbaa !164
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %349, i8 0, i64 16, i1 false)
-  store ptr %407, ptr %348, align 8, !tbaa !116
-  store i32 1, ptr %350, align 8, !tbaa !165
-  %431 = load ptr, ptr %351, align 8, !tbaa !41
-  %432 = load ptr, ptr %352, align 8, !tbaa !42
-  %433 = call fastcc i32 @LossyDctDecoder_execute(ptr noundef %431, ptr noundef %432, ptr noundef %13)
-  %434 = load i64, ptr %13, align 8, !tbaa !166
-  %435 = shl i64 %434, 1
-  %436 = getelementptr inbounds nuw i8, ptr %.4383621, i64 %435
-  %437 = load i64, ptr %353, align 8, !tbaa !167
-  %438 = shl i64 %437, 1
-  %439 = getelementptr inbounds nuw i8, ptr %.4390620, i64 %438
-  %440 = sub i64 %.3365624, %434
-  %441 = sub i64 %.3371623, %437
-  %.not475 = icmp eq i32 %433, 0
+  store ptr %.4383619, ptr %320, align 8, !tbaa !157
+  store ptr %409, ptr %321, align 8, !tbaa !159
+  store ptr %.4390618, ptr %322, align 8, !tbaa !160
+  store i64 %.3371621, ptr %323, align 8, !tbaa !161
+  store ptr %spec.select491, ptr %324, align 8, !tbaa !162
+  store i32 %395, ptr %325, align 8, !tbaa !163
+  store i32 %399, ptr %326, align 4, !tbaa !164
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %328, i8 0, i64 16, i1 false)
+  store ptr %386, ptr %327, align 8, !tbaa !116
+  store i32 1, ptr %329, align 8, !tbaa !165
+  %410 = load ptr, ptr %330, align 8, !tbaa !41
+  %411 = load ptr, ptr %331, align 8, !tbaa !42
+  %412 = call fastcc i32 @LossyDctDecoder_execute(ptr noundef %410, ptr noundef %411, ptr noundef %13)
+  %413 = load i64, ptr %13, align 8, !tbaa !166
+  %414 = shl i64 %413, 1
+  %415 = getelementptr inbounds nuw i8, ptr %.4383619, i64 %414
+  %416 = load i64, ptr %332, align 8, !tbaa !167
+  %417 = shl i64 %416, 1
+  %418 = getelementptr inbounds nuw i8, ptr %.4390618, i64 %417
+  %419 = sub i64 %.3365622, %413
+  %420 = sub i64 %.3371621, %416
+  %.not475 = icmp eq i32 %412, 0
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13) #20
-  br i1 %.not475, label %.thread543, label %DwaCompressor_readChannelRules.exit.thread
+  br i1 %.not475, label %.thread540, label %DwaCompressor_readChannelRules.exit.thread
 
-442:                                              ; preds = %423
-  %443 = load i32, ptr %.ph678, align 4, !tbaa !49
-  %444 = load i32, ptr %.ph, align 4, !tbaa !49
-  %.not472614 = icmp sgt i32 %443, %444
-  br i1 %.not472614, label %.thread543, label %.lr.ph618
+421:                                              ; preds = %402
+  %422 = load i32, ptr %.ph671, align 4, !tbaa !49
+  %423 = load i32, ptr %.ph, align 4, !tbaa !49
+  %.not472612 = icmp sgt i32 %422, %423
+  br i1 %.not472612, label %.thread540, label %.lr.ph616
 
-.lr.ph618:                                        ; preds = %442
-  %445 = getelementptr inbounds nuw i8, ptr %409, i64 20
-  %446 = getelementptr inbounds nuw i8, ptr %407, i64 392
-  %447 = icmp eq i8 %.fr632, 2
-  %448 = icmp slt i8 %.fr632, 1
-  %449 = getelementptr inbounds nuw i8, ptr %407, i64 504
-  %450 = getelementptr inbounds nuw i8, ptr %407, i64 512
-  br i1 %447, label %.lr.ph618.split.us, label %.lr.ph618.split
+.lr.ph616:                                        ; preds = %421
+  %424 = getelementptr inbounds nuw i8, ptr %388, i64 20
+  %425 = getelementptr inbounds nuw i8, ptr %386, i64 392
+  %426 = icmp eq i8 %.fr630, 2
+  %427 = icmp slt i8 %.fr630, 1
+  %428 = getelementptr inbounds nuw i8, ptr %386, i64 504
+  %429 = getelementptr inbounds nuw i8, ptr %386, i64 512
+  br i1 %426, label %.lr.ph616.split.us, label %.lr.ph616.split
 
-.lr.ph618.split.us:                               ; preds = %.lr.ph618, %469
-  %451 = phi i32 [ %470, %469 ], [ %444, %.lr.ph618 ]
-  %452 = phi i32 [ %471, %469 ], [ %416, %.lr.ph618 ]
-  %.0340616.us = phi i32 [ %472, %469 ], [ %443, %.lr.ph618 ]
-  %.0341615.us = phi i32 [ %.1342.us, %469 ], [ 0, %.lr.ph618 ]
-  %453 = load i32, ptr %445, align 4, !tbaa !107
-  %454 = srem i32 %.0340616.us, %453
-  %.not473.us = icmp eq i32 %454, 0
-  br i1 %.not473.us, label %455, label %469
+.lr.ph616.split.us:                               ; preds = %.lr.ph616, %448
+  %430 = phi i32 [ %449, %448 ], [ %423, %.lr.ph616 ]
+  %431 = phi i32 [ %450, %448 ], [ %395, %.lr.ph616 ]
+  %.0340614.us = phi i32 [ %451, %448 ], [ %422, %.lr.ph616 ]
+  %.0341613.us = phi i32 [ %.1342.us, %448 ], [ 0, %.lr.ph616 ]
+  %432 = load i32, ptr %424, align 4, !tbaa !107
+  %433 = srem i32 %.0340614.us, %432
+  %.not473.us = icmp eq i32 %433, 0
+  br i1 %.not473.us, label %434, label %448
 
-455:                                              ; preds = %.lr.ph618.split.us
-  %456 = load ptr, ptr %446, align 8, !tbaa !110
-  %457 = sext i32 %.0341615.us to i64
-  %458 = getelementptr inbounds ptr, ptr %456, i64 %457
-  %459 = load ptr, ptr %458, align 8, !tbaa !97
-  %460 = load ptr, ptr %449, align 8, !tbaa !97
-  %461 = load ptr, ptr %450, align 8, !tbaa !97
-  call fastcc void @interleaveByte2(ptr noundef %459, ptr noundef %460, ptr noundef %461, i32 noundef %452)
-  %462 = load i32, ptr %415, align 4, !tbaa !93
-  %463 = load ptr, ptr %449, align 8, !tbaa !97
-  %464 = sext i32 %462 to i64
-  %465 = getelementptr inbounds i8, ptr %463, i64 %464
-  store ptr %465, ptr %449, align 8, !tbaa !97
-  %466 = load ptr, ptr %450, align 8, !tbaa !97
-  %467 = getelementptr inbounds i8, ptr %466, i64 %464
-  store ptr %467, ptr %450, align 8, !tbaa !97
-  %468 = add nsw i32 %.0341615.us, 1
-  %.pre667 = load i32, ptr %.ph, align 4, !tbaa !49
-  br label %469
+434:                                              ; preds = %.lr.ph616.split.us
+  %435 = load ptr, ptr %425, align 8, !tbaa !110
+  %436 = sext i32 %.0341613.us to i64
+  %437 = getelementptr inbounds ptr, ptr %435, i64 %436
+  %438 = load ptr, ptr %437, align 8, !tbaa !97
+  %439 = load ptr, ptr %428, align 8, !tbaa !97
+  %440 = load ptr, ptr %429, align 8, !tbaa !97
+  call fastcc void @interleaveByte2(ptr noundef %438, ptr noundef %439, ptr noundef %440, i32 noundef %431)
+  %441 = load i32, ptr %394, align 4, !tbaa !93
+  %442 = load ptr, ptr %428, align 8, !tbaa !97
+  %443 = sext i32 %441 to i64
+  %444 = getelementptr inbounds i8, ptr %442, i64 %443
+  store ptr %444, ptr %428, align 8, !tbaa !97
+  %445 = load ptr, ptr %429, align 8, !tbaa !97
+  %446 = getelementptr inbounds i8, ptr %445, i64 %443
+  store ptr %446, ptr %429, align 8, !tbaa !97
+  %447 = add nsw i32 %.0341613.us, 1
+  %.pre665 = load i32, ptr %.ph, align 4, !tbaa !49
+  br label %448
 
-469:                                              ; preds = %455, %.lr.ph618.split.us
-  %470 = phi i32 [ %.pre667, %455 ], [ %451, %.lr.ph618.split.us ]
-  %471 = phi i32 [ %462, %455 ], [ %452, %.lr.ph618.split.us ]
-  %.1342.us = phi i32 [ %468, %455 ], [ %.0341615.us, %.lr.ph618.split.us ]
-  %472 = add nsw i32 %.0340616.us, 1
-  %.not472.us.not = icmp slt i32 %.0340616.us, %470
-  br i1 %.not472.us.not, label %.lr.ph618.split.us, label %.thread543, !llvm.loop !169
+448:                                              ; preds = %434, %.lr.ph616.split.us
+  %449 = phi i32 [ %.pre665, %434 ], [ %430, %.lr.ph616.split.us ]
+  %450 = phi i32 [ %441, %434 ], [ %431, %.lr.ph616.split.us ]
+  %.1342.us = phi i32 [ %447, %434 ], [ %.0341613.us, %.lr.ph616.split.us ]
+  %451 = add nsw i32 %.0340614.us, 1
+  %.not472.us.not = icmp slt i32 %.0340614.us, %449
+  br i1 %.not472.us.not, label %.lr.ph616.split.us, label %.thread540, !llvm.loop !169
 
-.lr.ph618.split:                                  ; preds = %.lr.ph618, %493
-  %.pre666674 = phi i32 [ %.pre666675, %493 ], [ %444, %.lr.ph618 ]
-  %473 = phi i32 [ %494, %493 ], [ %444, %.lr.ph618 ]
-  %474 = phi i32 [ %495, %493 ], [ %416, %.lr.ph618 ]
-  %.0340616 = phi i32 [ %496, %493 ], [ %443, %.lr.ph618 ]
-  %.0341615 = phi i32 [ %.1342, %493 ], [ 0, %.lr.ph618 ]
-  %475 = load i32, ptr %445, align 4, !tbaa !107
-  %476 = srem i32 %.0340616, %475
-  %.not473 = icmp eq i32 %476, 0
-  br i1 %.not473, label %.preheader557, label %493
+.lr.ph616.split:                                  ; preds = %.lr.ph616, %472
+  %.pre664667 = phi i32 [ %.pre664668, %472 ], [ %423, %.lr.ph616 ]
+  %452 = phi i32 [ %473, %472 ], [ %423, %.lr.ph616 ]
+  %453 = phi i32 [ %474, %472 ], [ %395, %.lr.ph616 ]
+  %.0340614 = phi i32 [ %475, %472 ], [ %422, %.lr.ph616 ]
+  %.0341613 = phi i32 [ %.1342, %472 ], [ 0, %.lr.ph616 ]
+  %454 = load i32, ptr %424, align 4, !tbaa !107
+  %455 = srem i32 %.0340614, %454
+  %.not473 = icmp eq i32 %455, 0
+  br i1 %.not473, label %.preheader554, label %472
 
-.preheader557:                                    ; preds = %.lr.ph618.split
-  %477 = icmp slt i32 %474, 1
-  %brmerge = or i1 %477, %448
+.preheader554:                                    ; preds = %.lr.ph616.split
+  %456 = icmp slt i32 %453, 1
+  %brmerge = or i1 %456, %427
   br i1 %brmerge, label %.loopexit, label %.preheader.us.preheader
 
-.preheader.us.preheader:                          ; preds = %.preheader557
-  %478 = load ptr, ptr %446, align 8, !tbaa !110
-  %479 = sext i32 %.0341615 to i64
-  %480 = getelementptr inbounds ptr, ptr %478, i64 %479
-  %481 = load ptr, ptr %480, align 8, !tbaa !97
+.preheader.us.preheader:                          ; preds = %.preheader554
+  %457 = load ptr, ptr %425, align 8, !tbaa !110
+  %458 = sext i32 %.0341613 to i64
+  %459 = getelementptr inbounds ptr, ptr %457, i64 %458
+  %460 = load ptr, ptr %459, align 8, !tbaa !97
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge610.us
-  %.0337613.us = phi i32 [ %488, %._crit_edge610.us ], [ 0, %.preheader.us.preheader ]
-  %.0338612.us = phi ptr [ %487, %._crit_edge610.us ], [ %481, %.preheader.us.preheader ]
-  br label %482
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge608.us
+  %.0337611.us = phi i32 [ %467, %._crit_edge608.us ], [ 0, %.preheader.us.preheader ]
+  %.0338610.us = phi ptr [ %466, %._crit_edge608.us ], [ %460, %.preheader.us.preheader ]
+  br label %461
 
-482:                                              ; preds = %.preheader.us, %482
-  %indvars.iv655 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next656, %482 ]
-  %.1339607.us = phi ptr [ %.0338612.us, %.preheader.us ], [ %487, %482 ]
-  %483 = getelementptr inbounds nuw [4 x ptr], ptr %449, i64 0, i64 %indvars.iv655
-  %484 = load ptr, ptr %483, align 8, !tbaa !97
-  %485 = getelementptr inbounds nuw i8, ptr %484, i64 1
-  store ptr %485, ptr %483, align 8, !tbaa !97
-  %486 = load i8, ptr %484, align 1, !tbaa !86
-  %487 = getelementptr inbounds nuw i8, ptr %.1339607.us, i64 1
-  store i8 %486, ptr %.1339607.us, align 1, !tbaa !86
-  %indvars.iv.next656 = add nuw nsw i64 %indvars.iv655, 1
-  %exitcond659.not = icmp eq i64 %indvars.iv.next656, %wide.trip.count658
-  br i1 %exitcond659.not, label %._crit_edge610.us, label %482, !llvm.loop !170
+461:                                              ; preds = %.preheader.us, %461
+  %indvars.iv653 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next654, %461 ]
+  %.1339605.us = phi ptr [ %.0338610.us, %.preheader.us ], [ %466, %461 ]
+  %462 = getelementptr inbounds nuw [4 x ptr], ptr %428, i64 0, i64 %indvars.iv653
+  %463 = load ptr, ptr %462, align 8, !tbaa !97
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 1
+  store ptr %464, ptr %462, align 8, !tbaa !97
+  %465 = load i8, ptr %463, align 1, !tbaa !86
+  %466 = getelementptr inbounds nuw i8, ptr %.1339605.us, i64 1
+  store i8 %465, ptr %.1339605.us, align 1, !tbaa !86
+  %indvars.iv.next654 = add nuw nsw i64 %indvars.iv653, 1
+  %exitcond657.not = icmp eq i64 %indvars.iv.next654, %wide.trip.count656
+  br i1 %exitcond657.not, label %._crit_edge608.us, label %461, !llvm.loop !170
 
-._crit_edge610.us:                                ; preds = %482
-  %488 = add nuw nsw i32 %.0337613.us, 1
-  %489 = load i32, ptr %415, align 4, !tbaa !93
-  %490 = icmp slt i32 %488, %489
-  br i1 %490, label %.preheader.us, label %.loopexit.loopexit, !llvm.loop !171
+._crit_edge608.us:                                ; preds = %461
+  %467 = add nuw nsw i32 %.0337611.us, 1
+  %468 = load i32, ptr %394, align 4, !tbaa !93
+  %469 = icmp slt i32 %467, %468
+  br i1 %469, label %.preheader.us, label %.loopexit.loopexit, !llvm.loop !171
 
-.loopexit.loopexit:                               ; preds = %._crit_edge610.us
-  %.pre666.pre = load i32, ptr %.ph, align 4, !tbaa !49
+.loopexit.loopexit:                               ; preds = %._crit_edge608.us
+  %.pre664.pre = load i32, ptr %.ph, align 4, !tbaa !49
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader557, %.loopexit.loopexit
-  %.pre666 = phi i32 [ %.pre666.pre, %.loopexit.loopexit ], [ %.pre666674, %.preheader557 ]
-  %491 = phi i32 [ %489, %.loopexit.loopexit ], [ %474, %.preheader557 ]
-  %492 = add nsw i32 %.0341615, 1
-  br label %493
+.loopexit:                                        ; preds = %.preheader554, %.loopexit.loopexit
+  %.pre664 = phi i32 [ %.pre664.pre, %.loopexit.loopexit ], [ %.pre664667, %.preheader554 ]
+  %470 = phi i32 [ %468, %.loopexit.loopexit ], [ %453, %.preheader554 ]
+  %471 = add nsw i32 %.0341613, 1
+  br label %472
 
-493:                                              ; preds = %.lr.ph618.split, %.loopexit
-  %.pre666675 = phi i32 [ %.pre666, %.loopexit ], [ %.pre666674, %.lr.ph618.split ]
-  %494 = phi i32 [ %.pre666, %.loopexit ], [ %473, %.lr.ph618.split ]
-  %495 = phi i32 [ %491, %.loopexit ], [ %474, %.lr.ph618.split ]
-  %.1342 = phi i32 [ %492, %.loopexit ], [ %.0341615, %.lr.ph618.split ]
-  %496 = add nsw i32 %.0340616, 1
-  %.not472.not = icmp slt i32 %.0340616, %494
-  br i1 %.not472.not, label %.lr.ph618.split, label %.thread543, !llvm.loop !169
+472:                                              ; preds = %.lr.ph616.split, %.loopexit
+  %.pre664668 = phi i32 [ %.pre664, %.loopexit ], [ %.pre664667, %.lr.ph616.split ]
+  %473 = phi i32 [ %.pre664, %.loopexit ], [ %452, %.lr.ph616.split ]
+  %474 = phi i32 [ %470, %.loopexit ], [ %453, %.lr.ph616.split ]
+  %.1342 = phi i32 [ %471, %.loopexit ], [ %.0341613, %.lr.ph616.split ]
+  %475 = add nsw i32 %.0340614, 1
+  %.not472.not = icmp slt i32 %.0340614, %473
+  br i1 %.not472.not, label %.lr.ph616.split, label %.thread540, !llvm.loop !169
 
-497:                                              ; preds = %423
-  %498 = sext i32 %416 to i64
-  %499 = sext i8 %.fr632 to i64
-  %500 = mul nsw i64 %498, %499
-  %501 = load i32, ptr %.ph678, align 4, !tbaa !49
-  %502 = load i32, ptr %.ph, align 4, !tbaa !49
-  %.not470602 = icmp sgt i32 %501, %502
-  br i1 %.not470602, label %.thread543, label %.lr.ph606
+476:                                              ; preds = %402
+  %477 = sext i32 %395 to i64
+  %478 = sext i8 %.fr630 to i64
+  %479 = mul nsw i64 %477, %478
+  %480 = load i32, ptr %.ph671, align 4, !tbaa !49
+  %481 = load i32, ptr %.ph, align 4, !tbaa !49
+  %.not470600 = icmp sgt i32 %480, %481
+  br i1 %.not470600, label %.thread540, label %.lr.ph604
 
-.lr.ph606:                                        ; preds = %497
-  %503 = getelementptr inbounds nuw i8, ptr %409, i64 20
-  %504 = getelementptr inbounds nuw i8, ptr %407, i64 464
-  %505 = getelementptr inbounds nuw i8, ptr %407, i64 392
-  br label %506
+.lr.ph604:                                        ; preds = %476
+  %482 = getelementptr inbounds nuw i8, ptr %388, i64 20
+  %483 = getelementptr inbounds nuw i8, ptr %386, i64 464
+  %484 = getelementptr inbounds nuw i8, ptr %386, i64 392
+  br label %485
 
-506:                                              ; preds = %.lr.ph606, %525
-  %507 = phi i32 [ %502, %.lr.ph606 ], [ %526, %525 ]
-  %.0604 = phi i32 [ %501, %.lr.ph606 ], [ %527, %525 ]
-  %.0334603 = phi i32 [ 0, %.lr.ph606 ], [ %.1335, %525 ]
-  %508 = load i32, ptr %503, align 4, !tbaa !107
-  %509 = srem i32 %.0604, %508
-  %.not471 = icmp eq i32 %509, 0
-  br i1 %.not471, label %510, label %525
+485:                                              ; preds = %.lr.ph604, %504
+  %486 = phi i32 [ %481, %.lr.ph604 ], [ %505, %504 ]
+  %.0602 = phi i32 [ %480, %.lr.ph604 ], [ %506, %504 ]
+  %.0334601 = phi i32 [ 0, %.lr.ph604 ], [ %.1335, %504 ]
+  %487 = load i32, ptr %482, align 4, !tbaa !107
+  %488 = srem i32 %.0602, %487
+  %.not471 = icmp eq i32 %488, 0
+  br i1 %.not471, label %489, label %504
 
-510:                                              ; preds = %506
-  %511 = load ptr, ptr %504, align 16, !tbaa !99
-  %512 = getelementptr inbounds nuw i8, ptr %511, i64 %500
-  %513 = load ptr, ptr %339, align 8, !tbaa !97
-  %514 = load i64, ptr %340, align 8, !tbaa !74
-  %515 = getelementptr inbounds nuw i8, ptr %513, i64 %514
-  %516 = icmp ugt ptr %512, %515
-  br i1 %516, label %DwaCompressor_readChannelRules.exit.thread, label %517
+489:                                              ; preds = %485
+  %490 = load ptr, ptr %483, align 16, !tbaa !99
+  %491 = getelementptr inbounds nuw i8, ptr %490, i64 %479
+  %492 = load ptr, ptr %318, align 8, !tbaa !97
+  %493 = load i64, ptr %319, align 8, !tbaa !74
+  %494 = getelementptr inbounds nuw i8, ptr %492, i64 %493
+  %495 = icmp ugt ptr %491, %494
+  br i1 %495, label %DwaCompressor_readChannelRules.exit.thread, label %496
 
-517:                                              ; preds = %510
-  %518 = load ptr, ptr %505, align 8, !tbaa !110
-  %519 = sext i32 %.0334603 to i64
-  %520 = getelementptr inbounds ptr, ptr %518, i64 %519
-  %521 = load ptr, ptr %520, align 8, !tbaa !97
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %521, ptr align 1 %511, i64 %500, i1 false)
-  %522 = load ptr, ptr %504, align 16, !tbaa !99
-  %523 = getelementptr inbounds nuw i8, ptr %522, i64 %500
-  store ptr %523, ptr %504, align 16, !tbaa !99
-  %524 = add nsw i32 %.0334603, 1
-  %.pre665 = load i32, ptr %.ph, align 4, !tbaa !49
-  br label %525
+496:                                              ; preds = %489
+  %497 = load ptr, ptr %484, align 8, !tbaa !110
+  %498 = sext i32 %.0334601 to i64
+  %499 = getelementptr inbounds ptr, ptr %497, i64 %498
+  %500 = load ptr, ptr %499, align 8, !tbaa !97
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %500, ptr align 1 %490, i64 %479, i1 false)
+  %501 = load ptr, ptr %483, align 16, !tbaa !99
+  %502 = getelementptr inbounds nuw i8, ptr %501, i64 %479
+  store ptr %502, ptr %483, align 16, !tbaa !99
+  %503 = add nsw i32 %.0334601, 1
+  %.pre663 = load i32, ptr %.ph, align 4, !tbaa !49
+  br label %504
 
-525:                                              ; preds = %506, %517
-  %526 = phi i32 [ %507, %506 ], [ %.pre665, %517 ]
-  %.1335 = phi i32 [ %.0334603, %506 ], [ %524, %517 ]
-  %527 = add nsw i32 %.0604, 1
-  %.not470.not = icmp slt i32 %.0604, %526
-  br i1 %.not470.not, label %506, label %.thread543, !llvm.loop !172
+504:                                              ; preds = %485, %496
+  %505 = phi i32 [ %486, %485 ], [ %.pre663, %496 ]
+  %.1335 = phi i32 [ %.0334601, %485 ], [ %503, %496 ]
+  %506 = add nsw i32 %.0602, 1
+  %.not470.not = icmp slt i32 %.0602, %505
+  br i1 %.not470.not, label %485, label %.thread540, !llvm.loop !172
 
-.thread543:                                       ; preds = %525, %493, %469, %497, %442, %426
-  %.6392 = phi ptr [ %439, %426 ], [ %.4390620, %442 ], [ %.4390620, %497 ], [ %.4390620, %469 ], [ %.4390620, %493 ], [ %.4390620, %525 ]
-  %.6385 = phi ptr [ %436, %426 ], [ %.4383621, %442 ], [ %.4383621, %497 ], [ %.4383621, %469 ], [ %.4383621, %493 ], [ %.4383621, %525 ]
-  %.5373 = phi i64 [ %441, %426 ], [ %.3371623, %442 ], [ %.3371623, %497 ], [ %.3371623, %469 ], [ %.3371623, %493 ], [ %.3371623, %525 ]
-  %.5367 = phi i64 [ %440, %426 ], [ %.3365624, %442 ], [ %.3365624, %497 ], [ %.3365624, %469 ], [ %.3365624, %493 ], [ %.3365624, %525 ]
-  store i32 1, ptr %412, align 32, !tbaa !105
-  %.pre668 = load i32, ptr %246, align 8, !tbaa !45
-  br label %528
+.thread540:                                       ; preds = %504, %472, %448, %476, %421, %405
+  %.6392 = phi ptr [ %418, %405 ], [ %.4390618, %421 ], [ %.4390618, %476 ], [ %.4390618, %448 ], [ %.4390618, %472 ], [ %.4390618, %504 ]
+  %.6385 = phi ptr [ %415, %405 ], [ %.4383619, %421 ], [ %.4383619, %476 ], [ %.4383619, %448 ], [ %.4383619, %472 ], [ %.4383619, %504 ]
+  %.5373 = phi i64 [ %420, %405 ], [ %.3371621, %421 ], [ %.3371621, %476 ], [ %.3371621, %448 ], [ %.3371621, %472 ], [ %.3371621, %504 ]
+  %.5367 = phi i64 [ %419, %405 ], [ %.3365622, %421 ], [ %.3365622, %476 ], [ %.3365622, %448 ], [ %.3365622, %472 ], [ %.3365622, %504 ]
+  store i32 1, ptr %391, align 32, !tbaa !105
+  %.pre666 = load i32, ptr %247, align 8, !tbaa !45
+  br label %507
 
-528:                                              ; preds = %422, %.thread543, %404
-  %529 = phi i32 [ %405, %422 ], [ %.pre668, %.thread543 ], [ %405, %404 ]
-  %.5391 = phi ptr [ %.4390620, %422 ], [ %.6392, %.thread543 ], [ %.4390620, %404 ]
-  %.5384 = phi ptr [ %.4383621, %422 ], [ %.6385, %.thread543 ], [ %.4383621, %404 ]
-  %.4372 = phi i64 [ %.3371623, %422 ], [ %.5373, %.thread543 ], [ %.3371623, %404 ]
-  %.4366 = phi i64 [ %.3365624, %422 ], [ %.5367, %.thread543 ], [ %.3365624, %404 ]
-  %indvars.iv.next661 = add nuw nsw i64 %indvars.iv660, 1
-  %530 = sext i32 %529 to i64
-  %.not476 = icmp slt i64 %indvars.iv.next661, %530
-  br i1 %.not476, label %404, label %DwaCompressor_readChannelRules.exit.thread, !llvm.loop !173
+507:                                              ; preds = %401, %.thread540, %383
+  %508 = phi i32 [ %384, %401 ], [ %.pre666, %.thread540 ], [ %384, %383 ]
+  %.5391 = phi ptr [ %.4390618, %401 ], [ %.6392, %.thread540 ], [ %.4390618, %383 ]
+  %.5384 = phi ptr [ %.4383619, %401 ], [ %.6385, %.thread540 ], [ %.4383619, %383 ]
+  %.4372 = phi i64 [ %.3371621, %401 ], [ %.5373, %.thread540 ], [ %.3371621, %383 ]
+  %.4366 = phi i64 [ %.3365622, %401 ], [ %.5367, %.thread540 ], [ %.3365622, %383 ]
+  %indvars.iv.next659 = add nuw nsw i64 %indvars.iv658, 1
+  %509 = sext i32 %508 to i64
+  %.not476 = icmp slt i64 %indvars.iv.next659, %509
+  br i1 %.not476, label %383, label %DwaCompressor_readChannelRules.exit.thread, !llvm.loop !173
 
-DwaCompressor_readChannelRules.exit.thread:       ; preds = %55, %280, %423, %426, %528, %510, %.preheader559, %.thread53.i.i, %._crit_edge.i, %._crit_edge.thread.i, %44, %42, %.thread536, %.thread510, %.thread505, %.thread, %222, %183, %184, %176, %178, %168, %164, %161, %138, %DwaCompressor_readChannelRules.exit, %28, %15, %5, %196, %240
-  %.0333 = phi i32 [ 23, %240 ], [ 23, %196 ], [ 23, %5 ], [ 23, %15 ], [ 23, %28 ], [ %137, %DwaCompressor_readChannelRules.exit ], [ 23, %138 ], [ 22, %161 ], [ 23, %164 ], [ 23, %168 ], [ 23, %178 ], [ 23, %176 ], [ %190, %184 ], [ 23, %183 ], [ 23, %222 ], [ %195, %.thread ], [ %.3.ph, %.thread505 ], [ 23, %.thread510 ], [ %.14.ph, %.thread536 ], [ %.1.ph.i.i, %.thread53.i.i ], [ %.0.i.ph.i, %._crit_edge.i ], [ 1, %._crit_edge.thread.i ], [ 23, %44 ], [ 23, %42 ], [ 0, %.preheader559 ], [ 23, %510 ], [ 23, %423 ], [ %433, %426 ], [ 0, %528 ], [ 1, %280 ], [ 23, %55 ]
+DwaCompressor_readChannelRules.exit.thread:       ; preds = %55, %274, %402, %405, %507, %489, %.preheader556, %.thread53.i.i, %._crit_edge.i, %._crit_edge.thread.i, %44, %42, %.thread533, %.thread508, %.thread503, %.thread, %223, %184, %185, %177, %179, %169, %165, %162, %138, %157, %DwaCompressor_readChannelRules.exit, %28, %15, %5, %197, %241
+  %.0333 = phi i32 [ 23, %241 ], [ 23, %197 ], [ 23, %5 ], [ 23, %15 ], [ 23, %28 ], [ %137, %DwaCompressor_readChannelRules.exit ], [ 23, %157 ], [ 23, %138 ], [ 22, %162 ], [ 23, %165 ], [ 23, %169 ], [ 23, %179 ], [ 23, %177 ], [ %191, %185 ], [ 23, %184 ], [ 23, %223 ], [ %196, %.thread ], [ %.3.ph, %.thread503 ], [ 23, %.thread508 ], [ %.14.ph, %.thread533 ], [ %.1.ph.i.i, %.thread53.i.i ], [ %.0.i.ph.i, %._crit_edge.i ], [ 1, %._crit_edge.thread.i ], [ 23, %44 ], [ 23, %42 ], [ 0, %.preheader556 ], [ 23, %489 ], [ 23, %402 ], [ %412, %405 ], [ 0, %507 ], [ 1, %274 ], [ 23, %55 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
   ret i32 %.0333
 }
@@ -7531,6 +7484,64 @@ define internal fastcc void @DwaCompressor_setupChannelData(ptr noundef nonnull 
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
   br i1 %exitcond83.not, label %._crit_edge, label %13, !llvm.loop !103
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @DctCoderChannelData_push_row(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %6 = load i64, ptr %5, align 8, !tbaa !108
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 400
+  %8 = load i64, ptr %7, align 16, !tbaa !109
+  %9 = icmp eq i64 %6, %8
+  br i1 %9, label %10, label %._crit_edge
+
+._crit_edge:                                      ; preds = %4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 392
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !110
+  br label %24
+
+10:                                               ; preds = %4
+  %11 = icmp eq i64 %6, 0
+  %12 = mul i64 %6, 3
+  %13 = lshr i64 %12, 1
+  %14 = select i1 %11, i64 16, i64 %13
+  %15 = shl i64 %14, 3
+  %16 = tail call ptr %0(i64 noundef %15) #20
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %29, label %17
+
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 392
+  %19 = load ptr, ptr %18, align 8, !tbaa !110
+  %.not26 = icmp eq ptr %19, null
+  br i1 %.not26, label %.thread, label %20
+
+20:                                               ; preds = %17
+  %21 = load i64, ptr %5, align 8, !tbaa !108
+  %22 = shl i64 %21, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %19, i64 %22, i1 false)
+  %23 = load ptr, ptr %18, align 8, !tbaa !110
+  tail call void %1(ptr noundef %23) #20
+  br label %.thread
+
+.thread:                                          ; preds = %17, %20
+  store ptr %16, ptr %18, align 8, !tbaa !110
+  store i64 %14, ptr %7, align 16, !tbaa !109
+  %.pre28 = load i64, ptr %5, align 8, !tbaa !108
+  br label %24
+
+24:                                               ; preds = %._crit_edge, %.thread
+  %25 = phi i64 [ %6, %._crit_edge ], [ %.pre28, %.thread ]
+  %26 = phi ptr [ %.pre, %._crit_edge ], [ %16, %.thread ]
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  store ptr %3, ptr %27, align 8, !tbaa !97
+  %28 = add i64 %25, 1
+  store i64 %28, ptr %5, align 8, !tbaa !108
+  br label %29
+
+29:                                               ; preds = %10, %24
+  %.1 = phi i32 [ 0, %24 ], [ 1, %10 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable

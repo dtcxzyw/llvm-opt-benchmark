@@ -44971,18 +44971,21 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4poolINS_33default_user_allocat
   br i1 %42, label %_ZN5boost25simple_segregated_storageImE9add_blockEPvmm.exit, label %43
 
 43:                                               ; preds = %36
+  %.not27.i.i = icmp eq i64 %40, %.0.i
+  br i1 %.not27.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %43
   %.026.i.i = getelementptr inbounds i8, ptr %41, i64 %5
-  %.not27.i.i = icmp eq ptr %.026.i.i, %.0
-  br i1 %.not27.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %43
   %.022.lcssa.i.i = phi ptr [ %41, %43 ], [ %.029.i.i, %.lr.ph.i.i ]
   store ptr %.022.lcssa.i.i, ptr %.0, align 8, !tbaa !24
   br label %_ZN5boost25simple_segregated_storageImE9add_blockEPvmm.exit
 
-.lr.ph.i.i:                                       ; preds = %43, %.lr.ph.i.i
-  %.029.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.026.i.i, %43 ]
-  %.02228.i.i = phi ptr [ %.029.i.i, %.lr.ph.i.i ], [ %41, %43 ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %.029.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.026.i.i, %.lr.ph.preheader.i.i ]
+  %.02228.i.i = phi ptr [ %.029.i.i, %.lr.ph.i.i ], [ %41, %.lr.ph.preheader.i.i ]
   store ptr %.02228.i.i, ptr %.029.i.i, align 8, !tbaa !24
   %.0.i.i = getelementptr inbounds i8, ptr %.029.i.i, i64 %5
   %.not.i.i = icmp eq ptr %.0.i.i, %.0

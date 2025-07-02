@@ -21,8 +21,8 @@ define dso_local void @pstrcpy(ptr noundef writeonly captures(address) %0, i32 n
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
   %8 = load i8, ptr %2, align 1, !tbaa !7
   %9 = icmp ne i8 %8, 0
-  %.not12 = icmp ult ptr %0, %7
-  %or.cond13 = select i1 %9, i1 %.not12, i1 false
+  %.not12 = icmp ne i32 %1, 1
+  %or.cond13 = and i1 %9, %.not12
   br i1 %or.cond13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -74,8 +74,8 @@ define dso_local noundef ptr @pstrcat(ptr noundef returned captures(address, ret
   %14 = getelementptr inbounds i8, ptr %13, i64 -1
   %15 = load i8, ptr %2, align 1, !tbaa !7
   %16 = icmp ne i8 %15, 0
-  %.not12.i = icmp ult ptr %11, %14
-  %or.cond13.i = select i1 %16, i1 %.not12.i, i1 false
+  %.not12.i = icmp ne i32 %8, 1
+  %or.cond13.i = and i1 %.not12.i, %16
   br i1 %or.cond13.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i

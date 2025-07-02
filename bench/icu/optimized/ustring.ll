@@ -154,8 +154,8 @@ u_strlen_77.exit:                                 ; preds = %.preheader149
   %71 = load i16, ptr %2, align 2, !tbaa !3
   %72 = add i32 %.095, -1
   %73 = sext i32 %72 to i64
-  %.idx = shl nsw i64 %73, 1
-  %74 = getelementptr i8, ptr %2, i64 %.idx
+  %.idx205 = shl nsw i64 %73, 1
+  %74 = getelementptr i8, ptr %2, i64 %.idx205
   %75 = icmp ne i32 %72, 0
   %76 = and i16 %71, -2048
   %77 = icmp eq i16 %76, -10240
@@ -261,11 +261,13 @@ u_strlen_77.exit:                                 ; preds = %.preheader149
   br i1 %.not.not, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %117
 
 117:                                              ; preds = %116
-  %118 = zext nneg i32 %1 to i64
-  %119 = getelementptr inbounds nuw i16, ptr %0, i64 %118
-  %120 = sub nsw i64 0, %73
-  %121 = getelementptr inbounds i16, ptr %119, i64 %120
-  %.not183 = icmp eq ptr %0, %121
+  %118 = shl nuw i32 %1, 1
+  %.idx = zext i32 %118 to i64
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %.neg = mul nsw i64 %73, -2
+  %120 = getelementptr inbounds i8, ptr %119, i64 %.neg
+  %121 = sub nsw i64 0, %.idx
+  %.not183 = icmp eq i64 %.neg, %121
   br i1 %.not183, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.lr.ph186
 
 .lr.ph186:                                        ; preds = %117
@@ -327,7 +329,7 @@ u_strlen_77.exit:                                 ; preds = %.preheader149
   br i1 %148, label %._crit_edge181, label %.lr.ph180, !llvm.loop !15
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit132.thread: ; preds = %.lr.ph180, %139, %129, %125
-  %.not = icmp eq ptr %126, %121
+  %.not = icmp eq ptr %126, %120
   br i1 %.not, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %125, !llvm.loop !16
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit:       ; preds = %29, %.lr.ph, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread, %41, %45, %.lr.ph168, %89, %86, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit132.thread, %134, %139, %._crit_edge195, %.loopexit, %.preheader, %.preheader.us, %98, %.preheader155, %.preheader152, %117, %.preheader142, %81, %116, %79, %68, %13, %7, %4
@@ -1055,7 +1057,7 @@ u_strlen_77.exit69:                               ; preds = %.preheader74
 .lr.ph.preheader:                                 ; preds = %55
   %60 = and i16 %25, -1024
   %61 = icmp ne i16 %60, -10240
-  %62 = icmp eq ptr %24, %2
+  %62 = icmp eq i32 %.054, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread

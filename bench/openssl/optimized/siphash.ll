@@ -247,7 +247,7 @@ define void @SipHash_Update(ptr noundef captures(none) %0, ptr noundef readonly 
   %72 = and i64 %.0152, 7
   %73 = sub nsw i64 0, %72
   %74 = getelementptr inbounds i8, ptr %71, i64 %73
-  %.not160188 = icmp eq ptr %.0131, %74
+  %.not160188 = icmp ult i64 %.0152, 8
   br i1 %.not160188, label %._crit_edge196, label %.lr.ph195
 
 .lr.ph195:                                        ; preds = %68

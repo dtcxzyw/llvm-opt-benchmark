@@ -1178,7 +1178,7 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 %4
   %18 = sub nsw i64 0, %.050
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
-  %.not74 = icmp eq ptr %8, %19
+  %.not74 = icmp eq i64 %4, %.050
   br i1 %.not74, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %16, %34

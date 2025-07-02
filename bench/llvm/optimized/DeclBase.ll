@@ -20431,9 +20431,9 @@ define dso_local void @_ZN5clang11DeclContext18collectAllContextsERN4llvm15Small
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 127
-  switch i16 %6, label %73 [
+  switch i16 %6, label %71 [
     i16 0, label %7
-    i16 22, label %40
+    i16 22, label %39
   ]
 
 7:                                                ; preds = %2
@@ -20442,168 +20442,178 @@ define dso_local void @_ZN5clang11DeclContext18collectAllContextsERN4llvm15Small
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %10 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_19TranslationUnitDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %.val)
   %.not1.i = icmp eq ptr %10, null
-  br i1 %.not1.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not1.i, label %._crit_edge.ithread-pre-split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %23
+  br label %22
 
-._crit_edge.i:                                    ; preds = %_ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15getPreviousDeclEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i, %7
-  %13 = load ptr, ptr %1, align 8, !tbaa !671
-  %14 = load i32, ptr %3, align 8, !tbaa !672
-  %15 = zext i32 %14 to i64
-  %.idx.i = shl nuw nsw i64 %15, 3
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
-  %17 = icmp ne i32 %14, 0
-  %.012.i.i.i = getelementptr inbounds i8, ptr %16, i64 -8
-  %18 = icmp ult ptr %13, %.012.i.i.i
-  %or.cond.i.i.i = select i1 %17, i1 %18, i1 false
-  br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %_ZL22collectAllContextsImplIN5clang19TranslationUnitDeclEEvPT_RN4llvm15SmallVectorImplIPNS0_11DeclContextEEE.exit
+._crit_edge.ithread-pre-split:                    ; preds = %_ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15getPreviousDeclEv.exit.i, %7
+  %.pr = load i32, ptr %3, align 8, !tbaa !672
+  br label %._crit_edge.i
 
-.lr.ph.i.i.i:                                     ; preds = %._crit_edge.i, %.lr.ph.i.i.i
-  %.014.i.i.i = phi ptr [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.012.i.i.i, %._crit_edge.i ]
-  %.0913.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i ], [ %13, %._crit_edge.i ]
-  %19 = load ptr, ptr %.0913.i.i.i, align 8, !tbaa !766
-  %20 = load ptr, ptr %.014.i.i.i, align 8, !tbaa !766
-  store ptr %20, ptr %.0913.i.i.i, align 8, !tbaa !766
-  store ptr %19, ptr %.014.i.i.i, align 8, !tbaa !766
-  %21 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i, i64 8
+._crit_edge.i:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i, %._crit_edge.ithread-pre-split
+  %13 = phi i32 [ %.pr, %._crit_edge.ithread-pre-split ], [ %35, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i ]
+  %14 = icmp ugt i32 %13, 1
+  br i1 %14, label %.lr.ph.i.i.preheader.i, label %_ZL22collectAllContextsImplIN5clang19TranslationUnitDeclEEvPT_RN4llvm15SmallVectorImplIPNS0_11DeclContextEEE.exit
+
+.lr.ph.i.i.preheader.i:                           ; preds = %._crit_edge.i
+  %15 = load ptr, ptr %1, align 8, !tbaa !671
+  %16 = zext i32 %13 to i64
+  %.idx.i = shl nuw nsw i64 %16, 3
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
+  %.012.i.i.i = getelementptr inbounds i8, ptr %17, i64 -8
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
+  %.014.i.i.i = phi ptr [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.012.i.i.i, %.lr.ph.i.i.preheader.i ]
+  %.0913.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i ], [ %15, %.lr.ph.i.i.preheader.i ]
+  %18 = load ptr, ptr %.0913.i.i.i, align 8, !tbaa !766
+  %19 = load ptr, ptr %.014.i.i.i, align 8, !tbaa !766
+  store ptr %19, ptr %.0913.i.i.i, align 8, !tbaa !766
+  store ptr %18, ptr %.014.i.i.i, align 8, !tbaa !766
+  %20 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i, i64 8
   %.0.i.i.i = getelementptr inbounds i8, ptr %.014.i.i.i, i64 -8
-  %22 = icmp ult ptr %21, %.0.i.i.i
-  br i1 %22, label %.lr.ph.i.i.i, label %_ZL22collectAllContextsImplIN5clang19TranslationUnitDeclEEvPT_RN4llvm15SmallVectorImplIPNS0_11DeclContextEEE.exit, !llvm.loop !767
+  %21 = icmp ult ptr %20, %.0.i.i.i
+  br i1 %21, label %.lr.ph.i.i.i, label %_ZL22collectAllContextsImplIN5clang19TranslationUnitDeclEEvPT_RN4llvm15SmallVectorImplIPNS0_11DeclContextEEE.exit, !llvm.loop !767
 
-23:                                               ; preds = %_ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15getPreviousDeclEv.exit.i, %.lr.ph.i
-  %.02.i = phi ptr [ %10, %.lr.ph.i ], [ %39, %_ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15getPreviousDeclEv.exit.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %.02.i, i64 40
-  %25 = load i32, ptr %3, align 8, !tbaa !672
-  %26 = load i32, ptr %11, align 4, !tbaa !745
-  %.not.i.i.not.i.i = icmp ult i32 %25, %26
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i, label %27, !prof !58
+22:                                               ; preds = %_ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15getPreviousDeclEv.exit.i, %.lr.ph.i
+  %.02.i = phi ptr [ %10, %.lr.ph.i ], [ %38, %_ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15getPreviousDeclEv.exit.i ]
+  %23 = getelementptr inbounds nuw i8, ptr %.02.i, i64 40
+  %24 = load i32, ptr %3, align 8, !tbaa !672
+  %25 = load i32, ptr %11, align 4, !tbaa !745
+  %.not.i.i.not.i.i = icmp ult i32 %24, %25
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i, label %26, !prof !58
 
-27:                                               ; preds = %23
-  %28 = zext i32 %25 to i64
-  %29 = add nuw nsw i64 %28, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %12, i64 noundef %29, i64 noundef 8) #31
+26:                                               ; preds = %22
+  %27 = zext i32 %24 to i64
+  %28 = add nuw nsw i64 %27, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %12, i64 noundef %28, i64 noundef 8) #31
   %.pre.i.i = load i32, ptr %3, align 8, !tbaa !672
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i: ; preds = %27, %23
-  %30 = phi i32 [ %25, %23 ], [ %.pre.i.i, %27 ]
-  %31 = load ptr, ptr %1, align 8, !tbaa !671
-  %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
-  %34 = ptrtoint ptr %24 to i64
-  store i64 %34, ptr %33, align 1
-  %35 = load i32, ptr %3, align 8, !tbaa !672
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %3, align 8, !tbaa !672
-  %37 = getelementptr inbounds nuw i8, ptr %.02.i, i64 72
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %37, align 8
-  %38 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
-  %.not.i.i = icmp eq i64 %38, 0
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i: ; preds = %26, %22
+  %29 = phi i32 [ %24, %22 ], [ %.pre.i.i, %26 ]
+  %30 = load ptr, ptr %1, align 8, !tbaa !671
+  %31 = zext i32 %29 to i64
+  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %33 = ptrtoint ptr %23 to i64
+  store i64 %33, ptr %32, align 1
+  %34 = load i32, ptr %3, align 8, !tbaa !672
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %3, align 8, !tbaa !672
+  %36 = getelementptr inbounds nuw i8, ptr %.02.i, i64 72
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %36, align 8
+  %37 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
+  %.not.i.i = icmp eq i64 %37, 0
   br i1 %.not.i.i, label %_ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15getPreviousDeclEv.exit.i, label %._crit_edge.i
 
 _ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15getPreviousDeclEv.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i
-  %39 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_19TranslationUnitDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull %.02.i)
-  %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %._crit_edge.i, label %23, !llvm.loop !768
+  %38 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_19TranslationUnitDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull %.02.i)
+  %.not.i = icmp eq ptr %38, null
+  br i1 %.not.i, label %._crit_edge.ithread-pre-split, label %22, !llvm.loop !768
 
-40:                                               ; preds = %2
-  %41 = getelementptr i8, ptr %0, i64 40
-  %.val6 = load ptr, ptr %41, align 8, !tbaa !762
-  %42 = getelementptr inbounds nuw i8, ptr %.val6, i64 80
-  %43 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_13NamespaceDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %.val6)
-  %.not1.i7 = icmp eq ptr %43, null
-  br i1 %.not1.i7, label %._crit_edge.i15, label %.lr.ph.i8
+39:                                               ; preds = %2
+  %40 = getelementptr i8, ptr %0, i64 40
+  %.val6 = load ptr, ptr %40, align 8, !tbaa !762
+  %41 = getelementptr inbounds nuw i8, ptr %.val6, i64 80
+  %42 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_13NamespaceDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull %.val6)
+  %.not1.i7 = icmp eq ptr %42, null
+  br i1 %.not1.i7, label %._crit_edge.i15thread-pre-split, label %.lr.ph.i8
 
-.lr.ph.i8:                                        ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %56
+.lr.ph.i8:                                        ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  br label %54
 
-._crit_edge.i15:                                  ; preds = %_ZN5clang12RedeclarableINS_13NamespaceDeclEE15getPreviousDeclEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i12, %40
-  %46 = load ptr, ptr %1, align 8, !tbaa !671
-  %47 = load i32, ptr %3, align 8, !tbaa !672
-  %48 = zext i32 %47 to i64
-  %.idx.i16 = shl nuw nsw i64 %48, 3
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i16
-  %50 = icmp ne i32 %47, 0
-  %.012.i.i.i17 = getelementptr inbounds i8, ptr %49, i64 -8
-  %51 = icmp ult ptr %46, %.012.i.i.i17
-  %or.cond.i.i.i18 = select i1 %50, i1 %51, i1 false
-  br i1 %or.cond.i.i.i18, label %.lr.ph.i.i.i19, label %_ZL22collectAllContextsImplIN5clang19TranslationUnitDeclEEvPT_RN4llvm15SmallVectorImplIPNS0_11DeclContextEEE.exit
+._crit_edge.i15thread-pre-split:                  ; preds = %_ZN5clang12RedeclarableINS_13NamespaceDeclEE15getPreviousDeclEv.exit.i, %39
+  %.pr24 = load i32, ptr %3, align 8, !tbaa !672
+  br label %._crit_edge.i15
 
-.lr.ph.i.i.i19:                                   ; preds = %._crit_edge.i15, %.lr.ph.i.i.i19
-  %.014.i.i.i20 = phi ptr [ %.0.i.i.i22, %.lr.ph.i.i.i19 ], [ %.012.i.i.i17, %._crit_edge.i15 ]
-  %.0913.i.i.i21 = phi ptr [ %54, %.lr.ph.i.i.i19 ], [ %46, %._crit_edge.i15 ]
-  %52 = load ptr, ptr %.0913.i.i.i21, align 8, !tbaa !766
-  %53 = load ptr, ptr %.014.i.i.i20, align 8, !tbaa !766
-  store ptr %53, ptr %.0913.i.i.i21, align 8, !tbaa !766
-  store ptr %52, ptr %.014.i.i.i20, align 8, !tbaa !766
-  %54 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i21, i64 8
+._crit_edge.i15:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i12, %._crit_edge.i15thread-pre-split
+  %45 = phi i32 [ %.pr24, %._crit_edge.i15thread-pre-split ], [ %67, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i12 ]
+  %46 = icmp ugt i32 %45, 1
+  br i1 %46, label %.lr.ph.i.i.preheader.i16, label %_ZL22collectAllContextsImplIN5clang19TranslationUnitDeclEEvPT_RN4llvm15SmallVectorImplIPNS0_11DeclContextEEE.exit
+
+.lr.ph.i.i.preheader.i16:                         ; preds = %._crit_edge.i15
+  %47 = load ptr, ptr %1, align 8, !tbaa !671
+  %48 = zext i32 %45 to i64
+  %.idx.i17 = shl nuw nsw i64 %48, 3
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i17
+  %.012.i.i.i18 = getelementptr inbounds i8, ptr %49, i64 -8
+  br label %.lr.ph.i.i.i19
+
+.lr.ph.i.i.i19:                                   ; preds = %.lr.ph.i.i.i19, %.lr.ph.i.i.preheader.i16
+  %.014.i.i.i20 = phi ptr [ %.0.i.i.i22, %.lr.ph.i.i.i19 ], [ %.012.i.i.i18, %.lr.ph.i.i.preheader.i16 ]
+  %.0913.i.i.i21 = phi ptr [ %52, %.lr.ph.i.i.i19 ], [ %47, %.lr.ph.i.i.preheader.i16 ]
+  %50 = load ptr, ptr %.0913.i.i.i21, align 8, !tbaa !766
+  %51 = load ptr, ptr %.014.i.i.i20, align 8, !tbaa !766
+  store ptr %51, ptr %.0913.i.i.i21, align 8, !tbaa !766
+  store ptr %50, ptr %.014.i.i.i20, align 8, !tbaa !766
+  %52 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i21, i64 8
   %.0.i.i.i22 = getelementptr inbounds i8, ptr %.014.i.i.i20, i64 -8
-  %55 = icmp ult ptr %54, %.0.i.i.i22
-  br i1 %55, label %.lr.ph.i.i.i19, label %_ZL22collectAllContextsImplIN5clang19TranslationUnitDeclEEvPT_RN4llvm15SmallVectorImplIPNS0_11DeclContextEEE.exit, !llvm.loop !767
+  %53 = icmp ult ptr %52, %.0.i.i.i22
+  br i1 %53, label %.lr.ph.i.i.i19, label %_ZL22collectAllContextsImplIN5clang19TranslationUnitDeclEEvPT_RN4llvm15SmallVectorImplIPNS0_11DeclContextEEE.exit, !llvm.loop !767
 
-56:                                               ; preds = %_ZN5clang12RedeclarableINS_13NamespaceDeclEE15getPreviousDeclEv.exit.i, %.lr.ph.i8
-  %.02.i9 = phi ptr [ %43, %.lr.ph.i8 ], [ %72, %_ZN5clang12RedeclarableINS_13NamespaceDeclEE15getPreviousDeclEv.exit.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %.02.i9, i64 48
-  %58 = load i32, ptr %3, align 8, !tbaa !672
-  %59 = load i32, ptr %44, align 4, !tbaa !745
-  %.not.i.i.not.i.i10 = icmp ult i32 %58, %59
-  br i1 %.not.i.i.not.i.i10, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i12, label %60, !prof !58
+54:                                               ; preds = %_ZN5clang12RedeclarableINS_13NamespaceDeclEE15getPreviousDeclEv.exit.i, %.lr.ph.i8
+  %.02.i9 = phi ptr [ %42, %.lr.ph.i8 ], [ %70, %_ZN5clang12RedeclarableINS_13NamespaceDeclEE15getPreviousDeclEv.exit.i ]
+  %55 = getelementptr inbounds nuw i8, ptr %.02.i9, i64 48
+  %56 = load i32, ptr %3, align 8, !tbaa !672
+  %57 = load i32, ptr %43, align 4, !tbaa !745
+  %.not.i.i.not.i.i10 = icmp ult i32 %56, %57
+  br i1 %.not.i.i.not.i.i10, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i12, label %58, !prof !58
 
-60:                                               ; preds = %56
-  %61 = zext i32 %58 to i64
-  %62 = add nuw nsw i64 %61, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %45, i64 noundef %62, i64 noundef 8) #31
+58:                                               ; preds = %54
+  %59 = zext i32 %56 to i64
+  %60 = add nuw nsw i64 %59, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %44, i64 noundef %60, i64 noundef 8) #31
   %.pre.i.i11 = load i32, ptr %3, align 8, !tbaa !672
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i12
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i12: ; preds = %60, %56
-  %63 = phi i32 [ %58, %56 ], [ %.pre.i.i11, %60 ]
-  %64 = load ptr, ptr %1, align 8, !tbaa !671
-  %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
-  %67 = ptrtoint ptr %57 to i64
-  store i64 %67, ptr %66, align 1
-  %68 = load i32, ptr %3, align 8, !tbaa !672
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %3, align 8, !tbaa !672
-  %70 = getelementptr inbounds nuw i8, ptr %.02.i9, i64 80
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i13 = load i64, ptr %70, align 8
-  %71 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i13, 3
-  %.not.i.i14 = icmp eq i64 %71, 0
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i12: ; preds = %58, %54
+  %61 = phi i32 [ %56, %54 ], [ %.pre.i.i11, %58 ]
+  %62 = load ptr, ptr %1, align 8, !tbaa !671
+  %63 = zext i32 %61 to i64
+  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
+  %65 = ptrtoint ptr %55 to i64
+  store i64 %65, ptr %64, align 1
+  %66 = load i32, ptr %3, align 8, !tbaa !672
+  %67 = add i32 %66, 1
+  store i32 %67, ptr %3, align 8, !tbaa !672
+  %68 = getelementptr inbounds nuw i8, ptr %.02.i9, i64 80
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i13 = load i64, ptr %68, align 8
+  %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i13, 3
+  %.not.i.i14 = icmp eq i64 %69, 0
   br i1 %.not.i.i14, label %_ZN5clang12RedeclarableINS_13NamespaceDeclEE15getPreviousDeclEv.exit.i, label %._crit_edge.i15
 
 _ZN5clang12RedeclarableINS_13NamespaceDeclEE15getPreviousDeclEv.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit.i12
-  %72 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_13NamespaceDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull %.02.i9)
-  %.not.i23 = icmp eq ptr %72, null
-  br i1 %.not.i23, label %._crit_edge.i15, label %56, !llvm.loop !769
+  %70 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_13NamespaceDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull %.02.i9)
+  %.not.i23 = icmp eq ptr %70, null
+  br i1 %.not.i23, label %._crit_edge.i15thread-pre-split, label %54, !llvm.loop !769
 
-73:                                               ; preds = %2
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %75 = load i32, ptr %74, align 4, !tbaa !745
-  %.not.i.i.not.i.not = icmp eq i32 %75, 0
-  br i1 %.not.i.i.not.i.not, label %76, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit, !prof !716
+71:                                               ; preds = %2
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %73 = load i32, ptr %72, align 4, !tbaa !745
+  %.not.i.i.not.i.not = icmp eq i32 %73, 0
+  br i1 %.not.i.i.not.i.not, label %74, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit, !prof !716
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %77, i64 noundef 1, i64 noundef 8) #31
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %75, i64 noundef 1, i64 noundef 8) #31
   %.pre.i = load i32, ptr %3, align 8, !tbaa !672
-  %78 = zext i32 %.pre.i to i64
+  %76 = zext i32 %.pre.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit: ; preds = %73, %76
-  %79 = phi i64 [ 0, %73 ], [ %78, %76 ]
-  %80 = load ptr, ptr %1, align 8, !tbaa !671
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %79
-  %82 = ptrtoint ptr %0 to i64
-  store i64 %82, ptr %81, align 1
-  %83 = load i32, ptr %3, align 8, !tbaa !672
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %3, align 8, !tbaa !672
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit: ; preds = %71, %74
+  %77 = phi i64 [ 0, %71 ], [ %76, %74 ]
+  %78 = load ptr, ptr %1, align 8, !tbaa !671
+  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %77
+  %80 = ptrtoint ptr %0 to i64
+  store i64 %80, ptr %79, align 1
+  %81 = load i32, ptr %3, align 8, !tbaa !672
+  %82 = add i32 %81, 1
+  store i32 %82, ptr %3, align 8, !tbaa !672
   br label %_ZL22collectAllContextsImplIN5clang19TranslationUnitDeclEEvPT_RN4llvm15SmallVectorImplIPNS0_11DeclContextEEE.exit
 
 _ZL22collectAllContextsImplIN5clang19TranslationUnitDeclEEvPT_RN4llvm15SmallVectorImplIPNS0_11DeclContextEEE.exit: ; preds = %.lr.ph.i.i.i19, %.lr.ph.i.i.i, %._crit_edge.i15, %._crit_edge.i, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang11DeclContextELb1EE9push_backES3_.exit

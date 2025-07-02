@@ -32165,7 +32165,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v106detail18for_each_codepointIZNS1_
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 -3
-  %.not3668 = icmp ult ptr %0, %8
+  %.not3668 = icmp sgt i64 %1, 3
   br i1 %.not3668, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit
@@ -87178,7 +87178,7 @@ _ZN3fmt3v106detail7to_utf8IDiNS0_19basic_memory_bufferIcLm128ESaIcEEEE7convertEN
   %47 = load i64, ptr %21, align 8, !tbaa !68
   %48 = getelementptr i8, ptr %46, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -1
-  %.not4.i = icmp eq ptr %46, %49
+  %.not4.i = icmp eq i64 %47, 1
   br i1 %.not4.i, label %_ZN3fmt3v106detail8copy_strIcPKcSt20back_insert_iteratorINS0_19basic_memory_bufferIcLm500ESaIcEEEEEET1_T0_SB_SA_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %42

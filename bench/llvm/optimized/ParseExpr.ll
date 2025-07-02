@@ -44,53 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::OpaquePtr" = type { ptr }
 %"class.clang::UnqualifiedId" = type { i32, %union.anon.1454, %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 %union.anon.1454 = type { ptr, [8 x i8] }
-%"struct.clang::Sema::ExpressionEvaluationContextRecord" = type { i32, %"class.clang::CleanupInfo", i32, i32, %"class.llvm::SmallSetVector.530", %"class.llvm::SmallVector.726", ptr, %"class.llvm::SmallVector.731", %"class.llvm::SmallVector.736", %"class.llvm::SmallPtrSet.741", %"class.llvm::SmallVector.744", %"class.llvm::SmallVector.746", %"class.llvm::SmallPtrSet.751", %"class.llvm::SmallVector.754", i32, i8, i8, i8, i8, i8, i8, i8, [5 x i8], %"class.std::optional.759" }
-%"class.clang::CleanupInfo" = type { i8, i8 }
-%"class.llvm::SmallSetVector.530" = type { %"class.llvm::SetVector.531" }
-%"class.llvm::SetVector.531" = type { %"class.llvm::DenseSet.532", %"class.llvm::SmallVector.537" }
-%"class.llvm::DenseSet.532" = type { %"class.llvm::detail::DenseSetImpl.533" }
-%"class.llvm::detail::DenseSetImpl.533" = type { %"class.llvm::DenseMap.534" }
-%"class.llvm::DenseMap.534" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvm::SmallVector.537" = type { %"class.llvm::SmallVectorImpl.538", %"struct.llvm::SmallVectorStorage.541" }
-%"struct.llvm::SmallVectorStorage.541" = type { [32 x i8] }
-%"class.llvm::SmallVector.726" = type { %"class.llvm::SmallVectorImpl.727", %"struct.llvm::SmallVectorStorage.730" }
-%"class.llvm::SmallVectorImpl.727" = type { %"class.llvm::SmallVectorTemplateBase.728" }
-%"class.llvm::SmallVectorTemplateBase.728" = type { %"class.llvm::SmallVectorTemplateCommon.729" }
-%"class.llvm::SmallVectorTemplateCommon.729" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.730" = type { [16 x i8] }
-%"class.llvm::SmallVector.731" = type { %"class.llvm::SmallVectorImpl.732", %"struct.llvm::SmallVectorStorage.735" }
-%"class.llvm::SmallVectorImpl.732" = type { %"class.llvm::SmallVectorTemplateBase.733" }
-%"class.llvm::SmallVectorTemplateBase.733" = type { %"class.llvm::SmallVectorTemplateCommon.734" }
-%"class.llvm::SmallVectorTemplateCommon.734" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.735" = type { [64 x i8] }
-%"class.llvm::SmallVector.736" = type { %"class.llvm::SmallVectorImpl.737", %"struct.llvm::SmallVectorStorage.740" }
-%"class.llvm::SmallVectorImpl.737" = type { %"class.llvm::SmallVectorTemplateBase.738" }
-%"class.llvm::SmallVectorTemplateBase.738" = type { %"class.llvm::SmallVectorTemplateCommon.739" }
-%"class.llvm::SmallVectorTemplateCommon.739" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.740" = type { [64 x i8] }
-%"class.llvm::SmallPtrSet.741" = type { %"class.llvm::SmallPtrSetImpl.base.743", [8 x ptr] }
-%"class.llvm::SmallPtrSetImpl.base.743" = type { %"class.llvm::SmallPtrSetImplBase.base" }
-%"class.llvm::SmallPtrSetImplBase.base" = type <{ ptr, i32, i32, i32, i8 }>
-%"class.llvm::SmallVector.744" = type { %"class.llvm::SmallVectorImpl.538", %"struct.llvm::SmallVectorStorage.745" }
-%"struct.llvm::SmallVectorStorage.745" = type { [16 x i8] }
-%"class.llvm::SmallVector.746" = type { %"class.llvm::SmallVectorImpl.747", %"struct.llvm::SmallVectorStorage.750" }
-%"class.llvm::SmallVectorImpl.747" = type { %"class.llvm::SmallVectorTemplateBase.748" }
-%"class.llvm::SmallVectorTemplateBase.748" = type { %"class.llvm::SmallVectorTemplateCommon.749" }
-%"class.llvm::SmallVectorTemplateCommon.749" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.750" = type { [32 x i8] }
-%"class.llvm::SmallPtrSet.751" = type { %"class.llvm::SmallPtrSetImpl.base.753", [4 x ptr] }
-%"class.llvm::SmallPtrSetImpl.base.753" = type { %"class.llvm::SmallPtrSetImplBase.base" }
-%"class.llvm::SmallVector.754" = type { %"class.llvm::SmallVectorImpl.755", %"struct.llvm::SmallVectorStorage.758" }
-%"class.llvm::SmallVectorImpl.755" = type { %"class.llvm::SmallVectorTemplateBase.756" }
-%"class.llvm::SmallVectorTemplateBase.756" = type { %"class.llvm::SmallVectorTemplateCommon.757" }
-%"class.llvm::SmallVectorTemplateCommon.757" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.758" = type { [64 x i8] }
-%"class.std::optional.759" = type { %"struct.std::_Optional_base.760" }
-%"struct.std::_Optional_base.760" = type { %"struct.std::_Optional_payload.762" }
-%"struct.std::_Optional_payload.762" = type { %"struct.std::_Optional_payload_base.base.764", [7 x i8] }
-%"struct.std::_Optional_payload_base.base.764" = type <{ %"union.std::_Optional_payload_base<clang::Sema::ExpressionEvaluationContextRecord::InitializationContext>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<clang::Sema::ExpressionEvaluationContextRecord::InitializationContext>::_Storage" = type { %"struct.clang::Sema::ExpressionEvaluationContextRecord::InitializationContext" }
-%"struct.clang::Sema::ExpressionEvaluationContextRecord::InitializationContext" = type { %"class.clang::SourceLocation", ptr, ptr }
 %class.anon.768 = type { ptr, ptr, ptr }
 %"class.clang::DeclSpec" = type { i64, %union.anon.1101, ptr, %"class.clang::ExplicitSpecifier", %"class.clang::ParsedAttributes", %"class.clang::CXXScopeSpec", %"class.clang::SourceRange", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceRange", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceRange", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"class.clang::SourceLocation", %"struct.clang::WrittenBuiltinSpecs", ptr }
 %union.anon.1101 = type { %"struct.clang::UnionOpaquePtr" }
@@ -121,6 +74,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.base.1056", [6 x i8] }
 %"struct.std::pair.base.1056" = type <{ ptr, i16 }>
 %"class.clang::ColonProtectionRAIIObject" = type <{ ptr, i8, [7 x i8] }>
+%"class.llvm::SmallVector.537" = type { %"class.llvm::SmallVectorImpl.538", %"struct.llvm::SmallVectorStorage.541" }
+%"struct.llvm::SmallVectorStorage.541" = type { [32 x i8] }
 %"class.llvm::SmallVector.1553" = type { %"class.llvm::SmallVectorImpl.1554", %"struct.llvm::SmallVectorStorage.1557" }
 %"class.llvm::SmallVectorImpl.1554" = type { %"class.llvm::SmallVectorTemplateBase.1555" }
 %"class.llvm::SmallVectorTemplateBase.1555" = type { %"class.llvm::SmallVectorTemplateCommon.1556" }
@@ -4660,7 +4615,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE28reserveForParamAndGetAddr
   %808 = getelementptr inbounds i8, ptr %807, i64 -8
   %809 = load ptr, ptr %808, align 8, !tbaa !1052
   store ptr %809, ptr %807, align 8, !tbaa !1052
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %808, %806
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %.pre-phi16.i.i, 1
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPPN5clang4ExprES3_ET0_T_S5_S4_.exit.i.i, label %810
 
 810:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i
@@ -5482,15 +5437,19 @@ define dso_local i64 @_ZN5clang6Parser25ParseArrayBoundExpressionEv(ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4616
   %8 = load i32, ptr %7, align 8, !tbaa !999
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.clang::Sema::ExpressionEvaluationContextRecord", ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 -640
-  %12 = getelementptr inbounds i8, ptr %10, i64 -40
-  store i8 1, ptr %12, align 8, !tbaa !1130
-  %.not7 = icmp eq ptr %11, %6
-  br i1 %.not7, label %_ZN5clang32EnterExpressionEvaluationContextD2Ev.exit, label %.lr.ph
+  %.idx = mul nuw nsw i64 %9, 640
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  %11 = getelementptr inbounds i8, ptr %10, i64 -40
+  store i8 1, ptr %11, align 8, !tbaa !1130
+  %.not7 = icmp eq i32 %8, 1
+  br i1 %.not7, label %_ZN5clang32EnterExpressionEvaluationContextD2Ev.exit, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %1, %15
-  %.sroa.02.08 = phi ptr [ %13, %15 ], [ %11, %1 ]
+.lr.ph.preheader:                                 ; preds = %1
+  %12 = getelementptr inbounds i8, ptr %10, i64 -640
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %15
+  %.sroa.02.08 = phi ptr [ %13, %15 ], [ %12, %.lr.ph.preheader ]
   %13 = getelementptr inbounds i8, ptr %.sroa.02.08, i64 -640
   %14 = load i32, ptr %13, align 8, !tbaa !1169
   switch i32 %14, label %_ZN5clang32EnterExpressionEvaluationContextD2Ev.exit [

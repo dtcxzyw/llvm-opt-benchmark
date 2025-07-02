@@ -2160,7 +2160,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %.idx.i = and i64 %44, 524280
   %45 = getelementptr i8, ptr %42, i64 %.idx.i
   %46 = getelementptr i8, ptr %45, i64 -8
-  %.not4174 = icmp eq ptr %42, %46
+  %.not4174 = icmp eq i64 %.idx.i, 8
   br i1 %.not4174, label %.loopexit, label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %41, %53

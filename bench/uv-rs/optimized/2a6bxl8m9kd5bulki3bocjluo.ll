@@ -6113,7 +6113,7 @@ define void @_ZN9uv_pep50812split_extras17h65ad76773e432b24E(ptr dead_on_unwind 
   br i1 %10, label %17, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1e5cdd3b03afc13bE.exit17.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1e5cdd3b03afc13bE.exit17.i.i": ; preds = %7
-  %11 = icmp ne ptr %1, %8
+  %11 = icmp ne i64 %2, 1
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds i8, ptr %5, i64 -2
   %13 = load i8, ptr %12, align 1, !noalias !924, !noundef !3
@@ -6127,7 +6127,7 @@ define void @_ZN9uv_pep50812split_extras17h65ad76773e432b24E(ptr dead_on_unwind 
   br label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd68e7647d08616c1E.exit"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1e5cdd3b03afc13bE.exit19.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1e5cdd3b03afc13bE.exit17.i.i"
-  %19 = icmp ne ptr %1, %12
+  %19 = icmp ne i64 %2, 2
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds i8, ptr %5, i64 -3
   %21 = load i8, ptr %20, align 1, !noalias !924, !noundef !3
@@ -6146,7 +6146,7 @@ define void @_ZN9uv_pep50812split_extras17h65ad76773e432b24E(ptr dead_on_unwind 
   br label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd68e7647d08616c1E.exit"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1e5cdd3b03afc13bE.exit21.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1e5cdd3b03afc13bE.exit19.i.i"
-  %30 = icmp ne ptr %1, %20
+  %30 = icmp ne i64 %2, 3
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds i8, ptr %5, i64 -4
   %32 = load i8, ptr %31, align 1, !noalias !924, !noundef !3

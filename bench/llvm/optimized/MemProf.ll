@@ -381,10 +381,10 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load i32, ptr %81, align 8, !tbaa !12, !noalias !32
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw i64, ptr %80, i64 %83
-  %85 = sub nsw i64 0, %32
-  %86 = getelementptr inbounds i64, ptr %84, i64 %85
-  %.not7172 = icmp eq ptr %86, %80
+  %.idx83 = shl nuw nsw i64 %83, 3
+  %.neg = mul nsw i64 %32, -8
+  %84 = sub nsw i64 0, %.neg
+  %.not7172 = icmp eq i64 %.idx83, %84
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not7172, label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.._crit_edge_crit_edge, label %.lr.ph
 
@@ -395,6 +395,8 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.._crit_edge_crit_edge: ; preds = %_ZNSt6v
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
+  %85 = getelementptr inbounds nuw i64, ptr %80, i64 %83
+  %86 = getelementptr inbounds i8, ptr %85, i64 %.neg
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not20 = icmp eq ptr %3, null
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1346,10 +1348,10 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %83 = load i32, ptr %82, align 8, !tbaa !12, !noalias !89
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %81, i64 %84
-  %86 = sub nsw i64 0, %33
-  %87 = getelementptr inbounds i32, ptr %85, i64 %86
-  %.not5960 = icmp eq ptr %87, %81
+  %.idx71 = shl nuw nsw i64 %84, 2
+  %.neg = mul nsw i64 %33, -4
+  %85 = sub nsw i64 0, %.neg
+  %.not5960 = icmp eq i64 %.idx71, %85
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not5960, label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.._crit_edge_crit_edge, label %.lr.ph
 
@@ -1360,6 +1362,8 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.._crit_edge_crit_edge: ; preds = %_ZNSt6v
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
+  %86 = getelementptr inbounds nuw i32, ptr %81, i64 %84
+  %87 = getelementptr inbounds i8, ptr %86, i64 %.neg
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not20 = icmp eq ptr %3, null
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 16

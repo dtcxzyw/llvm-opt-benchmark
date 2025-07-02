@@ -1886,7 +1886,7 @@ define noundef ptr @Scl_LibertyParse(ptr noundef captures(address_is_null) %0, i
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
   %14 = ptrtoint ptr %13 to i64
   %15 = getelementptr inbounds i8, ptr %13, i64 -1
-  %16 = icmp ult ptr %10, %15
+  %16 = icmp sgt i64 %12, 1
   br i1 %16, label %.lr.ph50.i, label %Scl_LibertyWipeOutComments.exit
 
 .lr.ph50.i:                                       ; preds = %8, %.loopexit.i

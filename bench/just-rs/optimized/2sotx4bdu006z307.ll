@@ -11074,7 +11074,7 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br i1 %36, label %43, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8a8223254635d116E.exit19.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8a8223254635d116E.exit19.i": ; preds = %32
-  %37 = icmp ne ptr %20, %34
+  %37 = icmp ne i64 %18, 1
   tail call void @llvm.assume(i1 %37)
   %38 = getelementptr inbounds i8, ptr %33, i64 -2
   %39 = load i8, ptr %38, align 1, !noalias !2316, !noundef !4
@@ -11088,7 +11088,7 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br label %_ZN4core3str11validations23next_code_point_reverse17ha7fa0ae6aa0ec291E.exit.thread
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8a8223254635d116E.exit21.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8a8223254635d116E.exit19.i"
-  %45 = icmp ne ptr %20, %38
+  %45 = icmp ne i64 %18, 2
   tail call void @llvm.assume(i1 %45)
   %46 = getelementptr inbounds i8, ptr %33, i64 -3
   %47 = load i8, ptr %46, align 1, !noalias !2316, !noundef !4
@@ -11106,7 +11106,7 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br label %_ZN4core3str11validations23next_code_point_reverse17ha7fa0ae6aa0ec291E.exit.thread
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8a8223254635d116E.exit23.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8a8223254635d116E.exit21.i"
-  %56 = icmp ne ptr %20, %46
+  %56 = icmp ne i64 %18, 3
   tail call void @llvm.assume(i1 %56)
   %57 = getelementptr inbounds i8, ptr %33, i64 -4
   %58 = load i8, ptr %57, align 1, !noalias !2316, !noundef !4

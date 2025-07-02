@@ -1957,7 +1957,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %36, %.no
 
 38:                                               ; preds = %37, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   %39 = getelementptr inbounds nuw i32, ptr %34, i64 %32
-  %.not.i.i149 = icmp eq i64 %.add, 0
+  %.not.i.i149 = icmp eq i64 %25, -4
   br i1 %.not.i.i149, label %.critedge147, label %40
 
 40:                                               ; preds = %38

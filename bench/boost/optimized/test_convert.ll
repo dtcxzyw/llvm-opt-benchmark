@@ -685,7 +685,7 @@ _ZN5boost6nowide4test8test_monEv.exit101:         ; preds = %125, %123, %120
   %127 = getelementptr inbounds i8, ptr %67, i64 -1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %65, ptr %7, align 8, !tbaa !37
-  %.not34.i.i102 = icmp eq ptr %65, %127
+  %.not34.i.i102 = icmp eq i64 %66, 1
   br i1 %.not34.i.i102, label %.thread457, label %.lr.ph.i.i103
 
 .lr.ph.i.i103:                                    ; preds = %_ZN5boost6nowide4test8test_monEv.exit101, %130
@@ -769,7 +769,7 @@ _ZN5boost6nowide4test8test_monEv.exit117:         ; preds = %149, %147, %144
   %151 = getelementptr inbounds i8, ptr %67, i64 -2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %65, ptr %6, align 8, !tbaa !37
-  %.not34.i.i118 = icmp eq ptr %65, %151
+  %.not34.i.i118 = icmp eq i64 %66, 2
   br i1 %.not34.i.i118, label %.thread461, label %.lr.ph.i.i119
 
 .lr.ph.i.i119:                                    ; preds = %_ZN5boost6nowide4test8test_monEv.exit117, %154
@@ -1397,7 +1397,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i.i194: ; preds = %_
 
 _ZN5boost6nowide4test8test_monEv.exit198:         ; preds = %401, %399, %396
   %403 = getelementptr inbounds i8, ptr %248, i64 -4
-  %.not42.i.i199 = icmp eq ptr %246, %403
+  %.not42.i.i199 = icmp eq i64 %247, 1
   br i1 %.not42.i.i199, label %.thread477, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i201
 
 _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i201: ; preds = %_ZN5boost6nowide4test8test_monEv.exit198, %457

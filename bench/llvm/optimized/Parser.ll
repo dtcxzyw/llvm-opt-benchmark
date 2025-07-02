@@ -15264,7 +15264,7 @@ _ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE6appendISt13move_iteratorIPS3_Ev
   %303 = phi i32 [ %.pre9.i.i, %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE7reserveEm.exit.i45.i ], [ %.pre.i46.i, %299 ]
   %304 = add i32 %303, %267
   store i32 %304, ptr %118, align 8, !tbaa !324
-  %.not.i.i.i.i.i.i = icmp eq ptr %293, %290
+  %.not.i.i.i.i.i.i = icmp eq i64 %.idx.i, %.idx117
   br i1 %.not.i.i.i.i.i.i, label %_ZSt13move_backwardIPPN5clang10ParsedAttrES3_ET0_T_S5_S4_.exit.i, label %305
 
 305:                                              ; preds = %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit.i

@@ -187,7 +187,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %80 = load i16, ptr %79, align 2, !tbaa !55
   %81 = and i16 %80, 8192
   %82 = icmp ne i16 %81, 0
-  %83 = icmp ugt ptr %.0101141, %.0103
+  %83 = icmp sgt i64 %75, 1
   %84 = and i1 %83, %82
   br i1 %84, label %.lr.ph145, label %._crit_edge146
 

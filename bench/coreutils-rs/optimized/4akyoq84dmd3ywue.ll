@@ -2033,7 +2033,7 @@ define void @_ZN9uu_mktemp6Params4from17h1b7886859fa0f651E(ptr noalias noundef w
   br i1 %87, label %94, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hdc225b1acc83dce3E.exit19.i.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hdc225b1acc83dce3E.exit19.i.i.i.i.i": ; preds = %83
-  %88 = icmp ne ptr %67, %85
+  %88 = icmp ne i64 %73, 1
   tail call void @llvm.assume(i1 %88)
   %89 = getelementptr inbounds i8, ptr %84, i64 -2
   %90 = load i8, ptr %89, align 1, !noalias !377, !noundef !5
@@ -2047,7 +2047,7 @@ define void @_ZN9uu_mktemp6Params4from17h1b7886859fa0f651E(ptr noalias noundef w
   br label %_ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thread.i.i.i.i
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hdc225b1acc83dce3E.exit21.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hdc225b1acc83dce3E.exit19.i.i.i.i.i"
-  %96 = icmp ne ptr %67, %89
+  %96 = icmp ne i64 %73, 2
   tail call void @llvm.assume(i1 %96)
   %97 = getelementptr inbounds i8, ptr %84, i64 -3
   %98 = load i8, ptr %97, align 1, !noalias !377, !noundef !5
@@ -2065,7 +2065,7 @@ define void @_ZN9uu_mktemp6Params4from17h1b7886859fa0f651E(ptr noalias noundef w
   br label %_ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thread.i.i.i.i
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hdc225b1acc83dce3E.exit23.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hdc225b1acc83dce3E.exit21.i.i.i.i.i"
-  %107 = icmp ne ptr %67, %97
+  %107 = icmp ne i64 %73, 3
   tail call void @llvm.assume(i1 %107)
   %108 = getelementptr inbounds i8, ptr %84, i64 -4
   %109 = load i8, ptr %108, align 1, !noalias !377, !noundef !5

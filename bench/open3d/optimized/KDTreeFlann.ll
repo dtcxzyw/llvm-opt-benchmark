@@ -1579,9 +1579,10 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i32, ptr %28, align 8, !tbaa !90
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw double, ptr %2, i64 %30
+  %.idx.i = shl nuw nsw i64 %30, 3
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %32 = getelementptr inbounds i8, ptr %31, i64 -24
-  %33 = icmp ult ptr %2, %32
+  %33 = icmp ugt i32 %29, 3
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %1, align 8
   br label %36
@@ -2014,11 +2015,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %26 = load i64, ptr %25, align 8, !tbaa !31
   %27 = load i32, ptr %21, align 8, !tbaa !90
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw double, ptr %2, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %30 = getelementptr inbounds i8, ptr %29, i64 -24
   %31 = load ptr, ptr %20, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = icmp ult ptr %2, %30
+  %33 = icmp ugt i32 %27, 3
   br i1 %33, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %23

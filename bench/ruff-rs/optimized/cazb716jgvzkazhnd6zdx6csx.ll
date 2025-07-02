@@ -27098,7 +27098,7 @@ define internal fastcc void @"_ZN4core4iter8adapters6filter15filter_try_fold28_$
   ]
 
 31:                                               ; preds = %27
-  %32 = icmp eq ptr %.sroa.05.0.copyload, %29
+  %32 = icmp eq i64 %.sroa.46.0.copyload, 1
   br i1 %32, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i", label %33
 
 33:                                               ; preds = %31
@@ -42250,7 +42250,7 @@ define hidden void @_ZN9itertools9Itertools4join17hdd2edc9588710a5fE(ptr dead_on
   ]
 
 58:                                               ; preds = %54
-  %59 = icmp eq ptr %.val.i.i.i.i.i, %56
+  %59 = icmp eq i64 %.val1.i.i.i.i.i, 1
   br i1 %59, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i.i.i.i", label %60
 
 60:                                               ; preds = %58
@@ -64862,7 +64862,7 @@ define internal fastcc void @_ZN11ruff_linter5rules11pycodestyle5rules17lambda_a
   br i1 %110, label %117, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i.i.i": ; preds = %106
-  %111 = icmp ne ptr %93, %108
+  %111 = icmp ne i64 %99, 1
   call void @llvm.assume(i1 %111)
   %112 = getelementptr inbounds i8, ptr %107, i64 -2
   %113 = load i8, ptr %112, align 1, !noalias !9246, !noundef !3
@@ -64876,7 +64876,7 @@ define internal fastcc void @_ZN11ruff_linter5rules11pycodestyle5rules17lambda_a
   br label %149
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit19.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i.i.i"
-  %119 = icmp ne ptr %93, %112
+  %119 = icmp ne i64 %99, 2
   call void @llvm.assume(i1 %119)
   %120 = getelementptr inbounds i8, ptr %107, i64 -3
   %121 = load i8, ptr %120, align 1, !noalias !9246, !noundef !3
@@ -64894,7 +64894,7 @@ define internal fastcc void @_ZN11ruff_linter5rules11pycodestyle5rules17lambda_a
   br label %149
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit21.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit19.i.i.i.i"
-  %130 = icmp ne ptr %93, %120
+  %130 = icmp ne i64 %99, 3
   call void @llvm.assume(i1 %130)
   %131 = getelementptr inbounds i8, ptr %107, i64 -4
   %132 = load i8, ptr %131, align 1, !noalias !9246, !noundef !3

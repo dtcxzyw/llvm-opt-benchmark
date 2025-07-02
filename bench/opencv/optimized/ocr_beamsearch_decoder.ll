@@ -9571,7 +9571,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %99, %.noex
 106:                                              ; preds = %102
   %107 = add nsw i64 %87, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %100, %96
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %87, -4
   br i1 %.not.i.i.i.i.i.i.i, label %.noexc23, label %108
 
 108:                                              ; preds = %106

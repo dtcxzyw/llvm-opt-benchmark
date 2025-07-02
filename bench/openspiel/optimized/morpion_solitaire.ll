@@ -3670,7 +3670,7 @@ _ZN10open_spiel17morpion_solitaire4Line12GetAllPointsEv.exit: ; preds = %57
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %58, ptr align 4 %43, i64 %62, i1 false), !noalias !82
   %scevgep = getelementptr i8, ptr %58, i64 8
   %scevgep118 = getelementptr i8, ptr %scevgep, i64 %61
-  %.not6795 = icmp eq ptr %58, %scevgep118
+  %.not6795 = icmp ugt i64 %60, -9
   br i1 %.not6795, label %_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit.thread135, label %.lr.ph
 
 _ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit.thread135: ; preds = %_ZN10open_spiel17morpion_solitaire4Line12GetAllPointsEv.exit

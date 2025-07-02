@@ -165,15 +165,16 @@ define dso_local void @canonicalize_path(ptr noundef %0) local_unnamed_addr #7 {
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @canonicalize_path_enc(ptr noundef %0, i32 %1) local_unnamed_addr #7 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
-  %.not.i = icmp ne i64 %3, 0
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
-  %.013.i = getelementptr inbounds i8, ptr %4, i64 -1
-  %5 = icmp ugt ptr %.013.i, %0
-  %or.cond.i = select i1 %.not.i, i1 %5, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i, label %trim_trailing_separator.exit
+  %4 = icmp sgt i64 %3, 1
+  br i1 %4, label %.lr.ph.preheader.i, label %trim_trailing_separator.exit
 
-.lr.ph.i:                                         ; preds = %2, %8
-  %.014.i = phi ptr [ %.0.i, %8 ], [ %.013.i, %2 ]
+.lr.ph.preheader.i:                               ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %3
+  %.013.i = getelementptr inbounds i8, ptr %5, i64 -1
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
+  %.014.i = phi ptr [ %.0.i, %8 ], [ %.013.i, %.lr.ph.preheader.i ]
   %6 = load i8, ptr %.014.i, align 1
   %7 = icmp eq i8 %6, 47
   br i1 %7, label %8, label %trim_trailing_separator.exit
@@ -186,43 +187,43 @@ define dso_local void @canonicalize_path_enc(ptr noundef %0, i32 %1) local_unnam
 
 trim_trailing_separator.exit:                     ; preds = %.lr.ph.i, %8, %2
   %10 = load i8, ptr %0, align 1
-  %.not134 = icmp eq i8 %10, 0
-  br i1 %.not134, label %._crit_edge, label %.preheader131
+  %.not133 = icmp eq i8 %10, 0
+  br i1 %.not133, label %._crit_edge, label %.preheader130
 
-.preheader131:                                    ; preds = %trim_trailing_separator.exit, %16
+.preheader130:                                    ; preds = %trim_trailing_separator.exit, %16
   %11 = phi i8 [ %21, %16 ], [ %10, %trim_trailing_separator.exit ]
-  %.076137 = phi i1 [ %18, %16 ], [ false, %trim_trailing_separator.exit ]
-  %.084136 = phi ptr [ %19, %16 ], [ %0, %trim_trailing_separator.exit ]
-  %.086135 = phi ptr [ %20, %16 ], [ %0, %trim_trailing_separator.exit ]
-  %.076.fr = freeze i1 %.076137
-  br i1 %.076.fr, label %.preheader131.split, label %.split
+  %.076136 = phi i1 [ %18, %16 ], [ false, %trim_trailing_separator.exit ]
+  %.084135 = phi ptr [ %19, %16 ], [ %0, %trim_trailing_separator.exit ]
+  %.086134 = phi ptr [ %20, %16 ], [ %0, %trim_trailing_separator.exit ]
+  %.076.fr = freeze i1 %.076136
+  br i1 %.076.fr, label %.preheader130.split, label %.split
 
-.preheader131.split:                              ; preds = %.preheader131, %.preheader131.split
-  %.185 = phi ptr [ %14, %.preheader131.split ], [ %.084136, %.preheader131 ]
+.preheader130.split:                              ; preds = %.preheader130, %.preheader130.split
+  %.185 = phi ptr [ %14, %.preheader130.split ], [ %.084135, %.preheader130 ]
   %12 = load i8, ptr %.185, align 1
   %13 = icmp eq i8 %12, 47
   %14 = getelementptr inbounds nuw i8, ptr %.185, i64 1
-  br i1 %13, label %.preheader131.split, label %.split, !llvm.loop !9
+  br i1 %13, label %.preheader130.split, label %.split, !llvm.loop !9
 
-.split:                                           ; preds = %.preheader131.split, %.preheader131
-  %.us-phi = phi ptr [ %.084136, %.preheader131 ], [ %.185, %.preheader131.split ]
-  %.us-phi133 = phi i8 [ %11, %.preheader131 ], [ %12, %.preheader131.split ]
-  %.not99 = icmp eq ptr %.086135, %.us-phi
+.split:                                           ; preds = %.preheader130.split, %.preheader130
+  %.us-phi = phi ptr [ %.084135, %.preheader130 ], [ %.185, %.preheader130.split ]
+  %.us-phi132 = phi i8 [ %11, %.preheader130 ], [ %12, %.preheader130.split ]
+  %.not99 = icmp eq ptr %.086134, %.us-phi
   br i1 %.not99, label %16, label %15
 
 15:                                               ; preds = %.split
-  store i8 %.us-phi133, ptr %.086135, align 1
+  store i8 %.us-phi132, ptr %.086134, align 1
   %.pre = load i8, ptr %.us-phi, align 1
   br label %16
 
 16:                                               ; preds = %15, %.split
-  %17 = phi i8 [ %.pre, %15 ], [ %.us-phi133, %.split ]
+  %17 = phi i8 [ %.pre, %15 ], [ %.us-phi132, %.split ]
   %18 = icmp eq i8 %17, 47
   %19 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 1
-  %20 = getelementptr inbounds nuw i8, ptr %.086135, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.086134, i64 1
   %21 = load i8, ptr %19, align 1
   %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %._crit_edge, label %.preheader131, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.preheader130, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %16, %trim_trailing_separator.exit
   %.086.lcssa = phi ptr [ %0, %trim_trailing_separator.exit ], [ %20, %16 ]
@@ -235,27 +236,27 @@ trim_trailing_separator.exit:                     ; preds = %.lr.ph.i, %8, %2
 
 23:                                               ; preds = %._crit_edge
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.pre150 = load i8, ptr %24, align 1
+  %.pre149 = load i8, ptr %24, align 1
   br label %25
 
 25:                                               ; preds = %._crit_edge, %23
-  %26 = phi i8 [ %.pre150, %23 ], [ %22, %._crit_edge ]
+  %26 = phi i8 [ %.pre149, %23 ], [ %22, %._crit_edge ]
   %.077 = phi ptr [ %24, %23 ], [ %0, %._crit_edge ]
   %.073 = phi i32 [ 0, %23 ], [ 2, %._crit_edge ]
-  %.not95138 = icmp eq i8 %26, 0
-  br i1 %.not95138, label %._crit_edge143, label %.preheader
+  %.not95137 = icmp eq i8 %26, 0
+  br i1 %.not95137, label %._crit_edge142, label %.preheader
 
 .preheader:                                       ; preds = %25, %134
   %27 = phi i8 [ %135, %134 ], [ %26, %25 ]
-  %.071142 = phi i32 [ %.172, %134 ], [ 0, %25 ]
-  %.174141 = phi i32 [ %.275, %134 ], [ %.073, %25 ]
-  %.178140 = phi ptr [ %.1, %134 ], [ %.077, %25 ]
-  %.181139 = phi ptr [ %.282, %134 ], [ %.077, %25 ]
+  %.071141 = phi i32 [ %.172, %134 ], [ 0, %25 ]
+  %.174140 = phi i32 [ %.275, %134 ], [ %.073, %25 ]
+  %.178139 = phi ptr [ %.1, %134 ], [ %.077, %25 ]
+  %.181138 = phi ptr [ %.282, %134 ], [ %.077, %25 ]
   br label %28
 
 28:                                               ; preds = %.preheader, %30
   %29 = phi i8 [ %.pr, %30 ], [ %27, %.preheader ]
-  %.070 = phi ptr [ %31, %30 ], [ %.178140, %.preheader ]
+  %.070 = phi ptr [ %31, %30 ], [ %.178139, %.preheader ]
   switch i8 %29, label %30 [
     i8 0, label %sub_0
     i8 47, label %32
@@ -269,36 +270,36 @@ trim_trailing_separator.exit:                     ; preds = %.lr.ph.i, %8, %2
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.070, i64 1
   store i8 0, ptr %.070, align 1
-  %.pre151 = load i8, ptr %.178140, align 1
+  %.pre150 = load i8, ptr %.178139, align 1
   br label %sub_0
 
 sub_0:                                            ; preds = %28, %32
-  %34 = phi i8 [ %.pre151, %32 ], [ %27, %28 ]
+  %34 = phi i8 [ %.pre150, %32 ], [ %27, %28 ]
   %.1 = phi ptr [ %33, %32 ], [ %.070, %28 ]
-  %.not145 = icmp eq i8 %34, 46
-  br i1 %.not145, label %.tail, label %.tail127
+  %.not144 = icmp eq i8 %34, 46
+  br i1 %.not144, label %.tail, label %.tail126
 
 .tail:                                            ; preds = %sub_0
-  %35 = getelementptr inbounds nuw i8, ptr %.178140, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.178139, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 0
-  br i1 %37, label %134, label %sub_1129, !llvm.loop !12
+  br i1 %37, label %134, label %sub_1128, !llvm.loop !12
 
-sub_1129:                                         ; preds = %.tail
-  %38 = getelementptr inbounds nuw i8, ptr %.178140, i64 1
+sub_1128:                                         ; preds = %.tail
+  %38 = getelementptr inbounds nuw i8, ptr %.178139, i64 1
   %39 = load i8, ptr %38, align 1
-  %.not147 = icmp eq i8 %39, 46
-  br i1 %.not147, label %sub_2, label %.tail127
+  %.not146 = icmp eq i8 %39, 46
+  br i1 %.not146, label %sub_2, label %.tail126
 
-sub_2:                                            ; preds = %sub_1129
-  %40 = getelementptr inbounds nuw i8, ptr %.178140, i64 2
+sub_2:                                            ; preds = %sub_1128
+  %40 = getelementptr inbounds nuw i8, ptr %.178139, i64 2
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 0
-  br label %.tail127
+  br label %.tail126
 
-.tail127:                                         ; preds = %sub_0, %sub_1129, %sub_2
-  %43 = phi i1 [ false, %sub_1129 ], [ %42, %sub_2 ], [ false, %sub_0 ]
-  switch i32 %.174141, label %134 [
+.tail126:                                         ; preds = %sub_0, %sub_1128, %sub_2
+  %43 = phi i1 [ false, %sub_1128 ], [ %42, %sub_2 ], [ false, %sub_0 ]
+  switch i32 %.174140, label %134 [
     i32 0, label %44
     i32 1, label %50
     i32 2, label %82
@@ -306,28 +307,28 @@ sub_2:                                            ; preds = %sub_1129
     i32 4, label %125
   ]
 
-44:                                               ; preds = %.tail127
+44:                                               ; preds = %.tail126
   br i1 %43, label %134, label %45
 
 45:                                               ; preds = %44
-  %46 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.178140) #22
-  %.not.i101 = icmp eq ptr %.181139, %.178140
-  br i1 %.not.i101, label %append_subdir_to_path.exit, label %47
+  %46 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.178139) #22
+  %.not.i = icmp eq ptr %.181138, %.178139
+  br i1 %.not.i, label %append_subdir_to_path.exit, label %47
 
 47:                                               ; preds = %45
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.181139, ptr nonnull readonly align 1 %.178140, i64 %46, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.181138, ptr nonnull readonly align 1 %.178139, i64 %46, i1 false)
   br label %append_subdir_to_path.exit
 
 append_subdir_to_path.exit:                       ; preds = %45, %47
-  %48 = getelementptr inbounds nuw i8, ptr %.181139, i64 %46
-  %49 = add i32 %.071142, 1
+  %48 = getelementptr inbounds nuw i8, ptr %.181138, i64 %46
+  %49 = add i32 %.071141, 1
   br label %134
 
-50:                                               ; preds = %.tail127
+50:                                               ; preds = %.tail126
   br i1 %43, label %51, label %76
 
 51:                                               ; preds = %50
-  store i8 0, ptr %.181139, align 1
+  store i8 0, ptr %.181138, align 1
   %52 = load i8, ptr %0, align 1
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %trim_directory.exit, label %54
@@ -338,16 +339,16 @@ append_subdir_to_path.exit:                       ; preds = %45, %47
   br label %57
 
 57:                                               ; preds = %57, %54
-  %.pn.i = phi ptr [ %56, %54 ], [ %.0.i102, %57 ]
-  %.0.i102 = getelementptr inbounds i8, ptr %.pn.i, i64 -1
-  %58 = load i8, ptr %.0.i102, align 1
+  %.pn.i = phi ptr [ %56, %54 ], [ %.0.i101, %57 ]
+  %.0.i101 = getelementptr inbounds i8, ptr %.pn.i, i64 -1
+  %58 = load i8, ptr %.0.i101, align 1
   %59 = icmp eq i8 %58, 47
-  %60 = icmp ugt ptr %.0.i102, %0
+  %60 = icmp ugt ptr %.0.i101, %0
   %61 = and i1 %59, %60
   br i1 %61, label %57, label %.preheader25.i, !llvm.loop !13
 
 .preheader25.i:                                   ; preds = %57, %.preheader25.i
-  %.1.i = phi ptr [ %66, %.preheader25.i ], [ %.0.i102, %57 ]
+  %.1.i = phi ptr [ %66, %.preheader25.i ], [ %.0.i101, %57 ]
   %62 = load i8, ptr %.1.i, align 1
   %63 = icmp ne i8 %62, 47
   %64 = icmp ugt ptr %.1.i, %0
@@ -377,63 +378,63 @@ append_subdir_to_path.exit:                       ; preds = %45, %47
 
 trim_directory.exit:                              ; preds = %51, %.critedge.i
   %.024.i = phi ptr [ %.3.i, %.critedge.i ], [ %0, %51 ]
-  %74 = add i32 %.071142, -1
+  %74 = add i32 %.071141, -1
   %75 = icmp ne i32 %74, 0
   %spec.select = zext i1 %75 to i32
   br label %134
 
 76:                                               ; preds = %50
-  %77 = getelementptr inbounds nuw i8, ptr %.181139, i64 1
-  store i8 47, ptr %.181139, align 1
-  %78 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.178140) #22
-  %.not.i103 = icmp eq ptr %77, %.178140
-  br i1 %.not.i103, label %append_subdir_to_path.exit104, label %79
+  %77 = getelementptr inbounds nuw i8, ptr %.181138, i64 1
+  store i8 47, ptr %.181138, align 1
+  %78 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.178139) #22
+  %.not.i102 = icmp eq ptr %77, %.178139
+  br i1 %.not.i102, label %append_subdir_to_path.exit103, label %79
 
 79:                                               ; preds = %76
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull readonly align 1 %.178140, i64 %78, i1 false)
-  br label %append_subdir_to_path.exit104
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull readonly align 1 %.178139, i64 %78, i1 false)
+  br label %append_subdir_to_path.exit103
 
-append_subdir_to_path.exit104:                    ; preds = %76, %79
+append_subdir_to_path.exit103:                    ; preds = %76, %79
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 %78
-  %81 = add i32 %.071142, 1
+  %81 = add i32 %.071141, 1
   br label %134
 
-82:                                               ; preds = %.tail127
-  %83 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.178140) #22
-  %.not.i105 = icmp eq ptr %.181139, %.178140
+82:                                               ; preds = %.tail126
+  %83 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.178139) #22
+  %.not.i104 = icmp eq ptr %.181138, %.178139
   br i1 %43, label %84, label %87
 
 84:                                               ; preds = %82
-  br i1 %.not.i105, label %append_subdir_to_path.exit106, label %85
+  br i1 %.not.i104, label %append_subdir_to_path.exit105, label %85
 
 85:                                               ; preds = %84
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.181139, ptr nonnull readonly align 1 %.178140, i64 %83, i1 false)
-  br label %append_subdir_to_path.exit106
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.181138, ptr nonnull readonly align 1 %.178139, i64 %83, i1 false)
+  br label %append_subdir_to_path.exit105
 
-append_subdir_to_path.exit106:                    ; preds = %84, %85
-  %86 = getelementptr inbounds nuw i8, ptr %.181139, i64 %83
+append_subdir_to_path.exit105:                    ; preds = %84, %85
+  %86 = getelementptr inbounds nuw i8, ptr %.181138, i64 %83
   br label %134
 
 87:                                               ; preds = %82
-  br i1 %.not.i105, label %append_subdir_to_path.exit108, label %88
+  br i1 %.not.i104, label %append_subdir_to_path.exit107, label %88
 
 88:                                               ; preds = %87
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.181139, ptr nonnull readonly align 1 %.178140, i64 %83, i1 false)
-  br label %append_subdir_to_path.exit108
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.181138, ptr nonnull readonly align 1 %.178139, i64 %83, i1 false)
+  br label %append_subdir_to_path.exit107
 
-append_subdir_to_path.exit108:                    ; preds = %87, %88
-  %89 = getelementptr inbounds nuw i8, ptr %.181139, i64 %83
-  %90 = add i32 %.071142, 1
+append_subdir_to_path.exit107:                    ; preds = %87, %88
+  %89 = getelementptr inbounds nuw i8, ptr %.181138, i64 %83
+  %90 = add i32 %.071141, 1
   br label %134
 
-91:                                               ; preds = %.tail127
+91:                                               ; preds = %.tail126
   br i1 %43, label %92, label %119
 
 92:                                               ; preds = %91
-  store i8 0, ptr %.181139, align 1
+  store i8 0, ptr %.181138, align 1
   %93 = load i8, ptr %0, align 1
   %94 = icmp eq i8 %93, 0
-  br i1 %94, label %trim_directory.exit120, label %95
+  br i1 %94, label %trim_directory.exit119, label %95
 
 95:                                               ; preds = %92
   %96 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
@@ -441,119 +442,119 @@ append_subdir_to_path.exit108:                    ; preds = %87, %88
   br label %98
 
 98:                                               ; preds = %98, %95
-  %.pn.i109 = phi ptr [ %97, %95 ], [ %.0.i110, %98 ]
-  %.0.i110 = getelementptr inbounds i8, ptr %.pn.i109, i64 -1
-  %99 = load i8, ptr %.0.i110, align 1
+  %.pn.i108 = phi ptr [ %97, %95 ], [ %.0.i109, %98 ]
+  %.0.i109 = getelementptr inbounds i8, ptr %.pn.i108, i64 -1
+  %99 = load i8, ptr %.0.i109, align 1
   %100 = icmp eq i8 %99, 47
-  %101 = icmp ugt ptr %.0.i110, %0
+  %101 = icmp ugt ptr %.0.i109, %0
   %102 = and i1 %100, %101
-  br i1 %102, label %98, label %.preheader25.i111, !llvm.loop !13
+  br i1 %102, label %98, label %.preheader25.i110, !llvm.loop !13
 
-.preheader25.i111:                                ; preds = %98, %.preheader25.i111
-  %.1.i112 = phi ptr [ %107, %.preheader25.i111 ], [ %.0.i110, %98 ]
-  %103 = load i8, ptr %.1.i112, align 1
+.preheader25.i110:                                ; preds = %98, %.preheader25.i110
+  %.1.i111 = phi ptr [ %107, %.preheader25.i110 ], [ %.0.i109, %98 ]
+  %103 = load i8, ptr %.1.i111, align 1
   %104 = icmp ne i8 %103, 47
-  %105 = icmp ugt ptr %.1.i112, %0
+  %105 = icmp ugt ptr %.1.i111, %0
   %106 = and i1 %105, %104
-  %107 = getelementptr inbounds i8, ptr %.1.i112, i64 -1
-  br i1 %106, label %.preheader25.i111, label %.preheader.i113, !llvm.loop !14
+  %107 = getelementptr inbounds i8, ptr %.1.i111, i64 -1
+  br i1 %106, label %.preheader25.i110, label %.preheader.i112, !llvm.loop !14
 
-.preheader.i113:                                  ; preds = %.preheader25.i111, %109
-  %.2.i114 = phi ptr [ %110, %109 ], [ %.1.i112, %.preheader25.i111 ]
-  %108 = icmp ugt ptr %.2.i114, %0
-  br i1 %108, label %109, label %.critedge.i115
+.preheader.i112:                                  ; preds = %.preheader25.i110, %109
+  %.2.i113 = phi ptr [ %110, %109 ], [ %.1.i111, %.preheader25.i110 ]
+  %108 = icmp ugt ptr %.2.i113, %0
+  br i1 %108, label %109, label %.critedge.i114
 
-109:                                              ; preds = %.preheader.i113
-  %110 = getelementptr inbounds i8, ptr %.2.i114, i64 -1
+109:                                              ; preds = %.preheader.i112
+  %110 = getelementptr inbounds i8, ptr %.2.i113, i64 -1
   %111 = load i8, ptr %110, align 1
   %112 = icmp eq i8 %111, 47
-  br i1 %112, label %.preheader.i113, label %.critedge.i115, !llvm.loop !15
+  br i1 %112, label %.preheader.i112, label %.critedge.i114, !llvm.loop !15
 
-.critedge.i115:                                   ; preds = %109, %.preheader.i113
-  %113 = icmp eq ptr %.2.i114, %0
+.critedge.i114:                                   ; preds = %109, %.preheader.i112
+  %113 = icmp eq ptr %.2.i113, %0
   %114 = icmp eq i8 %93, 47
-  %spec.select.idx.i116 = zext i1 %114 to i64
-  %spec.select.i117 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx.i116
-  %.3.i118 = select i1 %113, ptr %spec.select.i117, ptr %.2.i114
-  store i8 0, ptr %.3.i118, align 1
-  br label %trim_directory.exit120
+  %spec.select.idx.i115 = zext i1 %114 to i64
+  %spec.select.i116 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx.i115
+  %.3.i117 = select i1 %113, ptr %spec.select.i116, ptr %.2.i113
+  store i8 0, ptr %.3.i117, align 1
+  br label %trim_directory.exit119
 
-trim_directory.exit120:                           ; preds = %92, %.critedge.i115
-  %.024.i119 = phi ptr [ %.3.i118, %.critedge.i115 ], [ %0, %92 ]
-  %115 = add i32 %.071142, -1
+trim_directory.exit119:                           ; preds = %92, %.critedge.i114
+  %.024.i118 = phi ptr [ %.3.i117, %.critedge.i114 ], [ %0, %92 ]
+  %115 = add i32 %.071141, -1
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %134
 
-117:                                              ; preds = %trim_directory.exit120
-  %118 = icmp eq ptr %.024.i119, %0
+117:                                              ; preds = %trim_directory.exit119
+  %118 = icmp eq ptr %.024.i118, %0
   %. = select i1 %118, i32 2, i32 4
   br label %134
 
 119:                                              ; preds = %91
-  %120 = getelementptr inbounds nuw i8, ptr %.181139, i64 1
-  store i8 47, ptr %.181139, align 1
-  %121 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.178140) #22
-  %.not.i121 = icmp eq ptr %120, %.178140
-  br i1 %.not.i121, label %append_subdir_to_path.exit122, label %122
+  %120 = getelementptr inbounds nuw i8, ptr %.181138, i64 1
+  store i8 47, ptr %.181138, align 1
+  %121 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.178139) #22
+  %.not.i120 = icmp eq ptr %120, %.178139
+  br i1 %.not.i120, label %append_subdir_to_path.exit121, label %122
 
 122:                                              ; preds = %119
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %120, ptr nonnull readonly align 1 %.178140, i64 %121, i1 false)
-  br label %append_subdir_to_path.exit122
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %120, ptr nonnull readonly align 1 %.178139, i64 %121, i1 false)
+  br label %append_subdir_to_path.exit121
 
-append_subdir_to_path.exit122:                    ; preds = %119, %122
+append_subdir_to_path.exit121:                    ; preds = %119, %122
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 %121
-  %124 = add i32 %.071142, 1
+  %124 = add i32 %.071141, 1
   br label %134
 
-125:                                              ; preds = %.tail127
-  %126 = getelementptr inbounds nuw i8, ptr %.181139, i64 1
-  store i8 47, ptr %.181139, align 1
-  %127 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.178140) #22
-  %.not.i123 = icmp eq ptr %126, %.178140
+125:                                              ; preds = %.tail126
+  %126 = getelementptr inbounds nuw i8, ptr %.181138, i64 1
+  store i8 47, ptr %.181138, align 1
+  %127 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.178139) #22
+  %.not.i122 = icmp eq ptr %126, %.178139
   br i1 %43, label %128, label %131
 
 128:                                              ; preds = %125
-  br i1 %.not.i123, label %append_subdir_to_path.exit124, label %129
+  br i1 %.not.i122, label %append_subdir_to_path.exit123, label %129
 
 129:                                              ; preds = %128
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %126, ptr nonnull readonly align 1 %.178140, i64 %127, i1 false)
-  br label %append_subdir_to_path.exit124
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %126, ptr nonnull readonly align 1 %.178139, i64 %127, i1 false)
+  br label %append_subdir_to_path.exit123
 
-append_subdir_to_path.exit124:                    ; preds = %128, %129
+append_subdir_to_path.exit123:                    ; preds = %128, %129
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 %127
   br label %134
 
 131:                                              ; preds = %125
-  br i1 %.not.i123, label %append_subdir_to_path.exit126, label %132
+  br i1 %.not.i122, label %append_subdir_to_path.exit125, label %132
 
 132:                                              ; preds = %131
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %126, ptr nonnull readonly align 1 %.178140, i64 %127, i1 false)
-  br label %append_subdir_to_path.exit126
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %126, ptr nonnull readonly align 1 %.178139, i64 %127, i1 false)
+  br label %append_subdir_to_path.exit125
 
-append_subdir_to_path.exit126:                    ; preds = %131, %132
+append_subdir_to_path.exit125:                    ; preds = %131, %132
   %133 = getelementptr inbounds nuw i8, ptr %126, i64 %127
   br label %134
 
-134:                                              ; preds = %trim_directory.exit, %.tail127, %append_subdir_to_path.exit, %44, %append_subdir_to_path.exit104, %append_subdir_to_path.exit108, %append_subdir_to_path.exit106, %trim_directory.exit120, %append_subdir_to_path.exit122, %append_subdir_to_path.exit126, %append_subdir_to_path.exit124, %117, %.tail
-  %.282 = phi ptr [ %.181139, %.tail ], [ %.181139, %.tail127 ], [ %.181139, %44 ], [ %48, %append_subdir_to_path.exit ], [ %80, %append_subdir_to_path.exit104 ], [ %86, %append_subdir_to_path.exit106 ], [ %89, %append_subdir_to_path.exit108 ], [ %.024.i119, %trim_directory.exit120 ], [ %123, %append_subdir_to_path.exit122 ], [ %130, %append_subdir_to_path.exit124 ], [ %133, %append_subdir_to_path.exit126 ], [ %.024.i, %trim_directory.exit ], [ %.024.i119, %117 ]
-  %.275 = phi i32 [ %.174141, %.tail ], [ %.174141, %.tail127 ], [ 0, %44 ], [ 1, %append_subdir_to_path.exit ], [ 1, %append_subdir_to_path.exit104 ], [ 4, %append_subdir_to_path.exit106 ], [ 3, %append_subdir_to_path.exit108 ], [ 3, %trim_directory.exit120 ], [ 3, %append_subdir_to_path.exit122 ], [ 4, %append_subdir_to_path.exit124 ], [ 3, %append_subdir_to_path.exit126 ], [ %spec.select, %trim_directory.exit ], [ %., %117 ]
-  %.172 = phi i32 [ %.071142, %.tail ], [ %.071142, %.tail127 ], [ %.071142, %44 ], [ %49, %append_subdir_to_path.exit ], [ %81, %append_subdir_to_path.exit104 ], [ %.071142, %append_subdir_to_path.exit106 ], [ %90, %append_subdir_to_path.exit108 ], [ %115, %trim_directory.exit120 ], [ %124, %append_subdir_to_path.exit122 ], [ %.071142, %append_subdir_to_path.exit124 ], [ 1, %append_subdir_to_path.exit126 ], [ %74, %trim_directory.exit ], [ 0, %117 ]
+134:                                              ; preds = %trim_directory.exit, %.tail126, %append_subdir_to_path.exit, %44, %append_subdir_to_path.exit103, %append_subdir_to_path.exit107, %append_subdir_to_path.exit105, %trim_directory.exit119, %append_subdir_to_path.exit121, %append_subdir_to_path.exit125, %append_subdir_to_path.exit123, %117, %.tail
+  %.282 = phi ptr [ %.181138, %.tail ], [ %.181138, %.tail126 ], [ %.181138, %44 ], [ %48, %append_subdir_to_path.exit ], [ %80, %append_subdir_to_path.exit103 ], [ %86, %append_subdir_to_path.exit105 ], [ %89, %append_subdir_to_path.exit107 ], [ %.024.i118, %trim_directory.exit119 ], [ %123, %append_subdir_to_path.exit121 ], [ %130, %append_subdir_to_path.exit123 ], [ %133, %append_subdir_to_path.exit125 ], [ %.024.i, %trim_directory.exit ], [ %.024.i118, %117 ]
+  %.275 = phi i32 [ %.174140, %.tail ], [ %.174140, %.tail126 ], [ 0, %44 ], [ 1, %append_subdir_to_path.exit ], [ 1, %append_subdir_to_path.exit103 ], [ 4, %append_subdir_to_path.exit105 ], [ 3, %append_subdir_to_path.exit107 ], [ 3, %trim_directory.exit119 ], [ 3, %append_subdir_to_path.exit121 ], [ 4, %append_subdir_to_path.exit123 ], [ 3, %append_subdir_to_path.exit125 ], [ %spec.select, %trim_directory.exit ], [ %., %117 ]
+  %.172 = phi i32 [ %.071141, %.tail ], [ %.071141, %.tail126 ], [ %.071141, %44 ], [ %49, %append_subdir_to_path.exit ], [ %81, %append_subdir_to_path.exit103 ], [ %.071141, %append_subdir_to_path.exit105 ], [ %90, %append_subdir_to_path.exit107 ], [ %115, %trim_directory.exit119 ], [ %124, %append_subdir_to_path.exit121 ], [ %.071141, %append_subdir_to_path.exit123 ], [ 1, %append_subdir_to_path.exit125 ], [ %74, %trim_directory.exit ], [ 0, %117 ]
   %135 = load i8, ptr %.1, align 1
   %.not95 = icmp eq i8 %135, 0
-  br i1 %.not95, label %._crit_edge143, label %.preheader
+  br i1 %.not95, label %._crit_edge142, label %.preheader
 
-._crit_edge143:                                   ; preds = %134, %25
+._crit_edge142:                                   ; preds = %134, %25
   %.181.lcssa = phi ptr [ %.077, %25 ], [ %.282, %134 ]
   %136 = icmp eq ptr %.181.lcssa, %0
   br i1 %136, label %137, label %139
 
-137:                                              ; preds = %._crit_edge143
+137:                                              ; preds = %._crit_edge142
   %138 = getelementptr inbounds nuw i8, ptr %.181.lcssa, i64 1
   store i8 46, ptr %.181.lcssa, align 1
   br label %139
 
-139:                                              ; preds = %137, %._crit_edge143
-  %.4 = phi ptr [ %138, %137 ], [ %.181.lcssa, %._crit_edge143 ]
+139:                                              ; preds = %137, %._crit_edge142
+  %.4 = phi ptr [ %138, %137 ], [ %.181.lcssa, %._crit_edge142 ]
   store i8 0, ptr %.4, align 1
   br label %140
 
@@ -973,26 +974,27 @@ trim_directory.exit:                              ; preds = %20, %.critedge.i
 69:                                               ; preds = %._crit_edge.i
   store i8 0, ptr %51, align 1
   %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
-  %.not.i47 = icmp ne i64 %70, 0
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %70
-  %.013.i48 = getelementptr inbounds i8, ptr %71, i64 -1
-  %72 = icmp ugt ptr %.013.i48, %0
-  %or.cond.i49 = select i1 %.not.i47, i1 %72, i1 false
-  br i1 %or.cond.i49, label %.lr.ph.i51, label %trim_trailing_separator.exit
+  %71 = icmp sgt i64 %70, 1
+  br i1 %71, label %.lr.ph.preheader.i, label %trim_trailing_separator.exit
 
-.lr.ph.i51:                                       ; preds = %69, %75
-  %.014.i = phi ptr [ %.0.i52, %75 ], [ %.013.i48, %69 ]
+.lr.ph.preheader.i:                               ; preds = %69
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 %70
+  %.013.i48 = getelementptr inbounds i8, ptr %72, i64 -1
+  br label %.lr.ph.i49
+
+.lr.ph.i49:                                       ; preds = %75, %.lr.ph.preheader.i
+  %.014.i = phi ptr [ %.0.i50, %75 ], [ %.013.i48, %.lr.ph.preheader.i ]
   %73 = load i8, ptr %.014.i, align 1
   %74 = icmp eq i8 %73, 47
   br i1 %74, label %75, label %trim_trailing_separator.exit
 
-75:                                               ; preds = %.lr.ph.i51
+75:                                               ; preds = %.lr.ph.i49
   store i8 0, ptr %.014.i, align 1
-  %.0.i52 = getelementptr inbounds i8, ptr %.014.i, i64 -1
-  %76 = icmp ugt ptr %.0.i52, %0
-  br i1 %76, label %.lr.ph.i51, label %trim_trailing_separator.exit, !llvm.loop !8
+  %.0.i50 = getelementptr inbounds i8, ptr %.014.i, i64 -1
+  %76 = icmp ugt ptr %.0.i50, %0
+  br i1 %76, label %.lr.ph.i49, label %trim_trailing_separator.exit, !llvm.loop !8
 
-trim_trailing_separator.exit:                     ; preds = %.lr.ph.i51, %75, %69
+trim_trailing_separator.exit:                     ; preds = %.lr.ph.i49, %75, %69
   %77 = getelementptr inbounds i8, ptr %1, i64 %21
   %78 = load i8, ptr %77, align 1
   %.not11.i = icmp eq i8 %78, 0

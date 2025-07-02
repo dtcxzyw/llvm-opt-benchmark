@@ -5955,7 +5955,7 @@ _ZN21ruff_python_formatter8comments8Comments3has17h851e396befa321e7E.exit.i: ; p
   br i1 %206, label %213, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h85b51a14aa708436E.exit17.i.i.i.i.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h85b51a14aa708436E.exit17.i.i.i.i.i.i.i.i": ; preds = %203
-  %207 = icmp ne ptr %196, %204
+  %207 = icmp ne i64 %197, 1
   call void @llvm.assume(i1 %207)
   %208 = getelementptr inbounds i8, ptr %198, i64 -2
   store ptr %208, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !746, !noalias !743
@@ -5970,7 +5970,7 @@ _ZN21ruff_python_formatter8comments8Comments3has17h851e396befa321e7E.exit.i: ; p
   br label %240
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h85b51a14aa708436E.exit19.i.i.i.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h85b51a14aa708436E.exit17.i.i.i.i.i.i.i.i"
-  %215 = icmp ne ptr %196, %208
+  %215 = icmp ne i64 %197, 2
   call void @llvm.assume(i1 %215)
   %216 = getelementptr inbounds i8, ptr %198, i64 -3
   store ptr %216, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !749, !noalias !743
@@ -5989,7 +5989,7 @@ _ZN21ruff_python_formatter8comments8Comments3has17h851e396befa321e7E.exit.i: ; p
   br label %240
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h85b51a14aa708436E.exit21.i.i.i.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h85b51a14aa708436E.exit19.i.i.i.i.i.i.i.i"
-  %226 = icmp ne ptr %196, %216
+  %226 = icmp ne i64 %197, 3
   call void @llvm.assume(i1 %226)
   %227 = getelementptr inbounds i8, ptr %198, i64 -4
   store ptr %227, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !752, !noalias !743

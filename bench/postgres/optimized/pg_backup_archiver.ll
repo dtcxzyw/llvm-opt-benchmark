@@ -10455,13 +10455,16 @@ define internal fastcc void @_getObjectDescription(ptr noundef nonnull %0, ptr n
   %103 = tail call ptr @pg_strdup(ptr noundef nonnull %102) #23
   %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %103) #25
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
-  %.069 = getelementptr inbounds i8, ptr %105, i64 -1
-  %.not70 = icmp ult ptr %.069, %103
-  br i1 %.not70, label %.critedge, label %.lr.ph
+  %.not70 = icmp slt i64 %104, 1
+  br i1 %.not70, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %99, %.critedge2
-  %.072 = phi ptr [ %.0, %.critedge2 ], [ %.069, %99 ]
-  %.pn71 = phi ptr [ %.072, %.critedge2 ], [ %105, %99 ]
+.lr.ph.preheader:                                 ; preds = %99
+  %.069 = getelementptr inbounds i8, ptr %105, i64 -1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
+  %.072 = phi ptr [ %.0, %.critedge2 ], [ %.069, %.lr.ph.preheader ]
+  %.pn71 = phi ptr [ %.072, %.critedge2 ], [ %105, %.lr.ph.preheader ]
   %106 = load i8, ptr %.072, align 1
   switch i8 %106, label %.critedge [
     i8 10, label %.critedge2

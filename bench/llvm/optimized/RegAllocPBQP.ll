@@ -6370,7 +6370,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %46, i64 -1
   %49 = load i8, ptr %48, align 1, !tbaa !124
-  %.not.i.i.i.i.i68 = icmp eq ptr %48, %.058
+  %.not.i.i.i.i.i68 = icmp eq i64 %.086, 1
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %50
 
 50:                                               ; preds = %47
@@ -11186,30 +11186,32 @@ define linkonce_odr hidden void @_ZN4llvm4PBQP8RegAlloc14MatrixMetadataC2ERKNS0_
   %.idx = shl nuw nsw i64 %39, 2
   %.add = add nsw i64 %.idx, -4
   %.ptr30 = getelementptr inbounds i8, ptr %16, i64 %.add
-  %or.cond.i.i = icmp ult i64 %.add, 8
+  %40 = icmp eq i32 %11, 1
+  %.not17.i.i = icmp eq i64 %.add, 4
+  %or.cond.i.i = select i1 %40, i1 true, i1 %.not17.i.i
   br i1 %or.cond.i.i, label %_ZSt11max_elementIPjET_S1_S1_.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %38
-  %40 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.pre.i.i = load i32, ptr %16, align 4, !tbaa !130
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %41 = phi i32 [ %45, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
-  %42 = phi ptr [ %46, %.lr.ph.i.i ], [ %40, %.lr.ph.preheader.i.i ]
+  %42 = phi i32 [ %46, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
+  %43 = phi ptr [ %47, %.lr.ph.i.i ], [ %41, %.lr.ph.preheader.i.i ]
   %.018.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %16, %.lr.ph.preheader.i.i ]
-  %43 = load i32, ptr %42, align 4, !tbaa !130
-  %44 = icmp ult i32 %41, %43
-  %45 = tail call i32 @llvm.umax.i32(i32 %41, i32 %43)
-  %spec.select.i.i = select i1 %44, ptr %42, ptr %.018.i.i
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %.not.i.i = icmp eq ptr %46, %.ptr30
+  %44 = load i32, ptr %43, align 4, !tbaa !130
+  %45 = icmp ult i32 %42, %44
+  %46 = tail call i32 @llvm.umax.i32(i32 %42, i32 %44)
+  %spec.select.i.i = select i1 %45, ptr %43, ptr %.018.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %.not.i.i = icmp eq ptr %47, %.ptr30
   br i1 %.not.i.i, label %_ZSt11max_elementIPjET_S1_S1_.exit, label %.lr.ph.i.i, !llvm.loop !852
 
 _ZSt11max_elementIPjET_S1_S1_.exit:               ; preds = %.lr.ph.i.i, %38
   %.011.i.i = phi ptr [ %16, %38 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %47 = load i32, ptr %.011.i.i, align 4, !tbaa !130
-  store i32 %47, ptr %3, align 4, !tbaa !849
+  %48 = load i32, ptr %.011.i.i, align 4, !tbaa !130
+  store i32 %48, ptr %3, align 4, !tbaa !849
   tail call void @_ZdaPv(ptr noundef nonnull %16) #28
   ret void
 }

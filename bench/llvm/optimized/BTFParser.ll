@@ -8051,14 +8051,14 @@ _ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit: ; preds = %32, %34
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %49 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.054, i64 %.085
+  %.idx = shl nsw i64 %.085, 4
+  %49 = getelementptr inbounds i8, ptr %.054, i64 %.idx
   %50 = getelementptr inbounds i8, ptr %49, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !558
-  %.not.i.i.i.i.i66 = icmp eq ptr %50, %.054
+  %.not.i.i.i.i.i66 = icmp eq i64 %.085, 1
   br i1 %.not.i.i.i.i.i66, label %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit, label %51
 
 51:                                               ; preds = %48
-  %.idx = shl nsw i64 %.085, 4
   %52 = add nsw i64 %.idx, -16
   %53 = ashr exact i64 %52, 4
   %54 = sub nsw i64 0, %53
@@ -9476,14 +9476,14 @@ _ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit: ; preds = %32, %34
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %49 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.054, i64 %.085
+  %.idx = shl nsw i64 %.085, 4
+  %49 = getelementptr inbounds i8, ptr %.054, i64 %.idx
   %50 = getelementptr inbounds i8, ptr %49, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !558
-  %.not.i.i.i.i.i66 = icmp eq ptr %50, %.054
+  %.not.i.i.i.i.i66 = icmp eq i64 %.085, 1
   br i1 %.not.i.i.i.i.i66, label %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit, label %51
 
 51:                                               ; preds = %48
-  %.idx = shl nsw i64 %.085, 4
   %52 = add nsw i64 %.idx, -16
   %53 = ashr exact i64 %52, 4
   %54 = sub nsw i64 0, %53

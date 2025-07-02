@@ -48981,7 +48981,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$uv_resolver..pubgrub..report..Padde
   br i1 %132, label %139, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit17.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit17.i": ; preds = %129
-  %133 = icmp ne ptr %125, %130
+  %133 = icmp ne i64 %126, 1
   call void @llvm.assume(i1 %133)
   %134 = getelementptr inbounds i8, ptr %127, i64 -2
   %135 = load i8, ptr %134, align 1, !noalias !11185, !noundef !8
@@ -48995,7 +48995,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$uv_resolver..pubgrub..report..Padde
   br label %166
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit19.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit17.i"
-  %141 = icmp ne ptr %125, %134
+  %141 = icmp ne i64 %126, 2
   call void @llvm.assume(i1 %141)
   %142 = getelementptr inbounds i8, ptr %127, i64 -3
   %143 = load i8, ptr %142, align 1, !noalias !11185, !noundef !8
@@ -49013,7 +49013,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$uv_resolver..pubgrub..report..Padde
   br label %166
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit21.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit19.i"
-  %152 = icmp ne ptr %125, %142
+  %152 = icmp ne i64 %126, 3
   call void @llvm.assume(i1 %152)
   %153 = getelementptr inbounds i8, ptr %127, i64 -4
   %154 = load i8, ptr %153, align 1, !noalias !11185, !noundef !8
@@ -49481,7 +49481,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$uv_resolver..pubgrub..report..Padde
   br i1 %131, label %138, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit17.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit17.i": ; preds = %128
-  %132 = icmp ne ptr %124, %129
+  %132 = icmp ne i64 %125, 1
   call void @llvm.assume(i1 %132)
   %133 = getelementptr inbounds i8, ptr %126, i64 -2
   %134 = load i8, ptr %133, align 1, !noalias !11245, !noundef !8
@@ -49495,7 +49495,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$uv_resolver..pubgrub..report..Padde
   br label %165
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit19.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit17.i"
-  %140 = icmp ne ptr %124, %133
+  %140 = icmp ne i64 %125, 2
   call void @llvm.assume(i1 %140)
   %141 = getelementptr inbounds i8, ptr %126, i64 -3
   %142 = load i8, ptr %141, align 1, !noalias !11245, !noundef !8
@@ -49513,7 +49513,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$uv_resolver..pubgrub..report..Padde
   br label %165
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit21.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit19.i"
-  %151 = icmp ne ptr %124, %141
+  %151 = icmp ne i64 %125, 3
   call void @llvm.assume(i1 %151)
   %152 = getelementptr inbounds i8, ptr %126, i64 -4
   %153 = load i8, ptr %152, align 1, !noalias !11245, !noundef !8
@@ -49930,7 +49930,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$uv_resolver..pubgrub..report..Padde
   br i1 %120, label %127, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit17.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit17.i": ; preds = %117
-  %121 = icmp ne ptr %113, %118
+  %121 = icmp ne i64 %114, 1
   call void @llvm.assume(i1 %121)
   %122 = getelementptr inbounds i8, ptr %115, i64 -2
   %123 = load i8, ptr %122, align 1, !noalias !11300, !noundef !8
@@ -49944,7 +49944,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$uv_resolver..pubgrub..report..Padde
   br label %154
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit19.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit17.i"
-  %129 = icmp ne ptr %113, %122
+  %129 = icmp ne i64 %114, 2
   call void @llvm.assume(i1 %129)
   %130 = getelementptr inbounds i8, ptr %115, i64 -3
   %131 = load i8, ptr %130, align 1, !noalias !11300, !noundef !8
@@ -49962,7 +49962,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$uv_resolver..pubgrub..report..Padde
   br label %154
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit21.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6c8f287ed567e581E.exit19.i"
-  %140 = icmp ne ptr %113, %130
+  %140 = icmp ne i64 %114, 3
   call void @llvm.assume(i1 %140)
   %141 = getelementptr inbounds i8, ptr %115, i64 -4
   %142 = load i8, ptr %141, align 1, !noalias !11300, !noundef !8

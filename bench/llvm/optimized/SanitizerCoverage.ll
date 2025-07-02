@@ -7654,12 +7654,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_123ModuleSanitizerCoverage17InjectT
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 134217727
+  %.not215 = icmp eq i32 %29, 1
+  br i1 %.not215, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %24
   %30 = zext nneg i32 %29 to i64
   %31 = sub nsw i64 0, %30
   %32 = getelementptr inbounds %"class.llvm::Use", ptr %25, i64 %31
   %.0204 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %.not215 = icmp eq ptr %.0204, %25
-  br i1 %.not215, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %80, %24
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #21
@@ -7678,8 +7681,8 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
   %.not = icmp eq ptr %36, %9
   br i1 %.not, label %._crit_edge11, label %24
 
-.lr.ph:                                           ; preds = %24, %80
-  %.0206 = phi ptr [ %.020, %80 ], [ %.0204, %24 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %80
+  %.0206 = phi ptr [ %.020, %80 ], [ %.0204, %.lr.ph.preheader ]
   %37 = load ptr, ptr %.0206, align 8, !tbaa !311
   %38 = load i8, ptr %37, align 8, !tbaa !250
   %39 = icmp eq i8 %38, 17

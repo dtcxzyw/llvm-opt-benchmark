@@ -8969,13 +8969,17 @@ define range(i32 0, 39) i32 @FT_Select_Charmap(ptr noundef captures(address_is_n
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8, !tbaa !336
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %9, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 -8
-  %.not2427.i = icmp ult ptr %15, %9
-  br i1 %.not2427.i, label %.preheader.i.preheader, label %.lr.ph.i
+  %.idx.i = shl nsw i64 %13, 3
+  %14 = getelementptr inbounds i8, ptr %9, i64 %.idx.i
+  %.not2427.i = icmp slt i32 %12, 1
+  br i1 %.not2427.i, label %.preheader.i.preheader, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %10, %.thread.i
-  %16 = phi ptr [ %32, %.thread.i ], [ %15, %10 ]
+.lr.ph.preheader.i:                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %14, i64 -8
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.preheader.i
+  %16 = phi ptr [ %32, %.thread.i ], [ %15, %.lr.ph.preheader.i ]
   %17 = load ptr, ptr %16, align 8, !tbaa !338
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !379
@@ -18226,13 +18230,17 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
   %65 = getelementptr inbounds nuw i8, ptr %.0.i17.i.ph, i64 72
   %66 = load i32, ptr %65, align 8, !tbaa !336
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %63, i64 %67
-  %69 = getelementptr inbounds i8, ptr %68, i64 -8
-  %.not2427.i = icmp ult ptr %69, %63
-  br i1 %.not2427.i, label %.preheader.i.preheader, label %.lr.ph.i
+  %.idx.i = shl nsw i64 %67, 3
+  %68 = getelementptr inbounds i8, ptr %63, i64 %.idx.i
+  %.not2427.i = icmp slt i32 %66, 1
+  br i1 %.not2427.i, label %.preheader.i.preheader, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %64, %.thread.i
-  %70 = phi ptr [ %86, %.thread.i ], [ %69, %64 ]
+.lr.ph.preheader.i:                               ; preds = %64
+  %69 = getelementptr inbounds i8, ptr %68, i64 -8
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.preheader.i
+  %70 = phi ptr [ %86, %.thread.i ], [ %69, %.lr.ph.preheader.i ]
   %71 = load ptr, ptr %70, align 8, !tbaa !338
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !379

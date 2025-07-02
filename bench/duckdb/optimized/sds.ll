@@ -2977,7 +2977,7 @@ define noundef ptr @_ZN10duckdb_hll7sdstrimEPcPKc(ptr noundef returned %0, ptr n
   %5 = load i8, ptr %4, align 1, !tbaa !20
   %6 = zext i8 %5 to i32
   %7 = and i32 %6, 7
-  switch i32 %7, label %_ZN10duckdb_hllL6sdslenEPc.exit [
+  switch i32 %7, label %.critedge2.thread [
     i32 0, label %8
     i32 1, label %11
     i32 2, label %15
@@ -3013,11 +3013,11 @@ define noundef ptr @_ZN10duckdb_hll7sdstrimEPcPKc(ptr noundef returned %0, ptr n
   %25 = load i64, ptr %24, align 1, !tbaa !16
   br label %_ZN10duckdb_hllL6sdslenEPc.exit
 
-_ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %2, %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %2 ]
+_ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %8, %11, %15, %19, %23
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i
   %27 = getelementptr inbounds i8, ptr %26, i64 -1
-  %.not33 = icmp ugt ptr %0, %27
+  %.not33 = icmp slt i64 %.0.i, 1
   br i1 %.not33, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN10duckdb_hllL6sdslenEPc.exit, %31
@@ -3070,14 +3070,15 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %2, %8, %11, %15, %1
   %43 = add i64 %reass.sub, 1
   %44 = select i1 %41, i64 0, i64 %43
   %.not32 = icmp eq ptr %0, %.0.lcssa
-  br i1 %.not32, label %46, label %45
+  br i1 %.not32, label %.critedge2.thread, label %45
 
 45:                                               ; preds = %.critedge2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %.0.lcssa, i64 %44, i1 false)
-  br label %46
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %.0.lcssa, i64 %44, i1 false)
+  br label %.critedge2.thread
 
-46:                                               ; preds = %45, %.critedge2
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %44
+.critedge2.thread:                                ; preds = %2, %45, %.critedge2
+  %46 = phi i64 [ %44, %45 ], [ %44, %.critedge2 ], [ 0, %2 ]
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %46
   store i8 0, ptr %47, align 1, !tbaa !20
   %48 = and i8 %5, 7
   switch i8 %48, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit [
@@ -3088,36 +3089,36 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %2, %8, %11, %15, %1
     i8 4, label %60
   ]
 
-49:                                               ; preds = %46
-  %.tr.i = trunc i64 %44 to i8
+49:                                               ; preds = %.critedge2.thread
+  %.tr.i = trunc i64 %46 to i8
   %50 = shl i8 %.tr.i, 3
   store i8 %50, ptr %4, align 1, !tbaa !20
   br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
-51:                                               ; preds = %46
-  %52 = trunc i64 %44 to i8
+51:                                               ; preds = %.critedge2.thread
+  %52 = trunc i64 %46 to i8
   %53 = getelementptr inbounds i8, ptr %0, i64 -4
   store i8 %52, ptr %53, align 1, !tbaa !3
   br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
-54:                                               ; preds = %46
-  %55 = trunc i64 %44 to i16
+54:                                               ; preds = %.critedge2.thread
+  %55 = trunc i64 %46 to i16
   %56 = getelementptr inbounds i8, ptr %0, i64 -6
   store i16 %55, ptr %56, align 1, !tbaa !8
   br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
-57:                                               ; preds = %46
-  %58 = trunc i64 %44 to i32
+57:                                               ; preds = %.critedge2.thread
+  %58 = trunc i64 %46 to i32
   %59 = getelementptr inbounds i8, ptr %0, i64 -10
   store i32 %58, ptr %59, align 1, !tbaa !12
   br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
-60:                                               ; preds = %46
+60:                                               ; preds = %.critedge2.thread
   %61 = getelementptr inbounds i8, ptr %0, i64 -18
-  store i64 %44, ptr %61, align 1, !tbaa !16
+  store i64 %46, ptr %61, align 1, !tbaa !16
   br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
-_ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %46, %49, %51, %54, %57, %60
+_ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %.critedge2.thread, %49, %51, %54, %57, %60
   ret ptr %0
 }
 

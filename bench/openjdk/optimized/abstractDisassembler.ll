@@ -186,7 +186,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler17print_instructionEPhiiP12o
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds i8, ptr %0, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 -2
-  %.not41 = icmp ugt ptr %0, %14
+  %.not41 = icmp slt i32 %1, 2
   br i1 %.not41, label %._crit_edge, label %.preheader39
 
 .preheader39:                                     ; preds = %9, %.preheader39

@@ -3617,7 +3617,7 @@ define linkonce_odr void @_ZN6open3d1t8geometry15RaycastingScene7CPUImpl15ArrayP
   %.idx = shl nuw nsw i64 %3, 2
   %.add = add nsw i64 %.idx, -4
   %.ptr4 = getelementptr inbounds i8, ptr %1, i64 %.add
-  %5 = icmp eq i64 %.add, 0
+  %5 = icmp eq i64 %3, 1
   br i1 %5, label %_ZSt11partial_sumIPiS0_ET0_T_S2_S1_.exit, label %6
 
 6:                                                ; preds = %4
@@ -37492,7 +37492,7 @@ define linkonce_odr void @_ZN3fmt3v106detail18for_each_codepointIZNS1_11find_esc
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 -3
-  %.not3668 = icmp ult ptr %0, %8
+  %.not3668 = icmp sgt i64 %1, 3
   br i1 %.not3668, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit

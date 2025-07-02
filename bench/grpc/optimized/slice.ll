@@ -1507,29 +1507,30 @@ define i32 @grpc_slice_slice(ptr noundef byval(%struct.grpc_slice) align 8 %0, p
   %75 = getelementptr inbounds nuw i8, ptr %14, i64 %10
   %76 = sub i64 0, %19
   %77 = getelementptr inbounds i8, ptr %75, i64 %76
-  %.not2732 = icmp ugt ptr %14, %77
+  %78 = sub i64 %10, %19
+  %.not2732 = icmp slt i64 %78, 0
   br i1 %.not2732, label %grpc_slice_eq.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %74, %84
-  %.033 = phi ptr [ %85, %84 ], [ %14, %74 ]
+.lr.ph:                                           ; preds = %74, %85
+  %.033 = phi ptr [ %86, %85 ], [ %14, %74 ]
   %bcmp = call i32 @bcmp(ptr %.033, ptr %23, i64 %19)
-  %78 = icmp eq i32 %bcmp, 0
-  br i1 %78, label %79, label %84
+  %79 = icmp eq i32 %bcmp, 0
+  br i1 %79, label %80, label %85
 
-79:                                               ; preds = %.lr.ph
-  %80 = ptrtoint ptr %.033 to i64
-  %81 = ptrtoint ptr %14 to i64
-  %82 = sub i64 %80, %81
-  %83 = trunc i64 %82 to i32
+80:                                               ; preds = %.lr.ph
+  %81 = ptrtoint ptr %.033 to i64
+  %82 = ptrtoint ptr %14 to i64
+  %83 = sub i64 %81, %82
+  %84 = trunc i64 %83 to i32
   br label %grpc_slice_eq.exit
 
-84:                                               ; preds = %.lr.ph
-  %85 = getelementptr inbounds nuw i8, ptr %.033, i64 1
-  %.not27 = icmp ugt ptr %85, %77
+85:                                               ; preds = %.lr.ph
+  %86 = getelementptr inbounds nuw i8, ptr %.033, i64 1
+  %.not27 = icmp ugt ptr %86, %77
   br i1 %.not27, label %grpc_slice_eq.exit, label %.lr.ph, !llvm.loop !87
 
-grpc_slice_eq.exit:                               ; preds = %84, %74, %79, %42, %40, %29, %2, %55
-  %.022 = phi i32 [ %73, %55 ], [ -1, %2 ], [ %52, %42 ], [ -1, %29 ], [ 0, %40 ], [ %83, %79 ], [ -1, %74 ], [ -1, %84 ]
+grpc_slice_eq.exit:                               ; preds = %85, %74, %80, %42, %40, %29, %2, %55
+  %.022 = phi i32 [ %73, %55 ], [ -1, %2 ], [ %52, %42 ], [ -1, %29 ], [ 0, %40 ], [ %84, %80 ], [ -1, %74 ], [ -1, %85 ]
   ret i32 %.022
 }
 

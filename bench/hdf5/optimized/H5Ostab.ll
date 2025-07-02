@@ -73,7 +73,7 @@ define internal ptr @H5O__stab_decode(ptr noundef %0, ptr readnone captures(none
   br i1 %.not, label %41, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ugt ptr %5, %9
+  %26 = icmp slt i64 %4, 1
   br i1 %26, label %37, label %27
 
 27:                                               ; preds = %25

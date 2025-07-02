@@ -1975,7 +1975,7 @@ _ZNK4llvm9SparseSetItNS_8identityItEEhE5countERKt.exit.thread: ; preds = %14, %3
   %34 = extractvalue { ptr, i64 } %32, 1
   %35 = getelementptr inbounds nuw i16, ptr %33, i64 %34
   %spec.select.i = getelementptr inbounds i8, ptr %35, i64 -2
-  %.not2631 = icmp eq ptr %33, %spec.select.i
+  %.not2631 = icmp eq i64 %34, 1
   br i1 %.not2631, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
@@ -3686,7 +3686,7 @@ _ZNK4llvm9SparseSetItNS_8identityItEEhE5countERKt.exit.thread.i: ; preds = %158,
   %176 = extractvalue { ptr, i64 } %174, 1
   %177 = getelementptr inbounds nuw i16, ptr %175, i64 %176
   %spec.select.i.i = getelementptr inbounds i8, ptr %177, i64 -2
-  %.not2631.i = icmp eq ptr %175, %spec.select.i.i
+  %.not2631.i = icmp eq i64 %176, 1
   br i1 %.not2631.i, label %_ZNK4llvm12LivePhysRegs9availableERKNS_19MachineRegisterInfoEt.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %172
@@ -3963,7 +3963,7 @@ _ZNK4llvm9SparseSetItNS_8identityItEEhE5countERKt.exit.thread.i47: ; preds = %28
   %299 = extractvalue { ptr, i64 } %297, 1
   %300 = getelementptr inbounds nuw i16, ptr %298, i64 %299
   %spec.select.i.i50 = getelementptr inbounds i8, ptr %300, i64 -2
-  %.not2631.i51 = icmp eq ptr %298, %spec.select.i.i50
+  %.not2631.i51 = icmp eq i64 %299, 1
   br i1 %.not2631.i51, label %_ZNK4llvm12LivePhysRegs9availableERKNS_19MachineRegisterInfoEt.exit70.thread, label %.lr.ph.i52
 
 .lr.ph.i52:                                       ; preds = %295

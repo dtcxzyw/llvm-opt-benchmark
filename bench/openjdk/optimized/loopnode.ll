@@ -3655,13 +3655,13 @@ _ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit:        ; preds = %29, %36, %47
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %59 = load i32, ptr %58, align 8
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
-  %62 = getelementptr inbounds i8, ptr %61, i64 -8
-  %.not25 = icmp ult ptr %62, %57
+  %.not25 = icmp eq i32 %59, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54
+  %60 = zext i32 %59 to i64
+  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
+  %62 = getelementptr inbounds i8, ptr %61, i64 -8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %64
 
@@ -16408,13 +16408,13 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %191, %199, %210
   %230 = load ptr, ptr %229, align 8
   %231 = getelementptr inbounds nuw i8, ptr %153, i64 32
   %232 = load i32, ptr %231, align 8
-  %233 = zext i32 %232 to i64
-  %234 = getelementptr inbounds nuw ptr, ptr %230, i64 %233
-  %235 = getelementptr inbounds i8, ptr %234, i64 -8
-  %.not104185 = icmp ult ptr %235, %230
+  %.not104185 = icmp eq i32 %232, 0
   br i1 %.not104185, label %.loopexit, label %.lr.ph188
 
 .lr.ph188:                                        ; preds = %228
+  %233 = zext i32 %232 to i64
+  %234 = getelementptr inbounds nuw ptr, ptr %230, i64 %233
+  %235 = getelementptr inbounds i8, ptr %234, i64 -8
   %236 = icmp eq ptr %227, null
   %237 = getelementptr inbounds nuw i8, ptr %227, i64 16
   %238 = getelementptr inbounds nuw i8, ptr %227, i64 32
@@ -16478,8 +16478,8 @@ _ZN9Node_List4pushEP4Node.exit.i.i:               ; preds = %266, %260
 _ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit: ; preds = %_ZN9VectorSet8test_setEj.exit.i.i, %_ZN9Node_List4pushEP4Node.exit.i.i
   %271 = getelementptr inbounds nuw i8, ptr %241, i64 28
   %272 = load i32, ptr %271, align 4
-  %.not197 = icmp eq i32 %272, 0
-  br i1 %.not197, label %._crit_edge184, label %.lr.ph183
+  %.not198 = icmp eq i32 %272, 0
+  br i1 %.not198, label %._crit_edge184, label %.lr.ph183
 
 .lr.ph183:                                        ; preds = %_ZN12PhaseIterGVN19rehash_node_delayedEP4Node.exit
   %273 = getelementptr inbounds nuw i8, ptr %241, i64 8
@@ -16654,11 +16654,11 @@ _ZN4Node7del_outEPS_.exit.i136:                   ; preds = %338, %_ZN4Node14fin
 
 _ZN4Node7set_reqEjPS_.exit133:                    ; preds = %352, %_ZN4Node7del_outEPS_.exit.i136, %325, %310, %302, %_ZN4Node7del_outEPS_.exit.i129
   %358 = add i32 %.085179, 1
-  %.pre205 = load i32, ptr %271, align 4
+  %.pre206 = load i32, ptr %271, align 4
   br label %359
 
 359:                                              ; preds = %275, %_ZN4Node7set_reqEjPS_.exit133
-  %360 = phi i32 [ %.pre205, %_ZN4Node7set_reqEjPS_.exit133 ], [ %276, %275 ]
+  %360 = phi i32 [ %.pre206, %_ZN4Node7set_reqEjPS_.exit133 ], [ %276, %275 ]
   %.1 = phi i32 [ %358, %_ZN4Node7set_reqEjPS_.exit133 ], [ %.085179, %275 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %361 = zext i32 %360 to i64

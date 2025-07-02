@@ -2248,7 +2248,7 @@ _ZN8smallvec10infallible17h6ff659b7aa002d22E.exit: ; preds = %9, %"_ZN8smallvec1
   %60 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %61 = getelementptr { i32, [15 x i32] }, ptr %60, i64 %14
   %62 = getelementptr i8, ptr %61, i64 -128
-  %63 = icmp eq ptr %60, %62
+  %63 = icmp eq i64 %14, 2
   br i1 %63, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %59

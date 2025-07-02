@@ -7909,7 +7909,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
   br i1 %152, label %.thread106.i.i.i, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit19.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit19.i.i.i.i": ; preds = %148
-  %153 = icmp ne ptr %10, %150
+  %153 = icmp ne i64 %127, 1
   call void @llvm.assume(i1 %153)
   %154 = getelementptr inbounds i8, ptr %149, i64 -2
   %155 = load i8, ptr %154, align 1, !alias.scope !1343, !noalias !1344, !noundef !4
@@ -7923,7 +7923,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
   br label %.thread126.i.i.i
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit21.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit19.i.i.i.i"
-  %160 = icmp ne ptr %10, %154
+  %160 = icmp ne i64 %127, 2
   call void @llvm.assume(i1 %160)
   %161 = getelementptr inbounds i8, ptr %149, i64 -3
   %162 = load i8, ptr %161, align 1, !alias.scope !1343, !noalias !1344, !noundef !4
@@ -7941,7 +7941,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
   br label %180
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit23.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit21.i.i.i.i"
-  %171 = icmp ne ptr %10, %161
+  %171 = icmp ne i64 %127, 3
   call void @llvm.assume(i1 %171)
   %172 = getelementptr inbounds i8, ptr %149, i64 -4
   %173 = load i8, ptr %172, align 1, !alias.scope !1343, !noalias !1344, !noundef !4
@@ -8239,7 +8239,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor15handle_regional17h52e382f04d
   br i1 %280, label %.thread42.i, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit19.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit19.i.i": ; preds = %276
-  %281 = icmp ne ptr %10, %278
+  %281 = icmp ne i64 %127, 1
   call void @llvm.assume(i1 %281), !noalias !1342
   %282 = getelementptr inbounds i8, ptr %277, i64 -2
   %283 = load i8, ptr %282, align 1, !alias.scope !1367, !noalias !1370, !noundef !4
@@ -8253,7 +8253,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor15handle_regional17h52e382f04d
   br label %313
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit21.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit19.i.i"
-  %288 = icmp ne ptr %10, %282
+  %288 = icmp ne i64 %127, 2
   call void @llvm.assume(i1 %288), !noalias !1342
   %289 = getelementptr inbounds i8, ptr %277, i64 -3
   %290 = load i8, ptr %289, align 1, !alias.scope !1367, !noalias !1370, !noundef !4
@@ -8272,7 +8272,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor15handle_regional17h52e382f04d
   br label %308
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit23.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit21.i.i"
-  %299 = icmp ne ptr %10, %289
+  %299 = icmp ne i64 %127, 3
   call void @llvm.assume(i1 %299), !noalias !1342
   %300 = getelementptr inbounds i8, ptr %277, i64 -4
   %301 = load i8, ptr %300, align 1, !alias.scope !1367, !noalias !1370, !noundef !4

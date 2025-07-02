@@ -8528,7 +8528,7 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFu
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = getelementptr ptr, ptr %31, i64 %30
   %33 = getelementptr i8, ptr %32, i64 -8
-  %.not72 = icmp eq ptr %31, %33
+  %.not72 = icmp eq i32 %29, 1
   br i1 %.not72, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %57

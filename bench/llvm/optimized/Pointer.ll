@@ -670,7 +670,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %3
   call void @_ZN5clang7APValue10MakeLValueEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
   call void @_ZN5clang7APValue9setLValueENS0_10LValueBaseERKNS_9CharUnitsEN4llvm8ArrayRefINS0_15LValuePathEntryEEEbb(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 %54, ptr %56, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr %51, i64 %53, i1 noundef zeroext false, i1 noundef zeroext true) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
-  br label %909
+  br label %908
 
 60:                                               ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit
   %61 = icmp eq i32 %36, 1
@@ -702,11 +702,11 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %3
   call void @_ZN5clang7APValue10MakeLValueEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
   call void @_ZN5clang7APValue9setLValueENS0_10LValueBaseERKNS_9CharUnitsEN4llvm8ArrayRefINS0_15LValuePathEntryEEEbb(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 %69, ptr %71, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr %66, i64 %68, i1 noundef zeroext false, i1 noundef zeroext false) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
-  br label %909
+  br label %908
 
 75:                                               ; preds = %41
   call void @_ZNK5clang6interp15FunctionPointer9toAPValueERKNS_10ASTContextE(ptr dead_on_unwind writable sret(%"class.clang::APValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(23216) %2) #20
-  br label %909
+  br label %908
 
 76:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #20
@@ -732,7 +732,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %3
   call void @_ZN5clang7APValue9setLValueENS0_10LValueBaseERKNS_9CharUnitsENS0_12NoLValuePathEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 %84, ptr %85, ptr noundef nonnull align 8 dereferenceable(8) %12, i1 noundef zeroext false) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #20
-  br label %909
+  br label %908
 
 .thread373:                                       ; preds = %..thread373_crit_edge, %37
   %89 = phi ptr [ %.pre, %..thread373_crit_edge ], [ %39, %37 ]
@@ -918,7 +918,7 @@ _ZNK5clang6interp7Pointer12isOnePastEndEv.exit:   ; preds = %_ZNK5clang6interp7P
   call void @_ZN5clang7APValue10MakeLValueEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
   call void @_ZN5clang7APValue9setLValueENS0_10LValueBaseERKNS_9CharUnitsEN4llvm8ArrayRefINS0_15LValuePathEntryEEEbb(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 %.sroa.0356.0, ptr %.sroa.9.0, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr %169, i64 %171, i1 noundef zeroext false, i1 noundef zeroext false) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #20
-  br label %909
+  br label %908
 
 _ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread: ; preds = %152, %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #20
@@ -2638,63 +2638,64 @@ _ZNK5clang6interp7Pointer14isArrayElementEv.exit: ; preds = %.backedge, %247, %2
   %891 = load ptr, ptr %6, align 8, !tbaa !50
   %892 = load i32, ptr %33, align 8, !tbaa !52
   %893 = zext i32 %892 to i64
-  %.idx = shl nuw nsw i64 %893, 3
-  %894 = getelementptr inbounds nuw i8, ptr %891, i64 %.idx
-  %895 = icmp ne i32 %892, 0
-  %.012.i.i = getelementptr inbounds i8, ptr %894, i64 -8
-  %896 = icmp ult ptr %891, %.012.i.i
-  %or.cond.i.i = select i1 %895, i1 %896, i1 false
-  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPN5clang7APValue15LValuePathEntryEEvT_S4_.exit
+  %894 = icmp ugt i32 %892, 1
+  br i1 %894, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIPN5clang7APValue15LValuePathEntryEEvT_S4_.exit
 
-.lr.ph.i.i:                                       ; preds = %_ZNK5clang6interp7Pointer14isArrayElementEv.exit, %.lr.ph.i.i
-  %.014.i.i = phi ptr [ %.0.i.i337, %.lr.ph.i.i ], [ %.012.i.i, %_ZNK5clang6interp7Pointer14isArrayElementEv.exit ]
-  %.0913.i.i = phi ptr [ %898, %.lr.ph.i.i ], [ %891, %_ZNK5clang6interp7Pointer14isArrayElementEv.exit ]
+.lr.ph.i.i.preheader:                             ; preds = %_ZNK5clang6interp7Pointer14isArrayElementEv.exit
+  %.idx = shl nuw nsw i64 %893, 3
+  %895 = getelementptr inbounds nuw i8, ptr %891, i64 %.idx
+  %.012.i.i = getelementptr inbounds i8, ptr %895, i64 -8
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.014.i.i = phi ptr [ %.0.i.i337, %.lr.ph.i.i ], [ %.012.i.i, %.lr.ph.i.i.preheader ]
+  %.0913.i.i = phi ptr [ %897, %.lr.ph.i.i ], [ %891, %.lr.ph.i.i.preheader ]
   %.sroa.0.0.copyload.i.i.i.i336 = load i64, ptr %.0913.i.i, align 8, !tbaa !42
-  %897 = load i64, ptr %.014.i.i, align 8, !tbaa !42
-  store i64 %897, ptr %.0913.i.i, align 8, !tbaa !42
+  %896 = load i64, ptr %.014.i.i, align 8, !tbaa !42
+  store i64 %896, ptr %.0913.i.i, align 8, !tbaa !42
   store i64 %.sroa.0.0.copyload.i.i.i.i336, ptr %.014.i.i, align 8, !tbaa !42
-  %898 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 8
+  %897 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 8
   %.0.i.i337 = getelementptr inbounds i8, ptr %.014.i.i, i64 -8
-  %899 = icmp ult ptr %898, %.0.i.i337
-  br i1 %899, label %.lr.ph.i.i, label %_ZSt7reverseIPN5clang7APValue15LValuePathEntryEEvT_S4_.exit, !llvm.loop !197
+  %898 = icmp ult ptr %897, %.0.i.i337
+  br i1 %898, label %.lr.ph.i.i, label %_ZSt7reverseIPN5clang7APValue15LValuePathEntryEEvT_S4_.exit, !llvm.loop !197
 
 _ZSt7reverseIPN5clang7APValue15LValuePathEntryEEvT_S4_.exit: ; preds = %.lr.ph.i.i, %_ZNK5clang6interp7Pointer14isArrayElementEv.exit
-  br i1 %185, label %907, label %900
+  br i1 %185, label %906, label %899
 
-900:                                              ; preds = %_ZSt7reverseIPN5clang7APValue15LValuePathEntryEEvT_S4_.exit
-  %901 = load i64, ptr %1, align 8, !tbaa !29
-  %902 = icmp eq i64 %901, 4294967295
-  br i1 %902, label %905, label %903
+899:                                              ; preds = %_ZSt7reverseIPN5clang7APValue15LValuePathEntryEEvT_S4_.exit
+  %900 = load i64, ptr %1, align 8, !tbaa !29
+  %901 = icmp eq i64 %900, 4294967295
+  br i1 %901, label %904, label %902
 
-903:                                              ; preds = %900
-  %904 = call noundef zeroext i1 @_ZNK5clang6interp7Pointer12isOnePastEndEv(ptr noundef nonnull align 8 dereferenceable(52) %1)
-  br label %905
+902:                                              ; preds = %899
+  %903 = call noundef zeroext i1 @_ZNK5clang6interp7Pointer12isOnePastEndEv(ptr noundef nonnull align 8 dereferenceable(52) %1)
+  br label %904
 
-905:                                              ; preds = %903, %900
-  %906 = phi i1 [ false, %900 ], [ %904, %903 ]
-  call void @_ZN5clang7APValueC2ENS0_10LValueBaseERKNS_9CharUnitsEN4llvm8ArrayRefINS0_15LValuePathEntryEEEbb(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 %.sroa.0356.0, ptr %.sroa.9.0, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr %891, i64 %893, i1 noundef zeroext %906, i1 noundef zeroext false)
-  br label %908
+904:                                              ; preds = %902, %899
+  %905 = phi i1 [ false, %899 ], [ %903, %902 ]
+  call void @_ZN5clang7APValueC2ENS0_10LValueBaseERKNS_9CharUnitsEN4llvm8ArrayRefINS0_15LValuePathEntryEEEbb(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 %.sroa.0356.0, ptr %.sroa.9.0, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr %891, i64 %893, i1 noundef zeroext %905, i1 noundef zeroext false)
+  br label %907
 
-907:                                              ; preds = %_ZSt7reverseIPN5clang7APValue15LValuePathEntryEEvT_S4_.exit
+906:                                              ; preds = %_ZSt7reverseIPN5clang7APValue15LValuePathEntryEEvT_S4_.exit
   call void @_ZN5clang7APValueC2ENS0_10LValueBaseERKNS_9CharUnitsENS0_12NoLValuePathEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 %.sroa.0356.0, ptr %.sroa.9.0, ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext false)
-  br label %908
+  br label %907
 
-908:                                              ; preds = %907, %905
+907:                                              ; preds = %906, %904
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %18) #20
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #20
-  br label %909
+  br label %908
 
-909:                                              ; preds = %_ZNK5clang6interp7Pointer12isOnePastEndEv.exit, %908, %76, %75, %62, %50
-  %910 = load ptr, ptr %6, align 8, !tbaa !50
-  %911 = icmp eq ptr %910, %32
-  br i1 %911, label %_ZN4llvm11SmallVectorIN5clang7APValue15LValuePathEntryELj5EED2Ev.exit, label %912
+908:                                              ; preds = %_ZNK5clang6interp7Pointer12isOnePastEndEv.exit, %907, %76, %75, %62, %50
+  %909 = load ptr, ptr %6, align 8, !tbaa !50
+  %910 = icmp eq ptr %909, %32
+  br i1 %910, label %_ZN4llvm11SmallVectorIN5clang7APValue15LValuePathEntryELj5EED2Ev.exit, label %911
 
-912:                                              ; preds = %909
-  call void @free(ptr noundef %910) #20
+911:                                              ; preds = %908
+  call void @free(ptr noundef %909) #20
   br label %_ZN4llvm11SmallVectorIN5clang7APValue15LValuePathEntryELj5EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang7APValue15LValuePathEntryELj5EED2Ev.exit: ; preds = %909, %912
+_ZN4llvm11SmallVectorIN5clang7APValue15LValuePathEntryELj5EED2Ev.exit: ; preds = %908, %911
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #20
   ret void
 }

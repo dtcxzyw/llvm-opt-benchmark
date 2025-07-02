@@ -1471,7 +1471,7 @@ define internal void @rgb15to16_c(ptr noundef readonly captures(address) %0, ptr
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 -3
-  %7 = icmp ult ptr %0, %6
+  %7 = icmp sgt i32 %2, 3
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -1682,7 +1682,7 @@ define internal void @rgb16to15_c(ptr noundef readonly captures(address) %0, ptr
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 -3
-  %7 = icmp ult ptr %0, %6
+  %7 = icmp sgt i32 %2, 3
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph

@@ -6779,17 +6779,17 @@ Abc_TtNot.exit.i:                                 ; preds = %.lr.ph.i.i, %81, %7
   %103 = add nsw i32 %74, -6
   %104 = shl nuw i32 1, %103
   %105 = select i1 %102, i32 1, i32 %104
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i64, ptr %80, i64 %106
-  %.01925.i.i = getelementptr inbounds i8, ptr %107, i64 -8
-  %.not26.i.i = icmp ult ptr %.01925.i.i, %80
+  %.not26.i.i = icmp slt i32 %105, 1
   br i1 %.not26.i.i, label %Abc_TtWriteHexRev.exit.i, label %.lr.ph.us.preheader.i.i
 
 .lr.ph.us.preheader.i.i:                          ; preds = %101
   %notmask.i.i = shl nsw i32 -1, %91
-  %108 = xor i32 %notmask.i.i, -1
-  %109 = select i1 %90, i32 15, i32 %108
-  %110 = zext nneg i32 %109 to i64
+  %106 = xor i32 %notmask.i.i, -1
+  %107 = select i1 %90, i32 15, i32 %106
+  %108 = zext nneg i32 %105 to i64
+  %109 = getelementptr inbounds nuw i64, ptr %80, i64 %108
+  %.01925.i.i = getelementptr inbounds i8, ptr %109, i64 -8
+  %110 = zext nneg i32 %107 to i64
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %..loopexit_crit_edge.us.i.i, %.lr.ph.us.preheader.i.i

@@ -30842,10 +30842,9 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %18
   tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %26, i1 false)
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %24, 2
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i
-  %.not5.i = icmp eq ptr %21, %27
-  br i1 %.not5.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit, label %.lr.ph.i.preheader
+  br label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %18, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
+.lr.ph.i.preheader:                               ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, %18
   %.0.i.i.i.i.i42 = phi ptr [ %27, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ %23, %18 ]
   %28 = select i1 %3, i32 0, i32 %17
   br label %.lr.ph.i
@@ -30857,64 +30856,67 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %18
   %29 = add i32 %.07.i, 1
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 4
   %.not.i = icmp eq ptr %30, %.0.i.i.i.i.i42
-  br i1 %.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit, label %.lr.ph.i, !llvm.loop !5232
+  br i1 %.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit.loopexit, label %.lr.ph.i, !llvm.loop !5232
 
-_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit: ; preds = %.lr.ph.i, %4, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
-  %.0.i.i.i.i.i39 = phi ptr [ %21, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %4 ], [ %.0.i.i.i.i.i42, %.lr.ph.i ]
-  %.sroa.026.038 = phi ptr [ %21, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %4 ], [ %21, %.lr.ph.i ]
-  %.sroa.9.037 = phi ptr [ %22, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %4 ], [ %22, %.lr.ph.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 -8
-  %35 = load i64, ptr %34, align 8
-  %36 = inttoptr i64 %35 to ptr
-  %37 = load i64, ptr %1, align 8
+_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit.loopexit: ; preds = %.lr.ph.i
+  %31 = ptrtoint ptr %.0.i.i.i.i.i42 to i64
+  %32 = ptrtoint ptr %22 to i64
+  br label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit
+
+_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit: ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit.loopexit, %4
+  %.0.i.i.i.i.i39 = phi i64 [ 0, %4 ], [ %31, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit.loopexit ]
+  %.sroa.026.038 = phi ptr [ null, %4 ], [ %21, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit.loopexit ]
+  %.sroa.9.037 = phi i64 [ 0, %4 ], [ %32, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit.loopexit ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 -8
+  %37 = load i64, ptr %36, align 8
   %38 = inttoptr i64 %37 to ptr
-  %39 = load ptr, ptr %31, align 8, !noalias !5233
-  %40 = tail call ptr @LLVMBuildBitCast(ptr noundef %39, ptr noundef %36, ptr noundef %38, ptr noundef nonnull @.str.11) #16, !noalias !5233
-  %41 = load ptr, ptr %31, align 8, !noalias !2011
-  br i1 %2, label %42, label %44
-
-42:                                               ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit
-  %43 = tail call ptr @LLVMBuildSExt(ptr noundef %41, ptr noundef %40, ptr noundef %14, ptr noundef nonnull @.str.11) #16, !noalias !5236
-  br label %46
+  %39 = load i64, ptr %1, align 8
+  %40 = inttoptr i64 %39 to ptr
+  %41 = load ptr, ptr %33, align 8, !noalias !5233
+  %42 = tail call ptr @LLVMBuildBitCast(ptr noundef %41, ptr noundef %38, ptr noundef %40, ptr noundef nonnull @.str.11) #16, !noalias !5233
+  %43 = load ptr, ptr %33, align 8, !noalias !2011
+  br i1 %2, label %44, label %46
 
 44:                                               ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit
-  %45 = tail call ptr @LLVMBuildZExt(ptr noundef %41, ptr noundef %40, ptr noundef %14, ptr noundef nonnull @.str.11) #16, !noalias !5239
-  br label %46
+  %45 = tail call ptr @LLVMBuildSExt(ptr noundef %43, ptr noundef %42, ptr noundef %14, ptr noundef nonnull @.str.11) #16, !noalias !5236
+  br label %48
 
-46:                                               ; preds = %44, %42
-  %.sroa.020.0 = phi ptr [ %43, %42 ], [ %45, %44 ]
-  %47 = tail call ptr @LLVMGetUndef(ptr noundef %14) #16, !noalias !5242
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = ptrtoint ptr %.0.i.i.i.i.i39 to i64
-  %50 = ptrtoint ptr %.sroa.026.038 to i64
-  %51 = sub i64 %49, %50
-  %52 = ashr exact i64 %51, 2
-  call void @_ZN8WasmEdge4LLVM5Value16getConstVector32ERNS0_7ContextEN5cxx204spanIKjLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr %.sroa.026.038, i64 %52) #16
-  %53 = load ptr, ptr %31, align 8, !noalias !5245
-  %54 = load ptr, ptr %5, align 8, !noalias !5245
-  %55 = call ptr @LLVMBuildShuffleVector(ptr noundef %53, ptr noundef %.sroa.020.0, ptr noundef %47, ptr noundef %54, ptr noundef nonnull @.str.11) #16, !noalias !5245
-  %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 176
-  %58 = load i64, ptr %57, align 8
-  %59 = inttoptr i64 %58 to ptr
-  %60 = load ptr, ptr %31, align 8, !noalias !5248
-  %61 = call ptr @LLVMBuildBitCast(ptr noundef %60, ptr noundef %55, ptr noundef %59, ptr noundef nonnull @.str.11) #16, !noalias !5248
-  %62 = load ptr, ptr %32, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 -8
-  store ptr %61, ptr %63, align 8
+46:                                               ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit
+  %47 = tail call ptr @LLVMBuildZExt(ptr noundef %43, ptr noundef %42, ptr noundef %14, ptr noundef nonnull @.str.11) #16, !noalias !5239
+  br label %48
+
+48:                                               ; preds = %46, %44
+  %.sroa.020.0 = phi ptr [ %45, %44 ], [ %47, %46 ]
+  %49 = tail call ptr @LLVMGetUndef(ptr noundef %14) #16, !noalias !5242
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = ptrtoint ptr %.sroa.026.038 to i64
+  %52 = sub i64 %.0.i.i.i.i.i39, %51
+  %53 = ashr exact i64 %52, 2
+  call void @_ZN8WasmEdge4LLVM5Value16getConstVector32ERNS0_7ContextEN5cxx204spanIKjLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr %.sroa.026.038, i64 %53) #16
+  %54 = load ptr, ptr %33, align 8, !noalias !5245
+  %55 = load ptr, ptr %5, align 8, !noalias !5245
+  %56 = call ptr @LLVMBuildShuffleVector(ptr noundef %54, ptr noundef %.sroa.020.0, ptr noundef %49, ptr noundef %55, ptr noundef nonnull @.str.11) #16, !noalias !5245
+  %57 = load ptr, ptr %0, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 176
+  %59 = load i64, ptr %58, align 8
+  %60 = inttoptr i64 %59 to ptr
+  %61 = load ptr, ptr %33, align 8, !noalias !5248
+  %62 = call ptr @LLVMBuildBitCast(ptr noundef %61, ptr noundef %56, ptr noundef %60, ptr noundef nonnull @.str.11) #16, !noalias !5248
+  %63 = load ptr, ptr %34, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 -8
+  store ptr %62, ptr %64, align 8
   %.not.i.i.i = icmp eq ptr %.sroa.026.038, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %64
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %65
 
-64:                                               ; preds = %46
-  %65 = ptrtoint ptr %.sroa.9.037 to i64
-  %66 = sub i64 %65, %50
+65:                                               ; preds = %48
+  %66 = sub i64 %.sroa.9.037, %51
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.026.038, i64 noundef %66) #18
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %46, %64
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %48, %65
   ret void
 }
 
@@ -31122,23 +31124,18 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.thread:        ; preds = %4
   %31 = getelementptr i8, ptr %28, i64 4
   %32 = add nsw i64 %26, -1
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.thread19, label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
-
-_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.thread19:      ; preds = %25
-  store ptr %31, ptr %24, align 8
-  br label %.lr.ph.i.preheader
+  br i1 %33, label %.lr.ph.i.preheader, label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %25
   %34 = add nsw i64 %27, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %31, i8 0, i64 %34, i1 false)
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %32, 2
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i.i.i.i
-  store ptr %35, ptr %24, align 8
-  %.not5.i = icmp eq ptr %28, %35
-  br i1 %.not5.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit, label %.lr.ph.i.preheader
+  br label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.thread19, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
-  %.0.i.i.i.i.i22 = phi ptr [ %31, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.thread19 ], [ %35, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ]
+.lr.ph.i.preheader:                               ; preds = %25, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
+  %storemerge = phi ptr [ %35, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ %31, %25 ]
+  store ptr %storemerge, ptr %24, align 8
   %36 = select i1 %3, i32 0, i32 %23
   br label %.lr.ph.i
 
@@ -31148,10 +31145,10 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %25
   store i32 %.07.i, ptr %.sroa.02.06.i, align 4
   %37 = add i32 %.07.i, 1
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 4
-  %.not.i = icmp eq ptr %38, %.0.i.i.i.i.i22
+  %.not.i = icmp eq ptr %38, %storemerge
   br i1 %.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit, label %.lr.ph.i, !llvm.loop !5232
 
-_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit: ; preds = %.lr.ph.i, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.thread, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
+_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_T0_.exit: ; preds = %.lr.ph.i, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.thread
   store ptr %0, ptr %6, align 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %40 = load i64, ptr %1, align 8
@@ -34042,8 +34039,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i:           ; preds = %15
   tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %24, i1 false), !noalias !6059
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %22, 2
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i.i
-  %.not5.i.i.i = icmp eq ptr %19, %25
-  br i1 %.not5.i.i.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i, label %.lr.ph.i.preheader.i.i
+  br label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i, %15
   %.0.i.i.i.i.i21.i.i = phi ptr [ %25, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i ], [ %21, %15 ]
@@ -34056,33 +34052,36 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i:           ; preds = %15
   %26 = add nuw nsw i32 %.07.i.i.i, 1
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %27, %.0.i.i.i.i.i21.i.i
-  br i1 %.not.i.i.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !4762
+  br i1 %.not.i.i.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !4762
 
-_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i, %13
-  %.0.i.i.i.i.i18.i.i = phi ptr [ %19, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i ], [ null, %13 ], [ %.0.i.i.i.i.i21.i.i, %.lr.ph.i.i.i ]
-  %.sroa.08.017.i.i = phi ptr [ %19, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i ], [ null, %13 ], [ %19, %.lr.ph.i.i.i ]
-  %.sroa.9.016.i.i = phi ptr [ %20, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i ], [ null, %13 ], [ %20, %.lr.ph.i.i.i ]
-  %28 = tail call ptr @LLVMGetUndef(ptr noundef %4) #16, !noalias !6062
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = ptrtoint ptr %.0.i.i.i.i.i18.i.i to i64
-  %31 = ptrtoint ptr %.sroa.08.017.i.i to i64
-  %32 = sub i64 %30, %31
-  %33 = ashr exact i64 %32, 2
-  call void @_ZN8WasmEdge4LLVM5Value16getConstVector32ERNS0_7ContextEN5cxx204spanIKjLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr %.sroa.08.017.i.i, i64 %33) #16, !noalias !6059
-  %34 = load ptr, ptr %5, align 8, !noalias !6065
-  %35 = load ptr, ptr %3, align 8, !noalias !6065
-  %36 = call ptr @LLVMBuildShuffleVector(ptr noundef %34, ptr noundef %12, ptr noundef %28, ptr noundef %35, ptr noundef nonnull @.str.11) #16, !noalias !6065
+_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i
+  %28 = ptrtoint ptr %.0.i.i.i.i.i21.i.i to i64
+  %29 = ptrtoint ptr %20 to i64
+  br label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i
+
+_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i: ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.loopexit.i, %13
+  %.0.i.i.i.i.i18.i.i = phi i64 [ 0, %13 ], [ %28, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.loopexit.i ]
+  %.sroa.08.017.i.i = phi ptr [ null, %13 ], [ %19, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.loopexit.i ]
+  %.sroa.9.016.i.i = phi i64 [ 0, %13 ], [ %29, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.loopexit.i ]
+  %30 = tail call ptr @LLVMGetUndef(ptr noundef %4) #16, !noalias !6062
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = ptrtoint ptr %.sroa.08.017.i.i to i64
+  %33 = sub i64 %.0.i.i.i.i.i18.i.i, %32
+  %34 = ashr exact i64 %33, 2
+  call void @_ZN8WasmEdge4LLVM5Value16getConstVector32ERNS0_7ContextEN5cxx204spanIKjLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr %.sroa.08.017.i.i, i64 %34) #16, !noalias !6059
+  %35 = load ptr, ptr %5, align 8, !noalias !6065
+  %36 = load ptr, ptr %3, align 8, !noalias !6065
+  %37 = call ptr @LLVMBuildShuffleVector(ptr noundef %35, ptr noundef %12, ptr noundef %30, ptr noundef %36, ptr noundef nonnull @.str.11) #16, !noalias !6065
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.08.017.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_116FunctionCompiler15compileVectorOpIZNS0_21compileVectorConvertSEN8WasmEdge4LLVM4TypeES4_bEUlT_E_EEvS4_OS5_.exit, label %37
+  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_116FunctionCompiler15compileVectorOpIZNS0_21compileVectorConvertSEN8WasmEdge4LLVM4TypeES4_bEUlT_E_EEvS4_OS5_.exit, label %38
 
-37:                                               ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i
-  %38 = ptrtoint ptr %.sroa.9.016.i.i to i64
-  %39 = sub i64 %38, %31
+38:                                               ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i
+  %39 = sub i64 %.sroa.9.016.i.i, %32
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.08.017.i.i, i64 noundef %39) #18, !noalias !6059
   br label %_ZN12_GLOBAL__N_116FunctionCompiler15compileVectorOpIZNS0_21compileVectorConvertSEN8WasmEdge4LLVM4TypeES4_bEUlT_E_EEvS4_OS5_.exit
 
-_ZN12_GLOBAL__N_116FunctionCompiler15compileVectorOpIZNS0_21compileVectorConvertSEN8WasmEdge4LLVM4TypeES4_bEUlT_E_EEvS4_OS5_.exit: ; preds = %2, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i, %37
-  %.sroa.01.0.i = phi ptr [ %36, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i ], [ %36, %37 ], [ %12, %2 ]
+_ZN12_GLOBAL__N_116FunctionCompiler15compileVectorOpIZNS0_21compileVectorConvertSEN8WasmEdge4LLVM4TypeES4_bEUlT_E_EEvS4_OS5_.exit: ; preds = %2, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i, %38
+  %.sroa.01.0.i = phi ptr [ %37, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i ], [ %37, %38 ], [ %12, %2 ]
   %40 = inttoptr i64 %.0.val1 to ptr
   %41 = load ptr, ptr %5, align 8, !noalias !6068
   %42 = call ptr @LLVMBuildSIToFP(ptr noundef %41, ptr noundef %.sroa.01.0.i, ptr noundef %40, ptr noundef nonnull @.str.11) #16, !noalias !6068
@@ -34136,8 +34135,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i:           ; preds = %15
   tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %24, i1 false), !noalias !6077
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %22, 2
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i.i
-  %.not5.i.i.i = icmp eq ptr %19, %25
-  br i1 %.not5.i.i.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i, label %.lr.ph.i.preheader.i.i
+  br label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i, %15
   %.0.i.i.i.i.i21.i.i = phi ptr [ %25, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i ], [ %21, %15 ]
@@ -34150,33 +34148,36 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i:           ; preds = %15
   %26 = add nuw nsw i32 %.07.i.i.i, 1
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %27, %.0.i.i.i.i.i21.i.i
-  br i1 %.not.i.i.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !4762
+  br i1 %.not.i.i.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !4762
 
-_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i, %13
-  %.0.i.i.i.i.i18.i.i = phi ptr [ %19, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i ], [ null, %13 ], [ %.0.i.i.i.i.i21.i.i, %.lr.ph.i.i.i ]
-  %.sroa.08.017.i.i = phi ptr [ %19, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i ], [ null, %13 ], [ %19, %.lr.ph.i.i.i ]
-  %.sroa.9.016.i.i = phi ptr [ %20, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i ], [ null, %13 ], [ %20, %.lr.ph.i.i.i ]
-  %28 = tail call ptr @LLVMGetUndef(ptr noundef %4) #16, !noalias !6080
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = ptrtoint ptr %.0.i.i.i.i.i18.i.i to i64
-  %31 = ptrtoint ptr %.sroa.08.017.i.i to i64
-  %32 = sub i64 %30, %31
-  %33 = ashr exact i64 %32, 2
-  call void @_ZN8WasmEdge4LLVM5Value16getConstVector32ERNS0_7ContextEN5cxx204spanIKjLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr %.sroa.08.017.i.i, i64 %33) #16, !noalias !6077
-  %34 = load ptr, ptr %5, align 8, !noalias !6083
-  %35 = load ptr, ptr %3, align 8, !noalias !6083
-  %36 = call ptr @LLVMBuildShuffleVector(ptr noundef %34, ptr noundef %12, ptr noundef %28, ptr noundef %35, ptr noundef nonnull @.str.11) #16, !noalias !6083
+_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i
+  %28 = ptrtoint ptr %.0.i.i.i.i.i21.i.i to i64
+  %29 = ptrtoint ptr %20 to i64
+  br label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i
+
+_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i: ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.loopexit.i, %13
+  %.0.i.i.i.i.i18.i.i = phi i64 [ 0, %13 ], [ %28, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.loopexit.i ]
+  %.sroa.08.017.i.i = phi ptr [ null, %13 ], [ %19, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.loopexit.i ]
+  %.sroa.9.016.i.i = phi i64 [ 0, %13 ], [ %29, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.loopexit.i ]
+  %30 = tail call ptr @LLVMGetUndef(ptr noundef %4) #16, !noalias !6080
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = ptrtoint ptr %.sroa.08.017.i.i to i64
+  %33 = sub i64 %.0.i.i.i.i.i18.i.i, %32
+  %34 = ashr exact i64 %33, 2
+  call void @_ZN8WasmEdge4LLVM5Value16getConstVector32ERNS0_7ContextEN5cxx204spanIKjLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr %.sroa.08.017.i.i, i64 %34) #16, !noalias !6077
+  %35 = load ptr, ptr %5, align 8, !noalias !6083
+  %36 = load ptr, ptr %3, align 8, !noalias !6083
+  %37 = call ptr @LLVMBuildShuffleVector(ptr noundef %35, ptr noundef %12, ptr noundef %30, ptr noundef %36, ptr noundef nonnull @.str.11) #16, !noalias !6083
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.08.017.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_116FunctionCompiler15compileVectorOpIZNS0_21compileVectorConvertUEN8WasmEdge4LLVM4TypeES4_bEUlT_E_EEvS4_OS5_.exit, label %37
+  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_116FunctionCompiler15compileVectorOpIZNS0_21compileVectorConvertUEN8WasmEdge4LLVM4TypeES4_bEUlT_E_EEvS4_OS5_.exit, label %38
 
-37:                                               ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i
-  %38 = ptrtoint ptr %.sroa.9.016.i.i to i64
-  %39 = sub i64 %38, %31
+38:                                               ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i
+  %39 = sub i64 %.sroa.9.016.i.i, %32
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.08.017.i.i, i64 noundef %39) #18, !noalias !6077
   br label %_ZN12_GLOBAL__N_116FunctionCompiler15compileVectorOpIZNS0_21compileVectorConvertUEN8WasmEdge4LLVM4TypeES4_bEUlT_E_EEvS4_OS5_.exit
 
-_ZN12_GLOBAL__N_116FunctionCompiler15compileVectorOpIZNS0_21compileVectorConvertUEN8WasmEdge4LLVM4TypeES4_bEUlT_E_EEvS4_OS5_.exit: ; preds = %2, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i, %37
-  %.sroa.01.0.i = phi ptr [ %36, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i ], [ %36, %37 ], [ %12, %2 ]
+_ZN12_GLOBAL__N_116FunctionCompiler15compileVectorOpIZNS0_21compileVectorConvertUEN8WasmEdge4LLVM4TypeES4_bEUlT_E_EEvS4_OS5_.exit: ; preds = %2, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i, %38
+  %.sroa.01.0.i = phi ptr [ %37, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i.i ], [ %37, %38 ], [ %12, %2 ]
   %40 = inttoptr i64 %.0.val1 to ptr
   %41 = load ptr, ptr %5, align 8, !noalias !6086
   %42 = call ptr @LLVMBuildUIToFP(ptr noundef %41, ptr noundef %.sroa.01.0.i, ptr noundef %40, ptr noundef nonnull @.str.11) #16, !noalias !6086

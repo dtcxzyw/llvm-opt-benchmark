@@ -32062,7 +32062,7 @@ _ZN18ruff_python_parser5lexer6cursor6Cursor8eat_char17h40f5bf45a7cb2b88E.exit135
   br i1 %309, label %.thread, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h9e8cb38b956e1fc7E.exit17.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h9e8cb38b956e1fc7E.exit17.i": ; preds = %306
-  %310 = icmp ne ptr %302, %307
+  %310 = icmp ne i64 %303, 1
   call void @llvm.assume(i1 %310)
   %311 = getelementptr inbounds i8, ptr %304, i64 -2
   %312 = load i8, ptr %311, align 1, !noalias !5251, !noundef !3
@@ -32076,7 +32076,7 @@ _ZN18ruff_python_parser5lexer6cursor6Cursor8eat_char17h40f5bf45a7cb2b88E.exit135
   br label %342
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h9e8cb38b956e1fc7E.exit19.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h9e8cb38b956e1fc7E.exit17.i"
-  %317 = icmp ne ptr %302, %311
+  %317 = icmp ne i64 %303, 2
   call void @llvm.assume(i1 %317)
   %318 = getelementptr inbounds i8, ptr %304, i64 -3
   %319 = load i8, ptr %318, align 1, !noalias !5251, !noundef !3
@@ -32086,7 +32086,7 @@ _ZN18ruff_python_parser5lexer6cursor6Cursor8eat_char17h40f5bf45a7cb2b88E.exit135
   br i1 %322, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h9e8cb38b956e1fc7E.exit21.i", label %332
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h9e8cb38b956e1fc7E.exit21.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h9e8cb38b956e1fc7E.exit19.i"
-  %323 = icmp ne ptr %302, %318
+  %323 = icmp ne i64 %303, 3
   call void @llvm.assume(i1 %323)
   %324 = getelementptr inbounds i8, ptr %304, i64 -4
   %325 = load i8, ptr %324, align 1, !noalias !5251, !noundef !3

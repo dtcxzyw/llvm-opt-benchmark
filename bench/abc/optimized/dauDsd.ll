@@ -5549,17 +5549,17 @@ define internal fastcc range(i32 1, 3) i32 @Dau_DsdWritePrime(ptr noundef %0, pt
 36:                                               ; preds = %18
   %37 = icmp samesign ult i32 %3, 7
   %38 = select i1 %37, i32 1, i32 %12
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i64, ptr %1, i64 %39
-  %.01925.i = getelementptr inbounds i8, ptr %40, i64 -8
-  %.not26.i = icmp ult ptr %.01925.i, %1
+  %.not26.i = icmp slt i32 %38, 1
   br i1 %.not26.i, label %Abc_TtWriteHexRev.exit, label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %36
   %notmask.i = shl nsw i32 -1, %25
-  %41 = xor i32 %notmask.i, -1
-  %42 = select i1 %24, i32 15, i32 %41
-  %43 = zext nneg i32 %42 to i64
+  %39 = xor i32 %notmask.i, -1
+  %40 = select i1 %24, i32 15, i32 %39
+  %41 = zext nneg i32 %38 to i64
+  %42 = getelementptr inbounds nuw i64, ptr %1, i64 %41
+  %.01925.i = getelementptr inbounds i8, ptr %42, i64 -8
+  %43 = zext nneg i32 %40 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
@@ -5889,22 +5889,22 @@ Dau_DsdWriteString.exit71:                        ; preds = %.lr.ph.i68, %Abc_Tt
   %205 = add nsw i32 %3, -6
   %206 = shl nuw i32 1, %205
   %207 = select i1 %204, i32 1, i32 %206
-  %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds i64, ptr %1, i64 %208
-  %.01925.i76 = getelementptr inbounds i8, ptr %209, i64 -8
-  %.not26.i77 = icmp ult ptr %.01925.i76, %1
-  br i1 %.not26.i77, label %Abc_TtWriteHexRev.exit92, label %.lr.ph.us.preheader.i78
+  %.not26.i76 = icmp slt i32 %207, 1
+  br i1 %.not26.i76, label %Abc_TtWriteHexRev.exit92, label %.lr.ph.us.preheader.i77
 
-.lr.ph.us.preheader.i78:                          ; preds = %203
-  %notmask.i79 = shl nsw i32 -1, %192
-  %210 = xor i32 %notmask.i79, -1
-  %211 = select i1 %191, i32 15, i32 %210
-  %212 = zext nneg i32 %211 to i64
+.lr.ph.us.preheader.i77:                          ; preds = %203
+  %notmask.i78 = shl nsw i32 -1, %192
+  %208 = xor i32 %notmask.i78, -1
+  %209 = select i1 %191, i32 15, i32 %208
+  %210 = zext nneg i32 %207 to i64
+  %211 = getelementptr inbounds nuw i64, ptr %1, i64 %210
+  %.01925.i79 = getelementptr inbounds i8, ptr %211, i64 -8
+  %212 = zext nneg i32 %209 to i64
   br label %.lr.ph.us.i80
 
-.lr.ph.us.i80:                                    ; preds = %..loopexit_crit_edge.us.i87, %.lr.ph.us.preheader.i78
-  %.01928.us.i81 = phi ptr [ %.019.us.i88, %..loopexit_crit_edge.us.i87 ], [ %.01925.i76, %.lr.ph.us.preheader.i78 ]
-  %.127.us.i82 = phi ptr [ %224, %..loopexit_crit_edge.us.i87 ], [ %190, %.lr.ph.us.preheader.i78 ]
+.lr.ph.us.i80:                                    ; preds = %..loopexit_crit_edge.us.i87, %.lr.ph.us.preheader.i77
+  %.01928.us.i81 = phi ptr [ %.019.us.i88, %..loopexit_crit_edge.us.i87 ], [ %.01925.i79, %.lr.ph.us.preheader.i77 ]
+  %.127.us.i82 = phi ptr [ %224, %..loopexit_crit_edge.us.i87 ], [ %190, %.lr.ph.us.preheader.i77 ]
   br label %213
 
 213:                                              ; preds = %213, %.lr.ph.us.i80

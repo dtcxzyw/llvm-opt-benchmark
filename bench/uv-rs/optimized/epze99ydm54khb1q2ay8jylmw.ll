@@ -17426,7 +17426,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.010.066 = phi i64 [ %48, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h4f638cc5021ef289E.llvm.4307772375316082757.exit ], [ %.sroa.0.0, %35 ]
   %48 = add i64 %.sroa.010.066, 1
   %49 = getelementptr inbounds i32, ptr %40, i64 %.sroa.010.066
-  %50 = getelementptr inbounds i32, ptr %41, i64 %.sroa.010.066
+  %.idx = shl nsw i64 %.sroa.010.066, 2
+  %50 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %51 = load i32, ptr %49, align 4
   store i32 %51, ptr %50, align 4
   %52 = getelementptr inbounds i8, ptr %50, i64 -4
@@ -17475,7 +17476,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit._crit_edge.i": ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit.i", %65
   store i32 %.val9.i, ptr %50, align 4, !noalias !4324
-  %69 = icmp eq ptr %52, %41
+  %69 = icmp eq i64 %.sroa.010.066, 1
   br i1 %69, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit._crit_edge.i", %.backedge.i
@@ -17537,7 +17538,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   br i1 %89, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit23.i", %83, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit._crit_edge.i"
-  %.sroa.0.0.lcssa.i = phi ptr [ %41, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit._crit_edge.i" ], [ %41, %.backedge.i ], [ %.sroa.0.040.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit23.i" ], [ %.sroa.0.040.i, %83 ]
+  %.sroa.0.0.lcssa.i = phi ptr [ %52, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit._crit_edge.i" ], [ %41, %.backedge.i ], [ %.sroa.0.040.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hac1c650d53409360E.exit23.i" ], [ %.sroa.0.040.i, %83 ]
   store i32 %51, ptr %.sroa.0.0.lcssa.i, align 4, !noalias !4337
   br label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h4f638cc5021ef289E.llvm.4307772375316082757.exit
 

@@ -4049,41 +4049,41 @@ invoke.cont228.thread:                            ; preds = %if.then27.i
   %_M_finish74.i1350 = getelementptr inbounds nuw i8, ptr %tauK, i64 8
   store ptr %add.ptr72.i1349, ptr %_M_finish74.i1350, align 8, !tbaa !128
   %cmp.not.i2131351 = icmp eq ptr %add.ptr72.i1349, %136
-  br i1 %cmp.not.i2131351, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i, label %if.then.i
+  br i1 %cmp.not.i2131351, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i, label %if.then9.i
 
-if.then.i:                                        ; preds = %invoke.cont228.thread, %invoke.cont228
-  %_M_finish74.i1354 = phi ptr [ %_M_finish74.i1350, %invoke.cont228.thread ], [ %_M_finish74.i, %invoke.cont228 ]
-  %add.ptr72.i1352 = phi ptr [ %add.ptr72.i1349, %invoke.cont228.thread ], [ %add.ptr72.i, %invoke.cont228 ]
-  %141 = phi ptr [ %137, %invoke.cont228.thread ], [ %140, %invoke.cont228 ]
-  %142 = phi ptr [ %136, %invoke.cont228.thread ], [ %139, %invoke.cont228 ]
+if.then.i:                                        ; preds = %invoke.cont228
   %cmp.i.i = icmp eq ptr %134, %135
   br i1 %cmp.i.i, label %if.then9.i, label %if.else.i214
 
-if.then9.i:                                       ; preds = %if.then.i
-  store double 0.000000e+00, ptr %add.ptr72.i1352, align 8, !tbaa !127
-  %incdec.ptr.i218 = getelementptr inbounds nuw i8, ptr %add.ptr72.i1352, i64 8
-  store ptr %incdec.ptr.i218, ptr %_M_finish74.i1354, align 8, !tbaa !128
+if.then9.i:                                       ; preds = %invoke.cont228.thread, %if.then.i
+  %141 = phi ptr [ %139, %if.then.i ], [ %136, %invoke.cont228.thread ]
+  %142 = phi ptr [ %140, %if.then.i ], [ %137, %invoke.cont228.thread ]
+  %add.ptr72.i13521364 = phi ptr [ %add.ptr72.i, %if.then.i ], [ %add.ptr72.i1349, %invoke.cont228.thread ]
+  %_M_finish74.i13541362 = phi ptr [ %_M_finish74.i, %if.then.i ], [ %_M_finish74.i1350, %invoke.cont228.thread ]
+  store double 0.000000e+00, ptr %add.ptr72.i13521364, align 8, !tbaa !127
+  %incdec.ptr.i218 = getelementptr inbounds nuw i8, ptr %add.ptr72.i13521364, i64 8
+  store ptr %incdec.ptr.i218, ptr %_M_finish74.i13541362, align 8, !tbaa !128
   br label %invoke.cont236
 
 if.else.i214:                                     ; preds = %if.then.i
-  %add.ptr.i9.i = getelementptr inbounds i8, ptr %add.ptr72.i1352, i64 -8
+  %add.ptr.i9.i = getelementptr inbounds i8, ptr %add.ptr72.i, i64 -8
   %143 = load double, ptr %add.ptr.i9.i, align 8, !tbaa !127
-  store double %143, ptr %add.ptr72.i1352, align 8, !tbaa !127
-  %incdec.ptr.i.i215 = getelementptr inbounds nuw i8, ptr %add.ptr72.i1352, i64 8
-  store ptr %incdec.ptr.i.i215, ptr %_M_finish74.i1354, align 8, !tbaa !128
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i9.i, %141
+  store double %143, ptr %add.ptr72.i, align 8, !tbaa !127
+  %incdec.ptr.i.i215 = getelementptr inbounds nuw i8, ptr %add.ptr72.i, i64 8
+  store ptr %incdec.ptr.i.i215, ptr %_M_finish74.i, align 8, !tbaa !128
+  %tobool.not.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i, 8
   br i1 %tobool.not.i.i.i.i.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i214
   %sub.ptr.sub.i.i.i.i.i.i.i = add nsw i64 %sub.ptr.sub.i.i, -8
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
   %idx.neg.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %add.ptr72.i1352, i64 %idx.neg.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i.i, ptr nonnull align 8 %141, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %add.ptr72.i, i64 %idx.neg.i.i.i.i.i.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i.i, ptr nonnull align 8 %140, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i.i.i.i.i.i, %if.else.i214
-  store double 0.000000e+00, ptr %141, align 8, !tbaa !127
+  store double 0.000000e+00, ptr %140, align 8, !tbaa !127
   br label %invoke.cont236
 
 if.else26.i:                                      ; preds = %invoke.cont228
@@ -4139,9 +4139,9 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %invoke.cont236
 
 invoke.cont236:                                   ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, %invoke.cont.i, %if.then9.i
-  %_M_finish74.i1355 = phi ptr [ %_M_finish74.i13531358, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %_M_finish74.i1354, %invoke.cont.i ], [ %_M_finish74.i1354, %if.then9.i ]
-  %146 = phi ptr [ %call5.i.i.i.i.i226, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %141, %invoke.cont.i ], [ %141, %if.then9.i ]
-  %147 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %142, %invoke.cont.i ], [ %142, %if.then9.i ]
+  %_M_finish74.i1355 = phi ptr [ %_M_finish74.i13531358, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %_M_finish74.i, %invoke.cont.i ], [ %_M_finish74.i13541362, %if.then9.i ]
+  %146 = phi ptr [ %call5.i.i.i.i.i226, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %140, %invoke.cont.i ], [ %142, %if.then9.i ]
+  %147 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %139, %invoke.cont.i ], [ %141, %if.then9.i ]
   %148 = phi ptr [ %add.ptr.i.i.i15.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %incdec.ptr.i.i215, %invoke.cont.i ], [ %incdec.ptr.i218, %if.then9.i ]
   %cmp.not.i229 = icmp eq ptr %148, %147
   br i1 %cmp.not.i229, label %if.else.i232, label %if.then.i230

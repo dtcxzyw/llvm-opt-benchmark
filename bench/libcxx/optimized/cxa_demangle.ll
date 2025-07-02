@@ -40552,7 +40552,7 @@ _ZN12_GLOBAL__N_116itanium_demangle11starts_withENSt3__117basic_string_viewIcNS1
   %31 = getelementptr i8, ptr %30, i64 %19
   %32 = getelementptr i8, ptr %31, i64 -9
   store ptr %32, ptr %3, align 8, !tbaa !219
-  %.not.i.not.i.i23 = icmp eq ptr %32, %30
+  %.not.i.not.i.i23 = icmp eq i64 %19, 9
   br i1 %.not.i.not.i.i23, label %.thread, label %_ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4lookEj.exit.i.i24
 
 _ZNK12_GLOBAL__N_116itanium_demangle22AbstractManglingParserINS0_14ManglingParserINS_16DefaultAllocatorEEES3_E4lookEj.exit.i.i24: ; preds = %29

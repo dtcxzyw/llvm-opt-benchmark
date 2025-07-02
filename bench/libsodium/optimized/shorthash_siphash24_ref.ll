@@ -19,7 +19,7 @@ define dso_local noundef i32 @crypto_shorthash_siphash24(ptr noundef nonnull %0,
   %16 = xor i64 %5, 7816392313619706465
   %17 = xor i64 %7, 7237128888997146477
   %18 = xor i64 %5, 8317987319222330741
-  %.not229 = icmp eq ptr %1, %11
+  %.not229 = icmp ult i64 %2, 8
   br i1 %.not229, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph

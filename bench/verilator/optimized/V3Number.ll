@@ -3601,15 +3601,18 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit356: ; preds = %._cr
 
 632:                                              ; preds = %363
   %633 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2226) #37
+  %.not273566 = icmp slt i64 %633, 1
+  br i1 %.not273566, label %.loopexit498, label %.lr.ph571.preheader
+
+.lr.ph571.preheader:                              ; preds = %632
   %634 = getelementptr inbounds nuw i8, ptr %.2226, i64 %633
   %.0565 = getelementptr inbounds i8, ptr %634, i64 -1
-  %.not273566 = icmp ult ptr %.0565, %.2226
-  br i1 %.not273566, label %.loopexit498, label %.lr.ph571
+  br label %.lr.ph571
 
-.lr.ph571:                                        ; preds = %632, %_ZN8V3Number6setBitEic.exit381
-  %.0569 = phi ptr [ %.0, %_ZN8V3Number6setBitEic.exit381 ], [ %.0565, %632 ]
-  %.1218568 = phi i32 [ %.2219, %_ZN8V3Number6setBitEic.exit381 ], [ 1, %632 ]
-  %.1221567 = phi i32 [ %.2222, %_ZN8V3Number6setBitEic.exit381 ], [ 0, %632 ]
+.lr.ph571:                                        ; preds = %.lr.ph571.preheader, %_ZN8V3Number6setBitEic.exit381
+  %.0569 = phi ptr [ %.0, %_ZN8V3Number6setBitEic.exit381 ], [ %.0565, %.lr.ph571.preheader ]
+  %.1218568 = phi i32 [ %.2219, %_ZN8V3Number6setBitEic.exit381 ], [ 1, %.lr.ph571.preheader ]
+  %.1221567 = phi i32 [ %.2222, %_ZN8V3Number6setBitEic.exit381 ], [ 0, %.lr.ph571.preheader ]
   %635 = load i8, ptr %.0569, align 1, !tbaa !20
   switch i8 %635, label %636 [
     i8 95, label %682

@@ -10634,14 +10634,17 @@ _ZNK10Node_ArrayixEj.exit:                        ; preds = %_ZNK10Node_ArrayixE
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %35 = load i32, ptr %34, align 8
+  %.not20.i = icmp eq i32 %35, 0
+  br i1 %.not20.i, label %._crit_edge24.i, label %.lr.ph23.preheader.i
+
+.lr.ph23.preheader.i:                             ; preds = %31
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 -8
-  %.not20.i = icmp ult ptr %38, %33
-  br i1 %.not20.i, label %._crit_edge24.i, label %.lr.ph23.i
+  br label %.lr.ph23.i
 
-.lr.ph23.i:                                       ; preds = %31, %._crit_edge.i
-  %.01721.i = phi ptr [ %62, %._crit_edge.i ], [ %38, %31 ]
+.lr.ph23.i:                                       ; preds = %._crit_edge.i, %.lr.ph23.preheader.i
+  %.01721.i = phi ptr [ %62, %._crit_edge.i ], [ %38, %.lr.ph23.preheader.i ]
   %39 = load ptr, ptr %.01721.i, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i32, ptr %40, align 8
@@ -10778,14 +10781,17 @@ define hidden void @_ZN10Scheduling13cleanup_pinchEP4Node(ptr noundef nonnull re
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 8
+  %.not20 = icmp eq i32 %6, 0
+  br i1 %.not20, label %._crit_edge24, label %.lr.ph23.preheader
+
+.lr.ph23.preheader:                               ; preds = %2
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
-  %.not20 = icmp ult ptr %9, %4
-  br i1 %.not20, label %._crit_edge24, label %.lr.ph23
+  br label %.lr.ph23
 
-.lr.ph23:                                         ; preds = %2, %._crit_edge
-  %.01721 = phi ptr [ %33, %._crit_edge ], [ %9, %2 ]
+.lr.ph23:                                         ; preds = %.lr.ph23.preheader, %._crit_edge
+  %.01721 = phi ptr [ %33, %._crit_edge ], [ %9, %.lr.ph23.preheader ]
   %10 = load ptr, ptr %.01721, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8

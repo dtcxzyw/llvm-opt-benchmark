@@ -3370,17 +3370,17 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %48 = icmp samesign ult i16 %35, 7
   %49 = add nsw i32 %36, -6
   %50 = shl nuw i32 1, %49
-  %51 = sext i32 %50 to i64
-  %52 = select i1 %48, i64 1, i64 %51
-  %53 = getelementptr inbounds i64, ptr %7, i64 %52
-  %.021.i = getelementptr inbounds i8, ptr %53, i64 -8
-  %.not22.i = icmp ult ptr %.021.i, %7
+  %51 = select i1 %48, i32 1, i32 %50
+  %.not22.i = icmp slt i32 %51, 1
   br i1 %.not22.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %47
   %notmask.i = shl nsw i32 -1, %38
-  %54 = xor i32 %notmask.i, -1
-  %55 = zext nneg i32 %54 to i64
+  %52 = xor i32 %notmask.i, -1
+  %53 = zext nneg i32 %51 to i64
+  %54 = getelementptr inbounds nuw i64, ptr %7, i64 %53
+  %.021.i = getelementptr inbounds i8, ptr %54, i64 -8
+  %55 = zext nneg i32 %52 to i64
   %56 = select i1 %37, i64 15, i64 %55
   br label %.lr.ph.us.i
 

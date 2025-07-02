@@ -465,13 +465,13 @@ _ZNK4llvm14iterator_rangeINS_16idf_ext_iteratorIPKNS_10BasicBlockENS_23df_iterat
   %133 = add i64 %132, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %128, ptr align 8 %.sink.i, i64 %133, i1 false), !noalias !56
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 %123
-  %scevgep = getelementptr i8, ptr %128, i64 24
-  %scevgep763 = getelementptr i8, ptr %scevgep, i64 %132
   %135 = ptrtoint ptr %128 to i64
-  %136 = icmp eq ptr %scevgep763, %128
+  %136 = icmp eq i64 %132, -24
   br i1 %136, label %_ZN4llvm11df_iteratorINS_7InverseIPKNS_10BasicBlockEEENS_23df_iterator_default_setIS4_Lj8EEELb1ENS_11GraphTraitsIS5_EEED2Ev.exit.thread786, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZNK4llvm14iterator_rangeINS_16idf_ext_iteratorIPKNS_10BasicBlockENS_23df_iterator_default_setIS4_Lj8EEEEEE3endEv.exit
+  %scevgep = getelementptr i8, ptr %128, i64 24
+  %scevgep763 = getelementptr i8, ptr %scevgep, i64 %132
   %137 = getelementptr inbounds nuw i8, ptr %104, i64 20
   %138 = getelementptr inbounds nuw i8, ptr %104, i64 12
   %139 = getelementptr inbounds nuw i8, ptr %104, i64 8

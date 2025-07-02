@@ -2886,7 +2886,7 @@ if.then:                                          ; preds = %entry
   %cmp.i.i.i.i.i.i.i.i20.i = icmp ne i32 %5, 60
   %tobool.not8.i21.i = icmp eq ptr %4, null
   %tobool.not.i22.i = or i1 %tobool.not8.i21.i, %cmp.i.i.i.i.i.i.i.i20.i
-  br i1 %tobool.not.i22.i, label %while.end.i, label %if.then.i2.i
+  br i1 %tobool.not.i22.i, label %if.end, label %if.then.i2.i
 
 if.then.i2.i:                                     ; preds = %if.then, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree20BinaryExpressionNodeELb1EE9push_backERKS4_.exit14.i
   %6 = phi ptr [ %13, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree20BinaryExpressionNodeELb1EE9push_backERKS4_.exit14.i ], [ %4, %if.then ]
@@ -2895,7 +2895,7 @@ if.then.i2.i:                                     ; preds = %if.then, %_ZN4llvh2
   %call.i.i.i.i = call noundef ptr @_ZSt9__find_ifIPKN4llvh9StringRefEN9__gnu_cxx5__ops16_Iter_equals_valIS2_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef nonnull %ref.tmp5, ptr noundef nonnull %ref.tmp5.sroa.gep, ptr nonnull align 8 dereferenceable(16) %7)
   %cmp.not.i4.i = icmp eq ptr %call.i.i.i.i, %ref.tmp5.sroa.gep
   %.pre23.pre.i = load i32, ptr %Size.i.i.i.i.i.i, align 8, !alias.scope !56
-  br i1 %cmp.not.i4.i, label %while.end.loopexit.i, label %while.body.i
+  br i1 %cmp.not.i4.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then.i2.i
   %8 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4, !alias.scope !56
@@ -2924,50 +2924,42 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree20BinaryExpressionNodeELb1EE9p
   %cmp.i.i.i.i.i.i.i.i.i = icmp ne i32 %14, 60
   %tobool.not8.i.i = icmp eq ptr %13, null
   %tobool.not.i.i = or i1 %tobool.not8.i.i, %cmp.i.i.i.i.i.i.i.i.i
-  br i1 %tobool.not.i.i, label %while.end.loopexit.i, label %if.then.i2.i, !llvm.loop !59
+  br i1 %tobool.not.i.i, label %while.end.i, label %if.then.i2.i, !llvm.loop !59
 
-while.end.loopexit.i:                             ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree20BinaryExpressionNodeELb1EE9push_backERKS4_.exit14.i, %if.then.i2.i
+while.end.i:                                      ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree20BinaryExpressionNodeELb1EE9push_backERKS4_.exit14.i, %if.then.i2.i
   %.pre23.i = phi i32 [ %add.i13.i, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree20BinaryExpressionNodeELb1EE9push_backERKS4_.exit14.i ], [ %.pre23.pre.i, %if.then.i2.i ]
+  %cmp19.i.i.i = icmp ugt i32 %.pre23.i, 1
+  br i1 %cmp19.i.i.i, label %while.body.i.i.preheader.i, label %if.end
+
+while.body.i.i.preheader.i:                       ; preds = %while.end.i
   %.pre.i = load ptr, ptr %list, align 8, !alias.scope !56
-  br label %while.end.i
-
-while.end.i:                                      ; preds = %while.end.loopexit.i, %if.then
-  %15 = phi i32 [ %.pre23.i, %while.end.loopexit.i ], [ 1, %if.then ]
-  %16 = phi ptr [ %.pre.i, %while.end.loopexit.i ], [ %add.ptr.i.i.i.i.i.i, %if.then ]
-  %conv.i.i = zext i32 %15 to i64
+  %conv.i.i = zext i32 %.pre23.i to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 3
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %16, i64 %add.ptr.i.idx.i
-  %cmp.i.i.i = icmp ne i32 %15, 0
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %add.ptr.i.idx.i
   %__last.addr.08.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
-  %cmp19.i.i.i = icmp ult ptr %16, %__last.addr.08.i.i.i
-  %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 %cmp19.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %while.body.i.i.i, label %_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit
+  br label %while.body.i.i.i
 
-while.body.i.i.i:                                 ; preds = %while.end.i, %while.body.i.i.i
-  %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %while.end.i ]
-  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %16, %while.end.i ]
-  %17 = load ptr, ptr %__first.addr.010.i.i.i, align 8
-  %18 = load ptr, ptr %__last.addr.011.i.i.i, align 8
-  store ptr %18, ptr %__first.addr.010.i.i.i, align 8
-  store ptr %17, ptr %__last.addr.011.i.i.i, align 8
+while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body.i.i.preheader.i
+  %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %while.body.i.i.preheader.i ]
+  %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %.pre.i, %while.body.i.i.preheader.i ]
+  %15 = load ptr, ptr %__first.addr.010.i.i.i, align 8
+  %16 = load ptr, ptr %__last.addr.011.i.i.i, align 8
+  store ptr %16, ptr %__first.addr.010.i.i.i, align 8
+  store ptr %15, ptr %__last.addr.011.i.i.i, align 8
   %incdec.ptr2.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.010.i.i.i, i64 8
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -8
   %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
-  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit.loopexit, !llvm.loop !60
+  br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit, !llvm.loop !60
 
-_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit.loopexit: ; preds = %while.body.i.i.i
+_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit: ; preds = %while.body.i.i.i
   %.pre = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  br label %_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit
-
-_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit: ; preds = %_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit.loopexit, %while.end.i
-  %19 = phi i32 [ %.pre, %_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit.loopexit ], [ %15, %while.end.i ]
-  %cmp6 = icmp ugt i32 %19, 30000
-  br i1 %cmp6, label %if.then7, label %if.end
+  %17 = icmp ugt i32 %.pre, 30000
+  br i1 %17, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %sm_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %20 = load ptr, ptr %sm_.i, align 8
+  %18 = load ptr, ptr %sm_.i, align 8
   %End.i.i = getelementptr inbounds nuw i8, ptr %bin, i64 32
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %End.i.i, align 8
   %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
@@ -2975,50 +2967,50 @@ if.then7:                                         ; preds = %_ZN6hermes6ESTreeL1
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.64, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %20, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #21
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %18, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   br label %cleanup
 
-if.end:                                           ; preds = %_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit
-  %21 = load ptr, ptr %list, align 8
-  %22 = load ptr, ptr %21, align 8
-  %_left = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %23 = load ptr, ptr %_left, align 8
-  %call.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %23, ptr noundef %22)
-  %24 = load ptr, ptr %list, align 8
-  %25 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %conv.i15 = zext i32 %25 to i64
+if.end:                                           ; preds = %while.end.i, %if.then, %_ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit
+  %19 = load ptr, ptr %list, align 8
+  %20 = load ptr, ptr %19, align 8
+  %_left = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %21 = load ptr, ptr %_left, align 8
+  %call.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %21, ptr noundef %20)
+  %22 = load ptr, ptr %list, align 8
+  %23 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %conv.i15 = zext i32 %23 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i15, 3
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %24, i64 %add.ptr.i.idx
-  %cmp12.not21 = icmp eq i32 %25, 0
-  br i1 %cmp12.not21, label %cleanup, label %for.body
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %22, i64 %add.ptr.i.idx
+  %cmp12.not20 = icmp eq i32 %23, 0
+  br i1 %cmp12.not20, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
-  %__begin3.022 = phi ptr [ %incdec.ptr, %for.body ], [ %24, %if.end ]
-  %26 = load ptr, ptr %__begin3.022, align 8
-  %_right = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %27 = load ptr, ptr %_right, align 8
-  %call.i16 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %27, ptr noundef %26)
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.022, i64 8
+  %__begin3.021 = phi ptr [ %incdec.ptr, %for.body ], [ %22, %if.end ]
+  %24 = load ptr, ptr %__begin3.021, align 8
+  %_right = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %25 = load ptr, ptr %_right, align 8
+  %call.i16 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %25, ptr noundef %24)
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.021, i64 8
   %cmp12.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp12.not, label %cleanup, label %for.body
 
 cleanup:                                          ; preds = %for.body, %if.end, %if.then7
-  %28 = load ptr, ptr %list, align 8
-  %cmp.i.i.i17 = icmp eq ptr %28, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.i.i17, label %return, label %if.then.i.i
+  %26 = load ptr, ptr %list, align 8
+  %cmp.i.i.i = icmp eq ptr %26, %add.ptr.i.i.i.i.i.i
+  br i1 %cmp.i.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @free(ptr noundef %28) #21
+  call void @free(ptr noundef %26) #21
   br label %return
 
 if.end13:                                         ; preds = %entry
-  %_left.i18 = getelementptr inbounds nuw i8, ptr %bin, i64 48
-  %29 = load ptr, ptr %_left.i18, align 8
-  %call.i19 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %29, ptr noundef nonnull %bin)
+  %_left.i17 = getelementptr inbounds nuw i8, ptr %bin, i64 48
+  %27 = load ptr, ptr %_left.i17, align 8
+  %call.i18 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %27, ptr noundef nonnull %bin)
   %_right.i = getelementptr inbounds nuw i8, ptr %bin, i64 56
-  %30 = load ptr, ptr %_right.i, align 8
-  %call1.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %30, ptr noundef nonnull %bin)
+  %28 = load ptr, ptr %_right.i, align 8
+  %call1.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %28, ptr noundef nonnull %bin)
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %cleanup, %if.end13

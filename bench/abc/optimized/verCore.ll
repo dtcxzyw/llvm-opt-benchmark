@@ -1644,7 +1644,7 @@ define range(i32 0, 2) i32 @Ver_ParseSignalSuffix(ptr noundef %0, ptr noundef %1
   %6 = ashr exact i64 %sext, 32
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -2
-  %.not47 = icmp eq ptr %8, %1
+  %.not47 = icmp eq i64 %sext, 8589934592
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %10

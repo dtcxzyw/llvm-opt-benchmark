@@ -9268,7 +9268,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br i1 %50, label %57, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i.i": ; preds = %46
-  %51 = icmp ne ptr %.val, %48
+  %51 = icmp ne i64 %39, 1
   tail call void @llvm.assume(i1 %51)
   %52 = getelementptr inbounds i8, ptr %47, i64 -2
   %53 = load i8, ptr %52, align 1, !noalias !1766, !noundef !15
@@ -9282,7 +9282,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br label %85
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit19.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i.i"
-  %59 = icmp ne ptr %.val, %52
+  %59 = icmp ne i64 %39, 2
   tail call void @llvm.assume(i1 %59)
   %60 = getelementptr inbounds i8, ptr %47, i64 -3
   %61 = load i8, ptr %60, align 1, !noalias !1766, !noundef !15
@@ -9300,7 +9300,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br label %85
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit21.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit19.i.i.i"
-  %70 = icmp ne ptr %.val, %60
+  %70 = icmp ne i64 %39, 3
   tail call void @llvm.assume(i1 %70)
   %71 = getelementptr inbounds i8, ptr %47, i64 -4
   %72 = load i8, ptr %71, align 1, !noalias !1766, !noundef !15

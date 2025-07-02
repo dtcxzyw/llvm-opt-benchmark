@@ -8654,10 +8654,9 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %.noexc243
   call void @llvm.memset.p0.i64(ptr align 8 %288, i8 0, i64 %291, i1 false), !tbaa !50
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %289, 3
   %292 = getelementptr inbounds nuw i8, ptr %288, i64 %.idx.i.i.i.i.i.i.i
-  %.not = icmp eq ptr %292, %287
-  br i1 %.not, label %.preheader308, label %.lr.ph
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.noexc243, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit
+.lr.ph:                                           ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit, %.noexc243
   %.0.i.i.i.i.i327 = phi ptr [ %292, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit ], [ %288, %.noexc243 ]
   %293 = ptrtoint ptr %.0.i.i.i.i.i327 to i64
   %294 = ptrtoint ptr %287 to i64
@@ -8694,7 +8693,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %.noexc243
   %325 = getelementptr inbounds nuw i8, ptr %55, i64 16
   br label %329
 
-.preheader308:                                    ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit249, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit
+.preheader308:                                    ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit249
   %326 = icmp sgt i32 %.086, 1
   br i1 %326, label %.preheader307.preheader, label %._crit_edge
 

@@ -1958,7 +1958,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE28reserveForParamAndGet
   %738 = getelementptr inbounds i8, ptr %737, i64 -8
   %739 = load ptr, ptr %738, align 8, !tbaa !168
   store ptr %739, ptr %737, align 8, !tbaa !168
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %738, %736
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.pre-phi16.i.i.i.i, 1
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPPN4llvm11InstructionES3_ET0_T_S5_S4_.exit.i.i.i.i, label %740
 
 740:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i
@@ -2045,7 +2045,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE28reserveForParamAndGet
   %771 = getelementptr inbounds i8, ptr %770, i64 -8
   %772 = load ptr, ptr %771, align 8, !tbaa !168
   store ptr %772, ptr %770, align 8, !tbaa !168
-  %.not.i.i.i.i.i.i.i84.i.i = icmp eq ptr %771, %769
+  %.not.i.i.i.i.i.i.i84.i.i = icmp eq i64 %.pre-phi16.i.i82.i.i, 1
   br i1 %.not.i.i.i.i.i.i.i84.i.i, label %_ZSt13move_backwardIPPN4llvm11InstructionES3_ET0_T_S5_S4_.exit.i.i88.i.i, label %773
 
 773:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i81.i.i

@@ -36286,14 +36286,16 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i:      ; preds = %53, %50
 _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i, %25
   %59 = add nsw i64 %3, %29
   %60 = sdiv i64 %59, 64
+  %.idx = shl nsw i64 %60, 3
   %61 = getelementptr inbounds i64, ptr %1, i64 %60
   %62 = and i64 %59, -9223372036854775745
   %63 = icmp ugt i64 %62, -9223372036854775808
+  %storemerge.idx.i.i.i75.neg = select i1 %63, i64 8, i64 0
   %storemerge.idx.i.i.i75 = select i1 %63, i64 -8, i64 0
   %storemerge.i.i.i76 = getelementptr inbounds i8, ptr %61, i64 %storemerge.idx.i.i.i75
   %64 = trunc i64 %59 to i32
   %65 = and i32 %64, 63
-  %.not.i.i.i = icmp eq ptr %1, %storemerge.i.i.i76
+  %.not.i.i.i = icmp eq i64 %.idx, %storemerge.idx.i.i.i75.neg
   br i1 %.not.i.i.i, label %91, label %66
 
 66:                                               ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
@@ -36483,14 +36485,16 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %151 = zext i32 %.sroa.55.0.lcssa.i.i.i.i.i.i to i64
   %152 = add nsw i64 %3, %151
   %153 = sdiv i64 %152, 64
+  %.idx158 = shl nsw i64 %153, 3
   %154 = getelementptr inbounds i64, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %153
   %155 = and i64 %152, -9223372036854775745
   %156 = icmp ugt i64 %155, -9223372036854775808
+  %storemerge.idx.i.i.i85.neg = select i1 %156, i64 8, i64 0
   %storemerge.idx.i.i.i85 = select i1 %156, i64 -8, i64 0
   %storemerge.i.i.i86 = getelementptr inbounds i8, ptr %154, i64 %storemerge.idx.i.i.i85
   %157 = trunc i64 %152 to i32
   %158 = and i32 %157, 63
-  %.not.i.i.i89 = icmp eq ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, %storemerge.i.i.i86
+  %.not.i.i.i89 = icmp eq i64 %.idx158, %storemerge.idx.i.i.i85.neg
   br i1 %.not.i.i.i89, label %185, label %159
 
 159:                                              ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit
@@ -98055,23 +98059,18 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %9
   %21 = getelementptr i8, ptr %18, i64 4
   %22 = add nsw i64 %14, -1
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %.thread7.i, label %24
-
-.thread7.i:                                       ; preds = %.noexc4.i
-  store ptr %21, ptr %16, align 8, !tbaa !97, !alias.scope !3166
-  br label %.lr.ph.i.preheader.i
+  br i1 %23, label %.lr.ph.i.preheader.i, label %24
 
 24:                                               ; preds = %.noexc4.i
   %25 = add nsw i64 %17, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %25, i1 false), !tbaa !81, !noalias !3166
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %22, 2
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i
-  store ptr %26, ptr %16, align 8, !tbaa !97, !alias.scope !3166
-  %.not5.i.i = icmp eq ptr %18, %26
-  br i1 %.not5.i.i, label %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit, label %.lr.ph.i.preheader.i
+  br label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %24, %.thread7.i
-  %.0.i.i.i.i.i10.i = phi ptr [ %21, %.thread7.i ], [ %26, %24 ]
+.lr.ph.i.preheader.i:                             ; preds = %.noexc4.i, %24
+  %storemerge = phi ptr [ %26, %24 ], [ %21, %.noexc4.i ]
+  store ptr %storemerge, ptr %16, align 8, !tbaa !97, !alias.scope !3166
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
@@ -98080,10 +98079,10 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %9
   store i32 %.07.i.i, ptr %.sroa.02.06.i.i, align 4, !tbaa !81, !noalias !3166
   %27 = add nuw nsw i32 %.07.i.i, 1
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 4
-  %.not.i.i = icmp eq ptr %28, %.0.i.i.i.i.i10.i
+  %.not.i.i = icmp eq ptr %28, %storemerge
   br i1 %.not.i.i, label %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit, label %.lr.ph.i.i, !llvm.loop !3169
 
-_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit: ; preds = %.lr.ph.i.i, %.thread.i, %24
+_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit: ; preds = %.lr.ph.i.i, %.thread.i
   invoke void @_ZN5arrow3ipc25RecordBatchFileReaderImpl19DoPreBufferMetadataERKSt6vectorIiSaIiEE(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(505) %1, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %29 unwind label %37
 

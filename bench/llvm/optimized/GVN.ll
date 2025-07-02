@@ -12350,16 +12350,19 @@ define dso_local noundef zeroext i1 @_ZN4llvm7GVNPass19processNonLocalLoadEPNS_8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 134217727
+  %.not4770 = icmp eq i32 %40, 1
+  br i1 %.not4770, label %.loopexit, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %37
   %41 = zext nneg i32 %40 to i64
   %42 = sub nsw i64 0, %41
   %43 = getelementptr inbounds %"class.llvm::Use", ptr %35, i64 %42
   %.04269 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %.not4770 = icmp eq ptr %.04269, %35
-  br i1 %.not4770, label %.loopexit, label %.lr.ph
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %37, %50
-  %.04272 = phi ptr [ %.042, %50 ], [ %.04269, %37 ]
-  %.14071 = phi i1 [ %.241, %50 ], [ false, %37 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %50
+  %.04272 = phi ptr [ %.042, %50 ], [ %.04269, %.lr.ph.preheader ]
+  %.14071 = phi i1 [ %.241, %50 ], [ false, %.lr.ph.preheader ]
   %44 = load ptr, ptr %.04272, align 8, !tbaa !86
   %45 = load i8, ptr %44, align 8, !tbaa !84
   %46 = icmp ult i8 %45, 29

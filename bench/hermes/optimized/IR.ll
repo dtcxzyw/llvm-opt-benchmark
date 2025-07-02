@@ -13141,7 +13141,7 @@ if.else33:                                        ; preds = %for.cond
 if.then36:                                        ; preds = %if.else33
   %add.ptr39 = getelementptr inbounds i8, ptr %add.ptr38, i64 -1
   %5 = load i8, ptr %add.ptr39, align 1
-  %tobool.not.i.i.i.i.i39 = icmp eq ptr %add.ptr39, %__p.0
+  %tobool.not.i.i.i.i.i39 = icmp eq i64 %__n.0, 1
   br i1 %tobool.not.i.i.i.i.i39, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i40
 
 if.then.i.i.i.i.i40:                              ; preds = %if.then36

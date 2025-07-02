@@ -9066,7 +9066,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i:               ; preds = %1454, %_ZNK12_GLOBA
   %1462 = zext i32 %1461 to i64
   %1463 = getelementptr inbounds nuw ptr, ptr %1460, i64 %1462
   %1464 = getelementptr inbounds i8, ptr %1463, i64 -8
-  %.not201.i.i = icmp eq ptr %1460, %1464
+  %.not201.i.i = icmp eq i32 %1461, 1
   br i1 %.not201.i.i, label %._crit_edge.i87.i, label %.lr.ph.i83.i
 
 .lr.ph.i83.i:                                     ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i

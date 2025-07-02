@@ -9560,7 +9560,7 @@ _ZSt4moveIPbS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
 47:                                               ; preds = %44
   %48 = getelementptr i8, ptr %46, i64 -1
   %49 = load i8, ptr %48, align 1, !range !14, !noundef !15
-  %.not.i.i.i.i.i68 = icmp eq ptr %48, %.058
+  %.not.i.i.i.i.i68 = icmp eq i64 %.086, 1
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPbS0_ET0_T_S2_S1_.exit, label %50
 
 50:                                               ; preds = %47

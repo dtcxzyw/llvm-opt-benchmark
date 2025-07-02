@@ -1887,7 +1887,7 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit:      ; preds = %_ZNSt8_Rb_treeIjjSt
   %53 = extractvalue { ptr, i64 } %51, 1
   %54 = getelementptr inbounds nuw i16, ptr %52, i64 %53
   %spec.select.i = getelementptr inbounds i8, ptr %54, i64 -2
-  %.not3843 = icmp eq ptr %52, %spec.select.i
+  %.not3843 = icmp eq i64 %53, 1
   br i1 %.not3843, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49, %_ZNSt3setIjSt4lessIjESaIjEE6insertEOj.exit

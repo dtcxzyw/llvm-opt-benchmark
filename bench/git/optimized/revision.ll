@@ -7573,12 +7573,12 @@ st_mult.exit.i:                                   ; preds = %311
   store ptr %316, ptr %317, align 8, !tbaa !277
   %318 = load ptr, ptr %285, align 8, !tbaa !313
   call void @fill_bloom_key(ptr noundef nonnull %.049.i, i64 noundef %304, ptr noundef %316, ptr noundef %318) #26
-  %319 = getelementptr inbounds nuw i8, ptr %.049.i, i64 %304
-  %.14860.i = getelementptr inbounds i8, ptr %319, i64 -1
-  %320 = icmp ugt ptr %.14860.i, %.049.i
-  br i1 %320, label %.lr.ph.i, label %._crit_edge.i61
+  %319 = icmp sgt i64 %304, 1
+  br i1 %319, label %.lr.ph.i, label %._crit_edge.i61
 
 .lr.ph.i:                                         ; preds = %st_mult.exit.i
+  %320 = getelementptr inbounds nuw i8, ptr %.049.i, i64 %304
+  %.14860.i = getelementptr inbounds i8, ptr %320, i64 -1
   %321 = ptrtoint ptr %.049.i to i64
   br label %322
 

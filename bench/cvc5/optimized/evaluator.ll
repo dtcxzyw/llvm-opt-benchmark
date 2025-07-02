@@ -13855,14 +13855,17 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i..noexc3230_crit_edge:
   %5086 = getelementptr inbounds i8, ptr %5082, i64 %.pre-phi15886
   store ptr %5086, ptr %501, align 8, !tbaa !217
   %5087 = icmp ne ptr %5080, %5081
-  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %5086, i64 -4
-  %5088 = icmp ult ptr %5082, %.sroa.0.08.i.i
-  %or.cond.i.i = select i1 %5087, i1 %5088, i1 false
-  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEvT_S7_.exit
+  %5088 = icmp sgt i64 %.pre-phi15886, 4
+  %or.cond.i.i = and i1 %5087, %5088
+  br i1 %or.cond.i.i, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEvT_S7_.exit
 
-.lr.ph.i.i:                                       ; preds = %5085, %.lr.ph.i.i
-  %.sroa.0.010.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.08.i.i, %5085 ]
-  %.sroa.05.09.i.i = phi ptr [ %5091, %.lr.ph.i.i ], [ %5082, %5085 ]
+.lr.ph.i.i.preheader:                             ; preds = %5085
+  %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %5086, i64 -4
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.sroa.0.010.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.08.i.i, %.lr.ph.i.i.preheader ]
+  %.sroa.05.09.i.i = phi ptr [ %5091, %.lr.ph.i.i ], [ %5082, %.lr.ph.i.i.preheader ]
   %5089 = load i32, ptr %.sroa.05.09.i.i, align 4, !tbaa !247
   %5090 = load i32, ptr %.sroa.0.010.i.i, align 4, !tbaa !247
   store i32 %5090, ptr %.sroa.05.09.i.i, align 4, !tbaa !247

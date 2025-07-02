@@ -6128,10 +6128,10 @@ _ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit.i: ; preds = %while.body
   store ptr %add.ptr.i13.i.i.i, ptr %mpEnd.i14.i.i.i, align 8
   %add.ptr15.i.i.i = getelementptr inbounds nuw i8, ptr %451, i64 160
   store ptr %add.ptr15.i.i.i, ptr %mItEnd.i.i, align 8
-  br label %while.body.i.i2715
+  br label %while.body.i.i2714
 
-while.body.i.i2715:                               ; preds = %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit.i, %while.body.i.i2715
-  %pPtrArrayCurrent.09.i.i.idx = phi i64 [ %pPtrArrayCurrent.09.i.i.add, %while.body.i.i2715 ], [ 8, %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit.i ]
+while.body.i.i2714:                               ; preds = %while.body.i.i2714, %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit.i
+  %pPtrArrayCurrent.09.i.i.idx = phi i64 [ %pPtrArrayCurrent.09.i.i.add, %while.body.i.i2714 ], [ 8, %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit.i ]
   %pPtrArrayCurrent.09.i.i.ptr = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i2708, i64 %pPtrArrayCurrent.09.i.i.idx
   %452 = load ptr, ptr %pPtrArrayCurrent.09.i.i.ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i.i.i)
@@ -6139,10 +6139,10 @@ while.body.i.i2715:                               ; preds = %_ZN5eastl9DequeBase
   %453 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i.i.i, i32 0, i64 64, ptr %452) #13, !srcloc !52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i.i.i)
   %pPtrArrayCurrent.09.i.i.add = add nuw nsw i64 %pPtrArrayCurrent.09.i.i.idx, 8
-  %cmp.i.i2717 = icmp samesign ult i64 %pPtrArrayCurrent.09.i.i.idx, 120
-  br i1 %cmp.i.i2717, label %while.body.i.i2715, label %_ZN5eastl5dequeIiNS_9allocatorELj64EEC2EmRKS1_.exit, !llvm.loop !150
+  %cmp.i.i2716 = icmp samesign ult i64 %pPtrArrayCurrent.09.i.i.idx, 120
+  br i1 %cmp.i.i2716, label %while.body.i.i2714, label %_ZN5eastl5dequeIiNS_9allocatorELj64EEC2EmRKS1_.exit, !llvm.loop !150
 
-_ZN5eastl5dequeIiNS_9allocatorELj64EEC2EmRKS1_.exit: ; preds = %while.body.i.i2715
+_ZN5eastl5dequeIiNS_9allocatorELj64EEC2EmRKS1_.exit: ; preds = %while.body.i.i2714
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i5.i.i)
   store ptr %451, ptr %first.addr.i.i.i5.i.i, align 8
   %454 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i5.i.i, i32 0, i64 40, ptr %451) #13, !srcloc !52
@@ -21683,8 +21683,8 @@ _ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit: ; preds = %while.body.i
   %rem.i.i = and i64 %n, 63
   %add.ptr15.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %rem.i.i
   store ptr %add.ptr15.i.i, ptr %mItEnd.i, align 8
-  %cmp8.i = icmp ult ptr %add.ptr.i.i, %add.ptr12.i.i
-  br i1 %cmp8.i, label %while.body.i, label %invoke.cont
+  %cmp8.i.not = icmp ult i64 %n, 64
+  br i1 %cmp8.i.not, label %invoke.cont, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit, %while.body.i
   %pPtrArrayCurrent.09.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i.i, %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit ]
@@ -22666,8 +22666,8 @@ _ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit: ; preds = %while.body.i
   %rem.i.i = and i64 %n, 63
   %add.ptr15.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %rem.i.i
   store ptr %add.ptr15.i.i, ptr %mItEnd.i, align 8
-  %cmp8.i = icmp ult ptr %add.ptr.i.i, %add.ptr12.i.i
-  br i1 %cmp8.i, label %while.body.i, label %invoke.cont
+  %cmp8.i.not = icmp ult i64 %n, 64
+  br i1 %cmp8.i.not, label %invoke.cont, label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit, %while.body.i
   %pPtrArrayCurrent.09.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i.i, %_ZN5eastl9DequeBaseIiNS_9allocatorELj64EEC2EmRKS1_.exit ]

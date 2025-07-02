@@ -20984,45 +20984,40 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb
   %42 = add i32 %41, 1
   store i32 %42, ptr %32, align 8, !tbaa !112
   %.val55 = load ptr, ptr %11, align 8, !tbaa !108
-  %43 = zext i32 %42 to i64
-  %.idx = shl nuw nsw i64 %43, 4
-  %44 = getelementptr inbounds nuw i8, ptr %.val55, i64 %.idx
-  %45 = icmp ne i32 %42, 0
-  %.012.i.i = getelementptr inbounds i8, ptr %44, i64 -16
-  %46 = icmp ult ptr %.val55, %.012.i.i
-  %or.cond.i.i = select i1 %45, i1 %46, i1 false
-  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit
+  %43 = icmp ugt i32 %42, 1
+  br i1 %43, label %.lr.ph.i.i.preheader, label %._crit_edge
 
-.lr.ph.i.i:                                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb1EE9push_backES3_.exit80, %.lr.ph.i.i
-  %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb1EE9push_backES3_.exit80 ]
-  %.0913.i.i = phi ptr [ %47, %.lr.ph.i.i ], [ %.val55, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb1EE9push_backES3_.exit80 ]
+.lr.ph.i.i.preheader:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb1EE9push_backES3_.exit80
+  %44 = zext i32 %42 to i64
+  %.idx = shl nuw nsw i64 %44, 4
+  %45 = getelementptr inbounds nuw i8, ptr %.val55, i64 %.idx
+  %.012.i.i = getelementptr inbounds i8, ptr %45, i64 -16
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %.lr.ph.i.i.preheader ]
+  %.0913.i.i = phi ptr [ %46, %.lr.ph.i.i ], [ %.val55, %.lr.ph.i.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.0913.i.i, i64 16, i1 false), !tbaa.struct !942
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.0913.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.014.i.i, i64 12, i1 false), !tbaa.struct !942
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.014.i.i, ptr noundef nonnull align 8 dereferenceable(12) %10, i64 12, i1 false), !tbaa.struct !942
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %47 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 16
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -16
-  %48 = icmp ult ptr %47, %.0.i.i
-  br i1 %48, label %.lr.ph.i.i, label %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit.loopexit, !llvm.loop !1039
+  %47 = icmp ult ptr %46, %.0.i.i
+  br i1 %47, label %.lr.ph.i.i, label %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit, !llvm.loop !1039
 
-_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit.loopexit: ; preds = %.lr.ph.i.i
+_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit: ; preds = %.lr.ph.i.i
   %.val58.pre = load ptr, ptr %11, align 8, !tbaa !108
   %.val59.pre = load i32, ptr %32, align 8, !tbaa !112
   %.pre126 = zext i32 %.val59.pre to i64
   %.pre127 = shl nuw nsw i64 %.pre126, 4
-  br label %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit
-
-_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit: ; preds = %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit.loopexit, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb1EE9push_backES3_.exit80
-  %.idx119.pre-phi = phi i64 [ %.pre127, %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit.loopexit ], [ %.idx, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb1EE9push_backES3_.exit80 ]
-  %.val59 = phi i32 [ %.val59.pre, %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit.loopexit ], [ %42, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb1EE9push_backES3_.exit80 ]
-  %.val58 = phi ptr [ %.val58.pre, %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit.loopexit ], [ %.val55, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb1EE9push_backES3_.exit80 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.val58, i64 %.idx119.pre-phi
-  %spec.select.i.i.not.i115 = icmp ugt i32 %.val59, 1
-  br i1 %spec.select.i.i.not.i115, label %.lr.ph, label %._crit_edge
+  %48 = icmp ugt i32 %.val59.pre, 1
+  %49 = getelementptr inbounds nuw i8, ptr %.val58.pre, i64 %.pre127
+  br i1 %48, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit
-  %.sroa.091.0114 = getelementptr inbounds nuw i8, ptr %.val58, i64 16
+  %.sroa.091.0114 = getelementptr inbounds nuw i8, ptr %.val58.pre, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -21102,8 +21097,8 @@ _ZN12_GLOBAL__N_110LocalScope14const_iteratorppEv.exit: ; preds = %73, %75, %78
   %.pre = load ptr, ptr %11, align 8, !tbaa !108
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit
-  %82 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.val58, %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit ]
+._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb1EE9push_backES3_.exit80, %._crit_edge.loopexit, %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit
+  %82 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.val58.pre, %_ZSt7reverseIPN12_GLOBAL__N_110LocalScope14const_iteratorEEvT_S4_.exit ], [ %.val55, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_110LocalScope14const_iteratorELb1EE9push_backES3_.exit80 ]
   %83 = icmp eq ptr %82, %31
   br i1 %83, label %_ZN4llvm11SmallVectorIN12_GLOBAL__N_110LocalScope14const_iteratorELj10EED2Ev.exit, label %84
 
@@ -21117,7 +21112,7 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_110LocalScope14const_iteratorELj10EED2Ev.exi
 
 85:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_110CFGBuilder20addScopeExitHandlingENS_10LocalScope14const_iteratorES2_PN5clang4StmtE.exit
   %.sroa.091.0118 = phi ptr [ %.sroa.091.0114, %.lr.ph ], [ %.sroa.091.0, %_ZN12_GLOBAL__N_110CFGBuilder20addScopeExitHandlingENS_10LocalScope14const_iteratorES2_PN5clang4StmtE.exit ]
-  %.sroa.7.0117 = phi ptr [ %.val58, %.lr.ph ], [ %276, %_ZN12_GLOBAL__N_110CFGBuilder20addScopeExitHandlingENS_10LocalScope14const_iteratorES2_PN5clang4StmtE.exit ]
+  %.sroa.7.0117 = phi ptr [ %.val58.pre, %.lr.ph ], [ %276, %_ZN12_GLOBAL__N_110CFGBuilder20addScopeExitHandlingENS_10LocalScope14const_iteratorES2_PN5clang4StmtE.exit ]
   %.sroa.010.0.copyload = load ptr, ptr %.sroa.7.0117, align 8, !tbaa !228
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.7.0117, i64 8
   %.val50 = load ptr, ptr %.sroa.091.0118, align 8, !tbaa !1041

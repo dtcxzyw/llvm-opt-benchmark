@@ -52251,7 +52251,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h73cdded2771db6ecE.exit.thread.
   ]
 
 43:                                               ; preds = %39
-  %44 = icmp eq ptr %.promoted.i.i.i.i.sink.i.i15.i, %41
+  %44 = icmp eq i64 %.sroa.5.sroa.0.114.i, 1
   br i1 %44, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i", label %45
 
 45:                                               ; preds = %43
@@ -53839,7 +53839,7 @@ define hidden void @_ZN9itertools9Itertools4join17hcd4e54ad13da9bd5E(ptr dead_on
   ]
 
 27:                                               ; preds = %23
-  %28 = icmp eq ptr %.sroa.0.01217.i, %25
+  %28 = icmp eq i64 %.sroa.6.sroa.0.016.i, 1
   br i1 %28, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i", label %29
 
 29:                                               ; preds = %27
@@ -54162,7 +54162,7 @@ define hidden void @_ZN9itertools9Itertools4join17hcd4e54ad13da9bd5E(ptr dead_on
   ]
 
 138:                                              ; preds = %130
-  %139 = icmp eq ptr %.sroa.0.013.i50.i.i, %136
+  %139 = icmp eq i64 %.sroa.7.sroa.0.012.i52.i.i, 1
   br i1 %139, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i.i.i.i", label %140
 
 140:                                              ; preds = %138

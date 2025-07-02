@@ -630,7 +630,8 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h0ba74bcb696938c2E.ex
   %.sroa.010.039 = phi i64 [ %92, %_ZN4core5slice4sort6shared9smallsort11insert_tail17he6229b52edaee023E.llvm.13981872716249875681.exit ], [ %.sroa.0.0, %81 ]
   %92 = add i64 %.sroa.010.039, 1
   %93 = getelementptr inbounds { { { [9 x i8], i8, [6 x i8] } }, i8, [7 x i8] }, ptr %86, i64 %.sroa.010.039
-  %94 = getelementptr inbounds { { { [9 x i8], i8, [6 x i8] } }, i8, [7 x i8] }, ptr %87, i64 %.sroa.010.039
+  %.idx = mul nsw i64 %.sroa.010.039, 24
+  %94 = getelementptr inbounds i8, ptr %87, i64 %.idx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false)
   %95 = getelementptr inbounds i8, ptr %94, i64 -24
   call void @llvm.experimental.noalias.scope.decl(metadata !184)
@@ -661,7 +662,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h0ba74bcb696938c2E.ex
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %94, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false)
-  %108 = icmp eq ptr %95, %87
+  %108 = icmp eq i64 %.sroa.010.039, 1
   br i1 %108, label %.noexc._crit_edge.i, label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %107, %.backedge.i
@@ -699,7 +700,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h0ba74bcb696938c2E.ex
   br i1 %121, label %.noexc._crit_edge.i, label %.lr.ph.i24
 
 .noexc._crit_edge.i:                              ; preds = %.backedge.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63696ef13fdef059E.exit10.i", %.noexc.i, %107
-  %.sroa.0.0.lcssa.i = phi ptr [ %87, %107 ], [ %87, %.backedge.i ], [ %.sroa.0.016.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63696ef13fdef059E.exit10.i" ], [ %.sroa.0.016.i, %.noexc.i ]
+  %.sroa.0.0.lcssa.i = phi ptr [ %95, %107 ], [ %87, %.backedge.i ], [ %.sroa.0.016.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h63696ef13fdef059E.exit10.i" ], [ %.sroa.0.016.i, %.noexc.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !208
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %_ZN4core5slice4sort6shared9smallsort11insert_tail17he6229b52edaee023E.llvm.13981872716249875681.exit

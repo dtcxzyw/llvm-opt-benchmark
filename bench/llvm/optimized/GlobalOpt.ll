@@ -17619,15 +17619,18 @@ _ZN4llvm8CallBase13setArgOperandEjPNS_5ValueE.exit: ; preds = %_ZN4llvm5Value6ad
 
 _ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit: ; preds = %135, %141
   %.pre-phi = phi i32 [ %138, %135 ], [ %.pre142, %141 ]
+  %.not80123 = icmp eq i32 %.pre-phi, 1
+  br i1 %.not80123, label %.critedge, label %.lr.ph125.preheader
+
+.lr.ph125.preheader:                              ; preds = %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit
   %143 = zext nneg i32 %.pre-phi to i64
   %144 = sub nsw i64 0, %143
   %145 = getelementptr inbounds %"class.llvm::Use", ptr %19, i64 %144
   %.070122 = getelementptr inbounds nuw i8, ptr %145, i64 32
-  %.not80123 = icmp eq ptr %.070122, %19
-  br i1 %.not80123, label %.critedge, label %.lr.ph125
+  br label %.lr.ph125
 
-.lr.ph125:                                        ; preds = %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit
-  %.070124 = phi ptr [ %.070, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ], [ %.070122, %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit ]
+.lr.ph125:                                        ; preds = %.lr.ph125.preheader, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit
+  %.070124 = phi ptr [ %.070, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ], [ %.070122, %.lr.ph125.preheader ]
   %146 = load ptr, ptr %.070124, align 8, !tbaa !130
   %147 = load i8, ptr %146, align 8, !tbaa !129
   %148 = icmp ugt i8 %147, 21
@@ -17663,17 +17666,17 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
 .critedge.loopexit:                               ; preds = %.lr.ph125, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit
   %.pre141 = load i32, ptr %136, align 4
   %.pre143 = and i32 %.pre141, 134217727
+  %162 = add nsw i32 %.pre143, -1
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit
-  %.pre-phi144 = phi i32 [ %.pre143, %.critedge.loopexit ], [ %.pre-phi, %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit ]
-  %162 = load i32, ptr %9, align 8, !tbaa !26
-  %163 = add nsw i32 %.pre-phi144, -1
-  %164 = icmp eq i32 %162, %163
+  %.pre-phi144 = phi i32 [ %162, %.critedge.loopexit ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit ]
+  %163 = load i32, ptr %9, align 8, !tbaa !26
+  %164 = icmp eq i32 %163, %.pre-phi144
   br i1 %164, label %165, label %_ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit
 
 165:                                              ; preds = %.critedge
-  %166 = zext i32 %162 to i64
+  %166 = zext i32 %163 to i64
   %167 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %168 = load ptr, ptr %167, align 8, !tbaa !621
   %169 = load ptr, ptr %3, align 8, !tbaa !25

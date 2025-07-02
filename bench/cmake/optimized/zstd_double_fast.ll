@@ -9990,7 +9990,7 @@ define internal fastcc i64 @ZSTD_compressBlock_doubleFast_extDict_generic(ptr no
   br i1 %.not, label %.preheader, label %60
 
 .preheader:                                       ; preds = %6
-  %47 = icmp ult ptr %3, %17
+  %47 = icmp sgt i64 %4, 8
   br i1 %47, label %.lr.ph533, label %._crit_edge
 
 .lr.ph533:                                        ; preds = %.preheader
@@ -10102,7 +10102,7 @@ ZSTD_hashPtr.exit352:                             ; preds = %63, %67, %70, %73
   %108 = select i1 %95, ptr %43, ptr %16
   %109 = getelementptr inbounds nuw i8, ptr %.0306532, i64 5
   %110 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  %111 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %109, ptr noundef nonnull %110, ptr noundef %16, ptr noundef %108, ptr noundef nonnull %38)
+  %111 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %109, ptr noundef nonnull %110, ptr noundef nonnull %16, ptr noundef nonnull %108, ptr noundef nonnull %38)
   %112 = add i64 %111, 4
   %113 = ptrtoint ptr %105 to i64
   %114 = ptrtoint ptr %.0307531 to i64
@@ -10240,7 +10240,7 @@ ZSTD_wildcopy.exit:                               ; preds = %128, %.lr.ph.i, %ZS
   %171 = select i1 %86, ptr %42, ptr %38
   %172 = getelementptr inbounds nuw i8, ptr %.0306532, i64 8
   %173 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %174 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %172, ptr noundef nonnull %173, ptr noundef %16, ptr noundef %170, ptr noundef nonnull %38)
+  %174 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %172, ptr noundef nonnull %173, ptr noundef nonnull %16, ptr noundef nonnull %170, ptr noundef nonnull %38)
   %175 = add i64 %174, 8
   %176 = sub i32 %92, %85
   %177 = icmp ugt ptr %.0306532, %.0307531
@@ -10433,7 +10433,7 @@ ZSTD_wildcopy.exit362:                            ; preds = %205, %.lr.ph.i422, 
   %261 = select i1 %252, ptr %42, ptr %38
   %262 = getelementptr inbounds nuw i8, ptr %.0306532, i64 9
   %263 = getelementptr inbounds nuw i8, ptr %255, i64 8
-  %264 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %262, ptr noundef nonnull %263, ptr noundef %16, ptr noundef %260, ptr noundef nonnull %38)
+  %264 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %262, ptr noundef nonnull %263, ptr noundef nonnull %16, ptr noundef nonnull %260, ptr noundef nonnull %38)
   %265 = add i64 %264, 8
   %266 = sub i32 %93, %251
   %267 = icmp ugt ptr %247, %.0307531
@@ -10464,7 +10464,7 @@ ZSTD_wildcopy.exit362:                            ; preds = %205, %.lr.ph.i422, 
   %282 = select i1 %78, ptr %42, ptr %38
   %283 = getelementptr inbounds nuw i8, ptr %.0306532, i64 4
   %284 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %285 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %283, ptr noundef nonnull %284, ptr noundef %16, ptr noundef %281, ptr noundef nonnull %38)
+  %285 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %283, ptr noundef nonnull %284, ptr noundef nonnull %16, ptr noundef nonnull %281, ptr noundef nonnull %38)
   %286 = add i64 %285, 4
   %287 = sub i32 %92, %77
   %288 = icmp ugt ptr %.0306532, %.0307531
@@ -10770,7 +10770,7 @@ ZSTD_hashPtr.exit346:                             ; preds = %370
   %428 = select i1 %417, ptr %43, ptr %16
   %429 = getelementptr inbounds nuw i8, ptr %.3310516, i64 4
   %430 = getelementptr inbounds nuw i8, ptr %419, i64 4
-  %431 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %429, ptr noundef nonnull %430, ptr noundef %16, ptr noundef %428, ptr noundef nonnull %38)
+  %431 = tail call fastcc i64 @ZSTD_count_2segments(ptr noundef nonnull %429, ptr noundef nonnull %430, ptr noundef nonnull %16, ptr noundef nonnull %428, ptr noundef nonnull %38)
   %.not.i = icmp ugt ptr %.3310516, %54
   br i1 %.not.i, label %ZSTD_safecopyLiterals.exit456, label %432
 

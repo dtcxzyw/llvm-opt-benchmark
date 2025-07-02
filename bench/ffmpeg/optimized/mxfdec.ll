@@ -243,54 +243,54 @@ define internal range(i32 0, 101) i32 @mxf_probe(ptr noundef readonly captures(n
   %spec.select = zext nneg i32 %narrow to i64
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.select
   %9 = getelementptr inbounds i8, ptr %8, i64 -14
-  %10 = icmp ult ptr %3, %9
-  br i1 %10, label %.lr.ph, label %.loopexit
+  %.not21 = icmp eq i32 %5, 14
+  br i1 %.not21, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %33
-  %.020 = phi ptr [ %34, %33 ], [ %3, %7 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.020, i64 13
-  %12 = load i8, ptr %11, align 1, !tbaa !12
-  %13 = add i8 %12, -1
-  %14 = and i8 %13, -14
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %15, label %33
+.lr.ph:                                           ; preds = %7, %32
+  %.020 = phi ptr [ %33, %32 ], [ %3, %7 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.020, i64 13
+  %11 = load i8, ptr %10, align 1, !tbaa !12
+  %12 = add i8 %11, -1
+  %13 = and i8 %12, -14
+  %.not = icmp eq i8 %13, 0
+  br i1 %.not, label %14, label %32
 
-15:                                               ; preds = %.lr.ph
-  %16 = load i32, ptr %.020, align 1, !tbaa !12
-  %17 = icmp eq i32 %16, 875236870
-  br i1 %17, label %18, label %33
+14:                                               ; preds = %.lr.ph
+  %15 = load i32, ptr %.020, align 1, !tbaa !12
+  %16 = icmp eq i32 %15, 875236870
+  br i1 %16, label %17, label %32
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %.020, i64 4
-  %20 = load i32, ptr %19, align 1, !tbaa !12
-  %21 = icmp eq i32 %20, 16844034
-  br i1 %21, label %22, label %33
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %.020, i64 4
+  %19 = load i32, ptr %18, align 1, !tbaa !12
+  %20 = icmp eq i32 %19, 16844034
+  br i1 %20, label %21, label %32
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.020, i64 8
-  %24 = load i32, ptr %23, align 1, !tbaa !12
-  %25 = icmp eq i32 %24, 16908557
-  br i1 %25, label %26, label %33
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %.020, i64 8
+  %23 = load i32, ptr %22, align 1, !tbaa !12
+  %24 = icmp eq i32 %23, 16908557
+  br i1 %24, label %25, label %32
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %.020, i64 12
-  %28 = load i16, ptr %27, align 1, !tbaa !12
-  %29 = icmp eq i16 %28, 513
-  br i1 %29, label %30, label %33
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %.020, i64 12
+  %27 = load i16, ptr %26, align 1, !tbaa !12
+  %28 = icmp eq i16 %27, 513
+  br i1 %28, label %29, label %32
 
-30:                                               ; preds = %26
-  %31 = icmp eq ptr %.020, %3
-  %32 = select i1 %31, i32 100, i32 99
+29:                                               ; preds = %25
+  %30 = icmp eq ptr %.020, %3
+  %31 = select i1 %30, i32 100, i32 99
   br label %.loopexit
 
-33:                                               ; preds = %.lr.ph, %15, %18, %22, %26
-  %.sink = phi i64 [ 1, %26 ], [ 1, %22 ], [ 1, %18 ], [ 1, %15 ], [ 10, %.lr.ph ]
-  %34 = getelementptr inbounds nuw i8, ptr %.020, i64 %.sink
-  %35 = icmp ult ptr %34, %9
-  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !13
+32:                                               ; preds = %.lr.ph, %14, %17, %21, %25
+  %.sink = phi i64 [ 1, %25 ], [ 1, %21 ], [ 1, %17 ], [ 1, %14 ], [ 10, %.lr.ph ]
+  %33 = getelementptr inbounds nuw i8, ptr %.020, i64 %.sink
+  %34 = icmp ult ptr %33, %9
+  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %33, %7, %1, %30
-  %.017 = phi i32 [ %32, %30 ], [ 0, %1 ], [ 0, %7 ], [ 0, %33 ]
+.loopexit:                                        ; preds = %32, %7, %1, %29
+  %.017 = phi i32 [ %31, %29 ], [ 0, %1 ], [ 0, %7 ], [ 0, %32 ]
   ret i32 %.017
 }
 

@@ -2501,7 +2501,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit77: ; preds = %113, %.noexc126,
   br label %.body75.thread
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.thread186, %174, %105
-  %.not5.i = icmp eq ptr %40, %83
+  %.not5.i = icmp eq i64 %35, 8
   br i1 %.not5.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %.lr.ph.i

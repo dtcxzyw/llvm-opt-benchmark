@@ -2670,7 +2670,8 @@ _ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit: ; preds = %4,
   %67 = getelementptr inbounds nuw i8, ptr %.04.i, i64 24
   %68 = load i32, ptr %67, align 8, !tbaa !785
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %66, i64 %69
+  %.idx = shl nuw nsw i64 %69, 3
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx
   %71 = load i16, ptr %61, align 4
   %72 = and i16 %71, 4
   %.not48 = icmp eq i16 %72, 0
@@ -2678,7 +2679,7 @@ _ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit: ; preds = %4,
 
 73:                                               ; preds = %64
   %74 = getelementptr inbounds i8, ptr %70, i64 -8
-  %75 = icmp eq ptr %66, %74
+  %75 = icmp eq i32 %68, 1
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %73
@@ -2688,7 +2689,7 @@ _ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit: ; preds = %4,
 
 77:                                               ; preds = %73, %76, %64
   %78 = phi ptr [ %.pre55, %76 ], [ %66, %73 ], [ %66, %64 ]
-  %.026 = phi ptr [ %66, %76 ], [ %74, %73 ], [ %70, %64 ]
+  %.026 = phi ptr [ %74, %76 ], [ %74, %73 ], [ %70, %64 ]
   %.not2951 = icmp eq ptr %78, %.026
   br i1 %.not2951, label %.loopexit, label %.lr.ph
 

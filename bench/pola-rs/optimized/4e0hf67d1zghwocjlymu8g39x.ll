@@ -16375,7 +16375,7 @@ define hidden void @_ZN12polars_arrow5array13specification14try_check_utf817h4a7
   store i64 17, ptr %0, align 8
   br label %14
 
-14:                                               ; preds = %63, %72, %53, %_ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread32, %.critedge, %22, %13
+14:                                               ; preds = %62, %71, %53, %_ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread32, %.critedge, %22, %13
   ret void
 
 15:                                               ; preds = %5
@@ -16513,52 +16513,52 @@ _ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread32: ; preds = %.pre
   %56 = extractvalue { i64, i64 } %55, 0
   %57 = trunc nuw i64 %56 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  br i1 %57, label %58, label %63
+  br i1 %57, label %58, label %62
 
 58:                                               ; preds = %54
   %59 = extractvalue { i64, i64 } %55, 1
   %60 = getelementptr i32, ptr %1, i64 %59
-  %61 = getelementptr i8, ptr %60, i64 4
-  %62 = icmp eq ptr %1, %61
-  br i1 %62, label %.critedge, label %.lr.ph
+  %.idx.mask = and i64 %59, 4611686018427387903
+  %61 = icmp eq i64 %.idx.mask, 4611686018427387903
+  br i1 %61, label %.critedge, label %.lr.ph
 
-63:                                               ; preds = %54
+62:                                               ; preds = %54
   store i64 17, ptr %0, align 8
   br label %14
 
 .lr.ph:                                           ; preds = %58, %.lr.ph
-  %.sroa.020.037 = phi ptr [ %64, %.lr.ph ], [ %1, %58 ]
-  %.sroa.013.036 = phi i1 [ %70, %.lr.ph ], [ false, %58 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.020.037, i64 4
+  %.sroa.020.037 = phi ptr [ %63, %.lr.ph ], [ %1, %58 ]
+  %.sroa.013.036 = phi i1 [ %69, %.lr.ph ], [ false, %58 ]
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.020.037, i64 4
   %.sroa.020.0.val = load i32, ptr %.sroa.020.037, align 4, !noundef !7
-  %65 = sext i32 %.sroa.020.0.val to i64
-  %66 = icmp ugt i64 %4, %65
-  call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 %65
-  %68 = load i8, ptr %67, align 1, !noundef !7
-  %69 = icmp slt i8 %68, -64
-  %70 = or i1 %.sroa.013.036, %69
-  %71 = icmp eq ptr %.sroa.020.037, %60
-  br i1 %71, label %._crit_edge, label %.lr.ph
+  %64 = sext i32 %.sroa.020.0.val to i64
+  %65 = icmp ugt i64 %4, %64
+  call void @llvm.assume(i1 %65)
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 %64
+  %67 = load i8, ptr %66, align 1, !noundef !7
+  %68 = icmp slt i8 %67, -64
+  %69 = or i1 %.sroa.013.036, %68
+  %70 = icmp eq ptr %.sroa.020.037, %60
+  br i1 %70, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %70, label %72, label %.critedge, !prof !206
+  br i1 %69, label %71, label %.critedge, !prof !206
 
 .critedge:                                        ; preds = %58, %._crit_edge
   store i64 17, ptr %0, align 8
   br label %14
 
-72:                                               ; preds = %._crit_edge
+71:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   store ptr @anon.cf83910d1ddc55e22adc8fa20d5b46e2.137, ptr %9, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 1, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 0, ptr %76, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 1, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 0, ptr %75, align 8
   call fastcc void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hed8771660f7d073eE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 @anon.cf83910d1ddc55e22adc8fa20d5b46e2.136, i64 32, ptr noalias noundef readonly align 8 dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16585,7 +16585,7 @@ define hidden void @_ZN12polars_arrow5array13specification14try_check_utf817h66d
   store i64 17, ptr %0, align 8
   br label %14
 
-14:                                               ; preds = %61, %69, %51, %_ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread32, %.critedge, %20, %13
+14:                                               ; preds = %60, %68, %51, %_ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread32, %.critedge, %20, %13
   ret void
 
 15:                                               ; preds = %5
@@ -16721,51 +16721,51 @@ _ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread32: ; preds = %.pre
   %54 = extractvalue { i64, i64 } %53, 0
   %55 = trunc nuw i64 %54 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  br i1 %55, label %56, label %61
+  br i1 %55, label %56, label %60
 
 56:                                               ; preds = %52
   %57 = extractvalue { i64, i64 } %53, 1
   %58 = getelementptr i64, ptr %1, i64 %57
-  %59 = getelementptr i8, ptr %58, i64 8
-  %60 = icmp eq ptr %1, %59
-  br i1 %60, label %.critedge, label %.lr.ph
+  %.idx.mask = and i64 %57, 2305843009213693951
+  %59 = icmp eq i64 %.idx.mask, 2305843009213693951
+  br i1 %59, label %.critedge, label %.lr.ph
 
-61:                                               ; preds = %52
+60:                                               ; preds = %52
   store i64 17, ptr %0, align 8
   br label %14
 
 .lr.ph:                                           ; preds = %56, %.lr.ph
-  %.sroa.020.037 = phi ptr [ %62, %.lr.ph ], [ %1, %56 ]
-  %.sroa.013.036 = phi i1 [ %67, %.lr.ph ], [ false, %56 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.020.037, i64 8
+  %.sroa.020.037 = phi ptr [ %61, %.lr.ph ], [ %1, %56 ]
+  %.sroa.013.036 = phi i1 [ %66, %.lr.ph ], [ false, %56 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.020.037, i64 8
   %.sroa.020.0.val = load i64, ptr %.sroa.020.037, align 8, !noundef !7
-  %63 = icmp ult i64 %.sroa.020.0.val, %4
-  call void @llvm.assume(i1 %63)
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.020.0.val
-  %65 = load i8, ptr %64, align 1, !noundef !7
-  %66 = icmp slt i8 %65, -64
-  %67 = or i1 %.sroa.013.036, %66
-  %68 = icmp eq ptr %.sroa.020.037, %58
-  br i1 %68, label %._crit_edge, label %.lr.ph
+  %62 = icmp ult i64 %.sroa.020.0.val, %4
+  call void @llvm.assume(i1 %62)
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.020.0.val
+  %64 = load i8, ptr %63, align 1, !noundef !7
+  %65 = icmp slt i8 %64, -64
+  %66 = or i1 %.sroa.013.036, %65
+  %67 = icmp eq ptr %.sroa.020.037, %58
+  br i1 %67, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %67, label %69, label %.critedge, !prof !206
+  br i1 %66, label %68, label %.critedge, !prof !206
 
 .critedge:                                        ; preds = %56, %._crit_edge
   store i64 17, ptr %0, align 8
   br label %14
 
-69:                                               ; preds = %._crit_edge
+68:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   store ptr @anon.cf83910d1ddc55e22adc8fa20d5b46e2.137, ptr %9, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 1, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 0, ptr %73, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 1, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 0, ptr %72, align 8
   call fastcc void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hed8771660f7d073eE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 @anon.cf83910d1ddc55e22adc8fa20d5b46e2.136, i64 32, ptr noalias noundef readonly align 8 dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

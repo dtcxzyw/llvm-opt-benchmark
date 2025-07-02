@@ -252,139 +252,141 @@ define void @_ZN5boost4urls6detail16params_iter_impl9decrementEv(ptr noundef non
   %11 = getelementptr i8, ptr %8, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -1
   %.promoted = load i64, ptr %6, align 8
-  %13 = icmp eq ptr %12, %8
+  %13 = icmp eq i64 %10, 1
   br i1 %13, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %37, %1
-  %14 = phi i64 [ %.promoted, %1 ], [ %38, %37 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %10, ptr %15, align 8, !tbaa !14
-  %16 = sub i64 %10, %14
-  store i64 %16, ptr %5, align 8, !tbaa !3
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 0, ptr %17, align 8, !tbaa !15
+._crit_edge:                                      ; preds = %39, %1
+  %14 = phi i64 [ %.promoted, %1 ], [ %40, %39 ]
+  %.0.lcssa = phi ptr [ %12, %1 ], [ %8, %39 ]
+  %15 = ptrtoint ptr %11 to i64
+  %16 = ptrtoint ptr %.0.lcssa to i64
+  %17 = sub i64 %15, %16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %17, ptr %18, align 8, !tbaa !14
+  %19 = sub i64 %17, %14
+  store i64 %19, ptr %5, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 0, ptr %20, align 8, !tbaa !15
   store i64 0, ptr %6, align 8, !tbaa !11
   br label %77
 
-.lr.ph:                                           ; preds = %1, %37
-  %.042 = phi ptr [ %19, %37 ], [ %12, %1 ]
-  %18 = phi i64 [ %38, %37 ], [ %.promoted, %1 ]
-  %19 = getelementptr inbounds i8, ptr %.042, i64 -1
-  %20 = load i8, ptr %19, align 1, !tbaa !13
-  switch i8 %20, label %37 [
-    i8 38, label %21
-    i8 61, label %29
-    i8 37, label %35
+.lr.ph:                                           ; preds = %1, %39
+  %.042 = phi ptr [ %22, %39 ], [ %12, %1 ]
+  %21 = phi i64 [ %40, %39 ], [ %.promoted, %1 ]
+  %22 = getelementptr inbounds i8, ptr %.042, i64 -1
+  %23 = load i8, ptr %22, align 1, !tbaa !13
+  switch i8 %23, label %39 [
+    i8 38, label %24
+    i8 61, label %31
+    i8 37, label %37
   ]
 
-21:                                               ; preds = %.lr.ph
-  %22 = ptrtoint ptr %12 to i64
-  %23 = ptrtoint ptr %19 to i64
-  %24 = sub i64 %22, %23
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %24, ptr %25, align 8, !tbaa !14
-  %26 = sub i64 %24, %18
-  store i64 %26, ptr %5, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 0, ptr %27, align 8, !tbaa !15
+24:                                               ; preds = %.lr.ph
+  %25 = ptrtoint ptr %12 to i64
+  %26 = ptrtoint ptr %22 to i64
+  %27 = sub i64 %25, %26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %27, ptr %28, align 8, !tbaa !14
+  %29 = sub i64 %27, %21
+  store i64 %29, ptr %5, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 0, ptr %30, align 8, !tbaa !15
   store i64 0, ptr %6, align 8, !tbaa !11
-  %28 = sub i64 %10, %24
   br label %77
 
-29:                                               ; preds = %.lr.ph
-  %30 = ptrtoint ptr %12 to i64
-  %31 = ptrtoint ptr %19 to i64
-  %32 = sub i64 %30, %31
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %32, ptr %33, align 8, !tbaa !15
+31:                                               ; preds = %.lr.ph
+  %32 = ptrtoint ptr %12 to i64
+  %33 = ptrtoint ptr %22 to i64
+  %34 = sub i64 %32, %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %34, ptr %35, align 8, !tbaa !15
   %.promoted43 = load i64, ptr %5, align 8
-  %34 = icmp eq ptr %19, %8
-  br i1 %34, label %._crit_edge48, label %.lr.ph47
+  %36 = icmp eq ptr %22, %8
+  br i1 %36, label %._crit_edge48, label %.lr.ph47
 
-35:                                               ; preds = %.lr.ph
-  %36 = add i64 %18, 2
-  store i64 %36, ptr %6, align 8, !tbaa !11
-  br label %37
+37:                                               ; preds = %.lr.ph
+  %38 = add i64 %21, 2
+  store i64 %38, ptr %6, align 8, !tbaa !11
+  br label %39
 
-37:                                               ; preds = %.lr.ph, %35
-  %38 = phi i64 [ %18, %.lr.ph ], [ %36, %35 ]
-  %39 = icmp eq ptr %19, %8
-  br i1 %39, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+39:                                               ; preds = %.lr.ph, %37
+  %40 = phi i64 [ %21, %.lr.ph ], [ %38, %37 ]
+  %41 = icmp eq ptr %22, %8
+  br i1 %41, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-._crit_edge48:                                    ; preds = %72, %29
-  %40 = phi i64 [ %18, %29 ], [ %74, %72 ]
-  %41 = phi i64 [ %.promoted43, %29 ], [ %75, %72 ]
-  %42 = phi i64 [ %32, %29 ], [ %73, %72 ]
-  %43 = ptrtoint ptr %11 to i64
-  %44 = ptrtoint ptr %8 to i64
-  %45 = add i64 %42, %44
-  %46 = sub i64 %43, %45
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %46, ptr %47, align 8, !tbaa !14
-  %48 = sub i64 %46, %41
-  store i64 %48, ptr %5, align 8, !tbaa !3
-  %49 = sub i64 %42, %40
-  store i64 %49, ptr %6, align 8, !tbaa !11
-  %50 = add i64 %42, %46
-  %51 = sub i64 %10, %50
+._crit_edge48:                                    ; preds = %72, %31
+  %42 = phi i64 [ %21, %31 ], [ %74, %72 ]
+  %43 = phi i64 [ %.promoted43, %31 ], [ %75, %72 ]
+  %44 = phi i64 [ %34, %31 ], [ %73, %72 ]
+  %45 = ptrtoint ptr %11 to i64
+  %46 = ptrtoint ptr %8 to i64
+  %47 = add i64 %44, %46
+  %48 = sub i64 %45, %47
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %48, ptr %49, align 8, !tbaa !14
+  %50 = sub i64 %48, %43
+  store i64 %50, ptr %5, align 8, !tbaa !3
+  %51 = sub i64 %44, %42
+  store i64 %51, ptr %6, align 8, !tbaa !11
+  %52 = add i64 %44, %48
   br label %77
 
-.lr.ph47:                                         ; preds = %29, %72
-  %52 = phi i64 [ %73, %72 ], [ %32, %29 ]
-  %.145 = phi ptr [ %55, %72 ], [ %19, %29 ]
-  %53 = phi i64 [ %75, %72 ], [ %.promoted43, %29 ]
-  %54 = phi i64 [ %74, %72 ], [ %18, %29 ]
-  %55 = getelementptr inbounds i8, ptr %.145, i64 -1
-  %56 = load i8, ptr %55, align 1, !tbaa !13
-  switch i8 %56, label %72 [
-    i8 38, label %57
+.lr.ph47:                                         ; preds = %31, %72
+  %53 = phi i64 [ %73, %72 ], [ %34, %31 ]
+  %.145 = phi ptr [ %56, %72 ], [ %22, %31 ]
+  %54 = phi i64 [ %75, %72 ], [ %.promoted43, %31 ]
+  %55 = phi i64 [ %74, %72 ], [ %21, %31 ]
+  %56 = getelementptr inbounds i8, ptr %.145, i64 -1
+  %57 = load i8, ptr %56, align 1, !tbaa !13
+  switch i8 %57, label %72 [
+    i8 38, label %58
     i8 61, label %66
     i8 37, label %70
   ]
 
-57:                                               ; preds = %.lr.ph47
-  %58 = ptrtoint ptr %55 to i64
-  %59 = add i64 %52, %58
-  %60 = sub i64 %30, %59
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %60, ptr %61, align 8, !tbaa !14
-  %62 = sub i64 %60, %53
-  store i64 %62, ptr %5, align 8, !tbaa !3
-  %63 = sub i64 %52, %54
-  store i64 %63, ptr %6, align 8, !tbaa !11
-  %64 = add i64 %52, %60
-  %65 = sub i64 %10, %64
+58:                                               ; preds = %.lr.ph47
+  %59 = ptrtoint ptr %56 to i64
+  %60 = add i64 %53, %59
+  %61 = sub i64 %32, %60
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %61, ptr %62, align 8, !tbaa !14
+  %63 = sub i64 %61, %54
+  store i64 %63, ptr %5, align 8, !tbaa !3
+  %64 = sub i64 %53, %55
+  store i64 %64, ptr %6, align 8, !tbaa !11
+  %65 = add i64 %53, %61
   br label %77
 
 66:                                               ; preds = %.lr.ph47
-  %67 = ptrtoint ptr %55 to i64
-  %68 = sub i64 %30, %67
-  store i64 %68, ptr %33, align 8, !tbaa !15
-  %69 = add i64 %54, %53
+  %67 = ptrtoint ptr %56 to i64
+  %68 = sub i64 %32, %67
+  store i64 %68, ptr %35, align 8, !tbaa !15
+  %69 = add i64 %55, %54
   store i64 %69, ptr %6, align 8, !tbaa !11
   br label %.sink.split
 
 70:                                               ; preds = %.lr.ph47
-  %71 = add i64 %53, 2
+  %71 = add i64 %54, 2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %66, %70
   %.sink = phi i64 [ %71, %70 ], [ 0, %66 ]
-  %.ph = phi i64 [ %52, %70 ], [ %68, %66 ]
-  %.ph71 = phi i64 [ %54, %70 ], [ %69, %66 ]
+  %.ph = phi i64 [ %53, %70 ], [ %68, %66 ]
+  %.ph71 = phi i64 [ %55, %70 ], [ %69, %66 ]
   store i64 %.sink, ptr %5, align 8, !tbaa !3
   br label %72
 
 72:                                               ; preds = %.sink.split, %.lr.ph47
-  %73 = phi i64 [ %52, %.lr.ph47 ], [ %.ph, %.sink.split ]
-  %74 = phi i64 [ %54, %.lr.ph47 ], [ %.ph71, %.sink.split ]
-  %75 = phi i64 [ %53, %.lr.ph47 ], [ %.sink, %.sink.split ]
-  %76 = icmp eq ptr %55, %8
+  %73 = phi i64 [ %53, %.lr.ph47 ], [ %.ph, %.sink.split ]
+  %74 = phi i64 [ %55, %.lr.ph47 ], [ %.ph71, %.sink.split ]
+  %75 = phi i64 [ %54, %.lr.ph47 ], [ %.sink, %.sink.split ]
+  %76 = icmp eq ptr %56, %8
   br i1 %76, label %._crit_edge48, label %.lr.ph47, !llvm.loop !21
 
-77:                                               ; preds = %57, %._crit_edge48, %21, %._crit_edge
-  %.sink73 = phi i64 [ %65, %57 ], [ %51, %._crit_edge48 ], [ %28, %21 ], [ 0, %._crit_edge ]
-  store i64 %.sink73, ptr %9, align 8, !tbaa !12
+77:                                               ; preds = %58, %._crit_edge48, %24, %._crit_edge
+  %.sink74 = phi i64 [ %65, %58 ], [ %52, %._crit_edge48 ], [ %27, %24 ], [ %17, %._crit_edge ]
+  %78 = sub i64 %10, %.sink74
+  store i64 %78, ptr %9, align 8, !tbaa !12
   ret void
 }
 

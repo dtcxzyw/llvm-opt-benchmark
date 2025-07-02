@@ -9437,7 +9437,6 @@ for.body159.lr.ph:                                ; preds = %invoke.cont154
   %add.ptr.idx = shl nuw nsw i64 %.sroa.speculated763, 3
   %cmp1.not9.i.i = icmp ult i64 %conv117, 2
   %.neg = mul i64 %.sroa.speculated763, -8
-  %cmp.i.i292 = icmp eq i64 %.neg, 0
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %n_.i355 = getelementptr inbounds nuw i8, ptr %vols, i64 8
   %158 = getelementptr inbounds nuw i8, ptr %ref.tmp292, i64 8
@@ -9698,19 +9697,24 @@ invoke.cont182:                                   ; preds = %invoke.cont182.loop
   %add.ptr.i289 = getelementptr inbounds nuw double, ptr %185, i64 %197
   %add.ptr192 = getelementptr inbounds i8, ptr %add.ptr.i289, i64 %.neg
   %incdec.ptr8.i.i293 = getelementptr inbounds nuw i8, ptr %add.ptr192, i64 8
-  %cmp1.not9.i.i294 = icmp eq ptr %incdec.ptr8.i.i293, %add.ptr.i289
-  %or.cond.i.i295 = select i1 %cmp.i.i292, i1 true, i1 %cmp1.not9.i.i294
-  %198 = load double, ptr %add.ptr192, align 8, !tbaa !105
-  br i1 %or.cond.i.i295, label %invoke.cont195.thread, label %while.body.i.i298
+  switch i64 %.neg, label %while.body.preheader.i.i296 [
+    i64 -8, label %invoke.cont195.thread
+    i64 0, label %invoke.cont195.thread
+  ]
 
-invoke.cont195.thread:                            ; preds = %invoke.cont182
+invoke.cont195.thread:                            ; preds = %invoke.cont182, %invoke.cont182
+  %198 = load double, ptr %add.ptr192, align 8, !tbaa !105
   %199 = call double @llvm.fabs.f64(double %198)
   br label %invoke.cont205
 
-while.body.i.i298:                                ; preds = %invoke.cont182, %while.body.i.i298
-  %200 = phi double [ %202, %while.body.i.i298 ], [ %198, %invoke.cont182 ]
-  %incdec.ptr11.i.i299 = phi ptr [ %incdec.ptr.i.i303, %while.body.i.i298 ], [ %incdec.ptr8.i.i293, %invoke.cont182 ]
-  %__result.010.i.i300 = phi ptr [ %spec.select.i.i302, %while.body.i.i298 ], [ %add.ptr192, %invoke.cont182 ]
+while.body.preheader.i.i296:                      ; preds = %invoke.cont182
+  %.pre.i.i297 = load double, ptr %add.ptr192, align 8, !tbaa !105
+  br label %while.body.i.i298
+
+while.body.i.i298:                                ; preds = %while.body.i.i298, %while.body.preheader.i.i296
+  %200 = phi double [ %202, %while.body.i.i298 ], [ %.pre.i.i297, %while.body.preheader.i.i296 ]
+  %incdec.ptr11.i.i299 = phi ptr [ %incdec.ptr.i.i303, %while.body.i.i298 ], [ %incdec.ptr8.i.i293, %while.body.preheader.i.i296 ]
+  %__result.010.i.i300 = phi ptr [ %spec.select.i.i302, %while.body.i.i298 ], [ %add.ptr192, %while.body.preheader.i.i296 ]
   %201 = load double, ptr %incdec.ptr11.i.i299, align 8, !tbaa !105
   %cmp.i.i.i301 = fcmp olt double %201, %200
   %202 = select i1 %cmp.i.i.i301, double %201, double %200
@@ -9724,7 +9728,7 @@ while.body.preheader.i.i315:                      ; preds = %while.body.i.i298
   br label %while.body.i.i317
 
 while.body.i.i317:                                ; preds = %while.body.i.i317, %while.body.preheader.i.i315
-  %204 = phi double [ %206, %while.body.i.i317 ], [ %198, %while.body.preheader.i.i315 ]
+  %204 = phi double [ %206, %while.body.i.i317 ], [ %.pre.i.i297, %while.body.preheader.i.i315 ]
   %incdec.ptr11.i.i318 = phi ptr [ %incdec.ptr.i.i322, %while.body.i.i317 ], [ %incdec.ptr8.i.i293, %while.body.preheader.i.i315 ]
   %__result.010.i.i319 = phi ptr [ %spec.select.i.i321, %while.body.i.i317 ], [ %add.ptr192, %while.body.preheader.i.i315 ]
   %205 = load double, ptr %incdec.ptr11.i.i318, align 8, !tbaa !105

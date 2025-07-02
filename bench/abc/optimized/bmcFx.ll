@@ -1146,174 +1146,180 @@ define internal fastcc void @Tab_TabHashAdd(ptr noundef captures(none) %0, ptr n
   %27 = sext i32 %.pre-phi to i64
   %28 = shl nsw i64 %27, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %26, i8 0, i64 %28, i1 false)
-  %29 = icmp ult ptr %23, %26
-  br i1 %29, label %.lr.ph.i, label %._crit_edge.i
+  %29 = icmp sgt i32 %22, -1
+  br i1 %29, label %.lr.ph.i, label %._crit_edge.thread.i
+
+._crit_edge.thread.i:                             ; preds = %21
+  %30 = shl nsw i32 %22, 1
+  %31 = or disjoint i32 %30, 1
+  store i32 %31, ptr %0, align 8, !tbaa !29
+  br label %Tab_TabRehash.exit
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
-  %.035.i = phi ptr [ %31, %.lr.ph.i ], [ %23, %21 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.035.i, i64 4
-  store i32 0, ptr %30, align 4, !tbaa !42
+  %.035.i = phi ptr [ %33, %.lr.ph.i ], [ %23, %21 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.035.i, i64 4
+  store i32 0, ptr %32, align 4, !tbaa !42
   store i32 0, ptr %.035.i, align 4, !tbaa !44
-  %31 = getelementptr inbounds nuw i8, ptr %.035.i, i64 16
-  %32 = icmp ult ptr %.035.i, %25
-  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !45
+  %33 = getelementptr inbounds nuw i8, ptr %.035.i, i64 16
+  %34 = icmp ult ptr %.035.i, %25
+  br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !45
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %21
-  %33 = shl nsw i32 %22, 1
-  %34 = or disjoint i32 %33, 1
-  store i32 %34, ptr %0, align 8, !tbaa !29
-  %35 = icmp sgt i32 %22, 0
-  br i1 %35, label %.lr.ph38.i, label %Tab_TabRehash.exit
+._crit_edge.i:                                    ; preds = %.lr.ph.i
+  %35 = shl nuw nsw i32 %22, 1
+  %36 = or disjoint i32 %35, 1
+  store i32 %36, ptr %0, align 8, !tbaa !29
+  %.not40.i = icmp eq i32 %22, 0
+  br i1 %.not40.i, label %Tab_TabRehash.exit, label %.lr.ph38.i
 
 .lr.ph38.i:                                       ; preds = %._crit_edge.i
-  %36 = ptrtoint ptr %23 to i64
-  br label %37
+  %37 = ptrtoint ptr %23 to i64
+  br label %38
 
-37:                                               ; preds = %37, %.lr.ph38.i
-  %.pn36.i = phi ptr [ %23, %.lr.ph38.i ], [ %.1.i, %37 ]
+38:                                               ; preds = %38, %.lr.ph38.i
+  %.pn36.i = phi ptr [ %23, %.lr.ph38.i ], [ %.1.i, %38 ]
   %.1.i = getelementptr inbounds nuw i8, ptr %.pn36.i, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %.pn36.i, i64 24
-  %39 = load i64, ptr %38, align 4
-  %40 = trunc i64 %39 to i32
-  %41 = lshr i32 %40, 17
-  %42 = lshr i64 %39, 32
-  %43 = trunc nuw i64 %42 to i32
-  %44 = and i32 %43, 32767
-  %45 = lshr i64 %39, 47
-  %46 = trunc nuw nsw i64 %45 to i32
-  %47 = and i32 %46, 32767
-  %48 = lshr i64 %39, 62
-  %49 = trunc nuw nsw i64 %48 to i32
-  %50 = mul nuw nsw i32 %41, 50331653
-  %51 = mul nuw nsw i32 %44, 100663319
-  %52 = mul nuw nsw i32 %47, 201326611
-  %53 = mul nuw nsw i32 %49, 402653189
-  %54 = add nuw nsw i32 %53, %50
+  %39 = getelementptr inbounds nuw i8, ptr %.pn36.i, i64 24
+  %40 = load i64, ptr %39, align 4
+  %41 = trunc i64 %40 to i32
+  %42 = lshr i32 %41, 17
+  %43 = lshr i64 %40, 32
+  %44 = trunc nuw i64 %43 to i32
+  %45 = and i32 %44, 32767
+  %46 = lshr i64 %40, 47
+  %47 = trunc nuw nsw i64 %46 to i32
+  %48 = and i32 %47, 32767
+  %49 = lshr i64 %40, 62
+  %50 = trunc nuw nsw i64 %49 to i32
+  %51 = mul nuw nsw i32 %42, 50331653
+  %52 = mul nuw nsw i32 %45, 100663319
+  %53 = mul nuw nsw i32 %48, 201326611
+  %54 = mul nuw nsw i32 %50, 402653189
   %55 = add nuw nsw i32 %54, %51
   %56 = add nuw nsw i32 %55, %52
-  %57 = and i32 %56, %34
-  %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw %struct.Tab_Obj_t_, ptr %23, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !44
-  %61 = getelementptr inbounds nuw i8, ptr %.pn36.i, i64 20
-  store i32 %60, ptr %61, align 4, !tbaa !42
-  %62 = ptrtoint ptr %.1.i to i64
-  %63 = sub i64 %62, %36
-  %64 = lshr exact i64 %63, 4
-  %65 = trunc i64 %64 to i32
-  store i32 %65, ptr %59, align 4, !tbaa !44
-  %66 = icmp ult ptr %.1.i, %25
-  br i1 %66, label %37, label %Tab_TabRehash.exit, !llvm.loop !46
+  %57 = add nuw nsw i32 %56, %53
+  %58 = and i32 %57, %36
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw %struct.Tab_Obj_t_, ptr %23, i64 %59
+  %61 = load i32, ptr %60, align 4, !tbaa !44
+  %62 = getelementptr inbounds nuw i8, ptr %.pn36.i, i64 20
+  store i32 %61, ptr %62, align 4, !tbaa !42
+  %63 = ptrtoint ptr %.1.i to i64
+  %64 = sub i64 %63, %37
+  %65 = lshr exact i64 %64, 4
+  %66 = trunc i64 %65 to i32
+  store i32 %66, ptr %60, align 4, !tbaa !44
+  %67 = icmp ult ptr %.1.i, %25
+  br i1 %67, label %38, label %Tab_TabRehash.exit, !llvm.loop !46
 
-Tab_TabRehash.exit:                               ; preds = %37, %4, %._crit_edge.i
-  %67 = phi i32 [ %34, %._crit_edge.i ], [ %7, %4 ], [ %34, %37 ]
-  %68 = phi ptr [ %23, %._crit_edge.i ], [ %11, %4 ], [ %23, %37 ]
-  %69 = load i32, ptr %1, align 4, !tbaa !11
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %71 = load i32, ptr %70, align 4, !tbaa !11
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %73 = load i32, ptr %72, align 4, !tbaa !11
-  %74 = mul nsw i32 %69, 50331653
-  %75 = mul nsw i32 %71, 100663319
-  %76 = mul nsw i32 %73, 201326611
-  %77 = mul nuw nsw i32 %2, 402653189
-  %78 = add i32 %74, %77
-  %79 = add i32 %78, %75
+Tab_TabRehash.exit:                               ; preds = %38, %4, %._crit_edge.i, %._crit_edge.thread.i
+  %68 = phi i32 [ %36, %._crit_edge.i ], [ %31, %._crit_edge.thread.i ], [ %7, %4 ], [ %36, %38 ]
+  %69 = phi ptr [ %23, %._crit_edge.i ], [ %23, %._crit_edge.thread.i ], [ %11, %4 ], [ %23, %38 ]
+  %70 = load i32, ptr %1, align 4, !tbaa !11
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %72 = load i32, ptr %71, align 4, !tbaa !11
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %74 = load i32, ptr %73, align 4, !tbaa !11
+  %75 = mul nsw i32 %70, 50331653
+  %76 = mul nsw i32 %72, 100663319
+  %77 = mul nsw i32 %74, 201326611
+  %78 = mul nuw nsw i32 %2, 402653189
+  %79 = add i32 %75, %78
   %80 = add i32 %79, %76
-  %81 = and i32 %80, %67
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %68, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !44
-  %.not.i43 = icmp eq i32 %84, 0
-  %.not4855 = icmp eq ptr %68, null
+  %81 = add i32 %80, %77
+  %82 = and i32 %81, %68
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %69, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !44
+  %.not.i43 = icmp eq i32 %85, 0
+  %.not4855 = icmp eq ptr %69, null
   %.not48 = or i1 %.not.i43, %.not4855
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Tab_TabRehash.exit, %Tab_TabEntry.exit45
-  %.pn.in = phi i32 [ %111, %Tab_TabEntry.exit45 ], [ %84, %Tab_TabRehash.exit ]
+  %.pn.in = phi i32 [ %112, %Tab_TabEntry.exit45 ], [ %85, %Tab_TabRehash.exit ]
   %.pn = sext i32 %.pn.in to i64
-  %.04049 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %68, i64 %.pn
-  %85 = getelementptr inbounds nuw i8, ptr %.04049, i64 8
-  %86 = load i64, ptr %85, align 4
-  %87 = trunc i64 %86 to i32
-  %88 = lshr i32 %87, 17
-  %89 = icmp eq i32 %88, %69
-  br i1 %89, label %90, label %Tab_TabEntry.exit45
+  %.04049 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %69, i64 %.pn
+  %86 = getelementptr inbounds nuw i8, ptr %.04049, i64 8
+  %87 = load i64, ptr %86, align 4
+  %88 = trunc i64 %87 to i32
+  %89 = lshr i32 %88, 17
+  %90 = icmp eq i32 %89, %70
+  br i1 %90, label %91, label %Tab_TabEntry.exit45
 
-90:                                               ; preds = %.lr.ph
-  %91 = lshr i64 %86, 32
-  %92 = trunc nuw i64 %91 to i32
-  %93 = and i32 %92, 32767
-  %94 = icmp eq i32 %93, %71
-  br i1 %94, label %95, label %Tab_TabEntry.exit45
+91:                                               ; preds = %.lr.ph
+  %92 = lshr i64 %87, 32
+  %93 = trunc nuw i64 %92 to i32
+  %94 = and i32 %93, 32767
+  %95 = icmp eq i32 %94, %72
+  br i1 %95, label %96, label %Tab_TabEntry.exit45
 
-95:                                               ; preds = %90
-  %96 = lshr i64 %86, 47
-  %97 = trunc nuw nsw i64 %96 to i32
-  %98 = and i32 %97, 32767
-  %99 = icmp eq i32 %98, %73
-  %100 = lshr i64 %86, 62
-  %101 = trunc nuw nsw i64 %100 to i32
-  %102 = icmp eq i32 %2, %101
-  %or.cond = select i1 %99, i1 %102, i1 false
-  br i1 %or.cond, label %103, label %Tab_TabEntry.exit45
+96:                                               ; preds = %91
+  %97 = lshr i64 %87, 47
+  %98 = trunc nuw nsw i64 %97 to i32
+  %99 = and i32 %98, 32767
+  %100 = icmp eq i32 %99, %74
+  %101 = lshr i64 %87, 62
+  %102 = trunc nuw nsw i64 %101 to i32
+  %103 = icmp eq i32 %2, %102
+  %or.cond = select i1 %100, i1 %103, i1 false
+  br i1 %or.cond, label %104, label %Tab_TabEntry.exit45
 
-103:                                              ; preds = %95
-  %104 = getelementptr inbounds nuw i8, ptr %.04049, i64 8
-  %105 = add i32 %3, %87
-  %106 = and i32 %105, 131071
-  %107 = zext nneg i32 %106 to i64
-  %108 = and i64 %86, -131072
-  %109 = or disjoint i64 %108, %107
-  store i64 %109, ptr %104, align 4
-  br label %142
+104:                                              ; preds = %96
+  %105 = getelementptr inbounds nuw i8, ptr %.04049, i64 8
+  %106 = add i32 %3, %88
+  %107 = and i32 %106, 131071
+  %108 = zext nneg i32 %107 to i64
+  %109 = and i64 %87, -131072
+  %110 = or disjoint i64 %109, %108
+  store i64 %110, ptr %105, align 4
+  br label %143
 
-Tab_TabEntry.exit45:                              ; preds = %.lr.ph, %90, %95
-  %110 = getelementptr inbounds nuw i8, ptr %.04049, i64 4
-  %111 = load i32, ptr %110, align 4, !tbaa !42
-  %.not.i44 = icmp eq i32 %111, 0
+Tab_TabEntry.exit45:                              ; preds = %.lr.ph, %91, %96
+  %111 = getelementptr inbounds nuw i8, ptr %.04049, i64 4
+  %112 = load i32, ptr %111, align 4, !tbaa !42
+  %.not.i44 = icmp eq i32 %112, 0
   br i1 %.not.i44, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %Tab_TabEntry.exit45, %Tab_TabRehash.exit
-  %112 = load i32, ptr %5, align 4, !tbaa !33
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %68, i64 %113
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %116 = load i64, ptr %115, align 4
-  %117 = shl i32 %69, 17
-  %118 = zext i32 %117 to i64
-  %119 = and i64 %116, -4294836225
-  %120 = or disjoint i64 %119, %118
-  store i64 %120, ptr %115, align 4
-  %121 = load i32, ptr %70, align 4, !tbaa !11
-  %122 = and i32 %121, 32767
-  %123 = zext nneg i32 %122 to i64
-  %124 = shl nuw nsw i64 %123, 32
-  %125 = and i64 %120, -140733193388033
-  %126 = or disjoint i64 %124, %125
-  store i64 %126, ptr %115, align 4
-  %127 = load i32, ptr %72, align 4, !tbaa !11
-  %128 = and i32 %127, 32767
-  %129 = zext nneg i32 %128 to i64
-  %130 = shl nuw nsw i64 %129, 47
-  %131 = and i64 %126, 140737488224256
-  %132 = or disjoint i64 %131, %130
-  %133 = zext nneg i32 %2 to i64
-  %134 = shl nuw i64 %133, 62
-  %135 = or disjoint i64 %132, %134
-  %136 = and i32 %3, 131071
-  %137 = zext nneg i32 %136 to i64
-  %138 = or disjoint i64 %135, %137
-  store i64 %138, ptr %115, align 4
-  %139 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  store i32 %84, ptr %139, align 4, !tbaa !42
-  %140 = load i32, ptr %5, align 4, !tbaa !33
-  %141 = add nsw i32 %140, 1
-  store i32 %141, ptr %5, align 4, !tbaa !33
-  store i32 %140, ptr %83, align 4, !tbaa !44
-  br label %142
+  %113 = load i32, ptr %5, align 4, !tbaa !33
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %69, i64 %114
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %117 = load i64, ptr %116, align 4
+  %118 = shl i32 %70, 17
+  %119 = zext i32 %118 to i64
+  %120 = and i64 %117, -4294836225
+  %121 = or disjoint i64 %120, %119
+  store i64 %121, ptr %116, align 4
+  %122 = load i32, ptr %71, align 4, !tbaa !11
+  %123 = and i32 %122, 32767
+  %124 = zext nneg i32 %123 to i64
+  %125 = shl nuw nsw i64 %124, 32
+  %126 = and i64 %121, -140733193388033
+  %127 = or disjoint i64 %125, %126
+  store i64 %127, ptr %116, align 4
+  %128 = load i32, ptr %73, align 4, !tbaa !11
+  %129 = and i32 %128, 32767
+  %130 = zext nneg i32 %129 to i64
+  %131 = shl nuw nsw i64 %130, 47
+  %132 = and i64 %127, 140737488224256
+  %133 = or disjoint i64 %132, %131
+  %134 = zext nneg i32 %2 to i64
+  %135 = shl nuw i64 %134, 62
+  %136 = or disjoint i64 %133, %135
+  %137 = and i32 %3, 131071
+  %138 = zext nneg i32 %137 to i64
+  %139 = or disjoint i64 %136, %138
+  store i64 %139, ptr %116, align 4
+  %140 = getelementptr inbounds nuw i8, ptr %115, i64 4
+  store i32 %85, ptr %140, align 4, !tbaa !42
+  %141 = load i32, ptr %5, align 4, !tbaa !33
+  %142 = add nsw i32 %141, 1
+  store i32 %142, ptr %5, align 4, !tbaa !33
+  store i32 %141, ptr %84, align 4, !tbaa !44
+  br label %143
 
-142:                                              ; preds = %._crit_edge, %103
+143:                                              ; preds = %._crit_edge, %104
   ret void
 }
 

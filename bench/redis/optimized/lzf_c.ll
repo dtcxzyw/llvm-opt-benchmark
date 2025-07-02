@@ -17,7 +17,7 @@ define dso_local i64 @lzf_compress(ptr noundef %0, i64 noundef %1, ptr noundef %
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %12 = getelementptr inbounds i8, ptr %6, i64 -2
-  %13 = icmp ult ptr %0, %12
+  %13 = icmp sgt i64 %1, 2
   br i1 %13, label %.lr.ph, label %.thread.thread297
 
 .lr.ph:                                           ; preds = %10

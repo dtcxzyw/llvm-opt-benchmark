@@ -1340,16 +1340,16 @@ define noundef align 8 ptr @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQue
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef align 8 ptr @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQueue$u20$as$u20$ruff_formatter..printer..queue..Queue$GT$17top_with_interned17hc31dc2eafdf81a4dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !noundef !3
-  %6 = icmp eq i64 %5, 0
-  br i1 %6, label %"_ZN4core6option15Option$LT$T$GT$7or_else17he98a4c18ce99862fE.exit", label %7
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i64, ptr %2, align 8, !noundef !3
+  %4 = icmp eq i64 %3, 0
+  br i1 %4, label %"_ZN4core6option15Option$LT$T$GT$7or_else17he98a4c18ce99862fE.exit", label %5
 
-7:                                                ; preds = %1
-  %.idx = shl nuw nsw i64 %5, 4
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
+  %.idx = shl nuw nsw i64 %3, 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %9 = getelementptr inbounds i8, ptr %8, i64 -16
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds i8, ptr %8, i64 -8
@@ -1357,8 +1357,8 @@ define noundef align 8 ptr @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQue
   %.not6 = icmp eq ptr %12, %10
   br i1 %.not6, label %13, label %"_ZN4core6option15Option$LT$T$GT$7or_else17he98a4c18ce99862fE.exit"
 
-13:                                               ; preds = %7
-  %14 = icmp eq ptr %3, %9
+13:                                               ; preds = %5
+  %14 = icmp eq i64 %3, 1
   br i1 %14, label %"_ZN4core6option15Option$LT$T$GT$7or_else17he98a4c18ce99862fE.exit", label %15
 
 15:                                               ; preds = %13
@@ -1370,8 +1370,8 @@ define noundef align 8 ptr @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQue
   %..i.i = select i1 %.not4.i.i, ptr null, ptr %17
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17he98a4c18ce99862fE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17he98a4c18ce99862fE.exit": ; preds = %1, %15, %13, %7
-  %.sroa.0.0 = phi ptr [ %10, %7 ], [ %..i.i, %15 ], [ null, %13 ], [ null, %1 ]
+"_ZN4core6option15Option$LT$T$GT$7or_else17he98a4c18ce99862fE.exit": ; preds = %1, %15, %13, %5
+  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %..i.i, %15 ], [ null, %13 ], [ null, %1 ]
   ret ptr %.sroa.0.0
 }
 
@@ -1630,16 +1630,16 @@ define internal fastcc noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
 define noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..queue..FitsQueue$u20$as$u20$ruff_formatter..printer..queue..Queue$GT$17top_with_interned17hf2aab67713404525E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !alias.scope !155, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !alias.scope !155, !noundef !3
-  %6 = icmp eq i64 %5, 0
-  br i1 %6, label %select.unfold, label %7
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i64, ptr %2, align 8, !alias.scope !155, !noundef !3
+  %4 = icmp eq i64 %3, 0
+  br i1 %4, label %select.unfold, label %5
 
-7:                                                ; preds = %1
-  %.idx.i = shl nuw nsw i64 %5, 4
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !alias.scope !155, !nonnull !3, !noundef !3
+  %.idx.i = shl nuw nsw i64 %3, 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   %9 = getelementptr inbounds i8, ptr %8, i64 -16
   %10 = load ptr, ptr %9, align 8, !noalias !155, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds i8, ptr %8, i64 -8
@@ -1647,8 +1647,8 @@ define noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..queue..FitsQueue
   %.not6.i = icmp eq ptr %12, %10
   br i1 %.not6.i, label %13, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb003884e3cddc5fcE.exit"
 
-13:                                               ; preds = %7
-  %14 = icmp eq ptr %3, %9
+13:                                               ; preds = %5
+  %14 = icmp eq i64 %3, 1
   br i1 %14, label %select.unfold, label %15
 
 15:                                               ; preds = %13
@@ -1680,8 +1680,8 @@ select.unfold:                                    ; preds = %15, %13, %1
   %..i.i = select i1 %.not4.i.i, ptr null, ptr %28
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb003884e3cddc5fcE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17hb003884e3cddc5fcE.exit": ; preds = %7, %15, %select.unfold, %22
-  %.sroa.0.0.i2 = phi ptr [ %..i.i, %22 ], [ null, %select.unfold ], [ %10, %7 ], [ %17, %15 ]
+"_ZN4core6option15Option$LT$T$GT$7or_else17hb003884e3cddc5fcE.exit": ; preds = %5, %15, %select.unfold, %22
+  %.sroa.0.0.i2 = phi ptr [ %..i.i, %22 ], [ null, %select.unfold ], [ %10, %5 ], [ %17, %15 ]
   ret ptr %.sroa.0.0.i2
 }
 

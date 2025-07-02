@@ -11650,14 +11650,14 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %49 = getelementptr inbounds %struct.InstrProfValueData, ptr %.sroa.041.0, i64 %.0
+  %.idx = shl nsw i64 %.0, 4
+  %49 = getelementptr inbounds i8, ptr %.sroa.041.0, i64 %.idx
   %50 = getelementptr inbounds i8, ptr %49, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !598
-  %.not.i.i.i.i.i33 = icmp eq ptr %50, %.sroa.041.0
+  %.not.i.i.i.i.i33 = icmp eq i64 %.0, 1
   br i1 %.not.i.i.i.i.i33, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, label %51
 
 51:                                               ; preds = %48
-  %.idx = shl nsw i64 %.0, 4
   %52 = add nsw i64 %.idx, -16
   %53 = ashr exact i64 %52, 4
   %54 = sub nsw i64 0, %53

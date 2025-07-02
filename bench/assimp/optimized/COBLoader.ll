@@ -13675,7 +13675,7 @@ define hidden void @_ZN6Assimp11COBImporter15ReadPolH_BinaryERNS_3COB5SceneERNS_
 
 13:                                               ; preds = %4
   tail call void @_ZN6Assimp11COBImporter23UnsupportedChunk_BinaryERNS_12StreamReaderILb0ELb0EEERKNS_3COB9ChunkInfoEPKc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull @.str.78)
-  br label %500
+  br label %497
 
 14:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #28
@@ -14077,7 +14077,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI10a
 194:                                              ; preds = %.lr.ph
   %195 = call ptr @__cxa_allocate_exception(i64 16) #28
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %195, ptr noundef nonnull @.str.105)
-          to label %.invoke215 unwind label %196
+          to label %.invoke217 unwind label %196
 
 196:                                              ; preds = %194
   %197 = landingpad { ptr, i32 }
@@ -14098,7 +14098,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI10a
 204:                                              ; preds = %198
   %205 = call ptr @__cxa_allocate_exception(i64 16) #28
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %205, ptr noundef nonnull @.str.105)
-          to label %.invoke215 unwind label %206
+          to label %.invoke217 unwind label %206
 
 206:                                              ; preds = %204
   %207 = landingpad { ptr, i32 }
@@ -14120,14 +14120,14 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI10a
 215:                                              ; preds = %208
   %216 = call ptr @__cxa_allocate_exception(i64 16) #28
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %216, ptr noundef nonnull @.str.105)
-          to label %.invoke215 unwind label %218
+          to label %.invoke217 unwind label %218
 
-.invoke215:                                       ; preds = %215, %204, %194
+.invoke217:                                       ; preds = %215, %204, %194
   %217 = phi ptr [ %195, %194 ], [ %205, %204 ], [ %216, %215 ]
   invoke void @__cxa_throw(ptr nonnull %217, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #29
-          to label %.cont216 unwind label %224
+          to label %.cont218 unwind label %224
 
-.cont216:                                         ; preds = %.invoke215
+.cont218:                                         ; preds = %.invoke217
   unreachable
 
 218:                                              ; preds = %215
@@ -14145,7 +14145,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI10a
   %.not183 = icmp eq ptr %223, %170
   br i1 %.not183, label %._crit_edge, label %.lr.ph
 
-224:                                              ; preds = %.invoke215
+224:                                              ; preds = %.invoke217
   %225 = landingpad { ptr, i32 }
           cleanup
   br label %.body104
@@ -14174,7 +14174,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI10a
 237:                                              ; preds = %._crit_edge201
   %238 = call ptr @__cxa_allocate_exception(i64 16) #28
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %238, ptr noundef nonnull @.str.105)
-          to label %.invoke219 unwind label %239
+          to label %.invoke221 unwind label %239
 
 239:                                              ; preds = %237
   %240 = landingpad { ptr, i32 }
@@ -14193,7 +14193,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI10a
 245:                                              ; preds = %.lr.ph200
   %246 = call ptr @__cxa_allocate_exception(i64 16) #28
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %246, ptr noundef nonnull @.str.105)
-          to label %.invoke217 unwind label %247
+          to label %.invoke219 unwind label %247
 
 247:                                              ; preds = %245
   %248 = landingpad { ptr, i32 }
@@ -14214,14 +14214,14 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI10a
 255:                                              ; preds = %249
   %256 = call ptr @__cxa_allocate_exception(i64 16) #28
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef nonnull @.str.105)
-          to label %.invoke217 unwind label %258
+          to label %.invoke219 unwind label %258
 
-.invoke217:                                       ; preds = %255, %245
+.invoke219:                                       ; preds = %255, %245
   %257 = phi ptr [ %246, %245 ], [ %256, %255 ]
   invoke void @__cxa_throw(ptr nonnull %257, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #29
-          to label %.cont218 unwind label %264
+          to label %.cont220 unwind label %264
 
-.cont218:                                         ; preds = %.invoke217
+.cont220:                                         ; preds = %.invoke219
   unreachable
 
 258:                                              ; preds = %255
@@ -14239,7 +14239,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI10a
   %.not184 = icmp eq ptr %263, %232
   br i1 %.not184, label %._crit_edge201, label %.lr.ph200
 
-264:                                              ; preds = %.invoke217
+264:                                              ; preds = %.invoke219
   %265 = landingpad { ptr, i32 }
           cleanup
   br label %.body104
@@ -14344,15 +14344,15 @@ _ZNSt6vectorIN6Assimp3COB4FaceESaIS2_EE7reserveEm.exit: ; preds = %272, %_ZNSt12
 ._crit_edge208:                                   ; preds = %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit, %_ZNSt6vectorIN6Assimp3COB4FaceESaIS2_EE7reserveEm.exit
   %308 = load i32, ptr %10, align 4
   %309 = icmp ugt i32 %308, 4
-  br i1 %309, label %474, label %486
+  br i1 %309, label %471, label %483
 
-310:                                              ; preds = %.invoke219, %_ZNSt12_Vector_baseIN6Assimp3COB4FaceESaIS2_EE11_M_allocateEm.exit.i, %271
+310:                                              ; preds = %.invoke221, %_ZNSt12_Vector_baseIN6Assimp3COB4FaceESaIS2_EE11_M_allocateEm.exit.i, %271
   %311 = landingpad { ptr, i32 }
           cleanup
   br label %.body104
 
 312:                                              ; preds = %.lr.ph207, %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit
-  %.083206 = phi i64 [ 0, %.lr.ph207 ], [ %473, %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit ]
+  %.083206 = phi i64 [ 0, %.lr.ph207 ], [ %470, %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit ]
   %313 = load ptr, ptr %17, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 1
   %315 = load ptr, ptr %145, align 8
@@ -14381,8 +14381,8 @@ _ZNSt6vectorIN6Assimp3COB4FaceESaIS2_EE7reserveEm.exit: ; preds = %272, %_ZNSt12
   %323 = load i8, ptr %313, align 1
   store ptr %314, ptr %17, align 8
   %324 = and i8 %323, 8
-  %.not = icmp eq i8 %324, 0
-  br i1 %.not, label %351, label %325
+  %.not = icmp ne i8 %324, 0
+  br i1 %.not, label %325, label %351
 
 325:                                              ; preds = %322
   %326 = load ptr, ptr %269, align 8
@@ -14498,14 +14498,14 @@ _ZNSt6vectorIN6Assimp3COB4FaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; pred
 364:                                              ; preds = %_ZNSt6vectorIN6Assimp3COB4FaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
   %365 = call ptr @__cxa_allocate_exception(i64 16) #28
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %365, ptr noundef nonnull @.str.105)
-          to label %.invoke221 unwind label %367
+          to label %.invoke223 unwind label %367
 
-.invoke221:                                       ; preds = %402, %364
+.invoke223:                                       ; preds = %402, %364
   %366 = phi ptr [ %365, %364 ], [ %403, %402 ]
   invoke void @__cxa_throw(ptr nonnull %366, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #29
-          to label %.cont222 unwind label %.loopexit.split-lp191
+          to label %.cont224 unwind label %.loopexit.split-lp191
 
-.cont222:                                         ; preds = %.invoke221
+.cont224:                                         ; preds = %.invoke223
   unreachable
 
 367:                                              ; preds = %364
@@ -14576,7 +14576,7 @@ _ZNSt12_Vector_baseIN6Assimp3COB11VertexIndexESaIS2_EE13_M_deallocateEPS2_m.exit
   br label %_ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE7reserveEm.exit
 
 _ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN6Assimp3COB11VertexIndexESaIS2_EE13_M_deallocateEPS2_m.exit.i, %383
-  br i1 %.not, label %397, label %410
+  br i1 %.not, label %.thread215, label %397
 
 397:                                              ; preds = %_ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE7reserveEm.exit
   %398 = load ptr, ptr %17, align 8
@@ -14588,12 +14588,22 @@ _ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt
 402:                                              ; preds = %397
   %403 = call ptr @__cxa_allocate_exception(i64 16) #28
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %403, ptr noundef nonnull @.str.105)
-          to label %.invoke221 unwind label %404
+          to label %.invoke223 unwind label %404
 
 404:                                              ; preds = %402
   %405 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %403) #28
+  br label %.body104
+
+.loopexit190:                                     ; preds = %_ZNSt12_Vector_baseIN6Assimp3COB11VertexIndexESaIS2_EE11_M_allocateEm.exit.i
+  %lpad.loopexit192 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body104
+
+.loopexit.split-lp191:                            ; preds = %.invoke223, %382
+  %lpad.loopexit.split-lp193 = landingpad { ptr, i32 }
+          cleanup
   br label %.body104
 
 406:                                              ; preds = %397
@@ -14603,27 +14613,23 @@ _ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt
   store i32 %408, ptr %359, align 8
   %409 = getelementptr inbounds i8, ptr %358, i64 -28
   store i32 0, ptr %409, align 4
-  br label %410
-
-.loopexit190:                                     ; preds = %_ZNSt12_Vector_baseIN6Assimp3COB11VertexIndexESaIS2_EE11_M_allocateEm.exit.i
-  %lpad.loopexit192 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body104
-
-.loopexit.split-lp191:                            ; preds = %.invoke221, %382
-  %lpad.loopexit.split-lp193 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body104
-
-410:                                              ; preds = %406, %_ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE7reserveEm.exit
   %.not210 = icmp eq i16 %370, 0
-  br i1 %.not210, label %._crit_edge205, label %.lr.ph204
+  br i1 %.not210, label %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit, label %.lr.ph204.preheader
 
-._crit_edge205:                                   ; preds = %457, %410
-  br i1 %.not, label %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit, label %463
+.lr.ph204.preheader:                              ; preds = %.thread215, %406
+  br label %.lr.ph204
 
-.lr.ph204:                                        ; preds = %410, %457
-  %.073202 = phi i64 [ %460, %457 ], [ 0, %410 ]
+.thread215:                                       ; preds = %_ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE7reserveEm.exit
+  %.not210216 = icmp eq i16 %370, 0
+  br i1 %.not210216, label %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit, label %.lr.ph204.preheader
+
+._crit_edge205:                                   ; preds = %457
+  %410 = icmp sgt i16 %370, 1
+  %or.cond227 = and i1 %.not, %410
+  br i1 %or.cond227, label %.lr.ph.i.i.preheader, label %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit
+
+.lr.ph204:                                        ; preds = %.lr.ph204.preheader, %457
+  %.073202 = phi i64 [ %460, %457 ], [ 0, %.lr.ph204.preheader ]
   %411 = load ptr, ptr %373, align 8
   %412 = load ptr, ptr %384, align 8
   %.not.i153 = icmp eq ptr %411, %412
@@ -14701,7 +14707,7 @@ _ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 441:                                              ; preds = %_ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
   %442 = call ptr @__cxa_allocate_exception(i64 16) #28
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %442, ptr noundef nonnull @.str.105)
-          to label %.invoke223 unwind label %443
+          to label %.invoke225 unwind label %443
 
 443:                                              ; preds = %441
   %444 = landingpad { ptr, i32 }
@@ -14723,14 +14729,14 @@ _ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 452:                                              ; preds = %445
   %453 = call ptr @__cxa_allocate_exception(i64 16) #28
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %453, ptr noundef nonnull @.str.105)
-          to label %.invoke223 unwind label %455
+          to label %.invoke225 unwind label %455
 
-.invoke223:                                       ; preds = %452, %441
+.invoke225:                                       ; preds = %452, %441
   %454 = phi ptr [ %442, %441 ], [ %453, %452 ]
   invoke void @__cxa_throw(ptr nonnull %454, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #29
-          to label %.cont224 unwind label %461
+          to label %.cont226 unwind label %461
 
-.cont224:                                         ; preds = %.invoke223
+.cont226:                                         ; preds = %.invoke225
   unreachable
 
 455:                                              ; preds = %452
@@ -14758,111 +14764,108 @@ _ZNSt6vectorIN6Assimp3COB11VertexIndexESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
           cleanup
   br label %.body104
 
-461:                                              ; preds = %.invoke223
+461:                                              ; preds = %.invoke225
   %462 = landingpad { ptr, i32 }
           cleanup
   br label %.body104
 
-463:                                              ; preds = %._crit_edge205
-  %464 = load ptr, ptr %373, align 8, !noalias !171
+.lr.ph.i.i.preheader:                             ; preds = %._crit_edge205
+  %463 = load ptr, ptr %373, align 8, !noalias !171
   %.neg = mul nsw i64 %371, -8
-  %465 = getelementptr inbounds i8, ptr %464, i64 %.neg
-  %466 = icmp ne i16 %370, 0
-  %storemerge4.i.i = getelementptr inbounds nuw i8, ptr %465, i64 8
-  %467 = icmp ult ptr %storemerge4.i.i, %464
-  %or.cond.i = select i1 %466, i1 %467, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i.i, label %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit
+  %464 = getelementptr inbounds i8, ptr %463, i64 %.neg
+  %storemerge4.i.i = getelementptr inbounds nuw i8, ptr %464, i64 8
+  br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %463, %.lr.ph.i.i
-  %.sroa.01.0.i = phi ptr [ %469, %.lr.ph.i.i ], [ %464, %463 ]
-  %.sroa.0.0.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge4.i.i, %463 ]
-  %468 = phi ptr [ %.sroa.0.0.i, %.lr.ph.i.i ], [ %465, %463 ]
-  %469 = getelementptr inbounds i8, ptr %.sroa.01.0.i, i64 -8
-  %470 = load i64, ptr %469, align 4
-  %471 = load i64, ptr %468, align 4
-  store i64 %471, ptr %469, align 4
-  store i64 %470, ptr %468, align 4
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.sroa.01.0.i = phi ptr [ %466, %.lr.ph.i.i ], [ %463, %.lr.ph.i.i.preheader ]
+  %.sroa.0.0.i = phi ptr [ %storemerge.i.i, %.lr.ph.i.i ], [ %storemerge4.i.i, %.lr.ph.i.i.preheader ]
+  %465 = phi ptr [ %.sroa.0.0.i, %.lr.ph.i.i ], [ %464, %.lr.ph.i.i.preheader ]
+  %466 = getelementptr inbounds i8, ptr %.sroa.01.0.i, i64 -8
+  %467 = load i64, ptr %466, align 4
+  %468 = load i64, ptr %465, align 4
+  store i64 %468, ptr %466, align 4
+  store i64 %467, ptr %465, align 4
   %storemerge.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
-  %472 = icmp ult ptr %storemerge.i.i, %469
-  br i1 %472, label %.lr.ph.i.i, label %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit, !llvm.loop !174
+  %469 = icmp ult ptr %storemerge.i.i, %466
+  br i1 %469, label %.lr.ph.i.i, label %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit, !llvm.loop !174
 
-_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit: ; preds = %.lr.ph.i.i, %463, %._crit_edge205
-  %473 = add nuw i64 %.083206, 1
-  %exitcond211.not = icmp eq i64 %473, %268
+_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN6Assimp3COB11VertexIndexESt6vectorIS5_SaIS5_EEEEEEvT_SC_.exit: ; preds = %.lr.ph.i.i, %406, %.thread215, %._crit_edge205
+  %470 = add nuw i64 %.083206, 1
+  %exitcond211.not = icmp eq i64 %470, %268
   br i1 %exitcond211.not, label %._crit_edge208, label %312, !llvm.loop !175
 
-474:                                              ; preds = %._crit_edge208
-  %475 = load ptr, ptr %17, align 8
-  %476 = getelementptr inbounds nuw i8, ptr %475, i64 4
-  %477 = load ptr, ptr %145, align 8
-  %478 = icmp ugt ptr %476, %477
-  br i1 %478, label %479, label %483
+471:                                              ; preds = %._crit_edge208
+  %472 = load ptr, ptr %17, align 8
+  %473 = getelementptr inbounds nuw i8, ptr %472, i64 4
+  %474 = load ptr, ptr %145, align 8
+  %475 = icmp ugt ptr %473, %474
+  br i1 %475, label %476, label %480
 
-479:                                              ; preds = %474
-  %480 = call ptr @__cxa_allocate_exception(i64 16) #28
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %480, ptr noundef nonnull @.str.105)
-          to label %.invoke219 unwind label %481
+476:                                              ; preds = %471
+  %477 = call ptr @__cxa_allocate_exception(i64 16) #28
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %477, ptr noundef nonnull @.str.105)
+          to label %.invoke221 unwind label %478
 
-481:                                              ; preds = %479
-  %482 = landingpad { ptr, i32 }
+478:                                              ; preds = %476
+  %479 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %480) #28
+  call void @__cxa_free_exception(ptr nonnull %477) #28
   br label %.body104
 
-483:                                              ; preds = %474
-  %484 = load i32, ptr %475, align 1
-  store ptr %476, ptr %17, align 8
-  %485 = getelementptr inbounds nuw i8, ptr %139, i64 288
-  store i32 %484, ptr %485, align 8
+480:                                              ; preds = %471
+  %481 = load i32, ptr %472, align 1
+  store ptr %473, ptr %17, align 8
+  %482 = getelementptr inbounds nuw i8, ptr %139, i64 288
+  store i32 %481, ptr %482, align 8
   %.pre214 = load i32, ptr %10, align 4
-  br label %486
+  br label %483
 
-486:                                              ; preds = %483, %._crit_edge208
-  %487 = phi i32 [ %.pre214, %483 ], [ %308, %._crit_edge208 ]
-  %488 = and i32 %487, -2
-  %or.cond = icmp eq i32 %488, 6
-  br i1 %or.cond, label %489, label %499
+483:                                              ; preds = %480, %._crit_edge208
+  %484 = phi i32 [ %.pre214, %480 ], [ %308, %._crit_edge208 ]
+  %485 = and i32 %484, -2
+  %or.cond = icmp eq i32 %485, 6
+  br i1 %or.cond, label %486, label %496
 
-489:                                              ; preds = %486
-  %490 = load ptr, ptr %17, align 8
-  %491 = getelementptr inbounds nuw i8, ptr %490, i64 4
-  %492 = load ptr, ptr %145, align 8
-  %493 = icmp ugt ptr %491, %492
-  br i1 %493, label %494, label %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI4Ev.exit172
+486:                                              ; preds = %483
+  %487 = load ptr, ptr %17, align 8
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 4
+  %489 = load ptr, ptr %145, align 8
+  %490 = icmp ugt ptr %488, %489
+  br i1 %490, label %491, label %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI4Ev.exit172
 
-494:                                              ; preds = %489
-  %495 = call ptr @__cxa_allocate_exception(i64 16) #28
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %495, ptr noundef nonnull @.str.105)
-          to label %.invoke219 unwind label %497
+491:                                              ; preds = %486
+  %492 = call ptr @__cxa_allocate_exception(i64 16) #28
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %492, ptr noundef nonnull @.str.105)
+          to label %.invoke221 unwind label %494
 
-.invoke219:                                       ; preds = %237, %494, %479
-  %496 = phi ptr [ %480, %479 ], [ %495, %494 ], [ %238, %237 ]
-  invoke void @__cxa_throw(ptr nonnull %496, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #29
-          to label %.cont220 unwind label %310
+.invoke221:                                       ; preds = %237, %491, %476
+  %493 = phi ptr [ %477, %476 ], [ %492, %491 ], [ %238, %237 ]
+  invoke void @__cxa_throw(ptr nonnull %493, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #29
+          to label %.cont222 unwind label %310
 
-.cont220:                                         ; preds = %.invoke219
+.cont222:                                         ; preds = %.invoke221
   unreachable
 
-497:                                              ; preds = %494
-  %498 = landingpad { ptr, i32 }
+494:                                              ; preds = %491
+  %495 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %495) #28
+  call void @__cxa_free_exception(ptr nonnull %492) #28
   br label %.body104
 
-_ZN6Assimp12StreamReaderILb0ELb0EE5GetI4Ev.exit172: ; preds = %489
-  store ptr %491, ptr %17, align 8
-  br label %499
+_ZN6Assimp12StreamReaderILb0ELb0EE5GetI4Ev.exit172: ; preds = %486
+  store ptr %488, ptr %17, align 8
+  br label %496
 
-499:                                              ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI4Ev.exit172, %486
+496:                                              ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI4Ev.exit172, %483
   call void @_ZN6Assimp11chunk_guardD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #28
-  br label %500
+  br label %497
 
-500:                                              ; preds = %499, %13
+497:                                              ; preds = %496, %13
   ret void
 
-.body104:                                         ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit190, %.loopexit.split-lp191, %.loopexit185, %.loopexit.split-lp186, %443, %455, %461, %367, %404, %320, %239, %310, %497, %481, %247, %258, %264, %196, %224, %218, %206, %150, %180, %188, %350, %.body
-  %.pn95.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn90.pn, %350 ], [ %151, %150 ], [ %189, %188 ], [ %181, %180 ], [ %197, %196 ], [ %207, %206 ], [ %225, %224 ], [ %219, %218 ], [ %248, %247 ], [ %265, %264 ], [ %259, %258 ], [ %240, %239 ], [ %482, %481 ], [ %311, %310 ], [ %498, %497 ], [ %321, %320 ], [ %368, %367 ], [ %405, %404 ], [ %444, %443 ], [ %462, %461 ], [ %456, %455 ], [ %lpad.loopexit187, %.loopexit185 ], [ %lpad.loopexit.split-lp188, %.loopexit.split-lp186 ], [ %lpad.loopexit192, %.loopexit190 ], [ %lpad.loopexit.split-lp193, %.loopexit.split-lp191 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body104:                                         ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit190, %.loopexit.split-lp191, %.loopexit185, %.loopexit.split-lp186, %443, %455, %461, %367, %404, %320, %239, %310, %494, %478, %247, %258, %264, %196, %224, %218, %206, %150, %180, %188, %350, %.body
+  %.pn95.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn90.pn, %350 ], [ %151, %150 ], [ %189, %188 ], [ %181, %180 ], [ %197, %196 ], [ %207, %206 ], [ %225, %224 ], [ %219, %218 ], [ %248, %247 ], [ %265, %264 ], [ %259, %258 ], [ %240, %239 ], [ %479, %478 ], [ %311, %310 ], [ %495, %494 ], [ %321, %320 ], [ %368, %367 ], [ %405, %404 ], [ %444, %443 ], [ %462, %461 ], [ %456, %455 ], [ %lpad.loopexit187, %.loopexit185 ], [ %lpad.loopexit.split-lp188, %.loopexit.split-lp186 ], [ %lpad.loopexit192, %.loopexit190 ], [ %lpad.loopexit.split-lp193, %.loopexit.split-lp191 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6Assimp11chunk_guardD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #28
   resume { ptr, i32 } %.pn95.pn

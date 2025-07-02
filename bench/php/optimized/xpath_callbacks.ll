@@ -1368,198 +1368,198 @@ define internal fastcc ptr @php_dom_xpath_callback_fetch_args(ptr noundef %0, i3
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = icmp eq i32 %1, 0
-  br i1 %8, label %.loopexit88, label %9
+  br i1 %8, label %.loopexit88, label %.lr.ph94.preheader
 
-9:                                                ; preds = %5
-  %10 = zext i32 %1 to i64
-  %11 = tail call noalias ptr @_safe_emalloc(i64 noundef %10, i64 noundef 16, i64 noundef 0) #9
-  %12 = getelementptr inbounds nuw %struct._zval_struct, ptr %11, i64 %10
-  %.07790 = getelementptr inbounds i8, ptr %12, i64 -16
-  %.not91 = icmp ult ptr %.07790, %11
-  br i1 %.not91, label %.loopexit88, label %.lr.ph94
+.lr.ph94.preheader:                               ; preds = %5
+  %9 = zext i32 %1 to i64
+  %10 = tail call noalias ptr @_safe_emalloc(i64 noundef %9, i64 noundef 16, i64 noundef 0) #9
+  %.idx = shl nuw nsw i64 %9, 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
+  %.07790 = getelementptr inbounds i8, ptr %11, i64 -16
+  br label %.lr.ph94
 
-.lr.ph94:                                         ; preds = %9, %.loopexit
-  %.07793 = phi ptr [ %.077, %.loopexit ], [ %.07790, %9 ]
-  %.pn92 = phi ptr [ %.07793, %.loopexit ], [ %12, %9 ]
-  %13 = call ptr @valuePop(ptr noundef %0) #9
-  %14 = icmp ne ptr %13, null
-  call void @llvm.assume(i1 %14)
-  %15 = load i32, ptr %13, align 8, !tbaa !65
-  switch i32 %15, label %zend_string_alloc.exit [
+.lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.loopexit
+  %.07793 = phi ptr [ %.077, %.loopexit ], [ %.07790, %.lr.ph94.preheader ]
+  %.pn92 = phi ptr [ %.07793, %.loopexit ], [ %11, %.lr.ph94.preheader ]
+  %12 = call ptr @valuePop(ptr noundef %0) #9
+  %13 = icmp ne ptr %12, null
+  call void @llvm.assume(i1 %13)
+  %14 = load i32, ptr %12, align 8, !tbaa !65
+  switch i32 %14, label %zend_string_alloc.exit [
     i32 4, label %zend_string_alloc.exit87
-    i32 2, label %28
-    i32 3, label %33
-    i32 1, label %37
+    i32 2, label %27
+    i32 3, label %32
+    i32 1, label %36
   ]
 
 zend_string_alloc.exit87:                         ; preds = %.lr.ph94
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !60
-  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #10
-  %19 = and i64 %18, -8
-  %20 = add i64 %19, 32
-  %21 = call noalias ptr @_emalloc(i64 noundef %20) #11
-  store i32 1, ptr %21, align 4, !tbaa !20
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 22, ptr %22, align 4, !tbaa !13
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 0, ptr %23, align 8, !tbaa !66
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i64 %18, ptr %24, align 8, !tbaa !58
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 1 %17, i64 %18, i1 false)
-  %26 = getelementptr inbounds nuw [1 x i8], ptr %25, i64 0, i64 %18
-  store i8 0, ptr %26, align 1, !tbaa !13
-  store ptr %21, ptr %.07793, align 8, !tbaa !13
-  %27 = getelementptr inbounds i8, ptr %.pn92, i64 -8
-  store i32 262, ptr %27, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !60
+  %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #10
+  %18 = and i64 %17, -8
+  %19 = add i64 %18, 32
+  %20 = call noalias ptr @_emalloc(i64 noundef %19) #11
+  store i32 1, ptr %20, align 4, !tbaa !20
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store i32 22, ptr %21, align 4, !tbaa !13
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i64 0, ptr %22, align 8, !tbaa !66
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store i64 %17, ptr %23, align 8, !tbaa !58
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 1 %16, i64 %17, i1 false)
+  %25 = getelementptr inbounds nuw [1 x i8], ptr %24, i64 0, i64 %17
+  store i8 0, ptr %25, align 1, !tbaa !13
+  store ptr %20, ptr %.07793, align 8, !tbaa !13
+  %26 = getelementptr inbounds i8, ptr %.pn92, i64 -8
+  store i32 262, ptr %26, align 8, !tbaa !13
   br label %.loopexit
 
-28:                                               ; preds = %.lr.ph94
-  %29 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %30 = load i32, ptr %29, align 8, !tbaa !67
-  %.not85 = icmp eq i32 %30, 0
-  %31 = select i1 %.not85, i32 2, i32 3
-  %32 = getelementptr inbounds i8, ptr %.pn92, i64 -8
-  store i32 %31, ptr %32, align 8, !tbaa !13
+27:                                               ; preds = %.lr.ph94
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %29 = load i32, ptr %28, align 8, !tbaa !67
+  %.not85 = icmp eq i32 %29, 0
+  %30 = select i1 %.not85, i32 2, i32 3
+  %31 = getelementptr inbounds i8, ptr %.pn92, i64 -8
+  store i32 %30, ptr %31, align 8, !tbaa !13
   br label %.loopexit
 
-33:                                               ; preds = %.lr.ph94
-  %34 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %35 = load double, ptr %34, align 8, !tbaa !68
-  store double %35, ptr %.07793, align 8, !tbaa !13
-  %36 = getelementptr inbounds i8, ptr %.pn92, i64 -8
-  store i32 5, ptr %36, align 8, !tbaa !13
+32:                                               ; preds = %.lr.ph94
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %34 = load double, ptr %33, align 8, !tbaa !68
+  store double %34, ptr %.07793, align 8, !tbaa !13
+  %35 = getelementptr inbounds i8, ptr %.pn92, i64 -8
+  store i32 5, ptr %35, align 8, !tbaa !13
   br label %.loopexit
 
-37:                                               ; preds = %.lr.ph94
+36:                                               ; preds = %.lr.ph94
   switch i32 %2, label %.loopexit [
     i32 0, label %zend_string_alloc.exit86
-    i32 1, label %50
+    i32 1, label %49
   ]
 
-zend_string_alloc.exit86:                         ; preds = %37
-  %38 = call ptr @xmlXPathCastToString(ptr noundef nonnull %13) #9
-  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #10
-  %40 = and i64 %39, -8
-  %41 = add i64 %40, 32
-  %42 = call noalias ptr @_emalloc(i64 noundef %41) #11
-  store i32 1, ptr %42, align 4, !tbaa !20
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store i32 22, ptr %43, align 4, !tbaa !13
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i64 0, ptr %44, align 8, !tbaa !66
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i64 %39, ptr %45, align 8, !tbaa !58
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 1 %38, i64 %39, i1 false)
-  %47 = getelementptr inbounds nuw [1 x i8], ptr %46, i64 0, i64 %39
-  store i8 0, ptr %47, align 1, !tbaa !13
-  store ptr %42, ptr %.07793, align 8, !tbaa !13
-  %48 = getelementptr inbounds i8, ptr %.pn92, i64 -8
-  store i32 262, ptr %48, align 8, !tbaa !13
-  %49 = load ptr, ptr @xmlFree, align 8, !tbaa !69
-  call void %49(ptr noundef nonnull %38) #9
+zend_string_alloc.exit86:                         ; preds = %36
+  %37 = call ptr @xmlXPathCastToString(ptr noundef nonnull %12) #9
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #10
+  %39 = and i64 %38, -8
+  %40 = add i64 %39, 32
+  %41 = call noalias ptr @_emalloc(i64 noundef %40) #11
+  store i32 1, ptr %41, align 4, !tbaa !20
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store i32 22, ptr %42, align 4, !tbaa !13
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i64 0, ptr %43, align 8, !tbaa !66
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  store i64 %38, ptr %44, align 8, !tbaa !58
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr nonnull align 1 %37, i64 %38, i1 false)
+  %46 = getelementptr inbounds nuw [1 x i8], ptr %45, i64 0, i64 %38
+  store i8 0, ptr %46, align 1, !tbaa !13
+  store ptr %41, ptr %.07793, align 8, !tbaa !13
+  %47 = getelementptr inbounds i8, ptr %.pn92, i64 -8
+  store i32 262, ptr %47, align 8, !tbaa !13
+  %48 = load ptr, ptr @xmlFree, align 8, !tbaa !69
+  call void %48(ptr noundef nonnull %37) #9
   br label %.loopexit
 
-50:                                               ; preds = %37
-  %51 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !70
-  %.not84 = icmp eq ptr %52, null
-  br i1 %.not84, label %84, label %53
+49:                                               ; preds = %36
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !70
+  %.not84 = icmp eq ptr %51, null
+  br i1 %.not84, label %83, label %52
 
-53:                                               ; preds = %50
-  %54 = load i32, ptr %52, align 8, !tbaa !71
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %56, label %84
+52:                                               ; preds = %49
+  %53 = load i32, ptr %51, align 8, !tbaa !71
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %55, label %83
 
-56:                                               ; preds = %53
-  %57 = call ptr @_zend_new_array(i32 noundef %54) #9
-  store ptr %57, ptr %.07793, align 8, !tbaa !13
-  %58 = getelementptr inbounds i8, ptr %.pn92, i64 -8
-  store i32 775, ptr %58, align 8, !tbaa !13
-  call void @zend_hash_real_init_packed(ptr noundef %57) #9
-  %59 = load ptr, ptr %51, align 8, !tbaa !70
-  %60 = load i32, ptr %59, align 8, !tbaa !71
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph, label %.loopexit
+55:                                               ; preds = %52
+  %56 = call ptr @_zend_new_array(i32 noundef %53) #9
+  store ptr %56, ptr %.07793, align 8, !tbaa !13
+  %57 = getelementptr inbounds i8, ptr %.pn92, i64 -8
+  store i32 775, ptr %57, align 8, !tbaa !13
+  call void @zend_hash_real_init_packed(ptr noundef %56) #9
+  %58 = load ptr, ptr %50, align 8, !tbaa !70
+  %59 = load i32, ptr %58, align 8, !tbaa !71
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %56, %77
-  %indvars.iv = phi i64 [ %indvars.iv.next, %77 ], [ 0, %56 ]
-  %62 = phi ptr [ %80, %77 ], [ %59, %56 ]
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !74
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
-  %66 = load ptr, ptr %65, align 8, !tbaa !75
+.lr.ph:                                           ; preds = %55, %76
+  %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ 0, %55 ]
+  %61 = phi ptr [ %79, %76 ], [ %58, %55 ]
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !74
+  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
+  %65 = load ptr, ptr %64, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load i32, ptr %67, align 8, !tbaa !77
-  %69 = icmp eq i32 %68, 18
-  br i1 %69, label %70, label %76, !prof !21
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = load i32, ptr %66, align 8, !tbaa !77
+  %68 = icmp eq i32 %67, 18
+  br i1 %68, label %69, label %75, !prof !21
 
-70:                                               ; preds = %.lr.ph
-  %71 = load ptr, ptr %66, align 8, !tbaa !83
+69:                                               ; preds = %.lr.ph
+  %70 = load ptr, ptr %65, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
-  %72 = call zeroext i1 @php_dom_create_object(ptr noundef %71, ptr noundef nonnull %7, ptr noundef %3) #9
-  %73 = load ptr, ptr %7, align 8, !tbaa !13
-  %74 = getelementptr inbounds i8, ptr %73, i64 -24
-  %75 = call ptr @php_dom_create_fake_namespace_decl(ptr noundef %71, ptr noundef nonnull %66, ptr noundef nonnull %6, ptr noundef nonnull %74) #9
+  %71 = call zeroext i1 @php_dom_create_object(ptr noundef %70, ptr noundef nonnull %7, ptr noundef %3) #9
+  %72 = load ptr, ptr %7, align 8, !tbaa !13
+  %73 = getelementptr inbounds i8, ptr %72, i64 -24
+  %74 = call ptr @php_dom_create_fake_namespace_decl(ptr noundef %70, ptr noundef nonnull %65, ptr noundef nonnull %6, ptr noundef nonnull %73) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
-  br label %77
+  br label %76
 
-76:                                               ; preds = %.lr.ph
-  call void %4(ptr noundef nonnull %66, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %0) #9
-  br label %77
+75:                                               ; preds = %.lr.ph
+  call void %4(ptr noundef nonnull %65, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %0) #9
+  br label %76
 
-77:                                               ; preds = %76, %70
-  %78 = load ptr, ptr %.07793, align 8, !tbaa !13
-  %79 = call ptr @zend_hash_next_index_insert_new(ptr noundef %78, ptr noundef nonnull %6) #9
+76:                                               ; preds = %75, %69
+  %77 = load ptr, ptr %.07793, align 8, !tbaa !13
+  %78 = call ptr @zend_hash_next_index_insert_new(ptr noundef %77, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = load ptr, ptr %51, align 8, !tbaa !70
-  %81 = load i32, ptr %80, align 8, !tbaa !71
-  %82 = sext i32 %81 to i64
-  %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph, label %.loopexit
+  %79 = load ptr, ptr %50, align 8, !tbaa !70
+  %80 = load i32, ptr %79, align 8, !tbaa !71
+  %81 = sext i32 %80 to i64
+  %82 = icmp slt i64 %indvars.iv.next, %81
+  br i1 %82, label %.lr.ph, label %.loopexit
 
-84:                                               ; preds = %50, %53
+83:                                               ; preds = %49, %52
   store ptr @zend_empty_array, ptr %.07793, align 8, !tbaa !13
-  %85 = getelementptr inbounds i8, ptr %.pn92, i64 -8
-  store i32 7, ptr %85, align 8, !tbaa !13
+  %84 = getelementptr inbounds i8, ptr %.pn92, i64 -8
+  store i32 7, ptr %84, align 8, !tbaa !13
   br label %.loopexit
 
 zend_string_alloc.exit:                           ; preds = %.lr.ph94
-  %86 = call ptr @xmlXPathCastToString(ptr noundef nonnull %13) #9
-  %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #10
-  %88 = and i64 %87, -8
-  %89 = add i64 %88, 32
-  %90 = call noalias ptr @_emalloc(i64 noundef %89) #11
-  store i32 1, ptr %90, align 4, !tbaa !20
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  store i32 22, ptr %91, align 4, !tbaa !13
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store i64 0, ptr %92, align 8, !tbaa !66
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  store i64 %87, ptr %93, align 8, !tbaa !58
-  %94 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %94, ptr nonnull align 1 %86, i64 %87, i1 false)
-  %95 = getelementptr inbounds nuw [1 x i8], ptr %94, i64 0, i64 %87
-  store i8 0, ptr %95, align 1, !tbaa !13
-  store ptr %90, ptr %.07793, align 8, !tbaa !13
-  %96 = getelementptr inbounds i8, ptr %.pn92, i64 -8
-  store i32 262, ptr %96, align 8, !tbaa !13
-  %97 = load ptr, ptr @xmlFree, align 8, !tbaa !69
-  call void %97(ptr noundef nonnull %86) #9
+  %85 = call ptr @xmlXPathCastToString(ptr noundef nonnull %12) #9
+  %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #10
+  %87 = and i64 %86, -8
+  %88 = add i64 %87, 32
+  %89 = call noalias ptr @_emalloc(i64 noundef %88) #11
+  store i32 1, ptr %89, align 4, !tbaa !20
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
+  store i32 22, ptr %90, align 4, !tbaa !13
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  store i64 0, ptr %91, align 8, !tbaa !66
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  store i64 %86, ptr %92, align 8, !tbaa !58
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %93, ptr nonnull align 1 %85, i64 %86, i1 false)
+  %94 = getelementptr inbounds nuw [1 x i8], ptr %93, i64 0, i64 %86
+  store i8 0, ptr %94, align 1, !tbaa !13
+  store ptr %89, ptr %.07793, align 8, !tbaa !13
+  %95 = getelementptr inbounds i8, ptr %.pn92, i64 -8
+  store i32 262, ptr %95, align 8, !tbaa !13
+  %96 = load ptr, ptr @xmlFree, align 8, !tbaa !69
+  call void %96(ptr noundef nonnull %85) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %77, %56, %37, %zend_string_alloc.exit86, %84, %zend_string_alloc.exit, %33, %28, %zend_string_alloc.exit87
-  call void @xmlXPathFreeObject(ptr noundef nonnull %13) #9
+.loopexit:                                        ; preds = %76, %55, %36, %zend_string_alloc.exit86, %83, %zend_string_alloc.exit, %32, %27, %zend_string_alloc.exit87
+  call void @xmlXPathFreeObject(ptr noundef nonnull %12) #9
   %.077 = getelementptr inbounds i8, ptr %.07793, i64 -16
-  %.not = icmp ult ptr %.077, %11
+  %.not = icmp ult ptr %.077, %10
   br i1 %.not, label %.loopexit88, label %.lr.ph94
 
-.loopexit88:                                      ; preds = %.loopexit, %9, %5
-  %.0 = phi ptr [ null, %5 ], [ %11, %9 ], [ %11, %.loopexit ]
+.loopexit88:                                      ; preds = %.loopexit, %5
+  %.0 = phi ptr [ null, %5 ], [ %10, %.loopexit ]
   ret ptr %.0
 }
 

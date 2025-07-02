@@ -72,7 +72,7 @@ define internal ptr @H5O__linfo_decode(ptr noundef %0, ptr readnone captures(non
   br i1 %15, label %16, label %.thread, !prof !9
 
 16:                                               ; preds = %6
-  %17 = icmp ugt ptr %5, %.ptr82
+  %17 = icmp slt i64 %4, 1
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %16
@@ -138,7 +138,7 @@ define internal ptr @H5O__linfo_decode(ptr noundef %0, ptr readnone captures(non
   br i1 %55, label %56, label %84
 
 56:                                               ; preds = %49
-  %57 = icmp slt i64 %4, 3
+  %57 = icmp samesign ult i64 %4, 3
   %58 = ptrtoint ptr %43 to i64
   %59 = sub i64 %21, %58
   %60 = icmp ult i64 %59, 8

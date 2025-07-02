@@ -74977,8 +74977,8 @@ _ZN5boost7movelib13adaptive_xbufIN4CGAL8internal11CC_iteratorINS2_17Compact_cont
   %71 = sub i64 %69, %70
   %72 = shl i64 %69, 3
   %73 = ashr exact i64 %72, 3
-  %.idx.mask = and i64 %69, 2305843009213693951
-  %.not8.i.i = icmp eq i64 %.idx.mask, 0
+  %.mask.i = and i64 %69, 2305843009213693951
+  %.not8.i.i = icmp eq i64 %.mask.i, 0
   br i1 %.not8.i.i, label %_ZN5boost7movelib15detail_adaptive14combine_paramsIPmNS1_4lessEmNS0_13adaptive_xbufIN4CGAL8internal11CC_iteratorINS6_17Compact_containerINS6_37Constrained_triangulation_face_base_2INS6_5EpeckENS6_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateISB_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSI_IiLin1ELin1ELi0ELin1ELin1EEESJ_SJ_SK_EEvRKNSH_10MatrixBaseIT0_EERKNSL_IT1_EERKNSL_IT2_EEbRNSH_15PlainObjectBaseIT3_EERNSY_IT4_EEE9FaceInfo2SB_NS6_25Triangulation_face_base_2ISB_NS6_28Triangulation_ds_face_base_2INS6_30Triangulation_data_structure_2INS6_27Triangulation_vertex_base_2ISB_NS6_30Triangulation_ds_vertex_base_2IvEEEENSA_ISB_NSC_IS15_SB_NS16_ISB_NS17_IvEEEEEEEEEEEEEEEEEENS6_7DefaultES1M_S1M_EELb0EEEPS1O_mEEEEvT_SM_SQ_SQ_SQ_RSU_RSQ_S1T_S1T_S1T_b.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %58, %.lr.ph.i.i
@@ -98956,8 +98956,8 @@ _ZN5boost7movelib13adaptive_xbufIN4CGAL8internal11CC_iteratorINS2_17Compact_cont
   %71 = sub i64 %69, %70
   %72 = shl i64 %69, 3
   %73 = ashr exact i64 %72, 3
-  %.idx.mask = and i64 %69, 2305843009213693951
-  %.not8.i.i = icmp eq i64 %.idx.mask, 0
+  %.mask.i = and i64 %69, 2305843009213693951
+  %.not8.i.i = icmp eq i64 %.mask.i, 0
   br i1 %.not8.i.i, label %_ZN5boost7movelib15detail_adaptive14combine_paramsIPmNS1_4lessEmNS0_13adaptive_xbufIN4CGAL8internal11CC_iteratorINS6_17Compact_containerINS6_37Constrained_triangulation_face_base_2INS6_5EpickENS6_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateISB_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSI_IiLin1ELin1ELi0ELin1ELin1EEESJ_SJ_SK_EEvRKNSH_10MatrixBaseIT0_EERKNSL_IT1_EERKNSL_IT2_EEbRNSH_15PlainObjectBaseIT3_EERNSY_IT4_EEE9FaceInfo2SB_NS6_25Triangulation_face_base_2ISB_NS6_28Triangulation_ds_face_base_2INS6_30Triangulation_data_structure_2INS6_27Triangulation_vertex_base_2ISB_NS6_30Triangulation_ds_vertex_base_2IvEEEENSA_ISB_NSC_IS15_SB_NS16_ISB_NS17_IvEEEEEEEEEEEEEEEEEENS6_7DefaultES1M_S1M_EELb0EEEPS1O_mEEEEvT_SM_SQ_SQ_SQ_RSU_RSQ_S1T_S1T_S1T_b.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %58, %.lr.ph.i.i

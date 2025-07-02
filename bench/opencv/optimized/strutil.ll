@@ -7557,7 +7557,7 @@ define hidden noundef i32 @_ZN6google8protobuf20Base64EscapeInternalEPKhiPciPKcb
   %17 = zext nneg i32 %1 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   %19 = getelementptr inbounds i8, ptr %18, i64 -3
-  %20 = icmp ult ptr %0, %19
+  %20 = icmp samesign ugt i32 %1, 3
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %14, %.lr.ph

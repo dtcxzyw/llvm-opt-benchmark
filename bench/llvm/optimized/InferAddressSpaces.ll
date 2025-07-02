@@ -3034,7 +3034,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i.i.i: ; preds = %1164, 
   %.pre.i113.i = phi ptr [ %882, %1151 ], [ %.pre.pre.i.i, %1164 ]
   %.pre-phi.i.i32.i.i = phi i64 [ 0, %1151 ], [ %.pre8.i.i.i.i, %1164 ]
   %1165 = phi i32 [ 0, %1151 ], [ %.pre.i.i34.i.i, %1164 ]
-  %.not9.i.i.i.i.i.i.i.i = icmp eq ptr %1161, %spec.select.i.i.i112.i
+  %.not9.i.i.i.i.i.i.i.i = icmp eq i32 %1157, 1
   br i1 %.not9.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EEC2IPNS_3UseEEERKNS_14iterator_rangeIT_EE.exit.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i:                 ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i.i.i

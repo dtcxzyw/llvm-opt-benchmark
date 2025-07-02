@@ -28,7 +28,7 @@ define dso_local i64 @siphash(ptr noundef readonly captures(address) %0, i64 nou
   %15 = xor i64 %4, 7816392313619706465
   %16 = xor i64 %6, 7237128888997146477
   %17 = xor i64 %4, 8317987319222330741
-  %.not164 = icmp eq ptr %0, %10
+  %.not164 = icmp ult i64 %1, 8
   br i1 %.not164, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -203,7 +203,7 @@ define dso_local i64 @siphash_nocase(ptr noundef readonly captures(address) %0, 
   %15 = xor i64 %4, 7816392313619706465
   %16 = xor i64 %6, 7237128888997146477
   %17 = xor i64 %4, 8317987319222330741
-  %.not199 = icmp eq ptr %0, %10
+  %.not199 = icmp ult i64 %1, 8
   br i1 %.not199, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph

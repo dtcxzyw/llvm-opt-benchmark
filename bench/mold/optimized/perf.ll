@@ -5683,58 +5683,59 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEE
 
 47:                                               ; preds = %25
   %48 = icmp eq i64 %26, 1
-  %49 = getelementptr inbounds ptr, ptr %.sroa.042.0, i64 %.0
-  br i1 %48, label %50, label %58
+  br i1 %48, label %49, label %58
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %49, i64 -8
+49:                                               ; preds = %47
+  %.idx = shl nsw i64 %.0, 3
+  %50 = getelementptr inbounds i8, ptr %.sroa.042.0, i64 %.idx
+  %51 = getelementptr inbounds i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8, !tbaa !49
-  %.not.i.i.i.i.i34 = icmp eq ptr %51, %.sroa.042.0
+  %.not.i.i.i.i.i34 = icmp eq i64 %.0, 1
   br i1 %.not.i.i.i.i.i34, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %53
 
-53:                                               ; preds = %50
-  %.idx = shl nsw i64 %.0, 3
+53:                                               ; preds = %49
   %54 = add nsw i64 %.idx, -8
   %55 = ashr exact i64 %54, 3
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds ptr, ptr %49, i64 %56
+  %57 = getelementptr inbounds ptr, ptr %50, i64 %56
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %.sroa.042.0, i64 %54, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %50, %53
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %49, %53
   store ptr %52, ptr %.sroa.042.0, align 8, !tbaa !49
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
 58:                                               ; preds = %47
-  %59 = sub i64 0, %26
-  %60 = getelementptr inbounds ptr, ptr %49, i64 %59
-  %61 = icmp sgt i64 %.085, 0
-  br i1 %61, label %.lr.ph, label %._crit_edge
+  %59 = getelementptr inbounds ptr, ptr %.sroa.042.0, i64 %.0
+  %60 = sub i64 0, %26
+  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %62 = icmp sgt i64 %.085, 0
+  br i1 %62, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %58
-  %.sroa.042.3.lcssa = phi ptr [ %60, %58 ], [ %.sroa.042.0, %.lr.ph ]
-  %62 = srem i64 %.0, %26
-  %.not = icmp eq i64 %62, 0
+  %.sroa.042.3.lcssa = phi ptr [ %61, %58 ], [ %.sroa.042.0, %.lr.ph ]
+  %63 = srem i64 %.0, %26
+  %.not = icmp eq i64 %63, 0
   br i1 %.not, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
   %.sroa.042.0.be = phi ptr [ %.sroa.042.1.lcssa, %45 ], [ %.sroa.042.3.lcssa, %._crit_edge ]
-  %.085.be = phi i64 [ %46, %45 ], [ %62, %._crit_edge ]
+  %.085.be = phi i64 [ %46, %45 ], [ %63, %._crit_edge ]
   %.0.be = phi i64 [ %.085, %45 ], [ %26, %._crit_edge ]
   br label %25, !llvm.loop !396
 
 .lr.ph:                                           ; preds = %58, %.lr.ph
-  %.02795 = phi i64 [ %67, %.lr.ph ], [ 0, %58 ]
-  %.sroa.0.094 = phi ptr [ %64, %.lr.ph ], [ %49, %58 ]
-  %.sroa.042.393 = phi ptr [ %63, %.lr.ph ], [ %60, %58 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.042.393, i64 -8
-  %64 = getelementptr inbounds i8, ptr %.sroa.0.094, i64 -8
-  %65 = load ptr, ptr %63, align 8, !tbaa !49
+  %.02795 = phi i64 [ %68, %.lr.ph ], [ 0, %58 ]
+  %.sroa.0.094 = phi ptr [ %65, %.lr.ph ], [ %59, %58 ]
+  %.sroa.042.393 = phi ptr [ %64, %.lr.ph ], [ %61, %58 ]
+  %64 = getelementptr inbounds i8, ptr %.sroa.042.393, i64 -8
+  %65 = getelementptr inbounds i8, ptr %.sroa.0.094, i64 -8
   %66 = load ptr, ptr %64, align 8, !tbaa !49
-  store ptr %66, ptr %63, align 8, !tbaa !49
-  store ptr %65, ptr %64, align 8, !tbaa !49
-  %67 = add nuw nsw i64 %.02795, 1
-  %exitcond.not = icmp eq i64 %67, %.085
+  %67 = load ptr, ptr %65, align 8, !tbaa !49
+  store ptr %67, ptr %64, align 8, !tbaa !49
+  store ptr %66, ptr %65, align 8, !tbaa !49
+  %68 = add nuw nsw i64 %.02795, 1
+  %exitcond.not = icmp eq i64 %68, %.085
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !397
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %._crit_edge, %._crit_edge101, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %5, %3

@@ -79773,11 +79773,11 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   %95 = icmp eq i64 %89, %93
   %96 = getelementptr inbounds nuw i8, ptr %91, i64 %89
   %97 = getelementptr inbounds i8, ptr %96, i64 -1
-  %98 = icmp ne ptr %91, %97
+  %98 = icmp ne i64 %89, 1
   %99 = getelementptr inbounds i8, ptr %96, i64 -2
-  %100 = icmp ne ptr %91, %99
+  %100 = icmp ne i64 %89, 2
   %101 = getelementptr inbounds i8, ptr %96, i64 -3
-  %102 = icmp ne ptr %91, %101
+  %102 = icmp ne i64 %89, 3
   %103 = getelementptr inbounds i8, ptr %96, i64 -4
   %104 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %105 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -80109,7 +80109,7 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   br i1 %229, label %236, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8c8b89ec63ab7454E.exit17.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8c8b89ec63ab7454E.exit17.i.i.i.i": ; preds = %226
-  %230 = icmp ne ptr %67, %227
+  %230 = icmp ne i64 %223, 1
   call void @llvm.assume(i1 %230)
   %231 = getelementptr inbounds i8, ptr %224, i64 -2
   %232 = load i8, ptr %231, align 1, !alias.scope !6000, !noalias !6003, !noundef !3
@@ -80123,7 +80123,7 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   br label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h0aa1e611b4d6b7fdE.exit.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8c8b89ec63ab7454E.exit19.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8c8b89ec63ab7454E.exit17.i.i.i.i"
-  %238 = icmp ne ptr %67, %231
+  %238 = icmp ne i64 %223, 2
   call void @llvm.assume(i1 %238)
   %239 = getelementptr inbounds i8, ptr %224, i64 -3
   %240 = load i8, ptr %239, align 1, !alias.scope !6000, !noalias !6003, !noundef !3
@@ -80142,7 +80142,7 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   br label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h0aa1e611b4d6b7fdE.exit.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8c8b89ec63ab7454E.exit21.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8c8b89ec63ab7454E.exit19.i.i.i.i"
-  %249 = icmp ne ptr %67, %239
+  %249 = icmp ne i64 %223, 3
   call void @llvm.assume(i1 %249)
   %250 = getelementptr inbounds i8, ptr %224, i64 -4
   %251 = load i8, ptr %250, align 1, !alias.scope !6000, !noalias !6003, !noundef !3
@@ -80201,7 +80201,7 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   br i1 %277, label %284, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8c8b89ec63ab7454E.exit17.i.i.i.i56"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8c8b89ec63ab7454E.exit17.i.i.i.i56": ; preds = %274
-  %278 = icmp ne ptr %67, %275
+  %278 = icmp ne i64 %271, 1
   call void @llvm.assume(i1 %278)
   %279 = getelementptr inbounds i8, ptr %272, i64 -2
   %280 = load i8, ptr %279, align 1, !alias.scope !6012, !noalias !6015, !noundef !3
@@ -80215,7 +80215,7 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   br label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h0aa1e611b4d6b7fdE.exit.i.i59"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8c8b89ec63ab7454E.exit19.i.i.i.i63": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8c8b89ec63ab7454E.exit17.i.i.i.i56"
-  %286 = icmp ne ptr %67, %279
+  %286 = icmp ne i64 %271, 2
   call void @llvm.assume(i1 %286)
   %287 = getelementptr inbounds i8, ptr %272, i64 -3
   %288 = load i8, ptr %287, align 1, !alias.scope !6012, !noalias !6015, !noundef !3
@@ -80234,7 +80234,7 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   br label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h0aa1e611b4d6b7fdE.exit.i.i59"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8c8b89ec63ab7454E.exit21.i.i.i.i66": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8c8b89ec63ab7454E.exit19.i.i.i.i63"
-  %297 = icmp ne ptr %67, %287
+  %297 = icmp ne i64 %271, 3
   call void @llvm.assume(i1 %297)
   %298 = getelementptr inbounds i8, ptr %272, i64 -4
   %299 = load i8, ptr %298, align 1, !alias.scope !6012, !noalias !6015, !noundef !3

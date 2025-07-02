@@ -4591,8 +4591,7 @@ invoke.cont.i:                                    ; preds = %call5.i.i.i.i2.i.i4
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %14, i1 false), !noalias !46
   %add.ptr.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i.i
-  %cmp11.not.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i4.i33
-  br i1 %cmp11.not.i, label %invoke.cont31, label %for.body.preheader.i
+  br label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %call5.i.i.i.i2.i.i4.i.noexc, %invoke.cont.i
   %__first.addr.0.i.i.i.i.i22.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i, %invoke.cont.i ], [ %incdec.ptr.i.i.i.i.i.i, %call5.i.i.i.i2.i.i4.i.noexc ]
@@ -4612,8 +4611,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %sub.ptr.div.i9.i
   br i1 %exitcond.not.i, label %invoke.cont31, label %for.body.i, !llvm.loop !49
 
-invoke.cont31:                                    ; preds = %for.body.i, %invoke.cont.i, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %scoresCopy.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i4.i33, %invoke.cont.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %call5.i.i.i.i2.i.i4.i33, %for.body.i ]
+invoke.cont31:                                    ; preds = %for.body.i, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %scoresCopy.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %call5.i.i.i.i2.i.i4.i33, %for.body.i ]
   %16 = load i32, ptr %maxRegions_, align 8
   %conv = sext i32 %16 to i64
   %mul = shl nsw i64 %conv, 3

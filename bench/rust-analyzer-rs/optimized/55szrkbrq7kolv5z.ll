@@ -55796,7 +55796,7 @@ common.ret:                                       ; preds = %209, %_ZN7hir_def4b
   br i1 %356, label %363, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i": ; preds = %353
-  %357 = icmp ne ptr %349, %354
+  %357 = icmp ne i64 %350, 1
   tail call void @llvm.assume(i1 %357)
   %358 = getelementptr inbounds i8, ptr %351, i64 -2
   %359 = load i8, ptr %358, align 1, !noalias !16551, !noundef !25
@@ -55810,7 +55810,7 @@ common.ret:                                       ; preds = %209, %_ZN7hir_def4b
   br label %390
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i"
-  %365 = icmp ne ptr %349, %358
+  %365 = icmp ne i64 %350, 2
   tail call void @llvm.assume(i1 %365)
   %366 = getelementptr inbounds i8, ptr %351, i64 -3
   %367 = load i8, ptr %366, align 1, !noalias !16551, !noundef !25
@@ -55828,7 +55828,7 @@ common.ret:                                       ; preds = %209, %_ZN7hir_def4b
   br label %390
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit23.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i"
-  %376 = icmp ne ptr %349, %366
+  %376 = icmp ne i64 %350, 3
   tail call void @llvm.assume(i1 %376)
   %377 = getelementptr inbounds i8, ptr %351, i64 -4
   %378 = load i8, ptr %377, align 1, !noalias !16551, !noundef !25
@@ -55919,7 +55919,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit: ; preds = 
   br i1 %415, label %422, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i98"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i98": ; preds = %412
-  %416 = icmp ne ptr %408, %413
+  %416 = icmp ne i64 %409, 1
   tail call void @llvm.assume(i1 %416)
   %417 = getelementptr inbounds i8, ptr %410, i64 -2
   %418 = load i8, ptr %417, align 1, !noalias !16562, !noundef !25
@@ -55933,7 +55933,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit: ; preds = 
   br label %449
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i104": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i98"
-  %424 = icmp ne ptr %408, %417
+  %424 = icmp ne i64 %409, 2
   tail call void @llvm.assume(i1 %424)
   %425 = getelementptr inbounds i8, ptr %410, i64 -3
   %426 = load i8, ptr %425, align 1, !noalias !16562, !noundef !25
@@ -55951,7 +55951,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit: ; preds = 
   br label %449
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit23.i.i106": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i104"
-  %435 = icmp ne ptr %408, %425
+  %435 = icmp ne i64 %409, 3
   tail call void @llvm.assume(i1 %435)
   %436 = getelementptr inbounds i8, ptr %410, i64 -4
   %437 = load i8, ptr %436, align 1, !noalias !16562, !noundef !25
@@ -56802,7 +56802,7 @@ _ZN7hir_def4body6pretty7Printer14print_type_ref17h1b44e171098d5983E.exit108: ; p
   br i1 %811, label %818, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i433"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i433": ; preds = %808
-  %812 = icmp ne ptr %804, %809
+  %812 = icmp ne i64 %805, 1
   call void @llvm.assume(i1 %812)
   %813 = getelementptr inbounds i8, ptr %806, i64 -2
   %814 = load i8, ptr %813, align 1, !noalias !16681, !noundef !25
@@ -56816,7 +56816,7 @@ _ZN7hir_def4body6pretty7Printer14print_type_ref17h1b44e171098d5983E.exit108: ; p
   br label %845
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i439": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i433"
-  %820 = icmp ne ptr %804, %813
+  %820 = icmp ne i64 %805, 2
   call void @llvm.assume(i1 %820)
   %821 = getelementptr inbounds i8, ptr %806, i64 -3
   %822 = load i8, ptr %821, align 1, !noalias !16681, !noundef !25
@@ -56834,7 +56834,7 @@ _ZN7hir_def4body6pretty7Printer14print_type_ref17h1b44e171098d5983E.exit108: ; p
   br label %845
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit23.i.i441": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i439"
-  %831 = icmp ne ptr %804, %821
+  %831 = icmp ne i64 %805, 3
   call void @llvm.assume(i1 %831)
   %832 = getelementptr inbounds i8, ptr %806, i64 -4
   %833 = load i8, ptr %832, align 1, !noalias !16681, !noundef !25
@@ -56904,7 +56904,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit442: ; preds
   br i1 %865, label %872, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i443"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i443": ; preds = %862
-  %866 = icmp ne ptr %858, %863
+  %866 = icmp ne i64 %859, 1
   tail call void @llvm.assume(i1 %866)
   %867 = getelementptr inbounds i8, ptr %860, i64 -2
   %868 = load i8, ptr %867, align 1, !noalias !16692, !noundef !25
@@ -56918,7 +56918,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit442: ; preds
   br label %899
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i449": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i443"
-  %874 = icmp ne ptr %858, %867
+  %874 = icmp ne i64 %859, 2
   tail call void @llvm.assume(i1 %874)
   %875 = getelementptr inbounds i8, ptr %860, i64 -3
   %876 = load i8, ptr %875, align 1, !noalias !16692, !noundef !25
@@ -56936,7 +56936,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit442: ; preds
   br label %899
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit23.i.i451": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i449"
-  %885 = icmp ne ptr %858, %875
+  %885 = icmp ne i64 %859, 3
   tail call void @llvm.assume(i1 %885)
   %886 = getelementptr inbounds i8, ptr %860, i64 -4
   %887 = load i8, ptr %886, align 1, !noalias !16692, !noundef !25
@@ -57005,7 +57005,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit452: ; preds
   br i1 %919, label %926, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i453"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i453": ; preds = %916
-  %920 = icmp ne ptr %912, %917
+  %920 = icmp ne i64 %913, 1
   tail call void @llvm.assume(i1 %920)
   %921 = getelementptr inbounds i8, ptr %914, i64 -2
   %922 = load i8, ptr %921, align 1, !noalias !16703, !noundef !25
@@ -57019,7 +57019,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit452: ; preds
   br label %953
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i459": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i453"
-  %928 = icmp ne ptr %912, %921
+  %928 = icmp ne i64 %913, 2
   tail call void @llvm.assume(i1 %928)
   %929 = getelementptr inbounds i8, ptr %914, i64 -3
   %930 = load i8, ptr %929, align 1, !noalias !16703, !noundef !25
@@ -57037,7 +57037,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit452: ; preds
   br label %953
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit23.i.i461": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i459"
-  %939 = icmp ne ptr %912, %929
+  %939 = icmp ne i64 %913, 3
   tail call void @llvm.assume(i1 %939)
   %940 = getelementptr inbounds i8, ptr %914, i64 -4
   %941 = load i8, ptr %940, align 1, !noalias !16703, !noundef !25
@@ -57106,7 +57106,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit462: ; preds
   br i1 %973, label %980, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i463"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i463": ; preds = %970
-  %974 = icmp ne ptr %966, %971
+  %974 = icmp ne i64 %967, 1
   tail call void @llvm.assume(i1 %974)
   %975 = getelementptr inbounds i8, ptr %968, i64 -2
   %976 = load i8, ptr %975, align 1, !noalias !16714, !noundef !25
@@ -57120,7 +57120,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit462: ; preds
   br label %1007
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i469": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i463"
-  %982 = icmp ne ptr %966, %975
+  %982 = icmp ne i64 %967, 2
   tail call void @llvm.assume(i1 %982)
   %983 = getelementptr inbounds i8, ptr %968, i64 -3
   %984 = load i8, ptr %983, align 1, !noalias !16714, !noundef !25
@@ -57138,7 +57138,7 @@ _ZN7hir_def4body6pretty7Printer10whitespace17h66acc2a75a3151e3E.exit462: ; preds
   br label %1007
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit23.i.i471": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i469"
-  %993 = icmp ne ptr %966, %983
+  %993 = icmp ne i64 %967, 3
   tail call void @llvm.assume(i1 %993)
   %994 = getelementptr inbounds i8, ptr %968, i64 -4
   %995 = load i8, ptr %994, align 1, !noalias !16714, !noundef !25
@@ -57610,7 +57610,7 @@ _ZN7hir_def4body6pretty7Printer14print_type_ref17h1b44e171098d5983E.exit474: ; p
   br i1 %1177, label %1184, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i111"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i111": ; preds = %1174
-  %1178 = icmp ne ptr %1170, %1175
+  %1178 = icmp ne i64 %1171, 1
   tail call void @llvm.assume(i1 %1178)
   %1179 = getelementptr inbounds i8, ptr %1172, i64 -2
   %1180 = load i8, ptr %1179, align 1, !noalias !16764, !noundef !25
@@ -57624,7 +57624,7 @@ _ZN7hir_def4body6pretty7Printer14print_type_ref17h1b44e171098d5983E.exit474: ; p
   br label %1211
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i117": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i111"
-  %1186 = icmp ne ptr %1170, %1179
+  %1186 = icmp ne i64 %1171, 2
   tail call void @llvm.assume(i1 %1186)
   %1187 = getelementptr inbounds i8, ptr %1172, i64 -3
   %1188 = load i8, ptr %1187, align 1, !noalias !16764, !noundef !25
@@ -57642,7 +57642,7 @@ _ZN7hir_def4body6pretty7Printer14print_type_ref17h1b44e171098d5983E.exit474: ; p
   br label %1211
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit23.i.i119": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i117"
-  %1197 = icmp ne ptr %1170, %1187
+  %1197 = icmp ne i64 %1171, 3
   tail call void @llvm.assume(i1 %1197)
   %1198 = getelementptr inbounds i8, ptr %1172, i64 -4
   %1199 = load i8, ptr %1198, align 1, !noalias !16764, !noundef !25
@@ -57887,7 +57887,7 @@ define internal fastcc void @_ZN7hir_def4body6pretty7Printer11print_block17hea08
   br i1 %24, label %31, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i": ; preds = %21
-  %25 = icmp ne ptr %16, %22
+  %25 = icmp ne i64 %18, 1
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds i8, ptr %19, i64 -2
   %27 = load i8, ptr %26, align 1, !noalias !16804, !noundef !25
@@ -57901,7 +57901,7 @@ define internal fastcc void @_ZN7hir_def4body6pretty7Printer11print_block17hea08
   br label %58
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i"
-  %33 = icmp ne ptr %16, %26
+  %33 = icmp ne i64 %18, 2
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds i8, ptr %19, i64 -3
   %35 = load i8, ptr %34, align 1, !noalias !16804, !noundef !25
@@ -57919,7 +57919,7 @@ define internal fastcc void @_ZN7hir_def4body6pretty7Printer11print_block17hea08
   br label %58
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit23.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i"
-  %44 = icmp ne ptr %16, %34
+  %44 = icmp ne i64 %18, 3
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds i8, ptr %19, i64 -4
   %46 = load i8, ptr %45, align 1, !noalias !16804, !noundef !25
@@ -58661,7 +58661,7 @@ _ZN7hir_def4body6pretty7Printer22print_literal_or_const17h8743d7c73eb83c30E.exit
   br i1 %296, label %303, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i": ; preds = %293
-  %297 = icmp ne ptr %289, %294
+  %297 = icmp ne i64 %290, 1
   tail call void @llvm.assume(i1 %297)
   %298 = getelementptr inbounds i8, ptr %291, i64 -2
   %299 = load i8, ptr %298, align 1, !noalias !16864, !noundef !25
@@ -58675,7 +58675,7 @@ _ZN7hir_def4body6pretty7Printer22print_literal_or_const17h8743d7c73eb83c30E.exit
   br label %330
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit19.i.i"
-  %305 = icmp ne ptr %289, %298
+  %305 = icmp ne i64 %290, 2
   tail call void @llvm.assume(i1 %305)
   %306 = getelementptr inbounds i8, ptr %291, i64 -3
   %307 = load i8, ptr %306, align 1, !noalias !16864, !noundef !25
@@ -58693,7 +58693,7 @@ _ZN7hir_def4body6pretty7Printer22print_literal_or_const17h8743d7c73eb83c30E.exit
   br label %330
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit23.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5b6b378a6a1f729cE.exit21.i.i"
-  %316 = icmp ne ptr %289, %306
+  %316 = icmp ne i64 %290, 3
   tail call void @llvm.assume(i1 %316)
   %317 = getelementptr inbounds i8, ptr %291, i64 -4
   %318 = load i8, ptr %317, align 1, !noalias !16864, !noundef !25

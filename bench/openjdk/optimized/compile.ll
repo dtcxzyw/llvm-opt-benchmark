@@ -854,13 +854,13 @@ define hidden void @_ZN7Compile14gvn_replace_byEP4NodeS1_(ptr noundef nonnull re
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
-  %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 -8
-  %.not42 = icmp ult ptr %10, %5
+  %.not42 = icmp eq i32 %7, 0
   br i1 %.not42, label %._crit_edge46, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %3
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %10 = getelementptr inbounds i8, ptr %9, i64 -8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1952
   %12 = icmp eq ptr %2, null
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16

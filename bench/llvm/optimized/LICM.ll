@@ -10895,7 +10895,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i277: ; preds = %1142, %
   %.pre550 = phi ptr [ %111, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i34.i ], [ %.pre550.pre, %1142 ]
   %.pre-phi.i.i278 = phi i64 [ 0, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i34.i ], [ %.pre8.i.i286, %1142 ]
   %1143 = phi i32 [ 0, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i34.i ], [ %.pre.i.i285, %1142 ]
-  %.not9.i.i.i.i.i.i279 = icmp eq ptr %1139, %1130
+  %.not9.i.i.i.i.i.i279 = icmp eq i32 %1135, 1
   br i1 %.not9.i.i.i.i.i.i279, label %_ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2IPNS_3UseEEERKNS_14iterator_rangeIT_EE.exit287, label %.lr.ph.i.i.i.i.preheader.i.i280
 
 .lr.ph.i.i.i.i.preheader.i.i280:                  ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i277
@@ -11041,7 +11041,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i: ; preds = %1195, %_ZN
   %.pre551 = phi ptr [ %122, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit ], [ %.pre551.pre, %1195 ]
   %.pre-phi.i.i = phi i64 [ 0, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit ], [ %.pre8.i.i, %1195 ]
   %1196 = phi i32 [ 0, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit ], [ %.pre.i.i262, %1195 ]
-  %.not9.i.i.i.i.i.i = icmp eq ptr %1191, %1048
+  %.not9.i.i.i.i.i.i = icmp eq i32 %1187, 1
   br i1 %.not9.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2IPNS_3UseEEERKNS_14iterator_rangeIT_EE.exit, label %.lr.ph.i.i.i.i.preheader.i.i257
 
 .lr.ph.i.i.i.i.preheader.i.i257:                  ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i

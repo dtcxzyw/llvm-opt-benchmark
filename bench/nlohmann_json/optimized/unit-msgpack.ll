@@ -19868,7 +19868,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i6573: ; preds = %6125, 
   br i1 %.not.i6577, label %6149, label %6133
 
 6133:                                             ; preds = %6127
-  %6134 = icmp eq ptr %6122, %6128
+  %6134 = icmp eq i64 %6115, -1
   br i1 %6134, label %6135, label %6138
 
 6135:                                             ; preds = %6133
@@ -20837,7 +20837,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i6622: ; preds = %6410, 
   br i1 %.not.i6628, label %6434, label %6418
 
 6418:                                             ; preds = %6412
-  %6419 = icmp eq ptr %6407, %6413
+  %6419 = icmp eq i64 %6400, -1
   br i1 %6419, label %6420, label %6423
 
 6420:                                             ; preds = %6418
@@ -28830,7 +28830,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i5424: ; preds = %8762, 
   br i1 %.not.i6684, label %8785, label %8769
 
 8769:                                             ; preds = %8764
-  %8770 = icmp eq ptr %8759, %8765
+  %8770 = icmp eq i64 %8752, -1
   br i1 %8770, label %8771, label %8774
 
 8771:                                             ; preds = %8769
@@ -29935,7 +29935,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i5498: ; preds = %9088, 
   br i1 %.not.i6726, label %9111, label %9095
 
 9095:                                             ; preds = %9090
-  %9096 = icmp eq ptr %9085, %9091
+  %9096 = icmp eq i64 %9078, -1
   br i1 %9096, label %9097, label %9100
 
 9097:                                             ; preds = %9095
@@ -32103,7 +32103,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i6804: ; preds = %9729, 
   br i1 %.not.i6810, label %9753, label %9737
 
 9737:                                             ; preds = %9731
-  %9738 = icmp eq ptr %9726, %9732
+  %9738 = icmp eq i64 %9719, -1
   br i1 %9738, label %9739, label %9742
 
 9739:                                             ; preds = %9737
@@ -33067,7 +33067,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i6846: ; preds = %10007,
   br i1 %.not.i6852, label %10031, label %10015
 
 10015:                                            ; preds = %10009
-  %10016 = icmp eq ptr %10004, %10010
+  %10016 = icmp eq i64 %9997, -1
   br i1 %10016, label %10017, label %10020
 
 10017:                                            ; preds = %10015

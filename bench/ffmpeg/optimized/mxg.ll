@@ -68,8 +68,8 @@ define internal i32 @mxg_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !44
   %7 = tail call i32 @avio_feof(ptr noundef %6) #5
-  %.not187 = icmp eq i32 %7, 0
-  br i1 %.not187, label %.lr.ph, label %.critedge
+  %.not182 = icmp eq i32 %7, 0
+  br i1 %.not182, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -227,8 +227,8 @@ define internal i32 @mxg_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %mxg_find_startmarker.exit
 
 .preheader.i138:                                  ; preds = %57
-  %.not208 = icmp eq i32 %.pr, 0
-  br i1 %.not208, label %.critedge, label %.lr.ph42.i141
+  %.not163 = icmp eq i32 %.pr, 0
+  br i1 %.not163, label %.critedge, label %.lr.ph42.i141
 
 .lr.ph42.i141:                                    ; preds = %.preheader.i138, %98
   %.12341.i142 = phi ptr [ %99, %98 ], [ %60, %.preheader.i138 ]
@@ -474,11 +474,11 @@ mxg_find_startmarker.exit:                        ; preds = %75, %.lr.ph42.i, %.
 229:                                              ; preds = %228
   %230 = load ptr, ptr %9, align 8, !tbaa !47
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %221, ptr align 1 %230, i64 %226, i1 false)
-  %.pre225 = load ptr, ptr %4, align 8, !tbaa !48
+  %.pre219 = load ptr, ptr %4, align 8, !tbaa !48
   br label %231
 
 231:                                              ; preds = %229, %228
-  %232 = phi ptr [ %.pre225, %229 ], [ %221, %228 ]
+  %232 = phi ptr [ %.pre219, %229 ], [ %221, %228 ]
   store ptr %232, ptr %9, align 8, !tbaa !47
   br label %.critedge.sink.split
 
@@ -491,14 +491,14 @@ mxg_find_startmarker.exit:                        ; preds = %75, %.lr.ph42.i, %.
 sub_0:                                            ; preds = %233
   %236 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %237 = load i8, ptr %236, align 1
-  %.not209 = icmp eq i8 %237, 77
-  br i1 %.not209, label %sub_1, label %.backedge
+  %.not203 = icmp eq i8 %237, 77
+  br i1 %.not203, label %sub_1, label %.backedge
 
 sub_1:                                            ; preds = %sub_0
   %238 = getelementptr inbounds nuw i8, ptr %.1, i64 5
   %239 = load i8, ptr %238, align 1
-  %.not210 = icmp eq i8 %239, 88
-  br i1 %.not210, label %.tail, label %.backedge
+  %.not204 = icmp eq i8 %239, 88
+  br i1 %.not204, label %.tail, label %.backedge
 
 .tail:                                            ; preds = %sub_1
   %240 = getelementptr inbounds nuw i8, ptr %.1, i64 6

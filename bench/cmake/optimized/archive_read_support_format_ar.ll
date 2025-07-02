@@ -1138,7 +1138,7 @@ define internal fastcc range(i32 -30, 1) i32 @ar_parse_gnu_filename_table(ptr no
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 %6
   %10 = getelementptr inbounds i8, ptr %9, i64 -1
-  %11 = icmp ult ptr %8, %10
+  %11 = icmp sgt i64 %6, 1
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %19

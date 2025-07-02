@@ -1132,7 +1132,7 @@ define hidden i64 @ruby_sip_hash13(ptr noundef readonly captures(none) %0, ptr n
   %24 = xor i64 %22, 7237128888997146477
   %25 = xor i64 %14, 7816392313619706465
   %26 = xor i64 %22, 8387220255154660723
-  %.not208 = icmp eq ptr %1, %7
+  %.not208 = icmp ult i64 %2, 8
   br i1 %.not208, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph

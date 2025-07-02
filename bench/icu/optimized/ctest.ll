@@ -2251,7 +2251,7 @@ define range(i32 0, 2) i32 @ctest_xml_init(ptr noundef readonly captures(none) %
   %.026 = getelementptr inbounds i8, ptr %23, i64 -1
   %24 = load i8, ptr %.026, align 1, !tbaa !11
   %25 = icmp ne i8 %24, 0
-  %26 = icmp ugt ptr %.026, @XML_PREFIX
+  %26 = icmp sgt i64 %22, 1
   %or.cond27 = and i1 %25, %26
   br i1 %or.cond27, label %.lr.ph29, label %.critedge3
 

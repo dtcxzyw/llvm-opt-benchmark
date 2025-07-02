@@ -6556,7 +6556,8 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h5b949207ee4fc029E.ex
   %.sroa.014.056 = phi i64 [ %104, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h1e8d3b25cdaf3467E.llvm.10886058016107208188.exit ], [ %.sroa.0.0, %92 ]
   %104 = add i64 %.sroa.014.056, 1
   %105 = getelementptr inbounds { { { i64, [2 x i64] } }, i8, [7 x i8] }, ptr %98, i64 %.sroa.014.056
-  %106 = getelementptr inbounds { { { i64, [2 x i64] } }, i8, [7 x i8] }, ptr %99, i64 %.sroa.014.056
+  %.idx = shl nsw i64 %.sroa.014.056, 5
+  %106 = getelementptr inbounds i8, ptr %99, i64 %.idx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %105, i64 32, i1 false)
   %107 = getelementptr inbounds i8, ptr %106, i64 -32
   call void @llvm.experimental.noalias.scope.decl(metadata !2027)
@@ -6606,7 +6607,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h5b949207ee4fc029E.ex
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %106, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %107, i64 32, i1 false)
-  %125 = icmp eq ptr %107, %99
+  %125 = icmp eq i64 %.sroa.014.056, 1
   br i1 %125, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit26.thread.i", label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.thread.i40", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit26.backedge.i"
@@ -6664,7 +6665,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h5b949207ee4fc029E.ex
   br i1 %143, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit26.thread.i", label %.lr.ph.i41
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit26.thread.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit26.backedge.i", %132, %.noexc25.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.thread.i40"
-  %.sroa.0.0.lcssa.i = phi ptr [ %99, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.thread.i40" ], [ %99, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit26.backedge.i" ], [ %.sroa.0.037.i, %132 ], [ %.sroa.0.037.i, %.noexc25.i ]
+  %.sroa.0.0.lcssa.i = phi ptr [ %107, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit.thread.i40" ], [ %99, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hc35d00ef25aae194E.exit26.backedge.i" ], [ %.sroa.0.037.i, %132 ], [ %.sroa.0.037.i, %.noexc25.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !2071
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h1e8d3b25cdaf3467E.llvm.10886058016107208188.exit

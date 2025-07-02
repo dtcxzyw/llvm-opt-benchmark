@@ -405,13 +405,13 @@ define hidden void @_ZNK21CardTableBarrierSetC220eliminate_gc_barrierEP16PhaseMa
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = load i32, ptr %12, align 8
-  %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
-  %.014 = getelementptr inbounds i8, ptr %15, i64 -8
-  %.not15 = icmp ult ptr %.014, %11
+  %.not15 = icmp eq i32 %13, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %.014 = getelementptr inbounds i8, ptr %15, i64 -8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %17
 

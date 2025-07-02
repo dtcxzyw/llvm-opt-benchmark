@@ -31,17 +31,12 @@ for.body:                                         ; preds = %entry, %_ZN6hermes2
   %1 = load i32, ptr %curChunkIndex_.i, align 8
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %0, i64 %idx.ext.i
-  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
-  %cmp.not10.i = icmp eq ptr %0, %add.ptr2.i
-  br i1 %cmp.not10.i, label %_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit, label %for.body.lr.ph.i
-
-for.body.lr.ph.i:                                 ; preds = %for.body
   %curChunkEnd_.i = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 200
   %next_.i = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 192
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc8.i, %for.body.lr.ph.i
-  %it.011.i = phi ptr [ %0, %for.body.lr.ph.i ], [ %incdec.ptr9.i, %for.inc8.i ]
+for.body.i:                                       ; preds = %for.inc8.i, %for.body
+  %it.011.i = phi ptr [ %0, %for.body ], [ %incdec.ptr9.i, %for.inc8.i ]
   %2 = load ptr, ptr %it.011.i, align 8
   %add.ptr3.i = getelementptr inbounds nuw i8, ptr %2, i64 128
   %3 = load ptr, ptr %curChunkEnd_.i, align 8
@@ -66,7 +61,7 @@ for.inc8.i:                                       ; preds = %for.body7.i, %for.b
   %cmp.not.i = icmp eq ptr %it.011.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit, label %for.body.i, !llvm.loop !6
 
-_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit: ; preds = %for.inc8.i, %for.body
+_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit: ; preds = %for.inc8.i
   %gcScope.0.in = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 8
   %gcScope.0 = load ptr, ptr %gcScope.0.in, align 8
   %tobool.not = icmp eq ptr %gcScope.0, null
@@ -78,18 +73,13 @@ for.end:                                          ; preds = %_ZN6hermes2vm7GCSco
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(212) %this, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) local_unnamed_addr #0 align 2 {
-entry:
+for.body.lr.ph:
   %chunks_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %chunks_, align 8
   %curChunkIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %1 = load i32, ptr %curChunkIndex_, align 8
   %idx.ext = zext i32 %1 to i64
   %add.ptr = getelementptr inbounds nuw ptr, ptr %0, i64 %idx.ext
-  %add.ptr2 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
-  %cmp.not10 = icmp eq ptr %0, %add.ptr2
-  br i1 %cmp.not10, label %for.end10, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %entry
   %curChunkEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %next_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   br label %for.body
@@ -120,7 +110,7 @@ for.inc8:                                         ; preds = %for.body7, %for.bod
   %cmp.not = icmp eq ptr %it.011, %add.ptr
   br i1 %cmp.not, label %for.end10, label %for.body, !llvm.loop !6
 
-for.end10:                                        ; preds = %for.inc8, %entry
+for.end10:                                        ; preds = %for.inc8
   ret void
 }
 

@@ -1262,7 +1262,7 @@ define noalias noundef nonnull align 8 ptr @_ZN10serde_json5error10make_error17h
   br i1 %39, label %46, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha86392d9922136f4E.exit19.i.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha86392d9922136f4E.exit19.i.i.i.i.i": ; preds = %35
-  %40 = icmp ne ptr %18, %37
+  %40 = icmp ne i64 %24, 1
   tail call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds i8, ptr %36, i64 -2
   %42 = load i8, ptr %41, align 1, !noalias !136, !noundef !4
@@ -1284,7 +1284,7 @@ define noalias noundef nonnull align 8 ptr @_ZN10serde_json5error10make_error17h
   br label %_ZN4core3str11validations23next_code_point_reverse17hfc431cb914af8ad0E.exit.thread.i.i.i.i
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha86392d9922136f4E.exit21.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha86392d9922136f4E.exit19.i.i.i.i.i"
-  %53 = icmp ne ptr %18, %41
+  %53 = icmp ne i64 %24, 2
   tail call void @llvm.assume(i1 %53)
   %54 = getelementptr inbounds i8, ptr %36, i64 -3
   %55 = load i8, ptr %54, align 1, !noalias !136, !noundef !4
@@ -1302,7 +1302,7 @@ define noalias noundef nonnull align 8 ptr @_ZN10serde_json5error10make_error17h
   br label %48
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha86392d9922136f4E.exit23.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha86392d9922136f4E.exit21.i.i.i.i.i"
-  %64 = icmp ne ptr %18, %54
+  %64 = icmp ne i64 %24, 3
   tail call void @llvm.assume(i1 %64)
   %65 = getelementptr inbounds i8, ptr %36, i64 -4
   %66 = load i8, ptr %65, align 1, !noalias !136, !noundef !4

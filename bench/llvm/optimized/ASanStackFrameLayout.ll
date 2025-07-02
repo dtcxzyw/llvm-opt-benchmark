@@ -1181,14 +1181,14 @@ _ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit: ; preds = 
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
-  %49 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.054, i64 %.085
+  %.idx = mul nsw i64 %.085, 56
+  %49 = getelementptr inbounds i8, ptr %.054, i64 %.idx
   %50 = getelementptr inbounds i8, ptr %49, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %50, i64 56, i1 false), !tbaa.struct !62
-  %.not.i.i.i.i.i66 = icmp eq ptr %50, %.054
+  %.not.i.i.i.i.i66 = icmp eq i64 %.085, 1
   br i1 %.not.i.i.i.i.i66, label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit, label %51
 
 51:                                               ; preds = %48
-  %.idx = mul nsw i64 %.085, 56
   %52 = add nsw i64 %.idx, -56
   %.neg.i.i.i.i.i = sdiv exact i64 %52, -56
   %53 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %49, i64 %.neg.i.i.i.i.i

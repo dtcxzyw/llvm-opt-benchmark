@@ -22922,17 +22922,17 @@ if.end59:                                         ; preds = %for.end
 
 if.else61:                                        ; preds = %for.cond
   %cmp63 = icmp eq i64 %sub20, 1
-  %add.ptr.i20 = getelementptr inbounds ptr, ptr %__p.sroa.0.0, i64 %__n.0
   br i1 %cmp63, label %if.then64, label %if.end90
 
 if.then64:                                        ; preds = %if.else61
+  %add.ptr.i20.idx = shl nsw i64 %__n.0, 3
+  %add.ptr.i20 = getelementptr inbounds i8, ptr %__p.sroa.0.0, i64 %add.ptr.i20.idx
   %add.ptr.i21 = getelementptr inbounds i8, ptr %add.ptr.i20, i64 -8
   %5 = load ptr, ptr %add.ptr.i21, align 8
-  %tobool.not.i.i.i.i.i25 = icmp eq ptr %add.ptr.i21, %__p.sroa.0.0
+  %tobool.not.i.i.i.i.i25 = icmp eq i64 %__n.0, 1
   br i1 %tobool.not.i.i.i.i.i25, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit, label %if.then.i.i.i.i.i26
 
 if.then.i.i.i.i.i26:                              ; preds = %if.then64
-  %add.ptr.i20.idx = shl nsw i64 %__n.0, 3
   %sub.ptr.sub.i.i.i.i.i29 = add nsw i64 %add.ptr.i20.idx, -8
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i29, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
@@ -22945,14 +22945,15 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
   br label %return
 
 if.end90:                                         ; preds = %if.else61
+  %add.ptr.i31 = getelementptr inbounds ptr, ptr %__p.sroa.0.0, i64 %__n.0
   %idx.neg.i = sub i64 0, %sub20
-  %add.ptr.i32 = getelementptr inbounds ptr, ptr %add.ptr.i20, i64 %idx.neg.i
+  %add.ptr.i32 = getelementptr inbounds ptr, ptr %add.ptr.i31, i64 %idx.neg.i
   %cmp10078 = icmp sgt i64 %__k.0, 0
   br i1 %cmp10078, label %for.body101, label %for.end110
 
 for.body101:                                      ; preds = %if.end90, %for.body101
   %__i97.081 = phi i64 [ %inc109, %for.body101 ], [ 0, %if.end90 ]
-  %__q91.sroa.0.080 = phi ptr [ %incdec.ptr.i34, %for.body101 ], [ %add.ptr.i20, %if.end90 ]
+  %__q91.sroa.0.080 = phi ptr [ %incdec.ptr.i34, %for.body101 ], [ %add.ptr.i31, %if.end90 ]
   %__p.sroa.0.379 = phi ptr [ %incdec.ptr.i33, %for.body101 ], [ %add.ptr.i32, %if.end90 ]
   %incdec.ptr.i33 = getelementptr inbounds i8, ptr %__p.sroa.0.379, i64 -8
   %incdec.ptr.i34 = getelementptr inbounds i8, ptr %__q91.sroa.0.080, i64 -8

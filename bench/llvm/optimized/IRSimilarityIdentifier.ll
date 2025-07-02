@@ -900,7 +900,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE28reserveForParamAndGetAddress
   %61 = getelementptr inbounds i8, ptr %60, i64 -8
   %62 = load ptr, ptr %61, align 8, !tbaa !103
   store ptr %62, ptr %60, align 8, !tbaa !103
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %61, %59
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %.pre-phi16.i.i, 1
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit.i.i, label %63
 
 63:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i
@@ -2102,23 +2102,23 @@ _ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit41: ; preds = %36
   %79 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, 134217727
-  %82 = zext nneg i32 %81 to i64
-  %83 = sub nsw i64 0, %82
-  %84 = getelementptr inbounds %"class.llvm::Use", ptr %11, i64 %83
-  %85 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %86 = load i32, ptr %85, align 4
-  %87 = and i32 %86, 134217727
-  %88 = zext nneg i32 %87 to i64
-  %89 = sub nsw i64 0, %88
-  %90 = getelementptr inbounds %"class.llvm::Use", ptr %13, i64 %89
-  %scevgep21.sink.i.i.i.i = getelementptr i8, ptr %90, i64 64
-  %.in.i.i = getelementptr i8, ptr %84, i64 64
-  %91 = icmp ne ptr %.in.i.i, %11
-  %92 = icmp ne ptr %scevgep21.sink.i.i.i.i, %13
-  %.not3.i2.i.i.i.i.i44 = select i1 %91, i1 %92, i1 false
+  %82 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %83 = load i32, ptr %82, align 4
+  %84 = and i32 %83, 134217727
+  %85 = icmp ne i32 %81, 2
+  %86 = icmp ne i32 %84, 2
+  %.not3.i2.i.i.i.i.i44 = select i1 %85, i1 %86, i1 false
   br i1 %.not3.i2.i.i.i.i.i44, label %.lr.ph.i.preheader.i.i.i.i47, label %.thread74
 
 .lr.ph.i.preheader.i.i.i.i47:                     ; preds = %78
+  %87 = zext nneg i32 %84 to i64
+  %88 = sub nsw i64 0, %87
+  %89 = getelementptr inbounds %"class.llvm::Use", ptr %13, i64 %88
+  %scevgep21.sink.i.i.i.i = getelementptr i8, ptr %89, i64 64
+  %90 = zext nneg i32 %81 to i64
+  %91 = sub nsw i64 0, %90
+  %92 = getelementptr inbounds %"class.llvm::Use", ptr %11, i64 %91
+  %.in.i.i = getelementptr i8, ptr %92, i64 64
   %.val.val.i.i5.i.i.i.i48 = load ptr, ptr %scevgep21.sink.i.i.i.i, align 8, !tbaa !97, !noalias !195
   %.val1.val.i.i6.i.i.i.i49 = load ptr, ptr %.in.i.i, align 8, !tbaa !97, !noalias !195
   %.not.i7.i.i.i.i50 = icmp eq ptr %.val1.val.i.i6.i.i.i.i49, %.val.val.i.i5.i.i.i.i48
@@ -2144,8 +2144,8 @@ _ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit41: ; preds = %36
   br label %.loopexit, !llvm.loop !202
 
 .thread74:                                        ; preds = %.lr.ph.i.preheader.i.i.i.i47, %78
-  %99 = icmp eq ptr %11, %.in.i.i
-  %100 = icmp eq ptr %13, %scevgep21.sink.i.i.i.i
+  %99 = icmp eq i32 %81, 2
+  %100 = icmp eq i32 %84, 2
   %101 = select i1 %99, i1 true, i1 %100
   br label %.thread71
 
@@ -18153,7 +18153,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %46, i64 -1
   %49 = load i8, ptr %48, align 1, !tbaa !153
-  %.not.i.i.i.i.i68 = icmp eq ptr %48, %.058
+  %.not.i.i.i.i.i68 = icmp eq i64 %.086, 1
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %50
 
 50:                                               ; preds = %47

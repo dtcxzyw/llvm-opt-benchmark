@@ -5751,23 +5751,22 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZN4llvm16De
   %2339 = getelementptr i8, ptr %2337, i64 4
   %2340 = add nsw i64 %2212, -1
   %2341 = icmp eq i64 %2340, 0
-  br i1 %2341, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
+  br i1 %2341, label %.lr.ph.i101.preheader.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %2335
   %2342 = add nsw i64 %2336, -4
   call void @llvm.memset.p0.i64(ptr align 4 %2339, i8 0, i64 %2342, i1 false), !tbaa !253
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %2340, 2
-  br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
+  br label %.lr.ph.i101.preheader.i
 
-_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %2335
+.lr.ph.i101.preheader.i:                          ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %2335
   %.0.i.i.i.i.i.idx.i = phi i64 [ 0, %2335 ], [ %.idx.i.i.i.i.i.i.i.i, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.ptr.i = getelementptr i8, ptr %2339, i64 %.0.i.i.i.i.i.idx.i
-  %.not5.i.i = icmp eq ptr %2337, %.0.i.i.i.i.i.ptr.i
-  br i1 %.not5.i.i, label %"_ZN4llvm4sortIRSt6vectorIiSaIiEEZL13emitLeafTableRKNS_17DirectiveLanguageERNS_11raw_ostreamENS_9StringRefEE3$_1EEvOT_T0_.exit.i", label %.lr.ph.i101.i
+  br label %.lr.ph.i101.i
 
-.lr.ph.i101.i:                                    ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, %.lr.ph.i101.i
-  %.07.i.i = phi i32 [ %2343, %.lr.ph.i101.i ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ]
-  %.sroa.02.06.i.i = phi ptr [ %2344, %.lr.ph.i101.i ], [ %2337, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ]
+.lr.ph.i101.i:                                    ; preds = %.lr.ph.i101.i, %.lr.ph.i101.preheader.i
+  %.07.i.i = phi i32 [ %2343, %.lr.ph.i101.i ], [ 0, %.lr.ph.i101.preheader.i ]
+  %.sroa.02.06.i.i = phi ptr [ %2344, %.lr.ph.i101.i ], [ %2337, %.lr.ph.i101.preheader.i ]
   store i32 %.07.i.i, ptr %.sroa.02.06.i.i, align 4, !tbaa !253
   %2343 = add nuw nsw i32 %.07.i.i, 1
   %2344 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 4
@@ -5862,10 +5861,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %.not.i24.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i23.i.i.i.i.i.i, %.0.i.i.i.i.i.ptr.i
   br i1 %.not.i24.i.i.i.i.i.i, label %"_ZN4llvm4sortIRSt6vectorIiSaIiEEZL13emitLeafTableRKNS_17DirectiveLanguageERNS_11raw_ostreamENS_9StringRefEE3$_1EEvOT_T0_.exit.i", label %2361, !llvm.loop !261
 
-"_ZN4llvm4sortIRSt6vectorIiSaIiEEZL13emitLeafTableRKNS_17DirectiveLanguageERNS_11raw_ostreamENS_9StringRefEE3$_1EEvOT_T0_.exit.i": ; preds = %2371, %.lr.ph.i12.i.i.i.i.i.i, %.preheader.i14.i.i.i.i.i.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZL13emitLeafTableRKN4llvm17DirectiveLanguageERNS9_11raw_ostreamENS9_9StringRefEE3$_1EEEvT_SI_T0_.exit.i.i.i.i.i.i", %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.0217.0271282.i = phi ptr [ %2337, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZL13emitLeafTableRKN4llvm17DirectiveLanguageERNS9_11raw_ostreamENS9_9StringRefEE3$_1EEEvT_SI_T0_.exit.i.i.i.i.i.i" ], [ %2337, %.preheader.i14.i.i.i.i.i.i ], [ %2337, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %2337, %.lr.ph.i12.i.i.i.i.i.i ], [ %2337, %2371 ]
-  %.sroa.20.0273281.i = phi ptr [ %2338, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZL13emitLeafTableRKN4llvm17DirectiveLanguageERNS9_11raw_ostreamENS9_9StringRefEE3$_1EEEvT_SI_T0_.exit.i.i.i.i.i.i" ], [ %2338, %.preheader.i14.i.i.i.i.i.i ], [ %2338, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %2338, %.lr.ph.i12.i.i.i.i.i.i ], [ %2338, %2371 ]
-  %.0.i.i.i.i.i274280.i = phi ptr [ %.0.i.i.i.i.i.ptr.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZL13emitLeafTableRKN4llvm17DirectiveLanguageERNS9_11raw_ostreamENS9_9StringRefEE3$_1EEEvT_SI_T0_.exit.i.i.i.i.i.i" ], [ %2339, %.preheader.i14.i.i.i.i.i.i ], [ %2337, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %.0.i.i.i.i.i.ptr.i, %.lr.ph.i12.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.ptr.i, %2371 ]
+"_ZN4llvm4sortIRSt6vectorIiSaIiEEZL13emitLeafTableRKNS_17DirectiveLanguageERNS_11raw_ostreamENS_9StringRefEE3$_1EEvOT_T0_.exit.i": ; preds = %2371, %.lr.ph.i12.i.i.i.i.i.i, %.preheader.i14.i.i.i.i.i.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZL13emitLeafTableRKN4llvm17DirectiveLanguageERNS9_11raw_ostreamENS9_9StringRefEE3$_1EEEvT_SI_T0_.exit.i.i.i.i.i.i", %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %.sroa.0217.0271282.i = phi ptr [ %2337, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZL13emitLeafTableRKN4llvm17DirectiveLanguageERNS9_11raw_ostreamENS9_9StringRefEE3$_1EEEvT_SI_T0_.exit.i.i.i.i.i.i" ], [ %2337, %.preheader.i14.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %2337, %.lr.ph.i12.i.i.i.i.i.i ], [ %2337, %2371 ]
+  %.sroa.20.0273281.i = phi ptr [ %2338, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZL13emitLeafTableRKN4llvm17DirectiveLanguageERNS9_11raw_ostreamENS9_9StringRefEE3$_1EEEvT_SI_T0_.exit.i.i.i.i.i.i" ], [ %2338, %.preheader.i14.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %2338, %.lr.ph.i12.i.i.i.i.i.i ], [ %2338, %2371 ]
+  %.0.i.i.i.i.i274280.i = phi ptr [ %.0.i.i.i.i.i.ptr.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZL13emitLeafTableRKN4llvm17DirectiveLanguageERNS9_11raw_ostreamENS9_9StringRefEE3$_1EEEvT_SI_T0_.exit.i.i.i.i.i.i" ], [ %2339, %.preheader.i14.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %.0.i.i.i.i.i.ptr.i, %.lr.ph.i12.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.ptr.i, %2371 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #22
   %.val.i128 = load ptr, ptr %0, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #22, !noalias !263

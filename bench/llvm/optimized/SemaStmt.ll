@@ -50706,7 +50706,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DeclMatcher21VisitPseudoObjectEx
   %.idx.i = and i64 %5, 524280
   %6 = getelementptr i8, ptr %3, i64 %.idx.i
   %7 = getelementptr i8, ptr %6, i64 -8
-  %.not17 = icmp eq ptr %3, %7
+  %.not17 = icmp eq i64 %.idx.i, 8
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %14, %2

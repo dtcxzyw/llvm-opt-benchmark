@@ -7215,35 +7215,35 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN7uu_sort15numeric_str_cmp21human_nu
   %3 = alloca { { { ptr, ptr, {} } }, {} }, align 8
   %4 = alloca { { { ptr, ptr, {} } }, {} }, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !510, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !5, !noundef !4
-  %8 = load ptr, ptr %1, align 8, !nonnull !4, !align !510, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load ptr, ptr %11, align 8, !nonnull !4, !align !5, !noundef !4
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load i8, ptr %13, align 8, !range !511, !noundef !4
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
+  %10 = load ptr, ptr %1, align 8, !nonnull !4, !align !510, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load i64, ptr %11, align 8, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !5, !noundef !4
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load i8, ptr %15, align 8, !range !511, !noundef !4
-  %.not = icmp eq i8 %14, %16
-  br i1 %.not, label %17, label %117
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %18 = load i8, ptr %17, align 8, !range !511, !noundef !4
+  %.not = icmp eq i8 %16, %18
+  br i1 %.not, label %19, label %117
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i64, ptr %18, align 8, !noundef !4
-  %20 = getelementptr inbounds i8, ptr %5, i64 %19
-  %21 = icmp eq i64 %19, 0
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds i8, ptr %5, i64 %7
+  %21 = icmp eq i64 %7, 0
   br i1 %21, label %_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit, label %22
 
-22:                                               ; preds = %17
+22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %20, i64 -1
   %24 = load i8, ptr %23, align 1, !noalias !1372, !noundef !4
   %25 = icmp sgt i8 %24, -1
   br i1 %25, label %32, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3b5a9a62ed28f29E.exit19.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3b5a9a62ed28f29E.exit19.i": ; preds = %22
-  %26 = icmp ne ptr %5, %23
+  %26 = icmp ne i64 %7, 1
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds i8, ptr %20, i64 -2
   %28 = load i8, ptr %27, align 1, !noalias !1372, !noundef !4
@@ -7257,7 +7257,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN7uu_sort15numeric_str_cmp21human_nu
   br label %59
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3b5a9a62ed28f29E.exit21.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3b5a9a62ed28f29E.exit19.i"
-  %34 = icmp ne ptr %5, %27
+  %34 = icmp ne i64 %7, 2
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds i8, ptr %20, i64 -3
   %36 = load i8, ptr %35, align 1, !noalias !1372, !noundef !4
@@ -7275,7 +7275,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN7uu_sort15numeric_str_cmp21human_nu
   br label %59
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3b5a9a62ed28f29E.exit23.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3b5a9a62ed28f29E.exit21.i"
-  %45 = icmp ne ptr %5, %35
+  %45 = icmp ne i64 %7, 3
   tail call void @llvm.assume(i1 %45)
   %46 = getelementptr inbounds i8, ptr %20, i64 -4
   %47 = load i8, ptr %46, align 1, !noalias !1372, !noundef !4
@@ -7333,10 +7333,10 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN7uu_sort15numeric_str_cmp21human_nu
 67:                                               ; preds = %59
   br label %_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit
 
-_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit: ; preds = %17, %59, %60, %61, %62, %63, %64, %65, %66, %67
-  %.0.i28 = phi i8 [ 1, %60 ], [ 2, %61 ], [ 3, %62 ], [ 4, %63 ], [ 5, %64 ], [ 6, %65 ], [ 7, %66 ], [ 8, %67 ], [ 0, %59 ], [ 0, %17 ]
-  %68 = getelementptr inbounds i8, ptr %8, i64 %10
-  %69 = icmp eq i64 %10, 0
+_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit: ; preds = %19, %59, %60, %61, %62, %63, %64, %65, %66, %67
+  %.0.i28 = phi i8 [ 1, %60 ], [ 2, %61 ], [ 3, %62 ], [ 4, %63 ], [ 5, %64 ], [ 6, %65 ], [ 7, %66 ], [ 8, %67 ], [ 0, %59 ], [ 0, %19 ]
+  %68 = getelementptr inbounds i8, ptr %10, i64 %12
+  %69 = icmp eq i64 %12, 0
   br i1 %69, label %_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit38, label %70
 
 70:                                               ; preds = %_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit
@@ -7346,7 +7346,7 @@ _ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit: ; preds = %17, %
   br i1 %73, label %80, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3b5a9a62ed28f29E.exit19.i29"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3b5a9a62ed28f29E.exit19.i29": ; preds = %70
-  %74 = icmp ne ptr %8, %71
+  %74 = icmp ne i64 %12, 1
   tail call void @llvm.assume(i1 %74)
   %75 = getelementptr inbounds i8, ptr %68, i64 -2
   %76 = load i8, ptr %75, align 1, !noalias !1375, !noundef !4
@@ -7360,7 +7360,7 @@ _ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit: ; preds = %17, %
   br label %107
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3b5a9a62ed28f29E.exit21.i33": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3b5a9a62ed28f29E.exit19.i29"
-  %82 = icmp ne ptr %8, %75
+  %82 = icmp ne i64 %12, 2
   tail call void @llvm.assume(i1 %82)
   %83 = getelementptr inbounds i8, ptr %68, i64 -3
   %84 = load i8, ptr %83, align 1, !noalias !1375, !noundef !4
@@ -7378,7 +7378,7 @@ _ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit: ; preds = %17, %
   br label %107
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3b5a9a62ed28f29E.exit23.i35": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3b5a9a62ed28f29E.exit21.i33"
-  %93 = icmp ne ptr %8, %83
+  %93 = icmp ne i64 %12, 3
   tail call void @llvm.assume(i1 %93)
   %94 = getelementptr inbounds i8, ptr %68, i64 -4
   %95 = load i8, ptr %94, align 1, !noalias !1375, !noundef !4
@@ -7442,7 +7442,7 @@ _ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit38: ; preds = %_ZN
   br i1 %116, label %.thread66, label %119
 
 117:                                              ; preds = %2
-  %118 = icmp samesign ult i8 %14, %16
+  %118 = icmp samesign ult i8 %16, %18
   %.3 = select i1 %118, i8 -1, i8 1
   br label %_ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit
 
@@ -7451,8 +7451,8 @@ _ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit38: ; preds = %_ZN
   br i1 %120, label %121, label %.thread66
 
 121:                                              ; preds = %119
-  %122 = load i64, ptr %7, align 8, !noalias !1378, !noundef !4
-  %123 = load i64, ptr %12, align 8, !noalias !1378, !noundef !4
+  %122 = load i64, ptr %9, align 8, !noalias !1378, !noundef !4
+  %123 = load i64, ptr %14, align 8, !noalias !1378, !noundef !4
   %124 = icmp eq i64 %122, %123
   %or.cond.i = or i1 %21, %124
   %or.cond1.i = or i1 %69, %or.cond.i
@@ -7464,7 +7464,7 @@ _ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit38: ; preds = %_ZN
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %20, ptr %126, align 8, !noalias !1378
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1378
-  store ptr %8, ptr %3, align 8, !noalias !1378
+  store ptr %10, ptr %3, align 8, !noalias !1378
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %68, ptr %127, align 8, !noalias !1378
   br label %130
@@ -7475,7 +7475,7 @@ _ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit38: ; preds = %_ZN
   br label %235
 
 130:                                              ; preds = %234, %125
-  %131 = phi ptr [ %220, %234 ], [ %8, %125 ]
+  %131 = phi ptr [ %220, %234 ], [ %10, %125 ]
   %132 = phi ptr [ %176, %234 ], [ %5, %125 ]
   %133 = icmp eq ptr %132, %20
   br i1 %133, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hceb624fbec26a58cE.exit, label %.lr.ph
@@ -7670,7 +7670,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hceb624fbec26a58cE.exit50: ; pr
 
 235:                                              ; preds = %.thread69, %128
   %.1.i = phi i8 [ %.0.i, %.thread69 ], [ %spec.select.i, %128 ]
-  %236 = icmp eq i8 %14, 0
+  %236 = icmp eq i8 %16, 0
   %switch.offset = sub nsw i8 0, %.1.i
   %spec.select124 = select i1 %236, i8 %switch.offset, i8 %.1.i
   br label %_ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit
@@ -7678,7 +7678,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hceb624fbec26a58cE.exit50: ; pr
 .thread66:                                        ; preds = %_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit38, %119
   %spec.select = phi i8 [ -1, %119 ], [ 1, %_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit38 ]
   %.01868 = phi i8 [ 1, %119 ], [ -1, %_ZN7uu_sort15numeric_str_cmp8get_unit17hddf3fc7c5cdc864eE.exit38 ]
-  %237 = icmp eq i8 %14, 0
+  %237 = icmp eq i8 %16, 0
   %spec.select72 = select i1 %237, i8 %spec.select, i8 %.01868
   br label %_ZN7uu_sort15numeric_str_cmp15numeric_str_cmp17h1701ac4d36d8ec85E.exit
 

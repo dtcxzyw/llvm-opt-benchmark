@@ -3380,19 +3380,19 @@ common.resume:                                    ; preds = %41, %173, %176, %18
   call void @llvm.experimental.noalias.scope.decl(metadata !598)
   %185 = load i64, ptr %11, align 8, !range !11, !alias.scope !601, !noalias !548, !noundef !4
   %186 = icmp eq i64 %185, 0
-  br i1 %186, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hcc13bbf1fa99fa83E.exit.i", label %187
+  br i1 %186, label %256, label %187
 
 187:                                              ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7856d505544fb046E.exit.thread.i"
   %188 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %189 = load i64, ptr %188, align 8, !alias.scope !601, !noalias !548, !noundef !4
   %190 = icmp eq i64 %189, 0
-  br i1 %190, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hcc13bbf1fa99fa83E.exit.i", label %191
+  br i1 %190, label %256, label %191
 
 191:                                              ; preds = %187
   %192 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %193 = load ptr, ptr %192, align 8, !alias.scope !601, !noalias !548, !nonnull !4, !noundef !4
   call void @__rust_dealloc(ptr noundef nonnull %193, i64 noundef %189, i64 noundef %185) #34, !noalias !602
-  br label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hcc13bbf1fa99fa83E.exit.i"
+  br label %256
 
 194:                                              ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7856d505544fb046E.exit.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !603)
@@ -3538,27 +3538,27 @@ common.resume:                                    ; preds = %41, %173, %176, %18
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h5de9dfe6d30e2d38E(ptr noalias noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull readonly align 1 %255, i64 noundef 16, i64 noundef 16)
           to label %common.resume unwind label %253
 
-"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hcc13bbf1fa99fa83E.exit.i": ; preds = %191, %187, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7856d505544fb046E.exit.thread.i"
+256:                                              ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7856d505544fb046E.exit.thread.i", %187, %191
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11), !noalias !548
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !635)
-  %.idx.i = mul nsw i64 %142, 80
-  %256 = getelementptr inbounds i8, ptr %145, i64 %.idx.i
-  %.sroa.5.018.i = getelementptr inbounds i8, ptr %256, i64 -80
-  %257 = icmp eq ptr %145, %.sroa.5.018.i
-  br i1 %257, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hcc13bbf1fa99fa83E.exit.thread.i", label %.lr.ph.i22
+  %switch.i = icmp eq i64 %142, 1
+  br i1 %switch.i, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hcc13bbf1fa99fa83E.exit.thread.i", label %.lr.ph.i22
 
-.lr.ph.i22:                                       ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hcc13bbf1fa99fa83E.exit.i"
+.lr.ph.i22:                                       ; preds = %256
+  %.idx.i = mul nsw i64 %142, 80
+  %257 = getelementptr inbounds i8, ptr %145, i64 %.idx.i
+  %.sroa.5.018.i = getelementptr inbounds i8, ptr %257, i64 -80
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %259 = load i64, ptr %258, align 8, !alias.scope !635, !noalias !638
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %261 = load i32, ptr %260, align 8, !alias.scope !635, !noalias !638
   br label %263
 
-"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hcc13bbf1fa99fa83E.exit.thread.i": ; preds = %280, %.noexc24, %263, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hcc13bbf1fa99fa83E.exit.i"
-  %.sroa.05.0.i = phi i64 [ 0, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hcc13bbf1fa99fa83E.exit.i" ], [ %281, %280 ], [ %.sroa.05.120.i, %.noexc24 ], [ %.sroa.05.120.i, %263 ]
+"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hcc13bbf1fa99fa83E.exit.thread.i": ; preds = %280, %.noexc24, %263, %256
+  %.sroa.05.0.i = phi i64 [ 0, %256 ], [ %281, %280 ], [ %.sroa.05.120.i, %.noexc24 ], [ %.sroa.05.120.i, %263 ]
   call fastcc void @_ZN12multi_buffer7History14group_trailing17he29d70f563654795E(ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %16, ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i64 noundef %.sroa.05.0.i)
   %262 = load i32, ptr %16, align 4, !range !640, !noundef !4
   %trunc7 = trunc nuw i32 %262 to i1
@@ -3567,7 +3567,7 @@ common.resume:                                    ; preds = %41, %173, %176, %18
 263:                                              ; preds = %280, %.lr.ph.i22
   %.sroa.5.021.i = phi ptr [ %.sroa.5.018.i, %.lr.ph.i22 ], [ %.sroa.5.0.i, %280 ]
   %.sroa.05.120.i = phi i64 [ 0, %.lr.ph.i22 ], [ %281, %280 ]
-  %.pn19.i = phi ptr [ %256, %.lr.ph.i22 ], [ %.sroa.5.021.i, %280 ]
+  %.pn19.i = phi ptr [ %257, %.lr.ph.i22 ], [ %.sroa.5.021.i, %280 ]
   %264 = getelementptr inbounds i8, ptr %.pn19.i, i64 -88
   %265 = load i8, ptr %264, align 8, !range !106, !noalias !641, !noundef !4
   %266 = trunc nuw i8 %265 to i1

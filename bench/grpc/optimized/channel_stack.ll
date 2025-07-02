@@ -313,11 +313,11 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx
   store i64 1, ptr %0, align 8, !tbaa !60
   %64 = shl i64 %5, 4
   %65 = and i64 %64, 4294967280
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 %65
   %.not107 = icmp eq i64 %5, 0
-  br i1 %.not107, label %._crit_edge.thread, label %.lr.ph105
+  br i1 %.not107, label %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit, label %.lr.ph105
 
 .lr.ph105:                                        ; preds = %56
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %68 = add i64 %5, -1
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -430,11 +430,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_20240
   %.not.not = icmp ugt ptr %105, %8
   br i1 %.not.not, label %.lr.ph.i.preheader, label %120, !prof !69
 
-._crit_edge.thread:                               ; preds = %56
-  %.not.not115 = icmp ugt ptr %66, %8
-  br i1 %.not.not115, label %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit, label %120, !prof !69
-
-120:                                              ; preds = %._crit_edge.thread, %._crit_edge
+120:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #29
   invoke void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull @.str, i32 noundef 169, i64 24, ptr nonnull @.str.4) #30
           to label %121 unwind label %122
@@ -470,10 +466,10 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_20240
   %exitcond.not.i = icmp eq i64 %135, %5
   br i1 %exitcond.not.i, label %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit, label %.lr.ph.i, !llvm.loop !14
 
-_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit: ; preds = %.lr.ph.i, %._crit_edge.thread
-  %136 = phi i64 [ 128, %._crit_edge.thread ], [ %126, %.lr.ph.i ]
-  %.068.lcssa116120 = phi i64 [ %60, %._crit_edge.thread ], [ %110, %.lr.ph.i ]
-  %.07.lcssa.i = phi i64 [ 128, %._crit_edge.thread ], [ %134, %.lr.ph.i ]
+_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit: ; preds = %.lr.ph.i, %56
+  %136 = phi i64 [ 128, %56 ], [ %126, %.lr.ph.i ]
+  %.068.lcssa116120 = phi i64 [ %60, %56 ], [ %110, %.lr.ph.i ]
+  %.07.lcssa.i = phi i64 [ 128, %56 ], [ %134, %.lr.ph.i ]
   %.not.not76 = icmp eq i64 %136, %.07.lcssa.i
   br i1 %.not.not76, label %.critedge83, label %137, !prof !69
 

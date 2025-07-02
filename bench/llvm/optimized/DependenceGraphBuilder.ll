@@ -2423,13 +2423,13 @@ _ZNK4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_7DDGNodeENS_23df_iterator_def
   %57 = add i64 %56, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %.sink.i, i64 %57, i1 false), !noalias !147
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 %49
-  %scevgep = getelementptr i8, ptr %53, i64 32
-  %scevgep85 = getelementptr i8, ptr %scevgep, i64 %56
   %59 = ptrtoint ptr %53 to i64
-  %60 = icmp eq ptr %scevgep85, %53
+  %60 = icmp ugt i64 %55, -33
   br i1 %60, label %_ZN4llvm11df_iteratorIPNS_7DDGNodeENS_23df_iterator_default_setIPKS1_Lj4EEELb1ENS_11GraphTraitsIS2_EEED2Ev.exit.thread95, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %_ZNK4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_7DDGNodeENS_23df_iterator_default_setIPKS2_Lj4EEEEEE3endEv.exit
+  %scevgep = getelementptr i8, ptr %53, i64 32
+  %scevgep85 = getelementptr i8, ptr %scevgep, i64 %56
   %61 = getelementptr inbounds nuw i8, ptr %31, i64 20
   %62 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %63 = getelementptr inbounds nuw i8, ptr %31, i64 8

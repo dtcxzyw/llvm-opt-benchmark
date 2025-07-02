@@ -3029,10 +3029,10 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson26unsafe_yyjson_mut_ptr_putxEPNS_14
   br i1 %.not49.i272, label %.critedge2.i270, label %.lr.ph706.preheader
 
 .lr.ph706.preheader:                              ; preds = %.preheader595, %.lr.ph706thread-pre-split
-  %.140.i2687041101 = phi ptr [ %25, %.lr.ph706thread-pre-split ], [ %.039.i266.lcssa, %.preheader595 ]
-  %.0.i2697051100 = phi i64 [ %.1.i273, %.lr.ph706thread-pre-split ], [ 0, %.preheader595 ]
+  %.140.i2687041098 = phi ptr [ %25, %.lr.ph706thread-pre-split ], [ %.039.i266.lcssa, %.preheader595 ]
+  %.0.i2697051097 = phi i64 [ %.1.i273, %.lr.ph706thread-pre-split ], [ 0, %.preheader595 ]
   %24 = phi i8 [ %.pr908, %.lr.ph706thread-pre-split ], [ 126, %.preheader595 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.140.i2687041101, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.140.i2687041098, i64 1
   %26 = icmp eq i8 %24, 126
   br i1 %26, label %27, label %34
 
@@ -3047,11 +3047,11 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson26unsafe_yyjson_mut_ptr_putxEPNS_14
   br i1 %switch.i275, label %32, label %40
 
 32:                                               ; preds = %29
-  %33 = add i64 %.0.i2697051100, 1
+  %33 = add i64 %.0.i2697051097, 1
   br label %34
 
 34:                                               ; preds = %32, %.lr.ph706.preheader
-  %.1.i273 = phi i64 [ %33, %32 ], [ %.0.i2697051100, %.lr.ph706.preheader ]
+  %.1.i273 = phi i64 [ %33, %32 ], [ %.0.i2697051097, %.lr.ph706.preheader ]
   %35 = icmp ult ptr %25, %10
   br i1 %35, label %.lr.ph706thread-pre-split, label %.critedge2.i270, !llvm.loop !100
 
@@ -3072,7 +3072,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson26unsafe_yyjson_mut_ptr_putxEPNS_14
   store i32 2, ptr %8, align 8, !tbaa !108
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str, ptr %42, align 8, !tbaa !111
-  %43 = ptrtoint ptr %.140.i2687041101 to i64
+  %43 = ptrtoint ptr %.140.i2687041098 to i64
   %44 = ptrtoint ptr %1 to i64
   %45 = sub i64 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -3416,10 +3416,10 @@ _ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i: ; pred
   br i1 %.not49.i260, label %.critedge2.i258, label %.lr.ph757.preheader
 
 .lr.ph757.preheader:                              ; preds = %.preheader589, %.lr.ph757thread-pre-split
-  %.140.i2567551103 = phi ptr [ %182, %.lr.ph757thread-pre-split ], [ %.039.i254.lcssa, %.preheader589 ]
-  %.0.i2577561102 = phi i64 [ %.1.i261, %.lr.ph757thread-pre-split ], [ 0, %.preheader589 ]
+  %.140.i2567551100 = phi ptr [ %182, %.lr.ph757thread-pre-split ], [ %.039.i254.lcssa, %.preheader589 ]
+  %.0.i2577561099 = phi i64 [ %.1.i261, %.lr.ph757thread-pre-split ], [ 0, %.preheader589 ]
   %181 = phi i8 [ %.pr915, %.lr.ph757thread-pre-split ], [ 126, %.preheader589 ]
-  %182 = getelementptr inbounds nuw i8, ptr %.140.i2567551103, i64 1
+  %182 = getelementptr inbounds nuw i8, ptr %.140.i2567551100, i64 1
   %183 = icmp eq i8 %181, 126
   br i1 %183, label %184, label %191
 
@@ -3434,11 +3434,11 @@ _ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i: ; pred
   br i1 %switch.i263, label %189, label %197
 
 189:                                              ; preds = %186
-  %190 = add i64 %.0.i2577561102, 1
+  %190 = add i64 %.0.i2577561099, 1
   br label %191
 
 191:                                              ; preds = %189, %.lr.ph757.preheader
-  %.1.i261 = phi i64 [ %190, %189 ], [ %.0.i2577561102, %.lr.ph757.preheader ]
+  %.1.i261 = phi i64 [ %190, %189 ], [ %.0.i2577561099, %.lr.ph757.preheader ]
   %192 = icmp ult ptr %182, %10
   br i1 %192, label %.lr.ph757thread-pre-split, label %.critedge2.i258, !llvm.loop !100
 
@@ -3492,8 +3492,8 @@ _ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265: ; preds = %.critedge2.
   %.2790 = phi ptr [ %.1181, %.lr.ph791 ], [ %.3, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit ]
   %.2184789 = phi ptr [ null, %.lr.ph791 ], [ %.3185, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit ]
   %.2188788 = phi ptr [ %.1187, %.lr.ph791 ], [ %.3189, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit ]
-  %.2192787 = phi ptr [ %.1191, %.lr.ph791 ], [ %276, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit ]
-  %.2196786 = phi ptr [ %.1195, %.lr.ph791 ], [ %304, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit ]
+  %.2192787 = phi ptr [ %.1191, %.lr.ph791 ], [ %275, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit ]
+  %.2196786 = phi ptr [ %.1195, %.lr.ph791 ], [ %303, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit ]
   %.3424785 = phi i64 [ %.2423, %.lr.ph791 ], [ %.4425, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit ]
   %.3429784 = phi i64 [ %.2428, %.lr.ph791 ], [ %.4430, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit ]
   %.2435783 = phi ptr [ %.1434, %.lr.ph791 ], [ %.3436, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit ]
@@ -3583,941 +3583,925 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit331: ;
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 1
   store ptr %245, ptr %204, align 8, !tbaa !48
   %.not29.i = icmp eq ptr %243, null
-  br i1 %.not29.i, label %.thread499, label %.preheader588, !prof !122
+  br i1 %.not29.i, label %.thread499, label %.lr.ph765, !prof !122
 
-.preheader588:                                    ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit331
-  %246 = icmp ult ptr %.2196786, %233
-  br i1 %246, label %.lr.ph765, label %._crit_edge.thread
+.lr.ph765:                                        ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit331, %252
+  %.026.i764 = phi ptr [ %254, %252 ], [ %243, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit331 ]
+  %.027.i763 = phi ptr [ %253, %252 ], [ %.2196786, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit331 ]
+  %246 = load i8, ptr %.027.i763, align 1, !tbaa !75
+  %.not30.i = icmp eq i8 %246, 126
+  br i1 %.not30.i, label %247, label %252
 
-._crit_edge.thread:                               ; preds = %.preheader588
-  store i8 0, ptr %243, align 1, !tbaa !75
-  br label %257
+247:                                              ; preds = %.lr.ph765
+  %248 = getelementptr inbounds nuw i8, ptr %.027.i763, i64 1
+  %249 = load i8, ptr %248, align 1, !tbaa !75
+  %250 = icmp eq i8 %249, 48
+  %251 = select i1 %250, i8 126, i8 47
+  br label %252
 
-.lr.ph765:                                        ; preds = %.preheader588, %253
-  %.026.i764 = phi ptr [ %255, %253 ], [ %243, %.preheader588 ]
-  %.027.i763 = phi ptr [ %254, %253 ], [ %.2196786, %.preheader588 ]
-  %247 = load i8, ptr %.027.i763, align 1, !tbaa !75
-  %.not30.i = icmp eq i8 %247, 126
-  br i1 %.not30.i, label %248, label %253
-
-248:                                              ; preds = %.lr.ph765
-  %249 = getelementptr inbounds nuw i8, ptr %.027.i763, i64 1
-  %250 = load i8, ptr %249, align 1, !tbaa !75
-  %251 = icmp eq i8 %250, 48
-  %252 = select i1 %251, i8 126, i8 47
-  br label %253
-
-253:                                              ; preds = %248, %.lr.ph765
-  %storemerge.i = phi i8 [ %252, %248 ], [ %247, %.lr.ph765 ]
-  %.128.i = phi ptr [ %249, %248 ], [ %.027.i763, %.lr.ph765 ]
+252:                                              ; preds = %247, %.lr.ph765
+  %storemerge.i = phi i8 [ %251, %247 ], [ %246, %.lr.ph765 ]
+  %.128.i = phi ptr [ %248, %247 ], [ %.027.i763, %.lr.ph765 ]
   store i8 %storemerge.i, ptr %.026.i764, align 1, !tbaa !75
-  %254 = getelementptr inbounds nuw i8, ptr %.128.i, i64 1
-  %255 = getelementptr inbounds nuw i8, ptr %.026.i764, i64 1
-  %256 = icmp ult ptr %254, %233
-  br i1 %256, label %.lr.ph765, label %._crit_edge, !llvm.loop !123
+  %253 = getelementptr inbounds nuw i8, ptr %.128.i, i64 1
+  %254 = getelementptr inbounds nuw i8, ptr %.026.i764, i64 1
+  %255 = icmp ult ptr %253, %233
+  br i1 %255, label %.lr.ph765, label %._crit_edge, !llvm.loop !123
 
-._crit_edge:                                      ; preds = %253
-  store i8 0, ptr %255, align 1, !tbaa !75
-  br i1 %.not573, label %.thread499, label %257, !prof !124
+._crit_edge:                                      ; preds = %252
+  store i8 0, ptr %254, align 1, !tbaa !75
+  br i1 %.not573, label %.thread499, label %256, !prof !3
 
-257:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %258 = load ptr, ptr %208, align 8, !tbaa !60
-  %259 = load ptr, ptr %207, align 8, !tbaa !59
-  %260 = icmp eq ptr %258, %259
-  br i1 %260, label %261, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362, !prof !3
+256:                                              ; preds = %._crit_edge
+  %257 = load ptr, ptr %208, align 8, !tbaa !60
+  %258 = load ptr, ptr %207, align 8, !tbaa !59
+  %259 = icmp eq ptr %257, %258
+  br i1 %259, label %260, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362, !prof !3
 
-261:                                              ; preds = %257
-  %262 = tail call noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_15yyjson_val_poolEPKNS_10yyjson_alcEm(ptr noundef nonnull %207, ptr noundef nonnull %206, i64 noundef 1)
-  br i1 %262, label %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362_crit_edge, label %.thread499, !prof !22
+260:                                              ; preds = %256
+  %261 = tail call noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_15yyjson_val_poolEPKNS_10yyjson_alcEm(ptr noundef nonnull %207, ptr noundef nonnull %206, i64 noundef 1)
+  br i1 %261, label %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362_crit_edge, label %.thread499, !prof !22
 
-._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362_crit_edge: ; preds = %261
+._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362_crit_edge: ; preds = %260
   %.pre899 = load ptr, ptr %207, align 8, !tbaa !59
   br label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362
 
-_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362: ; preds = %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362_crit_edge, %257
-  %263 = phi ptr [ %.pre899, %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362_crit_edge ], [ %259, %257 ]
-  %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
-  store ptr %264, ptr %207, align 8, !tbaa !59
-  %.not.i364.not = icmp eq ptr %263, null
-  br i1 %.not.i364.not, label %.thread499, label %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit, !prof !125
+_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362: ; preds = %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362_crit_edge, %256
+  %262 = phi ptr [ %.pre899, %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362_crit_edge ], [ %258, %256 ]
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 24
+  store ptr %263, ptr %207, align 8, !tbaa !59
+  %.not.i364.not = icmp eq ptr %262, null
+  br i1 %.not.i364.not, label %.thread499, label %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit, !prof !124
 
-.thread499:                                       ; preds = %225, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.i349, %261, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362, %240, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i352, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit331, %210, %._crit_edge
+.thread499:                                       ; preds = %225, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.i349, %260, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362, %240, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i352, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit331, %210, %._crit_edge
   %.not242 = icmp eq ptr %8, null
-  br i1 %.not242, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %265
+  br i1 %.not242, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %264
 
-265:                                              ; preds = %.thread499
+264:                                              ; preds = %.thread499
   store i32 6, ptr %8, align 8, !tbaa !108
-  %266 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str.2, ptr %266, align 8, !tbaa !111
-  %267 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %267, align 8, !tbaa !112
+  %265 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @.str.2, ptr %265, align 8, !tbaa !111
+  %266 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 0, ptr %266, align 8, !tbaa !112
   br label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303
 
 _ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit: ; preds = %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i352
-  %.sink1010 = phi ptr [ %.0.i.i347, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i352 ], [ %263, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362 ]
-  %.sink1006 = phi ptr [ %228, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i352 ], [ %243, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362 ]
-  %268 = shl i64 %.3429784, 8
-  %269 = or disjoint i64 %268, 5
-  store i64 %269, ptr %.sink1010, align 8, !tbaa !76
-  %270 = getelementptr inbounds nuw i8, ptr %.sink1010, i64 8
-  store ptr %.sink1006, ptr %270, align 8, !tbaa !75
-  %271 = load ptr, ptr %208, align 8, !tbaa !60
-  %272 = load ptr, ptr %207, align 8, !tbaa !59
-  %273 = icmp eq ptr %271, %272
-  br i1 %273, label %274, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285, !prof !3
+  %.sink1007 = phi ptr [ %.0.i.i347, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i352 ], [ %262, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362 ]
+  %.sink1003 = phi ptr [ %228, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i352 ], [ %243, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i362 ]
+  %267 = shl i64 %.3429784, 8
+  %268 = or disjoint i64 %267, 5
+  store i64 %268, ptr %.sink1007, align 8, !tbaa !76
+  %269 = getelementptr inbounds nuw i8, ptr %.sink1007, i64 8
+  store ptr %.sink1003, ptr %269, align 8, !tbaa !75
+  %270 = load ptr, ptr %208, align 8, !tbaa !60
+  %271 = load ptr, ptr %207, align 8, !tbaa !59
+  %272 = icmp eq ptr %270, %271
+  br i1 %272, label %273, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285, !prof !3
 
-274:                                              ; preds = %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit
-  %275 = tail call noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_15yyjson_val_poolEPKNS_10yyjson_alcEm(ptr noundef nonnull %207, ptr noundef nonnull %206, i64 noundef 1)
-  br i1 %275, label %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285_crit_edge, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285.thread, !prof !22
+273:                                              ; preds = %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit
+  %274 = tail call noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_15yyjson_val_poolEPKNS_10yyjson_alcEm(ptr noundef nonnull %207, ptr noundef nonnull %206, i64 noundef 1)
+  br i1 %274, label %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285_crit_edge, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285.thread, !prof !22
 
-._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285_crit_edge: ; preds = %274
+._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285_crit_edge: ; preds = %273
   %.pre902 = load ptr, ptr %207, align 8, !tbaa !59
   br label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285
 
 _ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285: ; preds = %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285_crit_edge, %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit
-  %276 = phi ptr [ %.pre902, %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285_crit_edge ], [ %272, %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit ]
-  %277 = getelementptr inbounds nuw i8, ptr %276, i64 24
-  store ptr %277, ptr %207, align 8, !tbaa !59
-  %.not9.i287.not = icmp eq ptr %276, null
-  br i1 %.not9.i287.not, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285.thread, label %281, !prof !78
+  %275 = phi ptr [ %.pre902, %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285_crit_edge ], [ %271, %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit ]
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 24
+  store ptr %276, ptr %207, align 8, !tbaa !59
+  %.not9.i287.not = icmp eq ptr %275, null
+  br i1 %.not9.i287.not, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285.thread, label %280, !prof !78
 
-_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285.thread: ; preds = %274, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285
+_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285.thread: ; preds = %273, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285
   %.not244 = icmp eq ptr %8, null
-  br i1 %.not244, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %278
+  br i1 %.not244, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %277
 
-278:                                              ; preds = %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285.thread
+277:                                              ; preds = %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285.thread
   store i32 6, ptr %8, align 8, !tbaa !108
-  %279 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str.2, ptr %279, align 8, !tbaa !111
-  %280 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %280, align 8, !tbaa !112
+  %278 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @.str.2, ptr %278, align 8, !tbaa !111
+  %279 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 0, ptr %279, align 8, !tbaa !112
   br label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303
 
-281:                                              ; preds = %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285
-  store i64 7, ptr %276, align 8, !tbaa !76
+280:                                              ; preds = %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285
+  store i64 7, ptr %275, align 8, !tbaa !76
   %.not245 = icmp eq ptr %.2188788, null
   br i1 %.not245, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318
 
-_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318: ; preds = %281
-  %282 = load i64, ptr %.2192787, align 8, !tbaa !73
-  %283 = and i64 %282, 7
-  %284 = icmp eq i64 %283, 7
-  br i1 %284, label %285, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit, !prof !22
+_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318: ; preds = %280
+  %281 = load i64, ptr %.2192787, align 8, !tbaa !73
+  %282 = and i64 %281, 7
+  %283 = icmp eq i64 %282, 7
+  br i1 %283, label %284, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit, !prof !22
 
-285:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318
-  %286 = load i64, ptr %.sink1010, align 8, !tbaa !73
-  %287 = and i64 %286, 7
-  %288 = icmp eq i64 %287, 5
-  br i1 %288, label %289, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit, !prof !115
+284:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318
+  %285 = load i64, ptr %.sink1007, align 8, !tbaa !73
+  %286 = and i64 %285, 7
+  %287 = icmp eq i64 %286, 5
+  br i1 %287, label %288, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit, !prof !115
 
-289:                                              ; preds = %285
-  %290 = and i64 %282, -256
-  %.not.i305 = icmp ult i64 %282, 256
-  br i1 %.not.i305, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306, label %291, !prof !3
+288:                                              ; preds = %284
+  %289 = and i64 %281, -256
+  %.not.i305 = icmp ult i64 %281, 256
+  br i1 %.not.i305, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306, label %290, !prof !3
 
-291:                                              ; preds = %289
-  %292 = getelementptr inbounds nuw i8, ptr %.2192787, i64 8
-  %293 = load ptr, ptr %292, align 8, !tbaa !75
-  %294 = getelementptr inbounds nuw i8, ptr %293, i64 16
-  %295 = load ptr, ptr %294, align 8, !tbaa !79
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 16
-  %297 = load ptr, ptr %296, align 8, !tbaa !79
-  store ptr %.sink1010, ptr %296, align 8, !tbaa !79
+290:                                              ; preds = %288
+  %291 = getelementptr inbounds nuw i8, ptr %.2192787, i64 8
+  %292 = load ptr, ptr %291, align 8, !tbaa !75
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 16
+  %294 = load ptr, ptr %293, align 8, !tbaa !79
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
+  %296 = load ptr, ptr %295, align 8, !tbaa !79
+  store ptr %.sink1007, ptr %295, align 8, !tbaa !79
   br label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306
 
-_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306: ; preds = %289, %291
-  %.sink = phi ptr [ %297, %291 ], [ %.sink1010, %289 ]
-  %298 = getelementptr inbounds nuw i8, ptr %276, i64 16
-  store ptr %.sink, ptr %298, align 8, !tbaa !79
-  %299 = getelementptr inbounds nuw i8, ptr %.sink1010, i64 16
-  store ptr %276, ptr %299, align 8, !tbaa !79
-  %300 = getelementptr inbounds nuw i8, ptr %.2192787, i64 8
-  store ptr %.sink1010, ptr %300, align 8, !tbaa !75
-  %301 = and i64 %282, 255
-  %302 = add i64 %290, 256
-  %303 = or disjoint i64 %302, %301
-  store i64 %303, ptr %.2192787, align 8, !tbaa !73
+_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306: ; preds = %288, %290
+  %.sink = phi ptr [ %296, %290 ], [ %.sink1007, %288 ]
+  %297 = getelementptr inbounds nuw i8, ptr %275, i64 16
+  store ptr %.sink, ptr %297, align 8, !tbaa !79
+  %298 = getelementptr inbounds nuw i8, ptr %.sink1007, i64 16
+  store ptr %275, ptr %298, align 8, !tbaa !79
+  %299 = getelementptr inbounds nuw i8, ptr %.2192787, i64 8
+  store ptr %.sink1007, ptr %299, align 8, !tbaa !75
+  %300 = and i64 %281, 255
+  %301 = add i64 %289, 256
+  %302 = or disjoint i64 %301, %300
+  store i64 %302, ptr %.2192787, align 8, !tbaa !73
   br label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit
 
-_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit: ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306, %285, %281
-  %.3189 = phi ptr [ %.2192787, %281 ], [ %.2188788, %285 ], [ %.2188788, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306 ], [ %.2188788, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318 ]
-  %.3185 = phi ptr [ %.sink1010, %281 ], [ %.2184789, %285 ], [ %.2184789, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306 ], [ %.2184789, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318 ]
-  %.3 = phi ptr [ %276, %281 ], [ %.2790, %285 ], [ %.2790, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306 ], [ %.2790, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318 ]
-  %304 = getelementptr inbounds nuw i8, ptr %.2435783, i64 1
-  %305 = icmp ult ptr %304, %10
-  br i1 %305, label %.lr.ph768, label %.critedge.i
+_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit: ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306, %284, %280
+  %.3189 = phi ptr [ %.2192787, %280 ], [ %.2188788, %284 ], [ %.2188788, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306 ], [ %.2188788, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318 ]
+  %.3185 = phi ptr [ %.sink1007, %280 ], [ %.2184789, %284 ], [ %.2184789, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306 ], [ %.2184789, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318 ]
+  %.3 = phi ptr [ %275, %280 ], [ %.2790, %284 ], [ %.2790, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit306 ], [ %.2790, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit318 ]
+  %303 = getelementptr inbounds nuw i8, ptr %.2435783, i64 1
+  %304 = icmp ult ptr %303, %10
+  br i1 %304, label %.lr.ph768, label %.critedge.i
 
-.lr.ph768:                                        ; preds = %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit, %307
-  %.039.i767 = phi ptr [ %308, %307 ], [ %304, %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit ]
-  %306 = load i8, ptr %.039.i767, align 1, !tbaa !75
-  switch i8 %306, label %307 [
+.lr.ph768:                                        ; preds = %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit, %306
+  %.039.i767 = phi ptr [ %307, %306 ], [ %303, %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit ]
+  %305 = load i8, ptr %.039.i767, align 1, !tbaa !75
+  switch i8 %305, label %306 [
     i8 47, label %.critedge.i
     i8 126, label %.critedge.i
   ]
 
-307:                                              ; preds = %.lr.ph768
-  %308 = getelementptr inbounds nuw i8, ptr %.039.i767, i64 1
-  %309 = icmp ult ptr %308, %10
-  br i1 %309, label %.lr.ph768, label %.critedge.i, !llvm.loop !99
+306:                                              ; preds = %.lr.ph768
+  %307 = getelementptr inbounds nuw i8, ptr %.039.i767, i64 1
+  %308 = icmp ult ptr %307, %10
+  br i1 %308, label %.lr.ph768, label %.critedge.i, !llvm.loop !99
 
-.critedge.i:                                      ; preds = %307, %.lr.ph768, %.lr.ph768, %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit
-  %.039.i.lcssa = phi ptr [ %304, %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit ], [ %.039.i767, %.lr.ph768 ], [ %.039.i767, %.lr.ph768 ], [ %308, %307 ]
-  %310 = icmp eq ptr %.039.i.lcssa, %10
-  br i1 %310, label %.critedge53.i, label %311
+.critedge.i:                                      ; preds = %306, %.lr.ph768, %.lr.ph768, %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit
+  %.039.i.lcssa = phi ptr [ %303, %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit ], [ %.039.i767, %.lr.ph768 ], [ %.039.i767, %.lr.ph768 ], [ %307, %306 ]
+  %309 = icmp eq ptr %.039.i.lcssa, %10
+  br i1 %309, label %.critedge53.i, label %310
 
-311:                                              ; preds = %.critedge.i
-  %312 = load i8, ptr %.039.i.lcssa, align 1, !tbaa !75
-  %.not576 = icmp eq i8 %312, 126
+310:                                              ; preds = %.critedge.i
+  %311 = load i8, ptr %.039.i.lcssa, align 1, !tbaa !75
+  %.not576 = icmp eq i8 %311, 126
   br i1 %.not576, label %.preheader587, label %.critedge53.i, !prof !3
 
-.preheader587:                                    ; preds = %311
-  %313 = icmp ult ptr %.039.i.lcssa, %10
-  br i1 %313, label %.lr.ph776.preheader, label %.critedge2.i
+.preheader587:                                    ; preds = %310
+  %312 = icmp ult ptr %.039.i.lcssa, %10
+  br i1 %312, label %.lr.ph776.preheader, label %.critedge2.i
 
-.critedge53.i:                                    ; preds = %311, %.critedge.i
-  %314 = ptrtoint ptr %.039.i.lcssa to i64
-  %315 = ptrtoint ptr %304 to i64
-  %316 = sub i64 %314, %315
+.critedge53.i:                                    ; preds = %310, %.critedge.i
+  %313 = ptrtoint ptr %.039.i.lcssa to i64
+  %314 = ptrtoint ptr %303 to i64
+  %315 = sub i64 %313, %314
   br label %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit
 
-.lr.ph776thread-pre-split:                        ; preds = %327
-  %.pr917 = load i8, ptr %318, align 1, !tbaa !75
-  %.not49.i = icmp eq i8 %.pr917, 47
+.lr.ph776thread-pre-split:                        ; preds = %326
+  %.pr916 = load i8, ptr %317, align 1, !tbaa !75
+  %.not49.i = icmp eq i8 %.pr916, 47
   br i1 %.not49.i, label %.critedge2.i, label %.lr.ph776.preheader
 
 .lr.ph776.preheader:                              ; preds = %.preheader587, %.lr.ph776thread-pre-split
-  %.140.i7741105 = phi ptr [ %318, %.lr.ph776thread-pre-split ], [ %.039.i.lcssa, %.preheader587 ]
-  %.0.i7751104 = phi i64 [ %.1.i, %.lr.ph776thread-pre-split ], [ 0, %.preheader587 ]
-  %317 = phi i8 [ %.pr917, %.lr.ph776thread-pre-split ], [ 126, %.preheader587 ]
-  %318 = getelementptr inbounds nuw i8, ptr %.140.i7741105, i64 1
-  %319 = icmp eq i8 %317, 126
-  br i1 %319, label %320, label %327
+  %.140.i7741102 = phi ptr [ %317, %.lr.ph776thread-pre-split ], [ %.039.i.lcssa, %.preheader587 ]
+  %.0.i7751101 = phi i64 [ %.1.i, %.lr.ph776thread-pre-split ], [ 0, %.preheader587 ]
+  %316 = phi i8 [ %.pr916, %.lr.ph776thread-pre-split ], [ 126, %.preheader587 ]
+  %317 = getelementptr inbounds nuw i8, ptr %.140.i7741102, i64 1
+  %318 = icmp eq i8 %316, 126
+  br i1 %318, label %319, label %326
 
-320:                                              ; preds = %.lr.ph776.preheader
-  %321 = icmp eq ptr %318, %10
-  br i1 %321, label %333, label %322
+319:                                              ; preds = %.lr.ph776.preheader
+  %320 = icmp eq ptr %317, %10
+  br i1 %320, label %332, label %321
 
-322:                                              ; preds = %320
-  %323 = load i8, ptr %318, align 1, !tbaa !75
-  %324 = and i8 %323, -2
-  %switch.i = icmp eq i8 %324, 48
-  br i1 %switch.i, label %325, label %333
+321:                                              ; preds = %319
+  %322 = load i8, ptr %317, align 1, !tbaa !75
+  %323 = and i8 %322, -2
+  %switch.i = icmp eq i8 %323, 48
+  br i1 %switch.i, label %324, label %332
 
-325:                                              ; preds = %322
-  %326 = add i64 %.0.i7751104, 1
-  br label %327
+324:                                              ; preds = %321
+  %325 = add i64 %.0.i7751101, 1
+  br label %326
 
-327:                                              ; preds = %325, %.lr.ph776.preheader
-  %.1.i = phi i64 [ %326, %325 ], [ %.0.i7751104, %.lr.ph776.preheader ]
-  %328 = icmp ult ptr %318, %10
-  br i1 %328, label %.lr.ph776thread-pre-split, label %.critedge2.i, !llvm.loop !100
+326:                                              ; preds = %324, %.lr.ph776.preheader
+  %.1.i = phi i64 [ %325, %324 ], [ %.0.i7751101, %.lr.ph776.preheader ]
+  %327 = icmp ult ptr %317, %10
+  br i1 %327, label %.lr.ph776thread-pre-split, label %.critedge2.i, !llvm.loop !100
 
-.critedge2.i:                                     ; preds = %327, %.lr.ph776thread-pre-split, %.preheader587
-  %.140.i.lcssa = phi ptr [ %.039.i.lcssa, %.preheader587 ], [ %318, %.lr.ph776thread-pre-split ], [ %318, %327 ]
-  %.0.i.lcssa = phi i64 [ 0, %.preheader587 ], [ %.1.i, %.lr.ph776thread-pre-split ], [ %.1.i, %327 ]
-  %329 = ptrtoint ptr %.140.i.lcssa to i64
-  %330 = ptrtoint ptr %304 to i64
-  %331 = add i64 %.0.i.lcssa, %330
-  %332 = sub i64 %329, %331
+.critedge2.i:                                     ; preds = %326, %.lr.ph776thread-pre-split, %.preheader587
+  %.140.i.lcssa = phi ptr [ %.039.i.lcssa, %.preheader587 ], [ %317, %.lr.ph776thread-pre-split ], [ %317, %326 ]
+  %.0.i.lcssa = phi i64 [ 0, %.preheader587 ], [ %.1.i, %.lr.ph776thread-pre-split ], [ %.1.i, %326 ]
+  %328 = ptrtoint ptr %.140.i.lcssa to i64
+  %329 = ptrtoint ptr %303 to i64
+  %330 = add i64 %.0.i.lcssa, %329
+  %331 = sub i64 %328, %330
   br label %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit
 
 _ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit: ; preds = %.critedge53.i, %.critedge2.i
   %.3436 = phi ptr [ %.039.i.lcssa, %.critedge53.i ], [ %.140.i.lcssa, %.critedge2.i ]
-  %.4430 = phi i64 [ %316, %.critedge53.i ], [ %332, %.critedge2.i ]
+  %.4430 = phi i64 [ %315, %.critedge53.i ], [ %331, %.critedge2.i ]
   %.4425 = phi i64 [ 0, %.critedge53.i ], [ %.0.i.lcssa, %.critedge2.i ]
   %.not228 = icmp eq ptr %.3436, %10
-  br i1 %.not228, label %.loopexit.loopexit, label %209, !llvm.loop !126
+  br i1 %.not228, label %.loopexit.loopexit, label %209, !llvm.loop !125
 
-333:                                              ; preds = %322, %320
+332:                                              ; preds = %321, %319
   %.not247 = icmp eq ptr %8, null
-  br i1 %.not247, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %334
+  br i1 %.not247, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %333
 
-334:                                              ; preds = %333
+333:                                              ; preds = %332
   store i32 2, ptr %8, align 8, !tbaa !108
-  %335 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str, ptr %335, align 8, !tbaa !111
-  %336 = ptrtoint ptr %.140.i7741105 to i64
-  %337 = ptrtoint ptr %1 to i64
-  %338 = sub i64 %336, %337
-  %339 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %338, ptr %339, align 8, !tbaa !112
+  %334 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @.str, ptr %334, align 8, !tbaa !111
+  %335 = ptrtoint ptr %.140.i7741102 to i64
+  %336 = ptrtoint ptr %1 to i64
+  %337 = sub i64 %335, %336
+  %338 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %337, ptr %338, align 8, !tbaa !112
   br label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303
 
 .loopexit.loopexit:                               ; preds = %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit
-  %.pre903 = load i64, ptr %276, align 8, !tbaa !73
+  %.pre903 = load i64, ptr %275, align 8, !tbaa !73
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread, %131
-  %340 = phi i64 [ %47, %131 ], [ %47, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %203, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %.pre903, %.loopexit.loopexit ]
+  %339 = phi i64 [ %47, %131 ], [ %47, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %203, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %.pre903, %.loopexit.loopexit ]
   %.0417470477 = phi ptr [ %.0417, %131 ], [ null, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %.0417470476, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %.0417470476, %.loopexit.loopexit ]
   %.1415471475 = phi i8 [ %.1415, %131 ], [ %.1415.ph, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %.1415471474, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %.1415471474, %.loopexit.loopexit ]
   %.1427 = phi i64 [ %.6432, %131 ], [ %.6432884, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %.2428, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %.4430, %.loopexit.loopexit ]
   %.1422 = phi i64 [ %.6, %131 ], [ %.6, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %.2423, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %.4425, %.loopexit.loopexit ]
   %.2199 = phi ptr [ %.1198, %131 ], [ null, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %.3200, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ null, %.loopexit.loopexit ]
-  %.0194 = phi ptr [ %.ptr, %131 ], [ %.ptr, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %.1195, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %304, %.loopexit.loopexit ]
-  %.0190 = phi ptr [ %.0197, %131 ], [ %.0197, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %.1191, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %276, %.loopexit.loopexit ]
+  %.0194 = phi ptr [ %.ptr, %131 ], [ %.ptr, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %.1195, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %303, %.loopexit.loopexit ]
+  %.0190 = phi ptr [ %.0197, %131 ], [ %.0197, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %.1191, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %275, %.loopexit.loopexit ]
   %.0186 = phi ptr [ null, %131 ], [ null, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %.1187, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %.3189, %.loopexit.loopexit ]
   %.0182 = phi ptr [ null, %131 ], [ null, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ null, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %.3185, %.loopexit.loopexit ]
   %.0180 = phi ptr [ null, %131 ], [ null, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %.1181, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %.3, %.loopexit.loopexit ]
   %.0 = phi i8 [ %49, %131 ], [ %128, %_ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread ], [ %.1, %_ZN13duckdb_yyjsonL14ptr_next_tokenEPPKcS1_PmS3_.exit265 ], [ %.1, %.loopexit.loopexit ]
-  %341 = lshr i64 %340, 8
-  %342 = icmp eq i8 %.0, 7
+  %340 = lshr i64 %339, 8
+  %341 = icmp eq i8 %.0, 7
   %.not235 = icmp eq ptr %7, null
-  br i1 %342, label %343, label %521
+  br i1 %341, label %342, label %519
 
-343:                                              ; preds = %.loopexit
-  br i1 %.not235, label %344, label %.thread554
+342:                                              ; preds = %.loopexit
+  br i1 %.not235, label %343, label %.thread554
 
-344:                                              ; preds = %343
-  %345 = icmp eq ptr %.2199, null
-  %or.cond3 = or i1 %6, %345
-  br i1 %or.cond3, label %347, label %444
+343:                                              ; preds = %342
+  %344 = icmp eq ptr %.2199, null
+  %or.cond3 = or i1 %6, %344
+  br i1 %or.cond3, label %346, label %442
 
-.thread554:                                       ; preds = %343
+.thread554:                                       ; preds = %342
   store ptr %.0190, ptr %7, align 8, !tbaa !117
-  %346 = icmp eq ptr %.2199, null
-  %or.cond3555 = or i1 %6, %346
-  br i1 %or.cond3555, label %347, label %449
+  %345 = icmp eq ptr %.2199, null
+  %or.cond3555 = or i1 %6, %345
+  br i1 %or.cond3555, label %346, label %447
 
-347:                                              ; preds = %.thread554, %344
+346:                                              ; preds = %.thread554, %343
   %.not.i293 = icmp eq i64 %.1422, 0
-  br i1 %.not.i293, label %348, label %375, !prof !22
+  br i1 %.not.i293, label %347, label %374, !prof !22
+
+347:                                              ; preds = %346
+  %.not580 = icmp eq ptr %4, null
+  br i1 %.not580, label %.thread538, label %348, !prof !3
 
 348:                                              ; preds = %347
-  %.not580 = icmp eq ptr %4, null
-  br i1 %.not580, label %.thread538, label %349, !prof !3
+  %349 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %350 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %351 = load ptr, ptr %350, align 8, !tbaa !60
+  %352 = load ptr, ptr %349, align 8, !tbaa !59
+  %353 = icmp eq ptr %351, %352
+  br i1 %353, label %354, label %357, !prof !3
 
-349:                                              ; preds = %348
-  %350 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %351 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %352 = load ptr, ptr %351, align 8, !tbaa !60
-  %353 = load ptr, ptr %350, align 8, !tbaa !59
-  %354 = icmp eq ptr %352, %353
-  br i1 %354, label %355, label %358, !prof !3
+354:                                              ; preds = %348
+  %355 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %356 = tail call noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_15yyjson_val_poolEPKNS_10yyjson_alcEm(ptr noundef nonnull %349, ptr noundef nonnull %355, i64 noundef 1)
+  br i1 %356, label %._crit_edge906, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i341, !prof !22
 
-355:                                              ; preds = %349
-  %356 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %357 = tail call noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_15yyjson_val_poolEPKNS_10yyjson_alcEm(ptr noundef nonnull %350, ptr noundef nonnull %356, i64 noundef 1)
-  br i1 %357, label %._crit_edge906, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i341, !prof !22
+._crit_edge906:                                   ; preds = %354
+  %.pre907 = load ptr, ptr %349, align 8, !tbaa !59
+  br label %357
 
-._crit_edge906:                                   ; preds = %355
-  %.pre907 = load ptr, ptr %350, align 8, !tbaa !59
-  br label %358
-
-358:                                              ; preds = %._crit_edge906, %349
-  %359 = phi ptr [ %.pre907, %._crit_edge906 ], [ %353, %349 ]
-  %360 = getelementptr inbounds nuw i8, ptr %359, i64 24
-  store ptr %360, ptr %350, align 8, !tbaa !59
+357:                                              ; preds = %._crit_edge906, %348
+  %358 = phi ptr [ %.pre907, %._crit_edge906 ], [ %352, %348 ]
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 24
+  store ptr %359, ptr %349, align 8, !tbaa !59
   br label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i341
 
-_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i341: ; preds = %358, %355
-  %.0.i.i342 = phi ptr [ %359, %358 ], [ null, %355 ]
-  %361 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %362 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %363 = load ptr, ptr %362, align 8, !tbaa !49
-  %364 = load ptr, ptr %361, align 8, !tbaa !48
+_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i341: ; preds = %357, %354
+  %.0.i.i342 = phi ptr [ %358, %357 ], [ null, %354 ]
+  %360 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %361 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %362 = load ptr, ptr %361, align 8, !tbaa !49
+  %363 = load ptr, ptr %360, align 8, !tbaa !48
+  %364 = ptrtoint ptr %362 to i64
   %365 = ptrtoint ptr %363 to i64
-  %366 = ptrtoint ptr %364 to i64
-  %367 = sub i64 %365, %366
-  %.not.i20.i = icmp ugt i64 %367, %.1427
-  br i1 %.not.i20.i, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.i, label %368, !prof !22
+  %366 = sub i64 %364, %365
+  %.not.i20.i = icmp ugt i64 %366, %.1427
+  br i1 %.not.i20.i, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.i, label %367, !prof !22
 
-368:                                              ; preds = %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i341
-  %369 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %370 = add i64 %.1427, 1
-  %371 = tail call noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_str_pool_growEPNS_15yyjson_str_poolEPKNS_10yyjson_alcEm(ptr noundef nonnull %361, ptr noundef nonnull %369, i64 noundef %370)
-  br i1 %371, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.ithread-pre-split, label %.thread538, !prof !22
+367:                                              ; preds = %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i341
+  %368 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %369 = add i64 %.1427, 1
+  %370 = tail call noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_str_pool_growEPNS_15yyjson_str_poolEPKNS_10yyjson_alcEm(ptr noundef nonnull %360, ptr noundef nonnull %368, i64 noundef %369)
+  br i1 %370, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.ithread-pre-split, label %.thread538, !prof !22
 
-_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.ithread-pre-split: ; preds = %368
-  %.pr535 = load ptr, ptr %361, align 8, !tbaa !48
+_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.ithread-pre-split: ; preds = %367
+  %.pr535 = load ptr, ptr %360, align 8, !tbaa !48
   br label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.i
 
 _ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.i: ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.ithread-pre-split, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i341
-  %372 = phi ptr [ %.pr535, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.ithread-pre-split ], [ %364, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i341 ]
-  %373 = getelementptr inbounds nuw i8, ptr %372, i64 %.1427
-  %374 = getelementptr inbounds nuw i8, ptr %373, i64 1
-  store ptr %374, ptr %361, align 8, !tbaa !48
-  %.not.i.i343 = icmp eq ptr %372, null
+  %371 = phi ptr [ %.pr535, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.ithread-pre-split ], [ %363, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i341 ]
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 %.1427
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 1
+  store ptr %373, ptr %360, align 8, !tbaa !48
+  %.not.i.i343 = icmp eq ptr %371, null
   br i1 %.not.i.i343, label %.thread538, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i, !prof !78
 
 _ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i: ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %372, ptr nonnull align 1 %.0194, i64 %.1427, i1 false)
-  store i8 0, ptr %373, align 1, !tbaa !75
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %371, ptr nonnull align 1 %.0194, i64 %.1427, i1 false)
+  store i8 0, ptr %372, align 1, !tbaa !75
   %.not581 = icmp eq ptr %.0.i.i342, null
   br i1 %.not581, label %.thread538, label %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit301, !prof !104
 
-375:                                              ; preds = %347
-  %376 = getelementptr inbounds nuw i8, ptr %.0194, i64 %.1427
-  %377 = getelementptr inbounds nuw i8, ptr %376, i64 %.1422
-  %378 = add i64 %.1422, %.1427
-  %379 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %380 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %381 = load ptr, ptr %380, align 8, !tbaa !49
-  %382 = load ptr, ptr %379, align 8, !tbaa !48
+374:                                              ; preds = %346
+  %375 = getelementptr inbounds nuw i8, ptr %.0194, i64 %.1427
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 %.1422
+  %377 = add i64 %.1422, %.1427
+  %378 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %379 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %380 = load ptr, ptr %379, align 8, !tbaa !49
+  %381 = load ptr, ptr %378, align 8, !tbaa !48
+  %382 = ptrtoint ptr %380 to i64
   %383 = ptrtoint ptr %381 to i64
-  %384 = ptrtoint ptr %382 to i64
-  %385 = sub i64 %383, %384
-  %.not.i327 = icmp ugt i64 %385, %378
-  br i1 %.not.i327, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit, label %386, !prof !22
+  %384 = sub i64 %382, %383
+  %.not.i327 = icmp ugt i64 %384, %377
+  br i1 %.not.i327, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit, label %385, !prof !22
 
-386:                                              ; preds = %375
-  %387 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %388 = add i64 %378, 1
-  %389 = tail call noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_str_pool_growEPNS_15yyjson_str_poolEPKNS_10yyjson_alcEm(ptr noundef nonnull %379, ptr noundef nonnull %387, i64 noundef %388)
-  br i1 %389, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exitthread-pre-split, label %.thread538, !prof !22
+385:                                              ; preds = %374
+  %386 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %387 = add i64 %377, 1
+  %388 = tail call noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_str_pool_growEPNS_15yyjson_str_poolEPKNS_10yyjson_alcEm(ptr noundef nonnull %378, ptr noundef nonnull %386, i64 noundef %387)
+  br i1 %388, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exitthread-pre-split, label %.thread538, !prof !22
 
-_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exitthread-pre-split: ; preds = %386
-  %.pr542 = load ptr, ptr %379, align 8, !tbaa !48
+_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exitthread-pre-split: ; preds = %385
+  %.pr542 = load ptr, ptr %378, align 8, !tbaa !48
   br label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit
 
-_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit: ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exitthread-pre-split, %375
-  %390 = phi ptr [ %.pr542, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exitthread-pre-split ], [ %382, %375 ]
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 %378
-  %392 = getelementptr inbounds nuw i8, ptr %391, i64 1
-  store ptr %392, ptr %379, align 8, !tbaa !48
-  %.not29.i294 = icmp eq ptr %390, null
-  br i1 %.not29.i294, label %.thread538, label %.preheader, !prof !78
+_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit: ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exitthread-pre-split, %374
+  %389 = phi ptr [ %.pr542, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exitthread-pre-split ], [ %381, %374 ]
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 %377
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 1
+  store ptr %391, ptr %378, align 8, !tbaa !48
+  %.not29.i294 = icmp eq ptr %389, null
+  br i1 %.not29.i294, label %.thread538, label %.lr.ph810, !prof !78
 
-.preheader:                                       ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit
-  %393 = icmp ult ptr %.0194, %377
-  br i1 %393, label %.lr.ph810, label %._crit_edge811.thread
+.lr.ph810:                                        ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit, %398
+  %.026.i296809 = phi ptr [ %400, %398 ], [ %389, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit ]
+  %.027.i295808 = phi ptr [ %399, %398 ], [ %.0194, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit ]
+  %392 = load i8, ptr %.027.i295808, align 1, !tbaa !75
+  %.not30.i298 = icmp eq i8 %392, 126
+  br i1 %.not30.i298, label %393, label %398
 
-._crit_edge811.thread:                            ; preds = %.preheader
-  store i8 0, ptr %390, align 1, !tbaa !75
-  br label %404
+393:                                              ; preds = %.lr.ph810
+  %394 = getelementptr inbounds nuw i8, ptr %.027.i295808, i64 1
+  %395 = load i8, ptr %394, align 1, !tbaa !75
+  %396 = icmp eq i8 %395, 48
+  %397 = select i1 %396, i8 126, i8 47
+  br label %398
 
-.lr.ph810:                                        ; preds = %.preheader, %400
-  %.026.i296809 = phi ptr [ %402, %400 ], [ %390, %.preheader ]
-  %.027.i295808 = phi ptr [ %401, %400 ], [ %.0194, %.preheader ]
-  %394 = load i8, ptr %.027.i295808, align 1, !tbaa !75
-  %.not30.i298 = icmp eq i8 %394, 126
-  br i1 %.not30.i298, label %395, label %400
-
-395:                                              ; preds = %.lr.ph810
-  %396 = getelementptr inbounds nuw i8, ptr %.027.i295808, i64 1
-  %397 = load i8, ptr %396, align 1, !tbaa !75
-  %398 = icmp eq i8 %397, 48
-  %399 = select i1 %398, i8 126, i8 47
-  br label %400
-
-400:                                              ; preds = %395, %.lr.ph810
-  %storemerge.i299 = phi i8 [ %399, %395 ], [ %394, %.lr.ph810 ]
-  %.128.i300 = phi ptr [ %396, %395 ], [ %.027.i295808, %.lr.ph810 ]
+398:                                              ; preds = %393, %.lr.ph810
+  %storemerge.i299 = phi i8 [ %397, %393 ], [ %392, %.lr.ph810 ]
+  %.128.i300 = phi ptr [ %394, %393 ], [ %.027.i295808, %.lr.ph810 ]
   store i8 %storemerge.i299, ptr %.026.i296809, align 1, !tbaa !75
-  %401 = getelementptr inbounds nuw i8, ptr %.128.i300, i64 1
-  %402 = getelementptr inbounds nuw i8, ptr %.026.i296809, i64 1
-  %403 = icmp ult ptr %401, %377
-  br i1 %403, label %.lr.ph810, label %._crit_edge811, !llvm.loop !123
+  %399 = getelementptr inbounds nuw i8, ptr %.128.i300, i64 1
+  %400 = getelementptr inbounds nuw i8, ptr %.026.i296809, i64 1
+  %401 = icmp ult ptr %399, %376
+  br i1 %401, label %.lr.ph810, label %._crit_edge811, !llvm.loop !123
 
-._crit_edge811:                                   ; preds = %400
-  store i8 0, ptr %402, align 1, !tbaa !75
+._crit_edge811:                                   ; preds = %398
+  store i8 0, ptr %400, align 1, !tbaa !75
   %.not579 = icmp eq ptr %4, null
-  br i1 %.not579, label %.thread538, label %404, !prof !124
+  br i1 %.not579, label %.thread538, label %402, !prof !3
 
-404:                                              ; preds = %._crit_edge811.thread, %._crit_edge811
-  %405 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %406 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %407 = load ptr, ptr %406, align 8, !tbaa !60
-  %408 = load ptr, ptr %405, align 8, !tbaa !59
-  %409 = icmp eq ptr %407, %408
-  br i1 %409, label %410, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357, !prof !3
+402:                                              ; preds = %._crit_edge811
+  %403 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %404 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %405 = load ptr, ptr %404, align 8, !tbaa !60
+  %406 = load ptr, ptr %403, align 8, !tbaa !59
+  %407 = icmp eq ptr %405, %406
+  br i1 %407, label %408, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357, !prof !3
 
-410:                                              ; preds = %404
-  %411 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %412 = tail call noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_15yyjson_val_poolEPKNS_10yyjson_alcEm(ptr noundef nonnull %405, ptr noundef nonnull %411, i64 noundef 1)
-  br i1 %412, label %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357_crit_edge, label %.thread538, !prof !22
+408:                                              ; preds = %402
+  %409 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %410 = tail call noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_15yyjson_val_poolEPKNS_10yyjson_alcEm(ptr noundef nonnull %403, ptr noundef nonnull %409, i64 noundef 1)
+  br i1 %410, label %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357_crit_edge, label %.thread538, !prof !22
 
-._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357_crit_edge: ; preds = %410
-  %.pre905 = load ptr, ptr %405, align 8, !tbaa !59
+._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357_crit_edge: ; preds = %408
+  %.pre905 = load ptr, ptr %403, align 8, !tbaa !59
   br label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357
 
-_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357: ; preds = %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357_crit_edge, %404
-  %413 = phi ptr [ %.pre905, %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357_crit_edge ], [ %408, %404 ]
-  %414 = getelementptr inbounds nuw i8, ptr %413, i64 24
-  store ptr %414, ptr %405, align 8, !tbaa !59
-  %.not.i359.not = icmp eq ptr %413, null
+_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357: ; preds = %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357_crit_edge, %402
+  %411 = phi ptr [ %.pre905, %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357_crit_edge ], [ %406, %402 ]
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 24
+  store ptr %412, ptr %403, align 8, !tbaa !59
+  %.not.i359.not = icmp eq ptr %411, null
   br i1 %.not.i359.not, label %.thread538, label %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit301, !prof !78
 
-.thread538:                                       ; preds = %368, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.i, %410, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357, %386, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit, %348, %._crit_edge811
+.thread538:                                       ; preds = %367, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit.i, %408, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357, %385, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_str_alcEPNS_14yyjson_mut_docEm.exit, %347, %._crit_edge811
   %.not240 = icmp eq ptr %8, null
-  br i1 %.not240, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %415
+  br i1 %.not240, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %413
 
-415:                                              ; preds = %.thread538
+413:                                              ; preds = %.thread538
   store i32 6, ptr %8, align 8, !tbaa !108
-  %416 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str.2, ptr %416, align 8, !tbaa !111
-  %417 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %417, align 8, !tbaa !112
+  %414 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @.str.2, ptr %414, align 8, !tbaa !111
+  %415 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 0, ptr %415, align 8, !tbaa !112
   br label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303
 
 _ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit301: ; preds = %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i
-  %.0.i.i342.sink1015 = phi ptr [ %.0.i.i342, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i ], [ %413, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357 ]
-  %.sink1012 = phi ptr [ %372, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i ], [ %390, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357 ]
-  %418 = shl i64 %.1427, 8
-  %419 = or disjoint i64 %418, 5
-  store i64 %419, ptr %.0.i.i342.sink1015, align 8, !tbaa !76
-  %420 = getelementptr inbounds nuw i8, ptr %.0.i.i342.sink1015, i64 8
-  store ptr %.sink1012, ptr %420, align 8, !tbaa !75
-  br i1 %.not235, label %428, label %421
+  %.0.i.i342.sink1012 = phi ptr [ %.0.i.i342, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i ], [ %411, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357 ]
+  %.sink1009 = phi ptr [ %371, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit.i ], [ %389, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i357 ]
+  %416 = shl i64 %.1427, 8
+  %417 = or disjoint i64 %416, 5
+  store i64 %417, ptr %.0.i.i342.sink1012, align 8, !tbaa !76
+  %418 = getelementptr inbounds nuw i8, ptr %.0.i.i342.sink1012, i64 8
+  store ptr %.sink1009, ptr %418, align 8, !tbaa !75
+  br i1 %.not235, label %426, label %419
 
-421:                                              ; preds = %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit301
-  %.not237 = icmp ult i64 %340, 256
-  br i1 %.not237, label %425, label %422
+419:                                              ; preds = %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit301
+  %.not237 = icmp ult i64 %339, 256
+  br i1 %.not237, label %423, label %420
 
-422:                                              ; preds = %421
-  %423 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
-  %424 = load ptr, ptr %423, align 8, !tbaa !75
-  br label %425
+420:                                              ; preds = %419
+  %421 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %422 = load ptr, ptr %421, align 8, !tbaa !75
+  br label %423
 
-425:                                              ; preds = %421, %422
-  %426 = phi ptr [ %424, %422 ], [ %.0.i.i342.sink1015, %421 ]
-  %427 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %426, ptr %427, align 8, !tbaa !119
-  br label %428
+423:                                              ; preds = %419, %420
+  %424 = phi ptr [ %422, %420 ], [ %.0.i.i342.sink1012, %419 ]
+  %425 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %424, ptr %425, align 8, !tbaa !119
+  br label %426
 
-428:                                              ; preds = %425, %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit301
-  %.not.i307 = icmp ult i64 %340, 256
-  br i1 %.not.i307, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit308, label %429, !prof !3
+426:                                              ; preds = %423, %_ZN13duckdb_yyjsonL11ptr_new_keyEPKcmmPNS_14yyjson_mut_docE.exit301
+  %.not.i307 = icmp ult i64 %339, 256
+  br i1 %.not.i307, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit308, label %427, !prof !3
 
-429:                                              ; preds = %428
-  %430 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
-  %431 = load ptr, ptr %430, align 8, !tbaa !75
+427:                                              ; preds = %426
+  %428 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %429 = load ptr, ptr %428, align 8, !tbaa !75
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 16
+  %431 = load ptr, ptr %430, align 8, !tbaa !79
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 16
   %433 = load ptr, ptr %432, align 8, !tbaa !79
-  %434 = getelementptr inbounds nuw i8, ptr %433, i64 16
-  %435 = load ptr, ptr %434, align 8, !tbaa !79
-  store ptr %.0.i.i342.sink1015, ptr %434, align 8, !tbaa !79
+  store ptr %.0.i.i342.sink1012, ptr %432, align 8, !tbaa !79
   br label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit308
 
-_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit308: ; preds = %428, %429
-  %.sink894 = phi ptr [ %435, %429 ], [ %.0.i.i342.sink1015, %428 ]
-  %436 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sink894, ptr %436, align 8, !tbaa !79
-  %437 = getelementptr inbounds nuw i8, ptr %.0.i.i342.sink1015, i64 16
-  store ptr %3, ptr %437, align 8, !tbaa !79
-  %438 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
-  store ptr %.0.i.i342.sink1015, ptr %438, align 8, !tbaa !75
-  %439 = load i64, ptr %.0190, align 8, !tbaa !73
-  %440 = and i64 %439, 255
-  %441 = and i64 %340, -256
-  %442 = add i64 %441, 256
-  %443 = or disjoint i64 %440, %442
-  store i64 %443, ptr %.0190, align 8, !tbaa !73
+_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit308: ; preds = %426, %427
+  %.sink894 = phi ptr [ %433, %427 ], [ %.0.i.i342.sink1012, %426 ]
+  %434 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.sink894, ptr %434, align 8, !tbaa !79
+  %435 = getelementptr inbounds nuw i8, ptr %.0.i.i342.sink1012, i64 16
+  store ptr %3, ptr %435, align 8, !tbaa !79
+  %436 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  store ptr %.0.i.i342.sink1012, ptr %436, align 8, !tbaa !75
+  %437 = load i64, ptr %.0190, align 8, !tbaa !73
+  %438 = and i64 %437, 255
+  %439 = and i64 %339, -256
+  %440 = add i64 %439, 256
+  %441 = or disjoint i64 %438, %440
+  store i64 %441, ptr %.0190, align 8, !tbaa !73
   br label %.critedge253
 
-444:                                              ; preds = %344
-  %445 = getelementptr inbounds nuw i8, ptr %.0417470477, i64 16
+442:                                              ; preds = %343
+  %443 = getelementptr inbounds nuw i8, ptr %.0417470477, i64 16
+  %444 = load ptr, ptr %443, align 8, !tbaa !79
+  %445 = getelementptr inbounds nuw i8, ptr %444, i64 16
   %446 = load ptr, ptr %445, align 8, !tbaa !79
-  %447 = getelementptr inbounds nuw i8, ptr %446, i64 16
-  %448 = load ptr, ptr %447, align 8, !tbaa !79
   br label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit314
 
-449:                                              ; preds = %.thread554
-  %450 = getelementptr inbounds nuw i8, ptr %.0417470477, i64 16
+447:                                              ; preds = %.thread554
+  %448 = getelementptr inbounds nuw i8, ptr %.0417470477, i64 16
+  %449 = load ptr, ptr %448, align 8, !tbaa !79
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 16
   %451 = load ptr, ptr %450, align 8, !tbaa !79
-  %452 = getelementptr inbounds nuw i8, ptr %451, i64 16
-  %453 = load ptr, ptr %452, align 8, !tbaa !79
-  %454 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.0417470477, ptr %454, align 8, !tbaa !119
-  %455 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.2199, ptr %455, align 8, !tbaa !127
+  %452 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.0417470477, ptr %452, align 8, !tbaa !119
+  %453 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %.2199, ptr %453, align 8, !tbaa !126
   br label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit314
 
-_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit314: ; preds = %444, %449
-  %456 = phi ptr [ %448, %444 ], [ %453, %449 ]
-  %457 = and i64 %340, 7
-  %458 = icmp ne i64 %457, 7
-  %.not.i322 = icmp eq ptr %456, null
-  %or.cond571 = select i1 %458, i1 true, i1 %.not.i322
-  br i1 %or.cond571, label %.critedge253, label %459, !prof !95
+_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit314: ; preds = %442, %447
+  %454 = phi ptr [ %446, %442 ], [ %451, %447 ]
+  %455 = and i64 %339, 7
+  %456 = icmp ne i64 %455, 7
+  %.not.i322 = icmp eq ptr %454, null
+  %or.cond571 = select i1 %456, i1 true, i1 %.not.i322
+  br i1 %or.cond571, label %.critedge253, label %457, !prof !95
 
-459:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit314
-  %460 = load i64, ptr %456, align 8, !tbaa !73
-  %461 = and i64 %460, 7
-  %.not577 = icmp eq i64 %461, 5
+457:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit314
+  %458 = load i64, ptr %454, align 8, !tbaa !73
+  %459 = and i64 %458, 7
+  %.not577 = icmp eq i64 %459, 5
   br i1 %.not577, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit, label %.critedge253, !prof !115
 
-_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit: ; preds = %459
-  %462 = lshr i64 %460, 8
-  %.not.i.i = icmp ult i64 %340, 256
+_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit: ; preds = %457
+  %460 = lshr i64 %458, 8
+  %.not.i.i = icmp ult i64 %339, 256
   br i1 %.not.i.i, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.lr.ph
 
 _ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.lr.ph: ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit
-  %463 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
-  %464 = load ptr, ptr %463, align 8, !tbaa !75
-  %465 = getelementptr inbounds nuw i8, ptr %456, i64 8
-  %466 = icmp eq ptr %3, null
-  %467 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %468 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %462 = load ptr, ptr %461, align 8, !tbaa !75
+  %463 = getelementptr inbounds nuw i8, ptr %454, i64 8
+  %464 = icmp eq ptr %3, null
+  %465 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %466 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit
 
 _ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit: ; preds = %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.lr.ph, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit
-  %469 = phi i64 [ %340, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.lr.ph ], [ %500, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
+  %467 = phi i64 [ %339, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.lr.ph ], [ %498, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
   %.022.i803 = phi i8 [ 0, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.lr.ph ], [ %.1.i309, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
-  %.sroa.18.1802 = phi ptr [ %464, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.lr.ph ], [ %.sroa.18.2, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
-  %.sroa.11.1801 = phi i64 [ %341, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.lr.ph ], [ %.sroa.11.2, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
+  %.sroa.18.1802 = phi ptr [ %462, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.lr.ph ], [ %.sroa.18.2, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
+  %.sroa.11.1801 = phi i64 [ %340, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.lr.ph ], [ %.sroa.11.2, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
   %.sroa.0.1800 = phi i64 [ 0, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.lr.ph ], [ %.sroa.0.2, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
-  %470 = getelementptr inbounds nuw i8, ptr %.sroa.18.1802, i64 16
+  %468 = getelementptr inbounds nuw i8, ptr %.sroa.18.1802, i64 16
+  %469 = load ptr, ptr %468, align 8, !tbaa !79
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 16
   %471 = load ptr, ptr %470, align 8, !tbaa !79
-  %472 = getelementptr inbounds nuw i8, ptr %471, i64 16
-  %473 = load ptr, ptr %472, align 8, !tbaa !79
-  %474 = add nuw i64 %.sroa.0.1800, 1
-  %.not26.i = icmp eq ptr %473, null
-  br i1 %.not26.i, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit, label %475
+  %472 = add nuw i64 %.sroa.0.1800, 1
+  %.not26.i = icmp eq ptr %471, null
+  br i1 %.not26.i, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit, label %473
 
-475:                                              ; preds = %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit
-  %476 = load i64, ptr %473, align 8, !tbaa !73
-  %477 = lshr i64 %476, 8
-  %478 = icmp eq i64 %477, %462
-  br i1 %478, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit, label %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit
+473:                                              ; preds = %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit
+  %474 = load i64, ptr %471, align 8, !tbaa !73
+  %475 = lshr i64 %474, 8
+  %476 = icmp eq i64 %475, %460
+  br i1 %476, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit, label %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit
 
-_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit: ; preds = %475
-  %479 = load ptr, ptr %465, align 8, !tbaa !75
-  %480 = getelementptr inbounds nuw i8, ptr %473, i64 8
-  %481 = load ptr, ptr %480, align 8, !tbaa !75
-  %bcmp.i = tail call i32 @bcmp(ptr %481, ptr %479, i64 %462)
-  %482 = icmp eq i32 %bcmp.i, 0
-  br i1 %482, label %483, label %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit
+_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit: ; preds = %473
+  %477 = load ptr, ptr %463, align 8, !tbaa !75
+  %478 = getelementptr inbounds nuw i8, ptr %471, i64 8
+  %479 = load ptr, ptr %478, align 8, !tbaa !75
+  %bcmp.i = tail call i32 @bcmp(ptr %479, ptr %477, i64 %460)
+  %480 = icmp eq i32 %bcmp.i, 0
+  br i1 %480, label %481, label %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit
 
-483:                                              ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit
-  %484 = trunc nuw i8 %.022.i803 to i1
-  %or.cond.not.i = or i1 %466, %484
-  %485 = getelementptr inbounds nuw i8, ptr %473, i64 16
+481:                                              ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit
+  %482 = trunc nuw i8 %.022.i803 to i1
+  %or.cond.not.i = or i1 %464, %482
+  %483 = getelementptr inbounds nuw i8, ptr %471, i64 16
+  %484 = load ptr, ptr %483, align 8, !tbaa !79
+  %485 = getelementptr inbounds nuw i8, ptr %484, i64 16
   %486 = load ptr, ptr %485, align 8, !tbaa !79
-  %487 = getelementptr inbounds nuw i8, ptr %486, i64 16
-  %488 = load ptr, ptr %487, align 8, !tbaa !79
-  br i1 %or.cond.not.i, label %490, label %489
+  br i1 %or.cond.not.i, label %488, label %487
 
-489:                                              ; preds = %483
-  store ptr %488, ptr %467, align 8, !tbaa !79
-  store ptr %3, ptr %485, align 8, !tbaa !79
+487:                                              ; preds = %481
+  store ptr %486, ptr %465, align 8, !tbaa !79
+  store ptr %3, ptr %483, align 8, !tbaa !79
   br label %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit
 
-490:                                              ; preds = %483
-  %491 = icmp eq i64 %474, %.sroa.11.1801
-  br i1 %491, label %492, label %493, !prof !3
+488:                                              ; preds = %481
+  %489 = icmp eq i64 %472, %.sroa.11.1801
+  br i1 %489, label %490, label %491, !prof !3
 
-492:                                              ; preds = %490
-  store ptr %.sroa.18.1802, ptr %468, align 8, !tbaa !75
-  %.pre904 = load ptr, ptr %470, align 8, !tbaa !79
-  br label %493
+490:                                              ; preds = %488
+  store ptr %.sroa.18.1802, ptr %466, align 8, !tbaa !75
+  %.pre904 = load ptr, ptr %468, align 8, !tbaa !79
+  br label %491
 
-493:                                              ; preds = %492, %490
-  %494 = phi ptr [ %.pre904, %492 ], [ %471, %490 ]
-  %495 = add i64 %.sroa.11.1801, -1
-  %496 = and i64 %469, 255
-  %497 = shl i64 %495, 8
-  %498 = or disjoint i64 %496, %497
-  store i64 %498, ptr %.0190, align 8, !tbaa !73
-  %499 = getelementptr inbounds nuw i8, ptr %494, i64 16
-  store ptr %488, ptr %499, align 8, !tbaa !79
+491:                                              ; preds = %490, %488
+  %492 = phi ptr [ %.pre904, %490 ], [ %469, %488 ]
+  %493 = add i64 %.sroa.11.1801, -1
+  %494 = and i64 %467, 255
+  %495 = shl i64 %493, 8
+  %496 = or disjoint i64 %494, %495
+  store i64 %496, ptr %.0190, align 8, !tbaa !73
+  %497 = getelementptr inbounds nuw i8, ptr %492, i64 16
+  store ptr %486, ptr %497, align 8, !tbaa !79
   br label %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit
 
-_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit: ; preds = %475, %493, %489, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit
-  %500 = phi i64 [ %469, %489 ], [ %469, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %498, %493 ], [ %469, %475 ]
-  %.sroa.0.2 = phi i64 [ %474, %489 ], [ %474, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %.sroa.0.1800, %493 ], [ %474, %475 ]
-  %.sroa.11.2 = phi i64 [ %.sroa.11.1801, %489 ], [ %.sroa.11.1801, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %495, %493 ], [ %.sroa.11.1801, %475 ]
-  %.sroa.18.2 = phi ptr [ %473, %489 ], [ %473, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %.sroa.18.1802, %493 ], [ %473, %475 ]
-  %.1.i309 = phi i8 [ 1, %489 ], [ %.022.i803, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %.022.i803, %493 ], [ %.022.i803, %475 ]
-  %501 = icmp ult i64 %.sroa.0.2, %.sroa.11.2
-  br i1 %501, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit, !llvm.loop !128
+_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit: ; preds = %473, %491, %487, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit
+  %498 = phi i64 [ %467, %487 ], [ %467, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %496, %491 ], [ %467, %473 ]
+  %.sroa.0.2 = phi i64 [ %472, %487 ], [ %472, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %.sroa.0.1800, %491 ], [ %472, %473 ]
+  %.sroa.11.2 = phi i64 [ %.sroa.11.1801, %487 ], [ %.sroa.11.1801, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %493, %491 ], [ %.sroa.11.1801, %473 ]
+  %.sroa.18.2 = phi ptr [ %471, %487 ], [ %471, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %.sroa.18.1802, %491 ], [ %471, %473 ]
+  %.1.i309 = phi i8 [ 1, %487 ], [ %.022.i803, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %.022.i803, %491 ], [ %.022.i803, %473 ]
+  %499 = icmp ult i64 %.sroa.0.2, %.sroa.11.2
+  br i1 %499, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit, !llvm.loop !127
 
 _ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit: ; preds = %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit
-  %502 = phi i64 [ %469, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit ], [ %500, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
+  %500 = phi i64 [ %467, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit ], [ %498, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
   %.sroa.11.1.lcssa.ph = phi i64 [ %.sroa.11.1801, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit ], [ %.sroa.11.2, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
   %.022.i.lcssa.ph = phi i8 [ %.022.i803, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit ], [ %.1.i309, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
-  %503 = trunc nuw i8 %.022.i.lcssa.ph to i1
+  %501 = trunc nuw i8 %.022.i.lcssa.ph to i1
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread: ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit
-  %504 = phi i64 [ %502, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit ], [ %340, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit ]
+  %502 = phi i64 [ %500, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit ], [ %339, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit ]
   %.sroa.11.1.lcssa = phi i64 [ %.sroa.11.1.lcssa.ph, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit ], [ 0, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit ]
-  %.022.i.lcssa = phi i1 [ %503, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit ], [ false, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit ]
-  %505 = icmp eq ptr %3, null
-  %or.cond4.not.i = or i1 %505, %.022.i.lcssa
-  br i1 %or.cond4.not.i, label %.critedge253, label %506
+  %.022.i.lcssa = phi i1 [ %501, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit ], [ false, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit ]
+  %503 = icmp eq ptr %3, null
+  %or.cond4.not.i = or i1 %503, %.022.i.lcssa
+  br i1 %or.cond4.not.i, label %.critedge253, label %504
 
-506:                                              ; preds = %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread
+504:                                              ; preds = %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread
   %.not.i29.i = icmp eq i64 %.sroa.11.1.lcssa, 0
-  br i1 %.not.i29.i, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit.i, label %507, !prof !3
+  br i1 %.not.i29.i, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit.i, label %505, !prof !3
 
-507:                                              ; preds = %506
-  %508 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
-  %509 = load ptr, ptr %508, align 8, !tbaa !75
+505:                                              ; preds = %504
+  %506 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %507 = load ptr, ptr %506, align 8, !tbaa !75
+  %508 = getelementptr inbounds nuw i8, ptr %507, i64 16
+  %509 = load ptr, ptr %508, align 8, !tbaa !79
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 16
   %511 = load ptr, ptr %510, align 8, !tbaa !79
-  %512 = getelementptr inbounds nuw i8, ptr %511, i64 16
-  %513 = load ptr, ptr %512, align 8, !tbaa !79
-  store ptr %456, ptr %512, align 8, !tbaa !79
+  store ptr %454, ptr %510, align 8, !tbaa !79
   br label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit.i
 
-_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit.i: ; preds = %506, %507
-  %.sink895 = phi ptr [ %513, %507 ], [ %456, %506 ]
-  %514 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sink895, ptr %514, align 8, !tbaa !79
-  %515 = getelementptr inbounds nuw i8, ptr %456, i64 16
-  store ptr %3, ptr %515, align 8, !tbaa !79
-  %516 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
-  store ptr %456, ptr %516, align 8, !tbaa !75
-  %517 = and i64 %504, 255
-  %518 = shl i64 %.sroa.11.1.lcssa, 8
-  %519 = add i64 %518, 256
-  %520 = or disjoint i64 %517, %519
-  store i64 %520, ptr %.0190, align 8, !tbaa !73
+_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit.i: ; preds = %504, %505
+  %.sink895 = phi ptr [ %511, %505 ], [ %454, %504 ]
+  %512 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.sink895, ptr %512, align 8, !tbaa !79
+  %513 = getelementptr inbounds nuw i8, ptr %454, i64 16
+  store ptr %3, ptr %513, align 8, !tbaa !79
+  %514 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  store ptr %454, ptr %514, align 8, !tbaa !75
+  %515 = and i64 %502, 255
+  %516 = shl i64 %.sroa.11.1.lcssa, 8
+  %517 = add i64 %516, 256
+  %518 = or disjoint i64 %515, %517
+  store i64 %518, ptr %.0190, align 8, !tbaa !73
   br label %.critedge253
 
-521:                                              ; preds = %.loopexit
-  br i1 %.not235, label %526, label %522
+519:                                              ; preds = %.loopexit
+  br i1 %.not235, label %524, label %520
 
-522:                                              ; preds = %521
-  %523 = icmp ne ptr %.2199, null
-  %524 = trunc nuw i8 %.1415471475 to i1
-  %or.cond5 = select i1 %523, i1 true, i1 %524
-  br i1 %or.cond5, label %525, label %.thread564
+520:                                              ; preds = %519
+  %521 = icmp ne ptr %.2199, null
+  %522 = trunc nuw i8 %.1415471475 to i1
+  %or.cond5 = select i1 %521, i1 true, i1 %522
+  br i1 %or.cond5, label %523, label %.thread564
 
-525:                                              ; preds = %522
+523:                                              ; preds = %520
   store ptr %.0190, ptr %7, align 8, !tbaa !117
-  br label %526
+  br label %524
 
-526:                                              ; preds = %525, %521
+524:                                              ; preds = %523, %519
   %.not232 = icmp eq ptr %.2199, null
-  br i1 %6, label %527, label %572
+  br i1 %6, label %525, label %570
 
-.thread564:                                       ; preds = %522
+.thread564:                                       ; preds = %520
   br i1 %6, label %.thread567, label %.thread568
 
-527:                                              ; preds = %526
-  br i1 %.not232, label %538, label %528
+525:                                              ; preds = %524
+  br i1 %.not232, label %536, label %526
 
-528:                                              ; preds = %527
-  %529 = getelementptr inbounds nuw i8, ptr %.0417470477, i64 16
-  store ptr %3, ptr %529, align 8, !tbaa !79
-  %530 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.2199, ptr %530, align 8, !tbaa !79
-  br i1 %.not235, label %533, label %531
+526:                                              ; preds = %525
+  %527 = getelementptr inbounds nuw i8, ptr %.0417470477, i64 16
+  store ptr %3, ptr %527, align 8, !tbaa !79
+  %528 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.2199, ptr %528, align 8, !tbaa !79
+  br i1 %.not235, label %531, label %529
 
-531:                                              ; preds = %528
-  %532 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.0417470477, ptr %532, align 8, !tbaa !119
-  br label %533
+529:                                              ; preds = %526
+  %530 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.0417470477, ptr %530, align 8, !tbaa !119
+  br label %531
 
-533:                                              ; preds = %531, %528
-  %534 = and i64 %340, 255
-  %535 = and i64 %340, -256
-  %536 = add i64 %535, 256
-  %537 = or disjoint i64 %536, %534
-  store i64 %537, ptr %.0190, align 8, !tbaa !73
+531:                                              ; preds = %529, %526
+  %532 = and i64 %339, 255
+  %533 = and i64 %339, -256
+  %534 = add i64 %533, 256
+  %535 = or disjoint i64 %534, %532
+  store i64 %535, ptr %.0190, align 8, !tbaa !73
   br label %.critedge253
 
-538:                                              ; preds = %527
-  %539 = trunc nuw i8 %.1415471475 to i1
-  br i1 %539, label %540, label %.thread567
+536:                                              ; preds = %525
+  %537 = trunc nuw i8 %.1415471475 to i1
+  br i1 %537, label %538, label %.thread567
 
-540:                                              ; preds = %538
-  br i1 %.not235, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit321, label %541
+538:                                              ; preds = %536
+  br i1 %.not235, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit321, label %539
 
-541:                                              ; preds = %540
-  %.not234 = icmp ult i64 %340, 256
-  br i1 %.not234, label %545, label %542
+539:                                              ; preds = %538
+  %.not234 = icmp ult i64 %339, 256
+  br i1 %.not234, label %543, label %540
 
-542:                                              ; preds = %541
-  %543 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
-  %544 = load ptr, ptr %543, align 8, !tbaa !75
-  br label %545
+540:                                              ; preds = %539
+  %541 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %542 = load ptr, ptr %541, align 8, !tbaa !75
+  br label %543
 
-545:                                              ; preds = %541, %542
-  %546 = phi ptr [ %544, %542 ], [ %3, %541 ]
-  %547 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %546, ptr %547, align 8, !tbaa !119
+543:                                              ; preds = %539, %540
+  %544 = phi ptr [ %542, %540 ], [ %3, %539 ]
+  %545 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %544, ptr %545, align 8, !tbaa !119
   br label %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit321
 
-_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit321: ; preds = %545, %540
-  %548 = and i64 %340, 7
-  %549 = icmp eq i64 %548, 6
-  %550 = icmp ne ptr %3, null
-  %551 = and i1 %550, %549
-  br i1 %551, label %552, label %.critedge253, !prof !22
+_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit321: ; preds = %543, %538
+  %546 = and i64 %339, 7
+  %547 = icmp eq i64 %546, 6
+  %548 = icmp ne ptr %3, null
+  %549 = and i1 %548, %547
+  br i1 %549, label %550, label %.critedge253, !prof !22
 
-552:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit321
-  %553 = and i64 %340, 254
-  %554 = and i64 %340, -256
-  %555 = add i64 %554, 256
-  %556 = or disjoint i64 %555, %553
-  store i64 %556, ptr %.0190, align 8, !tbaa !73
-  %557 = icmp ult i64 %340, 256
-  br i1 %557, label %563, label %558
+550:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit321
+  %551 = and i64 %339, 254
+  %552 = and i64 %339, -256
+  %553 = add i64 %552, 256
+  %554 = or disjoint i64 %553, %551
+  store i64 %554, ptr %.0190, align 8, !tbaa !73
+  %555 = icmp ult i64 %339, 256
+  br i1 %555, label %561, label %556
 
-558:                                              ; preds = %552
-  %559 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
-  %560 = load ptr, ptr %559, align 8, !tbaa !75
-  %561 = getelementptr inbounds nuw i8, ptr %560, i64 16
-  %562 = load ptr, ptr %561, align 8, !tbaa !79
-  store ptr %3, ptr %561, align 8, !tbaa !79
-  br label %563
+556:                                              ; preds = %550
+  %557 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %558 = load ptr, ptr %557, align 8, !tbaa !75
+  %559 = getelementptr inbounds nuw i8, ptr %558, i64 16
+  %560 = load ptr, ptr %559, align 8, !tbaa !79
+  store ptr %3, ptr %559, align 8, !tbaa !79
+  br label %561
 
-563:                                              ; preds = %552, %558
-  %.sink896 = phi ptr [ %562, %558 ], [ %3, %552 ]
-  %564 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sink896, ptr %564, align 8, !tbaa !79
-  %565 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
-  store ptr %3, ptr %565, align 8, !tbaa !75
+561:                                              ; preds = %550, %556
+  %.sink896 = phi ptr [ %560, %556 ], [ %3, %550 ]
+  %562 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.sink896, ptr %562, align 8, !tbaa !79
+  %563 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  store ptr %3, ptr %563, align 8, !tbaa !75
   br label %.critedge253
 
-.thread567:                                       ; preds = %.thread564, %538
+.thread567:                                       ; preds = %.thread564, %536
   %.not233 = icmp eq ptr %8, null
-  br i1 %.not233, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %566
+  br i1 %.not233, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %564
 
-566:                                              ; preds = %.thread567
+564:                                              ; preds = %.thread567
   store i32 3, ptr %8, align 8, !tbaa !108
-  %567 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str.1, ptr %567, align 8, !tbaa !111
-  %568 = ptrtoint ptr %.0194 to i64
-  %569 = ptrtoint ptr %1 to i64
-  %570 = sub i64 %568, %569
-  %571 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %570, ptr %571, align 8, !tbaa !112
+  %565 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @.str.1, ptr %565, align 8, !tbaa !111
+  %566 = ptrtoint ptr %.0194 to i64
+  %567 = ptrtoint ptr %1 to i64
+  %568 = sub i64 %566, %567
+  %569 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %568, ptr %569, align 8, !tbaa !112
   br label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303
 
-572:                                              ; preds = %526
-  br i1 %.not232, label %.thread568, label %579
+570:                                              ; preds = %524
+  br i1 %.not232, label %.thread568, label %577
 
-.thread568:                                       ; preds = %.thread564, %572
+.thread568:                                       ; preds = %.thread564, %570
   %.not231 = icmp eq ptr %8, null
-  br i1 %.not231, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %573
+  br i1 %.not231, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %571
 
-573:                                              ; preds = %.thread568
+571:                                              ; preds = %.thread568
   store i32 3, ptr %8, align 8, !tbaa !108
-  %574 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str.1, ptr %574, align 8, !tbaa !111
-  %575 = ptrtoint ptr %.0194 to i64
-  %576 = ptrtoint ptr %1 to i64
-  %577 = sub i64 %575, %576
-  %578 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %577, ptr %578, align 8, !tbaa !112
+  %572 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @.str.1, ptr %572, align 8, !tbaa !111
+  %573 = ptrtoint ptr %.0194 to i64
+  %574 = ptrtoint ptr %1 to i64
+  %575 = sub i64 %573, %574
+  %576 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %575, ptr %576, align 8, !tbaa !112
   br label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303
 
-579:                                              ; preds = %572
-  %580 = icmp ugt i64 %340, 511
-  br i1 %580, label %581, label %590
+577:                                              ; preds = %570
+  %578 = icmp ugt i64 %339, 511
+  br i1 %578, label %579, label %588
 
-581:                                              ; preds = %579
-  %582 = getelementptr inbounds nuw i8, ptr %.2199, i64 16
-  %583 = load ptr, ptr %582, align 8, !tbaa !79
-  %584 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %583, ptr %584, align 8, !tbaa !79
-  %585 = getelementptr inbounds nuw i8, ptr %.0417470477, i64 16
-  store ptr %3, ptr %585, align 8, !tbaa !79
-  %586 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
-  %587 = load ptr, ptr %586, align 8, !tbaa !75
-  %588 = icmp eq ptr %587, %.2199
-  br i1 %588, label %589, label %593
+579:                                              ; preds = %577
+  %580 = getelementptr inbounds nuw i8, ptr %.2199, i64 16
+  %581 = load ptr, ptr %580, align 8, !tbaa !79
+  %582 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %581, ptr %582, align 8, !tbaa !79
+  %583 = getelementptr inbounds nuw i8, ptr %.0417470477, i64 16
+  store ptr %3, ptr %583, align 8, !tbaa !79
+  %584 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %585 = load ptr, ptr %584, align 8, !tbaa !75
+  %586 = icmp eq ptr %585, %.2199
+  br i1 %586, label %587, label %591
 
-589:                                              ; preds = %581
-  store ptr %3, ptr %586, align 8, !tbaa !75
-  br label %593
+587:                                              ; preds = %579
+  store ptr %3, ptr %584, align 8, !tbaa !75
+  br label %591
 
-590:                                              ; preds = %579
-  %591 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %3, ptr %591, align 8, !tbaa !79
-  %592 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
-  store ptr %3, ptr %592, align 8, !tbaa !75
-  br label %593
+588:                                              ; preds = %577
+  %589 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %3, ptr %589, align 8, !tbaa !79
+  %590 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  store ptr %3, ptr %590, align 8, !tbaa !75
+  br label %591
 
-593:                                              ; preds = %581, %589, %590
-  %.1418 = phi ptr [ %.0417470477, %589 ], [ %.0417470477, %581 ], [ %3, %590 ]
-  br i1 %.not235, label %.critedge253, label %594
+591:                                              ; preds = %579, %587, %588
+  %.1418 = phi ptr [ %.0417470477, %587 ], [ %.0417470477, %579 ], [ %3, %588 ]
+  br i1 %.not235, label %.critedge253, label %592
 
-594:                                              ; preds = %593
-  %595 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.1418, ptr %595, align 8, !tbaa !119
-  %596 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.2199, ptr %596, align 8, !tbaa !127
+592:                                              ; preds = %591
+  %593 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.1418, ptr %593, align 8, !tbaa !119
+  %594 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %.2199, ptr %594, align 8, !tbaa !126
   br label %.critedge253
 
-.critedge253:                                     ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit314, %563, %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit321, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit.i, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread, %459, %593, %533, %594, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit308
+.critedge253:                                     ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit314, %561, %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit321, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit.i, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread, %457, %591, %531, %592, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit308
   %.not238 = icmp eq ptr %.0186, null
-  br i1 %.not238, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %597, !prof !22
+  br i1 %.not238, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, label %595, !prof !22
 
-597:                                              ; preds = %.critedge253
+595:                                              ; preds = %.critedge253
   %.not239 = icmp eq ptr %.0182, null
-  %598 = load i64, ptr %.0186, align 8, !tbaa !73
-  %599 = and i64 %598, 7
+  %596 = load i64, ptr %.0186, align 8, !tbaa !73
+  %597 = and i64 %596, 7
   br i1 %.not239, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit316
 
-_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit316: ; preds = %597
-  %600 = icmp eq i64 %599, 7
-  br i1 %600, label %601, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, !prof !22
+_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit316: ; preds = %595
+  %598 = icmp eq i64 %597, 7
+  br i1 %598, label %599, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, !prof !22
 
-601:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit316
-  %602 = load i64, ptr %.0182, align 8, !tbaa !73
-  %603 = and i64 %602, 7
-  %604 = icmp eq i64 %603, 5
-  %605 = icmp ne ptr %.0180, null
-  %spec.select.i302 = select i1 %604, i1 %605, i1 false, !prof !22
-  br i1 %spec.select.i302, label %606, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, !prof !115
+599:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit316
+  %600 = load i64, ptr %.0182, align 8, !tbaa !73
+  %601 = and i64 %600, 7
+  %602 = icmp eq i64 %601, 5
+  %603 = icmp ne ptr %.0180, null
+  %spec.select.i302 = select i1 %602, i1 %603, i1 false, !prof !22
+  br i1 %spec.select.i302, label %604, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, !prof !115
 
-606:                                              ; preds = %601
-  %607 = and i64 %598, -256
-  %.not.i304 = icmp ult i64 %598, 256
-  br i1 %.not.i304, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit, label %608, !prof !3
+604:                                              ; preds = %599
+  %605 = and i64 %596, -256
+  %.not.i304 = icmp ult i64 %596, 256
+  br i1 %.not.i304, label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit, label %606, !prof !3
 
-608:                                              ; preds = %606
-  %609 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
-  %610 = load ptr, ptr %609, align 8, !tbaa !75
+606:                                              ; preds = %604
+  %607 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
+  %608 = load ptr, ptr %607, align 8, !tbaa !75
+  %609 = getelementptr inbounds nuw i8, ptr %608, i64 16
+  %610 = load ptr, ptr %609, align 8, !tbaa !79
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 16
   %612 = load ptr, ptr %611, align 8, !tbaa !79
-  %613 = getelementptr inbounds nuw i8, ptr %612, i64 16
-  %614 = load ptr, ptr %613, align 8, !tbaa !79
-  store ptr %.0182, ptr %613, align 8, !tbaa !79
+  store ptr %.0182, ptr %611, align 8, !tbaa !79
   br label %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit
 
-_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit: ; preds = %606, %608
-  %.sink897 = phi ptr [ %614, %608 ], [ %.0182, %606 ]
-  %615 = getelementptr inbounds nuw i8, ptr %.0180, i64 16
-  store ptr %.sink897, ptr %615, align 8, !tbaa !79
-  %616 = getelementptr inbounds nuw i8, ptr %.0182, i64 16
-  store ptr %.0180, ptr %616, align 8, !tbaa !79
-  %617 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
-  store ptr %.0182, ptr %617, align 8, !tbaa !75
-  %618 = and i64 %598, 255
-  %619 = add i64 %607, 256
-  %620 = or disjoint i64 %619, %618
-  store i64 %620, ptr %.0186, align 8, !tbaa !73
+_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit: ; preds = %604, %606
+  %.sink897 = phi ptr [ %612, %606 ], [ %.0182, %604 ]
+  %613 = getelementptr inbounds nuw i8, ptr %.0180, i64 16
+  store ptr %.sink897, ptr %613, align 8, !tbaa !79
+  %614 = getelementptr inbounds nuw i8, ptr %.0182, i64 16
+  store ptr %.0180, ptr %614, align 8, !tbaa !79
+  %615 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
+  store ptr %.0182, ptr %615, align 8, !tbaa !75
+  %616 = and i64 %596, 255
+  %617 = add i64 %605, 256
+  %618 = or disjoint i64 %617, %616
+  store i64 %618, ptr %.0186, align 8, !tbaa !73
   br label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303
 
-_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit: ; preds = %597
-  %621 = icmp eq i64 %599, 6
-  %622 = icmp ne ptr %.0180, null
-  %623 = and i1 %622, %621
-  br i1 %623, label %624, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, !prof !22
+_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit: ; preds = %595
+  %619 = icmp eq i64 %597, 6
+  %620 = icmp ne ptr %.0180, null
+  %621 = and i1 %620, %619
+  br i1 %621, label %622, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303, !prof !22
 
-624:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit
-  %625 = and i64 %598, 254
-  %626 = and i64 %598, -256
-  %627 = add i64 %626, 256
-  %628 = or disjoint i64 %627, %625
-  store i64 %628, ptr %.0186, align 8, !tbaa !73
-  %629 = icmp ult i64 %598, 256
-  br i1 %629, label %635, label %630
+622:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit
+  %623 = and i64 %596, 254
+  %624 = and i64 %596, -256
+  %625 = add i64 %624, 256
+  %626 = or disjoint i64 %625, %623
+  store i64 %626, ptr %.0186, align 8, !tbaa !73
+  %627 = icmp ult i64 %596, 256
+  br i1 %627, label %633, label %628
 
-630:                                              ; preds = %624
-  %631 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
-  %632 = load ptr, ptr %631, align 8, !tbaa !75
-  %633 = getelementptr inbounds nuw i8, ptr %632, i64 16
-  %634 = load ptr, ptr %633, align 8, !tbaa !79
-  store ptr %.0180, ptr %633, align 8, !tbaa !79
-  br label %635
+628:                                              ; preds = %622
+  %629 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
+  %630 = load ptr, ptr %629, align 8, !tbaa !75
+  %631 = getelementptr inbounds nuw i8, ptr %630, i64 16
+  %632 = load ptr, ptr %631, align 8, !tbaa !79
+  store ptr %.0180, ptr %631, align 8, !tbaa !79
+  br label %633
 
-635:                                              ; preds = %624, %630
-  %.sink898 = phi ptr [ %634, %630 ], [ %.0180, %624 ]
-  %636 = getelementptr inbounds nuw i8, ptr %.0180, i64 16
-  store ptr %.sink898, ptr %636, align 8, !tbaa !79
-  %637 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
-  store ptr %.0180, ptr %637, align 8, !tbaa !75
+633:                                              ; preds = %622, %628
+  %.sink898 = phi ptr [ %632, %628 ], [ %.0180, %622 ]
+  %634 = getelementptr inbounds nuw i8, ptr %.0180, i64 16
+  store ptr %.sink898, ptr %634, align 8, !tbaa !79
+  %635 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
+  store ptr %.0180, ptr %635, align 8, !tbaa !75
   br label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303
 
-_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303: ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit316, %635, %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit, %601, %.critedge253, %.thread568, %573, %.thread567, %566, %.thread538, %415, %333, %334, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285.thread, %278, %.thread499, %265, %197, %198, %.thread, %164, %145, %146, %134, %135, %121, %122, %40, %41
-  %.0193 = phi i1 [ false, %41 ], [ false, %40 ], [ false, %122 ], [ false, %121 ], [ false, %135 ], [ false, %134 ], [ false, %146 ], [ false, %145 ], [ false, %164 ], [ false, %.thread ], [ false, %198 ], [ false, %197 ], [ false, %265 ], [ false, %.thread499 ], [ false, %278 ], [ false, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285.thread ], [ false, %334 ], [ false, %333 ], [ false, %415 ], [ false, %.thread538 ], [ false, %566 ], [ false, %.thread567 ], [ false, %573 ], [ false, %.thread568 ], [ true, %.critedge253 ], [ true, %601 ], [ true, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit ], [ true, %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit ], [ true, %635 ], [ true, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit316 ]
+_ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303: ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit316, %633, %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit, %599, %.critedge253, %.thread568, %571, %.thread567, %564, %.thread538, %413, %332, %333, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285.thread, %277, %.thread499, %264, %197, %198, %.thread, %164, %145, %146, %134, %135, %121, %122, %40, %41
+  %.0193 = phi i1 [ false, %41 ], [ false, %40 ], [ false, %122 ], [ false, %121 ], [ false, %135 ], [ false, %134 ], [ false, %146 ], [ false, %145 ], [ false, %164 ], [ false, %.thread ], [ false, %198 ], [ false, %197 ], [ false, %264 ], [ false, %.thread499 ], [ false, %277 ], [ false, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i285.thread ], [ false, %333 ], [ false, %332 ], [ false, %413 ], [ false, %.thread538 ], [ false, %564 ], [ false, %.thread567 ], [ false, %571 ], [ false, %.thread568 ], [ true, %.critedge253 ], [ true, %599 ], [ true, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit ], [ true, %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit ], [ true, %633 ], [ true, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit316 ]
   ret i1 %.0193
 }
 
@@ -4632,7 +4616,7 @@ _ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit.
   %.sroa.11.2.us = phi i64 [ %.sroa.11.171.us, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.us ], [ %54, %52 ], [ %.sroa.11.171.us, %37 ]
   %.sroa.18.2.us = phi ptr [ %35, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.us ], [ %.sroa.18.172.us, %52 ], [ %35, %37 ]
   %60 = icmp ult i64 %.sroa.0.2.us, %.sroa.11.2.us
-  br i1 %60, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.us, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread, !llvm.loop !128
+  br i1 %60, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.us, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread, !llvm.loop !127
 
 _ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit: ; preds = %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_initEPNS_14yyjson_mut_valEPNS_19yyjson_mut_obj_iterE.exit.i, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit
   %61 = phi i64 [ %92, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ], [ %11, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_initEPNS_14yyjson_mut_valEPNS_19yyjson_mut_obj_iterE.exit.i ]
@@ -4702,7 +4686,7 @@ _ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit:
   %.sroa.18.2 = phi ptr [ %65, %81 ], [ %65, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %.sroa.18.172, %85 ], [ %65, %67 ]
   %.1.i = phi i8 [ 1, %81 ], [ %.022.i73, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ 1, %85 ], [ %.022.i73, %67 ]
   %93 = icmp ult i64 %.sroa.0.2, %.sroa.11.2
-  br i1 %93, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit81, !llvm.loop !128
+  br i1 %93, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit81, !llvm.loop !127
 
 _ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread.loopexit81: ; preds = %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit
   %94 = phi i64 [ %61, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit ], [ %92, %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit ]
@@ -4786,7 +4770,7 @@ _ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit.i: ; preds = %
 _ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit: ; preds = %118, %125, %126, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit20, %9, %113, %_ZN13duckdb_yyjsonL25unsafe_yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_m.exit.i, %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit.thread, %19
   %spec.store.select.sroa.sel33.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %7, ptr %4
   %spec.store.select.sroa.sel33.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel33.v.sroa.sel.v.sroa.sel.v, i64 16
-  store ptr %8, ptr %spec.store.select.sroa.sel33.v.sroa.sel.v.sroa.sel, align 8, !tbaa !127
+  store ptr %8, ptr %spec.store.select.sroa.sel33.v.sroa.sel.v.sroa.sel, align 8, !tbaa !126
   br label %129
 
 129:                                              ; preds = %6, %_ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit
@@ -4871,7 +4855,7 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit: ; preds = %34
   %40 = load ptr, ptr %39, align 8, !tbaa !75
   %bcmp.i = call i32 @bcmp(ptr %40, ptr %38, i64 %22)
   %41 = icmp eq i32 %bcmp.i, 0
-  br i1 %41, label %42, label %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit, !prof !129
+  br i1 %41, label %42, label %_ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit, !prof !128
 
 42:                                               ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -4903,7 +4887,7 @@ _ZN13duckdb_yyjsonL26yyjson_mut_obj_iter_removeEPNS_19yyjson_mut_obj_iterE.exit:
   %.sroa.11.2 = phi i64 [ %.sroa.11.169, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %51, %49 ], [ %.sroa.11.169, %34 ]
   %.sroa.17.2 = phi ptr [ %32, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit ], [ %.sroa.17.170, %49 ], [ %32, %34 ]
   %57 = icmp ult i64 %.sroa.0.2, %.sroa.11.2
-  br i1 %57, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit, !llvm.loop !128
+  br i1 %57, label %_ZN13duckdb_yyjsonL24yyjson_mut_obj_iter_nextEPNS_19yyjson_mut_obj_iterE.exit, label %_ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit, !llvm.loop !127
 
 58:                                               ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit19
   %.not40.i = icmp eq ptr %13, null
@@ -4953,7 +4937,7 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit: ; pred
   store ptr null, ptr %spec.store.select.sroa.sel30.v.sroa.sel.v.sroa.sel, align 8, !tbaa !119
   %spec.store.select.sroa.sel33.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %6, ptr %3
   %spec.store.select.sroa.sel33.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel33.v.sroa.sel.v.sroa.sel.v, i64 16
-  store ptr %7, ptr %spec.store.select.sroa.sel33.v.sroa.sel.v.sroa.sel, align 8, !tbaa !127
+  store ptr %7, ptr %spec.store.select.sroa.sel33.v.sroa.sel.v.sroa.sel, align 8, !tbaa !126
   br label %76
 
 76:                                               ; preds = %_ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit, %5
@@ -4991,20 +4975,20 @@ define noundef ptr @_ZN13duckdb_yyjson12yyjson_patchEPNS_14yyjson_mut_docEPNS_10
   br i1 %10, label %11, label %_ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit, !prof !3
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %12 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %13 = icmp eq i32 %12, 6
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %11
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.3, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.3, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 15:                                               ; preds = %11
-  store i32 1, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.3, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 0, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 1, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.3, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 0, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit: ; preds = %7
@@ -5014,20 +4998,20 @@ _ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit: ; preds = %7
   br i1 %18, label %24, label %19, !prof !22
 
 19:                                               ; preds = %_ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit
-  %20 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %20 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %21 = icmp eq i32 %20, 6
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.4, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.4, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 23:                                               ; preds = %19
-  store i32 1, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.4, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 0, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 1, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.4, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 0, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 24:                                               ; preds = %_ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit
@@ -5036,10 +5020,10 @@ _ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit: ; preds = %7
   br i1 %.not772, label %26, label %_ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit.i, !prof !3
 
 26:                                               ; preds = %24
-  %27 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %27 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %28 = icmp eq i32 %27, 6
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.5, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.5, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %26
@@ -5047,7 +5031,7 @@ _ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit: ; preds = %7
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 30:                                               ; preds = %26
-  store i64 0, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i64 0, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit.i: ; preds = %24
@@ -5084,20 +5068,20 @@ _ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit: ; preds =
   br i1 %47, label %53, label %48, !prof !22
 
 48:                                               ; preds = %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit
-  %49 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %49 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %50 = icmp eq i32 %49, 6
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %48
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.6, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.6, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 52:                                               ; preds = %48
-  store i32 3, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.6, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 3, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.6, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 53:                                               ; preds = %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit
@@ -5132,23 +5116,23 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.thread: ; preds = %.l
   %68 = select i1 %65, i64 %67, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 %68
   %.not.i874.not = icmp eq i64 %56, 0
-  br i1 %.not.i874.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
+  br i1 %.not.i874.not, label %._crit_edge, label %.lr.ph, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %53, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.thread
-  %70 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %70 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %71 = icmp eq i32 %70, 6
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %._crit_edge
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.8, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.8, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 73:                                               ; preds = %._crit_edge
-  store i32 4, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.8, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 4, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.8, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL13yyjson_is_strEPNS_10yyjson_valE.exit: ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit
@@ -5159,20 +5143,20 @@ _ZN13duckdb_yyjsonL13yyjson_is_strEPNS_10yyjson_valE.exit: ; preds = %_ZN13duckd
   br i1 %77, label %.lr.ph1146.preheader, label %78, !prof !22
 
 78:                                               ; preds = %_ZN13duckdb_yyjsonL13yyjson_is_strEPNS_10yyjson_valE.exit
-  %79 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %79 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %80 = icmp eq i32 %79, 6
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %78
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.9, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.9, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 82:                                               ; preds = %78
-  store i32 5, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.9, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 5, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.9, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 .lr.ph1146.preheader:                             ; preds = %_ZN13duckdb_yyjsonL13yyjson_is_strEPNS_10yyjson_valE.exit
@@ -5207,23 +5191,23 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit879.thread: ; preds = 
   %97 = select i1 %94, i64 %96, i64 16
   %98 = getelementptr inbounds nuw i8, ptr %91, i64 %97
   %.not.i865.not = icmp eq i64 %85, 0
-  br i1 %.not.i865.not, label %._crit_edge1147, label %.lr.ph1146, !llvm.loop !135
+  br i1 %.not.i865.not, label %._crit_edge1147, label %.lr.ph1146, !llvm.loop !134
 
 ._crit_edge1147:                                  ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit879.thread
-  %99 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %99 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %100 = icmp eq i32 %99, 6
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %._crit_edge1147
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.11, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.11, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 102:                                              ; preds = %._crit_edge1147
-  store i32 4, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.11, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 4, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.11, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL13yyjson_is_strEPNS_10yyjson_valE.exit810: ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit879
@@ -5234,20 +5218,20 @@ _ZN13duckdb_yyjsonL13yyjson_is_strEPNS_10yyjson_valE.exit810: ; preds = %_ZN13du
   br i1 %106, label %112, label %107, !prof !22
 
 107:                                              ; preds = %_ZN13duckdb_yyjsonL13yyjson_is_strEPNS_10yyjson_valE.exit810
-  %108 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %108 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %109 = icmp eq i32 %108, 6
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %107
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.12, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.12, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 111:                                              ; preds = %107
-  store i32 5, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.12, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 5, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.12, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 112:                                              ; preds = %_ZN13duckdb_yyjsonL13yyjson_is_strEPNS_10yyjson_valE.exit810
@@ -5292,23 +5276,23 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit881.thread: ; preds = 
   %126 = select i1 %123, i64 %125, i64 16
   %127 = getelementptr inbounds nuw i8, ptr %120, i64 %126
   %.not.i856.not = icmp eq i64 %114, 0
-  br i1 %.not.i856.not, label %._crit_edge1163, label %.lr.ph1162, !llvm.loop !135
+  br i1 %.not.i856.not, label %._crit_edge1163, label %.lr.ph1162, !llvm.loop !134
 
 ._crit_edge1163:                                  ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit881.thread
-  %128 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %128 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %129 = icmp eq i32 %128, 6
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %._crit_edge1163
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.14, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.14, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 131:                                              ; preds = %._crit_edge1163
-  store i32 4, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.14, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 4, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.14, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 132:                                              ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit881
@@ -5318,10 +5302,10 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit881.thread: ; preds = 
   br i1 %.not780, label %135, label %169, !prof !3
 
 135:                                              ; preds = %132
-  %136 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %136 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %137 = icmp eq i32 %136, 6
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.5, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.5, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   br i1 %137, label %138, label %139
 
 138:                                              ; preds = %135
@@ -5329,7 +5313,7 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit881.thread: ; preds = 
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 139:                                              ; preds = %135
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 .lr.ph1154:                                       ; preds = %.lr.ph1154.preheader, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit883.thread
@@ -5358,23 +5342,23 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit883.thread: ; preds = 
   %152 = select i1 %149, i64 %151, i64 16
   %153 = getelementptr inbounds nuw i8, ptr %146, i64 %152
   %.not.i850.not = icmp eq i64 %140, 0
-  br i1 %.not.i850.not, label %._crit_edge1155, label %.lr.ph1154, !llvm.loop !135
+  br i1 %.not.i850.not, label %._crit_edge1155, label %.lr.ph1154, !llvm.loop !134
 
 ._crit_edge1155:                                  ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit883.thread
-  %154 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %154 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %155 = icmp eq i32 %154, 6
   br i1 %155, label %156, label %157
 
 156:                                              ; preds = %._crit_edge1155
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.16, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.16, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 157:                                              ; preds = %._crit_edge1155
-  store i32 4, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.16, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 4, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.16, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL13yyjson_is_strEPNS_10yyjson_valE.exit812: ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit883
@@ -5385,20 +5369,20 @@ _ZN13duckdb_yyjsonL13yyjson_is_strEPNS_10yyjson_valE.exit812: ; preds = %_ZN13du
   br i1 %161, label %167, label %162, !prof !22
 
 162:                                              ; preds = %_ZN13duckdb_yyjsonL13yyjson_is_strEPNS_10yyjson_valE.exit812
-  %163 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %163 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %164 = icmp eq i32 %163, 6
   br i1 %164, label %165, label %166
 
 165:                                              ; preds = %162
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.17, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.17, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 166:                                              ; preds = %162
-  store i32 5, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.17, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 5, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.17, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 167:                                              ; preds = %_ZN13duckdb_yyjsonL13yyjson_is_strEPNS_10yyjson_valE.exit812
@@ -5444,13 +5428,13 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjso
   br i1 %180, label %279, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread, !prof !115
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit
-  %.pr = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %181 = icmp eq i32 %.pr, 6
   br i1 %181, label %182, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 182:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
@@ -5463,9 +5447,9 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjso
   br label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread.sink.split, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 183:                                              ; preds = %169
@@ -5493,13 +5477,13 @@ _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjso
   br i1 %.not796, label %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread, label %279, !prof !104
 
 _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread: ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit
-  %.pr986 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr986 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %192 = icmp eq i32 %.pr986, 6
   br i1 %192, label %193, label %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 193:                                              ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.19, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.19, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
@@ -5512,9 +5496,9 @@ _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjso
   br label %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread: ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread.sink.split, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.19, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.19, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 194:                                              ; preds = %169
@@ -5544,13 +5528,13 @@ _ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14y
   br i1 %.not794, label %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread, label %279, !prof !104
 
 _ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread: ; preds = %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit
-  %.pr987 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr987 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %205 = icmp eq i32 %.pr987, 6
   br i1 %205, label %206, label %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 206:                                              ; preds = %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.20, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.20, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
@@ -5563,9 +5547,9 @@ _ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14y
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 _ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread: ; preds = %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread.sink.split, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.20, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.20, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 207:                                              ; preds = %169
@@ -5599,13 +5583,13 @@ _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjso
   br i1 %.not791, label %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836.thread, label %222, !prof !104
 
 _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836.thread: ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836
-  %.pr988 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr988 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %220 = icmp eq i32 %.pr988, 6
   br i1 %220, label %221, label %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836.thread.thread
 
 221:                                              ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.21, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.21, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
@@ -5618,9 +5602,9 @@ _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjso
   br label %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836.thread.thread
 
 _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836.thread.thread: ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836.thread.thread.sink.split, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.21, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.21, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 222:                                              ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836
@@ -5644,13 +5628,13 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjso
   br i1 %229, label %279, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821.thread, !prof !115
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821
-  %.pr989 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr989 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %230 = icmp eq i32 %.pr989, 6
   br i1 %230, label %231, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821.thread.thread
 
 231:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
@@ -5663,9 +5647,9 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjso
   br label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821.thread.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821.thread.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821.thread.thread.sink.split, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 232:                                              ; preds = %169
@@ -5693,13 +5677,13 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_p
   br i1 %.not786, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread969, !prof !104
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit
-  %.pr990 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr990 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %241 = icmp eq i32 %.pr990, 6
   br i1 %241, label %242, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 242:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.22, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.22, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
@@ -5712,9 +5696,9 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_p
   br label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread.sink.split, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.22, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.22, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread969: ; preds = %236, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit
@@ -5728,10 +5712,10 @@ _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mu
   br i1 %.not787, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit.thread, label %249, !prof !104
 
 _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit.thread: ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit
-  %245 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %245 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %246 = icmp eq i32 %245, 6
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.5, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.5, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   br i1 %246, label %247, label %248
 
 247:                                              ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit.thread
@@ -5739,7 +5723,7 @@ _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mu
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 248:                                              ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit.thread
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 249:                                              ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit
@@ -5760,13 +5744,13 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjso
   br i1 %255, label %279, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828.thread, !prof !115
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828
-  %.pr991 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr991 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %256 = icmp eq i32 %.pr991, 6
   br i1 %256, label %257, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828.thread.thread
 
 257:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
@@ -5779,9 +5763,9 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjso
   br label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828.thread.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828.thread.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828.thread.thread.sink.split, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 258:                                              ; preds = %169
@@ -5809,13 +5793,13 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_p
   br i1 %.not783, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread978, !prof !104
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846
-  %.pr992 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr992 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %267 = icmp eq i32 %.pr992, 6
   br i1 %267, label %268, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread.thread
 
 268:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.23, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.23, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
@@ -5828,9 +5812,9 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_p
   br label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread.thread.sink.split, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.23, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.23, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread978: ; preds = %262, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846
@@ -5843,43 +5827,43 @@ _ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit: ; preds = 
   br i1 %269, label %279, label %_ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit.thread, !prof !115
 
 _ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread978, %_ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit
-  %270 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %270 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %271 = icmp eq i32 %270, 6
   br i1 %271, label %272, label %273
 
 272:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.24, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.24, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 273:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit.thread
-  store i32 6, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.24, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 6, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.24, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 274:                                              ; preds = %169
-  %275 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %275 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %276 = icmp eq i32 %275, 6
   br i1 %276, label %277, label %278
 
 277:                                              ; preds = %274
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.25, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.25, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 278:                                              ; preds = %274
-  store i32 5, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.25, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 5, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.25, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01167, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread
 
 279:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit, %207, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828, %_ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit, %170, %194, %222, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread969
   %.1255 = phi ptr [ %.02541169, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit ], [ %.02541169, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit ], [ %.02541169, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit ], [ %.02541169, %207 ], [ %.02541169, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821 ], [ %.02541169, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828 ], [ %.02541169, %_ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit ], [ %.0253, %170 ], [ %.0253, %194 ], [ %219, %222 ], [ %.0.i840972, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread969 ]
   %exitcond.not = icmp eq i64 %45, %34
-  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread, label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit, !llvm.loop !136
+  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread, label %_ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit, !llvm.loop !135
 
 _ZN13duckdb_yyjsonL20yyjson_arr_iter_nextEPNS_15yyjson_arr_iterE.exit.thread: ; preds = %279, %_ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit.i, %_ZN13duckdb_yyjsonL20yyjson_arr_iter_initEPNS_10yyjson_valEPNS_15yyjson_arr_iterE.exit, %277, %278, %272, %273, %268, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread.thread, %257, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828.thread.thread, %247, %248, %242, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %231, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821.thread.thread, %221, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836.thread.thread, %206, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %193, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %182, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %165, %166, %156, %157, %138, %139, %130, %131, %110, %111, %101, %102, %81, %82, %72, %73, %51, %52, %29, %30, %22, %23, %14, %15
   %.0251 = phi ptr [ null, %15 ], [ null, %14 ], [ null, %23 ], [ null, %22 ], [ null, %30 ], [ null, %29 ], [ null, %52 ], [ null, %51 ], [ null, %73 ], [ null, %72 ], [ null, %82 ], [ null, %81 ], [ null, %102 ], [ null, %101 ], [ null, %111 ], [ null, %110 ], [ null, %131 ], [ null, %130 ], [ null, %139 ], [ null, %138 ], [ null, %157 ], [ null, %156 ], [ null, %166 ], [ null, %165 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %182 ], [ null, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %193 ], [ null, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %206 ], [ null, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836.thread.thread ], [ null, %221 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821.thread.thread ], [ null, %231 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %242 ], [ null, %248 ], [ null, %247 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828.thread.thread ], [ null, %257 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread.thread ], [ null, %268 ], [ null, %273 ], [ null, %272 ], [ null, %278 ], [ null, %277 ], [ %25, %_ZN13duckdb_yyjsonL20yyjson_arr_iter_initEPNS_10yyjson_valEPNS_15yyjson_arr_iterE.exit ], [ %25, %_ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit.i ], [ %.1255, %279 ]
@@ -5966,20 +5950,20 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_mut_patchEPNS_14yyjson_mut_docEPN
   br i1 %10, label %11, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit, !prof !3
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %12 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %13 = icmp eq i32 %12, 6
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %11
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.3, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.3, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 15:                                               ; preds = %11
-  store i32 1, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.3, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 0, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 1, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.3, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 0, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit: ; preds = %7
@@ -5989,20 +5973,20 @@ _ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit: ; preds = %7
   br i1 %18, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit, label %19, !prof !22
 
 19:                                               ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit
-  %20 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %20 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %21 = icmp eq i32 %20, 6
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.4, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.4, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 23:                                               ; preds = %19
-  store i32 1, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.4, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 0, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 1, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.4, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 0, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit: ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit
@@ -6011,10 +5995,10 @@ _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mu
   br i1 %.not772, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit.thread, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit.i, !prof !104
 
 _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit.thread: ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit
-  %25 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %25 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %26 = icmp eq i32 %25, 6
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.5, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.5, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit.thread
@@ -6022,7 +6006,7 @@ _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mu
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 28:                                               ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit.thread
-  store i64 0, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i64 0, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit.i: ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit
@@ -6058,20 +6042,20 @@ _ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit: ;
   br i1 %43, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_sizeEPNS_14yyjson_mut_valE.exit.i871, label %44
 
 44:                                               ; preds = %40
-  %45 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %45 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %46 = icmp eq i32 %45, 6
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %44
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.6, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.6, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 48:                                               ; preds = %44
-  store i32 3, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.6, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 3, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.6, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_obj_sizeEPNS_14yyjson_mut_valE.exit.i871: ; preds = %40
@@ -6106,7 +6090,7 @@ _ZN13duckdb_yyjsonL19yyjson_mut_obj_sizeEPNS_14yyjson_mut_valE.exit.i871: ; pred
 
 _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.backedge: ; preds = %55, %.lr.ph
   %.not.i879 = icmp eq i64 %52, 0
-  br i1 %.not.i879, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit881.thread, label %.lr.ph, !llvm.loop !137
+  br i1 %.not.i879, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit881.thread, label %.lr.ph, !llvm.loop !136
 
 _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit881: ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %.011.i8781177, i64 16
@@ -6115,20 +6099,20 @@ _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit881: ; pr
   br i1 %.not775, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit881.thread, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit, !prof !104
 
 _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit881.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_sizeEPNS_14yyjson_mut_valE.exit.i871, %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit881, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.backedge
-  %61 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %61 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %62 = icmp eq i32 %61, 6
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit881.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.8, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.8, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 64:                                               ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit881.thread
-  store i32 4, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.8, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 4, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.8, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit881
@@ -6138,20 +6122,20 @@ _ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit: ; preds = %_Z
   br i1 %67, label %.lr.ph1185.preheader, label %68, !prof !22
 
 68:                                               ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit
-  %69 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %69 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %70 = icmp eq i32 %69, 6
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %68
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.9, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.9, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 72:                                               ; preds = %68
-  store i32 5, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.9, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 5, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.9, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 .lr.ph1185.preheader:                             ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit
@@ -6182,7 +6166,7 @@ _ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit: ; preds = %_Z
 
 _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit883.backedge: ; preds = %78, %.lr.ph1185
   %.not.i866 = icmp eq i64 %75, 0
-  br i1 %.not.i866, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit868.thread, label %.lr.ph1185, !llvm.loop !137
+  br i1 %.not.i866, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit868.thread, label %.lr.ph1185, !llvm.loop !136
 
 _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit868: ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %.011.i8651184, i64 16
@@ -6191,20 +6175,20 @@ _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit868: ; pr
   br i1 %.not776, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit868.thread, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit839, !prof !104
 
 _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit868.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit868, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit883.backedge
-  %84 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %84 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %85 = icmp eq i32 %84, 6
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit868.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.11, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.11, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 87:                                               ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit868.thread
-  store i32 4, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.11, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 4, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.11, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit839: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit868
@@ -6214,20 +6198,20 @@ _ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit839: ; preds = 
   br i1 %90, label %96, label %91, !prof !22
 
 91:                                               ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit839
-  %92 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %92 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %93 = icmp eq i32 %92, 6
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %91
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.12, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.12, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 95:                                               ; preds = %91
-  store i32 5, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.12, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 5, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.12, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 96:                                               ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit839
@@ -6268,7 +6252,7 @@ _ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit839: ; preds = 
 
 _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit885.backedge: ; preds = %101, %.lr.ph1203
   %.not.i853 = icmp eq i64 %98, 0
-  br i1 %.not.i853, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit855.thread, label %.lr.ph1203, !llvm.loop !137
+  br i1 %.not.i853, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit855.thread, label %.lr.ph1203, !llvm.loop !136
 
 _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit855: ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %.011.i8521202, i64 16
@@ -6277,20 +6261,20 @@ _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit855: ; pr
   br i1 %.not780, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit855.thread, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit892, !prof !104
 
 _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit855.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit855, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit885.backedge
-  %107 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %107 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %108 = icmp eq i32 %107, 6
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit855.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.14, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.14, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 110:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit855.thread
-  store i32 4, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.14, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 4, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.14, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit892: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit855
@@ -6299,10 +6283,10 @@ _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mu
   br i1 %.not781, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit892.thread, label %139, !prof !104
 
 _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit892.thread: ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit892
-  %112 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %112 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %113 = icmp eq i32 %112, 6
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.5, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.5, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   br i1 %113, label %114, label %115
 
 114:                                              ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit892.thread
@@ -6310,7 +6294,7 @@ _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mu
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 115:                                              ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit892.thread
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 .lr.ph1194:                                       ; preds = %.lr.ph1194.preheader, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit887.backedge
@@ -6335,7 +6319,7 @@ _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mu
 
 _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit887.backedge: ; preds = %119, %.lr.ph1194
   %.not.i842 = icmp eq i64 %116, 0
-  br i1 %.not.i842, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit.thread, label %.lr.ph1194, !llvm.loop !137
+  br i1 %.not.i842, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit.thread, label %.lr.ph1194, !llvm.loop !136
 
 _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit: ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %.011.i1193, i64 16
@@ -6344,20 +6328,20 @@ _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit: ; preds
   br i1 %.not777, label %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit.thread, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit841, !prof !104
 
 _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit, %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit887.backedge
-  %125 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %125 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %126 = icmp eq i32 %125, 6
   br i1 %126, label %127, label %128
 
 127:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.16, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.16, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 128:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit.thread
-  store i32 4, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.16, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 4, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.16, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit841: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit
@@ -6367,20 +6351,20 @@ _ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit841: ; preds = 
   br i1 %131, label %137, label %132, !prof !22
 
 132:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit841
-  %133 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %133 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %134 = icmp eq i32 %133, 6
   br i1 %134, label %135, label %136
 
 135:                                              ; preds = %132
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.17, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.17, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 136:                                              ; preds = %132
-  store i32 5, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.17, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 5, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.17, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 137:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_strEPNS_14yyjson_mut_valE.exit841
@@ -6426,13 +6410,13 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjso
   br i1 %150, label %249, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819.thread, !prof !115
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819
-  %.pr = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %151 = icmp eq i32 %.pr, 6
   br i1 %151, label %152, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819.thread.thread
 
 152:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
@@ -6445,9 +6429,9 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjso
   br label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819.thread.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819.thread.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819.thread.thread.sink.split, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 153:                                              ; preds = %139
@@ -6475,13 +6459,13 @@ _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjso
   br i1 %.not797, label %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825.thread, label %249, !prof !104
 
 _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825.thread: ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825
-  %.pr999 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr999 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %162 = icmp eq i32 %.pr999, 6
   br i1 %162, label %163, label %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825.thread.thread
 
 163:                                              ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.19, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.19, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
@@ -6494,9 +6478,9 @@ _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjso
   br label %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825.thread.thread
 
 _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825.thread.thread: ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825.thread.thread.sink.split, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.19, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.19, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 164:                                              ; preds = %139
@@ -6526,13 +6510,13 @@ _ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14y
   br i1 %.not795, label %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread, label %249, !prof !104
 
 _ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread: ; preds = %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit
-  %.pr1000 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr1000 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %175 = icmp eq i32 %.pr1000, 6
   br i1 %175, label %176, label %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 176:                                              ; preds = %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.20, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.20, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
@@ -6545,9 +6529,9 @@ _ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14y
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 _ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread: ; preds = %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread.sink.split, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.20, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.20, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 177:                                              ; preds = %139
@@ -6581,13 +6565,13 @@ _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjso
   br i1 %.not792, label %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread, label %192, !prof !104
 
 _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread: ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit
-  %.pr1001 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr1001 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %190 = icmp eq i32 %.pr1001, 6
   br i1 %190, label %191, label %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 191:                                              ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.21, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.21, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
@@ -6600,9 +6584,9 @@ _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjso
   br label %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 _ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread: ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread.sink.split, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.21, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.21, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 192:                                              ; preds = %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit
@@ -6626,13 +6610,13 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjso
   br i1 %199, label %249, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813.thread, !prof !115
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813
-  %.pr1002 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr1002 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %200 = icmp eq i32 %.pr1002, 6
   br i1 %200, label %201, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813.thread.thread
 
 201:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
@@ -6645,9 +6629,9 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjso
   br label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813.thread.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813.thread.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813.thread.thread.sink.split, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 202:                                              ; preds = %139
@@ -6675,13 +6659,13 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_p
   br i1 %.not787, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread982, !prof !104
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832
-  %.pr1003 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr1003 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %211 = icmp eq i32 %.pr1003, 6
   br i1 %211, label %212, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread.thread
 
 212:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.22, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.22, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
@@ -6694,9 +6678,9 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_p
   br label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread.thread.sink.split, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.22, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.22, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread982: ; preds = %206, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832
@@ -6710,10 +6694,10 @@ _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mu
   br i1 %.not788, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit895.thread, label %219, !prof !104
 
 _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit895.thread: ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit895
-  %215 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %215 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %216 = icmp eq i32 %215, 6
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.5, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.5, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   br i1 %216, label %217, label %218
 
 217:                                              ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit895.thread
@@ -6721,7 +6705,7 @@ _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mu
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 218:                                              ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit895.thread
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 219:                                              ; preds = %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit895
@@ -6742,13 +6726,13 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjso
   br i1 %225, label %249, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread, !prof !115
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit
-  %.pr1004 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr1004 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %226 = icmp eq i32 %.pr1004, 6
   br i1 %226, label %227, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 227:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
@@ -6761,9 +6745,9 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjso
   br label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread.sink.split, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.18, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 228:                                              ; preds = %139
@@ -6791,13 +6775,13 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_p
   br i1 %.not784, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread991, !prof !104
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit
-  %.pr1005 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %.pr1005 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %237 = icmp eq i32 %.pr1005, 6
   br i1 %237, label %238, label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 238:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.23, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.23, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
@@ -6810,9 +6794,9 @@ _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_p
   br label %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread.sink.split, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread
-  store i32 7, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.23, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 7, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.23, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 _ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread991: ; preds = %232, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit
@@ -6825,43 +6809,43 @@ _ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit: ; preds = 
   br i1 %239, label %249, label %_ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit.thread, !prof !115
 
 _ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit.thread: ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread991, %_ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit
-  %240 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %240 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %241 = icmp eq i32 %240, 6
   br i1 %241, label %242, label %243
 
 242:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit.thread
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.24, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.24, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 243:                                              ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit.thread
-  store i32 6, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.24, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 6, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.24, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 244:                                              ; preds = %139
-  %245 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !130
+  %245 = load i32, ptr %.0252.sroa.phi752, align 8, !tbaa !129
   %246 = icmp eq i32 %245, 6
   br i1 %246, label %247, label %248
 
 247:                                              ; preds = %244
-  store i32 2, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.25, ptr %.0252.sroa.phi758, align 8, !tbaa !133
+  store i32 2, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.25, ptr %.0252.sroa.phi758, align 8, !tbaa !132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0252.sroa.phi752, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 248:                                              ; preds = %244
-  store i32 5, ptr %.0252, align 8, !tbaa !132
-  store ptr @.str.25, ptr %.0252.sroa.phi758, align 8, !tbaa !133
-  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !134
+  store i32 5, ptr %.0252, align 8, !tbaa !131
+  store ptr @.str.25, ptr %.0252.sroa.phi758, align 8, !tbaa !132
+  store i64 %.sroa.0.01206, ptr %.0252.sroa.phi761, align 8, !tbaa !133
   br label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread
 
 249:                                              ; preds = %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit, %177, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit, %_ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit, %140, %164, %192, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread982
   %.1255 = phi ptr [ %.02541208, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819 ], [ %.02541208, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825 ], [ %.02541208, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit ], [ %.02541208, %177 ], [ %.02541208, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813 ], [ %.02541208, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit ], [ %.02541208, %_ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit ], [ %.0253, %140 ], [ %.0253, %164 ], [ %189, %192 ], [ %.0.i831985, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread982 ]
   %exitcond.not = icmp eq i64 %39, %32
-  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread, label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit, !llvm.loop !138
+  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread, label %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit, !llvm.loop !137
 
 _ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit.thread: ; preds = %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit, %249, %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit.i, %247, %248, %242, %243, %238, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %227, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %217, %218, %212, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread.thread, %201, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813.thread.thread, %191, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %176, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %163, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825.thread.thread, %152, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819.thread.thread, %135, %136, %127, %128, %114, %115, %109, %110, %94, %95, %86, %87, %71, %72, %63, %64, %47, %48, %27, %28, %22, %23, %14, %15
   %.0251 = phi ptr [ null, %15 ], [ null, %14 ], [ null, %23 ], [ null, %22 ], [ null, %28 ], [ null, %27 ], [ null, %48 ], [ null, %47 ], [ null, %64 ], [ null, %63 ], [ null, %72 ], [ null, %71 ], [ null, %87 ], [ null, %86 ], [ null, %95 ], [ null, %94 ], [ null, %110 ], [ null, %109 ], [ null, %115 ], [ null, %114 ], [ null, %128 ], [ null, %127 ], [ null, %136 ], [ null, %135 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819.thread.thread ], [ null, %152 ], [ null, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825.thread.thread ], [ null, %163 ], [ null, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %176 ], [ null, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %191 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813.thread.thread ], [ null, %201 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread.thread ], [ null, %212 ], [ null, %218 ], [ null, %217 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %227 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %238 ], [ null, %243 ], [ null, %242 ], [ null, %248 ], [ null, %247 ], [ %24, %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit.i ], [ %.02541208, %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit ], [ %.1255, %249 ]
@@ -6876,7 +6860,7 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_merge_patchEPNS_14yyjson_mut_docE
   %.not.i75 = icmp eq ptr %2, null
   %.053.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.053.sroa.gep97 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br i1 %.not.i75, label %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.thread, label %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit, !prof !139
+  br i1 %.not.i75, label %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.thread, label %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit, !prof !138
 
 _ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit: ; preds = %3
   %5 = load i64, ptr %2, align 8, !tbaa !73
@@ -6966,7 +6950,7 @@ _ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i82: ; preds = %_ZN13d
   %.not187 = or i1 %39, %38
   %.not.i84.not153 = icmp ult i64 %36, 256
   %or.cond182 = or i1 %.not187, %.not.i84.not153
-  br i1 %or.cond182, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit, label %.lr.ph.preheader, !prof !140
+  br i1 %or.cond182, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit, label %.lr.ph.preheader, !prof !139
 
 .lr.ph.preheader:                                 ; preds = %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i82
   %40 = lshr i64 %36, 8
@@ -6998,7 +6982,7 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit96.thread: ; preds = %
   %54 = select i1 %51, i64 %53, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 %54
   %.not.i84.not = icmp eq i64 %41, 0
-  br i1 %.not.i84.not, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit, label %.lr.ph, !llvm.loop !135
+  br i1 %.not.i84.not, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit, label %.lr.ph, !llvm.loop !134
 
 _ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit: ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit96.thread, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i82
   %56 = call noundef ptr @_ZN13duckdb_yyjson19yyjson_val_mut_copyEPNS_14yyjson_mut_docEPNS_10yyjson_valE(ptr noundef nonnull %0, ptr noundef nonnull %.057156)
@@ -7056,7 +7040,7 @@ _ZN13duckdb_yyjsonL15yyjson_obj_getnEPNS_10yyjson_valEPKcm.exit: ; preds = %_ZN1
   %86 = getelementptr inbounds nuw i8, ptr %.056158, i64 %85
   %.056 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %exitcond.not = icmp eq i64 %79, %29
-  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i79, label %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i82, !llvm.loop !141
+  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i79, label %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i82, !llvm.loop !140
 
 _ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i79: ; preds = %_ZN13duckdb_yyjsonL15yyjson_obj_getnEPNS_10yyjson_valEPKcm.exit, %_ZN13duckdb_yyjsonL15yyjson_obj_sizeEPNS_10yyjson_valE.exit, %28, %.thread110
   %.053.sroa.phi98115131 = phi ptr [ %.053.sroa.gep, %28 ], [ %.053.sroa.gep97, %.thread110 ], [ %.053.sroa.gep, %_ZN13duckdb_yyjsonL15yyjson_obj_sizeEPNS_10yyjson_valE.exit ], [ %.053.sroa.gep, %_ZN13duckdb_yyjsonL15yyjson_obj_getnEPNS_10yyjson_valEPKcm.exit ]
@@ -7099,7 +7083,7 @@ _ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i87: ; preds = %93
   %.not190 = or i1 %105, %104
   %.not.i91.not159 = icmp ult i64 %102, 256
   %or.cond184 = or i1 %.not190, %.not.i91.not159
-  br i1 %or.cond184, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit71, label %.lr.ph161.preheader, !prof !140
+  br i1 %or.cond184, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit71, label %.lr.ph161.preheader, !prof !139
 
 .lr.ph161.preheader:                              ; preds = %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i87
   %106 = lshr i64 %102, 8
@@ -7131,7 +7115,7 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.thread: ; preds = %.l
   %120 = select i1 %117, i64 %119, i64 16
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 %120
   %.not.i91.not = icmp eq i64 %107, 0
-  br i1 %.not.i91.not, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit71, label %.lr.ph161, !llvm.loop !135
+  br i1 %.not.i91.not, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit71, label %.lr.ph161, !llvm.loop !134
 
 122:                                              ; preds = %_ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit
   %123 = getelementptr inbounds nuw i8, ptr %.011.i90160, i64 16
@@ -7194,7 +7178,7 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit: ; pred
   %154 = getelementptr inbounds nuw i8, ptr %.055165, i64 %153
   %.055 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %exitcond174.not = icmp eq i64 %148, %90
-  br i1 %exitcond174.not, label %_ZN13duckdb_yyjsonL14yyjson_mut_objEPNS_14yyjson_mut_docE.exit.thread, label %93, !llvm.loop !142
+  br i1 %exitcond174.not, label %_ZN13duckdb_yyjsonL14yyjson_mut_objEPNS_14yyjson_mut_docE.exit.thread, label %93, !llvm.loop !141
 
 _ZN13duckdb_yyjsonL14yyjson_mut_objEPNS_14yyjson_mut_docE.exit.thread: ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit, %61, %146, %128, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit71, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i79, %_ZN13duckdb_yyjsonL15yyjson_obj_sizeEPNS_10yyjson_valE.exit80, %16, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i, %9, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.thread
   %.0 = phi ptr [ %8, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.thread ], [ null, %9 ], [ null, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i ], [ null, %16 ], [ %19, %_ZN13duckdb_yyjsonL15yyjson_obj_sizeEPNS_10yyjson_valE.exit80 ], [ %19, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i79 ], [ %19, %146 ], [ null, %128 ], [ null, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit71 ], [ null, %61 ], [ null, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit ]
@@ -7210,7 +7194,7 @@ define noundef ptr @_ZN13duckdb_yyjson22yyjson_mut_merge_patchEPNS_14yyjson_mut_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
   %.not.i80 = icmp eq ptr %2, null
   %.055.sroa.gep115 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %.not.i80, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit81, !prof !139
+  br i1 %.not.i80, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit81, !prof !138
 
 _ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit81: ; preds = %3
   %4 = load i64, ptr %2, align 8, !tbaa !73
@@ -7344,7 +7328,7 @@ _ZN13duckdb_yyjsonL19yyjson_mut_obj_sizeEPNS_14yyjson_mut_valE.exit.i: ; preds =
 
 _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit104.backedge: ; preds = %57, %.lr.ph
   %.not.i89 = icmp eq i64 %53, 0
-  br i1 %.not.i89, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit107, label %.lr.ph, !llvm.loop !137
+  br i1 %.not.i89, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit107, label %.lr.ph, !llvm.loop !136
 
 _ZN13duckdb_yyjsonL19yyjson_mut_obj_getnEPNS_14yyjson_mut_valEPKcm.exit: ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %.011.i210, i64 16
@@ -7412,7 +7396,7 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit71: ; pr
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8, !tbaa !79
   %exitcond.not = icmp eq i64 %88, %28
-  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit.i86, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit.i.i, !llvm.loop !143
+  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit.i86, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit.i.i, !llvm.loop !142
 
 _ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit.i86: ; preds = %87, %_ZN13duckdb_yyjsonL19yyjson_mut_obj_sizeEPNS_14yyjson_mut_valE.exit, %.thread128
   %.055.sroa.phi114133174 = phi ptr [ %.sroa.5, %.thread128 ], [ %.055.sroa.gep115, %_ZN13duckdb_yyjsonL19yyjson_mut_obj_sizeEPNS_14yyjson_mut_valE.exit ], [ %.055.sroa.gep115, %87 ]
@@ -7508,7 +7492,7 @@ _ZN13duckdb_yyjsonL19yyjson_mut_obj_sizeEPNS_14yyjson_mut_valE.exit.i92: ; preds
 
 _ZN13duckdb_yyjsonL25unsafe_yyjson_equals_strnEPvPKcm.exit.backedge: ; preds = %132, %.lr.ph221
   %.not.i100 = icmp eq i64 %128, 0
-  br i1 %.not.i100, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit77, label %.lr.ph221, !llvm.loop !137
+  br i1 %.not.i100, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit77, label %.lr.ph221, !llvm.loop !136
 
 136:                                              ; preds = %132
   %137 = getelementptr inbounds nuw i8, ptr %.011.i99220, i64 16
@@ -7567,7 +7551,7 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit: ; pred
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %166 = load ptr, ptr %165, align 8, !tbaa !79
   %exitcond235.not = icmp eq i64 %162, %96
-  br i1 %exitcond235.not, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit, label %109, !llvm.loop !144
+  br i1 %exitcond235.not, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit, label %109, !llvm.loop !143
 
 _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit: ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit, %69, %161, %143, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit77, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit.i86, %_ZN13duckdb_yyjsonL19yyjson_mut_obj_sizeEPNS_14yyjson_mut_valE.exit87, %17, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i, %10, %3, %8, %7
   %.0 = phi ptr [ %9, %8 ], [ null, %7 ], [ null, %3 ], [ null, %10 ], [ null, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i ], [ null, %17 ], [ %20, %_ZN13duckdb_yyjsonL19yyjson_mut_obj_sizeEPNS_14yyjson_mut_valE.exit87 ], [ %20, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit.i86 ], [ %20, %161 ], [ null, %143 ], [ null, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit77 ], [ null, %69 ], [ null, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit ]
@@ -7627,11 +7611,11 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
 29:                                               ; preds = %28
   %spec.store.select.sroa.sel1482.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1482.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1482.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel1482.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel1482.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.26, ptr %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 1, ptr %spec.store.select, align 8, !tbaa !148
+  store ptr @.str.26, ptr %spec.store.select.sroa.sel1485.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 1, ptr %spec.store.select, align 8, !tbaa !147
   br label %10170
 
 30:                                               ; preds = %28
@@ -7641,11 +7625,11 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
 31:                                               ; preds = %30
   %spec.store.select.sroa.sel1476.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1476.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1476.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel1476.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel1476.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel1479.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1479.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1479.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.27, ptr %spec.store.select.sroa.sel1479.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 1, ptr %spec.store.select, align 8, !tbaa !148
+  store ptr @.str.27, ptr %spec.store.select.sroa.sel1479.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 1, ptr %spec.store.select, align 8, !tbaa !147
   br label %10170
 
 32:                                               ; preds = %30
@@ -7665,11 +7649,11 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
 38:                                               ; preds = %36
   %spec.store.select.sroa.sel1446.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1446.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1446.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel1446.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel1446.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.28, ptr %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 2, ptr %spec.store.select, align 8, !tbaa !148
+  store ptr @.str.28, ptr %spec.store.select.sroa.sel1449.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 2, ptr %spec.store.select, align 8, !tbaa !147
   br label %10170
 
 39:                                               ; preds = %36
@@ -7681,11 +7665,11 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
 42:                                               ; preds = %39
   %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel1443.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1443.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1443.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.28, ptr %spec.store.select.sroa.sel1443.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 2, ptr %spec.store.select, align 8, !tbaa !148
+  store ptr @.str.28, ptr %spec.store.select.sroa.sel1443.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 2, ptr %spec.store.select, align 8, !tbaa !147
   br label %10170
 
 43:                                               ; preds = %39
@@ -7723,12 +7707,12 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   %59 = sub i64 %57, %58
   %spec.store.select.sroa.sel1452.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1452.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1452.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %59, ptr %spec.store.select.sroa.sel1452.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 %59, ptr %spec.store.select.sroa.sel1452.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel1455.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1455.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1455.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.29, ptr %spec.store.select.sroa.sel1455.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 8, ptr %spec.store.select, align 8, !tbaa !148
-  br i1 %.not3564, label %60, label %10170, !prof !129
+  store ptr @.str.29, ptr %spec.store.select.sroa.sel1455.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 8, ptr %spec.store.select, align 8, !tbaa !147
+  br i1 %.not3564, label %60, label %10170, !prof !128
 
 60:                                               ; preds = %56
   tail call void %.sroa.865.0(ptr noundef %.sroa.15.0, ptr noundef nonnull %.promoted)
@@ -7748,7 +7732,7 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   %68 = load i8, ptr %67, align 1, !tbaa !75
   %69 = and i8 %68, 1
   %.not3568 = icmp eq i8 %69, 0
-  br i1 %.not3568, label %.loopexit4261, label %.preheader4260, !llvm.loop !149
+  br i1 %.not3568, label %.loopexit4261, label %.preheader4260, !llvm.loop !148
 
 .loopexit4261:                                    ; preds = %.preheader4260
   store ptr %64, ptr %25, align 8, !tbaa !86
@@ -7766,12 +7750,12 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
 72:                                               ; preds = %70
   %spec.store.select.sroa.sel1470.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1470.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1470.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel1470.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel1470.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.30, ptr %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 3, ptr %spec.store.select, align 8, !tbaa !148
-  br i1 %.not3564, label %73, label %10170, !prof !129
+  store ptr @.str.30, ptr %spec.store.select.sroa.sel1473.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 3, ptr %spec.store.select, align 8, !tbaa !147
+  br i1 %.not3564, label %73, label %10170, !prof !128
 
 73:                                               ; preds = %72
   tail call void %.sroa.865.0(ptr noundef %.sroa.15.0, ptr noundef nonnull %.promoted)
@@ -7946,7 +7930,7 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   %.promoted4975 = phi ptr [ %.promoted49756731, %.preheader4194 ], [ %.promoted4975.be, %.backedge4197.backedge ]
   %.sroa.01.0.copyload.i6224976 = load i16, ptr %.promoted4975, align 1
   %151 = icmp eq i16 %.sroa.01.0.copyload.i6224976, 8224
-  br i1 %151, label %.lr.ph4978, label %._crit_edge4979, !prof !150
+  br i1 %151, label %.lr.ph4978, label %._crit_edge4979, !prof !149
 
 .lr.ph4978:                                       ; preds = %.backedge4197, %197
   %152 = phi ptr [ %198, %197 ], [ %.promoted4975, %.backedge4197 ]
@@ -8059,7 +8043,7 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   store ptr %198, ptr %21, align 8, !tbaa !86
   %.sroa.01.0.copyload.i622 = load i16, ptr %198, align 1
   %199 = icmp eq i16 %.sroa.01.0.copyload.i622, 8224
-  br i1 %199, label %.lr.ph4978, label %._crit_edge4979, !prof !151, !llvm.loop !152
+  br i1 %199, label %.lr.ph4978, label %._crit_edge4979, !prof !150, !llvm.loop !151
 
 ._crit_edge4979.loopexit.split.loop.exit:         ; preds = %194
   %200 = getelementptr inbounds nuw i8, ptr %152, i64 30
@@ -8175,11 +8159,11 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   %.5.i = phi i64 [ %.1.i.ph, %221 ], [ %225, %.thread3267 ]
   %240 = add i64 %.1442.i.ph, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #31
-  store i32 0, ptr %9, align 4, !tbaa !153
+  store i32 0, ptr %9, align 4, !tbaa !152
   %241 = and i32 %2, 128
   %.not3988 = icmp eq i32 %241, 0
   %or.cond4049 = and i1 %.not3988, %108
-  br i1 %or.cond4049, label %242, label %.critedge689.i360, !prof !154
+  br i1 %or.cond4049, label %242, label %.critedge689.i360, !prof !153
 
 242:                                              ; preds = %238
   %243 = call fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull %21, ptr noundef nonnull %23, i32 noundef %2, ptr noundef %.7499.i, ptr noundef nonnull %22)
@@ -8412,7 +8396,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   %333 = load i8, ptr %.43150, align 1, !tbaa !75
   %334 = icmp eq i8 %333, 48
   %335 = getelementptr inbounds nuw i8, ptr %.43150, i64 1
-  br i1 %334, label %.preheader4191, label %336, !prof !3, !llvm.loop !155
+  br i1 %334, label %.preheader4191, label %336, !prof !3, !llvm.loop !154
 
 336:                                              ; preds = %.preheader4191
   %337 = zext i8 %333 to i64
@@ -8477,7 +8461,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   %370 = load i8, ptr %369, align 1, !tbaa !75
   %371 = and i8 %370, 3
   %.not3998 = icmp eq i8 %371, 0
-  br i1 %.not3998, label %.loopexit4179, label %.preheader4178, !llvm.loop !156
+  br i1 %.not3998, label %.loopexit4179, label %.preheader4178, !llvm.loop !155
 
 .loopexit4179:                                    ; preds = %.preheader4178, %349
   %.23148 = phi ptr [ %.13147, %349 ], [ %366, %.preheader4178 ]
@@ -9478,7 +9462,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   %958 = load i8, ptr %957, align 1, !tbaa !75
   %959 = and i8 %958, 3
   %.not4026 = icmp eq i8 %959, 0
-  br i1 %.not4026, label %960, label %953, !llvm.loop !157
+  br i1 %.not4026, label %960, label %953, !llvm.loop !156
 
 960:                                              ; preds = %953
   %961 = icmp ugt i8 %952, 52
@@ -9492,7 +9476,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   %966 = icmp eq i8 %965, 0
   %967 = icmp ne i32 %241, 0
   %or.cond = and i1 %967, %966
-  br i1 %or.cond, label %968, label %978, !prof !154
+  br i1 %or.cond, label %968, label %978, !prof !153
 
 968:                                              ; preds = %964
   %969 = load ptr, ptr %23, align 8, !tbaa !86
@@ -9543,7 +9527,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   %992 = and i8 %991, 3
   %.not4028 = icmp eq i8 %992, 0
   %993 = getelementptr inbounds nuw i8, ptr %.323178, i64 1
-  br i1 %.not4028, label %.loopexit4190, label %.preheader4189, !llvm.loop !158
+  br i1 %.not4028, label %.loopexit4190, label %.preheader4189, !llvm.loop !157
 
 .loopexit4190:                                    ; preds = %.preheader4189, %978, %960
   %994 = phi i8 [ %958, %978 ], [ %958, %960 ], [ %991, %.preheader4189 ]
@@ -9561,7 +9545,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   ]
 
 .critedge.i458.backedge:                          ; preds = %.critedge.i458, %.critedge.i458
-  br label %.critedge.i458, !llvm.loop !159
+  br label %.critedge.i458, !llvm.loop !158
 
 996:                                              ; preds = %.critedge.i458
   %997 = ptrtoint ptr %.21.i455 to i64
@@ -9649,7 +9633,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   %1039 = load i8, ptr %.93155, align 1, !tbaa !75
   %1040 = icmp eq i8 %1039, 48
   %1041 = getelementptr inbounds nuw i8, ptr %.93155, i64 1
-  br i1 %1040, label %.preheader4188, label %.preheader4187, !llvm.loop !160
+  br i1 %1040, label %.preheader4188, label %.preheader4187, !llvm.loop !159
 
 .preheader4187:                                   ; preds = %.preheader4188
   %1042 = zext i8 %1039 to i64
@@ -9674,7 +9658,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   %1055 = load i8, ptr %1054, align 1, !tbaa !75
   %1056 = and i8 %1055, 3
   %.not4031 = icmp eq i8 %1056, 0
-  br i1 %.not4031, label %._crit_edge5000, label %.lr.ph4999, !llvm.loop !161
+  br i1 %.not4031, label %._crit_edge5000, label %.lr.ph4999, !llvm.loop !160
 
 ._crit_edge5000:                                  ; preds = %.lr.ph4999, %.preheader4187
   %.103156.lcssa = phi ptr [ %.93155, %.preheader4187 ], [ %1047, %.lr.ph4999 ]
@@ -9817,7 +9801,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   %.3569.i372 = phi ptr [ %.2568.i414, %1089 ], [ %.63152, %1017 ]
   %.3565.i373 = phi ptr [ %.2564.i415, %1089 ], [ null, %1017 ]
   %storemerge.i374 = trunc i64 %storemerge.in.i369 to i32
-  store i32 %storemerge.i374, ptr %9, align 4, !tbaa !153
+  store i32 %storemerge.i374, ptr %9, align 4, !tbaa !152
   %1108 = icmp ult i64 %.22596.i370, 9007199254740992
   %1109 = add i32 %storemerge.i374, 22
   %1110 = icmp ult i32 %1109, 45
@@ -9833,14 +9817,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit884: ; preds =
   %1115 = sub nsw i64 0, %storemerge.in.i369
   %1116 = and i64 %1115, 4294967295
   %1117 = getelementptr inbounds nuw [23 x double], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 0, i64 %1116
-  %1118 = load double, ptr %1117, align 8, !tbaa !162
+  %1118 = load double, ptr %1117, align 8, !tbaa !161
   %1119 = fdiv double %1112, %1118
   br label %1125
 
 1120:                                             ; preds = %1111
   %1121 = and i64 %storemerge.in.i369, 2147483647
   %1122 = getelementptr inbounds nuw [23 x double], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 0, i64 %1121
-  %1123 = load double, ptr %1122, align 8, !tbaa !162
+  %1123 = load double, ptr %1122, align 8, !tbaa !161
   %1124 = fmul double %1123, %1112
   br label %1125
 
@@ -10112,7 +10096,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1217: ; preds = %1238
   call fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPiPhS3_S3_(ptr noundef %10, i64 noundef %.22596.i370, ptr noundef %9, ptr noundef %.3565.i373, ptr noundef %.3569.i372, ptr noundef %.23.i371)
   %1288 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %1287, ptr %1288, align 8, !tbaa !85
-  %1289 = load i32, ptr %9, align 4, !tbaa !153
+  %1289 = load i32, ptr %9, align 4, !tbaa !152
   %1290 = icmp sgt i32 %1289, -1
   br i1 %1290, label %.preheader4186, label %1342
 
@@ -10145,7 +10129,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1217: ; preds = %1238
 1297:                                             ; preds = %.lr.ph5039
   %indvars.iv.next6398 = add nuw nsw i64 %indvars.iv6397, 1
   %exitcond6401.not = icmp eq i64 %indvars.iv.next6398, %wide.trip.count6400
-  br i1 %exitcond6401.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1405, label %.lr.ph5039, !llvm.loop !164
+  br i1 %exitcond6401.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1405, label %.lr.ph5039, !llvm.loop !163
 
 ._crit_edge5040.loopexit:                         ; preds = %.lr.ph5039
   %1298 = trunc nuw i64 %indvars.iv6397 to i32
@@ -10176,7 +10160,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1217: ; preds = %1238
   store i64 %1309, ptr %1301, align 8, !tbaa !85
   %indvars.iv.next6403 = add nuw nsw i64 %indvars.iv6402, 1
   %exitcond6406.not = icmp eq i64 %indvars.iv.next6403, %wide.trip.count6405
-  br i1 %exitcond6406.not, label %._crit_edge5048, label %.lr.ph5047, !llvm.loop !165
+  br i1 %exitcond6406.not, label %._crit_edge5048, label %.lr.ph5047, !llvm.loop !164
 
 ._crit_edge5048:                                  ; preds = %.lr.ph5047
   %.not19.i1403 = icmp eq i64 %1308, 0
@@ -10193,7 +10177,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1405: ; preds = %1297, %._
   %1314 = phi i32 [ %1294, %._crit_edge5048 ], [ %1311, %1310 ], [ %1294, %._crit_edge5040 ], [ %1294, %1297 ]
   %1315 = add nsw i32 %.0.i12275052, -19
   %1316 = icmp sgt i32 %.0.i12275052, 37
-  br i1 %1316, label %1293, label %._crit_edge5054, !llvm.loop !166
+  br i1 %1316, label %1293, label %._crit_edge5054, !llvm.loop !165
 
 ._crit_edge5054:                                  ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1405, %.preheader4186
   %1317 = phi i32 [ %.promoted5050, %.preheader4186 ], [ %1314, %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1405 ]
@@ -10224,7 +10208,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1405: ; preds = %1297, %._
 1325:                                             ; preds = %.lr.ph5059
   %indvars.iv.next6408 = add nuw nsw i64 %indvars.iv6407, 1
   %exitcond6411.not = icmp eq i64 %indvars.iv.next6408, %wide.trip.count6410
-  br i1 %exitcond6411.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229, label %.lr.ph5059, !llvm.loop !164
+  br i1 %exitcond6411.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229, label %.lr.ph5059, !llvm.loop !163
 
 ._crit_edge5060.loopexit:                         ; preds = %.lr.ph5059
   %1326 = trunc nuw i64 %indvars.iv6407 to i32
@@ -10256,7 +10240,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1405: ; preds = %1297, %._
   store i64 %1339, ptr %1331, align 8, !tbaa !85
   %indvars.iv.next6413 = add nuw nsw i64 %indvars.iv6412, 1
   %exitcond6416.not = icmp eq i64 %indvars.iv.next6413, %wide.trip.count6415
-  br i1 %exitcond6416.not, label %._crit_edge5068, label %1330, !llvm.loop !165
+  br i1 %exitcond6416.not, label %._crit_edge5068, label %1330, !llvm.loop !164
 
 ._crit_edge5068:                                  ; preds = %1330
   %.not19.i1409 = icmp eq i64 %1338, 0
@@ -10264,7 +10248,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1405: ; preds = %1297, %._
 
 1340:                                             ; preds = %._crit_edge5068
   %1341 = add i32 %1317, 1
-  store i32 %1341, ptr %10, align 8, !tbaa !167
+  store i32 %1341, ptr %10, align 8, !tbaa !166
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229.sink.split
 
 1342:                                             ; preds = %1280
@@ -10299,7 +10283,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1405: ; preds = %1297, %._
 1351:                                             ; preds = %.lr.ph5005
   %indvars.iv.next6378 = add nuw nsw i64 %indvars.iv6377, 1
   %exitcond6381.not = icmp eq i64 %indvars.iv.next6378, %wide.trip.count6380
-  br i1 %exitcond6381.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1393, label %.lr.ph5005, !llvm.loop !164
+  br i1 %exitcond6381.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1393, label %.lr.ph5005, !llvm.loop !163
 
 ._crit_edge5006.loopexit:                         ; preds = %.lr.ph5005
   %1352 = trunc nuw i64 %indvars.iv6377 to i32
@@ -10330,7 +10314,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1405: ; preds = %1297, %._
   store i64 %1363, ptr %1355, align 8, !tbaa !85
   %indvars.iv.next6383 = add nuw nsw i64 %indvars.iv6382, 1
   %exitcond6386.not = icmp eq i64 %indvars.iv.next6383, %wide.trip.count6385
-  br i1 %exitcond6386.not, label %._crit_edge5014, label %.lr.ph5013, !llvm.loop !165
+  br i1 %exitcond6386.not, label %._crit_edge5014, label %.lr.ph5013, !llvm.loop !164
 
 ._crit_edge5014:                                  ; preds = %.lr.ph5013
   %.not19.i1391 = icmp eq i64 %1362, 0
@@ -10347,7 +10331,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1393: ; preds = %1351, %._
   %1368 = phi i32 [ %1348, %._crit_edge5014 ], [ %1365, %1364 ], [ %1348, %._crit_edge5006 ], [ %1348, %1351 ]
   %1369 = add nsw i32 %.0.i12305018, -19
   %1370 = icmp sgt i32 %.0.i12305018, 37
-  br i1 %1370, label %.lr.ph5020, label %._crit_edge5021, !llvm.loop !166
+  br i1 %1370, label %.lr.ph5020, label %._crit_edge5021, !llvm.loop !165
 
 ._crit_edge5021:                                  ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1393
   store i32 %1368, ptr %11, align 8
@@ -10377,7 +10361,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1393: ; preds = %1351, %._
 1379:                                             ; preds = %.lr.ph5026
   %indvars.iv.next6388 = add nuw nsw i64 %indvars.iv6387, 1
   %exitcond6391.not = icmp eq i64 %indvars.iv.next6388, %wide.trip.count6390
-  br i1 %exitcond6391.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229, label %.lr.ph5026, !llvm.loop !164
+  br i1 %exitcond6391.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229, label %.lr.ph5026, !llvm.loop !163
 
 ._crit_edge5027.loopexit:                         ; preds = %.lr.ph5026
   %1380 = trunc nuw i64 %indvars.iv6387 to i32
@@ -10411,7 +10395,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1393: ; preds = %1351, %._
   store i64 %1395, ptr %1387, align 8, !tbaa !85
   %indvars.iv.next6393 = add nuw nsw i64 %indvars.iv6392, 1
   %exitcond6396.not = icmp eq i64 %indvars.iv.next6393, %wide.trip.count6395
-  br i1 %exitcond6396.not, label %._crit_edge5035, label %1386, !llvm.loop !165
+  br i1 %exitcond6396.not, label %._crit_edge5035, label %1386, !llvm.loop !164
 
 ._crit_edge5035:                                  ; preds = %1386
   %.not19.i1397 = icmp eq i64 %1394, 0
@@ -10463,11 +10447,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229: ; preds = %1379, %
   %1417 = getelementptr inbounds nuw [64 x i64], ptr %1288, i64 0, i64 %1416
   store i64 %1413, ptr %1417, align 8, !tbaa !85
   %.not46.i1262.wide = icmp eq i64 %1411, 0
-  br i1 %.not46.i1262.wide, label %.lr.ph5103.preheader, label %1410, !llvm.loop !169
+  br i1 %.not46.i1262.wide, label %.lr.ph5103.preheader, label %1410, !llvm.loop !168
 
 .lr.ph5103.preheader:                             ; preds = %1410, %.preheader4181
   %1418 = add i32 %1402, %1406
-  store i32 %1418, ptr %11, align 8, !tbaa !167
+  store i32 %1418, ptr %11, align 8, !tbaa !166
   br label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265.sink.split
 
 1419:                                             ; preds = %1404
@@ -10499,7 +10483,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229: ; preds = %1379, %
   %1436 = getelementptr inbounds nuw [64 x i64], ptr %1288, i64 0, i64 %1435
   store i64 %1432, ptr %1436, align 8, !tbaa !85
   %.not.i1258.wide = icmp eq i64 %1428, 0
-  br i1 %.not.i1258.wide, label %._crit_edge5091, label %1424, !llvm.loop !170
+  br i1 %.not.i1258.wide, label %._crit_edge5091, label %1424, !llvm.loop !169
 
 ._crit_edge5091:                                  ; preds = %1424, %1419
   %1437 = load i64, ptr %1288, align 8, !tbaa !85
@@ -10521,7 +10505,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229: ; preds = %1379, %
   %1449 = sub nsw i32 0, %.sroa.9.0.i393
   %1450 = and i32 %1449, 63
   %1451 = lshr i32 %1449, 6
-  %1452 = load i32, ptr %10, align 8, !tbaa !167
+  %1452 = load i32, ptr %10, align 8, !tbaa !166
   %1453 = icmp eq i32 %1450, 0
   br i1 %1453, label %.preheader4184, label %1467, !prof !3
 
@@ -10546,11 +10530,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229: ; preds = %1379, %
   %1464 = getelementptr inbounds nuw [64 x i64], ptr %1454, i64 0, i64 %1463
   store i64 %1460, ptr %1464, align 8, !tbaa !85
   %.not46.i1271.wide = icmp eq i64 %1458, 0
-  br i1 %.not46.i1271.wide, label %._crit_edge5082, label %1457, !llvm.loop !169
+  br i1 %.not46.i1271.wide, label %._crit_edge5082, label %1457, !llvm.loop !168
 
 ._crit_edge5082:                                  ; preds = %1457, %.preheader4184
   %1465 = add i32 %1452, %1451
-  store i32 %1465, ptr %10, align 8, !tbaa !167
+  store i32 %1465, ptr %10, align 8, !tbaa !166
   %.not47.i12735083 = icmp samesign ult i32 %1449, 64
   br i1 %.not47.i12735083, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265, label %.lr.ph5086
 
@@ -10588,7 +10572,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229: ; preds = %1379, %
   %1485 = getelementptr inbounds nuw [64 x i64], ptr %1468, i64 0, i64 %1484
   store i64 %1481, ptr %1485, align 8, !tbaa !85
   %.not.i1267.wide = icmp eq i64 %1477, 0
-  br i1 %.not.i1267.wide, label %._crit_edge5074, label %1473, !llvm.loop !170
+  br i1 %.not.i1267.wide, label %._crit_edge5074, label %1473, !llvm.loop !169
 
 ._crit_edge5074:                                  ; preds = %1473, %1467
   %1486 = load i64, ptr %1468, align 8, !tbaa !85
@@ -10603,7 +10587,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229: ; preds = %1379, %
   %1494 = icmp ne i64 %1493, 0
   %1495 = zext i1 %1494 to i32
   %1496 = add i32 %1490, %1495
-  store i32 %1496, ptr %10, align 8, !tbaa !167
+  store i32 %1496, ptr %10, align 8, !tbaa !166
   %.not45.i12695075 = icmp samesign ult i32 %1449, 64
   br i1 %.not45.i12695075, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265.sink.split
 
@@ -10620,7 +10604,7 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265.sink.split: ; preds 
 
 _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265: ; preds = %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265.sink.split, %._crit_edge5074, %._crit_edge5082, %._crit_edge5091
   %1501 = phi i32 [ %1402, %._crit_edge5074 ], [ %1402, %._crit_edge5082 ], [ %1447, %._crit_edge5091 ], [ %.ph7976, %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265.sink.split ]
-  %1502 = load i32, ptr %10, align 8, !tbaa !167
+  %1502 = load i32, ptr %10, align 8, !tbaa !166
   %1503 = icmp ult i32 %1502, %1501
   br i1 %1503, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1324.thread, label %1504
 
@@ -10649,7 +10633,7 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265: ; preds = %_ZN13duc
 
 1516:                                             ; preds = %1510
   %.not4034 = icmp ugt i64 %1512, %1514
-  br i1 %.not4034, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1324.thread, label %1508, !llvm.loop !171
+  br i1 %.not4034, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1324.thread, label %1508, !llvm.loop !170
 
 _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1324.thread3298: ; preds = %1508
   %1517 = and i64 %.0.i1216.ph, 1
@@ -10800,7 +10784,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466: ; preds =
   %1567 = load i8, ptr %1566, align 1, !tbaa !75
   %1568 = and i8 %1567, 12
   %.not39505152 = icmp eq i8 %1568, 0
-  br i1 %.not39505152, label %.lr.ph5155, label %.split.loop.exit5136, !prof !150
+  br i1 %.not39505152, label %.lr.ph5155, label %.split.loop.exit5136, !prof !149
 
 .lr.ph5155:                                       ; preds = %.backedge4175, %1673
   %.1270.i7275153 = phi ptr [ %1674, %1673 ], [ %.0269.i726, %.backedge4175 ]
@@ -10961,7 +10945,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466: ; preds =
   %1678 = load i8, ptr %1677, align 1, !tbaa !75
   %1679 = and i8 %1678, 12
   %.not3950 = icmp eq i8 %1679, 0
-  br i1 %.not3950, label %.lr.ph5155, label %.split.loop.exit5136, !prof !151
+  br i1 %.not3950, label %.lr.ph5155, label %.split.loop.exit5136, !prof !150
 
 .split.loop.exit5136.loopexit.split.loop.exit:    ; preds = %1666
   %1680 = getelementptr inbounds nuw i8, ptr %.1270.i7275153, i64 15
@@ -11053,7 +11037,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466: ; preds =
   %storemerge290.i730 = load i32, ptr %1702, align 1
   %1703 = and i32 %storemerge290.i730, 12632304
   %1704 = icmp eq i32 %1703, 8421600
-  br i1 %1704, label %.lr.ph5160, label %.critedge.i732, !llvm.loop !172
+  br i1 %1704, label %.lr.ph5160, label %.critedge.i732, !llvm.loop !171
 
 .critedge.i732:                                   ; preds = %1701, %.lr.ph5160, %.lr.ph5160, %.preheader4174
   %.3272.i731.lcssa = phi ptr [ %.2271.i728, %.preheader4174 ], [ %.3272.i7315158, %.lr.ph5160 ], [ %.3272.i7315158, %.lr.ph5160 ], [ %1702, %1701 ]
@@ -11089,7 +11073,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466: ; preds =
   %1718 = and i32 %.sroa.0.0.copyload.i949, 30
   %1719 = icmp ne i32 %1718, 0
   %1720 = and i1 %1717, %1719
-  br i1 %1720, label %.lr.ph5170, label %.preheader4172, !llvm.loop !173
+  br i1 %1720, label %.lr.ph5170, label %.preheader4172, !llvm.loop !172
 
 .lr.ph5177:                                       ; preds = %.preheader4172, %1726
   %.5274.i7345176 = phi ptr [ %1727, %1726 ], [ %.4273.i733.lcssa, %.preheader4172 ]
@@ -11109,7 +11093,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466: ; preds =
   %1730 = and i32 %.sroa.0.0.copyload.i950, 12295
   %.not291.i735 = icmp eq i32 %1730, 0
   %or.cond.i736 = or i1 %1729, %.not291.i735
-  br i1 %or.cond.i736, label %.critedge2.i737, label %.lr.ph5177, !llvm.loop !174
+  br i1 %or.cond.i736, label %.critedge2.i737, label %.lr.ph5177, !llvm.loop !173
 
 .critedge2.i737:                                  ; preds = %1726, %.lr.ph5177, %.preheader4172
   %.5274.i734.lcssa = phi ptr [ %.4273.i733.lcssa, %.preheader4172 ], [ %.5274.i7345176, %.lr.ph5177 ], [ %1727, %1726 ]
@@ -11121,7 +11105,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466: ; preds =
   br label %.backedge4175
 
 1732:                                             ; preds = %.critedge2.i737
-  br i1 %.not3812, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767.thread, label %1733, !prof !139
+  br i1 %.not3812, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767.thread, label %1733, !prof !138
 
 1733:                                             ; preds = %1732
   %1734 = getelementptr inbounds nuw i8, ptr %.5274.i734.lcssa, i64 1
@@ -11134,7 +11118,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466: ; preds =
   switch i8 %1735, label %1898 [
     i8 92, label %1736
     i8 34, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767
-  ], !prof !175
+  ], !prof !174
 
 1736:                                             ; preds = %.preheader4171
   %1737 = getelementptr inbounds nuw i8, ptr %.7276.i740, i64 1
@@ -11727,7 +11711,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466: ; preds =
   %2067 = and i32 %storemerge.i750, 12632304
   %2068 = icmp eq i32 %2067, 8421600
   %2069 = trunc i32 %storemerge.i750 to i16
-  br i1 %2068, label %.lr.ph5185, label %.critedge4.i753, !llvm.loop !176
+  br i1 %2068, label %.lr.ph5185, label %.critedge4.i753, !llvm.loop !175
 
 .critedge4.i753:                                  ; preds = %2064, %.lr.ph5185, %.lr.ph5185, %.preheader4168
   %.0.copyload.i10216748 = phi i16 [ %2062, %.preheader4168 ], [ %.0.copyload.i10216750, %.lr.ph5185 ], [ %.0.copyload.i10216750, %.lr.ph5185 ], [ %2069, %2064 ]
@@ -11784,7 +11768,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466: ; preds =
   %2090 = and i32 %.sroa.0.0.copyload.i945, 30
   %2091 = icmp ne i32 %2090, 0
   %2092 = and i1 %2089, %2091
-  br i1 %2092, label %.lr.ph5201, label %.preheader4166.loopexit, !llvm.loop !177
+  br i1 %2092, label %.lr.ph5201, label %.preheader4166.loopexit, !llvm.loop !176
 
 .lr.ph5215:                                       ; preds = %.lr.ph9721
   %2093 = and i32 %.sroa.0.0.copyload.i946, 4
@@ -11792,7 +11776,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466: ; preds =
   %2095 = and i32 %.sroa.0.0.copyload.i946, 12291
   %2096 = icmp eq i32 %2095, 0
   %2097 = or i1 %2094, %2096
-  br i1 %2097, label %.lr.ph9721, label %.critedge6.i760.loopexit, !llvm.loop !178
+  br i1 %2097, label %.lr.ph9721, label %.critedge6.i760.loopexit, !llvm.loop !177
 
 .lr.ph9721:                                       ; preds = %.lr.ph5215.preheader, %.lr.ph5215
   %.14.i75652119720 = phi ptr [ %2099, %.lr.ph5215 ], [ %.13.i754.lcssa, %.lr.ph5215.preheader ]
@@ -11807,11 +11791,11 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466: ; preds =
   %2102 = and i32 %.sroa.0.0.copyload.i946, 12295
   %.not289.i758 = icmp eq i32 %2102, 0
   %or.cond292.i759 = or i1 %.not289.i758, %2101
-  br i1 %or.cond292.i759, label %..critedge6.i760.loopexit_crit_edge, label %.lr.ph5215, !llvm.loop !178
+  br i1 %or.cond292.i759, label %..critedge6.i760.loopexit_crit_edge, label %.lr.ph5215, !llvm.loop !177
 
 ..critedge6.i760.loopexit_crit_edge:              ; preds = %.lr.ph9721
   %2103 = trunc i32 %.sroa.0.0.copyload.i946 to i16
-  br label %.critedge6.i760, !llvm.loop !178
+  br label %.critedge6.i760, !llvm.loop !177
 
 .critedge6.i760.loopexit:                         ; preds = %.lr.ph5215
   %2104 = trunc i32 %.sroa.0.0.copyload.i946 to i16
@@ -12055,7 +12039,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   store ptr %2205, ptr %21, align 8, !tbaa !86
   %2206 = load i8, ptr %2205, align 1, !tbaa !75
   %.not601.i = icmp eq i8 %2206, 44
-  br i1 %.not601.i, label %.loopexit4177, label %.lr.ph5106, !llvm.loop !179
+  br i1 %.not601.i, label %.loopexit4177, label %.lr.ph5106, !llvm.loop !178
 
 2207:                                             ; preds = %1542
   %2208 = and i8 %219, 1
@@ -12072,7 +12056,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   %2214 = load i8, ptr %2213, align 1, !tbaa !75
   %2215 = and i8 %2214, 1
   %.not3987 = icmp eq i8 %2215, 0
-  br i1 %.not3987, label %.backedge4197.backedge, label %.preheader4192, !llvm.loop !180
+  br i1 %.not3987, label %.backedge4197.backedge, label %.preheader4192, !llvm.loop !179
 
 2216:                                             ; preds = %2207
   br i1 %.not3985, label %2291, label %2217, !prof !22
@@ -12328,7 +12312,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   %2313 = load i8, ptr %2312, align 1, !tbaa !75
   %2314 = and i8 %2313, 1
   %.not3946 = icmp eq i8 %2314, 0
-  br i1 %.not3946, label %.backedge4202, label %.preheader4198, !llvm.loop !181
+  br i1 %.not3946, label %.backedge4202, label %.preheader4198, !llvm.loop !180
 
 2315:                                             ; preds = %2303
   br i1 %.not3945, label %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit921.thread, label %2316, !prof !22
@@ -12479,7 +12463,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   %.promoted4599 = phi ptr [ %.promoted45996704, %.preheader4257 ], [ %.promoted4599.be, %.backedge4259.backedge ]
   %.sroa.01.0.copyload.i6214600 = load i16, ptr %.promoted4599, align 1
   %2376 = icmp eq i16 %.sroa.01.0.copyload.i6214600, 8224
-  br i1 %2376, label %.lr.ph, label %._crit_edge, !prof !150
+  br i1 %2376, label %.lr.ph, label %._crit_edge, !prof !149
 
 .lr.ph:                                           ; preds = %.backedge4259, %2422
   %2377 = phi ptr [ %2423, %2422 ], [ %.promoted4599, %.backedge4259 ]
@@ -12592,7 +12576,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   store ptr %2423, ptr %21, align 8, !tbaa !86
   %.sroa.01.0.copyload.i621 = load i16, ptr %2423, align 1
   %2424 = icmp eq i16 %.sroa.01.0.copyload.i621, 8224
-  br i1 %2424, label %.lr.ph, label %._crit_edge, !prof !151, !llvm.loop !182
+  br i1 %2424, label %.lr.ph, label %._crit_edge, !prof !150, !llvm.loop !181
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %2419
   %2425 = getelementptr inbounds nuw i8, ptr %2377, i64 30
@@ -12661,7 +12645,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   switch i8 %2440, label %3021 [
     i8 34, label %2441
     i8 125, label %3012
-  ], !prof !175
+  ], !prof !174
 
 2441:                                             ; preds = %._crit_edge
   %2442 = getelementptr inbounds nuw i8, ptr %.0492.i.ph, i64 16
@@ -12709,7 +12693,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   %2465 = load i8, ptr %2464, align 1, !tbaa !75
   %2466 = and i8 %2465, 12
   %.not38144664 = icmp eq i8 %2466, 0
-  br i1 %.not38144664, label %.lr.ph4667, label %.split.loop.exit4648, !prof !150
+  br i1 %.not38144664, label %.lr.ph4667, label %.split.loop.exit4648, !prof !149
 
 .lr.ph4667:                                       ; preds = %.backedge4252, %2571
   %.1270.i8114665 = phi ptr [ %2572, %2571 ], [ %.0269.i810, %.backedge4252 ]
@@ -12870,7 +12854,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   %2576 = load i8, ptr %2575, align 1, !tbaa !75
   %2577 = and i8 %2576, 12
   %.not3814 = icmp eq i8 %2577, 0
-  br i1 %.not3814, label %.lr.ph4667, label %.split.loop.exit4648, !prof !151
+  br i1 %.not3814, label %.lr.ph4667, label %.split.loop.exit4648, !prof !150
 
 .split.loop.exit4648.loopexit.split.loop.exit:    ; preds = %2564
   %2578 = getelementptr inbounds nuw i8, ptr %.1270.i8114665, i64 15
@@ -12962,7 +12946,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   %storemerge290.i814 = load i32, ptr %2600, align 1
   %2601 = and i32 %storemerge290.i814, 12632304
   %2602 = icmp eq i32 %2601, 8421600
-  br i1 %2602, label %.lr.ph4671, label %.critedge.i816, !llvm.loop !172
+  br i1 %2602, label %.lr.ph4671, label %.critedge.i816, !llvm.loop !171
 
 .critedge.i816:                                   ; preds = %2599, %.lr.ph4671, %.lr.ph4671, %.preheader4251
   %.3272.i815.lcssa = phi ptr [ %.2271.i812, %.preheader4251 ], [ %.3272.i8154669, %.lr.ph4671 ], [ %.3272.i8154669, %.lr.ph4671 ], [ %2600, %2599 ]
@@ -12998,7 +12982,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   %2616 = and i32 %.sroa.0.0.copyload.i933, 30
   %2617 = icmp ne i32 %2616, 0
   %2618 = and i1 %2615, %2617
-  br i1 %2618, label %.lr.ph4681, label %.preheader4249, !llvm.loop !173
+  br i1 %2618, label %.lr.ph4681, label %.preheader4249, !llvm.loop !172
 
 .lr.ph4688:                                       ; preds = %.preheader4249, %2624
   %.5274.i8184687 = phi ptr [ %2625, %2624 ], [ %.4273.i817.lcssa, %.preheader4249 ]
@@ -13018,7 +13002,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   %2628 = and i32 %.sroa.0.0.copyload.i934, 12295
   %.not291.i819 = icmp eq i32 %2628, 0
   %or.cond.i820 = or i1 %2627, %.not291.i819
-  br i1 %or.cond.i820, label %.critedge2.i821, label %.lr.ph4688, !llvm.loop !174
+  br i1 %or.cond.i820, label %.critedge2.i821, label %.lr.ph4688, !llvm.loop !173
 
 .critedge2.i821:                                  ; preds = %2624, %.lr.ph4688, %.preheader4249
   %.5274.i818.lcssa = phi ptr [ %.4273.i817.lcssa, %.preheader4249 ], [ %.5274.i8184687, %.lr.ph4688 ], [ %2625, %2624 ]
@@ -13030,7 +13014,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   br label %.backedge4252
 
 2630:                                             ; preds = %.critedge2.i821
-  br i1 %.not3812, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767.thread, label %2631, !prof !139
+  br i1 %.not3812, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767.thread, label %2631, !prof !138
 
 2631:                                             ; preds = %2630
   %2632 = getelementptr inbounds nuw i8, ptr %.5274.i818.lcssa, i64 1
@@ -13043,7 +13027,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   switch i8 %2633, label %2796 [
     i8 92, label %2634
     i8 34, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851
-  ], !prof !175
+  ], !prof !174
 
 2634:                                             ; preds = %.preheader4248
   %2635 = getelementptr inbounds nuw i8, ptr %.7276.i824, i64 1
@@ -13636,7 +13620,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   %2965 = and i32 %storemerge.i834, 12632304
   %2966 = icmp eq i32 %2965, 8421600
   %2967 = trunc i32 %storemerge.i834 to i16
-  br i1 %2966, label %.lr.ph4696, label %.critedge4.i837, !llvm.loop !176
+  br i1 %2966, label %.lr.ph4696, label %.critedge4.i837, !llvm.loop !175
 
 .critedge4.i837:                                  ; preds = %2962, %.lr.ph4696, %.lr.ph4696, %.preheader4245
   %.0.copyload.i10056714 = phi i16 [ %2960, %.preheader4245 ], [ %.0.copyload.i10056716, %.lr.ph4696 ], [ %.0.copyload.i10056716, %.lr.ph4696 ], [ %2967, %2962 ]
@@ -13693,7 +13677,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   %2988 = and i32 %.sroa.0.0.copyload.i929, 30
   %2989 = icmp ne i32 %2988, 0
   %2990 = and i1 %2987, %2989
-  br i1 %2990, label %.lr.ph4712, label %.preheader4243.loopexit, !llvm.loop !177
+  br i1 %2990, label %.lr.ph4712, label %.preheader4243.loopexit, !llvm.loop !176
 
 .lr.ph4726:                                       ; preds = %.lr.ph9702
   %2991 = and i32 %.sroa.0.0.copyload.i930, 4
@@ -13701,7 +13685,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   %2993 = and i32 %.sroa.0.0.copyload.i930, 12291
   %2994 = icmp eq i32 %2993, 0
   %2995 = or i1 %2992, %2994
-  br i1 %2995, label %.lr.ph9702, label %.critedge6.i844.loopexit, !llvm.loop !178
+  br i1 %2995, label %.lr.ph9702, label %.critedge6.i844.loopexit, !llvm.loop !177
 
 .lr.ph9702:                                       ; preds = %.lr.ph4726.preheader, %.lr.ph4726
   %.14.i84047229701 = phi ptr [ %2997, %.lr.ph4726 ], [ %.13.i838.lcssa, %.lr.ph4726.preheader ]
@@ -13716,11 +13700,11 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2175
   %3000 = and i32 %.sroa.0.0.copyload.i930, 12295
   %.not289.i842 = icmp eq i32 %3000, 0
   %or.cond292.i843 = or i1 %.not289.i842, %2999
-  br i1 %or.cond292.i843, label %..critedge6.i844.loopexit_crit_edge, label %.lr.ph4726, !llvm.loop !178
+  br i1 %or.cond292.i843, label %..critedge6.i844.loopexit_crit_edge, label %.lr.ph4726, !llvm.loop !177
 
 ..critedge6.i844.loopexit_crit_edge:              ; preds = %.lr.ph9702
   %3001 = trunc i32 %.sroa.0.0.copyload.i930 to i16
-  br label %.critedge6.i844, !llvm.loop !178
+  br label %.critedge6.i844, !llvm.loop !177
 
 .critedge6.i844.loopexit:                         ; preds = %.lr.ph4726
   %3002 = trunc i32 %.sroa.0.0.copyload.i930 to i16
@@ -13777,7 +13761,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   store ptr %3019, ptr %21, align 8, !tbaa !86
   %3020 = load i8, ptr %3019, align 1, !tbaa !75
   %.not594.i = icmp eq i8 %3020, 44
-  br i1 %.not594.i, label %.loopexit4177, label %.lr.ph4619, !llvm.loop !183
+  br i1 %.not594.i, label %.loopexit4177, label %.lr.ph4619, !llvm.loop !182
 
 3021:                                             ; preds = %._crit_edge
   %.mask6916 = and i16 %.in6907, 255
@@ -13798,7 +13782,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   %3031 = load i8, ptr %3030, align 1, !tbaa !75
   %3032 = and i8 %3031, 1
   %.not4048 = icmp eq i8 %3032, 0
-  br i1 %.not4048, label %.backedge4259.backedge, label %.preheader4255, !llvm.loop !184
+  br i1 %.not4048, label %.backedge4259.backedge, label %.preheader4255, !llvm.loop !183
 
 3033:                                             ; preds = %3021
   br i1 %.not4047, label %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit921.thread, label %3034, !prof !22
@@ -13864,7 +13848,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   %3056 = load i8, ptr %3055, align 1, !tbaa !75
   %3057 = and i8 %3056, 1
   %.not3850 = icmp eq i8 %3057, 0
-  br i1 %.not3850, label %.backedge4242, label %.preheader4239, !llvm.loop !185
+  br i1 %.not3850, label %.backedge4242, label %.preheader4239, !llvm.loop !184
 
 3058:                                             ; preds = %3046
   br i1 %.not4047, label %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit921.thread, label %3059, !prof !22
@@ -13900,7 +13884,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   %3071 = load i8, ptr %3070, align 1, !tbaa !75
   %3072 = and i8 %3071, 12
   %.not39104895 = icmp eq i8 %3072, 0
-  br i1 %.not39104895, label %.lr.ph4898, label %.split.loop.exit4879, !prof !150
+  br i1 %.not39104895, label %.lr.ph4898, label %.split.loop.exit4879, !prof !149
 
 .lr.ph4898:                                       ; preds = %.backedge4217, %3177
   %.1270.i7694896 = phi ptr [ %3178, %3177 ], [ %.0269.i768, %.backedge4217 ]
@@ -14061,7 +14045,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   %3182 = load i8, ptr %3181, align 1, !tbaa !75
   %3183 = and i8 %3182, 12
   %.not3910 = icmp eq i8 %3183, 0
-  br i1 %.not3910, label %.lr.ph4898, label %.split.loop.exit4879, !prof !151
+  br i1 %.not3910, label %.lr.ph4898, label %.split.loop.exit4879, !prof !150
 
 .split.loop.exit4879.loopexit.split.loop.exit:    ; preds = %3170
   %3184 = getelementptr inbounds nuw i8, ptr %.1270.i7694896, i64 15
@@ -14153,7 +14137,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   %storemerge290.i772 = load i32, ptr %3206, align 1
   %3207 = and i32 %storemerge290.i772, 12632304
   %3208 = icmp eq i32 %3207, 8421600
-  br i1 %3208, label %.lr.ph4903, label %.critedge.i774, !llvm.loop !172
+  br i1 %3208, label %.lr.ph4903, label %.critedge.i774, !llvm.loop !171
 
 .critedge.i774:                                   ; preds = %3205, %.lr.ph4903, %.lr.ph4903, %.preheader4216
   %.3272.i773.lcssa = phi ptr [ %.2271.i770, %.preheader4216 ], [ %.3272.i7734901, %.lr.ph4903 ], [ %.3272.i7734901, %.lr.ph4903 ], [ %3206, %3205 ]
@@ -14189,7 +14173,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   %3222 = and i32 %.sroa.0.0.copyload.i941, 30
   %3223 = icmp ne i32 %3222, 0
   %3224 = and i1 %3221, %3223
-  br i1 %3224, label %.lr.ph4913, label %.preheader4214, !llvm.loop !173
+  br i1 %3224, label %.lr.ph4913, label %.preheader4214, !llvm.loop !172
 
 .lr.ph4920:                                       ; preds = %.preheader4214, %3230
   %.5274.i7764919 = phi ptr [ %3231, %3230 ], [ %.4273.i775.lcssa, %.preheader4214 ]
@@ -14209,7 +14193,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   %3234 = and i32 %.sroa.0.0.copyload.i942, 12295
   %.not291.i777 = icmp eq i32 %3234, 0
   %or.cond.i778 = or i1 %3233, %.not291.i777
-  br i1 %or.cond.i778, label %.critedge2.i779, label %.lr.ph4920, !llvm.loop !174
+  br i1 %or.cond.i778, label %.critedge2.i779, label %.lr.ph4920, !llvm.loop !173
 
 .critedge2.i779:                                  ; preds = %3230, %.lr.ph4920, %.preheader4214
   %.5274.i776.lcssa = phi ptr [ %.4273.i775.lcssa, %.preheader4214 ], [ %.5274.i7764919, %.lr.ph4920 ], [ %3231, %3230 ]
@@ -14221,7 +14205,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   br label %.backedge4217
 
 3236:                                             ; preds = %.critedge2.i779
-  br i1 %.not3812, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767.thread, label %3237, !prof !139
+  br i1 %.not3812, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767.thread, label %3237, !prof !138
 
 3237:                                             ; preds = %3236
   %3238 = getelementptr inbounds nuw i8, ptr %.5274.i776.lcssa, i64 1
@@ -14234,7 +14218,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   switch i8 %3239, label %3402 [
     i8 92, label %3240
     i8 34, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit809
-  ], !prof !175
+  ], !prof !174
 
 3240:                                             ; preds = %.preheader4213
   %3241 = getelementptr inbounds nuw i8, ptr %.7276.i782, i64 1
@@ -14827,7 +14811,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   %3571 = and i32 %storemerge.i792, 12632304
   %3572 = icmp eq i32 %3571, 8421600
   %3573 = trunc i32 %storemerge.i792 to i16
-  br i1 %3572, label %.lr.ph4928, label %.critedge4.i795, !llvm.loop !176
+  br i1 %3572, label %.lr.ph4928, label %.critedge4.i795, !llvm.loop !175
 
 .critedge4.i795:                                  ; preds = %3568, %.lr.ph4928, %.lr.ph4928, %.preheader4210
   %.0.copyload.i10136726 = phi i16 [ %3566, %.preheader4210 ], [ %.0.copyload.i10136728, %.lr.ph4928 ], [ %.0.copyload.i10136728, %.lr.ph4928 ], [ %3573, %3568 ]
@@ -14884,7 +14868,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   %3594 = and i32 %.sroa.0.0.copyload.i937, 30
   %3595 = icmp ne i32 %3594, 0
   %3596 = and i1 %3593, %3595
-  br i1 %3596, label %.lr.ph4944, label %.preheader4208.loopexit, !llvm.loop !177
+  br i1 %3596, label %.lr.ph4944, label %.preheader4208.loopexit, !llvm.loop !176
 
 .lr.ph4958:                                       ; preds = %.lr.ph9711
   %3597 = and i32 %.sroa.0.0.copyload.i938, 4
@@ -14892,7 +14876,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   %3599 = and i32 %.sroa.0.0.copyload.i938, 12291
   %3600 = icmp eq i32 %3599, 0
   %3601 = or i1 %3598, %3600
-  br i1 %3601, label %.lr.ph9711, label %.critedge6.i802.loopexit, !llvm.loop !178
+  br i1 %3601, label %.lr.ph9711, label %.critedge6.i802.loopexit, !llvm.loop !177
 
 .lr.ph9711:                                       ; preds = %.lr.ph4958.preheader, %.lr.ph4958
   %.14.i79849549710 = phi ptr [ %3603, %.lr.ph4958 ], [ %.13.i796.lcssa, %.lr.ph4958.preheader ]
@@ -14907,11 +14891,11 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   %3606 = and i32 %.sroa.0.0.copyload.i938, 12295
   %.not289.i800 = icmp eq i32 %3606, 0
   %or.cond292.i801 = or i1 %.not289.i800, %3605
-  br i1 %or.cond292.i801, label %..critedge6.i802.loopexit_crit_edge, label %.lr.ph4958, !llvm.loop !178
+  br i1 %or.cond292.i801, label %..critedge6.i802.loopexit_crit_edge, label %.lr.ph4958, !llvm.loop !177
 
 ..critedge6.i802.loopexit_crit_edge:              ; preds = %.lr.ph9711
   %3607 = trunc i32 %.sroa.0.0.copyload.i938 to i16
-  br label %.critedge6.i802, !llvm.loop !178
+  br label %.critedge6.i802, !llvm.loop !177
 
 .critedge6.i802.loopexit:                         ; preds = %.lr.ph4958
   %3608 = trunc i32 %.sroa.0.0.copyload.i938 to i16
@@ -14958,11 +14942,11 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit809: ; preds =
   %3625 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 16
   %3626 = add i64 %.0441.i.ph, 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #31
-  store i32 0, ptr %6, align 4, !tbaa !153
+  store i32 0, ptr %6, align 4, !tbaa !152
   %3627 = and i32 %2, 128
   %.not3857 = icmp eq i32 %3627, 0
   %or.cond4050 = and i1 %.not3857, %108
-  br i1 %or.cond4050, label %3628, label %.critedge689.i468, !prof !154
+  br i1 %or.cond4050, label %3628, label %.critedge689.i468, !prof !153
 
 3628:                                             ; preds = %3624
   %3629 = call fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull %21, ptr noundef nonnull %23, i32 noundef %2, ptr noundef nonnull %3625, ptr noundef nonnull %22)
@@ -15194,7 +15178,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %3718 = load i8, ptr %.4, align 1, !tbaa !75
   %3719 = icmp eq i8 %3718, 48
   %3720 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  br i1 %3719, label %.preheader4231, label %3721, !prof !3, !llvm.loop !155
+  br i1 %3719, label %.preheader4231, label %3721, !prof !3, !llvm.loop !154
 
 3721:                                             ; preds = %.preheader4231
   %3722 = zext i8 %3718 to i64
@@ -15259,7 +15243,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %3755 = load i8, ptr %3754, align 1, !tbaa !75
   %3756 = and i8 %3755, 3
   %.not3867 = icmp eq i8 %3756, 0
-  br i1 %.not3867, label %.loopexit4219, label %.preheader4218, !llvm.loop !156
+  br i1 %.not3867, label %.loopexit4219, label %.preheader4218, !llvm.loop !155
 
 .loopexit4219:                                    ; preds = %.preheader4218, %3734
   %.2 = phi ptr [ %.1, %3734 ], [ %3751, %.preheader4218 ]
@@ -16260,7 +16244,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %4343 = load i8, ptr %4342, align 1, !tbaa !75
   %4344 = and i8 %4343, 3
   %.not3895 = icmp eq i8 %4344, 0
-  br i1 %.not3895, label %4345, label %4338, !llvm.loop !157
+  br i1 %.not3895, label %4345, label %4338, !llvm.loop !156
 
 4345:                                             ; preds = %4338
   %4346 = icmp ugt i8 %4337, 52
@@ -16274,7 +16258,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %4351 = icmp eq i8 %4350, 0
   %4352 = icmp ne i32 %3627, 0
   %or.cond3551 = and i1 %4352, %4351
-  br i1 %or.cond3551, label %4353, label %4363, !prof !154
+  br i1 %or.cond3551, label %4353, label %4363, !prof !153
 
 4353:                                             ; preds = %4349
   %4354 = load ptr, ptr %23, align 8, !tbaa !86
@@ -16325,7 +16309,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %4377 = and i8 %4376, 3
   %.not3897 = icmp eq i8 %4377, 0
   %4378 = getelementptr inbounds nuw i8, ptr %.32, i64 1
-  br i1 %.not3897, label %.loopexit4230, label %.preheader4229, !llvm.loop !158
+  br i1 %.not3897, label %.loopexit4230, label %.preheader4229, !llvm.loop !157
 
 .loopexit4230:                                    ; preds = %.preheader4229, %4363, %4345
   %4379 = phi i8 [ %4343, %4363 ], [ %4343, %4345 ], [ %4376, %.preheader4229 ]
@@ -16343,7 +16327,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   ]
 
 .critedge.i566.backedge:                          ; preds = %.critedge.i566, %.critedge.i566
-  br label %.critedge.i566, !llvm.loop !159
+  br label %.critedge.i566, !llvm.loop !158
 
 4381:                                             ; preds = %.critedge.i566
   %4382 = ptrtoint ptr %.21.i563 to i64
@@ -16431,7 +16415,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %4424 = load i8, ptr %.9, align 1, !tbaa !75
   %4425 = icmp eq i8 %4424, 48
   %4426 = getelementptr inbounds nuw i8, ptr %.9, i64 1
-  br i1 %4425, label %.preheader4228, label %.preheader4227, !llvm.loop !160
+  br i1 %4425, label %.preheader4228, label %.preheader4227, !llvm.loop !159
 
 .preheader4227:                                   ; preds = %.preheader4228
   %4427 = zext i8 %4424 to i64
@@ -16456,7 +16440,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %4440 = load i8, ptr %4439, align 1, !tbaa !75
   %4441 = and i8 %4440, 3
   %.not3900 = icmp eq i8 %4441, 0
-  br i1 %.not3900, label %._crit_edge4746, label %.lr.ph4745, !llvm.loop !161
+  br i1 %.not3900, label %._crit_edge4746, label %.lr.ph4745, !llvm.loop !160
 
 ._crit_edge4746:                                  ; preds = %.lr.ph4745, %.preheader4227
   %.10.lcssa = phi ptr [ %.9, %.preheader4227 ], [ %4432, %.lr.ph4745 ]
@@ -16599,7 +16583,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %.3569.i480 = phi ptr [ %.2568.i522, %4474 ], [ %.6, %4402 ]
   %.3565.i481 = phi ptr [ %.2564.i523, %4474 ], [ null, %4402 ]
   %storemerge.i482 = trunc i64 %storemerge.in.i477 to i32
-  store i32 %storemerge.i482, ptr %6, align 4, !tbaa !153
+  store i32 %storemerge.i482, ptr %6, align 4, !tbaa !152
   %4493 = icmp ult i64 %.22596.i478, 9007199254740992
   %4494 = add i32 %storemerge.i482, 22
   %4495 = icmp ult i32 %4494, 45
@@ -16615,14 +16599,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %4500 = sub nsw i64 0, %storemerge.in.i477
   %4501 = and i64 %4500, 4294967295
   %4502 = getelementptr inbounds nuw [23 x double], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 0, i64 %4501
-  %4503 = load double, ptr %4502, align 8, !tbaa !162
+  %4503 = load double, ptr %4502, align 8, !tbaa !161
   %4504 = fdiv double %4497, %4503
   br label %4510
 
 4505:                                             ; preds = %4496
   %4506 = and i64 %storemerge.in.i477, 2147483647
   %4507 = getelementptr inbounds nuw [23 x double], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 0, i64 %4506
-  %4508 = load double, ptr %4507, align 8, !tbaa !162
+  %4508 = load double, ptr %4507, align 8, !tbaa !161
   %4509 = fmul double %4508, %4497
   br label %4510
 
@@ -16894,7 +16878,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %4623
   call fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPiPhS3_S3_(ptr noundef %7, i64 noundef %.22596.i478, ptr noundef %6, ptr noundef %.3565.i481, ptr noundef %.3569.i480, ptr noundef %.23.i479)
   %4673 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %4672, ptr %4673, align 8, !tbaa !85
-  %4674 = load i32, ptr %6, align 4, !tbaa !153
+  %4674 = load i32, ptr %6, align 4, !tbaa !152
   %4675 = icmp sgt i32 %4674, -1
   br i1 %4675, label %.preheader4226, label %4727
 
@@ -16927,7 +16911,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %4623
 4682:                                             ; preds = %.lr.ph4785
   %indvars.iv.next6343 = add nuw nsw i64 %indvars.iv6342, 1
   %exitcond6346.not = icmp eq i64 %indvars.iv.next6343, %wide.trip.count6345
-  br i1 %exitcond6346.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1429, label %.lr.ph4785, !llvm.loop !164
+  br i1 %exitcond6346.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1429, label %.lr.ph4785, !llvm.loop !163
 
 ._crit_edge4786.loopexit:                         ; preds = %.lr.ph4785
   %4683 = trunc nuw i64 %indvars.iv6342 to i32
@@ -16958,7 +16942,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %4623
   store i64 %4694, ptr %4686, align 8, !tbaa !85
   %indvars.iv.next6348 = add nuw nsw i64 %indvars.iv6347, 1
   %exitcond6351.not = icmp eq i64 %indvars.iv.next6348, %wide.trip.count6350
-  br i1 %exitcond6351.not, label %._crit_edge4794, label %.lr.ph4793, !llvm.loop !165
+  br i1 %exitcond6351.not, label %._crit_edge4794, label %.lr.ph4793, !llvm.loop !164
 
 ._crit_edge4794:                                  ; preds = %.lr.ph4793
   %.not19.i1427 = icmp eq i64 %4693, 0
@@ -16975,7 +16959,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1429: ; preds = %4682, %._
   %4699 = phi i32 [ %4679, %._crit_edge4794 ], [ %4696, %4695 ], [ %4679, %._crit_edge4786 ], [ %4679, %4682 ]
   %4700 = add nsw i32 %.0.i12224798, -19
   %4701 = icmp sgt i32 %.0.i12224798, 37
-  br i1 %4701, label %4678, label %._crit_edge4800, !llvm.loop !166
+  br i1 %4701, label %4678, label %._crit_edge4800, !llvm.loop !165
 
 ._crit_edge4800:                                  ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1429, %.preheader4226
   %4702 = phi i32 [ %.promoted4796, %.preheader4226 ], [ %4699, %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1429 ]
@@ -17006,7 +16990,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1429: ; preds = %4682, %._
 4710:                                             ; preds = %.lr.ph4805
   %indvars.iv.next6353 = add nuw nsw i64 %indvars.iv6352, 1
   %exitcond6356.not = icmp eq i64 %indvars.iv.next6353, %wide.trip.count6355
-  br i1 %exitcond6356.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %.lr.ph4805, !llvm.loop !164
+  br i1 %exitcond6356.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %.lr.ph4805, !llvm.loop !163
 
 ._crit_edge4806.loopexit:                         ; preds = %.lr.ph4805
   %4711 = trunc nuw i64 %indvars.iv6352 to i32
@@ -17038,7 +17022,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1429: ; preds = %4682, %._
   store i64 %4724, ptr %4716, align 8, !tbaa !85
   %indvars.iv.next6358 = add nuw nsw i64 %indvars.iv6357, 1
   %exitcond6361.not = icmp eq i64 %indvars.iv.next6358, %wide.trip.count6360
-  br i1 %exitcond6361.not, label %._crit_edge4814, label %4715, !llvm.loop !165
+  br i1 %exitcond6361.not, label %._crit_edge4814, label %4715, !llvm.loop !164
 
 ._crit_edge4814:                                  ; preds = %4715
   %.not19.i1433 = icmp eq i64 %4723, 0
@@ -17046,7 +17030,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1429: ; preds = %4682, %._
 
 4725:                                             ; preds = %._crit_edge4814
   %4726 = add i32 %4702, 1
-  store i32 %4726, ptr %7, align 8, !tbaa !167
+  store i32 %4726, ptr %7, align 8, !tbaa !166
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit.sink.split
 
 4727:                                             ; preds = %4665
@@ -17081,7 +17065,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1429: ; preds = %4682, %._
 4736:                                             ; preds = %.lr.ph4751
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1417, label %.lr.ph4751, !llvm.loop !164
+  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1417, label %.lr.ph4751, !llvm.loop !163
 
 ._crit_edge4752.loopexit:                         ; preds = %.lr.ph4751
   %4737 = trunc nuw i64 %indvars.iv to i32
@@ -17112,7 +17096,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1429: ; preds = %4682, %._
   store i64 %4748, ptr %4740, align 8, !tbaa !85
   %indvars.iv.next6328 = add nuw nsw i64 %indvars.iv6327, 1
   %exitcond6331.not = icmp eq i64 %indvars.iv.next6328, %wide.trip.count6330
-  br i1 %exitcond6331.not, label %._crit_edge4760, label %.lr.ph4759, !llvm.loop !165
+  br i1 %exitcond6331.not, label %._crit_edge4760, label %.lr.ph4759, !llvm.loop !164
 
 ._crit_edge4760:                                  ; preds = %.lr.ph4759
   %.not19.i1415 = icmp eq i64 %4747, 0
@@ -17129,7 +17113,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1417: ; preds = %4736, %._
   %4753 = phi i32 [ %4733, %._crit_edge4760 ], [ %4750, %4749 ], [ %4733, %._crit_edge4752 ], [ %4733, %4736 ]
   %4754 = add nsw i32 %.0.i12244764, -19
   %4755 = icmp sgt i32 %.0.i12244764, 37
-  br i1 %4755, label %.lr.ph4766, label %._crit_edge4767, !llvm.loop !166
+  br i1 %4755, label %.lr.ph4766, label %._crit_edge4767, !llvm.loop !165
 
 ._crit_edge4767:                                  ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1417
   store i32 %4753, ptr %8, align 8
@@ -17159,7 +17143,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1417: ; preds = %4736, %._
 4764:                                             ; preds = %.lr.ph4772
   %indvars.iv.next6333 = add nuw nsw i64 %indvars.iv6332, 1
   %exitcond6336.not = icmp eq i64 %indvars.iv.next6333, %wide.trip.count6335
-  br i1 %exitcond6336.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %.lr.ph4772, !llvm.loop !164
+  br i1 %exitcond6336.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %.lr.ph4772, !llvm.loop !163
 
 ._crit_edge4773.loopexit:                         ; preds = %.lr.ph4772
   %4765 = trunc nuw i64 %indvars.iv6332 to i32
@@ -17193,7 +17177,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1417: ; preds = %4736, %._
   store i64 %4780, ptr %4772, align 8, !tbaa !85
   %indvars.iv.next6338 = add nuw nsw i64 %indvars.iv6337, 1
   %exitcond6341.not = icmp eq i64 %indvars.iv.next6338, %wide.trip.count6340
-  br i1 %exitcond6341.not, label %._crit_edge4781, label %4771, !llvm.loop !165
+  br i1 %exitcond6341.not, label %._crit_edge4781, label %4771, !llvm.loop !164
 
 ._crit_edge4781:                                  ; preds = %4771
   %.not19.i1421 = icmp eq i64 %4779, 0
@@ -17245,11 +17229,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4764, %4710
   %4802 = getelementptr inbounds nuw [64 x i64], ptr %4673, i64 0, i64 %4801
   store i64 %4798, ptr %4802, align 8, !tbaa !85
   %.not46.i.wide = icmp eq i64 %4796, 0
-  br i1 %.not46.i.wide, label %.lr.ph4849.preheader, label %4795, !llvm.loop !169
+  br i1 %.not46.i.wide, label %.lr.ph4849.preheader, label %4795, !llvm.loop !168
 
 .lr.ph4849.preheader:                             ; preds = %4795, %.preheader4221
   %4803 = add i32 %4787, %4791
-  store i32 %4803, ptr %8, align 8, !tbaa !167
+  store i32 %4803, ptr %8, align 8, !tbaa !166
   br label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split
 
 4804:                                             ; preds = %4789
@@ -17281,7 +17265,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4764, %4710
   %4821 = getelementptr inbounds nuw [64 x i64], ptr %4673, i64 0, i64 %4820
   store i64 %4817, ptr %4821, align 8, !tbaa !85
   %.not.i1245.wide = icmp eq i64 %4813, 0
-  br i1 %.not.i1245.wide, label %._crit_edge4837, label %4809, !llvm.loop !170
+  br i1 %.not.i1245.wide, label %._crit_edge4837, label %4809, !llvm.loop !169
 
 ._crit_edge4837:                                  ; preds = %4809, %4804
   %4822 = load i64, ptr %4673, align 8, !tbaa !85
@@ -17303,7 +17287,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4764, %4710
   %4834 = sub nsw i32 0, %.sroa.9.0.i501
   %4835 = and i32 %4834, 63
   %4836 = lshr i32 %4834, 6
-  %4837 = load i32, ptr %7, align 8, !tbaa !167
+  %4837 = load i32, ptr %7, align 8, !tbaa !166
   %4838 = icmp eq i32 %4835, 0
   br i1 %4838, label %.preheader4224, label %4852, !prof !3
 
@@ -17328,11 +17312,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4764, %4710
   %4849 = getelementptr inbounds nuw [64 x i64], ptr %4839, i64 0, i64 %4848
   store i64 %4845, ptr %4849, align 8, !tbaa !85
   %.not46.i1253.wide = icmp eq i64 %4843, 0
-  br i1 %.not46.i1253.wide, label %._crit_edge4828, label %4842, !llvm.loop !169
+  br i1 %.not46.i1253.wide, label %._crit_edge4828, label %4842, !llvm.loop !168
 
 ._crit_edge4828:                                  ; preds = %4842, %.preheader4224
   %4850 = add i32 %4837, %4836
-  store i32 %4850, ptr %7, align 8, !tbaa !167
+  store i32 %4850, ptr %7, align 8, !tbaa !166
   %.not47.i12554829 = icmp samesign ult i32 %4834, 64
   br i1 %.not47.i12554829, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %.lr.ph4832
 
@@ -17370,7 +17354,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4764, %4710
   %4870 = getelementptr inbounds nuw [64 x i64], ptr %4853, i64 0, i64 %4869
   store i64 %4866, ptr %4870, align 8, !tbaa !85
   %.not.i1249.wide = icmp eq i64 %4862, 0
-  br i1 %.not.i1249.wide, label %._crit_edge4820, label %4858, !llvm.loop !170
+  br i1 %.not.i1249.wide, label %._crit_edge4820, label %4858, !llvm.loop !169
 
 ._crit_edge4820:                                  ; preds = %4858, %4852
   %4871 = load i64, ptr %4853, align 8, !tbaa !85
@@ -17385,7 +17369,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4764, %4710
   %4879 = icmp ne i64 %4878, 0
   %4880 = zext i1 %4879 to i32
   %4881 = add i32 %4875, %4880
-  store i32 %4881, ptr %7, align 8, !tbaa !167
+  store i32 %4881, ptr %7, align 8, !tbaa !166
   %.not45.i12514821 = icmp samesign ult i32 %4834, 64
   br i1 %.not45.i12514821, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split
 
@@ -17402,7 +17386,7 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split: ; preds = %.
 
 _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit: ; preds = %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split, %._crit_edge4820, %._crit_edge4828, %._crit_edge4837
   %4886 = phi i32 [ %4787, %._crit_edge4820 ], [ %4787, %._crit_edge4828 ], [ %4832, %._crit_edge4837 ], [ %.ph8012, %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split ]
-  %4887 = load i32, ptr %7, align 8, !tbaa !167
+  %4887 = load i32, ptr %7, align 8, !tbaa !166
   %4888 = icmp ult i32 %4887, %4886
   br i1 %4888, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread, label %4889
 
@@ -17431,7 +17415,7 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit: ; preds = %_ZN13duckdb_
 
 4901:                                             ; preds = %4895
   %.not3903 = icmp ugt i64 %4897, %4899
-  br i1 %.not3903, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread, label %4893, !llvm.loop !171
+  br i1 %.not3903, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread, label %4893, !llvm.loop !170
 
 _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread3383: ; preds = %4893
   %4902 = and i64 %.0.i1215.ph, 1
@@ -17644,7 +17628,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit860: ; preds = %4939
   %4969 = load i8, ptr %4968, align 1, !tbaa !75
   %4970 = and i8 %4969, 1
   %.not3856 = icmp eq i8 %4970, 0
-  br i1 %.not3856, label %.backedge4238, label %.preheader4232, !llvm.loop !186
+  br i1 %.not3856, label %.backedge4238, label %.preheader4232, !llvm.loop !185
 
 4971:                                             ; preds = %4962
   br i1 %.not3854, label %5028, label %4972, !prof !22
@@ -17839,7 +17823,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit860: ; preds = %4939
   switch i8 %5038, label %5043 [
     i8 44, label %5039
     i8 125, label %5041
-  ], !prof !175
+  ], !prof !174
 
 5039:                                             ; preds = %5037
   %5040 = getelementptr inbounds nuw i8, ptr %.promoted4965, i64 1
@@ -17869,7 +17853,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit860: ; preds = %4939
   %5053 = load i8, ptr %5052, align 1, !tbaa !75
   %5054 = and i8 %5053, 1
   %.not4045 = icmp eq i8 %5054, 0
-  br i1 %.not4045, label %.backedge4207, label %.preheader4203, !llvm.loop !187
+  br i1 %.not4045, label %.backedge4207, label %.preheader4203, !llvm.loop !186
 
 5055:                                             ; preds = %5043
   br i1 %.not4044, label %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit921.thread, label %5056, !prof !22
@@ -17971,7 +17955,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit860: ; preds = %4939
   %5103 = load i8, ptr %5102, align 1, !tbaa !75
   %5104 = and i8 %5103, 1
   %.not4042 = icmp eq i8 %5104, 0
-  br i1 %.not4042, label %.loopexit4165, label %.lr.ph5224, !llvm.loop !188
+  br i1 %.not4042, label %.loopexit4165, label %.lr.ph5224, !llvm.loop !187
 
 .loopexit4165:                                    ; preds = %.lr.ph5224, %.preheader4164, %5094
   %5105 = phi ptr [ %.promoted5222, %.preheader4164 ], [ %5096, %5094 ], [ %5099, %.lr.ph5224 ]
@@ -18035,11 +18019,11 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767.thread: ; 
   %5130 = sub i64 %.sink8022, %5129
   %spec.store.select.sroa.sel1548.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1548.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1548.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %5130, ptr %spec.store.select.sroa.sel1548.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8020, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %5130, ptr %spec.store.select.sroa.sel1548.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8020, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1551.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1551.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1551.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.sink8019, ptr %spec.store.select.sroa.sel1551.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.sink8019, ptr %spec.store.select.sroa.sel1551.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not612.i = icmp eq ptr %.27.i, null
   br i1 %.not612.i, label %_ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %5131
 
@@ -18058,8 +18042,8 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767.thread: ; 
   %5137 = sub i64 %94, %5136
   %spec.store.select.sroa.sel1578.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1578.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1578.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %5137, ptr %spec.store.select.sroa.sel1578.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 5, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %5137, ptr %spec.store.select.sroa.sel1578.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 5, ptr %spec.store.select, align 8, !tbaa !147
   br label %5143
 
 5138:                                             ; preds = %5132
@@ -18068,8 +18052,8 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767.thread: ; 
   %5141 = sub i64 %5139, %5140
   %spec.store.select.sroa.sel1572.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1572.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1572.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %5141, ptr %spec.store.select.sroa.sel1572.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 9, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %5141, ptr %spec.store.select.sroa.sel1572.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 9, ptr %spec.store.select, align 8, !tbaa !147
   %5142 = load ptr, ptr %22, align 8, !tbaa !86
   br label %5143
 
@@ -18077,7 +18061,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767.thread: ; 
   %.sink8024 = phi ptr [ %5142, %5138 ], [ @.str.57, %5135 ]
   %spec.store.select.sroa.sel1575.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1575.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1575.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.sink8024, ptr %spec.store.select.sroa.sel1575.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.sink8024, ptr %spec.store.select.sroa.sel1575.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not615.i = icmp eq ptr %.28.i, null
   br i1 %.not615.i, label %_ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %5144
 
@@ -18097,11 +18081,11 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767.thread: ; 
   %5150 = sub i64 %.sink8027, %5149
   %spec.store.select.sroa.sel1488.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1488.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1488.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %5150, ptr %spec.store.select.sroa.sel1488.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8025, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %5150, ptr %spec.store.select.sroa.sel1488.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8025, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1491.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1491.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1491.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.28.sink, ptr %spec.store.select.sroa.sel1491.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.28.sink, ptr %spec.store.select.sroa.sel1491.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not624.i = icmp eq ptr %.29.i, null
   br i1 %.not624.i, label %_ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %5151
 
@@ -18121,11 +18105,11 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit767.thread: ; 
   %5156 = sub i64 %.sink8031, %5155
   %spec.store.select.sroa.sel1500.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1500.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1500.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %5156, ptr %spec.store.select.sroa.sel1500.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8029, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %5156, ptr %spec.store.select.sroa.sel1500.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8029, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1503.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1503.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1503.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.58.sink, ptr %spec.store.select.sroa.sel1503.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.58.sink, ptr %spec.store.select.sroa.sel1503.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not602.i = icmp eq ptr %.30.i, null
   br i1 %.not602.i, label %_ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %5157
 
@@ -18145,11 +18129,11 @@ _ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit853.thread: ; preds = %49
   %5162 = sub i64 %.sink8035, %5161
   %spec.store.select.sroa.sel1560.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1560.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1560.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %5162, ptr %spec.store.select.sroa.sel1560.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8033, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %5162, ptr %spec.store.select.sroa.sel1560.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8033, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1563.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1563.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1563.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.59.sink, ptr %spec.store.select.sroa.sel1563.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.59.sink, ptr %spec.store.select.sroa.sel1563.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not609.i = icmp eq ptr %.31.i, null
   br i1 %.not609.i, label %_ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %5163
 
@@ -18169,11 +18153,11 @@ _ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit853.thread: ; preds = %49
   %5169 = sub i64 %.sink8039, %5168
   %spec.store.select.sroa.sel1524.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1524.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1524.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %5169, ptr %spec.store.select.sroa.sel1524.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8037, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %5169, ptr %spec.store.select.sroa.sel1524.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8037, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1527.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1527.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1527.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.29.sink, ptr %spec.store.select.sroa.sel1527.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.29.sink, ptr %spec.store.select.sroa.sel1527.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not622.i = icmp eq ptr %.32.i, null
   br i1 %.not622.i, label %_ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %5170
 
@@ -18193,11 +18177,11 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit921.thread: ; 
   %5175 = sub i64 %.sink8043, %5174
   %spec.store.select.sroa.sel1512.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1512.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1512.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %5175, ptr %spec.store.select.sroa.sel1512.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8041, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %5175, ptr %spec.store.select.sroa.sel1512.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8041, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1515.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1515.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1515.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.60.sink, ptr %spec.store.select.sroa.sel1515.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.60.sink, ptr %spec.store.select.sroa.sel1515.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not600.i = icmp eq ptr %.33.i, null
   br i1 %.not600.i, label %_ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %5176
 
@@ -18215,11 +18199,11 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit921.thread: ; 
   %5181 = sub i64 %.sink8047, %5180
   %spec.store.select.sroa.sel1536.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1536.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1536.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %5181, ptr %spec.store.select.sroa.sel1536.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8045, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %5181, ptr %spec.store.select.sroa.sel1536.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8045, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1539.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1539.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1539.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.61.sink, ptr %spec.store.select.sroa.sel1539.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.61.sink, ptr %spec.store.select.sroa.sel1539.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not621.i = icmp eq ptr %.20.i, null
   br i1 %.not621.i, label %_ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %5182
 
@@ -18400,11 +18384,11 @@ _ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
   %.5.i225 = phi i64 [ %.1.i162.ph, %5240 ], [ %5244, %.thread3399 ]
   %5259 = add i64 %.1441.i.ph, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #31
-  store i32 0, ptr %15, align 4, !tbaa !153
+  store i32 0, ptr %15, align 4, !tbaa !152
   %5260 = and i32 %2, 128
   %.not3745 = icmp eq i32 %5260, 0
   %or.cond4051 = and i1 %.not3745, %5199
-  br i1 %or.cond4051, label %5261, label %.critedge689.i, !prof !154
+  br i1 %or.cond4051, label %5261, label %.critedge689.i, !prof !153
 
 5261:                                             ; preds = %5257
   %5262 = call fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull %18, ptr noundef nonnull %20, i32 noundef %2, ptr noundef %.7498.i, ptr noundef nonnull %19)
@@ -18637,7 +18621,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   %5352 = load i8, ptr %.43188, align 1, !tbaa !75
   %5353 = icmp eq i8 %5352, 48
   %5354 = getelementptr inbounds nuw i8, ptr %.43188, i64 1
-  br i1 %5353, label %.preheader4096, label %5355, !prof !3, !llvm.loop !155
+  br i1 %5353, label %.preheader4096, label %5355, !prof !3, !llvm.loop !154
 
 5355:                                             ; preds = %.preheader4096
   %5356 = zext i8 %5352 to i64
@@ -18702,7 +18686,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   %5389 = load i8, ptr %5388, align 1, !tbaa !75
   %5390 = and i8 %5389, 3
   %.not3755 = icmp eq i8 %5390, 0
-  br i1 %.not3755, label %.loopexit4084, label %.preheader4083, !llvm.loop !156
+  br i1 %.not3755, label %.loopexit4084, label %.preheader4083, !llvm.loop !155
 
 .loopexit4084:                                    ; preds = %.preheader4083, %5368
   %.23186 = phi ptr [ %.13185, %5368 ], [ %5385, %.preheader4083 ]
@@ -19703,7 +19687,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   %5977 = load i8, ptr %5976, align 1, !tbaa !75
   %5978 = and i8 %5977, 3
   %.not3783 = icmp eq i8 %5978, 0
-  br i1 %.not3783, label %5979, label %5972, !llvm.loop !157
+  br i1 %.not3783, label %5979, label %5972, !llvm.loop !156
 
 5979:                                             ; preds = %5972
   %5980 = icmp ugt i8 %5971, 52
@@ -19717,7 +19701,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   %5985 = icmp eq i8 %5984, 0
   %5986 = icmp ne i32 %5260, 0
   %or.cond3557 = and i1 %5986, %5985
-  br i1 %or.cond3557, label %5987, label %5997, !prof !154
+  br i1 %or.cond3557, label %5987, label %5997, !prof !153
 
 5987:                                             ; preds = %5983
   %5988 = load ptr, ptr %20, align 8, !tbaa !86
@@ -19768,7 +19752,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   %6011 = and i8 %6010, 3
   %.not3785 = icmp eq i8 %6011, 0
   %6012 = getelementptr inbounds nuw i8, ptr %.323216, i64 1
-  br i1 %.not3785, label %.loopexit4095, label %.preheader4094, !llvm.loop !158
+  br i1 %.not3785, label %.loopexit4095, label %.preheader4094, !llvm.loop !157
 
 .loopexit4095:                                    ; preds = %.preheader4094, %5997, %5979
   %6013 = phi i8 [ %5977, %5997 ], [ %5977, %5979 ], [ %6010, %.preheader4094 ]
@@ -19786,7 +19770,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   ]
 
 .critedge.i.backedge:                             ; preds = %.critedge.i, %.critedge.i
-  br label %.critedge.i, !llvm.loop !159
+  br label %.critedge.i, !llvm.loop !158
 
 6015:                                             ; preds = %.critedge.i
   %6016 = ptrtoint ptr %.21.i250 to i64
@@ -19874,7 +19858,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   %6058 = load i8, ptr %.93193, align 1, !tbaa !75
   %6059 = icmp eq i8 %6058, 48
   %6060 = getelementptr inbounds nuw i8, ptr %.93193, i64 1
-  br i1 %6059, label %.preheader4093, label %.preheader4092, !llvm.loop !160
+  br i1 %6059, label %.preheader4093, label %.preheader4092, !llvm.loop !159
 
 .preheader4092:                                   ; preds = %.preheader4093
   %6061 = zext i8 %6058 to i64
@@ -19899,7 +19883,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   %6074 = load i8, ptr %6073, align 1, !tbaa !75
   %6075 = and i8 %6074, 3
   %.not3788 = icmp eq i8 %6075, 0
-  br i1 %.not3788, label %._crit_edge5583, label %.lr.ph5582, !llvm.loop !161
+  br i1 %.not3788, label %._crit_edge5583, label %.lr.ph5582, !llvm.loop !160
 
 ._crit_edge5583:                                  ; preds = %.lr.ph5582, %.preheader4092
   %.103194.lcssa = phi ptr [ %.93193, %.preheader4092 ], [ %6066, %.lr.ph5582 ]
@@ -20042,7 +20026,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   %.3569.i = phi ptr [ %.2568.i, %6108 ], [ %.63190, %6036 ]
   %.3565.i = phi ptr [ %.2564.i, %6108 ], [ null, %6036 ]
   %storemerge.i230 = trunc i64 %storemerge.in.i to i32
-  store i32 %storemerge.i230, ptr %15, align 4, !tbaa !153
+  store i32 %storemerge.i230, ptr %15, align 4, !tbaa !152
   %6127 = icmp ult i64 %.22596.i, 9007199254740992
   %6128 = add i32 %storemerge.i230, 22
   %6129 = icmp ult i32 %6128, 45
@@ -20058,14 +20042,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit900: ; preds =
   %6134 = sub nsw i64 0, %storemerge.in.i
   %6135 = and i64 %6134, 4294967295
   %6136 = getelementptr inbounds nuw [23 x double], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 0, i64 %6135
-  %6137 = load double, ptr %6136, align 8, !tbaa !162
+  %6137 = load double, ptr %6136, align 8, !tbaa !161
   %6138 = fdiv double %6131, %6137
   br label %6144
 
 6139:                                             ; preds = %6130
   %6140 = and i64 %storemerge.in.i, 2147483647
   %6141 = getelementptr inbounds nuw [23 x double], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 0, i64 %6140
-  %6142 = load double, ptr %6141, align 8, !tbaa !162
+  %6142 = load double, ptr %6141, align 8, !tbaa !161
   %6143 = fmul double %6142, %6131
   br label %6144
 
@@ -20337,7 +20321,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1221: ; preds = %6257
   call fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPiPhS3_S3_(ptr noundef %16, i64 noundef %.22596.i, ptr noundef %15, ptr noundef %.3565.i, ptr noundef %.3569.i, ptr noundef %.23.i229)
   %6307 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %6306, ptr %6307, align 8, !tbaa !85
-  %6308 = load i32, ptr %15, align 4, !tbaa !153
+  %6308 = load i32, ptr %15, align 4, !tbaa !152
   %6309 = icmp sgt i32 %6308, -1
   br i1 %6309, label %.preheader4091, label %6361
 
@@ -20370,7 +20354,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1221: ; preds = %6257
 6316:                                             ; preds = %.lr.ph5622
   %indvars.iv.next6508 = add nuw nsw i64 %indvars.iv6507, 1
   %exitcond6511.not = icmp eq i64 %indvars.iv.next6508, %wide.trip.count6510
-  br i1 %exitcond6511.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1357, label %.lr.ph5622, !llvm.loop !164
+  br i1 %exitcond6511.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1357, label %.lr.ph5622, !llvm.loop !163
 
 ._crit_edge5623.loopexit:                         ; preds = %.lr.ph5622
   %6317 = trunc nuw i64 %indvars.iv6507 to i32
@@ -20401,7 +20385,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1221: ; preds = %6257
   store i64 %6328, ptr %6320, align 8, !tbaa !85
   %indvars.iv.next6513 = add nuw nsw i64 %indvars.iv6512, 1
   %exitcond6516.not = icmp eq i64 %indvars.iv.next6513, %wide.trip.count6515
-  br i1 %exitcond6516.not, label %._crit_edge5631, label %.lr.ph5630, !llvm.loop !165
+  br i1 %exitcond6516.not, label %._crit_edge5631, label %.lr.ph5630, !llvm.loop !164
 
 ._crit_edge5631:                                  ; preds = %.lr.ph5630
   %.not19.i1355 = icmp eq i64 %6327, 0
@@ -20418,7 +20402,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1357: ; preds = %6316, %._
   %6333 = phi i32 [ %6313, %._crit_edge5631 ], [ %6330, %6329 ], [ %6313, %._crit_edge5623 ], [ %6313, %6316 ]
   %6334 = add nsw i32 %.0.i12395635, -19
   %6335 = icmp sgt i32 %.0.i12395635, 37
-  br i1 %6335, label %6312, label %._crit_edge5637, !llvm.loop !166
+  br i1 %6335, label %6312, label %._crit_edge5637, !llvm.loop !165
 
 ._crit_edge5637:                                  ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1357, %.preheader4091
   %6336 = phi i32 [ %.promoted5633, %.preheader4091 ], [ %6333, %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1357 ]
@@ -20449,7 +20433,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1357: ; preds = %6316, %._
 6344:                                             ; preds = %.lr.ph5642
   %indvars.iv.next6518 = add nuw nsw i64 %indvars.iv6517, 1
   %exitcond6521.not = icmp eq i64 %indvars.iv.next6518, %wide.trip.count6520
-  br i1 %exitcond6521.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241, label %.lr.ph5642, !llvm.loop !164
+  br i1 %exitcond6521.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241, label %.lr.ph5642, !llvm.loop !163
 
 ._crit_edge5643.loopexit:                         ; preds = %.lr.ph5642
   %6345 = trunc nuw i64 %indvars.iv6517 to i32
@@ -20481,7 +20465,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1357: ; preds = %6316, %._
   store i64 %6358, ptr %6350, align 8, !tbaa !85
   %indvars.iv.next6523 = add nuw nsw i64 %indvars.iv6522, 1
   %exitcond6526.not = icmp eq i64 %indvars.iv.next6523, %wide.trip.count6525
-  br i1 %exitcond6526.not, label %._crit_edge5651, label %6349, !llvm.loop !165
+  br i1 %exitcond6526.not, label %._crit_edge5651, label %6349, !llvm.loop !164
 
 ._crit_edge5651:                                  ; preds = %6349
   %.not19.i1361 = icmp eq i64 %6357, 0
@@ -20489,7 +20473,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1357: ; preds = %6316, %._
 
 6359:                                             ; preds = %._crit_edge5651
   %6360 = add i32 %6336, 1
-  store i32 %6360, ptr %16, align 8, !tbaa !167
+  store i32 %6360, ptr %16, align 8, !tbaa !166
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241.sink.split
 
 6361:                                             ; preds = %6299
@@ -20524,7 +20508,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1357: ; preds = %6316, %._
 6370:                                             ; preds = %.lr.ph5588
   %indvars.iv.next6488 = add nuw nsw i64 %indvars.iv6487, 1
   %exitcond6491.not = icmp eq i64 %indvars.iv.next6488, %wide.trip.count6490
-  br i1 %exitcond6491.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit, label %.lr.ph5588, !llvm.loop !164
+  br i1 %exitcond6491.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit, label %.lr.ph5588, !llvm.loop !163
 
 ._crit_edge5589.loopexit:                         ; preds = %.lr.ph5588
   %6371 = trunc nuw i64 %indvars.iv6487 to i32
@@ -20555,7 +20539,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1357: ; preds = %6316, %._
   store i64 %6382, ptr %6374, align 8, !tbaa !85
   %indvars.iv.next6493 = add nuw nsw i64 %indvars.iv6492, 1
   %exitcond6496.not = icmp eq i64 %indvars.iv.next6493, %wide.trip.count6495
-  br i1 %exitcond6496.not, label %._crit_edge5597, label %.lr.ph5596, !llvm.loop !165
+  br i1 %exitcond6496.not, label %._crit_edge5597, label %.lr.ph5596, !llvm.loop !164
 
 ._crit_edge5597:                                  ; preds = %.lr.ph5596
   %.not19.i = icmp eq i64 %6381, 0
@@ -20572,7 +20556,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %6370, %._crit
   %6387 = phi i32 [ %6367, %._crit_edge5597 ], [ %6384, %6383 ], [ %6367, %._crit_edge5589 ], [ %6367, %6370 ]
   %6388 = add nsw i32 %.0.i12425601, -19
   %6389 = icmp sgt i32 %.0.i12425601, 37
-  br i1 %6389, label %.lr.ph5603, label %._crit_edge5604, !llvm.loop !166
+  br i1 %6389, label %.lr.ph5603, label %._crit_edge5604, !llvm.loop !165
 
 ._crit_edge5604:                                  ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit
   store i32 %6387, ptr %17, align 8
@@ -20602,7 +20586,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %6370, %._crit
 6398:                                             ; preds = %.lr.ph5609
   %indvars.iv.next6498 = add nuw nsw i64 %indvars.iv6497, 1
   %exitcond6501.not = icmp eq i64 %indvars.iv.next6498, %wide.trip.count6500
-  br i1 %exitcond6501.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241, label %.lr.ph5609, !llvm.loop !164
+  br i1 %exitcond6501.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241, label %.lr.ph5609, !llvm.loop !163
 
 ._crit_edge5610.loopexit:                         ; preds = %.lr.ph5609
   %6399 = trunc nuw i64 %indvars.iv6497 to i32
@@ -20636,7 +20620,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %6370, %._crit
   store i64 %6414, ptr %6406, align 8, !tbaa !85
   %indvars.iv.next6503 = add nuw nsw i64 %indvars.iv6502, 1
   %exitcond6506.not = icmp eq i64 %indvars.iv.next6503, %wide.trip.count6505
-  br i1 %exitcond6506.not, label %._crit_edge5618, label %6405, !llvm.loop !165
+  br i1 %exitcond6506.not, label %._crit_edge5618, label %6405, !llvm.loop !164
 
 ._crit_edge5618:                                  ; preds = %6405
   %.not19.i1349 = icmp eq i64 %6413, 0
@@ -20688,11 +20672,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241: ; preds = %6398, %
   %6436 = getelementptr inbounds nuw [64 x i64], ptr %6307, i64 0, i64 %6435
   store i64 %6432, ptr %6436, align 8, !tbaa !85
   %.not46.i1298.wide = icmp eq i64 %6430, 0
-  br i1 %.not46.i1298.wide, label %.lr.ph5686.preheader, label %6429, !llvm.loop !169
+  br i1 %.not46.i1298.wide, label %.lr.ph5686.preheader, label %6429, !llvm.loop !168
 
 .lr.ph5686.preheader:                             ; preds = %6429, %.preheader4086
   %6437 = add i32 %6421, %6425
-  store i32 %6437, ptr %17, align 8, !tbaa !167
+  store i32 %6437, ptr %17, align 8, !tbaa !166
   br label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301.sink.split
 
 6438:                                             ; preds = %6423
@@ -20724,7 +20708,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241: ; preds = %6398, %
   %6455 = getelementptr inbounds nuw [64 x i64], ptr %6307, i64 0, i64 %6454
   store i64 %6451, ptr %6455, align 8, !tbaa !85
   %.not.i1294.wide = icmp eq i64 %6447, 0
-  br i1 %.not.i1294.wide, label %._crit_edge5674, label %6443, !llvm.loop !170
+  br i1 %.not.i1294.wide, label %._crit_edge5674, label %6443, !llvm.loop !169
 
 ._crit_edge5674:                                  ; preds = %6443, %6438
   %6456 = load i64, ptr %6307, align 8, !tbaa !85
@@ -20746,7 +20730,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241: ; preds = %6398, %
   %6468 = sub nsw i32 0, %.sroa.9.0.i
   %6469 = and i32 %6468, 63
   %6470 = lshr i32 %6468, 6
-  %6471 = load i32, ptr %16, align 8, !tbaa !167
+  %6471 = load i32, ptr %16, align 8, !tbaa !166
   %6472 = icmp eq i32 %6469, 0
   br i1 %6472, label %.preheader4089, label %6486, !prof !3
 
@@ -20771,11 +20755,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241: ; preds = %6398, %
   %6483 = getelementptr inbounds nuw [64 x i64], ptr %6473, i64 0, i64 %6482
   store i64 %6479, ptr %6483, align 8, !tbaa !85
   %.not46.i1307.wide = icmp eq i64 %6477, 0
-  br i1 %.not46.i1307.wide, label %._crit_edge5665, label %6476, !llvm.loop !169
+  br i1 %.not46.i1307.wide, label %._crit_edge5665, label %6476, !llvm.loop !168
 
 ._crit_edge5665:                                  ; preds = %6476, %.preheader4089
   %6484 = add i32 %6471, %6470
-  store i32 %6484, ptr %16, align 8, !tbaa !167
+  store i32 %6484, ptr %16, align 8, !tbaa !166
   %.not47.i13095666 = icmp samesign ult i32 %6468, 64
   br i1 %.not47.i13095666, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301, label %.lr.ph5669
 
@@ -20813,7 +20797,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241: ; preds = %6398, %
   %6504 = getelementptr inbounds nuw [64 x i64], ptr %6487, i64 0, i64 %6503
   store i64 %6500, ptr %6504, align 8, !tbaa !85
   %.not.i1303.wide = icmp eq i64 %6496, 0
-  br i1 %.not.i1303.wide, label %._crit_edge5657, label %6492, !llvm.loop !170
+  br i1 %.not.i1303.wide, label %._crit_edge5657, label %6492, !llvm.loop !169
 
 ._crit_edge5657:                                  ; preds = %6492, %6486
   %6505 = load i64, ptr %6487, align 8, !tbaa !85
@@ -20828,7 +20812,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241: ; preds = %6398, %
   %6513 = icmp ne i64 %6512, 0
   %6514 = zext i1 %6513 to i32
   %6515 = add i32 %6509, %6514
-  store i32 %6515, ptr %16, align 8, !tbaa !167
+  store i32 %6515, ptr %16, align 8, !tbaa !166
   %.not45.i13055658 = icmp samesign ult i32 %6468, 64
   br i1 %.not45.i13055658, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301.sink.split
 
@@ -20845,7 +20829,7 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301.sink.split: ; preds 
 
 _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301: ; preds = %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301.sink.split, %._crit_edge5657, %._crit_edge5665, %._crit_edge5674
   %6520 = phi i32 [ %6421, %._crit_edge5657 ], [ %6421, %._crit_edge5665 ], [ %6466, %._crit_edge5674 ], [ %.ph8054, %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301.sink.split ]
-  %6521 = load i32, ptr %16, align 8, !tbaa !167
+  %6521 = load i32, ptr %16, align 8, !tbaa !166
   %6522 = icmp ult i32 %6521, %6520
   br i1 %6522, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1342.thread, label %6523
 
@@ -20874,7 +20858,7 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301: ; preds = %_ZN13duc
 
 6535:                                             ; preds = %6529
   %.not3791 = icmp ugt i64 %6531, %6533
-  br i1 %.not3791, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1342.thread, label %6527, !llvm.loop !171
+  br i1 %.not3791, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1342.thread, label %6527, !llvm.loop !170
 
 _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1342.thread3432: ; preds = %6527
   %6536 = and i64 %.0.i1220.ph, 1
@@ -21019,7 +21003,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %6
   %6584 = load i8, ptr %6583, align 1, !tbaa !75
   %6585 = and i8 %6584, 12
   %.not37075735 = icmp eq i8 %6585, 0
-  br i1 %.not37075735, label %.lr.ph5738, label %.split.loop.exit5719, !prof !150
+  br i1 %.not37075735, label %.lr.ph5738, label %.split.loop.exit5719, !prof !149
 
 .lr.ph5738:                                       ; preds = %.backedge4080, %6690
   %.1270.i5736 = phi ptr [ %6691, %6690 ], [ %.0269.i, %.backedge4080 ]
@@ -21180,7 +21164,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %6
   %6695 = load i8, ptr %6694, align 1, !tbaa !75
   %6696 = and i8 %6695, 12
   %.not3707 = icmp eq i8 %6696, 0
-  br i1 %.not3707, label %.lr.ph5738, label %.split.loop.exit5719, !prof !151
+  br i1 %.not3707, label %.lr.ph5738, label %.split.loop.exit5719, !prof !150
 
 .split.loop.exit5719.loopexit.split.loop.exit:    ; preds = %6683
   %6697 = getelementptr inbounds nuw i8, ptr %.1270.i5736, i64 15
@@ -21272,7 +21256,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %6
   %storemerge290.i = load i32, ptr %6719, align 1
   %6720 = and i32 %storemerge290.i, 12632304
   %6721 = icmp eq i32 %6720, 8421600
-  br i1 %6721, label %.lr.ph5743, label %.critedge.i624, !llvm.loop !172
+  br i1 %6721, label %.lr.ph5743, label %.critedge.i624, !llvm.loop !171
 
 .critedge.i624:                                   ; preds = %6718, %.lr.ph5743, %.lr.ph5743, %.preheader4079
   %.3272.i.lcssa = phi ptr [ %.2271.i, %.preheader4079 ], [ %.3272.i5741, %.lr.ph5743 ], [ %.3272.i5741, %.lr.ph5743 ], [ %6719, %6718 ]
@@ -21308,7 +21292,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %6
   %6735 = and i32 %.sroa.0.0.copyload.i973, 30
   %6736 = icmp ne i32 %6735, 0
   %6737 = and i1 %6734, %6736
-  br i1 %6737, label %.lr.ph5753, label %.preheader4077, !llvm.loop !173
+  br i1 %6737, label %.lr.ph5753, label %.preheader4077, !llvm.loop !172
 
 .lr.ph5760:                                       ; preds = %.preheader4077, %6743
   %.5274.i5759 = phi ptr [ %6744, %6743 ], [ %.4273.i.lcssa, %.preheader4077 ]
@@ -21328,7 +21312,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %6
   %6747 = and i32 %.sroa.0.0.copyload.i974, 12295
   %.not291.i = icmp eq i32 %6747, 0
   %or.cond.i625 = or i1 %6746, %.not291.i
-  br i1 %or.cond.i625, label %.critedge2.i, label %.lr.ph5760, !llvm.loop !174
+  br i1 %or.cond.i625, label %.critedge2.i, label %.lr.ph5760, !llvm.loop !173
 
 .critedge2.i:                                     ; preds = %6743, %.lr.ph5760, %.preheader4077
   %.5274.i.lcssa = phi ptr [ %.4273.i.lcssa, %.preheader4077 ], [ %.5274.i5759, %.lr.ph5760 ], [ %6744, %6743 ]
@@ -21340,7 +21324,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %6
   br label %.backedge4080
 
 6749:                                             ; preds = %.critedge2.i
-  br i1 %.not3574, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread, label %6750, !prof !139
+  br i1 %.not3574, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread, label %6750, !prof !138
 
 6750:                                             ; preds = %6749
   %6751 = getelementptr inbounds nuw i8, ptr %.5274.i.lcssa, i64 1
@@ -21353,7 +21337,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %6
   switch i8 %6752, label %6915 [
     i8 92, label %6753
     i8 34, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit
-  ], !prof !175
+  ], !prof !174
 
 6753:                                             ; preds = %.preheader4076
   %6754 = getelementptr inbounds nuw i8, ptr %.7276.i, i64 1
@@ -21946,7 +21930,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %6
   %7084 = and i32 %storemerge.i633, 12632304
   %7085 = icmp eq i32 %7084, 8421600
   %7086 = trunc i32 %storemerge.i633 to i16
-  br i1 %7085, label %.lr.ph5768, label %.critedge4.i, !llvm.loop !176
+  br i1 %7085, label %.lr.ph5768, label %.critedge4.i, !llvm.loop !175
 
 .critedge4.i:                                     ; preds = %7081, %.lr.ph5768, %.lr.ph5768, %.preheader4074
   %.0.copyload.i10456803 = phi i16 [ %7079, %.preheader4074 ], [ %.0.copyload.i10456805, %.lr.ph5768 ], [ %.0.copyload.i10456805, %.lr.ph5768 ], [ %7086, %7081 ]
@@ -22003,7 +21987,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %6
   %7107 = and i32 %.sroa.0.0.copyload.i969, 30
   %7108 = icmp ne i32 %7107, 0
   %7109 = and i1 %7106, %7108
-  br i1 %7109, label %.lr.ph5784, label %.preheader4072.loopexit, !llvm.loop !177
+  br i1 %7109, label %.lr.ph5784, label %.preheader4072.loopexit, !llvm.loop !176
 
 .lr.ph5798:                                       ; preds = %.lr.ph9751
   %7110 = and i32 %.sroa.0.0.copyload.i970, 4
@@ -22011,7 +21995,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %6
   %7112 = and i32 %.sroa.0.0.copyload.i970, 12291
   %7113 = icmp eq i32 %7112, 0
   %7114 = or i1 %7111, %7113
-  br i1 %7114, label %.lr.ph9751, label %.critedge6.i.loopexit, !llvm.loop !178
+  br i1 %7114, label %.lr.ph9751, label %.critedge6.i.loopexit, !llvm.loop !177
 
 .lr.ph9751:                                       ; preds = %.lr.ph5798.preheader, %.lr.ph5798
   %.14.i63857949750 = phi ptr [ %7116, %.lr.ph5798 ], [ %.13.i636.lcssa, %.lr.ph5798.preheader ]
@@ -22026,11 +22010,11 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %6
   %7119 = and i32 %.sroa.0.0.copyload.i970, 12295
   %.not289.i = icmp eq i32 %7119, 0
   %or.cond292.i = or i1 %.not289.i, %7118
-  br i1 %or.cond292.i, label %..critedge6.i.loopexit_crit_edge, label %.lr.ph5798, !llvm.loop !178
+  br i1 %or.cond292.i, label %..critedge6.i.loopexit_crit_edge, label %.lr.ph5798, !llvm.loop !177
 
 ..critedge6.i.loopexit_crit_edge:                 ; preds = %.lr.ph9751
   %7120 = trunc i32 %.sroa.0.0.copyload.i970 to i16
-  br label %.critedge6.i, !llvm.loop !178
+  br label %.critedge6.i, !llvm.loop !177
 
 .critedge6.i.loopexit:                            ; preds = %.lr.ph5798
   %7121 = trunc i32 %.sroa.0.0.copyload.i970 to i16
@@ -22274,7 +22258,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   store ptr %7222, ptr %18, align 8, !tbaa !86
   %7223 = load i8, ptr %7222, align 1, !tbaa !75
   %.not600.i206 = icmp eq i8 %7223, 44
-  br i1 %.not600.i206, label %.loopexit4082, label %.lr.ph5689, !llvm.loop !189
+  br i1 %.not600.i206, label %.loopexit4082, label %.lr.ph5689, !llvm.loop !188
 
 7224:                                             ; preds = %6559
   %7225 = and i8 %5238, 1
@@ -22291,7 +22275,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   %7231 = load i8, ptr %7230, align 1, !tbaa !75
   %7232 = and i8 %7231, 1
   %.not3744 = icmp eq i8 %7232, 0
-  br i1 %.not3744, label %.backedge4102.backedge, label %.preheader4097, !llvm.loop !190
+  br i1 %.not3744, label %.backedge4102.backedge, label %.preheader4097, !llvm.loop !189
 
 7233:                                             ; preds = %7224
   br i1 %.not3742, label %7308, label %7234, !prof !22
@@ -22540,7 +22524,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   %7330 = load i8, ptr %7329, align 1, !tbaa !75
   %7331 = and i8 %7330, 1
   %.not3800 = icmp eq i8 %7331, 0
-  br i1 %.not3800, label %.backedge4107.backedge, label %.preheader4103, !llvm.loop !191
+  br i1 %.not3800, label %.backedge4107.backedge, label %.preheader4103, !llvm.loop !190
 
 7332:                                             ; preds = %7320
   br i1 %.not3799, label %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit907.thread, label %7333, !prof !22
@@ -22660,7 +22644,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   switch i8 %7383, label %7965 [
     i8 34, label %7384
     i8 125, label %7956
-  ], !prof !175
+  ], !prof !174
 
 7384:                                             ; preds = %.backedge4163
   %7385 = getelementptr inbounds nuw i8, ptr %.0491.i.ph, i64 16
@@ -22708,7 +22692,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   %7408 = load i8, ptr %7407, align 1, !tbaa !75
   %7409 = and i8 %7408, 12
   %.not35765274 = icmp eq i8 %7409, 0
-  br i1 %.not35765274, label %.lr.ph5277, label %.split.loop.exit5258, !prof !150
+  br i1 %.not35765274, label %.lr.ph5277, label %.split.loop.exit5258, !prof !149
 
 .lr.ph5277:                                       ; preds = %.backedge4156, %7514
   %.1270.i6855275 = phi ptr [ %7515, %7514 ], [ %.0269.i684, %.backedge4156 ]
@@ -22869,7 +22853,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   %7519 = load i8, ptr %7518, align 1, !tbaa !75
   %7520 = and i8 %7519, 12
   %.not3576 = icmp eq i8 %7520, 0
-  br i1 %.not3576, label %.lr.ph5277, label %.split.loop.exit5258, !prof !151
+  br i1 %.not3576, label %.lr.ph5277, label %.split.loop.exit5258, !prof !150
 
 .split.loop.exit5258.loopexit.split.loop.exit:    ; preds = %7507
   %7521 = getelementptr inbounds nuw i8, ptr %.1270.i6855275, i64 15
@@ -22961,7 +22945,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   %storemerge290.i688 = load i32, ptr %7543, align 1
   %7544 = and i32 %storemerge290.i688, 12632304
   %7545 = icmp eq i32 %7544, 8421600
-  br i1 %7545, label %.lr.ph5282, label %.critedge.i690, !llvm.loop !172
+  br i1 %7545, label %.lr.ph5282, label %.critedge.i690, !llvm.loop !171
 
 .critedge.i690:                                   ; preds = %7542, %.lr.ph5282, %.lr.ph5282, %.preheader4155
   %.3272.i689.lcssa = phi ptr [ %.2271.i686, %.preheader4155 ], [ %.3272.i6895280, %.lr.ph5282 ], [ %.3272.i6895280, %.lr.ph5282 ], [ %7543, %7542 ]
@@ -22997,7 +22981,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   %7559 = and i32 %.sroa.0.0.copyload.i957, 30
   %7560 = icmp ne i32 %7559, 0
   %7561 = and i1 %7558, %7560
-  br i1 %7561, label %.lr.ph5292, label %.preheader4153, !llvm.loop !173
+  br i1 %7561, label %.lr.ph5292, label %.preheader4153, !llvm.loop !172
 
 .lr.ph5299:                                       ; preds = %.preheader4153, %7567
   %.5274.i6925298 = phi ptr [ %7568, %7567 ], [ %.4273.i691.lcssa, %.preheader4153 ]
@@ -23017,7 +23001,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   %7571 = and i32 %.sroa.0.0.copyload.i958, 12295
   %.not291.i693 = icmp eq i32 %7571, 0
   %or.cond.i694 = or i1 %7570, %.not291.i693
-  br i1 %or.cond.i694, label %.critedge2.i695, label %.lr.ph5299, !llvm.loop !174
+  br i1 %or.cond.i694, label %.critedge2.i695, label %.lr.ph5299, !llvm.loop !173
 
 .critedge2.i695:                                  ; preds = %7567, %.lr.ph5299, %.preheader4153
   %.5274.i692.lcssa = phi ptr [ %.4273.i691.lcssa, %.preheader4153 ], [ %.5274.i6925298, %.lr.ph5299 ], [ %7568, %7567 ]
@@ -23029,7 +23013,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   br label %.backedge4156
 
 7573:                                             ; preds = %.critedge2.i695
-  br i1 %.not3574, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread, label %7574, !prof !139
+  br i1 %.not3574, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread, label %7574, !prof !138
 
 7574:                                             ; preds = %7573
   %7575 = getelementptr inbounds nuw i8, ptr %.5274.i692.lcssa, i64 1
@@ -23042,7 +23026,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   switch i8 %7576, label %7739 [
     i8 92, label %7577
     i8 34, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725
-  ], !prof !175
+  ], !prof !174
 
 7577:                                             ; preds = %.preheader4152
   %7578 = getelementptr inbounds nuw i8, ptr %.7276.i698, i64 1
@@ -23635,7 +23619,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   %7908 = and i32 %storemerge.i708, 12632304
   %7909 = icmp eq i32 %7908, 8421600
   %7910 = trunc i32 %storemerge.i708 to i16
-  br i1 %7909, label %.lr.ph5307, label %.critedge4.i711, !llvm.loop !176
+  br i1 %7909, label %.lr.ph5307, label %.critedge4.i711, !llvm.loop !175
 
 .critedge4.i711:                                  ; preds = %7905, %.lr.ph5307, %.lr.ph5307, %.preheader4149
   %.0.copyload.i10296773 = phi i16 [ %7903, %.preheader4149 ], [ %.0.copyload.i10296775, %.lr.ph5307 ], [ %.0.copyload.i10296775, %.lr.ph5307 ], [ %7910, %7905 ]
@@ -23692,7 +23676,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   %7931 = and i32 %.sroa.0.0.copyload.i953, 30
   %7932 = icmp ne i32 %7931, 0
   %7933 = and i1 %7930, %7932
-  br i1 %7933, label %.lr.ph5323, label %.preheader4147.loopexit, !llvm.loop !177
+  br i1 %7933, label %.lr.ph5323, label %.preheader4147.loopexit, !llvm.loop !176
 
 .lr.ph5337:                                       ; preds = %.lr.ph9731
   %7934 = and i32 %.sroa.0.0.copyload.i954, 4
@@ -23700,7 +23684,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   %7936 = and i32 %.sroa.0.0.copyload.i954, 12291
   %7937 = icmp eq i32 %7936, 0
   %7938 = or i1 %7935, %7937
-  br i1 %7938, label %.lr.ph9731, label %.critedge6.i718.loopexit, !llvm.loop !178
+  br i1 %7938, label %.lr.ph9731, label %.critedge6.i718.loopexit, !llvm.loop !177
 
 .lr.ph9731:                                       ; preds = %.lr.ph5337.preheader, %.lr.ph5337
   %.14.i71453339730 = phi ptr [ %7940, %.lr.ph5337 ], [ %.13.i712.lcssa, %.lr.ph5337.preheader ]
@@ -23715,11 +23699,11 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7192
   %7943 = and i32 %.sroa.0.0.copyload.i954, 12295
   %.not289.i716 = icmp eq i32 %7943, 0
   %or.cond292.i717 = or i1 %.not289.i716, %7942
-  br i1 %or.cond292.i717, label %..critedge6.i718.loopexit_crit_edge, label %.lr.ph5337, !llvm.loop !178
+  br i1 %or.cond292.i717, label %..critedge6.i718.loopexit_crit_edge, label %.lr.ph5337, !llvm.loop !177
 
 ..critedge6.i718.loopexit_crit_edge:              ; preds = %.lr.ph9731
   %7944 = trunc i32 %.sroa.0.0.copyload.i954 to i16
-  br label %.critedge6.i718, !llvm.loop !178
+  br label %.critedge6.i718, !llvm.loop !177
 
 .critedge6.i718.loopexit:                         ; preds = %.lr.ph5337
   %7945 = trunc i32 %.sroa.0.0.copyload.i954 to i16
@@ -23776,7 +23760,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   store ptr %7963, ptr %18, align 8, !tbaa !86
   %7964 = load i8, ptr %7963, align 1, !tbaa !75
   %.not593.i = icmp eq i8 %7964, 44
-  br i1 %.not593.i, label %.loopexit4082, label %.lr.ph5228, !llvm.loop !192
+  br i1 %.not593.i, label %.loopexit4082, label %.lr.ph5228, !llvm.loop !191
 
 7965:                                             ; preds = %.backedge4163
   %7966 = zext i8 %7383 to i64
@@ -23796,7 +23780,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   %7975 = load i8, ptr %7974, align 1, !tbaa !75
   %7976 = and i8 %7975, 1
   %.not3808 = icmp eq i8 %7976, 0
-  br i1 %.not3808, label %.backedge4163.backedge, label %.preheader4159, !llvm.loop !193
+  br i1 %.not3808, label %.backedge4163.backedge, label %.preheader4159, !llvm.loop !192
 
 7977:                                             ; preds = %7965
   br i1 %.not3807, label %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit907.thread, label %7978, !prof !22
@@ -23847,7 +23831,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   %7997 = load i8, ptr %7996, align 1, !tbaa !75
   %7998 = and i8 %7997, 1
   %.not3610 = icmp eq i8 %7998, 0
-  br i1 %.not3610, label %.backedge4146, label %.preheader4143, !llvm.loop !194
+  br i1 %.not3610, label %.backedge4146, label %.preheader4143, !llvm.loop !193
 
 7999:                                             ; preds = %.lr.ph5345
   br i1 %.not3807, label %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit907.thread, label %8000, !prof !22
@@ -23887,7 +23871,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   %8013 = load i8, ptr %8012, align 1, !tbaa !75
   %8014 = and i8 %8013, 12
   %.not36705506 = icmp eq i8 %8014, 0
-  br i1 %.not36705506, label %.lr.ph5509, label %.split.loop.exit5490, !prof !150
+  br i1 %.not36705506, label %.lr.ph5509, label %.split.loop.exit5490, !prof !149
 
 .lr.ph5509:                                       ; preds = %.backedge4122, %8119
   %.1270.i6435507 = phi ptr [ %8120, %8119 ], [ %.0269.i642, %.backedge4122 ]
@@ -24048,7 +24032,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   %8124 = load i8, ptr %8123, align 1, !tbaa !75
   %8125 = and i8 %8124, 12
   %.not3670 = icmp eq i8 %8125, 0
-  br i1 %.not3670, label %.lr.ph5509, label %.split.loop.exit5490, !prof !151
+  br i1 %.not3670, label %.lr.ph5509, label %.split.loop.exit5490, !prof !150
 
 .split.loop.exit5490.loopexit.split.loop.exit:    ; preds = %8112
   %8126 = getelementptr inbounds nuw i8, ptr %.1270.i6435507, i64 15
@@ -24140,7 +24124,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   %storemerge290.i646 = load i32, ptr %8148, align 1
   %8149 = and i32 %storemerge290.i646, 12632304
   %8150 = icmp eq i32 %8149, 8421600
-  br i1 %8150, label %.lr.ph5514, label %.critedge.i648, !llvm.loop !172
+  br i1 %8150, label %.lr.ph5514, label %.critedge.i648, !llvm.loop !171
 
 .critedge.i648:                                   ; preds = %8147, %.lr.ph5514, %.lr.ph5514, %.preheader4121
   %.3272.i647.lcssa = phi ptr [ %.2271.i644, %.preheader4121 ], [ %.3272.i6475512, %.lr.ph5514 ], [ %.3272.i6475512, %.lr.ph5514 ], [ %8148, %8147 ]
@@ -24176,7 +24160,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   %8164 = and i32 %.sroa.0.0.copyload.i965, 30
   %8165 = icmp ne i32 %8164, 0
   %8166 = and i1 %8163, %8165
-  br i1 %8166, label %.lr.ph5524, label %.preheader4119, !llvm.loop !173
+  br i1 %8166, label %.lr.ph5524, label %.preheader4119, !llvm.loop !172
 
 .lr.ph5531:                                       ; preds = %.preheader4119, %8172
   %.5274.i6505530 = phi ptr [ %8173, %8172 ], [ %.4273.i649.lcssa, %.preheader4119 ]
@@ -24196,7 +24180,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   %8176 = and i32 %.sroa.0.0.copyload.i966, 12295
   %.not291.i651 = icmp eq i32 %8176, 0
   %or.cond.i652 = or i1 %8175, %.not291.i651
-  br i1 %or.cond.i652, label %.critedge2.i653, label %.lr.ph5531, !llvm.loop !174
+  br i1 %or.cond.i652, label %.critedge2.i653, label %.lr.ph5531, !llvm.loop !173
 
 .critedge2.i653:                                  ; preds = %8172, %.lr.ph5531, %.preheader4119
   %.5274.i650.lcssa = phi ptr [ %.4273.i649.lcssa, %.preheader4119 ], [ %.5274.i6505530, %.lr.ph5531 ], [ %8173, %8172 ]
@@ -24208,7 +24192,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   br label %.backedge4122
 
 8178:                                             ; preds = %.critedge2.i653
-  br i1 %.not3574, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread, label %8179, !prof !139
+  br i1 %.not3574, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread, label %8179, !prof !138
 
 8179:                                             ; preds = %8178
   %8180 = getelementptr inbounds nuw i8, ptr %.5274.i650.lcssa, i64 1
@@ -24221,7 +24205,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   switch i8 %8181, label %8344 [
     i8 92, label %8182
     i8 34, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit683
-  ], !prof !175
+  ], !prof !174
 
 8182:                                             ; preds = %.preheader4118
   %8183 = getelementptr inbounds nuw i8, ptr %.7276.i656, i64 1
@@ -24814,7 +24798,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   %8513 = and i32 %storemerge.i666, 12632304
   %8514 = icmp eq i32 %8513, 8421600
   %8515 = trunc i32 %storemerge.i666 to i16
-  br i1 %8514, label %.lr.ph5539, label %.critedge4.i669, !llvm.loop !176
+  br i1 %8514, label %.lr.ph5539, label %.critedge4.i669, !llvm.loop !175
 
 .critedge4.i669:                                  ; preds = %8510, %.lr.ph5539, %.lr.ph5539, %.preheader4115
   %.0.copyload.i10376788 = phi i16 [ %8508, %.preheader4115 ], [ %.0.copyload.i10376790, %.lr.ph5539 ], [ %.0.copyload.i10376790, %.lr.ph5539 ], [ %8515, %8510 ]
@@ -24871,7 +24855,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   %8536 = and i32 %.sroa.0.0.copyload.i961, 30
   %8537 = icmp ne i32 %8536, 0
   %8538 = and i1 %8535, %8537
-  br i1 %8538, label %.lr.ph5555, label %.preheader4113.loopexit, !llvm.loop !177
+  br i1 %8538, label %.lr.ph5555, label %.preheader4113.loopexit, !llvm.loop !176
 
 .lr.ph5569:                                       ; preds = %.lr.ph9741
   %8539 = and i32 %.sroa.0.0.copyload.i962, 4
@@ -24879,7 +24863,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   %8541 = and i32 %.sroa.0.0.copyload.i962, 12291
   %8542 = icmp eq i32 %8541, 0
   %8543 = or i1 %8540, %8542
-  br i1 %8543, label %.lr.ph9741, label %.critedge6.i676.loopexit, !llvm.loop !178
+  br i1 %8543, label %.lr.ph9741, label %.critedge6.i676.loopexit, !llvm.loop !177
 
 .lr.ph9741:                                       ; preds = %.lr.ph5569.preheader, %.lr.ph5569
   %.14.i67255659740 = phi ptr [ %8545, %.lr.ph5569 ], [ %.13.i670.lcssa, %.lr.ph5569.preheader ]
@@ -24894,11 +24878,11 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   %8548 = and i32 %.sroa.0.0.copyload.i962, 12295
   %.not289.i674 = icmp eq i32 %8548, 0
   %or.cond292.i675 = or i1 %.not289.i674, %8547
-  br i1 %or.cond292.i675, label %..critedge6.i676.loopexit_crit_edge, label %.lr.ph5569, !llvm.loop !178
+  br i1 %or.cond292.i675, label %..critedge6.i676.loopexit_crit_edge, label %.lr.ph5569, !llvm.loop !177
 
 ..critedge6.i676.loopexit_crit_edge:              ; preds = %.lr.ph9741
   %8549 = trunc i32 %.sroa.0.0.copyload.i962 to i16
-  br label %.critedge6.i676, !llvm.loop !178
+  br label %.critedge6.i676, !llvm.loop !177
 
 .critedge6.i676.loopexit:                         ; preds = %.lr.ph5569
   %8550 = trunc i32 %.sroa.0.0.copyload.i962 to i16
@@ -24945,11 +24929,11 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit683: ; preds =
   %8567 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 16
   %8568 = add i64 %.0440.i178.ph, 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #31
-  store i32 0, ptr %12, align 4, !tbaa !153
+  store i32 0, ptr %12, align 4, !tbaa !152
   %8569 = and i32 %2, 128
   %.not3617 = icmp eq i32 %8569, 0
   %or.cond4052 = and i1 %.not3617, %5199
-  br i1 %or.cond4052, label %8570, label %.critedge689.i252, !prof !154
+  br i1 %or.cond4052, label %8570, label %.critedge689.i252, !prof !153
 
 8570:                                             ; preds = %8566
   %8571 = call fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull %18, ptr noundef nonnull %20, i32 noundef %2, ptr noundef nonnull %8567, ptr noundef nonnull %19)
@@ -25181,7 +25165,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   %8660 = load i8, ptr %.43226, align 1, !tbaa !75
   %8661 = icmp eq i8 %8660, 48
   %8662 = getelementptr inbounds nuw i8, ptr %.43226, i64 1
-  br i1 %8661, label %.preheader4136, label %8663, !prof !3, !llvm.loop !155
+  br i1 %8661, label %.preheader4136, label %8663, !prof !3, !llvm.loop !154
 
 8663:                                             ; preds = %.preheader4136
   %8664 = zext i8 %8660 to i64
@@ -25246,7 +25230,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   %8697 = load i8, ptr %8696, align 1, !tbaa !75
   %8698 = and i8 %8697, 3
   %.not3627 = icmp eq i8 %8698, 0
-  br i1 %.not3627, label %.loopexit4124, label %.preheader4123, !llvm.loop !156
+  br i1 %.not3627, label %.loopexit4124, label %.preheader4123, !llvm.loop !155
 
 .loopexit4124:                                    ; preds = %.preheader4123, %8676
   %.23224 = phi ptr [ %.13223, %8676 ], [ %8693, %.preheader4123 ]
@@ -26247,7 +26231,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   %9285 = load i8, ptr %9284, align 1, !tbaa !75
   %9286 = and i8 %9285, 3
   %.not3655 = icmp eq i8 %9286, 0
-  br i1 %.not3655, label %9287, label %9280, !llvm.loop !157
+  br i1 %.not3655, label %9287, label %9280, !llvm.loop !156
 
 9287:                                             ; preds = %9280
   %9288 = icmp ugt i8 %9279, 52
@@ -26261,7 +26245,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   %9293 = icmp eq i8 %9292, 0
   %9294 = icmp ne i32 %8569, 0
   %or.cond3561 = and i1 %9294, %9293
-  br i1 %or.cond3561, label %9295, label %9305, !prof !154
+  br i1 %or.cond3561, label %9295, label %9305, !prof !153
 
 9295:                                             ; preds = %9291
   %9296 = load ptr, ptr %20, align 8, !tbaa !86
@@ -26312,7 +26296,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   %9319 = and i8 %9318, 3
   %.not3657 = icmp eq i8 %9319, 0
   %9320 = getelementptr inbounds nuw i8, ptr %.323254, i64 1
-  br i1 %.not3657, label %.loopexit4135, label %.preheader4134, !llvm.loop !158
+  br i1 %.not3657, label %.loopexit4135, label %.preheader4134, !llvm.loop !157
 
 .loopexit4135:                                    ; preds = %.preheader4134, %9305, %9287
   %9321 = phi i8 [ %9285, %9305 ], [ %9285, %9287 ], [ %9318, %.preheader4134 ]
@@ -26330,7 +26314,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   ]
 
 .critedge.i350.backedge:                          ; preds = %.critedge.i350, %.critedge.i350
-  br label %.critedge.i350, !llvm.loop !159
+  br label %.critedge.i350, !llvm.loop !158
 
 9323:                                             ; preds = %.critedge.i350
   %9324 = ptrtoint ptr %.21.i347 to i64
@@ -26418,7 +26402,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   %9366 = load i8, ptr %.93231, align 1, !tbaa !75
   %9367 = icmp eq i8 %9366, 48
   %9368 = getelementptr inbounds nuw i8, ptr %.93231, i64 1
-  br i1 %9367, label %.preheader4133, label %.preheader4132, !llvm.loop !160
+  br i1 %9367, label %.preheader4133, label %.preheader4132, !llvm.loop !159
 
 .preheader4132:                                   ; preds = %.preheader4133
   %9369 = zext i8 %9366 to i64
@@ -26443,7 +26427,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   %9382 = load i8, ptr %9381, align 1, !tbaa !75
   %9383 = and i8 %9382, 3
   %.not3660 = icmp eq i8 %9383, 0
-  br i1 %.not3660, label %._crit_edge5357, label %.lr.ph5356, !llvm.loop !161
+  br i1 %.not3660, label %._crit_edge5357, label %.lr.ph5356, !llvm.loop !160
 
 ._crit_edge5357:                                  ; preds = %.lr.ph5356, %.preheader4132
   %.103232.lcssa = phi ptr [ %.93231, %.preheader4132 ], [ %9374, %.lr.ph5356 ]
@@ -26586,7 +26570,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   %.3569.i264 = phi ptr [ %.2568.i306, %9416 ], [ %.63228, %9344 ]
   %.3565.i265 = phi ptr [ %.2564.i307, %9416 ], [ null, %9344 ]
   %storemerge.i266 = trunc i64 %storemerge.in.i261 to i32
-  store i32 %storemerge.i266, ptr %12, align 4, !tbaa !153
+  store i32 %storemerge.i266, ptr %12, align 4, !tbaa !152
   %9435 = icmp ult i64 %.22596.i262, 9007199254740992
   %9436 = add i32 %storemerge.i266, 22
   %9437 = icmp ult i32 %9436, 45
@@ -26602,14 +26586,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
   %9442 = sub nsw i64 0, %storemerge.in.i261
   %9443 = and i64 %9442, 4294967295
   %9444 = getelementptr inbounds nuw [23 x double], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 0, i64 %9443
-  %9445 = load double, ptr %9444, align 8, !tbaa !162
+  %9445 = load double, ptr %9444, align 8, !tbaa !161
   %9446 = fdiv double %9439, %9445
   br label %9452
 
 9447:                                             ; preds = %9438
   %9448 = and i64 %storemerge.in.i261, 2147483647
   %9449 = getelementptr inbounds nuw [23 x double], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 0, i64 %9448
-  %9450 = load double, ptr %9449, align 8, !tbaa !162
+  %9450 = load double, ptr %9449, align 8, !tbaa !161
   %9451 = fmul double %9450, %9439
   br label %9452
 
@@ -26753,7 +26737,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit892: ; preds =
 9543:                                             ; preds = %9541
   %9544 = sub nuw nsw i32 -1074, %9538
   %9545 = icmp samesign ult i32 %9538, -1134
-  br i1 %9545, label %.thread3505, label %.thread3508, !prof !195
+  br i1 %9545, label %.thread3505, label %.thread3508, !prof !194
 
 .thread3505:                                      ; preds = %9541, %9543
   %.0606.i2753507 = phi i32 [ %9544, %9543 ], [ 64, %9541 ]
@@ -26881,7 +26865,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1219: ; preds = %9565
   call fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPiPhS3_S3_(ptr noundef %13, i64 noundef %.22596.i262, ptr noundef %12, ptr noundef %.3565.i265, ptr noundef %.3569.i264, ptr noundef %.23.i263)
   %9615 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %9614, ptr %9615, align 8, !tbaa !85
-  %9616 = load i32, ptr %12, align 4, !tbaa !153
+  %9616 = load i32, ptr %12, align 4, !tbaa !152
   %9617 = icmp sgt i32 %9616, -1
   br i1 %9617, label %.preheader4131, label %9669
 
@@ -26914,7 +26898,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1219: ; preds = %9565
 9624:                                             ; preds = %.lr.ph5396
   %indvars.iv.next6453 = add nuw nsw i64 %indvars.iv6452, 1
   %exitcond6456.not = icmp eq i64 %indvars.iv.next6453, %wide.trip.count6455
-  br i1 %exitcond6456.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1381, label %.lr.ph5396, !llvm.loop !164
+  br i1 %exitcond6456.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1381, label %.lr.ph5396, !llvm.loop !163
 
 ._crit_edge5397.loopexit:                         ; preds = %.lr.ph5396
   %9625 = trunc nuw i64 %indvars.iv6452 to i32
@@ -26945,7 +26929,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1219: ; preds = %9565
   store i64 %9636, ptr %9628, align 8, !tbaa !85
   %indvars.iv.next6458 = add nuw nsw i64 %indvars.iv6457, 1
   %exitcond6461.not = icmp eq i64 %indvars.iv.next6458, %wide.trip.count6460
-  br i1 %exitcond6461.not, label %._crit_edge5405, label %.lr.ph5404, !llvm.loop !165
+  br i1 %exitcond6461.not, label %._crit_edge5405, label %.lr.ph5404, !llvm.loop !164
 
 ._crit_edge5405:                                  ; preds = %.lr.ph5404
   %.not19.i1379 = icmp eq i64 %9635, 0
@@ -26962,7 +26946,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1381: ; preds = %9624, %._
   %9641 = phi i32 [ %9621, %._crit_edge5405 ], [ %9638, %9637 ], [ %9621, %._crit_edge5397 ], [ %9621, %9624 ]
   %9642 = add nsw i32 %.0.i12335409, -19
   %9643 = icmp sgt i32 %.0.i12335409, 37
-  br i1 %9643, label %9620, label %._crit_edge5411, !llvm.loop !166
+  br i1 %9643, label %9620, label %._crit_edge5411, !llvm.loop !165
 
 ._crit_edge5411:                                  ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1381, %.preheader4131
   %9644 = phi i32 [ %.promoted5407, %.preheader4131 ], [ %9641, %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1381 ]
@@ -26993,7 +26977,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1381: ; preds = %9624, %._
 9652:                                             ; preds = %.lr.ph5416
   %indvars.iv.next6463 = add nuw nsw i64 %indvars.iv6462, 1
   %exitcond6466.not = icmp eq i64 %indvars.iv.next6463, %wide.trip.count6465
-  br i1 %exitcond6466.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235, label %.lr.ph5416, !llvm.loop !164
+  br i1 %exitcond6466.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235, label %.lr.ph5416, !llvm.loop !163
 
 ._crit_edge5417.loopexit:                         ; preds = %.lr.ph5416
   %9653 = trunc nuw i64 %indvars.iv6462 to i32
@@ -27025,7 +27009,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1381: ; preds = %9624, %._
   store i64 %9666, ptr %9658, align 8, !tbaa !85
   %indvars.iv.next6468 = add nuw nsw i64 %indvars.iv6467, 1
   %exitcond6471.not = icmp eq i64 %indvars.iv.next6468, %wide.trip.count6470
-  br i1 %exitcond6471.not, label %._crit_edge5425, label %9657, !llvm.loop !165
+  br i1 %exitcond6471.not, label %._crit_edge5425, label %9657, !llvm.loop !164
 
 ._crit_edge5425:                                  ; preds = %9657
   %.not19.i1385 = icmp eq i64 %9665, 0
@@ -27033,7 +27017,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1381: ; preds = %9624, %._
 
 9667:                                             ; preds = %._crit_edge5425
   %9668 = add i32 %9644, 1
-  store i32 %9668, ptr %13, align 8, !tbaa !167
+  store i32 %9668, ptr %13, align 8, !tbaa !166
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235.sink.split
 
 9669:                                             ; preds = %9607
@@ -27068,7 +27052,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1381: ; preds = %9624, %._
 9678:                                             ; preds = %.lr.ph5362
   %indvars.iv.next6433 = add nuw nsw i64 %indvars.iv6432, 1
   %exitcond6436.not = icmp eq i64 %indvars.iv.next6433, %wide.trip.count6435
-  br i1 %exitcond6436.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1369, label %.lr.ph5362, !llvm.loop !164
+  br i1 %exitcond6436.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1369, label %.lr.ph5362, !llvm.loop !163
 
 ._crit_edge5363.loopexit:                         ; preds = %.lr.ph5362
   %9679 = trunc nuw i64 %indvars.iv6432 to i32
@@ -27099,7 +27083,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1381: ; preds = %9624, %._
   store i64 %9690, ptr %9682, align 8, !tbaa !85
   %indvars.iv.next6438 = add nuw nsw i64 %indvars.iv6437, 1
   %exitcond6441.not = icmp eq i64 %indvars.iv.next6438, %wide.trip.count6440
-  br i1 %exitcond6441.not, label %._crit_edge5371, label %.lr.ph5370, !llvm.loop !165
+  br i1 %exitcond6441.not, label %._crit_edge5371, label %.lr.ph5370, !llvm.loop !164
 
 ._crit_edge5371:                                  ; preds = %.lr.ph5370
   %.not19.i1367 = icmp eq i64 %9689, 0
@@ -27116,7 +27100,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1369: ; preds = %9678, %._
   %9695 = phi i32 [ %9675, %._crit_edge5371 ], [ %9692, %9691 ], [ %9675, %._crit_edge5363 ], [ %9675, %9678 ]
   %9696 = add nsw i32 %.0.i12365375, -19
   %9697 = icmp sgt i32 %.0.i12365375, 37
-  br i1 %9697, label %.lr.ph5377, label %._crit_edge5378, !llvm.loop !166
+  br i1 %9697, label %.lr.ph5377, label %._crit_edge5378, !llvm.loop !165
 
 ._crit_edge5378:                                  ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1369
   store i32 %9695, ptr %14, align 8
@@ -27146,7 +27130,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1369: ; preds = %9678, %._
 9706:                                             ; preds = %.lr.ph5383
   %indvars.iv.next6443 = add nuw nsw i64 %indvars.iv6442, 1
   %exitcond6446.not = icmp eq i64 %indvars.iv.next6443, %wide.trip.count6445
-  br i1 %exitcond6446.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235, label %.lr.ph5383, !llvm.loop !164
+  br i1 %exitcond6446.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235, label %.lr.ph5383, !llvm.loop !163
 
 ._crit_edge5384.loopexit:                         ; preds = %.lr.ph5383
   %9707 = trunc nuw i64 %indvars.iv6442 to i32
@@ -27180,7 +27164,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1369: ; preds = %9678, %._
   store i64 %9722, ptr %9714, align 8, !tbaa !85
   %indvars.iv.next6448 = add nuw nsw i64 %indvars.iv6447, 1
   %exitcond6451.not = icmp eq i64 %indvars.iv.next6448, %wide.trip.count6450
-  br i1 %exitcond6451.not, label %._crit_edge5392, label %9713, !llvm.loop !165
+  br i1 %exitcond6451.not, label %._crit_edge5392, label %9713, !llvm.loop !164
 
 ._crit_edge5392:                                  ; preds = %9713
   %.not19.i1373 = icmp eq i64 %9721, 0
@@ -27232,11 +27216,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235: ; preds = %9706, %
   %9744 = getelementptr inbounds nuw [64 x i64], ptr %9615, i64 0, i64 %9743
   store i64 %9740, ptr %9744, align 8, !tbaa !85
   %.not46.i1280.wide = icmp eq i64 %9738, 0
-  br i1 %.not46.i1280.wide, label %.lr.ph5460.preheader, label %9737, !llvm.loop !169
+  br i1 %.not46.i1280.wide, label %.lr.ph5460.preheader, label %9737, !llvm.loop !168
 
 .lr.ph5460.preheader:                             ; preds = %9737, %.preheader4126
   %9745 = add i32 %9729, %9733
-  store i32 %9745, ptr %14, align 8, !tbaa !167
+  store i32 %9745, ptr %14, align 8, !tbaa !166
   br label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283.sink.split
 
 9746:                                             ; preds = %9731
@@ -27268,7 +27252,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235: ; preds = %9706, %
   %9763 = getelementptr inbounds nuw [64 x i64], ptr %9615, i64 0, i64 %9762
   store i64 %9759, ptr %9763, align 8, !tbaa !85
   %.not.i1276.wide = icmp eq i64 %9755, 0
-  br i1 %.not.i1276.wide, label %._crit_edge5448, label %9751, !llvm.loop !170
+  br i1 %.not.i1276.wide, label %._crit_edge5448, label %9751, !llvm.loop !169
 
 ._crit_edge5448:                                  ; preds = %9751, %9746
   %9764 = load i64, ptr %9615, align 8, !tbaa !85
@@ -27290,7 +27274,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235: ; preds = %9706, %
   %9776 = sub nsw i32 0, %.sroa.9.0.i285
   %9777 = and i32 %9776, 63
   %9778 = lshr i32 %9776, 6
-  %9779 = load i32, ptr %13, align 8, !tbaa !167
+  %9779 = load i32, ptr %13, align 8, !tbaa !166
   %9780 = icmp eq i32 %9777, 0
   br i1 %9780, label %.preheader4129, label %9794, !prof !3
 
@@ -27315,11 +27299,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235: ; preds = %9706, %
   %9791 = getelementptr inbounds nuw [64 x i64], ptr %9781, i64 0, i64 %9790
   store i64 %9787, ptr %9791, align 8, !tbaa !85
   %.not46.i1289.wide = icmp eq i64 %9785, 0
-  br i1 %.not46.i1289.wide, label %._crit_edge5439, label %9784, !llvm.loop !169
+  br i1 %.not46.i1289.wide, label %._crit_edge5439, label %9784, !llvm.loop !168
 
 ._crit_edge5439:                                  ; preds = %9784, %.preheader4129
   %9792 = add i32 %9779, %9778
-  store i32 %9792, ptr %13, align 8, !tbaa !167
+  store i32 %9792, ptr %13, align 8, !tbaa !166
   %.not47.i12915440 = icmp samesign ult i32 %9776, 64
   br i1 %.not47.i12915440, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283, label %.lr.ph5443
 
@@ -27357,7 +27341,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235: ; preds = %9706, %
   %9812 = getelementptr inbounds nuw [64 x i64], ptr %9795, i64 0, i64 %9811
   store i64 %9808, ptr %9812, align 8, !tbaa !85
   %.not.i1285.wide = icmp eq i64 %9804, 0
-  br i1 %.not.i1285.wide, label %._crit_edge5431, label %9800, !llvm.loop !170
+  br i1 %.not.i1285.wide, label %._crit_edge5431, label %9800, !llvm.loop !169
 
 ._crit_edge5431:                                  ; preds = %9800, %9794
   %9813 = load i64, ptr %9795, align 8, !tbaa !85
@@ -27372,7 +27356,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235: ; preds = %9706, %
   %9821 = icmp ne i64 %9820, 0
   %9822 = zext i1 %9821 to i32
   %9823 = add i32 %9817, %9822
-  store i32 %9823, ptr %13, align 8, !tbaa !167
+  store i32 %9823, ptr %13, align 8, !tbaa !166
   %.not45.i12875432 = icmp samesign ult i32 %9776, 64
   br i1 %.not45.i12875432, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283.sink.split
 
@@ -27389,7 +27373,7 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283.sink.split: ; preds 
 
 _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283: ; preds = %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283.sink.split, %._crit_edge5431, %._crit_edge5439, %._crit_edge5448
   %9828 = phi i32 [ %9729, %._crit_edge5431 ], [ %9729, %._crit_edge5439 ], [ %9774, %._crit_edge5448 ], [ %.ph8089, %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283.sink.split ]
-  %9829 = load i32, ptr %13, align 8, !tbaa !167
+  %9829 = load i32, ptr %13, align 8, !tbaa !166
   %9830 = icmp ult i32 %9829, %9828
   br i1 %9830, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1333.thread, label %9831
 
@@ -27418,7 +27402,7 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283: ; preds = %_ZN13duc
 
 9843:                                             ; preds = %9837
   %.not3663 = icmp ugt i64 %9839, %9841
-  br i1 %.not3663, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1333.thread, label %9835, !llvm.loop !171
+  br i1 %.not3663, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1333.thread, label %9835, !llvm.loop !170
 
 _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1333.thread3518: ; preds = %9835
   %9844 = and i64 %.0.i1218.ph, 1
@@ -27625,7 +27609,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit858: ; preds = %9879
   %9909 = load i8, ptr %9908, align 1, !tbaa !75
   %9910 = and i8 %9909, 1
   %.not3616 = icmp eq i8 %9910, 0
-  br i1 %.not3616, label %.backedge4142, label %.preheader4137, !llvm.loop !196
+  br i1 %.not3616, label %.backedge4142, label %.preheader4137, !llvm.loop !195
 
 9911:                                             ; preds = %9902
   br i1 %.not3614, label %9968, label %9912, !prof !22
@@ -27814,7 +27798,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit858: ; preds = %9879
   switch i8 %9977, label %9982 [
     i8 44, label %9978
     i8 125, label %9980
-  ], !prof !175
+  ], !prof !174
 
 9978:                                             ; preds = %.backedge4112
   %9979 = getelementptr inbounds nuw i8, ptr %9976, i64 1
@@ -27844,7 +27828,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit858: ; preds = %9879
   %9992 = load i8, ptr %9991, align 1, !tbaa !75
   %9993 = and i8 %9992, 1
   %.not3805 = icmp eq i8 %9993, 0
-  br i1 %.not3805, label %.backedge4112.backedge, label %.preheader4108, !llvm.loop !197
+  br i1 %.not3805, label %.backedge4112.backedge, label %.preheader4108, !llvm.loop !196
 
 9994:                                             ; preds = %9982
   br i1 %.not3804, label %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit907.thread, label %9995, !prof !22
@@ -27933,7 +27917,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit858: ; preds = %9879
   %10036 = load i8, ptr %10035, align 1, !tbaa !75
   %10037 = and i8 %10036, 1
   %.not3802 = icmp eq i8 %10037, 0
-  br i1 %.not3802, label %.loopexit, label %.lr.ph5807, !llvm.loop !198
+  br i1 %.not3802, label %.loopexit, label %.lr.ph5807, !llvm.loop !197
 
 .loopexit:                                        ; preds = %.lr.ph5807, %.preheader, %10027
   %10038 = phi ptr [ %.promoted5805, %.preheader ], [ %10029, %10027 ], [ %10032, %.lr.ph5807 ]
@@ -27997,11 +27981,11 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread: ; pre
   %10063 = sub i64 %.sink8100, %10062
   %spec.store.select.sroa.sel1644.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1644.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1644.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %10063, ptr %spec.store.select.sroa.sel1644.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8098, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %10063, ptr %spec.store.select.sroa.sel1644.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8098, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1647.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1647.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1647.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.sink8097, ptr %spec.store.select.sroa.sel1647.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.sink8097, ptr %spec.store.select.sroa.sel1647.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not611.i201 = icmp eq ptr %.27.i200, null
   br i1 %.not611.i201, label %_ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %10064
 
@@ -28020,8 +28004,8 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread: ; pre
   %10070 = sub i64 %5185, %10069
   %spec.store.select.sroa.sel1674.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1674.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1674.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %10070, ptr %spec.store.select.sroa.sel1674.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 5, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %10070, ptr %spec.store.select.sroa.sel1674.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 5, ptr %spec.store.select, align 8, !tbaa !147
   br label %10076
 
 10071:                                            ; preds = %10065
@@ -28030,8 +28014,8 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread: ; pre
   %10074 = sub i64 %10072, %10073
   %spec.store.select.sroa.sel1668.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1668.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1668.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %10074, ptr %spec.store.select.sroa.sel1668.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 9, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %10074, ptr %spec.store.select.sroa.sel1668.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 9, ptr %spec.store.select, align 8, !tbaa !147
   %10075 = load ptr, ptr %19, align 8, !tbaa !86
   br label %10076
 
@@ -28039,7 +28023,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread: ; pre
   %.sink8102 = phi ptr [ %10075, %10071 ], [ @.str.57, %10068 ]
   %spec.store.select.sroa.sel1671.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1671.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1671.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.sink8102, ptr %spec.store.select.sroa.sel1671.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.sink8102, ptr %spec.store.select.sroa.sel1671.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not614.i205 = icmp eq ptr %.28.i204, null
   br i1 %.not614.i205, label %_ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %10077
 
@@ -28059,11 +28043,11 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread: ; pre
   %10083 = sub i64 %.sink8106, %10082
   %spec.store.select.sroa.sel1584.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1584.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1584.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %10083, ptr %spec.store.select.sroa.sel1584.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8104, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %10083, ptr %spec.store.select.sroa.sel1584.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8104, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1587.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1587.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1587.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.28.sink8103, ptr %spec.store.select.sroa.sel1587.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.28.sink8103, ptr %spec.store.select.sroa.sel1587.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not623.i170 = icmp eq ptr %.29.i169, null
   br i1 %.not623.i170, label %_ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %10084
 
@@ -28083,11 +28067,11 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread: ; pre
   %10089 = sub i64 %.sink8111, %10088
   %spec.store.select.sroa.sel1596.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1596.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1596.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %10089, ptr %spec.store.select.sroa.sel1596.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8109, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %10089, ptr %spec.store.select.sroa.sel1596.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8109, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1599.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1599.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1599.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.58.sink8108, ptr %spec.store.select.sroa.sel1599.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.58.sink8108, ptr %spec.store.select.sroa.sel1599.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not601.i180 = icmp eq ptr %.30.i179, null
   br i1 %.not601.i180, label %_ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %10090
 
@@ -28107,11 +28091,11 @@ _ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit.thread: ; preds = %9890,
   %10095 = sub i64 %.sink8116, %10094
   %spec.store.select.sroa.sel1656.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1656.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1656.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %10095, ptr %spec.store.select.sroa.sel1656.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8114, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %10095, ptr %spec.store.select.sroa.sel1656.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8114, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1659.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1659.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1659.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.59.sink8113, ptr %spec.store.select.sroa.sel1659.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.59.sink8113, ptr %spec.store.select.sroa.sel1659.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not608.i203 = icmp eq ptr %.31.i202, null
   br i1 %.not608.i203, label %_ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %10096
 
@@ -28131,11 +28115,11 @@ _ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit.thread: ; preds = %9890,
   %10102 = sub i64 %.sink8121, %10101
   %spec.store.select.sroa.sel1620.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1620.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1620.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %10102, ptr %spec.store.select.sroa.sel1620.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8119, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %10102, ptr %spec.store.select.sroa.sel1620.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8119, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1623.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1623.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1623.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.29.sink8118, ptr %spec.store.select.sroa.sel1623.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.29.sink8118, ptr %spec.store.select.sroa.sel1623.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not621.i191 = icmp eq ptr %.32.i190, null
   br i1 %.not621.i191, label %_ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %10103
 
@@ -28155,11 +28139,11 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit907.thread: ; 
   %10108 = sub i64 %.sink8126, %10107
   %spec.store.select.sroa.sel1608.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1608.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1608.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %10108, ptr %spec.store.select.sroa.sel1608.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8124, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %10108, ptr %spec.store.select.sroa.sel1608.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8124, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1611.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1611.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1611.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.60.sink8123, ptr %spec.store.select.sroa.sel1611.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.60.sink8123, ptr %spec.store.select.sroa.sel1611.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not599.i189 = icmp eq ptr %.33.i188, null
   br i1 %.not599.i189, label %_ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %10109
 
@@ -28177,11 +28161,11 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit907.thread: ; 
   %10114 = sub i64 %.sink8131, %10113
   %spec.store.select.sroa.sel1632.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1632.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1632.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 %10114, ptr %spec.store.select.sroa.sel1632.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
-  store i32 %.sink8129, ptr %spec.store.select, align 8, !tbaa !148
+  store i64 %10114, ptr %spec.store.select.sroa.sel1632.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
+  store i32 %.sink8129, ptr %spec.store.select, align 8, !tbaa !147
   %spec.store.select.sroa.sel1635.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1635.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1635.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.61.sink8128, ptr %spec.store.select.sroa.sel1635.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.61.sink8128, ptr %spec.store.select.sroa.sel1635.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   %.not620.i194 = icmp eq ptr %.20.i192, null
   br i1 %.not620.i194, label %_ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit, label %10115
 
@@ -28219,12 +28203,12 @@ _ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
 10120:                                            ; preds = %10118
   %spec.store.select.sroa.sel1458.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1458.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1458.v.sroa.sel.v.sroa.sel.v, i64 16
-  %10121 = load i64, ptr %spec.store.select.sroa.sel1458.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  %10121 = load i64, ptr %spec.store.select.sroa.sel1458.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %10122 = icmp eq i64 %10121, 0
   br i1 %10122, label %10123, label %.thread3531
 
 10123:                                            ; preds = %10120
-  %10124 = load i32, ptr %spec.store.select, align 8, !tbaa !148
+  %10124 = load i32, ptr %spec.store.select, align 8, !tbaa !147
   %.not158 = icmp eq i32 %10124, 2
   br i1 %.not158, label %.thread3531, label %10125
 
@@ -28321,7 +28305,7 @@ _ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
   %.str.31.sink = phi ptr [ @.str.33, %.thread3529.thread.thread.thread ], [ @.str.31, %10132 ], [ @.str.32, %10159 ], [ @.str.32, %10147 ]
   %spec.store.select.sroa.sel1467.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %24, ptr %4
   %spec.store.select.sroa.sel1467.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel1467.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr %.str.31.sink, ptr %spec.store.select.sroa.sel1467.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
+  store ptr %.str.31.sink, ptr %spec.store.select.sroa.sel1467.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
   br label %.thread3531
 
 .thread3531:                                      ; preds = %.thread3531.sink.split, %10151, %10138, %.thread3529, %10139, %10143, %10147, %10164, %10163, %.thread3529.thread.thread, %10123, %10120
@@ -28369,7 +28353,7 @@ define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL24skip_spaces_and_
 ._crit_edge:                                      ; preds = %10, %3
   %.1.lcssa = phi ptr [ %4, %3 ], [ %11, %10 ]
   %6 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 2
-  br label %.outer, !llvm.loop !199
+  br label %.outer, !llvm.loop !198
 
 .lr.ph:                                           ; preds = %3, %10
   %.in = phi i16 [ %.sroa.01.0.copyload.i27, %10 ], [ %.sroa.01.0.copyload.i2735, %3 ]
@@ -28386,7 +28370,7 @@ define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL24skip_spaces_and_
   %11 = getelementptr inbounds nuw i8, ptr %.136, i64 1
   %.sroa.01.0.copyload.i27 = load i16, ptr %11, align 1
   %12 = icmp eq i16 %.sroa.01.0.copyload.i27, 12074
-  br i1 %12, label %._crit_edge, label %.lr.ph, !llvm.loop !200
+  br i1 %12, label %._crit_edge, label %.lr.ph, !llvm.loop !199
 
 13:                                               ; preds = %.backedge
   %14 = getelementptr inbounds nuw i8, ptr %.025, i64 2
@@ -28401,7 +28385,7 @@ define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL24skip_spaces_and_
   %20 = and i8 %19, 64
   %.not = icmp eq i8 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  br i1 %.not, label %15, label %.backedge.backedge, !llvm.loop !201
+  br i1 %.not, label %15, label %.backedge.backedge, !llvm.loop !200
 
 22:                                               ; preds = %.backedge
   %23 = and i16 %.sroa.01.0.copyload.i, 255
@@ -28421,7 +28405,7 @@ define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL24skip_spaces_and_
   %31 = load i8, ptr %30, align 1, !tbaa !75
   %32 = and i8 %31, 1
   %.not30 = icmp eq i8 %32, 0
-  br i1 %.not30, label %.backedge.backedge, label %.preheader, !llvm.loop !202
+  br i1 %.not30, label %.backedge.backedge, label %.preheader, !llvm.loop !201
 
 33:                                               ; preds = %22
   store ptr %.025, ptr %0, align 8, !tbaa !86
@@ -28470,11 +28454,11 @@ define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL16read_root_singleEPhS0_S
 
 26:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #31
-  store i32 0, ptr %7, align 4, !tbaa !153
+  store i32 0, ptr %7, align 4, !tbaa !152
   %27 = and i32 %4, 128
   %.not631 = icmp eq i32 %27, 0
   %or.cond688 = and i1 %.not631, %20
-  br i1 %or.cond688, label %28, label %.critedge689.i, !prof !154
+  br i1 %or.cond688, label %28, label %.critedge689.i, !prof !153
 
 28:                                               ; preds = %26
   %29 = call fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef %4, ptr noundef nonnull %17, ptr noundef nonnull %11)
@@ -28701,7 +28685,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   %118 = load i8, ptr %.4, align 1, !tbaa !75
   %119 = icmp eq i8 %118, 48
   %120 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  br i1 %119, label %.preheader714, label %121, !prof !3, !llvm.loop !155
+  br i1 %119, label %.preheader714, label %121, !prof !3, !llvm.loop !154
 
 121:                                              ; preds = %.preheader714
   %122 = zext i8 %118 to i64
@@ -28766,7 +28750,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   %155 = load i8, ptr %154, align 1, !tbaa !75
   %156 = and i8 %155, 3
   %.not641 = icmp eq i8 %156, 0
-  br i1 %.not641, label %.loopexit702, label %.preheader701, !llvm.loop !156
+  br i1 %.not641, label %.loopexit702, label %.preheader701, !llvm.loop !155
 
 .loopexit702:                                     ; preds = %.preheader701, %134
   %.2 = phi ptr [ %.1551, %134 ], [ %151, %.preheader701 ]
@@ -29767,7 +29751,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   %743 = load i8, ptr %742, align 1, !tbaa !75
   %744 = and i8 %743, 3
   %.not669 = icmp eq i8 %744, 0
-  br i1 %.not669, label %745, label %738, !llvm.loop !157
+  br i1 %.not669, label %745, label %738, !llvm.loop !156
 
 745:                                              ; preds = %738
   %746 = icmp ugt i8 %737, 52
@@ -29781,7 +29765,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   %751 = icmp eq i8 %750, 0
   %752 = icmp ne i32 %27, 0
   %or.cond = and i1 %752, %751
-  br i1 %or.cond, label %753, label %763, !prof !154
+  br i1 %or.cond, label %753, label %763, !prof !153
 
 753:                                              ; preds = %749
   %754 = load ptr, ptr %12, align 8, !tbaa !86
@@ -29832,7 +29816,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   %777 = and i8 %776, 3
   %.not671 = icmp eq i8 %777, 0
   %778 = getelementptr inbounds nuw i8, ptr %.32, i64 1
-  br i1 %.not671, label %.loopexit713, label %.preheader712, !llvm.loop !158
+  br i1 %.not671, label %.loopexit713, label %.preheader712, !llvm.loop !157
 
 .loopexit713:                                     ; preds = %.preheader712, %763, %745
   %779 = phi i8 [ %743, %763 ], [ %743, %745 ], [ %776, %.preheader712 ]
@@ -29850,7 +29834,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   ]
 
 .critedge.i.backedge:                             ; preds = %.critedge.i, %.critedge.i
-  br label %.critedge.i, !llvm.loop !159
+  br label %.critedge.i, !llvm.loop !158
 
 781:                                              ; preds = %.critedge.i
   %782 = ptrtoint ptr %.21.i to i64
@@ -29938,7 +29922,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   %824 = load i8, ptr %.9, align 1, !tbaa !75
   %825 = icmp eq i8 %824, 48
   %826 = getelementptr inbounds nuw i8, ptr %.9, i64 1
-  br i1 %825, label %.preheader711, label %.preheader710, !llvm.loop !160
+  br i1 %825, label %.preheader711, label %.preheader710, !llvm.loop !159
 
 .preheader710:                                    ; preds = %.preheader711
   %827 = zext i8 %824 to i64
@@ -29963,7 +29947,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   %840 = load i8, ptr %839, align 1, !tbaa !75
   %841 = and i8 %840, 3
   %.not674 = icmp eq i8 %841, 0
-  br i1 %.not674, label %._crit_edge, label %.lr.ph, !llvm.loop !161
+  br i1 %.not674, label %._crit_edge, label %.lr.ph, !llvm.loop !160
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader710
   %.10.lcssa = phi ptr [ %.9, %.preheader710 ], [ %832, %.lr.ph ]
@@ -30098,7 +30082,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   %.3569.i = phi ptr [ %.2568.i, %875 ], [ %.6, %802 ]
   %.3565.i = phi ptr [ %.2564.i, %875 ], [ null, %802 ]
   %storemerge.i = trunc i64 %storemerge.in.i to i32
-  store i32 %storemerge.i, ptr %7, align 4, !tbaa !153
+  store i32 %storemerge.i, ptr %7, align 4, !tbaa !152
   %895 = icmp ult i64 %.22596.i, 9007199254740992
   %896 = add i32 %storemerge.i, 22
   %897 = icmp ult i32 %896, 45
@@ -30114,14 +30098,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   %902 = sub nsw i64 0, %storemerge.in.i
   %903 = and i64 %902, 4294967295
   %904 = getelementptr inbounds nuw [23 x double], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 0, i64 %903
-  %905 = load double, ptr %904, align 8, !tbaa !162
+  %905 = load double, ptr %904, align 8, !tbaa !161
   %906 = fdiv double %899, %905
   br label %912
 
 907:                                              ; preds = %898
   %908 = and i64 %storemerge.in.i, 2147483647
   %909 = getelementptr inbounds nuw [23 x double], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 0, i64 %908
-  %910 = load double, ptr %909, align 8, !tbaa !162
+  %910 = load double, ptr %909, align 8, !tbaa !161
   %911 = fmul double %910, %899
   br label %912
 
@@ -30265,7 +30249,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
 1003:                                             ; preds = %1001
   %1004 = sub nuw nsw i32 -1074, %998
   %1005 = icmp samesign ult i32 %998, -1134
-  br i1 %1005, label %.thread563, label %.thread566, !prof !203
+  br i1 %1005, label %.thread563, label %.thread566, !prof !202
 
 .thread563:                                       ; preds = %1001, %1003
   %.0606.i565 = phi i32 [ %1004, %1003 ], [ 64, %1001 ]
@@ -30395,7 +30379,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %1025
   call fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPiPhS3_S3_(ptr noundef %8, i64 noundef %.22596.i, ptr noundef %7, ptr noundef %.3565.i, ptr noundef %.3569.i, ptr noundef %.23.i)
   %1076 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %1075, ptr %1076, align 8, !tbaa !85
-  %1077 = load i32, ptr %7, align 4, !tbaa !153
+  %1077 = load i32, ptr %7, align 4, !tbaa !152
   %1078 = icmp sgt i32 %1077, -1
   br i1 %1078, label %.preheader709, label %1130
 
@@ -30428,7 +30412,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %1025
 1085:                                             ; preds = %.lr.ph795
   %indvars.iv.next1067 = add nuw nsw i64 %indvars.iv1066, 1
   %exitcond1070.not = icmp eq i64 %indvars.iv.next1067, %wide.trip.count1069
-  br i1 %exitcond1070.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256, label %.lr.ph795, !llvm.loop !164
+  br i1 %exitcond1070.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256, label %.lr.ph795, !llvm.loop !163
 
 ._crit_edge796.loopexit:                          ; preds = %.lr.ph795
   %1086 = trunc nuw i64 %indvars.iv1066 to i32
@@ -30459,7 +30443,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %1025
   store i64 %1097, ptr %1089, align 8, !tbaa !85
   %indvars.iv.next1072 = add nuw nsw i64 %indvars.iv1071, 1
   %exitcond1075.not = icmp eq i64 %indvars.iv.next1072, %wide.trip.count1074
-  br i1 %exitcond1075.not, label %._crit_edge804, label %.lr.ph803, !llvm.loop !165
+  br i1 %exitcond1075.not, label %._crit_edge804, label %.lr.ph803, !llvm.loop !164
 
 ._crit_edge804:                                   ; preds = %.lr.ph803
   %.not19.i254 = icmp eq i64 %1096, 0
@@ -30476,7 +30460,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1085, %._c
   %1102 = phi i32 [ %1082, %._crit_edge804 ], [ %1099, %1098 ], [ %1082, %._crit_edge796 ], [ %1082, %1085 ]
   %1103 = add nsw i32 %.0.i221808, -19
   %1104 = icmp sgt i32 %.0.i221808, 37
-  br i1 %1104, label %1081, label %._crit_edge810, !llvm.loop !166
+  br i1 %1104, label %1081, label %._crit_edge810, !llvm.loop !165
 
 ._crit_edge810:                                   ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256, %.preheader709
   %1105 = phi i32 [ %.promoted806, %.preheader709 ], [ %1102, %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256 ]
@@ -30507,7 +30491,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1085, %._c
 1113:                                             ; preds = %.lr.ph815
   %indvars.iv.next1077 = add nuw nsw i64 %indvars.iv1076, 1
   %exitcond1080.not = icmp eq i64 %indvars.iv.next1077, %wide.trip.count1079
-  br i1 %exitcond1080.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %.lr.ph815, !llvm.loop !164
+  br i1 %exitcond1080.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %.lr.ph815, !llvm.loop !163
 
 ._crit_edge816.loopexit:                          ; preds = %.lr.ph815
   %1114 = trunc nuw i64 %indvars.iv1076 to i32
@@ -30539,7 +30523,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1085, %._c
   store i64 %1127, ptr %1119, align 8, !tbaa !85
   %indvars.iv.next1082 = add nuw nsw i64 %indvars.iv1081, 1
   %exitcond1085.not = icmp eq i64 %indvars.iv.next1082, %wide.trip.count1084
-  br i1 %exitcond1085.not, label %._crit_edge824, label %1118, !llvm.loop !165
+  br i1 %exitcond1085.not, label %._crit_edge824, label %1118, !llvm.loop !164
 
 ._crit_edge824:                                   ; preds = %1118
   %.not19.i260 = icmp eq i64 %1126, 0
@@ -30547,7 +30531,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1085, %._c
 
 1128:                                             ; preds = %._crit_edge824
   %1129 = add i32 %1105, 1
-  store i32 %1129, ptr %8, align 8, !tbaa !167
+  store i32 %1129, ptr %8, align 8, !tbaa !166
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit.sink.split
 
 1130:                                             ; preds = %1068
@@ -30582,7 +30566,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1085, %._c
 1139:                                             ; preds = %.lr.ph762
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit, label %.lr.ph762, !llvm.loop !164
+  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit, label %.lr.ph762, !llvm.loop !163
 
 ._crit_edge763.loopexit:                          ; preds = %.lr.ph762
   %1140 = trunc nuw i64 %indvars.iv to i32
@@ -30613,7 +30597,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1085, %._c
   store i64 %1151, ptr %1143, align 8, !tbaa !85
   %indvars.iv.next1052 = add nuw nsw i64 %indvars.iv1051, 1
   %exitcond1055.not = icmp eq i64 %indvars.iv.next1052, %wide.trip.count1054
-  br i1 %exitcond1055.not, label %._crit_edge771, label %.lr.ph770, !llvm.loop !165
+  br i1 %exitcond1055.not, label %._crit_edge771, label %.lr.ph770, !llvm.loop !164
 
 ._crit_edge771:                                   ; preds = %.lr.ph770
   %.not19.i = icmp eq i64 %1150, 0
@@ -30630,7 +30614,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1139, %._crit
   %1156 = phi i32 [ %1136, %._crit_edge771 ], [ %1153, %1152 ], [ %1136, %._crit_edge763 ], [ %1136, %1139 ]
   %1157 = add nsw i32 %.0.i223774, -19
   %1158 = icmp sgt i32 %.0.i223774, 37
-  br i1 %1158, label %.lr.ph776, label %._crit_edge777, !llvm.loop !166
+  br i1 %1158, label %.lr.ph776, label %._crit_edge777, !llvm.loop !165
 
 ._crit_edge777:                                   ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit
   store i32 %1156, ptr %9, align 8
@@ -30660,7 +30644,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1139, %._crit
 1167:                                             ; preds = %.lr.ph782
   %indvars.iv.next1057 = add nuw nsw i64 %indvars.iv1056, 1
   %exitcond1060.not = icmp eq i64 %indvars.iv.next1057, %wide.trip.count1059
-  br i1 %exitcond1060.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %.lr.ph782, !llvm.loop !164
+  br i1 %exitcond1060.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %.lr.ph782, !llvm.loop !163
 
 ._crit_edge783.loopexit:                          ; preds = %.lr.ph782
   %1168 = trunc nuw i64 %indvars.iv1056 to i32
@@ -30694,7 +30678,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1139, %._crit
   store i64 %1183, ptr %1175, align 8, !tbaa !85
   %indvars.iv.next1062 = add nuw nsw i64 %indvars.iv1061, 1
   %exitcond1065.not = icmp eq i64 %indvars.iv.next1062, %wide.trip.count1064
-  br i1 %exitcond1065.not, label %._crit_edge791, label %1174, !llvm.loop !165
+  br i1 %exitcond1065.not, label %._crit_edge791, label %1174, !llvm.loop !164
 
 ._crit_edge791:                                   ; preds = %1174
   %.not19.i248 = icmp eq i64 %1182, 0
@@ -30746,11 +30730,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1167, %1113
   %1205 = getelementptr inbounds nuw [64 x i64], ptr %1076, i64 0, i64 %1204
   store i64 %1201, ptr %1205, align 8, !tbaa !85
   %.not46.i.wide = icmp eq i64 %1199, 0
-  br i1 %.not46.i.wide, label %.lr.ph859.preheader, label %1198, !llvm.loop !169
+  br i1 %.not46.i.wide, label %.lr.ph859.preheader, label %1198, !llvm.loop !168
 
 .lr.ph859.preheader:                              ; preds = %1198, %.preheader704
   %1206 = add i32 %1190, %1194
-  store i32 %1206, ptr %9, align 8, !tbaa !167
+  store i32 %1206, ptr %9, align 8, !tbaa !166
   br label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split
 
 1207:                                             ; preds = %1192
@@ -30782,7 +30766,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1167, %1113
   %1224 = getelementptr inbounds nuw [64 x i64], ptr %1076, i64 0, i64 %1223
   store i64 %1220, ptr %1224, align 8, !tbaa !85
   %.not.i226.wide = icmp eq i64 %1216, 0
-  br i1 %.not.i226.wide, label %._crit_edge847, label %1212, !llvm.loop !170
+  br i1 %.not.i226.wide, label %._crit_edge847, label %1212, !llvm.loop !169
 
 ._crit_edge847:                                   ; preds = %1212, %1207
   %1225 = load i64, ptr %1076, align 8, !tbaa !85
@@ -30804,7 +30788,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1167, %1113
   %1237 = sub nsw i32 0, %.sroa.9.0.i
   %1238 = and i32 %1237, 63
   %1239 = lshr i32 %1237, 6
-  %1240 = load i32, ptr %8, align 8, !tbaa !167
+  %1240 = load i32, ptr %8, align 8, !tbaa !166
   %1241 = icmp eq i32 %1238, 0
   br i1 %1241, label %.preheader707, label %1255, !prof !3
 
@@ -30829,11 +30813,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1167, %1113
   %1252 = getelementptr inbounds nuw [64 x i64], ptr %1242, i64 0, i64 %1251
   store i64 %1248, ptr %1252, align 8, !tbaa !85
   %.not46.i234.wide = icmp eq i64 %1246, 0
-  br i1 %.not46.i234.wide, label %._crit_edge838, label %1245, !llvm.loop !169
+  br i1 %.not46.i234.wide, label %._crit_edge838, label %1245, !llvm.loop !168
 
 ._crit_edge838:                                   ; preds = %1245, %.preheader707
   %1253 = add i32 %1240, %1239
-  store i32 %1253, ptr %8, align 8, !tbaa !167
+  store i32 %1253, ptr %8, align 8, !tbaa !166
   %.not47.i236839 = icmp samesign ult i32 %1237, 64
   br i1 %.not47.i236839, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %.lr.ph842
 
@@ -30871,7 +30855,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1167, %1113
   %1273 = getelementptr inbounds nuw [64 x i64], ptr %1256, i64 0, i64 %1272
   store i64 %1269, ptr %1273, align 8, !tbaa !85
   %.not.i230.wide = icmp eq i64 %1265, 0
-  br i1 %.not.i230.wide, label %._crit_edge830, label %1261, !llvm.loop !170
+  br i1 %.not.i230.wide, label %._crit_edge830, label %1261, !llvm.loop !169
 
 ._crit_edge830:                                   ; preds = %1261, %1255
   %1274 = load i64, ptr %1256, align 8, !tbaa !85
@@ -30886,7 +30870,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1167, %1113
   %1282 = icmp ne i64 %1281, 0
   %1283 = zext i1 %1282 to i32
   %1284 = add i32 %1278, %1283
-  store i32 %1284, ptr %8, align 8, !tbaa !167
+  store i32 %1284, ptr %8, align 8, !tbaa !166
   %.not45.i232831 = icmp samesign ult i32 %1237, 64
   br i1 %.not45.i232831, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split
 
@@ -30903,7 +30887,7 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split: ; preds = %.
 
 _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit: ; preds = %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split, %._crit_edge830, %._crit_edge838, %._crit_edge847
   %1289 = phi i32 [ %1190, %._crit_edge830 ], [ %1190, %._crit_edge838 ], [ %1235, %._crit_edge847 ], [ %.ph1299, %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split ]
-  %1290 = load i32, ptr %8, align 8, !tbaa !167
+  %1290 = load i32, ptr %8, align 8, !tbaa !166
   %1291 = icmp ult i32 %1290, %1289
   br i1 %1291, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread, label %1292
 
@@ -30932,7 +30916,7 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit: ; preds = %_ZN13duckdb_
 
 1304:                                             ; preds = %1298
   %.not677 = icmp ugt i64 %1300, %1302
-  br i1 %.not677, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread, label %1296, !llvm.loop !171
+  br i1 %.not677, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread, label %1296, !llvm.loop !170
 
 _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread576: ; preds = %1296
   %1305 = and i64 %.0.i220.ph, 1
@@ -31028,7 +31012,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1333 = load i8, ptr %1332, align 1, !tbaa !75
   %1334 = and i8 %1333, 12
   %.not598904 = icmp eq i8 %1334, 0
-  br i1 %.not598904, label %.lr.ph907, label %.split.loop.exit888, !prof !150
+  br i1 %.not598904, label %.lr.ph907, label %.split.loop.exit888, !prof !149
 
 .lr.ph907:                                        ; preds = %.backedge700, %1439
   %.1270.i905 = phi ptr [ %1440, %1439 ], [ %.0269.i, %.backedge700 ]
@@ -31189,7 +31173,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1444 = load i8, ptr %1443, align 1, !tbaa !75
   %1445 = and i8 %1444, 12
   %.not598 = icmp eq i8 %1445, 0
-  br i1 %.not598, label %.lr.ph907, label %.split.loop.exit888, !prof !151
+  br i1 %.not598, label %.lr.ph907, label %.split.loop.exit888, !prof !150
 
 .split.loop.exit888.loopexit.split.loop.exit:     ; preds = %1432
   %1446 = getelementptr inbounds nuw i8, ptr %.1270.i905, i64 15
@@ -31295,7 +31279,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %storemerge290.i = load i32, ptr %1476, align 1
   %1477 = and i32 %storemerge290.i, 12632304
   %1478 = icmp eq i32 %1477, 8421600
-  br i1 %1478, label %.lr.ph912, label %.critedge.i149, !llvm.loop !172
+  br i1 %1478, label %.lr.ph912, label %.critedge.i149, !llvm.loop !171
 
 .critedge.i149:                                   ; preds = %1475, %.lr.ph912, %.lr.ph912, %.preheader699
   %.3272.i.lcssa = phi ptr [ %.2271.i, %.preheader699 ], [ %.3272.i910, %.lr.ph912 ], [ %.3272.i910, %.lr.ph912 ], [ %1476, %1475 ]
@@ -31331,7 +31315,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1492 = and i32 %.sroa.0.0.copyload.i178, 30
   %1493 = icmp ne i32 %1492, 0
   %1494 = and i1 %1491, %1493
-  br i1 %1494, label %.lr.ph922, label %.preheader697, !llvm.loop !173
+  br i1 %1494, label %.lr.ph922, label %.preheader697, !llvm.loop !172
 
 .lr.ph929:                                        ; preds = %.preheader697, %1500
   %.5274.i928 = phi ptr [ %1501, %1500 ], [ %.4273.i.lcssa, %.preheader697 ]
@@ -31351,7 +31335,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1504 = and i32 %.sroa.0.0.copyload.i179, 12295
   %.not291.i = icmp eq i32 %1504, 0
   %or.cond.i150 = or i1 %1503, %.not291.i
-  br i1 %or.cond.i150, label %.critedge2.i, label %.lr.ph929, !llvm.loop !174
+  br i1 %or.cond.i150, label %.critedge2.i, label %.lr.ph929, !llvm.loop !173
 
 .critedge2.i:                                     ; preds = %1500, %.lr.ph929, %.preheader697
   %.5274.i.lcssa = phi ptr [ %.4273.i.lcssa, %.preheader697 ], [ %.5274.i928, %.lr.ph929 ], [ %1501, %1500 ]
@@ -31363,7 +31347,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   br label %.backedge700
 
 1506:                                             ; preds = %.critedge2.i
-  br i1 %.not595, label %.loopexit1326, label %1507, !prof !139
+  br i1 %.not595, label %.loopexit1326, label %1507, !prof !138
 
 1507:                                             ; preds = %1506
   %1508 = getelementptr inbounds nuw i8, ptr %.5274.i.lcssa, i64 1
@@ -31376,7 +31360,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   switch i8 %1509, label %1680 [
     i8 92, label %1510
     i8 34, label %1672
-  ], !prof !175
+  ], !prof !174
 
 1510:                                             ; preds = %.preheader696
   %1511 = getelementptr inbounds nuw i8, ptr %.7276.i, i64 1
@@ -31983,7 +31967,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1849 = and i32 %storemerge.i156, 12632304
   %1850 = icmp eq i32 %1849, 8421600
   %1851 = trunc i32 %storemerge.i156 to i16
-  br i1 %1850, label %.lr.ph937, label %.critedge4.i, !llvm.loop !176
+  br i1 %1850, label %.lr.ph937, label %.critedge4.i, !llvm.loop !175
 
 .critedge4.i:                                     ; preds = %1846, %.lr.ph937, %.lr.ph937, %.preheader694
   %.0.copyload.i1901121 = phi i16 [ %1844, %.preheader694 ], [ %.0.copyload.i1901123, %.lr.ph937 ], [ %.0.copyload.i1901123, %.lr.ph937 ], [ %1851, %1846 ]
@@ -32040,7 +32024,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1872 = and i32 %.sroa.0.0.copyload.i174, 30
   %1873 = icmp ne i32 %1872, 0
   %1874 = and i1 %1871, %1873
-  br i1 %1874, label %.lr.ph953, label %.preheader692.loopexit, !llvm.loop !177
+  br i1 %1874, label %.lr.ph953, label %.preheader692.loopexit, !llvm.loop !176
 
 .lr.ph967:                                        ; preds = %.lr.ph1526
   %1875 = and i32 %.sroa.0.0.copyload.i175, 4
@@ -32048,7 +32032,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1877 = and i32 %.sroa.0.0.copyload.i175, 12291
   %1878 = icmp eq i32 %1877, 0
   %1879 = or i1 %1876, %1878
-  br i1 %1879, label %.lr.ph1526, label %.critedge6.i.loopexit, !llvm.loop !178
+  br i1 %1879, label %.lr.ph1526, label %.critedge6.i.loopexit, !llvm.loop !177
 
 .lr.ph1526:                                       ; preds = %.lr.ph967.preheader, %.lr.ph967
   %.14.i1619631525 = phi ptr [ %1881, %.lr.ph967 ], [ %.13.i159.lcssa, %.lr.ph967.preheader ]
@@ -32063,11 +32047,11 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1884 = and i32 %.sroa.0.0.copyload.i175, 12295
   %.not289.i = icmp eq i32 %1884, 0
   %or.cond292.i = or i1 %.not289.i, %1883
-  br i1 %or.cond292.i, label %..critedge6.i.loopexit_crit_edge, label %.lr.ph967, !llvm.loop !178
+  br i1 %or.cond292.i, label %..critedge6.i.loopexit_crit_edge, label %.lr.ph967, !llvm.loop !177
 
 ..critedge6.i.loopexit_crit_edge:                 ; preds = %.lr.ph1526
   %1885 = trunc i32 %.sroa.0.0.copyload.i175 to i16
-  br label %.critedge6.i, !llvm.loop !178
+  br label %.critedge6.i, !llvm.loop !177
 
 .critedge6.i.loopexit:                            ; preds = %.lr.ph967
   %1886 = trunc i32 %.sroa.0.0.copyload.i175 to i16
@@ -32357,7 +32341,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1987 = and i8 %1986, 1
   %.not686 = icmp eq i8 %1987, 0
   %1988 = getelementptr inbounds nuw i8, ptr %1982, i64 1
-  br i1 %.not686, label %.loopexit, label %.preheader, !llvm.loop !204
+  br i1 %.not686, label %.loopexit, label %.preheader, !llvm.loop !203
 
 .loopexit:                                        ; preds = %.preheader
   store ptr %1982, ptr %10, align 8
@@ -32410,10 +32394,10 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %2011 = ptrtoint ptr %. to i64
   %2012 = sub i64 %2011, %2010
   %2013 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %2012, ptr %2013, align 8, !tbaa !145
-  store i32 %.1316, ptr %5, align 8, !tbaa !148
+  store i64 %2012, ptr %2013, align 8, !tbaa !144
+  store i32 %.1316, ptr %5, align 8, !tbaa !147
   %2014 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.str.57., ptr %2014, align 8, !tbaa !147
+  store ptr %.str.57., ptr %2014, align 8, !tbaa !146
   %2015 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %2016 = load ptr, ptr %2015, align 8, !tbaa !20
   %2017 = load ptr, ptr %14, align 8, !tbaa !21
@@ -32439,10 +32423,10 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %.sink1104 = select i1 %2019, i32 5, i32 9
   %.sink1103 = select i1 %2019, ptr @.str.57, ptr %2026
   %2027 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.sink1105, ptr %2027, align 8, !tbaa !145
-  store i32 %.sink1104, ptr %5, align 8, !tbaa !148
+  store i64 %.sink1105, ptr %2027, align 8, !tbaa !144
+  store i32 %.sink1104, ptr %5, align 8, !tbaa !147
   %2028 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.sink1103, ptr %2028, align 8, !tbaa !147
+  store ptr %.sink1103, ptr %2028, align 8, !tbaa !146
   %2029 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %2030 = load ptr, ptr %2029, align 8, !tbaa !20
   %2031 = load ptr, ptr %14, align 8, !tbaa !21
@@ -32459,17 +32443,17 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit: ; preds = %1
 2037:                                             ; preds = %2032
   %2038 = ptrtoint ptr %2 to i64
   %2039 = sub i64 %2038, %2034
-  store i64 %2039, ptr %2035, align 8, !tbaa !145
-  store i32 5, ptr %5, align 8, !tbaa !148
-  store ptr @.str.57, ptr %2036, align 8, !tbaa !147
+  store i64 %2039, ptr %2035, align 8, !tbaa !144
+  store i32 5, ptr %5, align 8, !tbaa !147
+  store ptr @.str.57, ptr %2036, align 8, !tbaa !146
   br label %2079
 
 2040:                                             ; preds = %2032
   %2041 = ptrtoint ptr %1 to i64
   %2042 = sub i64 %2041, %2034
-  store i64 %2042, ptr %2035, align 8, !tbaa !145
-  store i32 2, ptr %5, align 8, !tbaa !148
-  store ptr @.str.28, ptr %2036, align 8, !tbaa !147
+  store i64 %2042, ptr %2035, align 8, !tbaa !144
+  store i32 2, ptr %5, align 8, !tbaa !147
+  store ptr @.str.28, ptr %2036, align 8, !tbaa !146
   br label %2079
 
 _ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit: ; preds = %1905, %1906, %1907, %1892, %1889, %_ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit
@@ -32481,10 +32465,10 @@ _ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit: ; preds = %1905, %1906,
   %2045 = ptrtoint ptr %.1317 to i64
   %2046 = sub i64 %2045, %2044
   %2047 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %2046, ptr %2047, align 8, !tbaa !145
-  store i32 %.1318, ptr %5, align 8, !tbaa !148
+  store i64 %2046, ptr %2047, align 8, !tbaa !144
+  store i32 %.1318, ptr %5, align 8, !tbaa !147
   %2048 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.str.57..str.59, ptr %2048, align 8, !tbaa !147
+  store ptr %.str.57..str.59, ptr %2048, align 8, !tbaa !146
   %2049 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %2050 = load ptr, ptr %2049, align 8, !tbaa !20
   tail call void %2050(ptr noundef %15, ptr noundef nonnull %16)
@@ -32499,10 +32483,10 @@ _ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit: ; preds = %1905, %1906,
   %2054 = ptrtoint ptr %..pre to i64
   %2055 = sub i64 %2054, %2053
   %2056 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %2055, ptr %2056, align 8, !tbaa !145
-  store i32 %.1319, ptr %5, align 8, !tbaa !148
+  store i64 %2055, ptr %2056, align 8, !tbaa !144
+  store i32 %.1319, ptr %5, align 8, !tbaa !147
   %2057 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.str.57..str.29, ptr %2057, align 8, !tbaa !147
+  store ptr %.str.57..str.29, ptr %2057, align 8, !tbaa !146
   %2058 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %2059 = load ptr, ptr %2058, align 8, !tbaa !20
   %2060 = load ptr, ptr %14, align 8, !tbaa !21
@@ -32518,10 +32502,10 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit173: ; preds =
   %2063 = ptrtoint ptr %.1320 to i64
   %2064 = sub i64 %2063, %2062
   %2065 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %2064, ptr %2065, align 8, !tbaa !145
-  store i32 %.1321, ptr %5, align 8, !tbaa !148
+  store i64 %2064, ptr %2065, align 8, !tbaa !144
+  store i32 %.1321, ptr %5, align 8, !tbaa !147
   %2066 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.str.57..str.60, ptr %2066, align 8, !tbaa !147
+  store ptr %.str.57..str.60, ptr %2066, align 8, !tbaa !146
   %2067 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %2068 = load ptr, ptr %2067, align 8, !tbaa !20
   tail call void %2068(ptr noundef %15, ptr noundef nonnull %16)
@@ -32536,10 +32520,10 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit173: ; preds =
   %2072 = ptrtoint ptr %.1322 to i64
   %2073 = sub i64 %2072, %2071
   %2074 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %2073, ptr %2074, align 8, !tbaa !145
-  store i32 %.1323, ptr %5, align 8, !tbaa !148
+  store i64 %2073, ptr %2074, align 8, !tbaa !144
+  store i32 %.1323, ptr %5, align 8, !tbaa !147
   %2075 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.str.57..str.61, ptr %2075, align 8, !tbaa !147
+  store ptr %.str.57..str.61, ptr %2075, align 8, !tbaa !146
   %2076 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %2077 = load ptr, ptr %2076, align 8, !tbaa !20
   %2078 = load ptr, ptr %14, align 8, !tbaa !21
@@ -32565,11 +32549,11 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_fileEPKcjPKNS_10yyjson_alcEP
 6:                                                ; preds = %4
   %spec.store.select.sroa.sel24.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %5, ptr %3
   %spec.store.select.sroa.sel24.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel24.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel24.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel24.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel27.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %5, ptr %3
   %spec.store.select.sroa.sel27.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel27.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.34, ptr %spec.store.select.sroa.sel27.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 1, ptr %spec.store.select, align 8, !tbaa !148
+  store ptr @.str.34, ptr %spec.store.select.sroa.sel27.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 1, ptr %spec.store.select, align 8, !tbaa !147
   br label %13
 
 7:                                                ; preds = %4
@@ -32580,11 +32564,11 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_fileEPKcjPKNS_10yyjson_alcEP
 9:                                                ; preds = %7
   %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %5, ptr %3
   %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel21.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %5, ptr %3
   %spec.store.select.sroa.sel21.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel21.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.35, ptr %spec.store.select.sroa.sel21.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 12, ptr %spec.store.select, align 8, !tbaa !148
+  store ptr @.str.35, ptr %spec.store.select.sroa.sel21.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 12, ptr %spec.store.select, align 8, !tbaa !147
   br label %13
 
 10:                                               ; preds = %7
@@ -32615,11 +32599,11 @@ define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_
 8:                                                ; preds = %4
   %spec.store.select.sroa.sel154.v.sroa.sel.v.sroa.sel.v = select i1 %.not111, ptr %5, ptr %3
   %spec.store.select.sroa.sel154.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel154.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel154.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel154.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel157.v.sroa.sel.v.sroa.sel.v = select i1 %.not111, ptr %5, ptr %3
   %spec.store.select.sroa.sel157.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel157.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.36, ptr %spec.store.select.sroa.sel157.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 1, ptr %spec.store.select, align 8, !tbaa !148
+  store ptr @.str.36, ptr %spec.store.select.sroa.sel157.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 1, ptr %spec.store.select, align 8, !tbaa !147
   br label %.thread
 
 9:                                                ; preds = %4
@@ -32668,11 +32652,11 @@ define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_
 33:                                               ; preds = %26
   %spec.store.select.sroa.sel148.v.sroa.sel.v.sroa.sel.v = select i1 %.not111, ptr %5, ptr %3
   %spec.store.select.sroa.sel148.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel148.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel148.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel148.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel151.v.sroa.sel.v.sroa.sel.v = select i1 %.not111, ptr %5, ptr %3
   %spec.store.select.sroa.sel151.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel151.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.37, ptr %spec.store.select.sroa.sel151.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 2, ptr %spec.store.select, align 8, !tbaa !148
+  store ptr @.str.37, ptr %spec.store.select.sroa.sel151.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 2, ptr %spec.store.select, align 8, !tbaa !147
   br label %.thread
 
 34:                                               ; preds = %26
@@ -32683,11 +32667,11 @@ define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_
 36:                                               ; preds = %34
   %spec.store.select.sroa.sel142.v.sroa.sel.v.sroa.sel.v = select i1 %.not111, ptr %5, ptr %3
   %spec.store.select.sroa.sel142.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel142.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel142.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel142.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel145.v.sroa.sel.v.sroa.sel.v = select i1 %.not111, ptr %5, ptr %3
   %spec.store.select.sroa.sel145.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel145.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.38, ptr %spec.store.select.sroa.sel145.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 13, ptr %spec.store.select, align 8, !tbaa !148
+  store ptr @.str.38, ptr %spec.store.select.sroa.sel145.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 13, ptr %spec.store.select, align 8, !tbaa !147
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !20
   tail call void %38(ptr noundef %30, ptr noundef nonnull %31)
@@ -32696,11 +32680,11 @@ define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_
 39:                                               ; preds = %59
   %spec.store.select.sroa.sel136.v.sroa.sel.v.sroa.sel.v = select i1 %.not111, ptr %5, ptr %3
   %spec.store.select.sroa.sel136.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel136.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel136.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel136.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel139.v.sroa.sel.v.sroa.sel.v = select i1 %.not111, ptr %5, ptr %3
   %spec.store.select.sroa.sel139.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel139.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.37, ptr %spec.store.select.sroa.sel139.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 2, ptr %spec.store.select, align 8, !tbaa !148
+  store ptr @.str.37, ptr %spec.store.select.sroa.sel139.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 2, ptr %spec.store.select, align 8, !tbaa !147
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !20
   tail call void %41(ptr noundef %24, ptr noundef nonnull %.3)
@@ -32723,11 +32707,11 @@ define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_
 46:                                               ; preds = %44
   %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not111, ptr %5, ptr %3
   %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel127.v.sroa.sel.v.sroa.sel.v = select i1 %.not111, ptr %5, ptr %3
   %spec.store.select.sroa.sel127.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel127.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.37, ptr %spec.store.select.sroa.sel127.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 2, ptr %spec.store.select, align 8, !tbaa !148
+  store ptr @.str.37, ptr %spec.store.select.sroa.sel127.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 2, ptr %spec.store.select, align 8, !tbaa !147
   br label %.thread
 
 47:                                               ; preds = %42
@@ -32738,11 +32722,11 @@ define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_
 49:                                               ; preds = %47
   %spec.store.select.sroa.sel130.v.sroa.sel.v.sroa.sel.v = select i1 %.not111, ptr %5, ptr %3
   %spec.store.select.sroa.sel130.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel130.v.sroa.sel.v.sroa.sel.v, i64 16
-  store i64 0, ptr %spec.store.select.sroa.sel130.v.sroa.sel.v.sroa.sel, align 8, !tbaa !145
+  store i64 0, ptr %spec.store.select.sroa.sel130.v.sroa.sel.v.sroa.sel, align 8, !tbaa !144
   %spec.store.select.sroa.sel133.v.sroa.sel.v.sroa.sel.v = select i1 %.not111, ptr %5, ptr %3
   %spec.store.select.sroa.sel133.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel133.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.37, ptr %spec.store.select.sroa.sel133.v.sroa.sel.v.sroa.sel, align 8, !tbaa !147
-  store i32 2, ptr %spec.store.select, align 8, !tbaa !148
+  store ptr @.str.37, ptr %spec.store.select.sroa.sel133.v.sroa.sel.v.sroa.sel, align 8, !tbaa !146
+  store i32 2, ptr %spec.store.select, align 8, !tbaa !147
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !20
   tail call void %51(ptr noundef %24, ptr noundef nonnull %.198166)
@@ -32764,7 +32748,7 @@ define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_
   %spec.select122 = tail call i64 @llvm.umin.i64(i64 %60, i64 536870912)
   %61 = add i64 %spec.select122, %43
   %62 = icmp ult i64 %61, %43
-  br i1 %62, label %39, label %42, !llvm.loop !205
+  br i1 %62, label %39, label %42, !llvm.loop !204
 
 .loopexit:                                        ; preds = %52, %34
   %.3102 = phi i64 [ %spec.select123, %34 ], [ %58, %52 ]
@@ -32827,10 +32811,10 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
 
 .cont.cont.else:                                  ; preds = %13
   %.sroa.gep84 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %.sroa.gep84, align 8, !tbaa !145
+  store i64 0, ptr %.sroa.gep84, align 8, !tbaa !144
   %.sroa.gep87 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @.str.26, ptr %.sroa.gep87, align 8, !tbaa !147
-  store i32 1, ptr %4, align 8, !tbaa !148
+  store ptr @.str.26, ptr %.sroa.gep87, align 8, !tbaa !146
+  store i32 1, ptr %4, align 8, !tbaa !147
   br label %.cont.cont.cont
 
 14:                                               ; preds = %5
@@ -32842,10 +32826,10 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
 
 .cont90.cont.else:                                ; preds = %15
   %.sroa.gep78 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %.sroa.gep78, align 8, !tbaa !145
+  store i64 0, ptr %.sroa.gep78, align 8, !tbaa !144
   %.sroa.gep81 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @.str.39, ptr %.sroa.gep81, align 8, !tbaa !147
-  store i32 1, ptr %4, align 8, !tbaa !148
+  store ptr @.str.39, ptr %.sroa.gep81, align 8, !tbaa !146
+  store i32 1, ptr %4, align 8, !tbaa !147
   br label %.cont.cont.cont
 
 16:                                               ; preds = %14
@@ -32853,11 +32837,11 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   %.not27 = icmp ne i32 %17, 0
   store ptr null, ptr %10, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #31
-  store i32 0, ptr %6, align 4, !tbaa !153
+  store i32 0, ptr %6, align 4, !tbaa !152
   %18 = and i32 %2, 128
   %.not307 = icmp eq i32 %18, 0
   %or.cond360 = and i1 %.not27, %.not307
-  br i1 %or.cond360, label %19, label %.critedge689.i, !prof !154
+  br i1 %or.cond360, label %19, label %.critedge689.i, !prof !153
 
 19:                                               ; preds = %16
   %20 = call fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %11)
@@ -33065,7 +33049,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %103 = load i8, ptr %.4, align 1, !tbaa !75
   %104 = icmp eq i8 %103, 48
   %105 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  br i1 %104, label %.preheader375, label %106, !prof !3, !llvm.loop !155
+  br i1 %104, label %.preheader375, label %106, !prof !3, !llvm.loop !154
 
 106:                                              ; preds = %.preheader375
   %107 = zext i8 %103 to i64
@@ -33128,7 +33112,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %140 = load i8, ptr %139, align 1, !tbaa !75
   %141 = and i8 %140, 3
   %.not317 = icmp eq i8 %141, 0
-  br i1 %.not317, label %.loopexit, label %.preheader, !llvm.loop !156
+  br i1 %.not317, label %.loopexit, label %.preheader, !llvm.loop !155
 
 .loopexit:                                        ; preds = %.preheader, %119
   %.2 = phi ptr [ %.1, %119 ], [ %136, %.preheader ]
@@ -34108,7 +34092,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %722 = load i8, ptr %721, align 1, !tbaa !75
   %723 = and i8 %722, 3
   %.not345 = icmp eq i8 %723, 0
-  br i1 %.not345, label %724, label %717, !llvm.loop !157
+  br i1 %.not345, label %724, label %717, !llvm.loop !156
 
 724:                                              ; preds = %717
   %725 = icmp ugt i8 %716, 52
@@ -34122,7 +34106,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %730 = icmp eq i8 %729, 0
   %731 = icmp ne i32 %18, 0
   %or.cond = and i1 %731, %730
-  br i1 %or.cond, label %732, label %738, !prof !154
+  br i1 %or.cond, label %732, label %738, !prof !153
 
 732:                                              ; preds = %728
   %733 = ptrtoint ptr %718 to i64
@@ -34161,7 +34145,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %752 = and i8 %751, 3
   %.not347 = icmp eq i8 %752, 0
   %753 = getelementptr inbounds nuw i8, ptr %.32, i64 1
-  br i1 %.not347, label %.loopexit374, label %.preheader373, !llvm.loop !158
+  br i1 %.not347, label %.loopexit374, label %.preheader373, !llvm.loop !157
 
 .loopexit374:                                     ; preds = %.preheader373, %738, %724
   %754 = phi i8 [ %722, %738 ], [ %722, %724 ], [ %751, %.preheader373 ]
@@ -34179,7 +34163,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   ]
 
 .critedge.i.backedge:                             ; preds = %.critedge.i, %.critedge.i
-  br label %.critedge.i, !llvm.loop !159
+  br label %.critedge.i, !llvm.loop !158
 
 756:                                              ; preds = %.critedge.i
   %757 = ptrtoint ptr %.21.i to i64
@@ -34265,7 +34249,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %799 = load i8, ptr %.9, align 1, !tbaa !75
   %800 = icmp eq i8 %799, 48
   %801 = getelementptr inbounds nuw i8, ptr %.9, i64 1
-  br i1 %800, label %.preheader372, label %.preheader371, !llvm.loop !160
+  br i1 %800, label %.preheader372, label %.preheader371, !llvm.loop !159
 
 .preheader371:                                    ; preds = %.preheader372
   %802 = zext i8 %799 to i64
@@ -34290,7 +34274,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %815 = load i8, ptr %814, align 1, !tbaa !75
   %816 = and i8 %815, 3
   %.not350 = icmp eq i8 %816, 0
-  br i1 %.not350, label %._crit_edge, label %.lr.ph, !llvm.loop !161
+  br i1 %.not350, label %._crit_edge, label %.lr.ph, !llvm.loop !160
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader371
   %.10.lcssa = phi ptr [ %.9, %.preheader371 ], [ %807, %.lr.ph ]
@@ -34403,7 +34387,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %.3569.i = phi ptr [ %.2568.i, %846 ], [ %.6, %777 ]
   %.3565.i = phi ptr [ %.2564.i, %846 ], [ null, %777 ]
   %storemerge.i = trunc i64 %storemerge.in.i to i32
-  store i32 %storemerge.i, ptr %6, align 4, !tbaa !153
+  store i32 %storemerge.i, ptr %6, align 4, !tbaa !152
   %862 = icmp ult i64 %.22596.i, 9007199254740992
   %863 = add i32 %storemerge.i, 22
   %864 = icmp ult i32 %863, 45
@@ -34419,14 +34403,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %869 = sub nsw i64 0, %storemerge.in.i
   %870 = and i64 %869, 4294967295
   %871 = getelementptr inbounds nuw [23 x double], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 0, i64 %870
-  %872 = load double, ptr %871, align 8, !tbaa !162
+  %872 = load double, ptr %871, align 8, !tbaa !161
   %873 = fdiv double %866, %872
   br label %879
 
 874:                                              ; preds = %865
   %875 = and i64 %storemerge.in.i, 2147483647
   %876 = getelementptr inbounds nuw [23 x double], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 0, i64 %875
-  %877 = load double, ptr %876, align 8, !tbaa !162
+  %877 = load double, ptr %876, align 8, !tbaa !161
   %878 = fmul double %877, %866
   br label %879
 
@@ -34570,7 +34554,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 970:                                              ; preds = %968
   %971 = sub nuw nsw i32 -1074, %965
   %972 = icmp samesign ult i32 %965, -1134
-  br i1 %972, label %.thread, label %.thread284, !prof !206
+  br i1 %972, label %.thread, label %.thread284, !prof !205
 
 .thread:                                          ; preds = %968, %970
   %.0606.i283 = phi i32 [ %971, %970 ], [ 64, %968 ]
@@ -34689,7 +34673,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %992
   call fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPiPhS3_S3_(ptr noundef %7, i64 noundef %.22596.i, ptr noundef %6, ptr noundef %.3565.i, ptr noundef %.3569.i, ptr noundef %.23.i)
   %1039 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %1038, ptr %1039, align 8, !tbaa !85
-  %1040 = load i32, ptr %6, align 4, !tbaa !153
+  %1040 = load i32, ptr %6, align 4, !tbaa !152
   %1041 = icmp sgt i32 %1040, -1
   br i1 %1041, label %.preheader370, label %1093
 
@@ -34722,7 +34706,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %992
 1048:                                             ; preds = %.lr.ph419
   %indvars.iv.next524 = add nuw nsw i64 %indvars.iv523, 1
   %exitcond527.not = icmp eq i64 %indvars.iv.next524, %wide.trip.count526
-  br i1 %exitcond527.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66, label %.lr.ph419, !llvm.loop !164
+  br i1 %exitcond527.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66, label %.lr.ph419, !llvm.loop !163
 
 ._crit_edge420.loopexit:                          ; preds = %.lr.ph419
   %1049 = trunc nuw i64 %indvars.iv523 to i32
@@ -34753,7 +34737,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %992
   store i64 %1060, ptr %1052, align 8, !tbaa !85
   %indvars.iv.next529 = add nuw nsw i64 %indvars.iv528, 1
   %exitcond532.not = icmp eq i64 %indvars.iv.next529, %wide.trip.count531
-  br i1 %exitcond532.not, label %._crit_edge428, label %.lr.ph427, !llvm.loop !165
+  br i1 %exitcond532.not, label %._crit_edge428, label %.lr.ph427, !llvm.loop !164
 
 ._crit_edge428:                                   ; preds = %.lr.ph427
   %.not19.i64 = icmp eq i64 %1059, 0
@@ -34770,7 +34754,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %1048, %._cr
   %1065 = phi i32 [ %1045, %._crit_edge428 ], [ %1062, %1061 ], [ %1045, %._crit_edge420 ], [ %1045, %1048 ]
   %1066 = add nsw i32 %.0.i34432, -19
   %1067 = icmp sgt i32 %.0.i34432, 37
-  br i1 %1067, label %1044, label %._crit_edge434, !llvm.loop !166
+  br i1 %1067, label %1044, label %._crit_edge434, !llvm.loop !165
 
 ._crit_edge434:                                   ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66, %.preheader370
   %1068 = phi i32 [ %.promoted430, %.preheader370 ], [ %1065, %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66 ]
@@ -34801,7 +34785,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %1048, %._cr
 1076:                                             ; preds = %.lr.ph439
   %indvars.iv.next534 = add nuw nsw i64 %indvars.iv533, 1
   %exitcond537.not = icmp eq i64 %indvars.iv.next534, %wide.trip.count536
-  br i1 %exitcond537.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %.lr.ph439, !llvm.loop !164
+  br i1 %exitcond537.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %.lr.ph439, !llvm.loop !163
 
 ._crit_edge440.loopexit:                          ; preds = %.lr.ph439
   %1077 = trunc nuw i64 %indvars.iv533 to i32
@@ -34833,7 +34817,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %1048, %._cr
   store i64 %1090, ptr %1082, align 8, !tbaa !85
   %indvars.iv.next539 = add nuw nsw i64 %indvars.iv538, 1
   %exitcond542.not = icmp eq i64 %indvars.iv.next539, %wide.trip.count541
-  br i1 %exitcond542.not, label %._crit_edge448, label %1081, !llvm.loop !165
+  br i1 %exitcond542.not, label %._crit_edge448, label %1081, !llvm.loop !164
 
 ._crit_edge448:                                   ; preds = %1081
   %.not19.i70 = icmp eq i64 %1089, 0
@@ -34841,7 +34825,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %1048, %._cr
 
 1091:                                             ; preds = %._crit_edge448
   %1092 = add i32 %1068, 1
-  store i32 %1092, ptr %7, align 8, !tbaa !167
+  store i32 %1092, ptr %7, align 8, !tbaa !166
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit.sink.split
 
 1093:                                             ; preds = %1031
@@ -34876,7 +34860,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %1048, %._cr
 1102:                                             ; preds = %.lr.ph386
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit, label %.lr.ph386, !llvm.loop !164
+  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit, label %.lr.ph386, !llvm.loop !163
 
 ._crit_edge387.loopexit:                          ; preds = %.lr.ph386
   %1103 = trunc nuw i64 %indvars.iv to i32
@@ -34907,7 +34891,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %1048, %._cr
   store i64 %1114, ptr %1106, align 8, !tbaa !85
   %indvars.iv.next509 = add nuw nsw i64 %indvars.iv508, 1
   %exitcond512.not = icmp eq i64 %indvars.iv.next509, %wide.trip.count511
-  br i1 %exitcond512.not, label %._crit_edge395, label %.lr.ph394, !llvm.loop !165
+  br i1 %exitcond512.not, label %._crit_edge395, label %.lr.ph394, !llvm.loop !164
 
 ._crit_edge395:                                   ; preds = %.lr.ph394
   %.not19.i = icmp eq i64 %1113, 0
@@ -34924,7 +34908,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1102, %._crit
   %1119 = phi i32 [ %1099, %._crit_edge395 ], [ %1116, %1115 ], [ %1099, %._crit_edge387 ], [ %1099, %1102 ]
   %1120 = add nsw i32 %.0.i35398, -19
   %1121 = icmp sgt i32 %.0.i35398, 37
-  br i1 %1121, label %.lr.ph400, label %._crit_edge401, !llvm.loop !166
+  br i1 %1121, label %.lr.ph400, label %._crit_edge401, !llvm.loop !165
 
 ._crit_edge401:                                   ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit
   store i32 %1119, ptr %8, align 8
@@ -34954,7 +34938,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1102, %._crit
 1130:                                             ; preds = %.lr.ph406
   %indvars.iv.next514 = add nuw nsw i64 %indvars.iv513, 1
   %exitcond517.not = icmp eq i64 %indvars.iv.next514, %wide.trip.count516
-  br i1 %exitcond517.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %.lr.ph406, !llvm.loop !164
+  br i1 %exitcond517.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit, label %.lr.ph406, !llvm.loop !163
 
 ._crit_edge407.loopexit:                          ; preds = %.lr.ph406
   %1131 = trunc nuw i64 %indvars.iv513 to i32
@@ -34988,7 +34972,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1102, %._crit
   store i64 %1146, ptr %1138, align 8, !tbaa !85
   %indvars.iv.next519 = add nuw nsw i64 %indvars.iv518, 1
   %exitcond522.not = icmp eq i64 %indvars.iv.next519, %wide.trip.count521
-  br i1 %exitcond522.not, label %._crit_edge415, label %1137, !llvm.loop !165
+  br i1 %exitcond522.not, label %._crit_edge415, label %1137, !llvm.loop !164
 
 ._crit_edge415:                                   ; preds = %1137
   %.not19.i58 = icmp eq i64 %1145, 0
@@ -35040,7 +35024,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1130, %1076
   %1168 = getelementptr inbounds nuw [64 x i64], ptr %1039, i64 0, i64 %1167
   store i64 %1164, ptr %1168, align 8, !tbaa !85
   %.not46.i.wide = icmp eq i64 %1162, 0
-  br i1 %.not46.i.wide, label %.lr.ph483.preheader, label %1161, !llvm.loop !169
+  br i1 %.not46.i.wide, label %.lr.ph483.preheader, label %1161, !llvm.loop !168
 
 .lr.ph483.preheader:                              ; preds = %1161, %.preheader365
   %1169 = add i32 %1153, %1157
@@ -35075,7 +35059,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1130, %1076
   %1187 = getelementptr inbounds nuw [64 x i64], ptr %1039, i64 0, i64 %1186
   store i64 %1183, ptr %1187, align 8, !tbaa !85
   %.not.i38.wide = icmp eq i64 %1179, 0
-  br i1 %.not.i38.wide, label %._crit_edge471, label %1175, !llvm.loop !170
+  br i1 %.not.i38.wide, label %._crit_edge471, label %1175, !llvm.loop !169
 
 ._crit_edge471:                                   ; preds = %1175, %1170
   %1188 = load i64, ptr %1039, align 8, !tbaa !85
@@ -35097,7 +35081,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1130, %1076
   %1200 = sub nsw i32 0, %.sroa.9.0.i
   %1201 = and i32 %1200, 63
   %1202 = lshr i32 %1200, 6
-  %1203 = load i32, ptr %7, align 8, !tbaa !167
+  %1203 = load i32, ptr %7, align 8, !tbaa !166
   %1204 = icmp eq i32 %1201, 0
   br i1 %1204, label %.preheader368, label %1218, !prof !3
 
@@ -35122,11 +35106,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1130, %1076
   %1215 = getelementptr inbounds nuw [64 x i64], ptr %1205, i64 0, i64 %1214
   store i64 %1211, ptr %1215, align 8, !tbaa !85
   %.not46.i45.wide = icmp eq i64 %1209, 0
-  br i1 %.not46.i45.wide, label %._crit_edge462, label %1208, !llvm.loop !169
+  br i1 %.not46.i45.wide, label %._crit_edge462, label %1208, !llvm.loop !168
 
 ._crit_edge462:                                   ; preds = %1208, %.preheader368
   %1216 = add i32 %1203, %1202
-  store i32 %1216, ptr %7, align 8, !tbaa !167
+  store i32 %1216, ptr %7, align 8, !tbaa !166
   %.not47.i47463 = icmp samesign ult i32 %1200, 64
   br i1 %.not47.i47463, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %.lr.ph466
 
@@ -35164,7 +35148,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1130, %1076
   %1236 = getelementptr inbounds nuw [64 x i64], ptr %1219, i64 0, i64 %1235
   store i64 %1232, ptr %1236, align 8, !tbaa !85
   %.not.i41.wide = icmp eq i64 %1228, 0
-  br i1 %.not.i41.wide, label %._crit_edge454, label %1224, !llvm.loop !170
+  br i1 %.not.i41.wide, label %._crit_edge454, label %1224, !llvm.loop !169
 
 ._crit_edge454:                                   ; preds = %1224, %1218
   %1237 = load i64, ptr %1219, align 8, !tbaa !85
@@ -35179,7 +35163,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1130, %1076
   %1245 = icmp ne i64 %1244, 0
   %1246 = zext i1 %1245 to i32
   %1247 = add i32 %1241, %1246
-  store i32 %1247, ptr %7, align 8, !tbaa !167
+  store i32 %1247, ptr %7, align 8, !tbaa !166
   %.not45.i43455 = icmp samesign ult i32 %1200, 64
   br i1 %.not45.i43455, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split
 
@@ -35196,7 +35180,7 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split: ; preds = %.
 
 _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit: ; preds = %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split, %._crit_edge454, %._crit_edge462, %._crit_edge471
   %1252 = phi i32 [ %1153, %._crit_edge454 ], [ %1153, %._crit_edge462 ], [ %1198, %._crit_edge471 ], [ %.ph628, %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split ]
-  %1253 = load i32, ptr %7, align 8, !tbaa !167
+  %1253 = load i32, ptr %7, align 8, !tbaa !166
   %1254 = icmp ult i32 %1253, %1252
   br i1 %1254, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread, label %1255
 
@@ -35225,7 +35209,7 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit: ; preds = %_ZN13duckdb_
 
 1267:                                             ; preds = %1261
   %.not353 = icmp ugt i64 %1263, %1265
-  br i1 %.not353, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread, label %1259, !llvm.loop !171
+  br i1 %.not353, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread, label %1259, !llvm.loop !170
 
 _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread294: ; preds = %1259
   %1268 = and i64 %.0.i33.ph, 1
@@ -35316,11 +35300,11 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1293 = ptrtoint ptr %1291 to i64
   %1294 = sub i64 %1293, %12
   %1295 = select i1 %1292, i64 %1294, i64 0
-  store i64 %1295, ptr %.sroa.gep73, align 8, !tbaa !145
+  store i64 %1295, ptr %.sroa.gep73, align 8, !tbaa !144
   %1296 = load ptr, ptr %11, align 8, !tbaa !86
   %.sroa.gep75 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %1296, ptr %.sroa.gep75, align 8, !tbaa !147
-  store i32 9, ptr %4, align 8, !tbaa !148
+  store ptr %1296, ptr %.sroa.gep75, align 8, !tbaa !146
+  store i32 9, ptr %4, align 8, !tbaa !147
   br label %.cont.cont.cont
 
 .cont.cont.cont:                                  ; preds = %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread, %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread302, %._crit_edge558, %.cont93.cont.else, %1290, %.cont90.cont.else, %15, %.cont.cont.else, %13
@@ -35360,8 +35344,8 @@ define noundef ptr @_ZN13duckdb_yyjson21yyjson_val_write_optsEPKNS_10yyjson_valE
 .cont1327:                                        ; preds = %9, %.else1329
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.40, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 1, ptr %8, align 8, !tbaa !209
+  store ptr @.str.40, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 1, ptr %8, align 8, !tbaa !208
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 10:                                               ; preds = %5
@@ -35608,7 +35592,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %145 = ptrtoint ptr %144 to i64
   %146 = sub i64 %42, %145
   %147 = icmp sgt i64 %146, 15
-  br i1 %147, label %.lr.ph3278, label %.preheader2009, !llvm.loop !210
+  br i1 %147, label %.lr.ph3278, label %.preheader2009, !llvm.loop !209
 
 .preheader2007:                                   ; preds = %171, %.preheader2009
   %.6250.i506.lcssa = phi ptr [ %.1245.i504.lcssa, %.preheader2009 ], [ %174, %171 ]
@@ -35661,7 +35645,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %175 = ptrtoint ptr %174 to i64
   %176 = sub i64 %42, %175
   %177 = icmp sgt i64 %176, 3
-  br i1 %177, label %.lr.ph3284, label %.preheader2007, !llvm.loop !211
+  br i1 %177, label %.lr.ph3284, label %.preheader2007, !llvm.loop !210
 
 .lr.ph3289:                                       ; preds = %.preheader2007, %182
   %.7.i5093288 = phi ptr [ %184, %182 ], [ %.6.i507.lcssa, %.preheader2007 ]
@@ -35678,7 +35662,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %184 = getelementptr inbounds nuw i8, ptr %.7.i5093288, i64 1
   store i8 %178, ptr %.7.i5093288, align 1, !tbaa !75
   %185 = icmp ugt ptr %41, %183
-  br i1 %185, label %.lr.ph3289, label %.preheader2007._crit_edge, !llvm.loop !212
+  br i1 %185, label %.lr.ph3289, label %.preheader2007._crit_edge, !llvm.loop !211
 
 .preheader2007._crit_edge:                        ; preds = %.preheader2007, %182
   %.7.i509.lcssa = phi ptr [ %184, %182 ], [ %.6.i507.lcssa, %.preheader2007 ]
@@ -35912,7 +35896,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %.not306.i551 = icmp eq i32 %282, 0
   %or.cond.i552 = or i1 %281, %.not306.i551
   %283 = trunc i32 %.sroa.0.0.copyload.i339.i550 to i8
-  br i1 %or.cond.i552, label %.thread, label %284, !prof !213
+  br i1 %or.cond.i552, label %.thread, label %284, !prof !212
 
 284:                                              ; preds = %279
   %285 = and i32 %.sroa.0.0.copyload.i339.i550, 4
@@ -36043,7 +36027,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %.not293.i521 = icmp eq i32 %357, 0
   %or.cond331.i522 = or i1 %356, %.not293.i521
   %358 = lshr i32 %.sroa.0.0.copyload.i.i520, 24
-  br i1 %or.cond331.i522, label %.thread1686, label %359, !prof !213
+  br i1 %or.cond331.i522, label %.thread1686, label %359, !prof !212
 
 359:                                              ; preds = %354
   %360 = and i32 %.sroa.0.0.copyload.i.i520, 4
@@ -36312,7 +36296,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %522 = ptrtoint ptr %521 to i64
   %523 = sub i64 %419, %522
   %524 = icmp sgt i64 %523, 15
-  br i1 %524, label %.lr.ph3329, label %.preheader1993, !llvm.loop !210
+  br i1 %524, label %.lr.ph3329, label %.preheader1993, !llvm.loop !209
 
 .preheader1991:                                   ; preds = %548, %.preheader1993
   %.6250.i406.lcssa = phi ptr [ %.1245.i404.lcssa, %.preheader1993 ], [ %551, %548 ]
@@ -36365,7 +36349,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %552 = ptrtoint ptr %551 to i64
   %553 = sub i64 %419, %552
   %554 = icmp sgt i64 %553, 3
-  br i1 %554, label %.lr.ph3335, label %.preheader1991, !llvm.loop !211
+  br i1 %554, label %.lr.ph3335, label %.preheader1991, !llvm.loop !210
 
 .lr.ph3340:                                       ; preds = %.preheader1991, %559
   %.7.i4093339 = phi ptr [ %561, %559 ], [ %.6.i407.lcssa, %.preheader1991 ]
@@ -36382,7 +36366,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %561 = getelementptr inbounds nuw i8, ptr %.7.i4093339, i64 1
   store i8 %555, ptr %.7.i4093339, align 1, !tbaa !75
   %562 = icmp ugt ptr %418, %560
-  br i1 %562, label %.lr.ph3340, label %.preheader1991._crit_edge, !llvm.loop !212
+  br i1 %562, label %.lr.ph3340, label %.preheader1991._crit_edge, !llvm.loop !211
 
 .preheader1991._crit_edge:                        ; preds = %.preheader1991, %559
   %.7.i409.lcssa = phi ptr [ %561, %559 ], [ %.6.i407.lcssa, %.preheader1991 ]
@@ -36616,7 +36600,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %.not306.i451 = icmp eq i32 %659, 0
   %or.cond.i452 = or i1 %658, %.not306.i451
   %660 = trunc i32 %.sroa.0.0.copyload.i339.i450 to i8
-  br i1 %or.cond.i452, label %.thread1702, label %661, !prof !213
+  br i1 %or.cond.i452, label %.thread1702, label %661, !prof !212
 
 661:                                              ; preds = %656
   %662 = and i32 %.sroa.0.0.copyload.i339.i450, 4
@@ -36747,7 +36731,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %.not293.i421 = icmp eq i32 %734, 0
   %or.cond331.i422 = or i1 %733, %.not293.i421
   %735 = lshr i32 %.sroa.0.0.copyload.i.i420, 24
-  br i1 %or.cond331.i422, label %.thread1718, label %736, !prof !213
+  br i1 %or.cond331.i422, label %.thread1718, label %736, !prof !212
 
 736:                                              ; preds = %731
   %737 = and i32 %.sroa.0.0.copyload.i.i420, 4
@@ -36857,7 +36841,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %797 = getelementptr inbounds nuw i8, ptr %.018.i763294, i64 16
   %798 = add nsw i64 %.0.i773295, -16
   %799 = icmp ugt i64 %798, 15
-  br i1 %799, label %.lr.ph3297, label %.preheader2003, !llvm.loop !214
+  br i1 %799, label %.lr.ph3297, label %.preheader2003, !llvm.loop !213
 
 .preheader2002:                                   ; preds = %.lr.ph3304, %.preheader2003
   %.122.i78.lcssa = phi ptr [ %.021.i75.lcssa, %.preheader2003 ], [ %801, %.lr.ph3304 ]
@@ -36876,7 +36860,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %802 = getelementptr inbounds nuw i8, ptr %.119.i793302, i64 4
   %803 = add nsw i64 %.1.i803303, -4
   %804 = icmp ugt i64 %803, 3
-  br i1 %804, label %.lr.ph3304, label %.preheader2002, !llvm.loop !215
+  br i1 %804, label %.lr.ph3304, label %.preheader2002, !llvm.loop !214
 
 .lr.ph3312:                                       ; preds = %.preheader2002, %.lr.ph3312
   %.2.i833311 = phi i64 [ %808, %.lr.ph3312 ], [ %.1.i80.lcssa, %.preheader2002 ]
@@ -36888,7 +36872,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   store i8 %806, ptr %.223.i813309, align 1, !tbaa !75
   %808 = add nsw i64 %.2.i833311, -1
   %.not.i84 = icmp eq i64 %808, 0
-  br i1 %.not.i84, label %_ZN13duckdb_yyjsonL18write_string_noescEPhPKhm.exit85, label %.lr.ph3312, !llvm.loop !216
+  br i1 %.not.i84, label %_ZN13duckdb_yyjsonL18write_string_noescEPhPKhm.exit85, label %.lr.ph3312, !llvm.loop !215
 
 _ZN13duckdb_yyjsonL18write_string_noescEPhPKhm.exit85: ; preds = %.lr.ph3312, %.preheader2002
   %.223.i81.lcssa = phi ptr [ %.122.i78.lcssa, %.preheader2002 ], [ %807, %.lr.ph3312 ]
@@ -37795,7 +37779,7 @@ _ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit908: ; preds = %1270, %
   %1445 = getelementptr inbounds nuw i8, ptr %837, i64 %indvars.iv3857
   store i8 %1444, ptr %1445, align 1, !tbaa !75
   %exitcond3862.not = icmp eq i64 %indvars.iv.next3858, %wide.trip.count3861
-  br i1 %exitcond3862.not, label %._crit_edge3260, label %.lr.ph3259, !llvm.loop !217
+  br i1 %exitcond3862.not, label %._crit_edge3260, label %.lr.ph3259, !llvm.loop !216
 
 ._crit_edge3260:                                  ; preds = %.lr.ph3259
   %1446 = zext nneg i32 %1182 to i64
@@ -38521,7 +38505,7 @@ _ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit977: ; preds = %1933, %1907, 
   %1971 = add nsw i32 %.01664, 1
   %1972 = load i8, ptr %1970, align 1, !tbaa !75
   %1973 = icmp eq i8 %1972, 48
-  br i1 %1973, label %1969, label %1974, !llvm.loop !218
+  br i1 %1973, label %1969, label %1974, !llvm.loop !217
 
 1974:                                             ; preds = %1969
   %1975 = ptrtoint ptr %1970 to i64
@@ -39099,10 +39083,10 @@ _ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit600: ; preds = %.lr.ph3262.pre
   br label %.cont1318
 
 .cont1318:                                        ; preds = %2366, %.else1320
-  store i32 2, ptr %8, align 8, !tbaa !209
+  store i32 2, ptr %8, align 8, !tbaa !208
   %.sroa.sel1336.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1336.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1336.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.28, ptr %.sroa.sel1336.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.28, ptr %.sroa.sel1336.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 default.unreachable:                              ; preds = %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59
@@ -39116,10 +39100,10 @@ default.unreachable:                              ; preds = %_ZN13duckdb_yyjsonL
   br label %.cont1324
 
 .cont1324:                                        ; preds = %2367, %.else1326
-  store i32 3, ptr %8, align 8, !tbaa !209
+  store i32 3, ptr %8, align 8, !tbaa !208
   %.sroa.sel1333.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1333.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1333.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.86, ptr %.sroa.sel1333.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.86, ptr %.sroa.sel1333.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit612.thread1738: ; preds = %827
@@ -39131,10 +39115,10 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit612.thread1738: ; pre
   br label %.cont1315
 
 .cont1315:                                        ; preds = %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit612.thread1738, %.else1317
-  store i32 4, ptr %8, align 8, !tbaa !209
+  store i32 4, ptr %8, align 8, !tbaa !208
   %.sroa.sel1339.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1339.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1339.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.87, ptr %.sroa.sel1339.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.87, ptr %.sroa.sel1339.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 .loopexit:                                        ; preds = %.thread, %.thread1686, %.thread1702, %.thread1718
@@ -39146,10 +39130,10 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit612.thread1738: ; pre
   br label %.cont1312
 
 .cont1312:                                        ; preds = %.loopexit, %.else1314
-  store i32 7, ptr %8, align 8, !tbaa !209
+  store i32 7, ptr %8, align 8, !tbaa !208
   %.sroa.sel1342.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1342.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1342.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.88, ptr %.sroa.sel1342.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.88, ptr %.sroa.sel1342.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   br label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 2368:                                             ; preds = %10
@@ -39309,7 +39293,7 @@ select.unfold1741:                                ; preds = %2441, %select.unfol
   store i32 538976288, ptr %.0.i12743051, align 1
   %2443 = getelementptr inbounds nuw i8, ptr %.0.i12743051, i64 %2378
   %.not.i1275 = icmp eq i64 %2442, 0
-  br i1 %.not.i1275, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276, label %select.unfold1741, !llvm.loop !219
+  br i1 %.not.i1275, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276, label %select.unfold1741, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, %2441
   %.0.i1274.lcssa = phi ptr [ %.1452.i, %2441 ], [ %2443, %select.unfold1741 ]
@@ -39489,7 +39473,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   %2548 = ptrtoint ptr %2547 to i64
   %2549 = sub i64 %2445, %2548
   %2550 = icmp sgt i64 %2549, 15
-  br i1 %2550, label %.lr.ph3070, label %.preheader2070, !llvm.loop !210
+  br i1 %2550, label %.lr.ph3070, label %.preheader2070, !llvm.loop !209
 
 .preheader2068:                                   ; preds = %2574, %.preheader2070
   %.6250.i306.lcssa = phi ptr [ %.1245.i304.lcssa, %.preheader2070 ], [ %2577, %2574 ]
@@ -39542,7 +39526,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   %2578 = ptrtoint ptr %2577 to i64
   %2579 = sub i64 %2445, %2578
   %2580 = icmp sgt i64 %2579, 3
-  br i1 %2580, label %.lr.ph3076, label %.preheader2068, !llvm.loop !211
+  br i1 %2580, label %.lr.ph3076, label %.preheader2068, !llvm.loop !210
 
 .lr.ph3081:                                       ; preds = %.preheader2068, %2585
   %.7.i3093080 = phi ptr [ %2587, %2585 ], [ %.6.i307.lcssa, %.preheader2068 ]
@@ -39559,7 +39543,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   %2587 = getelementptr inbounds nuw i8, ptr %.7.i3093080, i64 1
   store i8 %2581, ptr %.7.i3093080, align 1, !tbaa !75
   %2588 = icmp ugt ptr %2444, %2586
-  br i1 %2588, label %.lr.ph3081, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400, !llvm.loop !212
+  br i1 %2588, label %.lr.ph3081, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400, !llvm.loop !211
 
 .loopexit2072:                                    ; preds = %2455, %2556
   %2589 = phi i8 [ %2552, %2556 ], [ %2451, %2455 ]
@@ -39787,7 +39771,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   %.not306.i351 = icmp eq i32 %2684, 0
   %or.cond.i352 = or i1 %2683, %.not306.i351
   %2685 = trunc i32 %.sroa.0.0.copyload.i339.i350 to i8
-  br i1 %or.cond.i352, label %.thread1742, label %2686, !prof !213
+  br i1 %or.cond.i352, label %.thread1742, label %2686, !prof !212
 
 2686:                                             ; preds = %2681
   %2687 = and i32 %.sroa.0.0.copyload.i339.i350, 4
@@ -39918,7 +39902,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   %.not293.i321 = icmp eq i32 %2759, 0
   %or.cond331.i322 = or i1 %2758, %.not293.i321
   %2760 = lshr i32 %.sroa.0.0.copyload.i.i320, 24
-  br i1 %or.cond331.i322, label %.thread1758, label %2761, !prof !213
+  br i1 %or.cond331.i322, label %.thread1758, label %2761, !prof !212
 
 2761:                                             ; preds = %2756
   %2762 = and i32 %.sroa.0.0.copyload.i.i320, 4
@@ -40182,7 +40166,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   %2922 = ptrtoint ptr %2921 to i64
   %2923 = sub i64 %2819, %2922
   %2924 = icmp sgt i64 %2923, 15
-  br i1 %2924, label %.lr.ph3121, label %.preheader2056, !llvm.loop !210
+  br i1 %2924, label %.lr.ph3121, label %.preheader2056, !llvm.loop !209
 
 .preheader2054:                                   ; preds = %2948, %.preheader2056
   %.6250.i206.lcssa = phi ptr [ %.1245.i204.lcssa, %.preheader2056 ], [ %2951, %2948 ]
@@ -40235,7 +40219,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   %2952 = ptrtoint ptr %2951 to i64
   %2953 = sub i64 %2819, %2952
   %2954 = icmp sgt i64 %2953, 3
-  br i1 %2954, label %.lr.ph3127, label %.preheader2054, !llvm.loop !211
+  br i1 %2954, label %.lr.ph3127, label %.preheader2054, !llvm.loop !210
 
 .lr.ph3132:                                       ; preds = %.preheader2054, %2959
   %.7.i2093131 = phi ptr [ %2961, %2959 ], [ %.6.i207.lcssa, %.preheader2054 ]
@@ -40252,7 +40236,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   %2961 = getelementptr inbounds nuw i8, ptr %.7.i2093131, i64 1
   store i8 %2955, ptr %.7.i2093131, align 1, !tbaa !75
   %2962 = icmp ugt ptr %2818, %2960
-  br i1 %2962, label %.lr.ph3132, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400, !llvm.loop !212
+  br i1 %2962, label %.lr.ph3132, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400, !llvm.loop !211
 
 .loopexit2058:                                    ; preds = %2829, %2930
   %2963 = phi i8 [ %2926, %2930 ], [ %2825, %2829 ]
@@ -40480,7 +40464,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   %.not306.i251 = icmp eq i32 %3058, 0
   %or.cond.i252 = or i1 %3057, %.not306.i251
   %3059 = trunc i32 %.sroa.0.0.copyload.i339.i250 to i8
-  br i1 %or.cond.i252, label %.thread1774, label %3060, !prof !213
+  br i1 %or.cond.i252, label %.thread1774, label %3060, !prof !212
 
 3060:                                             ; preds = %3055
   %3061 = and i32 %.sroa.0.0.copyload.i339.i250, 4
@@ -40611,7 +40595,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   %.not293.i221 = icmp eq i32 %3133, 0
   %or.cond331.i222 = or i1 %3132, %.not293.i221
   %3134 = lshr i32 %.sroa.0.0.copyload.i.i220, 24
-  br i1 %or.cond331.i222, label %.thread1790, label %3135, !prof !213
+  br i1 %or.cond331.i222, label %.thread1790, label %3135, !prof !212
 
 3135:                                             ; preds = %3130
   %3136 = and i32 %.sroa.0.0.copyload.i.i220, 4
@@ -40716,7 +40700,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   %3194 = getelementptr inbounds nuw i8, ptr %.018.i653086, i64 16
   %3195 = add nsw i64 %.0.i663087, -16
   %3196 = icmp ugt i64 %3195, 15
-  br i1 %3196, label %.lr.ph3089, label %.preheader2083, !llvm.loop !214
+  br i1 %3196, label %.lr.ph3089, label %.preheader2083, !llvm.loop !213
 
 .preheader2082:                                   ; preds = %.lr.ph3096, %.preheader2083
   %.122.i67.lcssa = phi ptr [ %.021.i64.lcssa, %.preheader2083 ], [ %3198, %.lr.ph3096 ]
@@ -40735,7 +40719,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   %3199 = getelementptr inbounds nuw i8, ptr %.119.i683094, i64 4
   %3200 = add nsw i64 %.1.i693095, -4
   %3201 = icmp ugt i64 %3200, 3
-  br i1 %3201, label %.lr.ph3096, label %.preheader2082, !llvm.loop !215
+  br i1 %3201, label %.lr.ph3096, label %.preheader2082, !llvm.loop !214
 
 .lr.ph3104:                                       ; preds = %.preheader2082, %.lr.ph3104
   %.2.i723103 = phi i64 [ %3205, %.lr.ph3104 ], [ %.1.i69.lcssa, %.preheader2082 ]
@@ -40747,7 +40731,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1276:  ; preds = %select.unfold1741, 
   store i8 %3203, ptr %.223.i703101, align 1, !tbaa !75
   %3205 = add nsw i64 %.2.i723103, -1
   %.not.i73 = icmp eq i64 %3205, 0
-  br i1 %.not.i73, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400, label %.lr.ph3104, !llvm.loop !216
+  br i1 %.not.i73, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400, label %.lr.ph3104, !llvm.loop !215
 
 _ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit400: ; preds = %.preheader2068, %.lr.ph3104, %.preheader2054, %2585, %2637, %2649, %2959, %3011, %3023, %.preheader2082
   %.7.i309.lcssa.sink5233 = phi ptr [ %.122.i67.lcssa, %.preheader2082 ], [ %.8.i215, %3023 ], [ %.8.i215, %3011 ], [ %2961, %2959 ], [ %.8.i315, %2649 ], [ %.8.i315, %2637 ], [ %2587, %2585 ], [ %.6.i207.lcssa, %.preheader2054 ], [ %3204, %.lr.ph3104 ], [ %.6.i307.lcssa, %.preheader2068 ]
@@ -40812,7 +40796,7 @@ select.unfold1808:                                ; preds = %3235, %select.unfol
   store i32 538976288, ptr %.0.i12823044, align 1
   %3237 = getelementptr inbounds nuw i8, ptr %.0.i12823044, i64 %2378
   %.not.i1283 = icmp eq i64 %3236, 0
-  br i1 %.not.i1283, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1284, label %select.unfold1808, !llvm.loop !219
+  br i1 %.not.i1283, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1284, label %select.unfold1808, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1284:  ; preds = %select.unfold1808, %3235
   %.0.i1282.lcssa = phi ptr [ %.4455.i, %3235 ], [ %3237, %select.unfold1808 ]
@@ -41725,7 +41709,7 @@ _ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit842: ; preds = %3692, %
   %3883 = getelementptr inbounds nuw i8, ptr %3260, i64 %indvars.iv
   store i8 %3882, ptr %3883, align 1, !tbaa !75
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph3046, !llvm.loop !217
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph3046, !llvm.loop !216
 
 ._crit_edge:                                      ; preds = %.lr.ph3046
   %3884 = zext nneg i32 %3604 to i64
@@ -42470,7 +42454,7 @@ _ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit972: ; preds = %4385, %4359, 
   %4423 = add nsw i32 %.01661, 1
   %4424 = load i8, ptr %4422, align 1, !tbaa !75
   %4425 = icmp eq i8 %4424, 48
-  br i1 %4425, label %4421, label %4426, !llvm.loop !218
+  br i1 %4425, label %4421, label %4426, !llvm.loop !217
 
 4426:                                             ; preds = %4421
   %4427 = ptrtoint ptr %4422 to i64
@@ -43037,7 +43021,7 @@ select.unfold1816:                                ; preds = %4825, %select.unfol
   store i32 538976288, ptr %.0.i12593150, align 1
   %4827 = getelementptr inbounds nuw i8, ptr %.0.i12593150, i64 %2378
   %.not.i1260 = icmp eq i64 %4826, 0
-  br i1 %.not.i1260, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit, label %select.unfold1816, !llvm.loop !219
+  br i1 %.not.i1260, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit, label %select.unfold1816, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit:      ; preds = %select.unfold1816, %4825
   %.0.i1259.lcssa = phi ptr [ %.5456.i, %4825 ], [ %4827, %select.unfold1816 ]
@@ -43098,7 +43082,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit548.i:  ; preds = %4835
   %4861 = zext nneg i8 %.01669.ph to i64
   %4862 = shl i64 %.01668, 1
   %4863 = or disjoint i64 %4862, %4861
-  store i64 %4863, ptr %4860, align 8, !tbaa !220
+  store i64 %4863, ptr %4860, align 8, !tbaa !219
   %4864 = zext i1 %4801 to i64
   %4865 = shl nuw nsw i64 %4836, %4864
   %.not.i126331563946 = icmp eq i64 %.0465.i.ph, 0
@@ -43112,7 +43096,7 @@ select.unfold1817:                                ; preds = %4859, %select.unfol
   store i32 538976288, ptr %.0.i12623158, align 1
   %4867 = getelementptr inbounds nuw i8, ptr %.0.i12623158, i64 %2378
   %.not.i1263 = icmp eq i64 %4866, 0
-  br i1 %.not.i1263, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264, label %select.unfold1817, !llvm.loop !219
+  br i1 %.not.i1263, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264, label %select.unfold1817, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1264:  ; preds = %select.unfold1817, %4859
   %.0.i1262.lcssa = phi ptr [ %.6457.i, %4859 ], [ %4867, %select.unfold1817 ]
@@ -43195,7 +43179,7 @@ select.unfold1818:                                ; preds = %4898, %select.unfol
   store i32 538976288, ptr %.0.i12663144, align 1
   %4900 = getelementptr inbounds nuw i8, ptr %.0.i12663144, i64 %2378
   %.not.i1267 = icmp eq i64 %4899, 0
-  br i1 %.not.i1267, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268, label %select.unfold1818, !llvm.loop !219
+  br i1 %.not.i1267, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268, label %select.unfold1818, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1268:  ; preds = %select.unfold1818, %4898
   %.0.i1266.lcssa = phi ptr [ %.7458.i, %4898 ], [ %4900, %select.unfold1818 ]
@@ -43261,7 +43245,7 @@ select.unfold1819:                                ; preds = %4931, %select.unfol
   store i32 538976288, ptr %.0.i12703138, align 1
   %4933 = getelementptr inbounds nuw i8, ptr %.0.i12703138, i64 %2378
   %.not.i1271 = icmp eq i64 %4932, 0
-  br i1 %.not.i1271, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272, label %select.unfold1819, !llvm.loop !219
+  br i1 %.not.i1271, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272, label %select.unfold1819, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1272:  ; preds = %select.unfold1819, %4931
   %.0.i1270.lcssa = phi ptr [ %.8459.i, %4931 ], [ %4933, %select.unfold1819 ]
@@ -43388,7 +43372,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit540.i:  ; preds = %.preheader2079
   store i32 538976288, ptr %.0.i12783164, align 1
   %4994 = getelementptr inbounds nuw i8, ptr %.0.i12783164, i64 %2378
   %.not.i1279 = icmp eq i64 %4993, 0
-  br i1 %.not.i1279, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280, label %.lr.ph3166, !llvm.loop !219
+  br i1 %.not.i1279, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280, label %.lr.ph3166, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280:  ; preds = %.lr.ph3166, %4991
   %.0.i1278.lcssa = phi ptr [ %.11462.i, %4991 ], [ %4994, %.lr.ph3166 ]
@@ -43401,7 +43385,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280:  ; preds = %.lr.ph3166, %4991
 
 4998:                                             ; preds = %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit1280
   %4999 = getelementptr inbounds nuw i8, ptr %.10488.i, i64 8
-  %5000 = load i64, ptr %.10488.i, align 8, !tbaa !220
+  %5000 = load i64, ptr %.10488.i, align 8, !tbaa !219
   %5001 = lshr i64 %5000, 1
   %5002 = trunc i64 %5000 to i8
   %5003 = and i8 %5002, 1
@@ -43479,10 +43463,10 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit.i:     ; preds = %5008
   br label %.cont1306
 
 .cont1306:                                        ; preds = %.loopexit2080, %.else1308
-  store i32 2, ptr %8, align 8, !tbaa !209
+  store i32 2, ptr %8, align 8, !tbaa !208
   %.sroa.sel1345.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1345.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1345.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.28, ptr %.sroa.sel1345.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.28, ptr %.sroa.sel1345.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not538.i = icmp eq ptr %.13.i, null
   br i1 %.not538.i, label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %5034
 
@@ -43498,10 +43482,10 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit.i:     ; preds = %5008
   br label %.cont1297
 
 .cont1297:                                        ; preds = %5035, %.else1299
-  store i32 3, ptr %8, align 8, !tbaa !209
+  store i32 3, ptr %8, align 8, !tbaa !208
   %.sroa.sel1354.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1354.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1354.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.86, ptr %.sroa.sel1354.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.86, ptr %.sroa.sel1354.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not506.i = icmp eq ptr %.0450.i, null
   br i1 %.not506.i, label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %5036
 
@@ -43517,10 +43501,10 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread1813: ; pre
   br label %.cont1303
 
 .cont1303:                                        ; preds = %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread1813, %.else1305
-  store i32 4, ptr %8, align 8, !tbaa !209
+  store i32 4, ptr %8, align 8, !tbaa !208
   %.sroa.sel1348.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1348.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1348.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.87, ptr %.sroa.sel1348.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.87, ptr %.sroa.sel1348.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not524.i = icmp eq ptr %.3.i, null
   br i1 %.not524.i, label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %5037
 
@@ -43536,10 +43520,10 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit607.thread1813: ; pre
   br label %.cont1300
 
 .cont1300:                                        ; preds = %.loopexit2052, %.else1302
-  store i32 7, ptr %8, align 8, !tbaa !209
+  store i32 7, ptr %8, align 8, !tbaa !208
   %.sroa.sel1351.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1351.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1351.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.88, ptr %.sroa.sel1351.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.88, ptr %.sroa.sel1351.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not531.i = icmp eq ptr %.1.i, null
   br i1 %.not531.i, label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %5038
 
@@ -43844,7 +43828,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   %5205 = ptrtoint ptr %5204 to i64
   %5206 = sub i64 %5102, %5205
   %5207 = icmp sgt i64 %5206, 15
-  br i1 %5207, label %.lr.ph3188, label %.preheader2037, !llvm.loop !210
+  br i1 %5207, label %.lr.ph3188, label %.preheader2037, !llvm.loop !209
 
 .preheader2035:                                   ; preds = %5231, %.preheader2037
   %.6250.i106.lcssa = phi ptr [ %.1245.i104.lcssa, %.preheader2037 ], [ %5234, %5231 ]
@@ -43897,7 +43881,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   %5235 = ptrtoint ptr %5234 to i64
   %5236 = sub i64 %5102, %5235
   %5237 = icmp sgt i64 %5236, 3
-  br i1 %5237, label %.lr.ph3194, label %.preheader2035, !llvm.loop !211
+  br i1 %5237, label %.lr.ph3194, label %.preheader2035, !llvm.loop !210
 
 .lr.ph3199:                                       ; preds = %.preheader2035, %5242
   %.7.i1093198 = phi ptr [ %5244, %5242 ], [ %.6.i107.lcssa, %.preheader2035 ]
@@ -43914,7 +43898,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   %5244 = getelementptr inbounds nuw i8, ptr %.7.i1093198, i64 1
   store i8 %5238, ptr %.7.i1093198, align 1, !tbaa !75
   %5245 = icmp ugt ptr %5101, %5243
-  br i1 %5245, label %.lr.ph3199, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, !llvm.loop !212
+  br i1 %5245, label %.lr.ph3199, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, !llvm.loop !211
 
 .loopexit2039:                                    ; preds = %5112, %5213
   %5246 = phi i8 [ %5209, %5213 ], [ %5108, %5112 ]
@@ -44142,7 +44126,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   %.not306.i151 = icmp eq i32 %5341, 0
   %or.cond.i152 = or i1 %5340, %.not306.i151
   %5342 = trunc i32 %.sroa.0.0.copyload.i339.i150 to i8
-  br i1 %or.cond.i152, label %.thread1820, label %5343, !prof !213
+  br i1 %or.cond.i152, label %.thread1820, label %5343, !prof !212
 
 5343:                                             ; preds = %5338
   %5344 = and i32 %.sroa.0.0.copyload.i339.i150, 4
@@ -44273,7 +44257,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   %.not293.i121 = icmp eq i32 %5416, 0
   %or.cond331.i122 = or i1 %5415, %.not293.i121
   %5417 = lshr i32 %.sroa.0.0.copyload.i.i120, 24
-  br i1 %or.cond331.i122, label %.thread1836, label %5418, !prof !213
+  br i1 %or.cond331.i122, label %.thread1836, label %5418, !prof !212
 
 5418:                                             ; preds = %5413
   %5419 = and i32 %.sroa.0.0.copyload.i.i120, 4
@@ -44537,7 +44521,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   %5579 = ptrtoint ptr %5578 to i64
   %5580 = sub i64 %5476, %5579
   %5581 = icmp sgt i64 %5580, 15
-  br i1 %5581, label %.lr.ph3239, label %.preheader2023, !llvm.loop !210
+  br i1 %5581, label %.lr.ph3239, label %.preheader2023, !llvm.loop !209
 
 .preheader2021:                                   ; preds = %5605, %.preheader2023
   %.6250.i.lcssa = phi ptr [ %.1245.i.lcssa, %.preheader2023 ], [ %5608, %5605 ]
@@ -44590,7 +44574,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   %5609 = ptrtoint ptr %5608 to i64
   %5610 = sub i64 %5476, %5609
   %5611 = icmp sgt i64 %5610, 3
-  br i1 %5611, label %.lr.ph3245, label %.preheader2021, !llvm.loop !211
+  br i1 %5611, label %.lr.ph3245, label %.preheader2021, !llvm.loop !210
 
 .lr.ph3250:                                       ; preds = %.preheader2021, %5616
   %.7.i883249 = phi ptr [ %5618, %5616 ], [ %.6.i87.lcssa, %.preheader2021 ]
@@ -44607,7 +44591,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   %5618 = getelementptr inbounds nuw i8, ptr %.7.i883249, i64 1
   store i8 %5612, ptr %.7.i883249, align 1, !tbaa !75
   %5619 = icmp ugt ptr %5475, %5617
-  br i1 %5619, label %.lr.ph3250, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, !llvm.loop !212
+  br i1 %5619, label %.lr.ph3250, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, !llvm.loop !211
 
 .loopexit2025:                                    ; preds = %5486, %5587
   %5620 = phi i8 [ %5583, %5587 ], [ %5482, %5486 ]
@@ -44835,7 +44819,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   %.not306.i = icmp eq i32 %5715, 0
   %or.cond.i = or i1 %5714, %.not306.i
   %5716 = trunc i32 %.sroa.0.0.copyload.i339.i to i8
-  br i1 %or.cond.i, label %.thread1852, label %5717, !prof !213
+  br i1 %or.cond.i, label %.thread1852, label %5717, !prof !212
 
 5717:                                             ; preds = %5712
   %5718 = and i32 %.sroa.0.0.copyload.i339.i, 4
@@ -44966,7 +44950,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   %.not293.i = icmp eq i32 %5790, 0
   %or.cond331.i = or i1 %5789, %.not293.i
   %5791 = lshr i32 %.sroa.0.0.copyload.i.i, 24
-  br i1 %or.cond331.i, label %.thread1868, label %5792, !prof !213
+  br i1 %or.cond331.i, label %.thread1868, label %5792, !prof !212
 
 5792:                                             ; preds = %5787
   %5793 = and i32 %.sroa.0.0.copyload.i.i, 4
@@ -45071,7 +45055,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   %5851 = getelementptr inbounds nuw i8, ptr %.018.i3204, i64 16
   %5852 = add nsw i64 %.0.i603205, -16
   %5853 = icmp ugt i64 %5852, 15
-  br i1 %5853, label %.lr.ph3207, label %.preheader2049, !llvm.loop !214
+  br i1 %5853, label %.lr.ph3207, label %.preheader2049, !llvm.loop !213
 
 .preheader2048:                                   ; preds = %.lr.ph3214, %.preheader2049
   %.122.i.lcssa = phi ptr [ %.021.i.lcssa, %.preheader2049 ], [ %5855, %.lr.ph3214 ]
@@ -45090,7 +45074,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   %5856 = getelementptr inbounds nuw i8, ptr %.119.i3212, i64 4
   %5857 = add nsw i64 %.1.i613213, -4
   %5858 = icmp ugt i64 %5857, 3
-  br i1 %5858, label %.lr.ph3214, label %.preheader2048, !llvm.loop !215
+  br i1 %5858, label %.lr.ph3214, label %.preheader2048, !llvm.loop !214
 
 .lr.ph3222:                                       ; preds = %.preheader2048, %.lr.ph3222
   %.2.i623221 = phi i64 [ %5862, %.lr.ph3222 ], [ %.1.i61.lcssa, %.preheader2048 ]
@@ -45102,7 +45086,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5071
   store i8 %5860, ptr %.223.i3219, align 1, !tbaa !75
   %5862 = add nsw i64 %.2.i623221, -1
   %.not.i63 = icmp eq i64 %5862, 0
-  br i1 %.not.i63, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, label %.lr.ph3222, !llvm.loop !216
+  br i1 %.not.i63, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200, label %.lr.ph3222, !llvm.loop !215
 
 _ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit200: ; preds = %.preheader2035, %.lr.ph3222, %.preheader2021, %5242, %5294, %5306, %5616, %5668, %5680, %.preheader2048
   %.7.i109.lcssa.sink5268 = phi ptr [ %.122.i.lcssa, %.preheader2048 ], [ %.8.i92, %5680 ], [ %.8.i92, %5668 ], [ %5618, %5616 ], [ %.8.i115, %5306 ], [ %.8.i115, %5294 ], [ %5244, %5242 ], [ %.6.i87.lcssa, %.preheader2021 ], [ %5861, %.lr.ph3222 ], [ %.6.i107.lcssa, %.preheader2035 ]
@@ -46060,7 +46044,7 @@ _ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit: ; preds = %6342, %635
   %6533 = getelementptr inbounds nuw i8, ptr %5910, i64 %indvars.iv3847
   store i8 %6532, ptr %6533, align 1, !tbaa !75
   %exitcond3852.not = icmp eq i64 %indvars.iv.next3848, %wide.trip.count3851
-  br i1 %exitcond3852.not, label %._crit_edge3170, label %.lr.ph3169, !llvm.loop !217
+  br i1 %exitcond3852.not, label %._crit_edge3170, label %.lr.ph3169, !llvm.loop !216
 
 ._crit_edge3170:                                  ; preds = %.lr.ph3169
   %6534 = zext nneg i32 %6254 to i64
@@ -46805,7 +46789,7 @@ _ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit: ; preds = %7035, %7009, %69
   %7073 = add nsw i32 %.01658, 1
   %7074 = load i8, ptr %7072, align 1, !tbaa !75
   %7075 = icmp eq i8 %7074, 48
-  br i1 %7075, label %7071, label %7076, !llvm.loop !218
+  br i1 %7075, label %7071, label %7076, !llvm.loop !217
 
 7076:                                             ; preds = %7071
   %7077 = ptrtoint ptr %7072 to i64
@@ -47374,7 +47358,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit410.i:  ; preds = %7447
   %7482 = zext nneg i8 %.01666.ph to i64
   %7483 = shl i64 %.01665, 1
   %7484 = or disjoint i64 %7483, %7482
-  store i64 %7484, ptr %7481, align 8, !tbaa !220
+  store i64 %7484, ptr %7481, align 8, !tbaa !219
   %7485 = zext i1 %7448 to i64
   %7486 = shl nuw nsw i64 %7479, %7485
   %7487 = select i1 %7448, i8 123, i8 91
@@ -47564,7 +47548,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit404.i:  ; preds = %7541
 
 7577:                                             ; preds = %.preheader2046
   %7578 = getelementptr inbounds nuw i8, ptr %.8364.i, i64 8
-  %7579 = load i64, ptr %.8364.i, align 8, !tbaa !220
+  %7579 = load i64, ptr %.8364.i, align 8, !tbaa !219
   %7580 = lshr i64 %7579, 1
   %7581 = trunc i64 %7579 to i8
   %7582 = and i8 %7581, 1
@@ -47638,10 +47622,10 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit.i39:   ; preds = %7585
   br label %.cont1291
 
 .cont1291:                                        ; preds = %.loopexit2050, %.else1293
-  store i32 2, ptr %8, align 8, !tbaa !209
+  store i32 2, ptr %8, align 8, !tbaa !208
   %.sroa.sel1357.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1357.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1357.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.28, ptr %.sroa.sel1357.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.28, ptr %.sroa.sel1357.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not402.i = icmp eq ptr %.10.i43, null
   br i1 %.not402.i, label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %7612
 
@@ -47657,10 +47641,10 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit.i39:   ; preds = %7585
   br label %.cont
 
 .cont:                                            ; preds = %7613, %.else
-  store i32 3, ptr %8, align 8, !tbaa !209
+  store i32 3, ptr %8, align 8, !tbaa !208
   %.sroa.sel1366.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1366.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1366.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.86, ptr %.sroa.sel1366.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.86, ptr %.sroa.sel1366.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not379.i = icmp eq ptr %.0336.i, null
   br i1 %.not379.i, label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %7614
 
@@ -47676,10 +47660,10 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890: ; preds 
   br label %.cont1288
 
 .cont1288:                                        ; preds = %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890, %.else1290
-  store i32 4, ptr %8, align 8, !tbaa !209
+  store i32 4, ptr %8, align 8, !tbaa !208
   %.sroa.sel1360.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1360.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1360.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.87, ptr %.sroa.sel1360.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.87, ptr %.sroa.sel1360.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not391.i = icmp eq ptr %.3.i35, null
   br i1 %.not391.i, label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %7615
 
@@ -47695,10 +47679,10 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890: ; preds 
   br label %.cont1285
 
 .cont1285:                                        ; preds = %.loopexit2019, %.else1287
-  store i32 7, ptr %8, align 8, !tbaa !209
+  store i32 7, ptr %8, align 8, !tbaa !208
   %.sroa.sel1363.v.sroa.sel.v.sroa.sel.v = select i1 %.not26, ptr %6, ptr %4
   %.sroa.sel1363.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel1363.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.88, ptr %.sroa.sel1363.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.88, ptr %.sroa.sel1363.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not397.i = icmp eq ptr %.1.i44, null
   br i1 %.not397.i, label %_ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %7616
 
@@ -47749,8 +47733,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_val_write_fileEPKcPKNS_10y
 .critedge:                                        ; preds = %5, %10
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not22, ptr %6, ptr %4
   %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.41, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 1, ptr %9, align 8, !tbaa !209
+  store ptr @.str.41, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 1, ptr %9, align 8, !tbaa !208
   br label %30
 
 12:                                               ; preds = %10
@@ -47767,8 +47751,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_val_write_fileEPKcPKNS_10y
 18:                                               ; preds = %14
   %.sroa.sel35.v.sroa.sel.v.sroa.sel.v = select i1 %.not22, ptr %6, ptr %4
   %.sroa.sel35.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel35.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.35, ptr %.sroa.sel35.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 5, ptr %9, align 8, !tbaa !209
+  store ptr @.str.35, ptr %.sroa.sel35.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 5, ptr %9, align 8, !tbaa !208
   br label %_ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit
 
 19:                                               ; preds = %14
@@ -47779,8 +47763,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_val_write_fileEPKcPKNS_10y
 21:                                               ; preds = %19
   %.sroa.sel29.v.sroa.sel.v.sroa.sel.v = select i1 %.not22, ptr %6, ptr %4
   %.sroa.sel29.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel29.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.95, ptr %.sroa.sel29.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 6, ptr %9, align 8, !tbaa !209
+  store ptr @.str.95, ptr %.sroa.sel29.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 6, ptr %9, align 8, !tbaa !208
   %22 = call i32 @fclose(ptr noundef nonnull %16)
   br label %_ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit
 
@@ -47792,8 +47776,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_val_write_fileEPKcPKNS_10y
 25:                                               ; preds = %23
   %.sroa.sel32.v.sroa.sel.v.sroa.sel.v = select i1 %.not22, ptr %6, ptr %4
   %.sroa.sel32.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel32.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.96, ptr %.sroa.sel32.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 6, ptr %9, align 8, !tbaa !209
+  store ptr @.str.96, ptr %.sroa.sel32.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 6, ptr %9, align 8, !tbaa !208
   br label %_ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit
 
 _ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit: ; preds = %18, %21, %23, %25
@@ -47829,8 +47813,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKN
 10:                                               ; preds = %5
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not20, ptr %6, ptr %4
   %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.42, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 1, ptr %9, align 8, !tbaa !209
+  store ptr @.str.42, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 1, ptr %9, align 8, !tbaa !208
   br label %21
 
 11:                                               ; preds = %5
@@ -47847,8 +47831,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKN
 16:                                               ; preds = %13
   %.sroa.sel26.v.sroa.sel.v.sroa.sel.v = select i1 %.not20, ptr %6, ptr %4
   %.sroa.sel26.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel26.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.95, ptr %.sroa.sel26.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 6, ptr %9, align 8, !tbaa !209
+  store ptr @.str.95, ptr %.sroa.sel26.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 6, ptr %9, align 8, !tbaa !208
   br label %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit
 
 _ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit: ; preds = %13, %16
@@ -47907,8 +47891,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson15yyjson_write_fpEP8_IO_FILEPKNS_10
 14:                                               ; preds = %10
   %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not20.i, ptr %6, ptr %4
   %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.42, ptr %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 1, ptr %13, align 8, !tbaa !209
+  store ptr @.str.42, ptr %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 1, ptr %13, align 8, !tbaa !208
   br label %_ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE.exit
 
 15:                                               ; preds = %10
@@ -47925,8 +47909,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson15yyjson_write_fpEP8_IO_FILEPKNS_10
 20:                                               ; preds = %17
   %.sroa.sel26.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not20.i, ptr %6, ptr %4
   %.sroa.sel26.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel26.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.95, ptr %.sroa.sel26.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 6, ptr %13, align 8, !tbaa !209
+  store ptr @.str.95, ptr %.sroa.sel26.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 6, ptr %13, align 8, !tbaa !208
   br label %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit.i
 
 _ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit.i: ; preds = %20, %17
@@ -47979,8 +47963,8 @@ define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_i
 .cont446:                                         ; preds = %10, %.else448
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.40, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 1, ptr %9, align 8, !tbaa !209
+  store ptr @.str.40, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 1, ptr %9, align 8, !tbaa !208
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 11:                                               ; preds = %6
@@ -48227,7 +48211,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %146 = ptrtoint ptr %145 to i64
   %147 = sub i64 %43, %146
   %148 = icmp sgt i64 %147, 15
-  br i1 %148, label %.lr.ph2423, label %.preheader1152, !llvm.loop !210
+  br i1 %148, label %.lr.ph2423, label %.preheader1152, !llvm.loop !209
 
 .preheader1150:                                   ; preds = %172, %.preheader1152
   %.6250.i15.i.lcssa = phi ptr [ %.1245.i13.i.lcssa, %.preheader1152 ], [ %175, %172 ]
@@ -48280,7 +48264,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %176 = ptrtoint ptr %175 to i64
   %177 = sub i64 %43, %176
   %178 = icmp sgt i64 %177, 3
-  br i1 %178, label %.lr.ph2429, label %.preheader1150, !llvm.loop !211
+  br i1 %178, label %.lr.ph2429, label %.preheader1150, !llvm.loop !210
 
 .lr.ph2434:                                       ; preds = %.preheader1150, %183
   %.7.i18.i2433 = phi ptr [ %185, %183 ], [ %.6.i16.i.lcssa, %.preheader1150 ]
@@ -48297,7 +48281,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %185 = getelementptr inbounds nuw i8, ptr %.7.i18.i2433, i64 1
   store i8 %179, ptr %.7.i18.i2433, align 1, !tbaa !75
   %186 = icmp ugt ptr %42, %184
-  br i1 %186, label %.lr.ph2434, label %.preheader1150._crit_edge, !llvm.loop !212
+  br i1 %186, label %.lr.ph2434, label %.preheader1150._crit_edge, !llvm.loop !211
 
 .preheader1150._crit_edge:                        ; preds = %.preheader1150, %183
   %.7.i18.i.lcssa = phi ptr [ %185, %183 ], [ %.6.i16.i.lcssa, %.preheader1150 ]
@@ -48531,7 +48515,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %.not306.i60.i = icmp eq i32 %283, 0
   %or.cond.i61.i = or i1 %282, %.not306.i60.i
   %284 = trunc i32 %.sroa.0.0.copyload.i339.i59.i to i8
-  br i1 %or.cond.i61.i, label %.thread, label %285, !prof !213
+  br i1 %or.cond.i61.i, label %.thread, label %285, !prof !212
 
 285:                                              ; preds = %280
   %286 = and i32 %.sroa.0.0.copyload.i339.i59.i, 4
@@ -48662,7 +48646,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %.not293.i30.i = icmp eq i32 %358, 0
   %or.cond331.i31.i = or i1 %357, %.not293.i30.i
   %359 = lshr i32 %.sroa.0.0.copyload.i.i29.i, 24
-  br i1 %or.cond331.i31.i, label %.thread829, label %360, !prof !213
+  br i1 %or.cond331.i31.i, label %.thread829, label %360, !prof !212
 
 360:                                              ; preds = %355
   %361 = and i32 %.sroa.0.0.copyload.i.i29.i, 4
@@ -48931,7 +48915,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %523 = ptrtoint ptr %522 to i64
   %524 = sub i64 %420, %523
   %525 = icmp sgt i64 %524, 15
-  br i1 %525, label %.lr.ph2474, label %.preheader1136, !llvm.loop !210
+  br i1 %525, label %.lr.ph2474, label %.preheader1136, !llvm.loop !209
 
 .preheader1134:                                   ; preds = %549, %.preheader1136
   %.6250.i.i.lcssa = phi ptr [ %.1245.i.i.lcssa, %.preheader1136 ], [ %552, %549 ]
@@ -48984,7 +48968,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %553 = ptrtoint ptr %552 to i64
   %554 = sub i64 %420, %553
   %555 = icmp sgt i64 %554, 3
-  br i1 %555, label %.lr.ph2480, label %.preheader1134, !llvm.loop !211
+  br i1 %555, label %.lr.ph2480, label %.preheader1134, !llvm.loop !210
 
 .lr.ph2485:                                       ; preds = %.preheader1134, %560
   %.7.i.i2484 = phi ptr [ %562, %560 ], [ %.6.i.i.lcssa, %.preheader1134 ]
@@ -49001,7 +48985,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %562 = getelementptr inbounds nuw i8, ptr %.7.i.i2484, i64 1
   store i8 %556, ptr %.7.i.i2484, align 1, !tbaa !75
   %563 = icmp ugt ptr %419, %561
-  br i1 %563, label %.lr.ph2485, label %.preheader1134._crit_edge, !llvm.loop !212
+  br i1 %563, label %.lr.ph2485, label %.preheader1134._crit_edge, !llvm.loop !211
 
 .preheader1134._crit_edge:                        ; preds = %.preheader1134, %560
   %.7.i.i.lcssa = phi ptr [ %562, %560 ], [ %.6.i.i.lcssa, %.preheader1134 ]
@@ -49235,7 +49219,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %.not306.i.i = icmp eq i32 %660, 0
   %or.cond.i.i = or i1 %659, %.not306.i.i
   %661 = trunc i32 %.sroa.0.0.copyload.i339.i.i to i8
-  br i1 %or.cond.i.i, label %.thread845, label %662, !prof !213
+  br i1 %or.cond.i.i, label %.thread845, label %662, !prof !212
 
 662:                                              ; preds = %657
   %663 = and i32 %.sroa.0.0.copyload.i339.i.i, 4
@@ -49366,7 +49350,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %.not293.i.i = icmp eq i32 %735, 0
   %or.cond331.i.i = or i1 %734, %.not293.i.i
   %736 = lshr i32 %.sroa.0.0.copyload.i.i.i, 24
-  br i1 %or.cond331.i.i, label %.thread861, label %737, !prof !213
+  br i1 %or.cond331.i.i, label %.thread861, label %737, !prof !212
 
 737:                                              ; preds = %732
   %738 = and i32 %.sroa.0.0.copyload.i.i.i, 4
@@ -49476,7 +49460,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %798 = getelementptr inbounds nuw i8, ptr %.018.i.i2439, i64 16
   %799 = add nsw i64 %.0.i4.i2440, -16
   %800 = icmp ugt i64 %799, 15
-  br i1 %800, label %.lr.ph2442, label %.preheader1146, !llvm.loop !214
+  br i1 %800, label %.lr.ph2442, label %.preheader1146, !llvm.loop !213
 
 .preheader1145:                                   ; preds = %.lr.ph2449, %.preheader1146
   %.122.i.i.lcssa = phi ptr [ %.021.i.i.lcssa, %.preheader1146 ], [ %802, %.lr.ph2449 ]
@@ -49495,7 +49479,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %803 = getelementptr inbounds nuw i8, ptr %.119.i.i2447, i64 4
   %804 = add nsw i64 %.1.i.i2448, -4
   %805 = icmp ugt i64 %804, 3
-  br i1 %805, label %.lr.ph2449, label %.preheader1145, !llvm.loop !215
+  br i1 %805, label %.lr.ph2449, label %.preheader1145, !llvm.loop !214
 
 .lr.ph2457:                                       ; preds = %.preheader1145, %.lr.ph2457
   %.2.i.i2456 = phi i64 [ %809, %.lr.ph2457 ], [ %.1.i.i.lcssa, %.preheader1145 ]
@@ -49507,7 +49491,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   store i8 %807, ptr %.223.i.i2454, align 1, !tbaa !75
   %809 = add nsw i64 %.2.i.i2456, -1
   %.not.i5.i = icmp eq i64 %809, 0
-  br i1 %.not.i5.i, label %_ZN13duckdb_yyjsonL18write_string_noescEPhPKhm.exit.i, label %.lr.ph2457, !llvm.loop !216
+  br i1 %.not.i5.i, label %_ZN13duckdb_yyjsonL18write_string_noescEPhPKhm.exit.i, label %.lr.ph2457, !llvm.loop !215
 
 _ZN13duckdb_yyjsonL18write_string_noescEPhPKhm.exit.i: ; preds = %.lr.ph2457, %.preheader1145
   %.223.i.i.lcssa = phi ptr [ %.122.i.i.lcssa, %.preheader1145 ], [ %808, %.lr.ph2457 ]
@@ -50414,7 +50398,7 @@ _ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i: ; preds = %1309, %1
   %1446 = getelementptr inbounds nuw i8, ptr %838, i64 %indvars.iv3004
   store i8 %1445, ptr %1446, align 1, !tbaa !75
   %exitcond3009.not = icmp eq i64 %indvars.iv.next3005, %wide.trip.count3008
-  br i1 %exitcond3009.not, label %._crit_edge2405, label %.lr.ph2404, !llvm.loop !217
+  br i1 %exitcond3009.not, label %._crit_edge2405, label %.lr.ph2404, !llvm.loop !216
 
 ._crit_edge2405:                                  ; preds = %.lr.ph2404
   %1447 = zext nneg i32 %1183 to i64
@@ -51140,7 +51124,7 @@ _ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i: ; preds = %1877, %1888, %
   %1972 = add nsw i32 %.0813, 1
   %1973 = load i8, ptr %1971, align 1, !tbaa !75
   %1974 = icmp eq i8 %1973, 48
-  br i1 %1974, label %1970, label %1975, !llvm.loop !218
+  br i1 %1974, label %1970, label %1975, !llvm.loop !217
 
 1975:                                             ; preds = %1970
   %1976 = ptrtoint ptr %1971 to i64
@@ -51718,10 +51702,10 @@ _ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit109.i: ; preds = %.lr.ph2407.p
   br label %.cont437
 
 .cont437:                                         ; preds = %2367, %.else439
-  store i32 2, ptr %9, align 8, !tbaa !209
+  store i32 2, ptr %9, align 8, !tbaa !208
   %.sroa.sel455.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel455.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel455.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.28, ptr %.sroa.sel455.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.28, ptr %.sroa.sel455.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 default.unreachable:                              ; preds = %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i
@@ -51735,10 +51719,10 @@ default.unreachable:                              ; preds = %_ZN13duckdb_yyjsonL
   br label %.cont443
 
 .cont443:                                         ; preds = %2368, %.else445
-  store i32 3, ptr %9, align 8, !tbaa !209
+  store i32 3, ptr %9, align 8, !tbaa !208
   %.sroa.sel452.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel452.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel452.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.86, ptr %.sroa.sel452.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.86, ptr %.sroa.sel452.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i.thread881: ; preds = %828
@@ -51750,10 +51734,10 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i.thread881: ; preds
   br label %.cont434
 
 .cont434:                                         ; preds = %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i.thread881, %.else436
-  store i32 4, ptr %9, align 8, !tbaa !209
+  store i32 4, ptr %9, align 8, !tbaa !208
   %.sroa.sel458.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel458.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel458.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.87, ptr %.sroa.sel458.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.87, ptr %.sroa.sel458.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 .loopexit:                                        ; preds = %.thread, %.thread829, %.thread845, %.thread861
@@ -51765,10 +51749,10 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i.thread881: ; preds
   br label %.cont431
 
 .cont431:                                         ; preds = %.loopexit, %.else433
-  store i32 7, ptr %9, align 8, !tbaa !209
+  store i32 7, ptr %9, align 8, !tbaa !208
   %.sroa.sel461.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel461.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel461.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.88, ptr %.sroa.sel461.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.88, ptr %.sroa.sel461.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 2369:                                             ; preds = %11
@@ -51938,7 +51922,7 @@ select.unfold884:                                 ; preds = %2446, %select.unfol
   store i32 538976288, ptr %.0.i866.i2196, align 1
   %2448 = getelementptr inbounds nuw i8, ptr %.0.i866.i2196, i64 %2379
   %.not.i867.i = icmp eq i64 %2447, 0
-  br i1 %.not.i867.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i, label %select.unfold884, !llvm.loop !219
+  br i1 %.not.i867.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i, label %select.unfold884, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %2446
   %.0.i866.i.lcssa = phi ptr [ %.1457.i, %2446 ], [ %2448, %select.unfold884 ]
@@ -52118,7 +52102,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   %2553 = ptrtoint ptr %2552 to i64
   %2554 = sub i64 %2450, %2553
   %2555 = icmp sgt i64 %2554, 15
-  br i1 %2555, label %.lr.ph2215, label %.preheader1213, !llvm.loop !210
+  br i1 %2555, label %.lr.ph2215, label %.preheader1213, !llvm.loop !209
 
 .preheader1211:                                   ; preds = %2579, %.preheader1213
   %.6250.i575.i.lcssa = phi ptr [ %.1245.i573.i.lcssa, %.preheader1213 ], [ %2582, %2579 ]
@@ -52171,7 +52155,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   %2583 = ptrtoint ptr %2582 to i64
   %2584 = sub i64 %2450, %2583
   %2585 = icmp sgt i64 %2584, 3
-  br i1 %2585, label %.lr.ph2221, label %.preheader1211, !llvm.loop !211
+  br i1 %2585, label %.lr.ph2221, label %.preheader1211, !llvm.loop !210
 
 .lr.ph2226:                                       ; preds = %.preheader1211, %2590
   %.7.i578.i2225 = phi ptr [ %2592, %2590 ], [ %.6.i576.i.lcssa, %.preheader1211 ]
@@ -52188,7 +52172,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   %2592 = getelementptr inbounds nuw i8, ptr %.7.i578.i2225, i64 1
   store i8 %2586, ptr %.7.i578.i2225, align 1, !tbaa !75
   %2593 = icmp ugt ptr %2449, %2591
-  br i1 %2593, label %.lr.ph2226, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i, !llvm.loop !212
+  br i1 %2593, label %.lr.ph2226, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i, !llvm.loop !211
 
 .loopexit1215:                                    ; preds = %2460, %2561
   %2594 = phi i8 [ %2557, %2561 ], [ %2456, %2460 ]
@@ -52416,7 +52400,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   %.not306.i620.i = icmp eq i32 %2689, 0
   %or.cond.i621.i = or i1 %2688, %.not306.i620.i
   %2690 = trunc i32 %.sroa.0.0.copyload.i339.i619.i to i8
-  br i1 %or.cond.i621.i, label %.thread885, label %2691, !prof !213
+  br i1 %or.cond.i621.i, label %.thread885, label %2691, !prof !212
 
 2691:                                             ; preds = %2686
   %2692 = and i32 %.sroa.0.0.copyload.i339.i619.i, 4
@@ -52547,7 +52531,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   %.not293.i590.i = icmp eq i32 %2764, 0
   %or.cond331.i591.i = or i1 %2763, %.not293.i590.i
   %2765 = lshr i32 %.sroa.0.0.copyload.i.i589.i, 24
-  br i1 %or.cond331.i591.i, label %.thread901, label %2766, !prof !213
+  br i1 %or.cond331.i591.i, label %.thread901, label %2766, !prof !212
 
 2766:                                             ; preds = %2761
   %2767 = and i32 %.sroa.0.0.copyload.i.i589.i, 4
@@ -52811,7 +52795,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   %2927 = ptrtoint ptr %2926 to i64
   %2928 = sub i64 %2824, %2927
   %2929 = icmp sgt i64 %2928, 15
-  br i1 %2929, label %.lr.ph2266, label %.preheader1199, !llvm.loop !210
+  br i1 %2929, label %.lr.ph2266, label %.preheader1199, !llvm.loop !209
 
 .preheader1197:                                   ; preds = %2953, %.preheader1199
   %.6250.i.i114.lcssa = phi ptr [ %.1245.i.i113.lcssa, %.preheader1199 ], [ %2956, %2953 ]
@@ -52864,7 +52848,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   %2957 = ptrtoint ptr %2956 to i64
   %2958 = sub i64 %2824, %2957
   %2959 = icmp sgt i64 %2958, 3
-  br i1 %2959, label %.lr.ph2272, label %.preheader1197, !llvm.loop !211
+  br i1 %2959, label %.lr.ph2272, label %.preheader1197, !llvm.loop !210
 
 .lr.ph2277:                                       ; preds = %.preheader1197, %2964
   %.7.i.i1172276 = phi ptr [ %2966, %2964 ], [ %.6.i.i115.lcssa, %.preheader1197 ]
@@ -52881,7 +52865,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   %2966 = getelementptr inbounds nuw i8, ptr %.7.i.i1172276, i64 1
   store i8 %2960, ptr %.7.i.i1172276, align 1, !tbaa !75
   %2967 = icmp ugt ptr %2823, %2965
-  br i1 %2967, label %.lr.ph2277, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i, !llvm.loop !212
+  br i1 %2967, label %.lr.ph2277, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i, !llvm.loop !211
 
 .loopexit1201:                                    ; preds = %2834, %2935
   %2968 = phi i8 [ %2931, %2935 ], [ %2830, %2834 ]
@@ -53109,7 +53093,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   %.not306.i.i157 = icmp eq i32 %3063, 0
   %or.cond.i.i158 = or i1 %3062, %.not306.i.i157
   %3064 = trunc i32 %.sroa.0.0.copyload.i339.i.i156 to i8
-  br i1 %or.cond.i.i158, label %.thread917, label %3065, !prof !213
+  br i1 %or.cond.i.i158, label %.thread917, label %3065, !prof !212
 
 3065:                                             ; preds = %3060
   %3066 = and i32 %.sroa.0.0.copyload.i339.i.i156, 4
@@ -53240,7 +53224,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   %.not293.i.i127 = icmp eq i32 %3138, 0
   %or.cond331.i.i128 = or i1 %3137, %.not293.i.i127
   %3139 = lshr i32 %.sroa.0.0.copyload.i.i.i126, 24
-  br i1 %or.cond331.i.i128, label %.thread933, label %3140, !prof !213
+  br i1 %or.cond331.i.i128, label %.thread933, label %3140, !prof !212
 
 3140:                                             ; preds = %3135
   %3141 = and i32 %.sroa.0.0.copyload.i.i.i126, 4
@@ -53345,7 +53329,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   %3199 = getelementptr inbounds nuw i8, ptr %.018.i.i1012231, i64 16
   %3200 = add nsw i64 %.0.i565.i2232, -16
   %3201 = icmp ugt i64 %3200, 15
-  br i1 %3201, label %.lr.ph2234, label %.preheader1226, !llvm.loop !214
+  br i1 %3201, label %.lr.ph2234, label %.preheader1226, !llvm.loop !213
 
 .preheader1225:                                   ; preds = %.lr.ph2241, %.preheader1226
   %.122.i.i102.lcssa = phi ptr [ %.021.i.i100.lcssa, %.preheader1226 ], [ %3203, %.lr.ph2241 ]
@@ -53364,7 +53348,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   %3204 = getelementptr inbounds nuw i8, ptr %.119.i.i1032239, i64 4
   %3205 = add nsw i64 %.1.i.i1042240, -4
   %3206 = icmp ugt i64 %3205, 3
-  br i1 %3206, label %.lr.ph2241, label %.preheader1225, !llvm.loop !215
+  br i1 %3206, label %.lr.ph2241, label %.preheader1225, !llvm.loop !214
 
 .lr.ph2249:                                       ; preds = %.preheader1225, %.lr.ph2249
   %.2.i.i1072248 = phi i64 [ %3210, %.lr.ph2249 ], [ %.1.i.i104.lcssa, %.preheader1225 ]
@@ -53376,7 +53360,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit868.i: ; preds = %select.unfold884, %
   store i8 %3208, ptr %.223.i.i1052246, align 1, !tbaa !75
   %3210 = add nsw i64 %.2.i.i1072248, -1
   %.not.i.i108 = icmp eq i64 %3210, 0
-  br i1 %.not.i.i108, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i, label %.lr.ph2249, !llvm.loop !216
+  br i1 %.not.i.i108, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i, label %.lr.ph2249, !llvm.loop !215
 
 _ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit669.i: ; preds = %.preheader1211, %.lr.ph2249, %.preheader1197, %2590, %2642, %2654, %2964, %3016, %3028, %.preheader1225
   %.8.i584.i.lcssa.sink4386 = phi ptr [ %.122.i.i102.lcssa, %.preheader1225 ], [ %.8.i.i121, %3028 ], [ %.8.i.i121, %3016 ], [ %2966, %2964 ], [ %.8.i584.i, %2654 ], [ %.8.i584.i, %2642 ], [ %2592, %2590 ], [ %.6.i.i115.lcssa, %.preheader1197 ], [ %3209, %.lr.ph2249 ], [ %.6.i576.i.lcssa, %.preheader1211 ]
@@ -53441,7 +53425,7 @@ select.unfold951:                                 ; preds = %3241, %select.unfol
   store i32 538976288, ptr %.0.i862.i2189, align 1
   %3243 = getelementptr inbounds nuw i8, ptr %.0.i862.i2189, i64 %2379
   %.not.i863.i = icmp eq i64 %3242, 0
-  br i1 %.not.i863.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit864.i, label %select.unfold951, !llvm.loop !219
+  br i1 %.not.i863.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit864.i, label %select.unfold951, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit864.i: ; preds = %select.unfold951, %3241
   %.0.i862.i.lcssa = phi ptr [ %.4460.i, %3241 ], [ %3243, %select.unfold951 ]
@@ -54354,7 +54338,7 @@ _ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i54: ; preds = %3736, 
   %3889 = getelementptr inbounds nuw i8, ptr %3266, i64 %indvars.iv
   store i8 %3888, ptr %3889, align 1, !tbaa !75
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph2191, !llvm.loop !217
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph2191, !llvm.loop !216
 
 ._crit_edge:                                      ; preds = %.lr.ph2191
   %3890 = zext nneg i32 %3610 to i64
@@ -55099,7 +55083,7 @@ _ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i66: ; preds = %4334, %4345,
   %4429 = add nsw i32 %.0805, 1
   %4430 = load i8, ptr %4428, align 1, !tbaa !75
   %4431 = icmp eq i8 %4430, 48
-  br i1 %4431, label %4427, label %4432, !llvm.loop !218
+  br i1 %4431, label %4427, label %4432, !llvm.loop !217
 
 4432:                                             ; preds = %4427
   %4433 = ptrtoint ptr %4428 to i64
@@ -55666,7 +55650,7 @@ select.unfold959:                                 ; preds = %4832, %select.unfol
   store i32 538976288, ptr %.0.i858.i2295, align 1
   %4834 = getelementptr inbounds nuw i8, ptr %.0.i858.i2295, i64 %2379
   %.not.i859.i = icmp eq i64 %4833, 0
-  br i1 %.not.i859.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i, label %select.unfold959, !llvm.loop !219
+  br i1 %.not.i859.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i, label %select.unfold959, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i: ; preds = %select.unfold959, %4832
   %.0.i858.i.lcssa = phi ptr [ %.5461.i, %4832 ], [ %4834, %select.unfold959 ]
@@ -55727,9 +55711,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit860.i: ; preds = %select.unfold959, %
   %4869 = zext nneg i8 %.0809.ph to i64
   %4870 = shl i64 %.0808, 1
   %4871 = or disjoint i64 %4870, %4869
-  store i64 %4871, ptr %4868, align 8, !tbaa !222
+  store i64 %4871, ptr %4868, align 8, !tbaa !221
   %4872 = getelementptr inbounds i8, ptr %.5488.i, i64 -8
-  store ptr %.0806.ph, ptr %4872, align 8, !tbaa !224
+  store ptr %.0806.ph, ptr %4872, align 8, !tbaa !223
   %4873 = zext i1 %4807 to i64
   %4874 = shl nuw nsw i64 %4843, %4873
   %.not.i855.i23013097 = icmp eq i64 %.0470.i.ph, 0
@@ -55743,7 +55727,7 @@ select.unfold960:                                 ; preds = %4867, %select.unfol
   store i32 538976288, ptr %.0.i854.i2303, align 1
   %4876 = getelementptr inbounds nuw i8, ptr %.0.i854.i2303, i64 %2379
   %.not.i855.i = icmp eq i64 %4875, 0
-  br i1 %.not.i855.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i, label %select.unfold960, !llvm.loop !219
+  br i1 %.not.i855.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i, label %select.unfold960, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold960, %4867
   %.0.i854.i.lcssa = phi ptr [ %.6462.i, %4867 ], [ %4876, %select.unfold960 ]
@@ -55839,7 +55823,7 @@ select.unfold961:                                 ; preds = %4914, %select.unfol
   store i32 538976288, ptr %.0.i850.i2289, align 1
   %4916 = getelementptr inbounds nuw i8, ptr %.0.i850.i2289, i64 %2379
   %.not.i851.i = icmp eq i64 %4915, 0
-  br i1 %.not.i851.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i, label %select.unfold961, !llvm.loop !219
+  br i1 %.not.i851.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i, label %select.unfold961, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit852.i: ; preds = %select.unfold961, %4914
   %.0.i850.i.lcssa = phi ptr [ %.7463.i, %4914 ], [ %4916, %select.unfold961 ]
@@ -55905,7 +55889,7 @@ select.unfold962:                                 ; preds = %4948, %select.unfol
   store i32 538976288, ptr %.0.i846.i2283, align 1
   %4950 = getelementptr inbounds nuw i8, ptr %.0.i846.i2283, i64 %2379
   %.not.i847.i = icmp eq i64 %4949, 0
-  br i1 %.not.i847.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i, label %select.unfold962, !llvm.loop !219
+  br i1 %.not.i847.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i, label %select.unfold962, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i: ; preds = %select.unfold962, %4948
   %.0.i846.i.lcssa = phi ptr [ %.8464.i, %4948 ], [ %4950, %select.unfold962 ]
@@ -56037,7 +56021,7 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit848.i: ; preds = %select.unfold962, %
   store i32 538976288, ptr %.0.i843.i2309, align 1
   %5015 = getelementptr inbounds nuw i8, ptr %.0.i843.i2309, i64 %2379
   %.not.i844.i = icmp eq i64 %5014, 0
-  br i1 %.not.i844.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i, label %.lr.ph2311, !llvm.loop !219
+  br i1 %.not.i844.i, label %_ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i, label %.lr.ph2311, !llvm.loop !218
 
 _ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i:    ; preds = %.lr.ph2311, %5012
   %.0.i843.i.lcssa = phi ptr [ %.11467.i, %5012 ], [ %5015, %.lr.ph2311 ]
@@ -56052,12 +56036,12 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i:    ; preds = %.lr.ph2311, %5012
   %5020 = getelementptr inbounds nuw i8, ptr %.1807, i64 16
   %5021 = load ptr, ptr %5020, align 8, !tbaa !79
   %5022 = getelementptr inbounds nuw i8, ptr %.10493.i, i64 16
-  %5023 = load i64, ptr %.10493.i, align 8, !tbaa !222
+  %5023 = load i64, ptr %.10493.i, align 8, !tbaa !221
   %5024 = lshr i64 %5023, 1
   %5025 = trunc i64 %5023 to i8
   %5026 = and i8 %5025, 1
   %5027 = getelementptr inbounds nuw i8, ptr %.10493.i, i64 8
-  %5028 = load ptr, ptr %5027, align 8, !tbaa !224
+  %5028 = load ptr, ptr %5027, align 8, !tbaa !223
   %5029 = add nsw i64 %5024, -1
   %5030 = getelementptr inbounds nuw i8, ptr %.0.i843.i.lcssa, i64 2
   store i8 44, ptr %5018, align 1, !tbaa !75
@@ -56120,10 +56104,10 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i:    ; preds = %.lr.ph2311, %5012
   br label %.cont428
 
 .cont428:                                         ; preds = %5056, %.else430
-  store i32 0, ptr %9, align 8, !tbaa !209
+  store i32 0, ptr %9, align 8, !tbaa !208
   %.sroa.sel464.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel464.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel464.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.98, ptr %.sroa.sel464.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.98, ptr %.sroa.sel464.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 .loopexit1223:                                    ; preds = %4847, %4958, %4928, %4894, %4812, %3221, %2426, %4992, %5035, %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i33
@@ -56135,10 +56119,10 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i:    ; preds = %.lr.ph2311, %5012
   br label %.cont425
 
 .cont425:                                         ; preds = %.loopexit1223, %.else427
-  store i32 2, ptr %9, align 8, !tbaa !209
+  store i32 2, ptr %9, align 8, !tbaa !208
   %.sroa.sel467.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel467.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel467.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.28, ptr %.sroa.sel467.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.28, ptr %.sroa.sel467.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not545.i = icmp eq ptr %.13.i, null
   br i1 %.not545.i, label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %5060
 
@@ -56154,10 +56138,10 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit.i:    ; preds = %.lr.ph2311, %5012
   br label %.cont416
 
 .cont416:                                         ; preds = %5061, %.else418
-  store i32 3, ptr %9, align 8, !tbaa !209
+  store i32 3, ptr %9, align 8, !tbaa !208
   %.sroa.sel476.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel476.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel476.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.86, ptr %.sroa.sel476.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.86, ptr %.sroa.sel476.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not511.i = icmp eq ptr %.0455.i, null
   br i1 %.not511.i, label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %5062
 
@@ -56173,10 +56157,10 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread956: ; pre
   br label %.cont422
 
 .cont422:                                         ; preds = %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread956, %.else424
-  store i32 4, ptr %9, align 8, !tbaa !209
+  store i32 4, ptr %9, align 8, !tbaa !208
   %.sroa.sel470.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel470.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel470.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.87, ptr %.sroa.sel470.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.87, ptr %.sroa.sel470.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not531.i = icmp eq ptr %.3.i, null
   br i1 %.not531.i, label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %5063
 
@@ -56192,10 +56176,10 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i40.thread956: ; pre
   br label %.cont419
 
 .cont419:                                         ; preds = %.loopexit1195, %.else421
-  store i32 7, ptr %9, align 8, !tbaa !209
+  store i32 7, ptr %9, align 8, !tbaa !208
   %.sroa.sel473.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel473.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel473.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.88, ptr %.sroa.sel473.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.88, ptr %.sroa.sel473.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not538.i = icmp eq ptr %.1.i, null
   br i1 %.not538.i, label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %5064
 
@@ -56510,7 +56494,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   %5234 = ptrtoint ptr %5233 to i64
   %5235 = sub i64 %5131, %5234
   %5236 = icmp sgt i64 %5235, 15
-  br i1 %5236, label %.lr.ph2333, label %.preheader1180, !llvm.loop !210
+  br i1 %5236, label %.lr.ph2333, label %.preheader1180, !llvm.loop !209
 
 .preheader1178:                                   ; preds = %5260, %.preheader1180
   %.6250.i435.i.lcssa = phi ptr [ %.1245.i433.i.lcssa, %.preheader1180 ], [ %5263, %5260 ]
@@ -56563,7 +56547,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   %5264 = ptrtoint ptr %5263 to i64
   %5265 = sub i64 %5131, %5264
   %5266 = icmp sgt i64 %5265, 3
-  br i1 %5266, label %.lr.ph2339, label %.preheader1178, !llvm.loop !211
+  br i1 %5266, label %.lr.ph2339, label %.preheader1178, !llvm.loop !210
 
 .lr.ph2344:                                       ; preds = %.preheader1178, %5271
   %.7.i438.i2343 = phi ptr [ %5273, %5271 ], [ %.6.i436.i.lcssa, %.preheader1178 ]
@@ -56580,7 +56564,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   %5273 = getelementptr inbounds nuw i8, ptr %.7.i438.i2343, i64 1
   store i8 %5267, ptr %.7.i438.i2343, align 1, !tbaa !75
   %5274 = icmp ugt ptr %5130, %5272
-  br i1 %5274, label %.lr.ph2344, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, !llvm.loop !212
+  br i1 %5274, label %.lr.ph2344, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, !llvm.loop !211
 
 .loopexit1182:                                    ; preds = %5141, %5242
   %5275 = phi i8 [ %5238, %5242 ], [ %5137, %5141 ]
@@ -56808,7 +56792,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   %.not306.i480.i = icmp eq i32 %5370, 0
   %or.cond.i481.i = or i1 %5369, %.not306.i480.i
   %5371 = trunc i32 %.sroa.0.0.copyload.i339.i479.i to i8
-  br i1 %or.cond.i481.i, label %.thread963, label %5372, !prof !213
+  br i1 %or.cond.i481.i, label %.thread963, label %5372, !prof !212
 
 5372:                                             ; preds = %5367
   %5373 = and i32 %.sroa.0.0.copyload.i339.i479.i, 4
@@ -56939,7 +56923,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   %.not293.i450.i = icmp eq i32 %5445, 0
   %or.cond331.i451.i = or i1 %5444, %.not293.i450.i
   %5446 = lshr i32 %.sroa.0.0.copyload.i.i449.i, 24
-  br i1 %or.cond331.i451.i, label %.thread979, label %5447, !prof !213
+  br i1 %or.cond331.i451.i, label %.thread979, label %5447, !prof !212
 
 5447:                                             ; preds = %5442
   %5448 = and i32 %.sroa.0.0.copyload.i.i449.i, 4
@@ -57203,7 +57187,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   %5608 = ptrtoint ptr %5607 to i64
   %5609 = sub i64 %5505, %5608
   %5610 = icmp sgt i64 %5609, 15
-  br i1 %5610, label %.lr.ph2384, label %.preheader1166, !llvm.loop !210
+  br i1 %5610, label %.lr.ph2384, label %.preheader1166, !llvm.loop !209
 
 .preheader1164:                                   ; preds = %5634, %.preheader1166
   %.6250.i.i305.lcssa = phi ptr [ %.1245.i.i304.lcssa, %.preheader1166 ], [ %5637, %5634 ]
@@ -57256,7 +57240,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   %5638 = ptrtoint ptr %5637 to i64
   %5639 = sub i64 %5505, %5638
   %5640 = icmp sgt i64 %5639, 3
-  br i1 %5640, label %.lr.ph2390, label %.preheader1164, !llvm.loop !211
+  br i1 %5640, label %.lr.ph2390, label %.preheader1164, !llvm.loop !210
 
 .lr.ph2395:                                       ; preds = %.preheader1164, %5645
   %.7.i.i3082394 = phi ptr [ %5647, %5645 ], [ %.6.i.i306.lcssa, %.preheader1164 ]
@@ -57273,7 +57257,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   %5647 = getelementptr inbounds nuw i8, ptr %.7.i.i3082394, i64 1
   store i8 %5641, ptr %.7.i.i3082394, align 1, !tbaa !75
   %5648 = icmp ugt ptr %5504, %5646
-  br i1 %5648, label %.lr.ph2395, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, !llvm.loop !212
+  br i1 %5648, label %.lr.ph2395, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, !llvm.loop !211
 
 .loopexit1168:                                    ; preds = %5515, %5616
   %5649 = phi i8 [ %5612, %5616 ], [ %5511, %5515 ]
@@ -57501,7 +57485,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   %.not306.i.i348 = icmp eq i32 %5744, 0
   %or.cond.i.i349 = or i1 %5743, %.not306.i.i348
   %5745 = trunc i32 %.sroa.0.0.copyload.i339.i.i347 to i8
-  br i1 %or.cond.i.i349, label %.thread995, label %5746, !prof !213
+  br i1 %or.cond.i.i349, label %.thread995, label %5746, !prof !212
 
 5746:                                             ; preds = %5741
   %5747 = and i32 %.sroa.0.0.copyload.i339.i.i347, 4
@@ -57632,7 +57616,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   %.not293.i.i318 = icmp eq i32 %5819, 0
   %or.cond331.i.i319 = or i1 %5818, %.not293.i.i318
   %5820 = lshr i32 %.sroa.0.0.copyload.i.i.i317, 24
-  br i1 %or.cond331.i.i319, label %.thread1011, label %5821, !prof !213
+  br i1 %or.cond331.i.i319, label %.thread1011, label %5821, !prof !212
 
 5821:                                             ; preds = %5816
   %5822 = and i32 %.sroa.0.0.copyload.i.i.i317, 4
@@ -57737,7 +57721,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   %5880 = getelementptr inbounds nuw i8, ptr %.018.i.i2922349, i64 16
   %5881 = add nsw i64 %.0.i425.i2350, -16
   %5882 = icmp ugt i64 %5881, 15
-  br i1 %5882, label %.lr.ph2352, label %.preheader1192, !llvm.loop !214
+  br i1 %5882, label %.lr.ph2352, label %.preheader1192, !llvm.loop !213
 
 .preheader1191:                                   ; preds = %.lr.ph2359, %.preheader1192
   %.122.i.i293.lcssa = phi ptr [ %.021.i.i291.lcssa, %.preheader1192 ], [ %5884, %.lr.ph2359 ]
@@ -57756,7 +57740,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   %5885 = getelementptr inbounds nuw i8, ptr %.119.i.i2942357, i64 4
   %5886 = add nsw i64 %.1.i.i2952358, -4
   %5887 = icmp ugt i64 %5886, 3
-  br i1 %5887, label %.lr.ph2359, label %.preheader1191, !llvm.loop !215
+  br i1 %5887, label %.lr.ph2359, label %.preheader1191, !llvm.loop !214
 
 .lr.ph2367:                                       ; preds = %.preheader1191, %.lr.ph2367
   %.2.i.i2982366 = phi i64 [ %5891, %.lr.ph2367 ], [ %.1.i.i295.lcssa, %.preheader1191 ]
@@ -57768,7 +57752,7 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210: ; preds = %5067, %5066
   store i8 %5889, ptr %.223.i.i2962364, align 1, !tbaa !75
   %5891 = add nsw i64 %.2.i.i2982366, -1
   %.not.i.i299 = icmp eq i64 %5891, 0
-  br i1 %.not.i.i299, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, label %.lr.ph2367, !llvm.loop !216
+  br i1 %.not.i.i299, label %_ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i, label %.lr.ph2367, !llvm.loop !215
 
 _ZN13duckdb_yyjsonL12write_stringEPhbbPKhmS2_.exit529.i: ; preds = %.preheader1178, %.lr.ph2367, %.preheader1164, %5271, %5323, %5335, %5645, %5697, %5709, %.preheader1191
   %.8.i444.i.lcssa.sink4421 = phi ptr [ %.122.i.i293.lcssa, %.preheader1191 ], [ %.8.i.i312, %5709 ], [ %.8.i.i312, %5697 ], [ %5647, %5645 ], [ %.8.i444.i, %5335 ], [ %.8.i444.i, %5323 ], [ %5273, %5271 ], [ %.6.i.i306.lcssa, %.preheader1164 ], [ %5890, %.lr.ph2367 ], [ %.6.i436.i.lcssa, %.preheader1178 ]
@@ -58726,7 +58710,7 @@ _ZN13duckdb_yyjsonL27write_u64_len_15_to_17_trimEPhm.exit.i241: ; preds = %6410,
   %6563 = getelementptr inbounds nuw i8, ptr %5940, i64 %indvars.iv2994
   store i8 %6562, ptr %6563, align 1, !tbaa !75
   %exitcond2999.not = icmp eq i64 %indvars.iv.next2995, %wide.trip.count2998
-  br i1 %exitcond2999.not, label %._crit_edge2315, label %.lr.ph2314, !llvm.loop !217
+  br i1 %exitcond2999.not, label %._crit_edge2315, label %.lr.ph2314, !llvm.loop !216
 
 ._crit_edge2315:                                  ; preds = %.lr.ph2314
   %6564 = zext nneg i32 %6284 to i64
@@ -59471,7 +59455,7 @@ _ZN13duckdb_yyjsonL21write_u64_len_1_to_17EmPh.exit.i253: ; preds = %7008, %7019
   %7103 = add nsw i32 %.0797, 1
   %7104 = load i8, ptr %7102, align 1, !tbaa !75
   %7105 = icmp eq i8 %7104, 48
-  br i1 %7105, label %7101, label %7106, !llvm.loop !218
+  br i1 %7105, label %7101, label %7106, !llvm.loop !217
 
 7106:                                             ; preds = %7101
   %7107 = ptrtoint ptr %7102 to i64
@@ -60039,9 +60023,9 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread: ; preds
   %7512 = zext nneg i8 %.0801.ph to i64
   %7513 = shl i64 %.0800, 1
   %7514 = or disjoint i64 %7513, %7512
-  store i64 %7514, ptr %7511, align 8, !tbaa !222
+  store i64 %7514, ptr %7511, align 8, !tbaa !221
   %7515 = getelementptr inbounds i8, ptr %.4365.i, i64 -8
-  store ptr %.0798.ph, ptr %7515, align 8, !tbaa !224
+  store ptr %.0798.ph, ptr %7515, align 8, !tbaa !223
   %7516 = zext i1 %7478 to i64
   %7517 = shl nuw nsw i64 %7510, %7516
   %7518 = select i1 %7478, i8 123, i8 91
@@ -60238,12 +60222,12 @@ _ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400:    ; preds = %7535, %7526
 
 7614:                                             ; preds = %.preheader1189
   %7615 = getelementptr inbounds nuw i8, ptr %.8369.i, i64 16
-  %7616 = load i64, ptr %.8369.i, align 8, !tbaa !222
+  %7616 = load i64, ptr %.8369.i, align 8, !tbaa !221
   %7617 = lshr i64 %7616, 1
   %7618 = trunc i64 %7616 to i8
   %7619 = and i8 %7618, 1
   %7620 = getelementptr inbounds nuw i8, ptr %.8369.i, i64 8
-  %7621 = load ptr, ptr %7620, align 8, !tbaa !224
+  %7621 = load ptr, ptr %7620, align 8, !tbaa !223
   %7622 = add nsw i64 %7617, -1
   %.not406.i = icmp eq i64 %7622, 0
   br i1 %.not406.i, label %.preheader1189, label %.outer.backedge, !prof !3
@@ -60302,10 +60286,10 @@ _ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400:    ; preds = %7535, %7526
   br label %.cont413
 
 .cont413:                                         ; preds = %7647, %.else415
-  store i32 0, ptr %9, align 8, !tbaa !209
+  store i32 0, ptr %9, align 8, !tbaa !208
   %.sroa.sel479.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel479.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel479.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.98, ptr %.sroa.sel479.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.98, ptr %.sroa.sel479.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   br label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit
 
 .loopexit1193:                                    ; preds = %7584, %7556, %7528, %7480, %5897, %5109, %7626, %_ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i210
@@ -60317,10 +60301,10 @@ _ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400:    ; preds = %7535, %7526
   br label %.cont410
 
 .cont410:                                         ; preds = %.loopexit1193, %.else412
-  store i32 2, ptr %9, align 8, !tbaa !209
+  store i32 2, ptr %9, align 8, !tbaa !208
   %.sroa.sel482.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel482.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel482.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.28, ptr %.sroa.sel482.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.28, ptr %.sroa.sel482.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not409.i = icmp eq ptr %.10.i228, null
   br i1 %.not409.i, label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %7652
 
@@ -60336,10 +60320,10 @@ _ZN13duckdb_yyjsonL10write_boolEPhb.exit.i400:    ; preds = %7535, %7526
   br label %.cont
 
 .cont:                                            ; preds = %7653, %.else
-  store i32 3, ptr %9, align 8, !tbaa !209
+  store i32 3, ptr %9, align 8, !tbaa !208
   %.sroa.sel491.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel491.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel491.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.86, ptr %.sroa.sel491.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.86, ptr %.sroa.sel491.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not384.i = icmp eq ptr %.0341.i, null
   br i1 %.not384.i, label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %7654
 
@@ -60355,10 +60339,10 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033: ; p
   br label %.cont407
 
 .cont407:                                         ; preds = %_ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033, %.else409
-  store i32 4, ptr %9, align 8, !tbaa !209
+  store i32 4, ptr %9, align 8, !tbaa !208
   %.sroa.sel485.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel485.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel485.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.87, ptr %.sroa.sel485.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.87, ptr %.sroa.sel485.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not398.i = icmp eq ptr %.3.i214, null
   br i1 %.not398.i, label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %7655
 
@@ -60374,10 +60358,10 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033: ; p
   br label %.cont404
 
 .cont404:                                         ; preds = %.loopexit1162, %.else406
-  store i32 7, ptr %9, align 8, !tbaa !209
+  store i32 7, ptr %9, align 8, !tbaa !208
   %.sroa.sel488.v.sroa.sel.v.sroa.sel.v = select i1 %.not28, ptr %7, ptr %5
   %.sroa.sel488.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel488.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.88, ptr %.sroa.sel488.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
+  store ptr @.str.88, ptr %.sroa.sel488.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
   %.not404.i = icmp eq ptr %.1.i283, null
   br i1 %.not404.i, label %_ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit, label %7656
 
@@ -60400,7 +60384,7 @@ define noundef ptr @_ZN13duckdb_yyjson21yyjson_mut_write_optsEPKNS_14yyjson_mut_
   %7 = load ptr, ptr %0, align 8, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.0.i10 = load ptr, ptr %9, align 8, !tbaa !225
+  %.0.i10 = load ptr, ptr %9, align 8, !tbaa !224
   %.not.i11 = icmp eq ptr %.0.i10, null
   br i1 %.not.i11, label %_ZN13duckdb_yyjsonL32yyjson_mut_doc_estimated_val_numEPKNS_14yyjson_mut_docE.exit, label %.lr.ph
 
@@ -60420,8 +60404,8 @@ define noundef ptr @_ZN13duckdb_yyjson21yyjson_mut_write_optsEPKNS_14yyjson_mut_
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %11
-  %19 = load ptr, ptr %10, align 8, !tbaa !226
-  %20 = load ptr, ptr %8, align 8, !tbaa !227
+  %19 = load ptr, ptr %10, align 8, !tbaa !225
+  %20 = load ptr, ptr %8, align 8, !tbaa !226
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
@@ -60431,9 +60415,9 @@ define noundef ptr @_ZN13duckdb_yyjson21yyjson_mut_write_optsEPKNS_14yyjson_mut_
 
 25:                                               ; preds = %18, %11
   %.1.i = phi i64 [ %24, %18 ], [ %16, %11 ]
-  %.0.i = load ptr, ptr %.0.i13, align 8, !tbaa !225
+  %.0.i = load ptr, ptr %.0.i13, align 8, !tbaa !224
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZN13duckdb_yyjsonL32yyjson_mut_doc_estimated_val_numEPKNS_14yyjson_mut_docE.exit, label %11, !llvm.loop !228
+  br i1 %.not.i, label %_ZN13duckdb_yyjsonL32yyjson_mut_doc_estimated_val_numEPKNS_14yyjson_mut_docE.exit, label %11, !llvm.loop !227
 
 _ZN13duckdb_yyjsonL32yyjson_mut_doc_estimated_val_numEPKNS_14yyjson_mut_docE.exit: ; preds = %25, %6, %5
   %.08 = phi ptr [ null, %5 ], [ %7, %6 ], [ %7, %25 ]
@@ -60464,8 +60448,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson25yyjson_mut_val_write_fileEPKcPKNS
 .critedge:                                        ; preds = %5, %10
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not22, ptr %6, ptr %4
   %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.41, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 1, ptr %9, align 8, !tbaa !209
+  store ptr @.str.41, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 1, ptr %9, align 8, !tbaa !208
   br label %30
 
 12:                                               ; preds = %10
@@ -60482,8 +60466,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson25yyjson_mut_val_write_fileEPKcPKNS
 18:                                               ; preds = %14
   %.sroa.sel35.v.sroa.sel.v.sroa.sel.v = select i1 %.not22, ptr %6, ptr %4
   %.sroa.sel35.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel35.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.35, ptr %.sroa.sel35.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 5, ptr %9, align 8, !tbaa !209
+  store ptr @.str.35, ptr %.sroa.sel35.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 5, ptr %9, align 8, !tbaa !208
   br label %_ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit
 
 19:                                               ; preds = %14
@@ -60494,8 +60478,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson25yyjson_mut_val_write_fileEPKcPKNS
 21:                                               ; preds = %19
   %.sroa.sel29.v.sroa.sel.v.sroa.sel.v = select i1 %.not22, ptr %6, ptr %4
   %.sroa.sel29.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel29.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.95, ptr %.sroa.sel29.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 6, ptr %9, align 8, !tbaa !209
+  store ptr @.str.95, ptr %.sroa.sel29.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 6, ptr %9, align 8, !tbaa !208
   %22 = call i32 @fclose(ptr noundef nonnull %16)
   br label %_ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit
 
@@ -60507,8 +60491,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson25yyjson_mut_val_write_fileEPKcPKNS
 25:                                               ; preds = %23
   %.sroa.sel32.v.sroa.sel.v.sroa.sel.v = select i1 %.not22, ptr %6, ptr %4
   %.sroa.sel32.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel32.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.96, ptr %.sroa.sel32.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 6, ptr %9, align 8, !tbaa !209
+  store ptr @.str.96, ptr %.sroa.sel32.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 6, ptr %9, align 8, !tbaa !208
   br label %_ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit
 
 _ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit: ; preds = %18, %21, %23, %25
@@ -60544,8 +60528,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FIL
 10:                                               ; preds = %5
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not20, ptr %6, ptr %4
   %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.42, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 1, ptr %9, align 8, !tbaa !209
+  store ptr @.str.42, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 1, ptr %9, align 8, !tbaa !208
   br label %21
 
 11:                                               ; preds = %5
@@ -60562,8 +60546,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FIL
 16:                                               ; preds = %13
   %.sroa.sel26.v.sroa.sel.v.sroa.sel.v = select i1 %.not20, ptr %6, ptr %4
   %.sroa.sel26.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel26.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.95, ptr %.sroa.sel26.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 6, ptr %9, align 8, !tbaa !209
+  store ptr @.str.95, ptr %.sroa.sel26.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 6, ptr %9, align 8, !tbaa !208
   br label %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit
 
 _ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit: ; preds = %13, %16
@@ -60622,8 +60606,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_mut_write_fpEP8_IO_FILEPKN
 14:                                               ; preds = %10
   %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not20.i, ptr %6, ptr %4
   %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.42, ptr %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 1, ptr %13, align 8, !tbaa !209
+  store ptr @.str.42, ptr %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 1, ptr %13, align 8, !tbaa !208
   br label %_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FILEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE.exit
 
 15:                                               ; preds = %10
@@ -60640,8 +60624,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_mut_write_fpEP8_IO_FILEPKN
 20:                                               ; preds = %17
   %.sroa.sel26.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not20.i, ptr %6, ptr %4
   %.sroa.sel26.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel26.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
-  store ptr @.str.95, ptr %.sroa.sel26.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !207
-  store i32 6, ptr %13, align 8, !tbaa !209
+  store ptr @.str.95, ptr %.sroa.sel26.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !206
+  store i32 6, ptr %13, align 8, !tbaa !208
   br label %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit.i
 
 _ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit.i: ; preds = %20, %17
@@ -60763,7 +60747,7 @@ _ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit113.thread: ; preds = %_ZN13
   %31 = getelementptr inbounds nuw i8, ptr %.019.i168, i64 1
   %32 = getelementptr inbounds nuw i8, ptr %.020.i167, i64 1
   %33 = icmp ult ptr %31, %2
-  br i1 %33, label %.preheader165, label %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118, !llvm.loop !229
+  br i1 %33, label %.preheader165, label %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118, !llvm.loop !228
 
 .loopexit:                                        ; preds = %.preheader165, %21
   %34 = getelementptr inbounds nuw i8, ptr %spec.select, i64 3
@@ -60788,7 +60772,7 @@ _ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit113.thread: ; preds = %_ZN13
   %41 = getelementptr inbounds nuw i8, ptr %.019.i124170, i64 1
   %42 = getelementptr inbounds nuw i8, ptr %.020.i123169, i64 1
   %43 = icmp ult ptr %41, %2
-  br i1 %43, label %.preheader163, label %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118, !llvm.loop !229
+  br i1 %43, label %.preheader163, label %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118, !llvm.loop !228
 
 _ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit128.thread: ; preds = %.preheader163, %.loopexit, %7, %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit113.thread
   %.073 = phi ptr [ %1, %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit113.thread ], [ %1, %7 ], [ %spec.select, %.loopexit ], [ %spec.select, %.preheader163 ]
@@ -60830,7 +60814,7 @@ _ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit128.thread: ; preds = %.preh
   %57 = getelementptr inbounds nuw i8, ptr %.020.i133171, i64 1
   %exitcond182.not = icmp ne ptr %56, %2
   %or.cond.not = select i1 %or.cond30.i137, i1 %exitcond182.not, i1 false
-  br i1 %or.cond.not, label %.preheader, label %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118, !llvm.loop !229
+  br i1 %or.cond.not, label %.preheader, label %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118, !llvm.loop !228
 
 58:                                               ; preds = %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit128.thread
   %.073180 = ptrtoint ptr %.073 to i64
@@ -60869,7 +60853,7 @@ _ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit128.thread: ; preds = %.preh
   %77 = getelementptr inbounds nuw i8, ptr %.275173, i64 1
   %exitcond.not = icmp ne ptr %77, %2
   %or.cond194.not = select i1 %.not161, i1 %exitcond.not, i1 false
-  br i1 %or.cond194.not, label %.lr.ph, label %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118, !llvm.loop !230
+  br i1 %or.cond194.not, label %.lr.ph, label %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118, !llvm.loop !229
 
 78:                                               ; preds = %58
   %.not83 = icmp sgt i8 %60, -1
@@ -61163,7 +61147,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread: ; pre
   %82 = and i8 %81, 3
   %.not78 = icmp eq i8 %82, 0
   %83 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  br i1 %.not78, label %84, label %.preheader90, !llvm.loop !231
+  br i1 %.not78, label %84, label %.preheader90, !llvm.loop !230
 
 84:                                               ; preds = %.preheader90
   %85 = and i8 %81, 48
@@ -61213,7 +61197,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread: ; pre
   %109 = and i8 %108, 3
   %.not83 = icmp eq i8 %109, 0
   %110 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  br i1 %.not83, label %.loopexit89, label %.preheader88, !llvm.loop !232
+  br i1 %.not83, label %.loopexit89, label %.preheader88, !llvm.loop !231
 
 .loopexit89:                                      ; preds = %.preheader88, %93
   %111 = phi i8 [ %.pre, %93 ], [ %108, %.preheader88 ]
@@ -61254,7 +61238,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread: ; pre
   %133 = and i8 %132, 3
   %.not87 = icmp eq i8 %133, 0
   %134 = getelementptr inbounds nuw i8, ptr %.5, i64 1
-  br i1 %.not87, label %.loopexit, label %.preheader, !llvm.loop !233
+  br i1 %.not87, label %.loopexit, label %.preheader, !llvm.loop !232
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit89
   %.6 = phi ptr [ %.3, %.loopexit89 ], [ %.5, %.preheader ]
@@ -61282,7 +61266,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
   br i1 %.not, label %7, label %9, !prof !3
 
 7:                                                ; preds = %6
-  store i32 1, ptr %0, align 8, !tbaa !167
+  store i32 1, ptr %0, align 8, !tbaa !166
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %8, align 8, !tbaa !85
   br label %.loopexit
@@ -61312,10 +61296,10 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
   %28 = getelementptr inbounds i8, ptr %25, i64 %.neg57
   %.050 = select i1 %22, ptr %28, ptr %4
   %29 = select i1 %22, i32 750, i32 %17
-  %30 = load i32, ptr %2, align 4, !tbaa !153
+  %30 = load i32, ptr %2, align 4, !tbaa !152
   %31 = sub nsw i32 %30, %29
-  store i32 %31, ptr %2, align 4, !tbaa !153
-  store i32 1, ptr %0, align 8, !tbaa !167
+  store i32 %31, ptr %2, align 4, !tbaa !152
+  store i32 1, ptr %0, align 8, !tbaa !166
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %20, ptr %32, align 8, !tbaa !85
   %33 = icmp ult ptr %3, %.050
@@ -61373,7 +61357,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
 54:                                               ; preds = %.lr.ph120
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
-  br i1 %exitcond188.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61, label %.lr.ph120, !llvm.loop !164
+  br i1 %exitcond188.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61, label %.lr.ph120, !llvm.loop !163
 
 ._crit_edge121.loopexit:                          ; preds = %.lr.ph120
   %55 = trunc nuw i64 %indvars.iv184 to i32
@@ -61404,7 +61388,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
   store i64 %66, ptr %58, align 8, !tbaa !85
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %._crit_edge129, label %.lr.ph128, !llvm.loop !165
+  br i1 %exitcond193.not, label %._crit_edge129, label %.lr.ph128, !llvm.loop !164
 
 ._crit_edge129:                                   ; preds = %.lr.ph128
   %.not19.i = icmp eq i64 %65, 0
@@ -61441,7 +61425,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
 74:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77, label %.lr.ph, !llvm.loop !164
+  br i1 %exitcond.not, label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77, label %.lr.ph, !llvm.loop !163
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %75 = trunc nuw i64 %indvars.iv to i32
@@ -61472,7 +61456,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
   store i64 %86, ptr %78, align 8, !tbaa !85
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !165
+  br i1 %exitcond173.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !164
 
 ._crit_edge100:                                   ; preds = %.lr.ph99
   %.not19.i75 = icmp eq i64 %85, 0
@@ -61480,7 +61464,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
 
 87:                                               ; preds = %._crit_edge100
   %88 = add i32 %71, 1
-  store i32 %88, ptr %0, align 8, !tbaa !167
+  store i32 %88, ptr %0, align 8, !tbaa !166
   %89 = zext i32 %71 to i64
   %90 = getelementptr inbounds nuw [64 x i64], ptr %32, i64 0, i64 %89
   store i64 %85, ptr %90, align 8, !tbaa !85
@@ -61494,7 +61478,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77: ; preds = %74, %._crit
   %93 = phi i32 [ %71, %._crit_edge100 ], [ %88, %87 ], [ %71, %._crit_edge ], [ %71, %74 ]
   %94 = add nsw i32 %.0.i102, -19
   %95 = icmp sgt i32 %.0.i102, 37
-  br i1 %95, label %.lr.ph103, label %.split51._crit_edge, !llvm.loop !166
+  br i1 %95, label %.lr.ph103, label %.split51._crit_edge, !llvm.loop !165
 
 .split51._crit_edge:                              ; preds = %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77, %.split51.preheader
   %96 = phi i32 [ %34, %.split51.preheader ], [ %91, %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77 ]
@@ -61526,7 +61510,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77: ; preds = %74, %._crit
 104:                                              ; preds = %.lr.ph107
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
-  br i1 %exitcond178.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61, label %.lr.ph107, !llvm.loop !164
+  br i1 %exitcond178.not, label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61, label %.lr.ph107, !llvm.loop !163
 
 ._crit_edge108.loopexit:                          ; preds = %.lr.ph107
   %105 = trunc nuw i64 %indvars.iv174 to i32
@@ -61558,7 +61542,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77: ; preds = %74, %._crit
   store i64 %118, ptr %110, align 8, !tbaa !85
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
-  br i1 %exitcond183.not, label %._crit_edge116, label %109, !llvm.loop !165
+  br i1 %exitcond183.not, label %._crit_edge116, label %109, !llvm.loop !164
 
 ._crit_edge116:                                   ; preds = %109
   %.not19.i81 = icmp eq i64 %117, 0
@@ -61568,7 +61552,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61.sink.split: ; preds =
   %.promoted131.sink246 = phi i32 [ %.promoted131, %._crit_edge129 ], [ %97, %._crit_edge116 ]
   %.lcssa239.sink = phi i64 [ %65, %._crit_edge129 ], [ %117, %._crit_edge116 ]
   %119 = add i32 %.promoted131.sink246, 1
-  store i32 %119, ptr %0, align 8, !tbaa !167
+  store i32 %119, ptr %0, align 8, !tbaa !166
   %120 = zext i32 %.promoted131.sink246 to i64
   %121 = getelementptr inbounds nuw [64 x i64], ptr %32, i64 0, i64 %120
   store i64 %.lcssa239.sink, ptr %121, align 8, !tbaa !85
@@ -61606,11 +61590,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61: ; preds = %104, %54,
   store i64 0, ptr %128, align 8, !tbaa !85
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
-  br i1 %exitcond204.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !234
+  br i1 %exitcond204.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !233
 
 ._crit_edge149:                                   ; preds = %132, %126
   %133 = add i32 %122, 1
-  store i32 %133, ptr %0, align 8, !tbaa !167
+  store i32 %133, ptr %0, align 8, !tbaa !166
   %134 = getelementptr inbounds nuw [64 x i64], ptr %32, i64 0, i64 %wide.trip.count203
   store i64 1, ptr %134, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_add_u64EPNS_6bigintEm.exit
@@ -61628,7 +61612,7 @@ _ZN13duckdb_yyjsonL14bigint_add_u64EPNS_6bigintEm.exit: ; preds = %._crit_edge14
   %.147 = phi i32 [ %43, %67 ], [ %.046151, %135 ], [ 0, %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61 ], [ 0, %130 ], [ 0, %._crit_edge149 ]
   %.2 = phi i64 [ %.1, %67 ], [ %.045152, %135 ], [ 0, %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61 ], [ 0, %130 ], [ 0, %._crit_edge149 ]
   %139 = icmp ult ptr %.149, %.050
-  br i1 %139, label %.lr.ph154, label %.loopexit, !llvm.loop !235
+  br i1 %139, label %.lr.ph154, label %.loopexit, !llvm.loop !234
 
 .loopexit:                                        ; preds = %_ZN13duckdb_yyjsonL14bigint_add_u64EPNS_6bigintEm.exit, %9, %7
   ret void
@@ -61817,58 +61801,58 @@ attributes #31 = { nounwind }
 !121 = distinct !{!121, !25}
 !122 = !{!"branch_weights", !"expected", i32 1072673, i32 2146410975}
 !123 = distinct !{!123, !25}
-!124 = !{!"branch_weights", !"expected", i32 2146410, i32 2145337238}
-!125 = !{!"branch_weights", !"expected", i32 1072694, i32 2146410954}
-!126 = distinct !{!126, !25}
-!127 = !{!118, !53, i64 16}
-!128 = distinct !{!128, !25}
-!129 = !{!"branch_weights", i32 2000, i32 2002}
-!130 = !{!131, !110, i64 24}
-!131 = !{!"_ZTSN13duckdb_yyjson16yyjson_patch_errE", !110, i64 0, !11, i64 8, !42, i64 16, !109, i64 24}
-!132 = !{!131, !110, i64 0}
-!133 = !{!131, !42, i64 16}
-!134 = !{!131, !11, i64 8}
+!124 = !{!"branch_weights", !"expected", i32 1072694, i32 2146410954}
+!125 = distinct !{!125, !25}
+!126 = !{!118, !53, i64 16}
+!127 = distinct !{!127, !25}
+!128 = !{!"branch_weights", i32 2000, i32 2002}
+!129 = !{!130, !110, i64 24}
+!130 = !{!"_ZTSN13duckdb_yyjson16yyjson_patch_errE", !110, i64 0, !11, i64 8, !42, i64 16, !109, i64 24}
+!131 = !{!130, !110, i64 0}
+!132 = !{!130, !42, i64 16}
+!133 = !{!130, !11, i64 8}
+!134 = distinct !{!134, !25}
 !135 = distinct !{!135, !25}
 !136 = distinct !{!136, !25}
 !137 = distinct !{!137, !25}
-!138 = distinct !{!138, !25}
-!139 = !{!"branch_weights", i32 1073205, i32 2146410443}
-!140 = !{!"branch_weights", i32 -2147483648, i32 -2147483648}
+!138 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!139 = !{!"branch_weights", i32 -2147483648, i32 -2147483648}
+!140 = distinct !{!140, !25}
 !141 = distinct !{!141, !25}
 !142 = distinct !{!142, !25}
 !143 = distinct !{!143, !25}
-!144 = distinct !{!144, !25}
-!145 = !{!146, !11, i64 16}
-!146 = !{!"_ZTSN13duckdb_yyjson15yyjson_read_errE", !110, i64 0, !42, i64 8, !11, i64 16}
-!147 = !{!146, !42, i64 8}
-!148 = !{!146, !110, i64 0}
-!149 = distinct !{!149, !25}
-!150 = !{!"branch_weights", i32 127, i32 1}
-!151 = !{!"branch_weights", i32 255873, i32 127}
-!152 = distinct !{!152, !25}
-!153 = !{!110, !110, i64 0}
-!154 = !{!"branch_weights", i32 1, i32 4001}
+!144 = !{!145, !11, i64 16}
+!145 = !{!"_ZTSN13duckdb_yyjson15yyjson_read_errE", !110, i64 0, !42, i64 8, !11, i64 16}
+!146 = !{!145, !42, i64 8}
+!147 = !{!145, !110, i64 0}
+!148 = distinct !{!148, !25}
+!149 = !{!"branch_weights", i32 127, i32 1}
+!150 = !{!"branch_weights", i32 255873, i32 127}
+!151 = distinct !{!151, !25}
+!152 = !{!110, !110, i64 0}
+!153 = !{!"branch_weights", i32 1, i32 4001}
+!154 = distinct !{!154, !25}
 !155 = distinct !{!155, !25}
 !156 = distinct !{!156, !25}
 !157 = distinct !{!157, !25}
 !158 = distinct !{!158, !25}
 !159 = distinct !{!159, !25}
 !160 = distinct !{!160, !25}
-!161 = distinct !{!161, !25}
-!162 = !{!163, !163, i64 0}
-!163 = !{!"double", !7, i64 0}
+!161 = !{!162, !162, i64 0}
+!162 = !{!"double", !7, i64 0}
+!163 = distinct !{!163, !25}
 !164 = distinct !{!164, !25}
 !165 = distinct !{!165, !25}
-!166 = distinct !{!166, !25}
-!167 = !{!168, !110, i64 0}
-!168 = !{!"_ZTSN13duckdb_yyjson6bigintE", !110, i64 0, !7, i64 8}
+!166 = !{!167, !110, i64 0}
+!167 = !{!"_ZTSN13duckdb_yyjson6bigintE", !110, i64 0, !7, i64 8}
+!168 = distinct !{!168, !25}
 !169 = distinct !{!169, !25}
 !170 = distinct !{!170, !25}
 !171 = distinct !{!171, !25}
 !172 = distinct !{!172, !25}
 !173 = distinct !{!173, !25}
-!174 = distinct !{!174, !25}
-!175 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
+!174 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
+!175 = distinct !{!175, !25}
 !176 = distinct !{!176, !25}
 !177 = distinct !{!177, !25}
 !178 = distinct !{!178, !25}
@@ -61887,40 +61871,40 @@ attributes #31 = { nounwind }
 !191 = distinct !{!191, !25}
 !192 = distinct !{!192, !25}
 !193 = distinct !{!193, !25}
-!194 = distinct !{!194, !25}
-!195 = !{!"branch_weights", !"expected", i32 2147481078, i32 2570}
+!194 = !{!"branch_weights", !"expected", i32 2147481078, i32 2570}
+!195 = distinct !{!195, !25}
 !196 = distinct !{!196, !25}
 !197 = distinct !{!197, !25}
 !198 = distinct !{!198, !25}
 !199 = distinct !{!199, !25}
 !200 = distinct !{!200, !25}
 !201 = distinct !{!201, !25}
-!202 = distinct !{!202, !25}
-!203 = !{!"branch_weights", !"expected", i32 2147481180, i32 2468}
+!202 = !{!"branch_weights", !"expected", i32 2147481180, i32 2468}
+!203 = distinct !{!203, !25}
 !204 = distinct !{!204, !25}
-!205 = distinct !{!205, !25}
-!206 = !{!"branch_weights", !"expected", i32 2147481179, i32 2469}
-!207 = !{!208, !42, i64 8}
-!208 = !{!"_ZTSN13duckdb_yyjson16yyjson_write_errE", !110, i64 0, !42, i64 8}
-!209 = !{!208, !110, i64 0}
+!205 = !{!"branch_weights", !"expected", i32 2147481179, i32 2469}
+!206 = !{!207, !42, i64 8}
+!207 = !{!"_ZTSN13duckdb_yyjson16yyjson_write_errE", !110, i64 0, !42, i64 8}
+!208 = !{!207, !110, i64 0}
+!209 = distinct !{!209, !25}
 !210 = distinct !{!210, !25}
 !211 = distinct !{!211, !25}
-!212 = distinct !{!212, !25}
-!213 = !{!"branch_weights", i32 4001, i32 4000000}
+!212 = !{!"branch_weights", i32 4001, i32 4000000}
+!213 = distinct !{!213, !25}
 !214 = distinct !{!214, !25}
 !215 = distinct !{!215, !25}
 !216 = distinct !{!216, !25}
 !217 = distinct !{!217, !25}
 !218 = distinct !{!218, !25}
-!219 = distinct !{!219, !25}
-!220 = !{!221, !11, i64 0}
-!221 = !{!"_ZTSN13duckdb_yyjson16yyjson_write_ctxE", !11, i64 0}
-!222 = !{!223, !11, i64 0}
-!223 = !{!"_ZTSN13duckdb_yyjson20yyjson_mut_write_ctxE", !11, i64 0, !53, i64 8}
-!224 = !{!223, !53, i64 8}
-!225 = !{!54, !54, i64 0}
-!226 = !{!63, !53, i64 88}
-!227 = !{!63, !53, i64 80}
+!219 = !{!220, !11, i64 0}
+!220 = !{!"_ZTSN13duckdb_yyjson16yyjson_write_ctxE", !11, i64 0}
+!221 = !{!222, !11, i64 0}
+!222 = !{!"_ZTSN13duckdb_yyjson20yyjson_mut_write_ctxE", !11, i64 0, !53, i64 8}
+!223 = !{!222, !53, i64 8}
+!224 = !{!54, !54, i64 0}
+!225 = !{!63, !53, i64 88}
+!226 = !{!63, !53, i64 80}
+!227 = distinct !{!227, !25}
 !228 = distinct !{!228, !25}
 !229 = distinct !{!229, !25}
 !230 = distinct !{!230, !25}
@@ -61928,4 +61912,3 @@ attributes #31 = { nounwind }
 !232 = distinct !{!232, !25}
 !233 = distinct !{!233, !25}
 !234 = distinct !{!234, !25}
-!235 = distinct !{!235, !25}

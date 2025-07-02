@@ -38230,7 +38230,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   br i1 %203, label %210, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit19.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit19.i.i.i.i": ; preds = %199
-  %204 = icmp ne ptr %182, %201
+  %204 = icmp ne i64 %188, 1
   call void @llvm.assume(i1 %204)
   %205 = getelementptr inbounds i8, ptr %200, i64 -2
   %206 = load i8, ptr %205, align 1, !noalias !5856, !noundef !10
@@ -38252,7 +38252,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   br label %_ZN4core3str11validations23next_code_point_reverse17h6c1ce942d36db8edE.exit.thread.i.i.i
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit21.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit19.i.i.i.i"
-  %217 = icmp ne ptr %182, %205
+  %217 = icmp ne i64 %188, 2
   call void @llvm.assume(i1 %217)
   %218 = getelementptr inbounds i8, ptr %200, i64 -3
   %219 = load i8, ptr %218, align 1, !noalias !5856, !noundef !10
@@ -38270,7 +38270,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
   br label %212
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit23.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h955078b8003a8100E.exit21.i.i.i.i"
-  %228 = icmp ne ptr %182, %218
+  %228 = icmp ne i64 %188, 3
   call void @llvm.assume(i1 %228)
   %229 = getelementptr inbounds i8, ptr %200, i64 -4
   %230 = load i8, ptr %229, align 1, !noalias !5856, !noundef !10

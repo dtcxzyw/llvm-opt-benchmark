@@ -1522,14 +1522,14 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = 
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %49 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.054, i64 %.085
+  %.idx = shl nsw i64 %.085, 5
+  %49 = getelementptr inbounds i8, ptr %.054, i64 %.idx
   %50 = getelementptr inbounds i8, ptr %49, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(32) %50, i64 32, i1 false), !tbaa.struct !116
-  %.not.i.i.i.i.i66 = icmp eq ptr %50, %.054
+  %.not.i.i.i.i.i66 = icmp eq i64 %.085, 1
   br i1 %.not.i.i.i.i.i66, label %_ZSt13move_backwardIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit, label %51
 
 51:                                               ; preds = %48
-  %.idx = shl nsw i64 %.085, 5
   %52 = add nsw i64 %.idx, -32
   %53 = ashr exact i64 %52, 5
   %54 = sub nsw i64 0, %53

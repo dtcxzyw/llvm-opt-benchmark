@@ -1761,7 +1761,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   %16 = trunc nuw i8 %15 to i1
   %17 = xor i1 %16, true
   %18 = select i1 %14, i1 true, i1 %17
-  br i1 %18, label %19, label %.thread707, !prof !9
+  br i1 %18, label %19, label %.thread709, !prof !9
 
 19:                                               ; preds = %4
   %20 = load ptr, ptr %0, align 8, !tbaa !64
@@ -1777,1050 +1777,1046 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   %24 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
   %25 = load i64, ptr @H5E_CANTCREATE_g, align 8, !tbaa !11
   %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4247, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.69) #14
-  br label %.thread707
+  br label %.thread709
 
 27:                                               ; preds = %19, %21
   %.1431 = phi ptr [ %22, %21 ], [ %20, %19 ]
-  br i1 %3, label %35, label %28
+  %or.cond507 = icmp sgt i64 %2, 3
+  %or.cond541.not = or i1 %or.cond507, %3
+  br i1 %or.cond541.not, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = icmp ugt ptr %11, %.ptr493
-  %30 = icmp ult i64 %2, 4
-  %or.cond507 = or i1 %30, %29
-  br i1 %or.cond507, label %31, label %35
+  %29 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %30 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4254, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.70) #14
+  br label %585
 
-31:                                               ; preds = %28
-  %32 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %33 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4254, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.70) #14
-  br label %588
+32:                                               ; preds = %27
+  %33 = load i16, ptr %11, align 1
+  %34 = zext i16 %33 to i32
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  %36 = load i8, ptr %35, align 1, !tbaa !10
+  %37 = zext i8 %36 to i32
+  %38 = shl nuw nsw i32 %37, 16
+  %39 = or disjoint i32 %38, %34
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 3
+  %41 = load i8, ptr %40, align 1, !tbaa !10
+  %42 = zext i8 %41 to i32
+  %43 = shl nuw i32 %42, 24
+  %44 = or disjoint i32 %39, %43
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %46 = add i32 %44, -4
+  %or.cond = icmp ult i32 %46, -3
+  br i1 %or.cond, label %47, label %51
 
-35:                                               ; preds = %28, %27
-  %36 = load i16, ptr %11, align 1
-  %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %39 = load i8, ptr %38, align 1, !tbaa !10
-  %40 = zext i8 %39 to i32
-  %41 = shl nuw nsw i32 %40, 16
-  %42 = or disjoint i32 %41, %37
-  %43 = getelementptr inbounds nuw i8, ptr %11, i64 3
-  %44 = load i8, ptr %43, align 1, !tbaa !10
-  %45 = zext i8 %44 to i32
-  %46 = shl nuw i32 %45, 24
-  %47 = or disjoint i32 %42, %46
-  %48 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %49 = add i32 %47, -4
-  %or.cond = icmp ult i32 %49, -3
-  br i1 %or.cond, label %50, label %54
+47:                                               ; preds = %32
+  %48 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %49 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !11
+  %50 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4258, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.71) #14
+  br label %585
 
-50:                                               ; preds = %35
-  %51 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %52 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !11
-  %53 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4258, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.71) #14
-  br label %588
+51:                                               ; preds = %32
+  %52 = icmp samesign ugt i32 %44, 1
+  br i1 %52, label %53, label %93
 
-54:                                               ; preds = %35
-  %55 = icmp samesign ugt i32 %47, 1
-  br i1 %55, label %56, label %96
+53:                                               ; preds = %51
+  br i1 %3, label %61, label %54
 
-56:                                               ; preds = %54
-  br i1 %3, label %64, label %57
+54:                                               ; preds = %53
+  %55 = icmp ugt ptr %45, %.ptr493
+  %56 = icmp eq i64 %2, 4
+  %or.cond508 = or i1 %56, %55
+  br i1 %or.cond508, label %57, label %.thread
 
-57:                                               ; preds = %56
-  %58 = icmp ugt ptr %48, %.ptr493
-  %59 = icmp eq i64 %2, 4
-  %or.cond508 = or i1 %59, %58
-  br i1 %or.cond508, label %60, label %.thread
+57:                                               ; preds = %54
+  %58 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %59 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %60 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4263, i64 noundef %58, i64 noundef %59, ptr noundef nonnull @.str.72) #14
+  br label %585
 
-60:                                               ; preds = %57
-  %61 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %62 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %63 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4263, i64 noundef %61, i64 noundef %62, ptr noundef nonnull @.str.72) #14
-  br label %588
+61:                                               ; preds = %53
+  %62 = load i8, ptr %45, align 1, !tbaa !10
+  %.not494 = icmp eq i32 %44, 2
+  br i1 %.not494, label %84, label %66
 
-64:                                               ; preds = %56
-  %65 = load i8, ptr %48, align 1, !tbaa !10
-  %.not494 = icmp eq i32 %47, 2
-  br i1 %.not494, label %87, label %69
-
-.thread:                                          ; preds = %57
-  %66 = getelementptr inbounds nuw i8, ptr %11, i64 5
-  %67 = load i8, ptr %48, align 1, !tbaa !10
-  %.not494515 = icmp eq i32 %47, 2
-  %68 = icmp ugt ptr %66, %.ptr493
+.thread:                                          ; preds = %54
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 5
+  %64 = load i8, ptr %45, align 1, !tbaa !10
+  %.not494515 = icmp eq i32 %44, 2
+  %65 = icmp ugt ptr %63, %.ptr493
   br i1 %.not494515, label %.thread517, label %.thread516
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %11, i64 5
-  br label %76
+66:                                               ; preds = %61
+  %67 = getelementptr inbounds nuw i8, ptr %11, i64 5
+  br label %73
 
 .thread516:                                       ; preds = %.thread
-  %71 = icmp eq i64 %2, 5
-  %or.cond509 = or i1 %71, %68
-  br i1 %or.cond509, label %72, label %76
+  %68 = icmp eq i64 %2, 5
+  %or.cond509 = or i1 %68, %65
+  br i1 %or.cond509, label %69, label %73
 
-72:                                               ; preds = %.thread516
-  %73 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %74 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %75 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4270, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.73) #14
-  br label %588
+69:                                               ; preds = %.thread516
+  %70 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %71 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %72 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4270, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.73) #14
+  br label %585
 
-76:                                               ; preds = %69, %.thread516
-  %77 = phi ptr [ %66, %.thread516 ], [ %70, %69 ]
-  %78 = phi i8 [ %67, %.thread516 ], [ %65, %69 ]
-  %79 = getelementptr inbounds nuw i8, ptr %11, i64 6
-  %80 = load i8, ptr %77, align 1, !tbaa !10
-  br label %90
+73:                                               ; preds = %66, %.thread516
+  %74 = phi ptr [ %63, %.thread516 ], [ %67, %66 ]
+  %75 = phi i8 [ %64, %.thread516 ], [ %62, %66 ]
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 6
+  %77 = load i8, ptr %74, align 1, !tbaa !10
+  br label %87
 
 .thread517:                                       ; preds = %.thread
-  %81 = add i64 %2, -5
-  %82 = icmp ult i64 %81, 4
-  %or.cond511 = or i1 %82, %68
-  br i1 %or.cond511, label %83, label %87
+  %78 = add i64 %2, -5
+  %79 = icmp ult i64 %78, 4
+  %or.cond511 = or i1 %79, %65
+  br i1 %or.cond511, label %80, label %84
 
-83:                                               ; preds = %.thread517
-  %84 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %85 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %86 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4277, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.74) #14
-  br label %588
+80:                                               ; preds = %.thread517
+  %81 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %82 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %83 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4277, i64 noundef %81, i64 noundef %82, ptr noundef nonnull @.str.74) #14
+  br label %585
 
-87:                                               ; preds = %64, %.thread517
-  %88 = phi i8 [ %67, %.thread517 ], [ %65, %64 ]
-  %89 = getelementptr inbounds nuw i8, ptr %11, i64 9
-  br label %90
+84:                                               ; preds = %61, %.thread517
+  %85 = phi i8 [ %64, %.thread517 ], [ %62, %61 ]
+  %86 = getelementptr inbounds nuw i8, ptr %11, i64 9
+  br label %87
 
-90:                                               ; preds = %87, %76
-  %91 = phi i8 [ %78, %76 ], [ %88, %87 ]
-  %.0455 = phi i8 [ %80, %76 ], [ 8, %87 ]
-  %.0448 = phi ptr [ %79, %76 ], [ %89, %87 ]
-  %.not495 = icmp ult i8 %91, 2
-  br i1 %.not495, label %102, label %92
+87:                                               ; preds = %84, %73
+  %88 = phi i8 [ %75, %73 ], [ %85, %84 ]
+  %.0455 = phi i8 [ %77, %73 ], [ 8, %84 ]
+  %.0448 = phi ptr [ %76, %73 ], [ %86, %84 ]
+  %.not495 = icmp ult i8 %88, 2
+  br i1 %.not495, label %99, label %89
 
-92:                                               ; preds = %90
-  %93 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %94 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !11
-  %95 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4284, i64 noundef %93, i64 noundef %94, ptr noundef nonnull @.str.75) #14
-  br label %588
+89:                                               ; preds = %87
+  %90 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %91 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !11
+  %92 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4284, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.75) #14
+  br label %585
 
-96:                                               ; preds = %54
+93:                                               ; preds = %51
   %or.cond513 = icmp sgt i64 %2, 11
-  %or.cond541.not = or i1 %or.cond513, %3
-  br i1 %or.cond541.not, label %.thread518, label %97
+  %or.cond543.not = or i1 %or.cond513, %3
+  br i1 %or.cond543.not, label %.thread518, label %94
 
-97:                                               ; preds = %96
-  %98 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %99 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %100 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4289, i64 noundef %98, i64 noundef %99, ptr noundef nonnull @.str.74) #14
-  br label %588
+94:                                               ; preds = %93
+  %95 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %96 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %97 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4289, i64 noundef %95, i64 noundef %96, ptr noundef nonnull @.str.74) #14
+  br label %585
 
-.thread518:                                       ; preds = %96
-  %101 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  br label %108
+.thread518:                                       ; preds = %93
+  %98 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  br label %105
 
-102:                                              ; preds = %90
-  %103 = and i8 %.0455, -15
-  %.not496 = icmp eq i8 %103, 0
-  br i1 %.not496, label %108, label %104
+99:                                               ; preds = %87
+  %100 = and i8 %.0455, -15
+  %.not496 = icmp eq i8 %100, 0
+  br i1 %.not496, label %105, label %101
 
-104:                                              ; preds = %102
-  %105 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %106 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !11
-  %107 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4296, i64 noundef %105, i64 noundef %106, ptr noundef nonnull @.str.76) #14
-  br label %588
+101:                                              ; preds = %99
+  %102 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %103 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !11
+  %104 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4296, i64 noundef %102, i64 noundef %103, ptr noundef nonnull @.str.76) #14
+  br label %585
 
-108:                                              ; preds = %.thread518, %102
-  %.1449525 = phi ptr [ %101, %.thread518 ], [ %.0448, %102 ]
-  %.1456524 = phi i8 [ 4, %.thread518 ], [ %.0455, %102 ]
-  %.0457523 = phi i8 [ 0, %.thread518 ], [ %91, %102 ]
-  br i1 %3, label %121, label %109
+105:                                              ; preds = %.thread518, %99
+  %.1449525 = phi ptr [ %98, %.thread518 ], [ %.0448, %99 ]
+  %.1456524 = phi i8 [ 4, %.thread518 ], [ %.0455, %99 ]
+  %.0457523 = phi i8 [ 0, %.thread518 ], [ %88, %99 ]
+  br i1 %3, label %118, label %106
 
-109:                                              ; preds = %108
-  %110 = icmp ugt ptr %.1449525, %.ptr493
-  br i1 %110, label %117, label %111
+106:                                              ; preds = %105
+  %107 = icmp ugt ptr %.1449525, %.ptr493
+  br i1 %107, label %114, label %108
 
-111:                                              ; preds = %109
-  %112 = ptrtoint ptr %.ptr493 to i64
-  %113 = ptrtoint ptr %.1449525 to i64
-  %114 = add i64 %112, 1
-  %115 = sub i64 %114, %113
-  %116 = icmp ult i64 %115, 4
-  br i1 %116, label %117, label %121
+108:                                              ; preds = %106
+  %109 = ptrtoint ptr %.ptr493 to i64
+  %110 = ptrtoint ptr %.1449525 to i64
+  %111 = add i64 %109, 1
+  %112 = sub i64 %111, %110
+  %113 = icmp ult i64 %112, 4
+  br i1 %113, label %114, label %118
 
-117:                                              ; preds = %109, %111
-  %118 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %119 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %120 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4300, i64 noundef %118, i64 noundef %119, ptr noundef nonnull @.str.77) #14
-  br label %588
+114:                                              ; preds = %106, %108
+  %115 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %116 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %117 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4300, i64 noundef %115, i64 noundef %116, ptr noundef nonnull @.str.77) #14
+  br label %585
 
-121:                                              ; preds = %111, %108
-  %122 = load i16, ptr %.1449525, align 1
-  %123 = zext i16 %122 to i32
-  %124 = getelementptr inbounds nuw i8, ptr %.1449525, i64 2
-  %125 = load i8, ptr %124, align 1, !tbaa !10
-  %126 = zext i8 %125 to i32
-  %127 = shl nuw nsw i32 %126, 16
-  %128 = or disjoint i32 %127, %123
-  %129 = getelementptr inbounds nuw i8, ptr %.1449525, i64 3
-  %130 = load i8, ptr %129, align 1, !tbaa !10
-  %131 = zext i8 %130 to i32
-  %132 = shl nuw i32 %131, 24
-  %133 = or disjoint i32 %128, %132
-  %134 = getelementptr inbounds nuw i8, ptr %.1449525, i64 4
-  %135 = load ptr, ptr %0, align 8, !tbaa !64
-  %.not497 = icmp eq ptr %135, null
-  br i1 %.not497, label %136, label %145
+118:                                              ; preds = %108, %105
+  %119 = load i16, ptr %.1449525, align 1
+  %120 = zext i16 %119 to i32
+  %121 = getelementptr inbounds nuw i8, ptr %.1449525, i64 2
+  %122 = load i8, ptr %121, align 1, !tbaa !10
+  %123 = zext i8 %122 to i32
+  %124 = shl nuw nsw i32 %123, 16
+  %125 = or disjoint i32 %124, %120
+  %126 = getelementptr inbounds nuw i8, ptr %.1449525, i64 3
+  %127 = load i8, ptr %126, align 1, !tbaa !10
+  %128 = zext i8 %127 to i32
+  %129 = shl nuw i32 %128, 24
+  %130 = or disjoint i32 %125, %129
+  %131 = getelementptr inbounds nuw i8, ptr %.1449525, i64 4
+  %132 = load ptr, ptr %0, align 8, !tbaa !64
+  %.not497 = icmp eq ptr %132, null
+  br i1 %.not497, label %133, label %142
 
-136:                                              ; preds = %121
-  %137 = zext i32 %133 to i64
-  %138 = shl nuw nsw i64 %137, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %5, i8 0, i64 %138, i1 false)
-  %139 = call i32 @H5S_set_extent_simple(ptr noundef nonnull %.1431, i32 noundef %133, ptr noundef nonnull %5, ptr noundef null) #14
-  %140 = icmp slt i32 %139, 0
-  br i1 %140, label %141, label %152
+133:                                              ; preds = %118
+  %134 = zext i32 %130 to i64
+  %135 = shl nuw nsw i64 %134, 3
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %5, i8 0, i64 %135, i1 false)
+  %136 = call i32 @H5S_set_extent_simple(ptr noundef nonnull %.1431, i32 noundef %130, ptr noundef nonnull %5, ptr noundef null) #14
+  %137 = icmp slt i32 %136, 0
+  br i1 %137, label %138, label %149
 
-141:                                              ; preds = %136
-  %142 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %143 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
-  %144 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4307, i64 noundef %142, i64 noundef %143, ptr noundef nonnull @.str.78) #14
-  br label %588
+138:                                              ; preds = %133
+  %139 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %140 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
+  %141 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4307, i64 noundef %139, i64 noundef %140, ptr noundef nonnull @.str.78) #14
+  br label %585
 
-145:                                              ; preds = %121
-  %146 = getelementptr inbounds nuw i8, ptr %.1431, i64 56
-  %147 = load i32, ptr %146, align 8, !tbaa !21
-  %.not498 = icmp eq i32 %133, %147
-  br i1 %.not498, label %152, label %148
+142:                                              ; preds = %118
+  %143 = getelementptr inbounds nuw i8, ptr %.1431, i64 56
+  %144 = load i32, ptr %143, align 8, !tbaa !21
+  %.not498 = icmp eq i32 %130, %144
+  br i1 %.not498, label %149, label %145
 
-148:                                              ; preds = %145
-  %149 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %150 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !11
-  %151 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4313, i64 noundef %149, i64 noundef %150, ptr noundef nonnull @.str.79) #14
-  br label %588
+145:                                              ; preds = %142
+  %146 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %147 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !11
+  %148 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4313, i64 noundef %146, i64 noundef %147, ptr noundef nonnull @.str.79) #14
+  br label %585
 
-152:                                              ; preds = %145, %136
+149:                                              ; preds = %142, %133
   %.not499 = icmp eq i8 %.0457523, 0
-  br i1 %.not499, label %371, label %153
+  br i1 %.not499, label %368, label %150
 
-153:                                              ; preds = %152
+150:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #14
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #14
-  switch i8 %.1456524, label %360 [
-    i8 2, label %.preheader556
-    i8 4, label %.preheader558
-    i8 8, label %.preheader560
+  switch i8 %.1456524, label %357 [
+    i8 2, label %.preheader558
+    i8 4, label %.preheader560
+    i8 8, label %.preheader562
   ]
 
-.preheader560:                                    ; preds = %153
-  %154 = getelementptr inbounds nuw i8, ptr %.1431, i64 56
-  %155 = load i32, ptr %154, align 8, !tbaa !21
-  %.not647 = icmp eq i32 %155, 0
-  br i1 %.not647, label %.loopexit557, label %.lr.ph
+.preheader562:                                    ; preds = %150
+  %151 = getelementptr inbounds nuw i8, ptr %.1431, i64 56
+  %152 = load i32, ptr %151, align 8, !tbaa !21
+  %.not649 = icmp eq i32 %152, 0
+  br i1 %.not649, label %.loopexit559, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader560
-  %156 = ptrtoint ptr %.ptr493 to i64
-  %157 = add i64 %156, 1
-  %wide.trip.count = zext i32 %155 to i64
-  br label %304
+.lr.ph:                                           ; preds = %.preheader562
+  %153 = ptrtoint ptr %.ptr493 to i64
+  %154 = add i64 %153, 1
+  %wide.trip.count = zext i32 %152 to i64
+  br label %301
 
-.preheader558:                                    ; preds = %153
-  %158 = getelementptr inbounds nuw i8, ptr %.1431, i64 56
-  %159 = load i32, ptr %158, align 8, !tbaa !21
-  %.not648 = icmp eq i32 %159, 0
-  br i1 %.not648, label %.loopexit557, label %.lr.ph590
+.preheader560:                                    ; preds = %150
+  %155 = getelementptr inbounds nuw i8, ptr %.1431, i64 56
+  %156 = load i32, ptr %155, align 8, !tbaa !21
+  %.not650 = icmp eq i32 %156, 0
+  br i1 %.not650, label %.loopexit559, label %.lr.ph592
 
-.lr.ph590:                                        ; preds = %.preheader558
-  %160 = ptrtoint ptr %.ptr493 to i64
-  %161 = add i64 %160, 1
-  %wide.trip.count680 = zext i32 %159 to i64
-  br label %215
+.lr.ph592:                                        ; preds = %.preheader560
+  %157 = ptrtoint ptr %.ptr493 to i64
+  %158 = add i64 %157, 1
+  %wide.trip.count682 = zext i32 %156 to i64
+  br label %212
 
-.preheader556:                                    ; preds = %153
-  %162 = getelementptr inbounds nuw i8, ptr %.1431, i64 56
-  %163 = load i32, ptr %162, align 8, !tbaa !21
-  %.not649 = icmp eq i32 %163, 0
-  br i1 %.not649, label %.loopexit557, label %.lr.ph594
+.preheader558:                                    ; preds = %150
+  %159 = getelementptr inbounds nuw i8, ptr %.1431, i64 56
+  %160 = load i32, ptr %159, align 8, !tbaa !21
+  %.not651 = icmp eq i32 %160, 0
+  br i1 %.not651, label %.loopexit559, label %.lr.ph596
 
-.lr.ph594:                                        ; preds = %.preheader556
-  %164 = ptrtoint ptr %.ptr493 to i64
-  %165 = add i64 %164, 1
-  %wide.trip.count685 = zext i32 %163 to i64
-  br label %166
+.lr.ph596:                                        ; preds = %.preheader558
+  %161 = ptrtoint ptr %.ptr493 to i64
+  %162 = add i64 %161, 1
+  %wide.trip.count687 = zext i32 %160 to i64
+  br label %163
 
-166:                                              ; preds = %.lr.ph594, %176
-  %indvars.iv682 = phi i64 [ 0, %.lr.ph594 ], [ %indvars.iv.next683, %176 ]
-  %.2450592 = phi ptr [ %134, %.lr.ph594 ], [ %213, %176 ]
-  br i1 %3, label %176, label %167
+163:                                              ; preds = %.lr.ph596, %173
+  %indvars.iv684 = phi i64 [ 0, %.lr.ph596 ], [ %indvars.iv.next685, %173 ]
+  %.2450594 = phi ptr [ %131, %.lr.ph596 ], [ %210, %173 ]
+  br i1 %3, label %173, label %164
 
-167:                                              ; preds = %166
-  %168 = icmp ugt ptr %.2450592, %.ptr493
-  %169 = ptrtoint ptr %.2450592 to i64
-  %170 = sub i64 %165, %169
-  %171 = icmp ult i64 %170, 8
-  %or.cond724 = select i1 %168, i1 true, i1 %171
-  br i1 %or.cond724, label %172, label %176
+164:                                              ; preds = %163
+  %165 = icmp ugt ptr %.2450594, %.ptr493
+  %166 = ptrtoint ptr %.2450594 to i64
+  %167 = sub i64 %162, %166
+  %168 = icmp ult i64 %167, 8
+  %or.cond726 = select i1 %165, i1 true, i1 %168
+  br i1 %or.cond726, label %169, label %173
 
-172:                                              ; preds = %167
-  %173 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %174 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %175 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4329, i64 noundef %173, i64 noundef %174, ptr noundef nonnull @.str.80) #14
+169:                                              ; preds = %164
+  %170 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %171 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %172 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4329, i64 noundef %170, i64 noundef %171, ptr noundef nonnull @.str.80) #14
   br label %.thread526
 
-176:                                              ; preds = %167, %166
-  %177 = load i8, ptr %.2450592, align 1, !tbaa !10
-  %178 = zext i8 %177 to i64
-  %179 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv682
-  store i64 %178, ptr %179, align 8, !tbaa !11
-  %180 = getelementptr inbounds nuw i8, ptr %.2450592, i64 1
-  %181 = load i8, ptr %180, align 1, !tbaa !10
-  %182 = zext i8 %181 to i64
-  %183 = shl nuw nsw i64 %182, 8
-  %184 = or disjoint i64 %183, %178
-  store i64 %184, ptr %179, align 8, !tbaa !11
-  %185 = getelementptr inbounds nuw i8, ptr %.2450592, i64 2
-  %186 = load i8, ptr %185, align 1, !tbaa !10
-  %187 = zext i8 %186 to i64
-  %188 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv682
-  store i64 %187, ptr %188, align 8, !tbaa !11
-  %189 = getelementptr inbounds nuw i8, ptr %.2450592, i64 3
-  %190 = load i8, ptr %189, align 1, !tbaa !10
-  %191 = zext i8 %190 to i64
-  %192 = shl nuw nsw i64 %191, 8
-  %193 = or disjoint i64 %192, %187
-  store i64 %193, ptr %188, align 8, !tbaa !11
-  %194 = getelementptr inbounds nuw i8, ptr %.2450592, i64 4
-  %195 = load i8, ptr %194, align 1, !tbaa !10
-  %196 = zext i8 %195 to i64
-  %197 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv682
-  store i64 %196, ptr %197, align 8, !tbaa !11
-  %198 = getelementptr inbounds nuw i8, ptr %.2450592, i64 5
-  %199 = load i8, ptr %198, align 1, !tbaa !10
-  %200 = zext i8 %199 to i64
-  %201 = shl nuw nsw i64 %200, 8
-  %202 = or disjoint i64 %201, %196
-  %203 = getelementptr inbounds nuw i8, ptr %.2450592, i64 6
-  %204 = icmp eq i64 %202, 65535
-  %spec.select = select i1 %204, i64 -1, i64 %202
-  store i64 %spec.select, ptr %197, align 8, !tbaa !11
-  %205 = load i8, ptr %203, align 1, !tbaa !10
-  %206 = zext i8 %205 to i64
-  %207 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv682
-  store i64 %206, ptr %207, align 8, !tbaa !11
-  %208 = getelementptr inbounds nuw i8, ptr %.2450592, i64 7
-  %209 = load i8, ptr %208, align 1, !tbaa !10
-  %210 = zext i8 %209 to i64
-  %211 = shl nuw nsw i64 %210, 8
-  %212 = or disjoint i64 %211, %206
-  %213 = getelementptr inbounds nuw i8, ptr %.2450592, i64 8
-  %214 = icmp eq i64 %212, 65535
-  %storemerge505 = select i1 %214, i64 -1, i64 %212
-  store i64 %storemerge505, ptr %207, align 8, !tbaa !11
-  %indvars.iv.next683 = add nuw nsw i64 %indvars.iv682, 1
-  %exitcond686.not = icmp eq i64 %indvars.iv.next683, %wide.trip.count685
-  br i1 %exitcond686.not, label %.loopexit557, label %166, !llvm.loop !66
+173:                                              ; preds = %164, %163
+  %174 = load i8, ptr %.2450594, align 1, !tbaa !10
+  %175 = zext i8 %174 to i64
+  %176 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv684
+  store i64 %175, ptr %176, align 8, !tbaa !11
+  %177 = getelementptr inbounds nuw i8, ptr %.2450594, i64 1
+  %178 = load i8, ptr %177, align 1, !tbaa !10
+  %179 = zext i8 %178 to i64
+  %180 = shl nuw nsw i64 %179, 8
+  %181 = or disjoint i64 %180, %175
+  store i64 %181, ptr %176, align 8, !tbaa !11
+  %182 = getelementptr inbounds nuw i8, ptr %.2450594, i64 2
+  %183 = load i8, ptr %182, align 1, !tbaa !10
+  %184 = zext i8 %183 to i64
+  %185 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv684
+  store i64 %184, ptr %185, align 8, !tbaa !11
+  %186 = getelementptr inbounds nuw i8, ptr %.2450594, i64 3
+  %187 = load i8, ptr %186, align 1, !tbaa !10
+  %188 = zext i8 %187 to i64
+  %189 = shl nuw nsw i64 %188, 8
+  %190 = or disjoint i64 %189, %184
+  store i64 %190, ptr %185, align 8, !tbaa !11
+  %191 = getelementptr inbounds nuw i8, ptr %.2450594, i64 4
+  %192 = load i8, ptr %191, align 1, !tbaa !10
+  %193 = zext i8 %192 to i64
+  %194 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv684
+  store i64 %193, ptr %194, align 8, !tbaa !11
+  %195 = getelementptr inbounds nuw i8, ptr %.2450594, i64 5
+  %196 = load i8, ptr %195, align 1, !tbaa !10
+  %197 = zext i8 %196 to i64
+  %198 = shl nuw nsw i64 %197, 8
+  %199 = or disjoint i64 %198, %193
+  %200 = getelementptr inbounds nuw i8, ptr %.2450594, i64 6
+  %201 = icmp eq i64 %199, 65535
+  %spec.select = select i1 %201, i64 -1, i64 %199
+  store i64 %spec.select, ptr %194, align 8, !tbaa !11
+  %202 = load i8, ptr %200, align 1, !tbaa !10
+  %203 = zext i8 %202 to i64
+  %204 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv684
+  store i64 %203, ptr %204, align 8, !tbaa !11
+  %205 = getelementptr inbounds nuw i8, ptr %.2450594, i64 7
+  %206 = load i8, ptr %205, align 1, !tbaa !10
+  %207 = zext i8 %206 to i64
+  %208 = shl nuw nsw i64 %207, 8
+  %209 = or disjoint i64 %208, %203
+  %210 = getelementptr inbounds nuw i8, ptr %.2450594, i64 8
+  %211 = icmp eq i64 %209, 65535
+  %storemerge505 = select i1 %211, i64 -1, i64 %209
+  store i64 %storemerge505, ptr %204, align 8, !tbaa !11
+  %indvars.iv.next685 = add nuw nsw i64 %indvars.iv684, 1
+  %exitcond688.not = icmp eq i64 %indvars.iv.next685, %wide.trip.count687
+  br i1 %exitcond688.not, label %.loopexit559, label %163, !llvm.loop !66
 
-215:                                              ; preds = %.lr.ph590, %225
-  %indvars.iv677 = phi i64 [ 0, %.lr.ph590 ], [ %indvars.iv.next678, %225 ]
-  %.5453588 = phi ptr [ %134, %.lr.ph590 ], [ %302, %225 ]
-  br i1 %3, label %225, label %216
+212:                                              ; preds = %.lr.ph592, %222
+  %indvars.iv679 = phi i64 [ 0, %.lr.ph592 ], [ %indvars.iv.next680, %222 ]
+  %.5453590 = phi ptr [ %131, %.lr.ph592 ], [ %299, %222 ]
+  br i1 %3, label %222, label %213
 
-216:                                              ; preds = %215
-  %217 = icmp ugt ptr %.5453588, %.ptr493
-  %218 = ptrtoint ptr %.5453588 to i64
-  %219 = sub i64 %161, %218
-  %220 = icmp ult i64 %219, 16
-  %or.cond727 = select i1 %217, i1 true, i1 %220
-  br i1 %or.cond727, label %221, label %225
+213:                                              ; preds = %212
+  %214 = icmp ugt ptr %.5453590, %.ptr493
+  %215 = ptrtoint ptr %.5453590 to i64
+  %216 = sub i64 %158, %215
+  %217 = icmp ult i64 %216, 16
+  %or.cond729 = select i1 %214, i1 true, i1 %217
+  br i1 %or.cond729, label %218, label %222
 
-221:                                              ; preds = %216
-  %222 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %223 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %224 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4348, i64 noundef %222, i64 noundef %223, ptr noundef nonnull @.str.80) #14
+218:                                              ; preds = %213
+  %219 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %220 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %221 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4348, i64 noundef %219, i64 noundef %220, ptr noundef nonnull @.str.80) #14
   br label %.thread526
 
-225:                                              ; preds = %216, %215
-  %226 = load i8, ptr %.5453588, align 1, !tbaa !10
-  %227 = zext i8 %226 to i64
-  %228 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv677
-  store i64 %227, ptr %228, align 8, !tbaa !11
-  %229 = getelementptr inbounds nuw i8, ptr %.5453588, i64 1
-  %230 = load i8, ptr %229, align 1, !tbaa !10
-  %231 = zext i8 %230 to i64
-  %232 = shl nuw nsw i64 %231, 8
-  %233 = or disjoint i64 %232, %227
-  store i64 %233, ptr %228, align 8, !tbaa !11
-  %234 = getelementptr inbounds nuw i8, ptr %.5453588, i64 2
-  %235 = load i8, ptr %234, align 1, !tbaa !10
-  %236 = zext i8 %235 to i64
-  %237 = shl nuw nsw i64 %236, 16
-  %238 = or disjoint i64 %237, %233
-  store i64 %238, ptr %228, align 8, !tbaa !11
-  %239 = getelementptr inbounds nuw i8, ptr %.5453588, i64 3
-  %240 = load i8, ptr %239, align 1, !tbaa !10
-  %241 = zext i8 %240 to i64
-  %242 = shl nuw nsw i64 %241, 24
-  %243 = or disjoint i64 %242, %238
-  store i64 %243, ptr %228, align 8, !tbaa !11
-  %244 = getelementptr inbounds nuw i8, ptr %.5453588, i64 4
-  %245 = load i8, ptr %244, align 1, !tbaa !10
-  %246 = zext i8 %245 to i64
-  %247 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv677
-  store i64 %246, ptr %247, align 8, !tbaa !11
-  %248 = getelementptr inbounds nuw i8, ptr %.5453588, i64 5
-  %249 = load i8, ptr %248, align 1, !tbaa !10
-  %250 = zext i8 %249 to i64
-  %251 = shl nuw nsw i64 %250, 8
-  %252 = or disjoint i64 %251, %246
-  store i64 %252, ptr %247, align 8, !tbaa !11
-  %253 = getelementptr inbounds nuw i8, ptr %.5453588, i64 6
-  %254 = load i8, ptr %253, align 1, !tbaa !10
-  %255 = zext i8 %254 to i64
-  %256 = shl nuw nsw i64 %255, 16
-  %257 = or disjoint i64 %256, %252
-  store i64 %257, ptr %247, align 8, !tbaa !11
-  %258 = getelementptr inbounds nuw i8, ptr %.5453588, i64 7
-  %259 = load i8, ptr %258, align 1, !tbaa !10
-  %260 = zext i8 %259 to i64
-  %261 = shl nuw nsw i64 %260, 24
-  %262 = or disjoint i64 %261, %257
-  store i64 %262, ptr %247, align 8, !tbaa !11
-  %263 = getelementptr inbounds nuw i8, ptr %.5453588, i64 8
-  %264 = load i8, ptr %263, align 1, !tbaa !10
-  %265 = zext i8 %264 to i64
-  %266 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv677
-  store i64 %265, ptr %266, align 8, !tbaa !11
-  %267 = getelementptr inbounds nuw i8, ptr %.5453588, i64 9
-  %268 = load i8, ptr %267, align 1, !tbaa !10
-  %269 = zext i8 %268 to i64
-  %270 = shl nuw nsw i64 %269, 8
-  %271 = or disjoint i64 %270, %265
-  store i64 %271, ptr %266, align 8, !tbaa !11
-  %272 = getelementptr inbounds nuw i8, ptr %.5453588, i64 10
-  %273 = load i8, ptr %272, align 1, !tbaa !10
-  %274 = zext i8 %273 to i64
-  %275 = shl nuw nsw i64 %274, 16
-  %276 = or disjoint i64 %275, %271
-  store i64 %276, ptr %266, align 8, !tbaa !11
-  %277 = getelementptr inbounds nuw i8, ptr %.5453588, i64 11
-  %278 = load i8, ptr %277, align 1, !tbaa !10
-  %279 = zext i8 %278 to i64
-  %280 = shl nuw nsw i64 %279, 24
-  %281 = or disjoint i64 %280, %276
-  %282 = getelementptr inbounds nuw i8, ptr %.5453588, i64 12
-  %283 = icmp eq i64 %281, 4294967295
-  %spec.select514 = select i1 %283, i64 -1, i64 %281
-  store i64 %spec.select514, ptr %266, align 8, !tbaa !11
-  %284 = load i8, ptr %282, align 1, !tbaa !10
-  %285 = zext i8 %284 to i64
-  %286 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv677
-  store i64 %285, ptr %286, align 8, !tbaa !11
-  %287 = getelementptr inbounds nuw i8, ptr %.5453588, i64 13
-  %288 = load i8, ptr %287, align 1, !tbaa !10
-  %289 = zext i8 %288 to i64
-  %290 = shl nuw nsw i64 %289, 8
-  %291 = or disjoint i64 %290, %285
-  store i64 %291, ptr %286, align 8, !tbaa !11
-  %292 = getelementptr inbounds nuw i8, ptr %.5453588, i64 14
-  %293 = load i8, ptr %292, align 1, !tbaa !10
-  %294 = zext i8 %293 to i64
-  %295 = shl nuw nsw i64 %294, 16
-  %296 = or disjoint i64 %295, %291
-  store i64 %296, ptr %286, align 8, !tbaa !11
-  %297 = getelementptr inbounds nuw i8, ptr %.5453588, i64 15
-  %298 = load i8, ptr %297, align 1, !tbaa !10
-  %299 = zext i8 %298 to i64
-  %300 = shl nuw nsw i64 %299, 24
-  %301 = or disjoint i64 %300, %296
-  %302 = getelementptr inbounds nuw i8, ptr %.5453588, i64 16
-  %303 = icmp eq i64 %301, 4294967295
-  %storemerge503 = select i1 %303, i64 -1, i64 %301
-  store i64 %storemerge503, ptr %286, align 8, !tbaa !11
-  %indvars.iv.next678 = add nuw nsw i64 %indvars.iv677, 1
-  %exitcond681.not = icmp eq i64 %indvars.iv.next678, %wide.trip.count680
-  br i1 %exitcond681.not, label %.loopexit557, label %215, !llvm.loop !67
+222:                                              ; preds = %213, %212
+  %223 = load i8, ptr %.5453590, align 1, !tbaa !10
+  %224 = zext i8 %223 to i64
+  %225 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv679
+  store i64 %224, ptr %225, align 8, !tbaa !11
+  %226 = getelementptr inbounds nuw i8, ptr %.5453590, i64 1
+  %227 = load i8, ptr %226, align 1, !tbaa !10
+  %228 = zext i8 %227 to i64
+  %229 = shl nuw nsw i64 %228, 8
+  %230 = or disjoint i64 %229, %224
+  store i64 %230, ptr %225, align 8, !tbaa !11
+  %231 = getelementptr inbounds nuw i8, ptr %.5453590, i64 2
+  %232 = load i8, ptr %231, align 1, !tbaa !10
+  %233 = zext i8 %232 to i64
+  %234 = shl nuw nsw i64 %233, 16
+  %235 = or disjoint i64 %234, %230
+  store i64 %235, ptr %225, align 8, !tbaa !11
+  %236 = getelementptr inbounds nuw i8, ptr %.5453590, i64 3
+  %237 = load i8, ptr %236, align 1, !tbaa !10
+  %238 = zext i8 %237 to i64
+  %239 = shl nuw nsw i64 %238, 24
+  %240 = or disjoint i64 %239, %235
+  store i64 %240, ptr %225, align 8, !tbaa !11
+  %241 = getelementptr inbounds nuw i8, ptr %.5453590, i64 4
+  %242 = load i8, ptr %241, align 1, !tbaa !10
+  %243 = zext i8 %242 to i64
+  %244 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv679
+  store i64 %243, ptr %244, align 8, !tbaa !11
+  %245 = getelementptr inbounds nuw i8, ptr %.5453590, i64 5
+  %246 = load i8, ptr %245, align 1, !tbaa !10
+  %247 = zext i8 %246 to i64
+  %248 = shl nuw nsw i64 %247, 8
+  %249 = or disjoint i64 %248, %243
+  store i64 %249, ptr %244, align 8, !tbaa !11
+  %250 = getelementptr inbounds nuw i8, ptr %.5453590, i64 6
+  %251 = load i8, ptr %250, align 1, !tbaa !10
+  %252 = zext i8 %251 to i64
+  %253 = shl nuw nsw i64 %252, 16
+  %254 = or disjoint i64 %253, %249
+  store i64 %254, ptr %244, align 8, !tbaa !11
+  %255 = getelementptr inbounds nuw i8, ptr %.5453590, i64 7
+  %256 = load i8, ptr %255, align 1, !tbaa !10
+  %257 = zext i8 %256 to i64
+  %258 = shl nuw nsw i64 %257, 24
+  %259 = or disjoint i64 %258, %254
+  store i64 %259, ptr %244, align 8, !tbaa !11
+  %260 = getelementptr inbounds nuw i8, ptr %.5453590, i64 8
+  %261 = load i8, ptr %260, align 1, !tbaa !10
+  %262 = zext i8 %261 to i64
+  %263 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv679
+  store i64 %262, ptr %263, align 8, !tbaa !11
+  %264 = getelementptr inbounds nuw i8, ptr %.5453590, i64 9
+  %265 = load i8, ptr %264, align 1, !tbaa !10
+  %266 = zext i8 %265 to i64
+  %267 = shl nuw nsw i64 %266, 8
+  %268 = or disjoint i64 %267, %262
+  store i64 %268, ptr %263, align 8, !tbaa !11
+  %269 = getelementptr inbounds nuw i8, ptr %.5453590, i64 10
+  %270 = load i8, ptr %269, align 1, !tbaa !10
+  %271 = zext i8 %270 to i64
+  %272 = shl nuw nsw i64 %271, 16
+  %273 = or disjoint i64 %272, %268
+  store i64 %273, ptr %263, align 8, !tbaa !11
+  %274 = getelementptr inbounds nuw i8, ptr %.5453590, i64 11
+  %275 = load i8, ptr %274, align 1, !tbaa !10
+  %276 = zext i8 %275 to i64
+  %277 = shl nuw nsw i64 %276, 24
+  %278 = or disjoint i64 %277, %273
+  %279 = getelementptr inbounds nuw i8, ptr %.5453590, i64 12
+  %280 = icmp eq i64 %278, 4294967295
+  %spec.select514 = select i1 %280, i64 -1, i64 %278
+  store i64 %spec.select514, ptr %263, align 8, !tbaa !11
+  %281 = load i8, ptr %279, align 1, !tbaa !10
+  %282 = zext i8 %281 to i64
+  %283 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv679
+  store i64 %282, ptr %283, align 8, !tbaa !11
+  %284 = getelementptr inbounds nuw i8, ptr %.5453590, i64 13
+  %285 = load i8, ptr %284, align 1, !tbaa !10
+  %286 = zext i8 %285 to i64
+  %287 = shl nuw nsw i64 %286, 8
+  %288 = or disjoint i64 %287, %282
+  store i64 %288, ptr %283, align 8, !tbaa !11
+  %289 = getelementptr inbounds nuw i8, ptr %.5453590, i64 14
+  %290 = load i8, ptr %289, align 1, !tbaa !10
+  %291 = zext i8 %290 to i64
+  %292 = shl nuw nsw i64 %291, 16
+  %293 = or disjoint i64 %292, %288
+  store i64 %293, ptr %283, align 8, !tbaa !11
+  %294 = getelementptr inbounds nuw i8, ptr %.5453590, i64 15
+  %295 = load i8, ptr %294, align 1, !tbaa !10
+  %296 = zext i8 %295 to i64
+  %297 = shl nuw nsw i64 %296, 24
+  %298 = or disjoint i64 %297, %293
+  %299 = getelementptr inbounds nuw i8, ptr %.5453590, i64 16
+  %300 = icmp eq i64 %298, 4294967295
+  %storemerge503 = select i1 %300, i64 -1, i64 %298
+  store i64 %storemerge503, ptr %283, align 8, !tbaa !11
+  %indvars.iv.next680 = add nuw nsw i64 %indvars.iv679, 1
+  %exitcond683.not = icmp eq i64 %indvars.iv.next680, %wide.trip.count682
+  br i1 %exitcond683.not, label %.loopexit559, label %212, !llvm.loop !67
 
-304:                                              ; preds = %.lr.ph, %358
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %358 ]
-  %.6454586 = phi ptr [ %134, %.lr.ph ], [ %359, %358 ]
-  br i1 %3, label %314, label %305
+301:                                              ; preds = %.lr.ph, %355
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %355 ]
+  %.6454588 = phi ptr [ %131, %.lr.ph ], [ %356, %355 ]
+  br i1 %3, label %311, label %302
 
-305:                                              ; preds = %304
-  %306 = icmp ugt ptr %.6454586, %.ptr493
-  %307 = ptrtoint ptr %.6454586 to i64
-  %308 = sub i64 %157, %307
-  %309 = icmp ult i64 %308, 32
-  %or.cond730 = select i1 %306, i1 true, i1 %309
-  br i1 %or.cond730, label %310, label %314
+302:                                              ; preds = %301
+  %303 = icmp ugt ptr %.6454588, %.ptr493
+  %304 = ptrtoint ptr %.6454588 to i64
+  %305 = sub i64 %154, %304
+  %306 = icmp ult i64 %305, 32
+  %or.cond732 = select i1 %303, i1 true, i1 %306
+  br i1 %or.cond732, label %307, label %311
 
-310:                                              ; preds = %305
-  %311 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %312 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %313 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4367, i64 noundef %311, i64 noundef %312, ptr noundef nonnull @.str.80) #14
+307:                                              ; preds = %302
+  %308 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %309 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %310 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4367, i64 noundef %308, i64 noundef %309, ptr noundef nonnull @.str.80) #14
   br label %.thread526
 
-314:                                              ; preds = %305, %304
-  %315 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv
-  store i64 0, ptr %315, align 8, !tbaa !11
-  %316 = getelementptr inbounds nuw i8, ptr %.6454586, i64 8
-  br label %317
+311:                                              ; preds = %302, %301
+  %312 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv
+  store i64 0, ptr %312, align 8, !tbaa !11
+  %313 = getelementptr inbounds nuw i8, ptr %.6454588, i64 8
+  br label %314
 
-317:                                              ; preds = %314, %317
-  %.0437576 = phi i64 [ 0, %314 ], [ %324, %317 ]
-  %.7575 = phi ptr [ %316, %314 ], [ %320, %317 ]
-  %318 = phi i64 [ 0, %314 ], [ %323, %317 ]
-  %319 = shl i64 %318, 8
-  %320 = getelementptr inbounds i8, ptr %.7575, i64 -1
-  %321 = load i8, ptr %320, align 1, !tbaa !10
-  %322 = zext i8 %321 to i64
-  %323 = or disjoint i64 %319, %322
-  store i64 %323, ptr %315, align 8, !tbaa !11
-  %324 = add nuw nsw i64 %.0437576, 1
-  %exitcond.not = icmp eq i64 %324, 8
-  br i1 %exitcond.not, label %325, label %317, !llvm.loop !68
+314:                                              ; preds = %311, %314
+  %.0437578 = phi i64 [ 0, %311 ], [ %321, %314 ]
+  %.7577 = phi ptr [ %313, %311 ], [ %317, %314 ]
+  %315 = phi i64 [ 0, %311 ], [ %320, %314 ]
+  %316 = shl i64 %315, 8
+  %317 = getelementptr inbounds i8, ptr %.7577, i64 -1
+  %318 = load i8, ptr %317, align 1, !tbaa !10
+  %319 = zext i8 %318 to i64
+  %320 = or disjoint i64 %316, %319
+  store i64 %320, ptr %312, align 8, !tbaa !11
+  %321 = add nuw nsw i64 %.0437578, 1
+  %exitcond.not = icmp eq i64 %321, 8
+  br i1 %exitcond.not, label %322, label %314, !llvm.loop !68
 
-325:                                              ; preds = %317
-  %326 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv
-  store i64 0, ptr %326, align 8, !tbaa !11
-  %327 = getelementptr inbounds nuw i8, ptr %.7575, i64 15
-  br label %328
+322:                                              ; preds = %314
+  %323 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %indvars.iv
+  store i64 0, ptr %323, align 8, !tbaa !11
+  %324 = getelementptr inbounds nuw i8, ptr %.7577, i64 15
+  br label %325
 
-328:                                              ; preds = %325, %328
-  %.0436579 = phi i64 [ 0, %325 ], [ %335, %328 ]
-  %.8578 = phi ptr [ %327, %325 ], [ %331, %328 ]
-  %329 = phi i64 [ 0, %325 ], [ %334, %328 ]
-  %330 = shl i64 %329, 8
-  %331 = getelementptr inbounds i8, ptr %.8578, i64 -1
-  %332 = load i8, ptr %331, align 1, !tbaa !10
-  %333 = zext i8 %332 to i64
-  %334 = or disjoint i64 %330, %333
-  store i64 %334, ptr %326, align 8, !tbaa !11
-  %335 = add nuw nsw i64 %.0436579, 1
-  %exitcond672.not = icmp eq i64 %335, 8
-  br i1 %exitcond672.not, label %336, label %328, !llvm.loop !69
+325:                                              ; preds = %322, %325
+  %.0436581 = phi i64 [ 0, %322 ], [ %332, %325 ]
+  %.8580 = phi ptr [ %324, %322 ], [ %328, %325 ]
+  %326 = phi i64 [ 0, %322 ], [ %331, %325 ]
+  %327 = shl i64 %326, 8
+  %328 = getelementptr inbounds i8, ptr %.8580, i64 -1
+  %329 = load i8, ptr %328, align 1, !tbaa !10
+  %330 = zext i8 %329 to i64
+  %331 = or disjoint i64 %327, %330
+  store i64 %331, ptr %323, align 8, !tbaa !11
+  %332 = add nuw nsw i64 %.0436581, 1
+  %exitcond674.not = icmp eq i64 %332, 8
+  br i1 %exitcond674.not, label %333, label %325, !llvm.loop !69
 
-336:                                              ; preds = %328
-  %337 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv
-  store i64 0, ptr %337, align 8, !tbaa !11
-  %338 = getelementptr inbounds nuw i8, ptr %.8578, i64 15
-  br label %339
+333:                                              ; preds = %325
+  %334 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv
+  store i64 0, ptr %334, align 8, !tbaa !11
+  %335 = getelementptr inbounds nuw i8, ptr %.8580, i64 15
+  br label %336
 
-339:                                              ; preds = %336, %339
-  %.0435582 = phi i64 [ 0, %336 ], [ %346, %339 ]
-  %.9581 = phi ptr [ %338, %336 ], [ %342, %339 ]
-  %340 = phi i64 [ 0, %336 ], [ %345, %339 ]
-  %341 = shl i64 %340, 8
-  %342 = getelementptr inbounds i8, ptr %.9581, i64 -1
-  %343 = load i8, ptr %342, align 1, !tbaa !10
-  %344 = zext i8 %343 to i64
-  %345 = or disjoint i64 %341, %344
-  store i64 %345, ptr %337, align 8, !tbaa !11
-  %346 = add nuw nsw i64 %.0435582, 1
-  %exitcond673.not = icmp eq i64 %346, 8
-  br i1 %exitcond673.not, label %347, label %339, !llvm.loop !70
+336:                                              ; preds = %333, %336
+  %.0435584 = phi i64 [ 0, %333 ], [ %343, %336 ]
+  %.9583 = phi ptr [ %335, %333 ], [ %339, %336 ]
+  %337 = phi i64 [ 0, %333 ], [ %342, %336 ]
+  %338 = shl i64 %337, 8
+  %339 = getelementptr inbounds i8, ptr %.9583, i64 -1
+  %340 = load i8, ptr %339, align 1, !tbaa !10
+  %341 = zext i8 %340 to i64
+  %342 = or disjoint i64 %338, %341
+  store i64 %342, ptr %334, align 8, !tbaa !11
+  %343 = add nuw nsw i64 %.0435584, 1
+  %exitcond675.not = icmp eq i64 %343, 8
+  br i1 %exitcond675.not, label %344, label %336, !llvm.loop !70
 
-347:                                              ; preds = %339
-  %348 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv
-  store i64 0, ptr %348, align 8, !tbaa !11
-  %349 = getelementptr inbounds nuw i8, ptr %.9581, i64 15
-  br label %350
+344:                                              ; preds = %336
+  %345 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv
+  store i64 0, ptr %345, align 8, !tbaa !11
+  %346 = getelementptr inbounds nuw i8, ptr %.9583, i64 15
+  br label %347
 
-350:                                              ; preds = %347, %350
-  %.0434585 = phi i64 [ 0, %347 ], [ %357, %350 ]
-  %.10584 = phi ptr [ %349, %347 ], [ %353, %350 ]
-  %351 = phi i64 [ 0, %347 ], [ %356, %350 ]
-  %352 = shl i64 %351, 8
-  %353 = getelementptr inbounds i8, ptr %.10584, i64 -1
-  %354 = load i8, ptr %353, align 1, !tbaa !10
-  %355 = zext i8 %354 to i64
-  %356 = or disjoint i64 %352, %355
-  store i64 %356, ptr %348, align 8, !tbaa !11
-  %357 = add nuw nsw i64 %.0434585, 1
-  %exitcond674.not = icmp eq i64 %357, 8
-  br i1 %exitcond674.not, label %358, label %350, !llvm.loop !71
+347:                                              ; preds = %344, %347
+  %.0434587 = phi i64 [ 0, %344 ], [ %354, %347 ]
+  %.10586 = phi ptr [ %346, %344 ], [ %350, %347 ]
+  %348 = phi i64 [ 0, %344 ], [ %353, %347 ]
+  %349 = shl i64 %348, 8
+  %350 = getelementptr inbounds i8, ptr %.10586, i64 -1
+  %351 = load i8, ptr %350, align 1, !tbaa !10
+  %352 = zext i8 %351 to i64
+  %353 = or disjoint i64 %349, %352
+  store i64 %353, ptr %345, align 8, !tbaa !11
+  %354 = add nuw nsw i64 %.0434587, 1
+  %exitcond676.not = icmp eq i64 %354, 8
+  br i1 %exitcond676.not, label %355, label %347, !llvm.loop !71
 
-358:                                              ; preds = %350
-  %359 = getelementptr inbounds nuw i8, ptr %.10584, i64 7
+355:                                              ; preds = %347
+  %356 = getelementptr inbounds nuw i8, ptr %.10586, i64 7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond676.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond676.not, label %.loopexit557, label %304, !llvm.loop !72
+  %exitcond678.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond678.not, label %.loopexit559, label %301, !llvm.loop !72
 
-360:                                              ; preds = %153
-  %361 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %362 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !11
-  %363 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4383, i64 noundef %361, i64 noundef %362, ptr noundef nonnull @.str.68) #14
+357:                                              ; preds = %150
+  %358 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %359 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !11
+  %360 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4383, i64 noundef %358, i64 noundef %359, ptr noundef nonnull @.str.68) #14
   br label %.thread526
 
-.loopexit557:                                     ; preds = %358, %225, %176, %.preheader560, %.preheader558, %.preheader556
-  %.4452 = phi ptr [ %134, %.preheader556 ], [ %134, %.preheader558 ], [ %134, %.preheader560 ], [ %213, %176 ], [ %302, %225 ], [ %359, %358 ]
-  %364 = call i32 @H5S_select_hyperslab(ptr noundef nonnull %.1431, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
-  %365 = icmp slt i32 %364, 0
-  br i1 %365, label %366, label %370
+.loopexit559:                                     ; preds = %355, %222, %173, %.preheader562, %.preheader560, %.preheader558
+  %.4452 = phi ptr [ %131, %.preheader558 ], [ %131, %.preheader560 ], [ %131, %.preheader562 ], [ %210, %173 ], [ %299, %222 ], [ %356, %355 ]
+  %361 = call i32 @H5S_select_hyperslab(ptr noundef nonnull %.1431, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
+  %362 = icmp slt i32 %361, 0
+  br i1 %362, label %363, label %367
 
-366:                                              ; preds = %.loopexit557
-  %367 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %368 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
-  %369 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4389, i64 noundef %367, i64 noundef %368, ptr noundef nonnull @.str.81) #14
+363:                                              ; preds = %.loopexit559
+  %364 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %365 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
+  %366 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4389, i64 noundef %364, i64 noundef %365, ptr noundef nonnull @.str.81) #14
   br label %.thread526
 
-.thread526:                                       ; preds = %360, %172, %366, %221, %310
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #14
-  br label %588
-
-370:                                              ; preds = %.loopexit557
+.thread526:                                       ; preds = %357, %169, %363, %218, %307
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #14
   br label %585
 
-371:                                              ; preds = %152
+367:                                              ; preds = %.loopexit559
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #14
+  br label %582
+
+368:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10) #14
-  switch i8 %.1456524, label %426 [
-    i8 2, label %372
-    i8 4, label %388
-    i8 8, label %404
+  switch i8 %.1456524, label %423 [
+    i8 2, label %369
+    i8 4, label %385
+    i8 8, label %401
   ]
 
-372:                                              ; preds = %371
-  br i1 %3, label %385, label %373
+369:                                              ; preds = %368
+  br i1 %3, label %382, label %370
 
-373:                                              ; preds = %372
-  %374 = icmp ugt ptr %134, %.ptr493
-  br i1 %374, label %381, label %375
+370:                                              ; preds = %369
+  %371 = icmp ugt ptr %131, %.ptr493
+  br i1 %371, label %378, label %372
 
-375:                                              ; preds = %373
-  %376 = ptrtoint ptr %.ptr493 to i64
-  %377 = ptrtoint ptr %134 to i64
-  %378 = add i64 %376, 1
-  %379 = sub i64 %378, %377
-  %380 = icmp ult i64 %379, 2
-  br i1 %380, label %381, label %385
+372:                                              ; preds = %370
+  %373 = ptrtoint ptr %.ptr493 to i64
+  %374 = ptrtoint ptr %131 to i64
+  %375 = add i64 %373, 1
+  %376 = sub i64 %375, %374
+  %377 = icmp ult i64 %376, 2
+  br i1 %377, label %378, label %382
 
-381:                                              ; preds = %373, %375
-  %382 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %383 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %384 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4406, i64 noundef %382, i64 noundef %383, ptr noundef nonnull @.str.82) #14
+378:                                              ; preds = %370, %372
+  %379 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %380 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %381 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4406, i64 noundef %379, i64 noundef %380, ptr noundef nonnull @.str.82) #14
   br label %.thread531
 
-385:                                              ; preds = %375, %372
-  %386 = load i16, ptr %134, align 1
-  %387 = zext i16 %386 to i64
-  br label %.loopexit741
+382:                                              ; preds = %372, %369
+  %383 = load i16, ptr %131, align 1
+  %384 = zext i16 %383 to i64
+  br label %.loopexit743
 
-388:                                              ; preds = %371
-  br i1 %3, label %401, label %389
+385:                                              ; preds = %368
+  br i1 %3, label %398, label %386
 
-389:                                              ; preds = %388
-  %390 = icmp ugt ptr %134, %.ptr493
-  br i1 %390, label %397, label %391
+386:                                              ; preds = %385
+  %387 = icmp ugt ptr %131, %.ptr493
+  br i1 %387, label %394, label %388
 
-391:                                              ; preds = %389
-  %392 = ptrtoint ptr %.ptr493 to i64
-  %393 = ptrtoint ptr %134 to i64
-  %394 = add i64 %392, 1
-  %395 = sub i64 %394, %393
-  %396 = icmp ult i64 %395, 4
-  br i1 %396, label %397, label %401
+388:                                              ; preds = %386
+  %389 = ptrtoint ptr %.ptr493 to i64
+  %390 = ptrtoint ptr %131 to i64
+  %391 = add i64 %389, 1
+  %392 = sub i64 %391, %390
+  %393 = icmp ult i64 %392, 4
+  br i1 %393, label %394, label %398
 
-397:                                              ; preds = %389, %391
-  %398 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %399 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %400 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4413, i64 noundef %398, i64 noundef %399, ptr noundef nonnull @.str.82) #14
+394:                                              ; preds = %386, %388
+  %395 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %396 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %397 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4413, i64 noundef %395, i64 noundef %396, ptr noundef nonnull @.str.82) #14
   br label %.thread531
 
-401:                                              ; preds = %391, %388
-  %402 = load i32, ptr %134, align 1
-  %403 = zext i32 %402 to i64
-  br label %.loopexit741
+398:                                              ; preds = %388, %385
+  %399 = load i32, ptr %131, align 1
+  %400 = zext i32 %399 to i64
+  br label %.loopexit743
 
-404:                                              ; preds = %371
-  br i1 %3, label %417, label %405
+401:                                              ; preds = %368
+  br i1 %3, label %414, label %402
 
-405:                                              ; preds = %404
-  %406 = icmp ugt ptr %134, %.ptr493
-  br i1 %406, label %413, label %407
+402:                                              ; preds = %401
+  %403 = icmp ugt ptr %131, %.ptr493
+  br i1 %403, label %410, label %404
 
-407:                                              ; preds = %405
-  %408 = ptrtoint ptr %.ptr493 to i64
-  %409 = ptrtoint ptr %134 to i64
-  %410 = add i64 %408, 1
-  %411 = sub i64 %410, %409
-  %412 = icmp ult i64 %411, 8
-  br i1 %412, label %413, label %417
+404:                                              ; preds = %402
+  %405 = ptrtoint ptr %.ptr493 to i64
+  %406 = ptrtoint ptr %131 to i64
+  %407 = add i64 %405, 1
+  %408 = sub i64 %407, %406
+  %409 = icmp ult i64 %408, 8
+  br i1 %409, label %410, label %414
 
-413:                                              ; preds = %405, %407
-  %414 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %415 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %416 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4420, i64 noundef %414, i64 noundef %415, ptr noundef nonnull @.str.82) #14
+410:                                              ; preds = %402, %404
+  %411 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %412 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %413 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4420, i64 noundef %411, i64 noundef %412, ptr noundef nonnull @.str.82) #14
   br label %.thread531
 
-417:                                              ; preds = %407, %404
-  %418 = getelementptr inbounds nuw i8, ptr %.1449525, i64 12
-  br label %419
+414:                                              ; preds = %404, %401
+  %415 = getelementptr inbounds nuw i8, ptr %.1449525, i64 12
+  br label %416
 
-419:                                              ; preds = %417, %419
-  %.0416598 = phi i64 [ 0, %417 ], [ %425, %419 ]
-  %.1419597 = phi i64 [ 0, %417 ], [ %424, %419 ]
-  %.14596 = phi ptr [ %418, %417 ], [ %421, %419 ]
-  %420 = shl i64 %.1419597, 8
-  %421 = getelementptr inbounds i8, ptr %.14596, i64 -1
-  %422 = load i8, ptr %421, align 1, !tbaa !10
-  %423 = zext i8 %422 to i64
-  %424 = or disjoint i64 %420, %423
-  %425 = add nuw nsw i64 %.0416598, 1
-  %exitcond687.not = icmp eq i64 %425, 8
-  br i1 %exitcond687.not, label %.loopexit741, label %419, !llvm.loop !73
+416:                                              ; preds = %414, %416
+  %.0416600 = phi i64 [ 0, %414 ], [ %422, %416 ]
+  %.1419599 = phi i64 [ 0, %414 ], [ %421, %416 ]
+  %.14598 = phi ptr [ %415, %414 ], [ %418, %416 ]
+  %417 = shl i64 %.1419599, 8
+  %418 = getelementptr inbounds i8, ptr %.14598, i64 -1
+  %419 = load i8, ptr %418, align 1, !tbaa !10
+  %420 = zext i8 %419 to i64
+  %421 = or disjoint i64 %417, %420
+  %422 = add nuw nsw i64 %.0416600, 1
+  %exitcond689.not = icmp eq i64 %422, 8
+  br i1 %exitcond689.not, label %.loopexit743, label %416, !llvm.loop !73
 
-426:                                              ; preds = %371
-  %427 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %428 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !11
-  %429 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4425, i64 noundef %427, i64 noundef %428, ptr noundef nonnull @.str.68) #14
+423:                                              ; preds = %368
+  %424 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %425 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !11
+  %426 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4425, i64 noundef %424, i64 noundef %425, ptr noundef nonnull @.str.68) #14
   br label %.thread531
 
-.loopexit741:                                     ; preds = %419, %401, %385
-  %.sink = phi i64 [ 8, %401 ], [ 6, %385 ], [ 12, %419 ]
-  %.0418 = phi i64 [ %403, %401 ], [ %387, %385 ], [ %424, %419 ]
-  %430 = getelementptr i8, ptr %.1449525, i64 %.sink
-  %.not650 = icmp eq i64 %.0418, 0
-  br i1 %.not650, label %._crit_edge642, label %.lr.ph641
+.loopexit743:                                     ; preds = %416, %398, %382
+  %.sink = phi i64 [ 8, %398 ], [ 6, %382 ], [ 12, %416 ]
+  %.0418 = phi i64 [ %400, %398 ], [ %384, %382 ], [ %421, %416 ]
+  %427 = getelementptr i8, ptr %.1449525, i64 %.sink
+  %.not652 = icmp eq i64 %.0418, 0
+  br i1 %.not652, label %._crit_edge644, label %.lr.ph643
 
-.lr.ph641:                                        ; preds = %.loopexit741
-  %431 = shl i32 %133, 1
-  %432 = zext i32 %431 to i64
-  %433 = shl nuw nsw i64 %432, 3
-  %434 = ptrtoint ptr %.ptr493 to i64
-  %435 = add i64 %434, 1
-  %.not651 = icmp eq i32 %133, 0
-  %436 = shl nuw nsw i64 %432, 2
-  %437 = shl nuw nsw i64 %432, 1
-  switch i8 %.1456524, label %564 [
-    i8 2, label %.lr.ph641.split
-    i8 4, label %.lr.ph641.split
-    i8 8, label %.lr.ph641.split
+.lr.ph643:                                        ; preds = %.loopexit743
+  %428 = shl i32 %130, 1
+  %429 = zext i32 %428 to i64
+  %430 = shl nuw nsw i64 %429, 3
+  %431 = ptrtoint ptr %.ptr493 to i64
+  %432 = add i64 %431, 1
+  %.not653 = icmp eq i32 %130, 0
+  %433 = shl nuw nsw i64 %429, 2
+  %434 = shl nuw nsw i64 %429, 1
+  switch i8 %.1456524, label %561 [
+    i8 2, label %.lr.ph643.split
+    i8 4, label %.lr.ph643.split
+    i8 8, label %.lr.ph643.split
   ]
 
-.lr.ph641.split:                                  ; preds = %.lr.ph641, %.lr.ph641, %.lr.ph641
-  %.not500 = icmp eq i32 %431, 0
-  %438 = or disjoint i32 %132, %127
-  %439 = or disjoint i32 %438, %123
-  %brmerge645 = select i1 %3, i1 true, i1 %.not500
+.lr.ph643.split:                                  ; preds = %.lr.ph643, %.lr.ph643, %.lr.ph643
+  %.not500 = icmp eq i32 %428, 0
+  %435 = or disjoint i32 %129, %124
+  %436 = or disjoint i32 %435, %120
+  %brmerge647 = select i1 %3, i1 true, i1 %.not500
   %brmerge = select i1 %3, i1 true, i1 %.not500
-  %brmerge646 = select i1 %3, i1 true, i1 %.not500
-  br label %444
+  %brmerge648 = select i1 %3, i1 true, i1 %.not500
+  br label %441
 
-440:                                              ; preds = %._crit_edge
-  %441 = add i32 %.3447639, 1
-  %442 = zext i32 %441 to i64
-  %443 = icmp ugt i64 %.0418, %442
-  br i1 %443, label %444, label %._crit_edge642, !llvm.loop !74
+437:                                              ; preds = %._crit_edge
+  %438 = add i32 %.3447641, 1
+  %439 = zext i32 %438 to i64
+  %440 = icmp ugt i64 %.0418, %439
+  br i1 %440, label %441, label %._crit_edge644, !llvm.loop !74
 
-444:                                              ; preds = %.lr.ph641.split, %440
-  %.3447639 = phi i32 [ 0, %.lr.ph641.split ], [ %441, %440 ]
-  %.15638 = phi ptr [ %430, %.lr.ph641.split ], [ %.18701, %440 ]
-  switch i8 %.1456524, label %527 [
-    i8 2, label %445
-    i8 4, label %476
+441:                                              ; preds = %.lr.ph643.split, %437
+  %.3447641 = phi i32 [ 0, %.lr.ph643.split ], [ %438, %437 ]
+  %.15640 = phi ptr [ %427, %.lr.ph643.split ], [ %.18703, %437 ]
+  switch i8 %.1456524, label %524 [
+    i8 2, label %442
+    i8 4, label %473
   ]
 
-445:                                              ; preds = %444
-  br i1 %brmerge, label %455, label %446
+442:                                              ; preds = %441
+  br i1 %brmerge, label %452, label %443
 
-446:                                              ; preds = %445
-  %447 = icmp ugt ptr %.15638, %.ptr493
-  %448 = ptrtoint ptr %.15638 to i64
-  %449 = sub i64 %435, %448
-  %450 = icmp ugt i64 %437, %449
-  %or.cond733 = select i1 %447, i1 true, i1 %450
-  br i1 %or.cond733, label %451, label %455
+443:                                              ; preds = %442
+  %444 = icmp ugt ptr %.15640, %.ptr493
+  %445 = ptrtoint ptr %.15640 to i64
+  %446 = sub i64 %432, %445
+  %447 = icmp ugt i64 %434, %446
+  %or.cond735 = select i1 %444, i1 true, i1 %447
+  br i1 %or.cond735, label %448, label %452
 
-451:                                              ; preds = %446
-  %452 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %453 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %454 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4439, i64 noundef %452, i64 noundef %453, ptr noundef nonnull @.str.83) #14
+448:                                              ; preds = %443
+  %449 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %450 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %451 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4439, i64 noundef %449, i64 noundef %450, ptr noundef nonnull @.str.83) #14
   br label %.thread531
 
-455:                                              ; preds = %446, %445
-  br i1 %.not651, label %._crit_edge, label %.lr.ph626
+452:                                              ; preds = %443, %442
+  br i1 %.not653, label %._crit_edge, label %.lr.ph628
 
-.lr.ph626:                                        ; preds = %455, %.lr.ph626
-  %.0417625 = phi i32 [ %464, %.lr.ph626 ], [ 0, %455 ]
-  %.0425624 = phi ptr [ %465, %.lr.ph626 ], [ %6, %455 ]
-  %.16623 = phi ptr [ %463, %.lr.ph626 ], [ %.15638, %455 ]
-  %456 = load i8, ptr %.16623, align 1, !tbaa !10
+.lr.ph628:                                        ; preds = %452, %.lr.ph628
+  %.0417627 = phi i32 [ %461, %.lr.ph628 ], [ 0, %452 ]
+  %.0425626 = phi ptr [ %462, %.lr.ph628 ], [ %6, %452 ]
+  %.16625 = phi ptr [ %460, %.lr.ph628 ], [ %.15640, %452 ]
+  %453 = load i8, ptr %.16625, align 1, !tbaa !10
+  %454 = zext i8 %453 to i64
+  store i64 %454, ptr %.0425626, align 8, !tbaa !11
+  %455 = getelementptr inbounds nuw i8, ptr %.16625, i64 1
+  %456 = load i8, ptr %455, align 1, !tbaa !10
   %457 = zext i8 %456 to i64
-  store i64 %457, ptr %.0425624, align 8, !tbaa !11
-  %458 = getelementptr inbounds nuw i8, ptr %.16623, i64 1
-  %459 = load i8, ptr %458, align 1, !tbaa !10
-  %460 = zext i8 %459 to i64
-  %461 = shl nuw nsw i64 %460, 8
-  %462 = or disjoint i64 %461, %457
-  store i64 %462, ptr %.0425624, align 8, !tbaa !11
-  %463 = getelementptr inbounds nuw i8, ptr %.16623, i64 2
-  %464 = add nuw i32 %.0417625, 1
-  %465 = getelementptr inbounds nuw i8, ptr %.0425624, i64 8
-  %exitcond690.not = icmp eq i32 %464, %439
-  br i1 %exitcond690.not, label %.lr.ph631, label %.lr.ph626, !llvm.loop !75
+  %458 = shl nuw nsw i64 %457, 8
+  %459 = or disjoint i64 %458, %454
+  store i64 %459, ptr %.0425626, align 8, !tbaa !11
+  %460 = getelementptr inbounds nuw i8, ptr %.16625, i64 2
+  %461 = add nuw i32 %.0417627, 1
+  %462 = getelementptr inbounds nuw i8, ptr %.0425626, i64 8
+  %exitcond692.not = icmp eq i32 %461, %436
+  br i1 %exitcond692.not, label %.lr.ph633, label %.lr.ph628, !llvm.loop !75
 
-.lr.ph631:                                        ; preds = %.lr.ph626, %.lr.ph631
-  %.1630 = phi i32 [ %474, %.lr.ph631 ], [ 0, %.lr.ph626 ]
-  %.0421629 = phi ptr [ %475, %.lr.ph631 ], [ %10, %.lr.ph626 ]
-  %.17628 = phi ptr [ %473, %.lr.ph631 ], [ %463, %.lr.ph626 ]
-  %466 = load i8, ptr %.17628, align 1, !tbaa !10
+.lr.ph633:                                        ; preds = %.lr.ph628, %.lr.ph633
+  %.1632 = phi i32 [ %471, %.lr.ph633 ], [ 0, %.lr.ph628 ]
+  %.0421631 = phi ptr [ %472, %.lr.ph633 ], [ %10, %.lr.ph628 ]
+  %.17630 = phi ptr [ %470, %.lr.ph633 ], [ %460, %.lr.ph628 ]
+  %463 = load i8, ptr %.17630, align 1, !tbaa !10
+  %464 = zext i8 %463 to i64
+  store i64 %464, ptr %.0421631, align 8, !tbaa !11
+  %465 = getelementptr inbounds nuw i8, ptr %.17630, i64 1
+  %466 = load i8, ptr %465, align 1, !tbaa !10
   %467 = zext i8 %466 to i64
-  store i64 %467, ptr %.0421629, align 8, !tbaa !11
-  %468 = getelementptr inbounds nuw i8, ptr %.17628, i64 1
-  %469 = load i8, ptr %468, align 1, !tbaa !10
-  %470 = zext i8 %469 to i64
-  %471 = shl nuw nsw i64 %470, 8
-  %472 = or disjoint i64 %471, %467
-  store i64 %472, ptr %.0421629, align 8, !tbaa !11
-  %473 = getelementptr inbounds nuw i8, ptr %.17628, i64 2
-  %474 = add nuw i32 %.1630, 1
-  %475 = getelementptr inbounds nuw i8, ptr %.0421629, i64 8
-  %exitcond691.not = icmp eq i32 %474, %439
-  br i1 %exitcond691.not, label %.lr.ph637.preheader, label %.lr.ph631, !llvm.loop !76
+  %468 = shl nuw nsw i64 %467, 8
+  %469 = or disjoint i64 %468, %464
+  store i64 %469, ptr %.0421631, align 8, !tbaa !11
+  %470 = getelementptr inbounds nuw i8, ptr %.17630, i64 2
+  %471 = add nuw i32 %.1632, 1
+  %472 = getelementptr inbounds nuw i8, ptr %.0421631, i64 8
+  %exitcond693.not = icmp eq i32 %471, %436
+  br i1 %exitcond693.not, label %.lr.ph639.preheader, label %.lr.ph633, !llvm.loop !76
 
-476:                                              ; preds = %444
-  br i1 %brmerge645, label %486, label %477
+473:                                              ; preds = %441
+  br i1 %brmerge647, label %483, label %474
 
-477:                                              ; preds = %476
-  %478 = icmp ugt ptr %.15638, %.ptr493
-  %479 = ptrtoint ptr %.15638 to i64
-  %480 = sub i64 %435, %479
-  %481 = icmp ugt i64 %436, %480
-  %or.cond736 = select i1 %478, i1 true, i1 %481
-  br i1 %or.cond736, label %482, label %486
+474:                                              ; preds = %473
+  %475 = icmp ugt ptr %.15640, %.ptr493
+  %476 = ptrtoint ptr %.15640 to i64
+  %477 = sub i64 %432, %476
+  %478 = icmp ugt i64 %433, %477
+  %or.cond738 = select i1 %475, i1 true, i1 %478
+  br i1 %or.cond738, label %479, label %483
 
-482:                                              ; preds = %477
-  %483 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %484 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %485 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4450, i64 noundef %483, i64 noundef %484, ptr noundef nonnull @.str.83) #14
+479:                                              ; preds = %474
+  %480 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %481 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %482 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4450, i64 noundef %480, i64 noundef %481, ptr noundef nonnull @.str.83) #14
   br label %.thread531
 
-486:                                              ; preds = %477, %476
-  br i1 %.not651, label %._crit_edge, label %.lr.ph616
+483:                                              ; preds = %474, %473
+  br i1 %.not653, label %._crit_edge, label %.lr.ph618
 
-.lr.ph616:                                        ; preds = %486, %.lr.ph616
-  %.2615 = phi i32 [ %505, %.lr.ph616 ], [ 0, %486 ]
-  %.1426614 = phi ptr [ %506, %.lr.ph616 ], [ %6, %486 ]
-  %.19613 = phi ptr [ %504, %.lr.ph616 ], [ %.15638, %486 ]
-  %487 = load i8, ptr %.19613, align 1, !tbaa !10
+.lr.ph618:                                        ; preds = %483, %.lr.ph618
+  %.2617 = phi i32 [ %502, %.lr.ph618 ], [ 0, %483 ]
+  %.1426616 = phi ptr [ %503, %.lr.ph618 ], [ %6, %483 ]
+  %.19615 = phi ptr [ %501, %.lr.ph618 ], [ %.15640, %483 ]
+  %484 = load i8, ptr %.19615, align 1, !tbaa !10
+  %485 = zext i8 %484 to i64
+  store i64 %485, ptr %.1426616, align 8, !tbaa !11
+  %486 = getelementptr inbounds nuw i8, ptr %.19615, i64 1
+  %487 = load i8, ptr %486, align 1, !tbaa !10
   %488 = zext i8 %487 to i64
-  store i64 %488, ptr %.1426614, align 8, !tbaa !11
-  %489 = getelementptr inbounds nuw i8, ptr %.19613, i64 1
-  %490 = load i8, ptr %489, align 1, !tbaa !10
-  %491 = zext i8 %490 to i64
-  %492 = shl nuw nsw i64 %491, 8
-  %493 = or disjoint i64 %492, %488
-  store i64 %493, ptr %.1426614, align 8, !tbaa !11
-  %494 = getelementptr inbounds nuw i8, ptr %.19613, i64 2
-  %495 = load i8, ptr %494, align 1, !tbaa !10
-  %496 = zext i8 %495 to i64
-  %497 = shl nuw nsw i64 %496, 16
-  %498 = or disjoint i64 %497, %493
-  store i64 %498, ptr %.1426614, align 8, !tbaa !11
-  %499 = getelementptr inbounds nuw i8, ptr %.19613, i64 3
-  %500 = load i8, ptr %499, align 1, !tbaa !10
-  %501 = zext i8 %500 to i64
-  %502 = shl nuw nsw i64 %501, 24
-  %503 = or disjoint i64 %502, %498
-  store i64 %503, ptr %.1426614, align 8, !tbaa !11
-  %504 = getelementptr inbounds nuw i8, ptr %.19613, i64 4
-  %505 = add nuw i32 %.2615, 1
-  %506 = getelementptr inbounds nuw i8, ptr %.1426614, i64 8
-  %exitcond688.not = icmp eq i32 %505, %439
-  br i1 %exitcond688.not, label %.lr.ph621, label %.lr.ph616, !llvm.loop !77
+  %489 = shl nuw nsw i64 %488, 8
+  %490 = or disjoint i64 %489, %485
+  store i64 %490, ptr %.1426616, align 8, !tbaa !11
+  %491 = getelementptr inbounds nuw i8, ptr %.19615, i64 2
+  %492 = load i8, ptr %491, align 1, !tbaa !10
+  %493 = zext i8 %492 to i64
+  %494 = shl nuw nsw i64 %493, 16
+  %495 = or disjoint i64 %494, %490
+  store i64 %495, ptr %.1426616, align 8, !tbaa !11
+  %496 = getelementptr inbounds nuw i8, ptr %.19615, i64 3
+  %497 = load i8, ptr %496, align 1, !tbaa !10
+  %498 = zext i8 %497 to i64
+  %499 = shl nuw nsw i64 %498, 24
+  %500 = or disjoint i64 %499, %495
+  store i64 %500, ptr %.1426616, align 8, !tbaa !11
+  %501 = getelementptr inbounds nuw i8, ptr %.19615, i64 4
+  %502 = add nuw i32 %.2617, 1
+  %503 = getelementptr inbounds nuw i8, ptr %.1426616, i64 8
+  %exitcond690.not = icmp eq i32 %502, %436
+  br i1 %exitcond690.not, label %.lr.ph623, label %.lr.ph618, !llvm.loop !77
 
-.lr.ph621:                                        ; preds = %.lr.ph616, %.lr.ph621
-  %.3620 = phi i32 [ %525, %.lr.ph621 ], [ 0, %.lr.ph616 ]
-  %.1422619 = phi ptr [ %526, %.lr.ph621 ], [ %10, %.lr.ph616 ]
-  %.20618 = phi ptr [ %524, %.lr.ph621 ], [ %504, %.lr.ph616 ]
-  %507 = load i8, ptr %.20618, align 1, !tbaa !10
+.lr.ph623:                                        ; preds = %.lr.ph618, %.lr.ph623
+  %.3622 = phi i32 [ %522, %.lr.ph623 ], [ 0, %.lr.ph618 ]
+  %.1422621 = phi ptr [ %523, %.lr.ph623 ], [ %10, %.lr.ph618 ]
+  %.20620 = phi ptr [ %521, %.lr.ph623 ], [ %501, %.lr.ph618 ]
+  %504 = load i8, ptr %.20620, align 1, !tbaa !10
+  %505 = zext i8 %504 to i64
+  store i64 %505, ptr %.1422621, align 8, !tbaa !11
+  %506 = getelementptr inbounds nuw i8, ptr %.20620, i64 1
+  %507 = load i8, ptr %506, align 1, !tbaa !10
   %508 = zext i8 %507 to i64
-  store i64 %508, ptr %.1422619, align 8, !tbaa !11
-  %509 = getelementptr inbounds nuw i8, ptr %.20618, i64 1
-  %510 = load i8, ptr %509, align 1, !tbaa !10
-  %511 = zext i8 %510 to i64
-  %512 = shl nuw nsw i64 %511, 8
-  %513 = or disjoint i64 %512, %508
-  store i64 %513, ptr %.1422619, align 8, !tbaa !11
-  %514 = getelementptr inbounds nuw i8, ptr %.20618, i64 2
-  %515 = load i8, ptr %514, align 1, !tbaa !10
-  %516 = zext i8 %515 to i64
-  %517 = shl nuw nsw i64 %516, 16
-  %518 = or disjoint i64 %517, %513
-  store i64 %518, ptr %.1422619, align 8, !tbaa !11
-  %519 = getelementptr inbounds nuw i8, ptr %.20618, i64 3
-  %520 = load i8, ptr %519, align 1, !tbaa !10
-  %521 = zext i8 %520 to i64
-  %522 = shl nuw nsw i64 %521, 24
-  %523 = or disjoint i64 %522, %518
-  store i64 %523, ptr %.1422619, align 8, !tbaa !11
-  %524 = getelementptr inbounds nuw i8, ptr %.20618, i64 4
-  %525 = add nuw i32 %.3620, 1
-  %526 = getelementptr inbounds nuw i8, ptr %.1422619, i64 8
-  %exitcond689.not = icmp eq i32 %525, %439
-  br i1 %exitcond689.not, label %.lr.ph637.preheader, label %.lr.ph621, !llvm.loop !78
+  %509 = shl nuw nsw i64 %508, 8
+  %510 = or disjoint i64 %509, %505
+  store i64 %510, ptr %.1422621, align 8, !tbaa !11
+  %511 = getelementptr inbounds nuw i8, ptr %.20620, i64 2
+  %512 = load i8, ptr %511, align 1, !tbaa !10
+  %513 = zext i8 %512 to i64
+  %514 = shl nuw nsw i64 %513, 16
+  %515 = or disjoint i64 %514, %510
+  store i64 %515, ptr %.1422621, align 8, !tbaa !11
+  %516 = getelementptr inbounds nuw i8, ptr %.20620, i64 3
+  %517 = load i8, ptr %516, align 1, !tbaa !10
+  %518 = zext i8 %517 to i64
+  %519 = shl nuw nsw i64 %518, 24
+  %520 = or disjoint i64 %519, %515
+  store i64 %520, ptr %.1422621, align 8, !tbaa !11
+  %521 = getelementptr inbounds nuw i8, ptr %.20620, i64 4
+  %522 = add nuw i32 %.3622, 1
+  %523 = getelementptr inbounds nuw i8, ptr %.1422621, i64 8
+  %exitcond691.not = icmp eq i32 %522, %436
+  br i1 %exitcond691.not, label %.lr.ph639.preheader, label %.lr.ph623, !llvm.loop !78
 
-527:                                              ; preds = %444
-  br i1 %brmerge646, label %537, label %528
+524:                                              ; preds = %441
+  br i1 %brmerge648, label %534, label %525
 
-528:                                              ; preds = %527
-  %529 = icmp ugt ptr %.15638, %.ptr493
-  %530 = ptrtoint ptr %.15638 to i64
-  %531 = sub i64 %435, %530
-  %532 = icmp ugt i64 %433, %531
-  %or.cond739 = select i1 %529, i1 true, i1 %532
-  br i1 %or.cond739, label %533, label %537
+525:                                              ; preds = %524
+  %526 = icmp ugt ptr %.15640, %.ptr493
+  %527 = ptrtoint ptr %.15640 to i64
+  %528 = sub i64 %432, %527
+  %529 = icmp ugt i64 %430, %528
+  %or.cond741 = select i1 %526, i1 true, i1 %529
+  br i1 %or.cond741, label %530, label %534
 
-533:                                              ; preds = %528
-  %534 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %535 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
-  %536 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4461, i64 noundef %534, i64 noundef %535, ptr noundef nonnull @.str.83) #14
+530:                                              ; preds = %525
+  %531 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %532 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !11
+  %533 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4461, i64 noundef %531, i64 noundef %532, ptr noundef nonnull @.str.83) #14
   br label %.thread531
 
-537:                                              ; preds = %528, %527
-  br i1 %.not651, label %._crit_edge, label %.lr.ph604
+534:                                              ; preds = %525, %524
+  br i1 %.not653, label %._crit_edge, label %.lr.ph606
 
-.lr.ph604:                                        ; preds = %537, %547
-  %.4603 = phi i32 [ %549, %547 ], [ 0, %537 ]
-  %.2427602 = phi ptr [ %550, %547 ], [ %6, %537 ]
-  %.21601 = phi ptr [ %548, %547 ], [ %.15638, %537 ]
-  store i64 0, ptr %.2427602, align 8, !tbaa !11
-  %538 = getelementptr inbounds nuw i8, ptr %.21601, i64 8
-  br label %539
+.lr.ph606:                                        ; preds = %534, %544
+  %.4605 = phi i32 [ %546, %544 ], [ 0, %534 ]
+  %.2427604 = phi ptr [ %547, %544 ], [ %6, %534 ]
+  %.21603 = phi ptr [ %545, %544 ], [ %.15640, %534 ]
+  store i64 0, ptr %.2427604, align 8, !tbaa !11
+  %535 = getelementptr inbounds nuw i8, ptr %.21603, i64 8
+  br label %536
 
-539:                                              ; preds = %.lr.ph604, %539
-  %.0415600 = phi i64 [ 0, %.lr.ph604 ], [ %546, %539 ]
-  %.22599 = phi ptr [ %538, %.lr.ph604 ], [ %542, %539 ]
-  %540 = phi i64 [ 0, %.lr.ph604 ], [ %545, %539 ]
-  %541 = shl i64 %540, 8
-  %542 = getelementptr inbounds i8, ptr %.22599, i64 -1
-  %543 = load i8, ptr %542, align 1, !tbaa !10
-  %544 = zext i8 %543 to i64
-  %545 = or disjoint i64 %541, %544
-  store i64 %545, ptr %.2427602, align 8, !tbaa !11
-  %546 = add nuw nsw i64 %.0415600, 1
-  %exitcond692.not = icmp eq i64 %546, 8
-  br i1 %exitcond692.not, label %547, label %539, !llvm.loop !79
+536:                                              ; preds = %.lr.ph606, %536
+  %.0415602 = phi i64 [ 0, %.lr.ph606 ], [ %543, %536 ]
+  %.22601 = phi ptr [ %535, %.lr.ph606 ], [ %539, %536 ]
+  %537 = phi i64 [ 0, %.lr.ph606 ], [ %542, %536 ]
+  %538 = shl i64 %537, 8
+  %539 = getelementptr inbounds i8, ptr %.22601, i64 -1
+  %540 = load i8, ptr %539, align 1, !tbaa !10
+  %541 = zext i8 %540 to i64
+  %542 = or disjoint i64 %538, %541
+  store i64 %542, ptr %.2427604, align 8, !tbaa !11
+  %543 = add nuw nsw i64 %.0415602, 1
+  %exitcond694.not = icmp eq i64 %543, 8
+  br i1 %exitcond694.not, label %544, label %536, !llvm.loop !79
 
-547:                                              ; preds = %539
-  %548 = getelementptr inbounds nuw i8, ptr %.22599, i64 7
-  %549 = add nuw i32 %.4603, 1
-  %550 = getelementptr inbounds nuw i8, ptr %.2427602, i64 8
-  %exitcond693.not = icmp eq i32 %549, %439
-  br i1 %exitcond693.not, label %.lr.ph611, label %.lr.ph604, !llvm.loop !80
+544:                                              ; preds = %536
+  %545 = getelementptr inbounds nuw i8, ptr %.22601, i64 7
+  %546 = add nuw i32 %.4605, 1
+  %547 = getelementptr inbounds nuw i8, ptr %.2427604, i64 8
+  %exitcond695.not = icmp eq i32 %546, %436
+  br i1 %exitcond695.not, label %.lr.ph613, label %.lr.ph606, !llvm.loop !80
 
-.lr.ph611:                                        ; preds = %547, %561
-  %.5610 = phi i32 [ %562, %561 ], [ 0, %547 ]
-  %.2423609 = phi ptr [ %563, %561 ], [ %10, %547 ]
-  %551 = phi ptr [ %.24606, %561 ], [ %.22599, %547 ]
-  store i64 0, ptr %.2423609, align 8, !tbaa !11
-  %552 = getelementptr inbounds nuw i8, ptr %551, i64 15
-  br label %553
+.lr.ph613:                                        ; preds = %544, %558
+  %.5612 = phi i32 [ %559, %558 ], [ 0, %544 ]
+  %.2423611 = phi ptr [ %560, %558 ], [ %10, %544 ]
+  %548 = phi ptr [ %.24608, %558 ], [ %.22601, %544 ]
+  store i64 0, ptr %.2423611, align 8, !tbaa !11
+  %549 = getelementptr inbounds nuw i8, ptr %548, i64 15
+  br label %550
 
-553:                                              ; preds = %.lr.ph611, %553
-  %.0607 = phi i64 [ 0, %.lr.ph611 ], [ %560, %553 ]
-  %.24606 = phi ptr [ %552, %.lr.ph611 ], [ %556, %553 ]
-  %554 = phi i64 [ 0, %.lr.ph611 ], [ %559, %553 ]
-  %555 = shl i64 %554, 8
-  %556 = getelementptr inbounds i8, ptr %.24606, i64 -1
-  %557 = load i8, ptr %556, align 1, !tbaa !10
-  %558 = zext i8 %557 to i64
-  %559 = or disjoint i64 %555, %558
-  store i64 %559, ptr %.2423609, align 8, !tbaa !11
-  %560 = add nuw nsw i64 %.0607, 1
-  %exitcond694.not = icmp eq i64 %560, 8
-  br i1 %exitcond694.not, label %561, label %553, !llvm.loop !81
+550:                                              ; preds = %.lr.ph613, %550
+  %.0609 = phi i64 [ 0, %.lr.ph613 ], [ %557, %550 ]
+  %.24608 = phi ptr [ %549, %.lr.ph613 ], [ %553, %550 ]
+  %551 = phi i64 [ 0, %.lr.ph613 ], [ %556, %550 ]
+  %552 = shl i64 %551, 8
+  %553 = getelementptr inbounds i8, ptr %.24608, i64 -1
+  %554 = load i8, ptr %553, align 1, !tbaa !10
+  %555 = zext i8 %554 to i64
+  %556 = or disjoint i64 %552, %555
+  store i64 %556, ptr %.2423611, align 8, !tbaa !11
+  %557 = add nuw nsw i64 %.0609, 1
+  %exitcond696.not = icmp eq i64 %557, 8
+  br i1 %exitcond696.not, label %558, label %550, !llvm.loop !81
 
-561:                                              ; preds = %553
-  %562 = add nuw i32 %.5610, 1
-  %563 = getelementptr inbounds nuw i8, ptr %.2423609, i64 8
-  %exitcond695.not = icmp eq i32 %562, %439
-  br i1 %exitcond695.not, label %.loopexit, label %.lr.ph611, !llvm.loop !82
+558:                                              ; preds = %550
+  %559 = add nuw i32 %.5612, 1
+  %560 = getelementptr inbounds nuw i8, ptr %.2423611, i64 8
+  %exitcond697.not = icmp eq i32 %559, %436
+  br i1 %exitcond697.not, label %.loopexit, label %.lr.ph613, !llvm.loop !82
 
-564:                                              ; preds = %.lr.ph641
-  %565 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %566 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !11
-  %567 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4471, i64 noundef %565, i64 noundef %566, ptr noundef nonnull @.str.68) #14
+561:                                              ; preds = %.lr.ph643
+  %562 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %563 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !11
+  %564 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4471, i64 noundef %562, i64 noundef %563, ptr noundef nonnull @.str.68) #14
   br label %.thread531
 
-.loopexit:                                        ; preds = %561
-  %568 = getelementptr inbounds nuw i8, ptr %.24606, i64 7
-  br label %.lr.ph637.preheader
+.loopexit:                                        ; preds = %558
+  %565 = getelementptr inbounds nuw i8, ptr %.24608, i64 7
+  br label %.lr.ph639.preheader
 
-.lr.ph637.preheader:                              ; preds = %.lr.ph621, %.lr.ph631, %.loopexit
-  %.18706 = phi ptr [ %568, %.loopexit ], [ %473, %.lr.ph631 ], [ %524, %.lr.ph621 ]
-  br label %.lr.ph637
+.lr.ph639.preheader:                              ; preds = %.lr.ph623, %.lr.ph633, %.loopexit
+  %.18708 = phi ptr [ %565, %.loopexit ], [ %470, %.lr.ph633 ], [ %521, %.lr.ph623 ]
+  br label %.lr.ph639
 
-.lr.ph637:                                        ; preds = %.lr.ph637.preheader, %.lr.ph637
-  %.6636 = phi i32 [ %573, %.lr.ph637 ], [ 0, %.lr.ph637.preheader ]
-  %.0420635 = phi ptr [ %576, %.lr.ph637 ], [ %7, %.lr.ph637.preheader ]
-  %.3424634 = phi ptr [ %575, %.lr.ph637 ], [ %10, %.lr.ph637.preheader ]
-  %.3428633 = phi ptr [ %574, %.lr.ph637 ], [ %6, %.lr.ph637.preheader ]
-  %569 = load i64, ptr %.3424634, align 8, !tbaa !11
-  %570 = load i64, ptr %.3428633, align 8, !tbaa !11
-  %571 = add i64 %569, 1
-  %572 = sub i64 %571, %570
-  store i64 %572, ptr %.0420635, align 8, !tbaa !11
-  %573 = add nuw i32 %.6636, 1
-  %574 = getelementptr inbounds nuw i8, ptr %.3428633, i64 8
-  %575 = getelementptr inbounds nuw i8, ptr %.3424634, i64 8
-  %576 = getelementptr inbounds nuw i8, ptr %.0420635, i64 8
-  %exitcond696.not = icmp eq i32 %573, %439
-  br i1 %exitcond696.not, label %._crit_edge, label %.lr.ph637, !llvm.loop !83
+.lr.ph639:                                        ; preds = %.lr.ph639.preheader, %.lr.ph639
+  %.6638 = phi i32 [ %570, %.lr.ph639 ], [ 0, %.lr.ph639.preheader ]
+  %.0420637 = phi ptr [ %573, %.lr.ph639 ], [ %7, %.lr.ph639.preheader ]
+  %.3424636 = phi ptr [ %572, %.lr.ph639 ], [ %10, %.lr.ph639.preheader ]
+  %.3428635 = phi ptr [ %571, %.lr.ph639 ], [ %6, %.lr.ph639.preheader ]
+  %566 = load i64, ptr %.3424636, align 8, !tbaa !11
+  %567 = load i64, ptr %.3428635, align 8, !tbaa !11
+  %568 = add i64 %566, 1
+  %569 = sub i64 %568, %567
+  store i64 %569, ptr %.0420637, align 8, !tbaa !11
+  %570 = add nuw i32 %.6638, 1
+  %571 = getelementptr inbounds nuw i8, ptr %.3428635, i64 8
+  %572 = getelementptr inbounds nuw i8, ptr %.3424636, i64 8
+  %573 = getelementptr inbounds nuw i8, ptr %.0420637, i64 8
+  %exitcond698.not = icmp eq i32 %570, %436
+  br i1 %exitcond698.not, label %._crit_edge, label %.lr.ph639, !llvm.loop !83
 
-._crit_edge:                                      ; preds = %.lr.ph637, %537, %486, %455
-  %.18701 = phi ptr [ %.15638, %455 ], [ %.15638, %486 ], [ %.15638, %537 ], [ %.18706, %.lr.ph637 ]
-  %577 = icmp ne i32 %.3447639, 0
-  %578 = zext i1 %577 to i32
-  %579 = call i32 @H5S_select_hyperslab(ptr noundef nonnull %.1431, i32 noundef %578, ptr noundef nonnull %6, ptr noundef nonnull @H5S_hyper_ones_g, ptr noundef nonnull @H5S_hyper_ones_g, ptr noundef nonnull %7)
-  %580 = icmp slt i32 %579, 0
-  br i1 %580, label %581, label %440
+._crit_edge:                                      ; preds = %.lr.ph639, %534, %483, %452
+  %.18703 = phi ptr [ %.15640, %452 ], [ %.15640, %483 ], [ %.15640, %534 ], [ %.18708, %.lr.ph639 ]
+  %574 = icmp ne i32 %.3447641, 0
+  %575 = zext i1 %574 to i32
+  %576 = call i32 @H5S_select_hyperslab(ptr noundef nonnull %.1431, i32 noundef %575, ptr noundef nonnull %6, ptr noundef nonnull @H5S_hyper_ones_g, ptr noundef nonnull @H5S_hyper_ones_g, ptr noundef nonnull %7)
+  %577 = icmp slt i32 %576, 0
+  br i1 %577, label %578, label %437
 
-581:                                              ; preds = %._crit_edge
-  %582 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %583 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
-  %584 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4482, i64 noundef %582, i64 noundef %583, ptr noundef nonnull @.str.81) #14
+578:                                              ; preds = %._crit_edge
+  %579 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %580 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
+  %581 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4482, i64 noundef %579, i64 noundef %580, ptr noundef nonnull @.str.81) #14
   br label %.thread531
 
-.thread531:                                       ; preds = %426, %564, %581, %451, %482, %533, %381, %397, %413
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #14
-  br label %588
-
-._crit_edge642:                                   ; preds = %440, %.loopexit741
-  %.15.lcssa = phi ptr [ %430, %.loopexit741 ], [ %.18701, %440 ]
-  %.5443.lcssa = phi i32 [ -1, %.loopexit741 ], [ 0, %440 ]
+.thread531:                                       ; preds = %423, %561, %578, %448, %479, %530, %378, %394, %410
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #14
   br label %585
 
-585:                                              ; preds = %._crit_edge642, %370
-  %.11 = phi ptr [ %.4452, %370 ], [ %.15.lcssa, %._crit_edge642 ]
-  %.3441 = phi i32 [ 0, %370 ], [ %.5443.lcssa, %._crit_edge642 ]
+._crit_edge644:                                   ; preds = %437, %.loopexit743
+  %.15.lcssa = phi ptr [ %427, %.loopexit743 ], [ %.18703, %437 ]
+  %.5443.lcssa = phi i32 [ -1, %.loopexit743 ], [ 0, %437 ]
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #14
+  br label %582
+
+582:                                              ; preds = %._crit_edge644, %367
+  %.11 = phi ptr [ %.4452, %367 ], [ %.15.lcssa, %._crit_edge644 ]
+  %.3441 = phi i32 [ 0, %367 ], [ %.5443.lcssa, %._crit_edge644 ]
   store ptr %.11, ptr %1, align 8, !tbaa !39
-  %586 = load ptr, ptr %0, align 8, !tbaa !64
-  %.not506 = icmp eq ptr %586, null
-  br i1 %.not506, label %587, label %.thread707
+  %583 = load ptr, ptr %0, align 8, !tbaa !64
+  %.not506 = icmp eq ptr %583, null
+  br i1 %.not506, label %584, label %.thread709
+
+584:                                              ; preds = %582
+  store ptr %.1431, ptr %0, align 8, !tbaa !64
+  br label %.thread709
+
+585:                                              ; preds = %.thread531, %.thread526, %145, %138, %114, %101, %94, %89, %80, %69, %57, %47, %28
+  %.pr = load ptr, ptr %0, align 8, !tbaa !64
+  %586 = icmp eq ptr %.pr, null
+  br i1 %586, label %587, label %.thread709
 
 587:                                              ; preds = %585
-  store ptr %.1431, ptr %0, align 8, !tbaa !64
-  br label %.thread707
+  %588 = call i32 @H5S_close(ptr noundef nonnull %.1431) #14
+  %589 = icmp slt i32 %588, 0
+  br i1 %589, label %590, label %.thread709
 
-588:                                              ; preds = %.thread531, %.thread526, %148, %141, %117, %104, %97, %92, %83, %72, %60, %50, %31
-  %.pr = load ptr, ptr %0, align 8, !tbaa !64
-  %589 = icmp eq ptr %.pr, null
-  br i1 %589, label %590, label %.thread707
+590:                                              ; preds = %587
+  %591 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
+  %592 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !11
+  %593 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4497, i64 noundef %591, i64 noundef %592, ptr noundef nonnull @.str.84) #14
+  br label %.thread709
 
-590:                                              ; preds = %588
-  %591 = call i32 @H5S_close(ptr noundef nonnull %.1431) #14
-  %592 = icmp slt i32 %591, 0
-  br i1 %592, label %593, label %.thread707
-
-593:                                              ; preds = %590
-  %594 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
-  %595 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !11
-  %596 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4497, i64 noundef %594, i64 noundef %595, ptr noundef nonnull @.str.84) #14
-  br label %.thread707
-
-.thread707:                                       ; preds = %587, %585, %.thread535, %4, %590, %593, %588
-  %.0429 = phi i32 [ -1, %593 ], [ -1, %590 ], [ -1, %588 ], [ -1, %4 ], [ -1, %.thread535 ], [ %.3441, %585 ], [ %.3441, %587 ]
+.thread709:                                       ; preds = %584, %582, %.thread535, %4, %587, %590, %585
+  %.0429 = phi i32 [ -1, %590 ], [ -1, %587 ], [ -1, %585 ], [ -1, %4 ], [ -1, %.thread535 ], [ %.3441, %582 ], [ %.3441, %584 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #14

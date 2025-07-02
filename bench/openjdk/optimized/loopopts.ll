@@ -8730,13 +8730,13 @@ _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit:       ; preds = %2
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = load i32, ptr %63, align 8
-  %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %74, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 -8
-  %.not154195200 = icmp ult ptr %78, %74
+  %.not154195200 = icmp eq i32 %75, 0
   br i1 %.not154195200, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %72
+  %76 = zext i32 %75 to i64
+  %77 = getelementptr inbounds nuw ptr, ptr %74, i64 %76
+  %78 = getelementptr inbounds i8, ptr %77, i64 -8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %.lr.ph
 
@@ -15828,9 +15828,9 @@ define hidden void @_ZN14PhaseIdealLoop13fix_ctrl_usesERK9Node_ListPK13IdealLoop
   br label %36
 
 36:                                               ; preds = %.lr.ph230, %.loopexit209
-  %indvars.iv242 = phi i64 [ 0, %.lr.ph230 ], [ %indvars.iv.next243, %.loopexit209 ]
+  %indvars.iv243 = phi i64 [ 0, %.lr.ph230 ], [ %indvars.iv.next244, %.loopexit209 ]
   %37 = load ptr, ptr %13, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv242
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv243
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -15962,11 +15962,11 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit:        ; preds = %84, %102
   store ptr %109, ptr %80, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.pre245 = load i32, ptr %17, align 8
+  %.pre246 = load i32, ptr %17, align 8
   br label %110
 
 110:                                              ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit
-  %111 = phi i32 [ %.pre245, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit ], [ %75, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit ]
+  %111 = phi i32 [ %.pre246, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit ], [ %75, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit ]
   %112 = phi i32 [ %.pre, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit ], [ %74, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit ]
   %113 = icmp ult i32 %112, %111
   br i1 %113, label %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.i, label %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.thread.i
@@ -16356,13 +16356,13 @@ _ZNK14PhaseIdealLoop9dom_depthEP4Node.exit151:    ; preds = %310
   %325 = load ptr, ptr %324, align 8
   %326 = getelementptr inbounds nuw i8, ptr %.0118206, i64 32
   %327 = load i32, ptr %326, align 8
-  %328 = zext i32 %327 to i64
-  %329 = getelementptr inbounds nuw ptr, ptr %325, i64 %328
-  %330 = getelementptr inbounds i8, ptr %329, i64 -8
-  %.not129222 = icmp ult ptr %330, %325
+  %.not129222 = icmp eq i32 %327, 0
   br i1 %.not129222, label %._crit_edge225, label %.lr.ph224
 
 .lr.ph224:                                        ; preds = %_ZNK14PhaseIdealLoop9dom_depthEP4Node.exit151
+  %328 = zext i32 %327 to i64
+  %329 = getelementptr inbounds nuw ptr, ptr %325, i64 %328
+  %330 = getelementptr inbounds i8, ptr %329, i64 -8
   %331 = getelementptr inbounds nuw i8, ptr %.0.i.i.i147, i64 16
   %332 = getelementptr inbounds nuw i8, ptr %.0.i.i.i147, i64 32
   %333 = getelementptr inbounds nuw i8, ptr %.0.i.i.i147, i64 36
@@ -16913,10 +16913,10 @@ _ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.backedge: ; preds = %_ZNK14PhaseIdeal
   br i1 %.not, label %.loopexit209, label %63, !llvm.loop !79
 
 .loopexit209:                                     ; preds = %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.backedge, %_ZNK14PhaseIdealLoop8has_nodeEPK4Node.exit.preheader, %36
-  %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
+  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %625 = load i32, ptr %11, align 8
   %626 = zext i32 %625 to i64
-  %627 = icmp samesign ult i64 %indvars.iv.next243, %626
+  %627 = icmp samesign ult i64 %indvars.iv.next244, %626
   br i1 %627, label %36, label %._crit_edge231, !llvm.loop !80
 
 ._crit_edge231:                                   ; preds = %.loopexit209, %8

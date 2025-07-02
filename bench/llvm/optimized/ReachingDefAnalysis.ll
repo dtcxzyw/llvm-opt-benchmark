@@ -2342,7 +2342,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11ReachingDefELb1EE28reserveForParamAndGetA
   %155 = getelementptr inbounds i8, ptr %154, i64 -8
   %156 = load i64, ptr %155, align 8, !tbaa !47
   store i64 %156, ptr %154, align 8, !tbaa !47
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %155, %153
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.pre-phi16.i.i.i, 1
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvm11ReachingDefES2_ET0_T_S4_S3_.exit.i.i.i, label %157
 
 157:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11ReachingDefELb1EE28reserveForParamAndGetAddressERS1_m.exit.i.i.i

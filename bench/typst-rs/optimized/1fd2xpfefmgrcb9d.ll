@@ -2980,7 +2980,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   br i1 %190, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.thread6.i.i.i.i", label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit19.i.i.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit19.i.i.i.i.i.i": ; preds = %187
-  %191 = icmp ne ptr %183, %188
+  %191 = icmp ne i64 %184, 1
   call void @llvm.assume(i1 %191)
   %192 = getelementptr inbounds i8, ptr %185, i64 -2
   %193 = load i8, ptr %192, align 1, !alias.scope !556, !noalias !559, !noundef !4
@@ -2994,7 +2994,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   br label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h23fd481c61b031a1E.llvm.15772558698018558306.exit.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit21.i.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit19.i.i.i.i.i.i"
-  %198 = icmp ne ptr %183, %192
+  %198 = icmp ne i64 %184, 2
   call void @llvm.assume(i1 %198)
   %199 = getelementptr inbounds i8, ptr %185, i64 -3
   %200 = load i8, ptr %199, align 1, !alias.scope !556, !noalias !559, !noundef !4
@@ -3004,7 +3004,7 @@ _ZN4core3str7pattern7Pattern12is_suffix_of17hb98a15f5366a76f0E.exit.thread.i.i: 
   br i1 %203, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit23.i.i.i.i.i.i", label %213
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit23.i.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd5372229235ff607E.exit21.i.i.i.i.i.i"
-  %204 = icmp ne ptr %183, %199
+  %204 = icmp ne i64 %184, 3
   call void @llvm.assume(i1 %204)
   %205 = getelementptr inbounds i8, ptr %185, i64 -4
   %206 = load i8, ptr %205, align 1, !alias.scope !556, !noalias !559, !noundef !4

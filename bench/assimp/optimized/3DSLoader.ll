@@ -17801,14 +17801,14 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %49 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %.sroa.041.0, i64 %.0
+  %.idx = shl nsw i64 %.0, 4
+  %49 = getelementptr inbounds i8, ptr %.sroa.041.0, i64 %.idx
   %50 = getelementptr inbounds i8, ptr %49, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
-  %.not.i.i.i.i.i33 = icmp eq ptr %50, %.sroa.041.0
+  %.not.i.i.i.i.i33 = icmp eq i64 %.0, 1
   br i1 %.not.i.i.i.i.i33, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %51
 
 51:                                               ; preds = %48
-  %.idx = shl nsw i64 %.0, 4
   %52 = add nsw i64 %.idx, -16
   %53 = ashr exact i64 %52, 4
   %54 = sub nsw i64 0, %53

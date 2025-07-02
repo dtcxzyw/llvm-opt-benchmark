@@ -143,7 +143,7 @@ define internal ptr @H5B__cache_deserialize(ptr noundef %0, i64 noundef %1, ptr 
   br label %247
 
 54:                                               ; preds = %43
-  %55 = icmp ugt ptr %0, %.ptr139
+  %55 = icmp slt i64 %1, 1
   br i1 %55, label %62, label %56
 
 56:                                               ; preds = %54
@@ -174,7 +174,7 @@ define internal ptr @H5B__cache_deserialize(ptr noundef %0, i64 noundef %1, ptr 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store ptr %72, ptr %5, align 8, !tbaa !25
-  %73 = icmp slt i64 %1, 5
+  %73 = icmp samesign ult i64 %1, 5
   %74 = ptrtoint ptr %72 to i64
   %75 = sub i64 %59, %74
   %76 = icmp ult i64 %75, 2

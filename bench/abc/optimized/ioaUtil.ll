@@ -100,13 +100,16 @@ define nonnull ptr @Ioa_FileNameGenericAppend(ptr noundef readonly captures(addr
   %11 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer, ptr noundef nonnull dereferenceable(1) %1) #13
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Ioa_FileNameGenericAppend.Buffer) #11
   %13 = getelementptr inbounds nuw i8, ptr @Ioa_FileNameGenericAppend.Buffer, i64 %12
-  %.029 = getelementptr inbounds i8, ptr %13, i64 -1
-  %.not2430 = icmp ult ptr %.029, @Ioa_FileNameGenericAppend.Buffer
-  br i1 %.not2430, label %.loopexit, label %.lr.ph
+  %.not2430 = icmp slt i64 %12, 1
+  br i1 %.not2430, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %10, %20
-  %.032 = phi ptr [ %.0, %20 ], [ %.029, %10 ]
-  %.pn31 = phi ptr [ %.032, %20 ], [ %13, %10 ]
+.lr.ph.preheader:                                 ; preds = %10
+  %.029 = getelementptr inbounds i8, ptr %13, i64 -1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %.032 = phi ptr [ %.0, %20 ], [ %.029, %.lr.ph.preheader ]
+  %.pn31 = phi ptr [ %.032, %20 ], [ %13, %.lr.ph.preheader ]
   %14 = load i8, ptr %.032, align 1, !tbaa !3
   %15 = add i8 %14, -48
   %or.cond = icmp ult i8 %15, 10
@@ -128,7 +131,7 @@ define nonnull ptr @Ioa_FileNameGenericAppend(ptr noundef readonly captures(addr
   br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %19, %20, %10, %4
-  %.017 = phi ptr [ @Ioa_FileNameGenericAppend.Buffer, %4 ], [ %13, %10 ], [ %.pn31, %19 ], [ @Ioa_FileNameGenericAppend.Buffer, %20 ]
+  %.017 = phi ptr [ @Ioa_FileNameGenericAppend.Buffer, %4 ], [ %13, %10 ], [ %.pn31, %19 ], [ %.032, %20 ]
   ret ptr %.017
 }
 

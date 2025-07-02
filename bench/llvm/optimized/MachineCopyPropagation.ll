@@ -5057,7 +5057,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrENS_11SmallVectorIS3_Lj6EE
   %1046 = zext i32 %1045 to i64
   %1047 = getelementptr inbounds nuw ptr, ptr %1043, i64 %1046
   %1048 = getelementptr inbounds i8, ptr %1047, i64 -8
-  %.not4430.i.i = icmp eq ptr %1043, %1048
+  %.not4430.i.i = icmp eq i32 %1045, 1
   br i1 %.not4430.i.i, label %._crit_edge34.i.i, label %.lr.ph33.split.i.i
 
 ._crit_edge.i195.thread.i:                        ; preds = %.lr.ph.i192.i
@@ -5116,9 +5116,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrENS_11SmallVectorIS3_Lj6EE
   %1076 = getelementptr inbounds nuw i8, ptr %1071, i64 68
   %1077 = load i16, ptr %1076, align 4, !tbaa !307, !noalias !496
   %1078 = icmp eq i16 %1077, 20
-  br i1 %1078, label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.thread54.i.i, label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.i204.i
+  br i1 %1078, label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.thread55.i.i, label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.i204.i
 
-_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.thread54.i.i: ; preds = %1075
+_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.thread55.i.i: ; preds = %1075
   %1079 = getelementptr inbounds nuw i8, ptr %1071, i64 32
   %1080 = load ptr, ptr %1079, align 8, !tbaa !332, !noalias !496
   %1081 = getelementptr inbounds nuw i8, ptr %1080, i64 32
@@ -5160,28 +5160,28 @@ _ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.
   %1098 = load ptr, ptr %1097, align 8, !noalias !496
   call void %1098(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.316") align 8 %26, ptr noundef nonnull align 8 dereferenceable(80) %1072, ptr noundef nonnull align 8 dereferenceable(70) %1071) #21
   %.pre.i205.i = load ptr, ptr %908, align 8, !tbaa !32
-  %.pre44.i.i = load i32, ptr %1014, align 8, !tbaa !33
-  %.pre45.i.i = load ptr, ptr %75, align 8, !tbaa !288
-  %.pre46.i.i = load i8, ptr %81, align 8, !tbaa !83, !range !55
-  %.pre52.i.i = zext i32 %.pre44.i.i to i64
-  %1099 = trunc nuw i8 %.pre46.i.i to i1
+  %.pre45.i.i = load i32, ptr %1014, align 8, !tbaa !33
+  %.pre46.i.i = load ptr, ptr %75, align 8, !tbaa !288
+  %.pre47.i.i = load i8, ptr %81, align 8, !tbaa !83, !range !55
+  %.pre53.i.i = zext i32 %.pre45.i.i to i64
+  %1099 = trunc nuw i8 %.pre47.i.i to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #21
-  %1100 = getelementptr inbounds nuw ptr, ptr %.pre.i205.i, i64 %.pre52.i.i
+  %1100 = getelementptr inbounds nuw ptr, ptr %.pre.i205.i, i64 %.pre53.i.i
   %1101 = getelementptr inbounds i8, ptr %1100, i64 -8
   %1102 = load ptr, ptr %1101, align 8, !tbaa !172
   call void @llvm.experimental.noalias.scope.decl(metadata !497)
   br i1 %1099, label %1103, label %1114
 
-1103:                                             ; preds = %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.i204.i, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.thread54.i.i
-  %1104 = phi ptr [ %1084, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.thread54.i.i ], [ %1102, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.i204.i ]
-  %1105 = phi ptr [ %1072, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.thread54.i.i ], [ %.pre45.i.i, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.i204.i ]
+1103:                                             ; preds = %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.i204.i, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.thread55.i.i
+  %1104 = phi ptr [ %1084, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.thread55.i.i ], [ %1102, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.i204.i ]
+  %1105 = phi ptr [ %1072, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.thread55.i.i ], [ %.pre46.i.i, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit.i204.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !500)
   %1106 = getelementptr inbounds nuw i8, ptr %1104, i64 68
   %1107 = load i16, ptr %1106, align 4, !tbaa !307, !noalias !503
   %1108 = icmp eq i16 %1107, 20
-  br i1 %1108, label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread56.i.i, label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.i.i
+  br i1 %1108, label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread57.i.i, label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.i.i
 
-_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread56.i.i: ; preds = %1103
+_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread57.i.i: ; preds = %1103
   %1109 = getelementptr inbounds nuw i8, ptr %1104, i64 32
   %1110 = load ptr, ptr %1109, align 8, !tbaa !332, !noalias !503
   %1111 = getelementptr inbounds nuw i8, ptr %1110, i64 32
@@ -5209,8 +5209,8 @@ _ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.
   br label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread.i.i
 
 _ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread.i.i: ; preds = %1119, %1114
-  %.sink64.i.i = phi i8 [ 1, %1119 ], [ 0, %1114 ]
-  store i8 %.sink64.i.i, ptr %107, align 8, !tbaa !325, !alias.scope !497
+  %.sink65.i.i = phi i8 [ 1, %1119 ], [ 0, %1114 ]
+  store i8 %.sink65.i.i, ptr %107, align 8, !tbaa !325, !alias.scope !497
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28) #21
   %1123 = load ptr, ptr %.0.i, align 8, !tbaa !32
   %1124 = load ptr, ptr %1123, align 8, !tbaa !172
@@ -5221,26 +5221,26 @@ _ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.
   %1126 = getelementptr inbounds nuw i8, ptr %1125, i64 448
   %1127 = load ptr, ptr %1126, align 8, !noalias !503
   call void %1127(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.316") align 8 %27, ptr noundef nonnull align 8 dereferenceable(80) %1105, ptr noundef nonnull align 8 dereferenceable(70) %1104) #21
-  %.pre47.i.i = load ptr, ptr %75, align 8, !tbaa !288
-  %.pre48.i.i = load i8, ptr %81, align 8, !tbaa !83, !range !55
-  %1128 = trunc nuw i8 %.pre48.i.i to i1
+  %.pre48.i.i = load ptr, ptr %75, align 8, !tbaa !288
+  %.pre49.i.i = load i8, ptr %81, align 8, !tbaa !83, !range !55
+  %1128 = trunc nuw i8 %.pre49.i.i to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28) #21
   %1129 = load ptr, ptr %.0.i, align 8, !tbaa !32
   %1130 = load ptr, ptr %1129, align 8, !tbaa !172
   call void @llvm.experimental.noalias.scope.decl(metadata !504)
   br i1 %1128, label %1131, label %1146
 
-1131:                                             ; preds = %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.i.i, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread56.i.i
-  %1132 = phi ptr [ %1113, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread56.i.i ], [ %1130, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.i.i ]
-  %1133 = phi ptr [ %1112, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread56.i.i ], [ %1129, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.i.i ]
-  %1134 = phi ptr [ %1105, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread56.i.i ], [ %.pre47.i.i, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.i.i ]
+1131:                                             ; preds = %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.i.i, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread57.i.i
+  %1132 = phi ptr [ %1113, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread57.i.i ], [ %1130, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.i.i ]
+  %1133 = phi ptr [ %1112, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread57.i.i ], [ %1129, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.i.i ]
+  %1134 = phi ptr [ %1105, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.thread57.i.i ], [ %.pre48.i.i, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit66.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !507)
   %1135 = getelementptr inbounds nuw i8, ptr %1132, i64 68
   %1136 = load i16, ptr %1135, align 4, !tbaa !307, !noalias !510
   %1137 = icmp eq i16 %1136, 20
-  br i1 %1137, label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.thread57.i.i, label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.i.i
+  br i1 %1137, label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.thread58.i.i, label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.i.i
 
-_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.thread57.i.i: ; preds = %1131
+_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.thread58.i.i: ; preds = %1131
   %1138 = getelementptr inbounds nuw i8, ptr %1132, i64 32
   %1139 = load ptr, ptr %1138, align 8, !tbaa !332, !noalias !510
   %1140 = getelementptr inbounds nuw i8, ptr %1139, i64 32
@@ -5272,8 +5272,8 @@ _ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.
   br label %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.thread.i.i
 
 _ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.thread.i.i: ; preds = %1152, %1146
-  %.sink66.i.i = phi i8 [ 1, %1152 ], [ 0, %1146 ]
-  store i8 %.sink66.i.i, ptr %108, align 8, !tbaa !325, !alias.scope !504
+  %.sink67.i.i = phi i8 [ 1, %1152 ], [ 0, %1146 ]
+  store i8 %.sink67.i.i, ptr %108, align 8, !tbaa !325, !alias.scope !504
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29) #21
   %1156 = load i32, ptr %1070, align 8, !tbaa !33
   %1157 = zext i32 %1156 to i64
@@ -5287,22 +5287,22 @@ _ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.
   %1162 = getelementptr inbounds nuw i8, ptr %1161, i64 448
   %1163 = load ptr, ptr %1162, align 8, !noalias !510
   call void %1163(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.316") align 8 %28, ptr noundef nonnull align 8 dereferenceable(80) %1134, ptr noundef nonnull align 8 dereferenceable(70) %1132) #21
-  %.pre49.i.i = load ptr, ptr %.0.i, align 8, !tbaa !32
-  %.pre50.i.i = load ptr, ptr %75, align 8, !tbaa !288
-  %.pre51.i.i = load i8, ptr %81, align 8, !tbaa !83, !range !55
-  %1164 = trunc nuw i8 %.pre51.i.i to i1
+  %.pre50.i.i = load ptr, ptr %.0.i, align 8, !tbaa !32
+  %.pre51.i.i = load ptr, ptr %75, align 8, !tbaa !288
+  %.pre52.i.i = load i8, ptr %81, align 8, !tbaa !83, !range !55
+  %1164 = trunc nuw i8 %.pre52.i.i to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29) #21
   %1165 = load i32, ptr %1070, align 8, !tbaa !33
   %1166 = zext i32 %1165 to i64
-  %1167 = getelementptr inbounds nuw ptr, ptr %.pre49.i.i, i64 %1166
+  %1167 = getelementptr inbounds nuw ptr, ptr %.pre50.i.i, i64 %1166
   %1168 = getelementptr inbounds i8, ptr %1167, i64 -8
   %1169 = load ptr, ptr %1168, align 8, !tbaa !172
   call void @llvm.experimental.noalias.scope.decl(metadata !511)
   br i1 %1164, label %1170, label %1184
 
-1170:                                             ; preds = %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.i.i, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.thread57.i.i
-  %1171 = phi ptr [ %1145, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.thread57.i.i ], [ %1169, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.i.i ]
-  %1172 = phi ptr [ %1134, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.thread57.i.i ], [ %.pre50.i.i, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.i.i ]
+1170:                                             ; preds = %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.i.i, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.thread58.i.i
+  %1171 = phi ptr [ %1145, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.thread58.i.i ], [ %1169, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.i.i ]
+  %1172 = phi ptr [ %1134, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.thread58.i.i ], [ %.pre51.i.i, %_ZN12_GLOBAL__N_111isCopyInstrERKN4llvm12MachineInstrERKNS0_15TargetInstrInfoEb.exit69.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !514)
   %1173 = getelementptr inbounds nuw i8, ptr %1171, i64 68
   %1174 = load i16, ptr %1173, align 4, !tbaa !307, !noalias !517

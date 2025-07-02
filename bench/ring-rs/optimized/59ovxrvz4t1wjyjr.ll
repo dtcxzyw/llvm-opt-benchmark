@@ -2141,7 +2141,7 @@ define void @_ZN4ring4test15parse_test_case17h56558da9db1a9fdaE(ptr noalias noun
   br i1 %124, label %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h0400094c6ae8b386E.exit19.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h0400094c6ae8b386E.exit19.i.i": ; preds = %121
-  %125 = icmp ne ptr %118, %122
+  %125 = icmp ne i64 %117, 1
   call void @llvm.assume(i1 %125)
   %126 = getelementptr inbounds i8, ptr %119, i64 -2
   %127 = load i8, ptr %126, align 1, !noalias !392, !noundef !8
@@ -2151,7 +2151,7 @@ define void @_ZN4ring4test15parse_test_case17h56558da9db1a9fdaE(ptr noalias noun
   br i1 %130, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h0400094c6ae8b386E.exit21.i.i", label %151
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h0400094c6ae8b386E.exit21.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h0400094c6ae8b386E.exit19.i.i"
-  %131 = icmp ne ptr %118, %126
+  %131 = icmp ne i64 %117, 2
   call void @llvm.assume(i1 %131)
   %132 = getelementptr inbounds i8, ptr %119, i64 -3
   %133 = load i8, ptr %132, align 1, !noalias !392, !noundef !8
@@ -2169,7 +2169,7 @@ define void @_ZN4ring4test15parse_test_case17h56558da9db1a9fdaE(ptr noalias noun
   br label %151
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h0400094c6ae8b386E.exit23.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h0400094c6ae8b386E.exit21.i.i"
-  %142 = icmp ne ptr %118, %132
+  %142 = icmp ne i64 %117, 3
   call void @llvm.assume(i1 %142)
   %143 = getelementptr inbounds i8, ptr %119, i64 -4
   %144 = load i8, ptr %143, align 1, !noalias !392, !noundef !8

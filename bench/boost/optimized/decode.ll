@@ -104,7 +104,7 @@ define noundef i64 @_ZN5boost4urls6detail19decode_bytes_unsafeENS_4core17basic_s
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 -2
-  %7 = icmp ult ptr %0, %6
+  %7 = icmp sgt i64 %1, 2
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5, %.lr.ph

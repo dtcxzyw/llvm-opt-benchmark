@@ -85,8 +85,8 @@ define internal fastcc i64 @date_strftime_with_tmx(ptr noundef %0, i64 noundef %
   %29 = getelementptr inbounds i8, ptr %16, i64 -1
   %30 = load i8, ptr %2, align 1, !tbaa !10
   %31 = icmp ne i8 %30, 0
-  %32 = icmp ult ptr %0, %29
-  %33 = select i1 %31, i1 %32, i1 false
+  %32 = icmp sgt i64 %1, 1
+  %33 = and i1 %31, %32
   br i1 %33, label %.lr.ph1875, label %._crit_edge1876
 
 .lr.ph1875:                                       ; preds = %28

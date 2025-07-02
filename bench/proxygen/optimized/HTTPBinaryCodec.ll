@@ -8447,7 +8447,7 @@ do.body:                                          ; preds = %if.end, %entry
 if.then.i.i:                                      ; preds = %do.body
   %add.ptr.i.i = getelementptr inbounds i8, ptr %begin.0, i64 %sub.ptr.sub.i
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -3
-  %cmp5.i.i76 = icmp ult ptr %begin.0, %add.ptr4.i.i
+  %cmp5.i.i76 = icmp sgt i64 %sub.ptr.sub.i, 3
   br i1 %cmp5.i.i76, label %for.body.i.i, label %if.end8.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit64
@@ -9327,7 +9327,7 @@ do.body:                                          ; preds = %if.end, %_ZNSt20bac
 if.then.i.i:                                      ; preds = %do.body
   %add.ptr.i.i = getelementptr inbounds i8, ptr %begin.0, i64 %sub.ptr.sub.i
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -3
-  %cmp5.i.i94 = icmp ult ptr %begin.0, %add.ptr4.i.i
+  %cmp5.i.i94 = icmp sgt i64 %sub.ptr.sub.i, 3
   br i1 %cmp5.i.i94, label %for.body.i.i, label %if.end8.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit85

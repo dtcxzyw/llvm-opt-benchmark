@@ -8297,7 +8297,8 @@ _ZN21ruff_python_formatter9statement11stmt_assign26has_target_own_parentheses17h
 
 42:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  %43 = icmp eq ptr %23, %28
+  %.idx.mask = and i64 %21, 288230376151711743
+  %43 = icmp eq i64 %.idx.mask, 2
   br i1 %43, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42

@@ -2813,14 +2813,17 @@ Vec_WecGrow.exit23:                               ; preds = %.Vec_WecGrow.exit23
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %2, align 4, !tbaa !12
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds %struct.Vec_Int_t_, ptr %40, i64 %44
-  %46 = getelementptr inbounds i8, ptr %45, i64 -32
-  %.not24 = icmp ult ptr %46, %40
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  %.not24 = icmp slt i32 %41, 1
+  br i1 %.not24, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %Vec_WecGrow.exit23, %.lr.ph
-  %.025 = phi ptr [ %48, %.lr.ph ], [ %46, %Vec_WecGrow.exit23 ]
+.lr.ph.preheader:                                 ; preds = %Vec_WecGrow.exit23
+  %44 = zext nneg i32 %42 to i64
+  %45 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %40, i64 %44
+  %46 = getelementptr inbounds i8, ptr %45, i64 -32
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.025 = phi ptr [ %48, %.lr.ph ], [ %46, %.lr.ph.preheader ]
   %47 = getelementptr inbounds nuw i8, ptr %.025, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %.025, i64 16, i1 false), !tbaa.struct !100
   %48 = getelementptr inbounds i8, ptr %.025, i64 -16

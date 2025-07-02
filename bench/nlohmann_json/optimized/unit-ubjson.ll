@@ -21522,7 +21522,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i: ; preds = %7259, %_ZN
   br i1 %.not.i10803, label %7283, label %7267
 
 7267:                                             ; preds = %7261
-  %7268 = icmp eq ptr %7256, %7262
+  %7268 = icmp eq i64 %7249, -1
   br i1 %7268, label %7269, label %7272
 
 7269:                                             ; preds = %7267
@@ -22602,7 +22602,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i10862: ; preds = %7581,
   br i1 %.not.i10868, label %7605, label %7589
 
 7589:                                             ; preds = %7583
-  %7590 = icmp eq ptr %7578, %7584
+  %7590 = icmp eq i64 %7571, -1
   br i1 %7590, label %7591, label %7594
 
 7591:                                             ; preds = %7589

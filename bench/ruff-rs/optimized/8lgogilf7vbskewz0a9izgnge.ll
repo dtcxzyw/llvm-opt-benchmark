@@ -1656,11 +1656,11 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %15 = icmp eq i64 %9, %13
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 %9
   %17 = getelementptr inbounds i8, ptr %16, i64 -1
-  %18 = icmp ne ptr %11, %17
+  %18 = icmp ne i64 %9, 1
   %19 = getelementptr inbounds i8, ptr %16, i64 -2
-  %20 = icmp ne ptr %11, %19
+  %20 = icmp ne i64 %9, 2
   %21 = getelementptr inbounds i8, ptr %16, i64 -3
-  %22 = icmp ne ptr %11, %21
+  %22 = icmp ne i64 %9, 3
   %23 = getelementptr inbounds i8, ptr %16, i64 -4
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 56

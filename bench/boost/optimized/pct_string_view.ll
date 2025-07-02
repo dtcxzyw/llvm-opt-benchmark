@@ -151,7 +151,7 @@ define void @_ZN5boost4urls15pct_string_viewC2ENS_4core17basic_string_viewIcEE(p
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %6, i64 -2
-  %.not2154.i = icmp ult ptr %1, %9
+  %.not2154.i = icmp sgt i64 %2, 2
   br i1 %.not2154.i, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %8, %25
@@ -328,7 +328,7 @@ define void @_ZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIcE
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 -2
-  %.not2154 = icmp ult ptr %1, %7
+  %.not2154 = icmp sgt i64 %2, 2
   br i1 %.not2154, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %6, %25

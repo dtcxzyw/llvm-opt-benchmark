@@ -9596,7 +9596,7 @@ _ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit:           ; preds = %_ZNSt6vectorIN3vcg4
 _ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit: ; preds = %104, %._crit_edge.i.i
   %114 = phi ptr [ %74, %104 ], [ %113, %._crit_edge.i.i ]
   %115 = ptrtoint ptr %112 to i64
-  %.not.i.i24 = icmp eq ptr %105, %112
+  %.not.i.i24 = icmp eq i64 %.120, -1
   br i1 %.not.i.i24, label %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit32, label %116
 
 116:                                              ; preds = %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit

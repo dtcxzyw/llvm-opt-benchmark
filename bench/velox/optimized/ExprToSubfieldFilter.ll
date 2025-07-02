@@ -10141,7 +10141,7 @@ invoke.cont20:                                    ; preds = %.noexc
   %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %conv.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -32
   call void @llvm.assume(i1 %cmp.not.i.i.i)
-  %cmp.i714.i.i = icmp eq ptr %add.ptr2.i.i.i, %6
+  %cmp.i714.i.i = icmp eq i32 %5, 1
   br i1 %cmp.i714.i.i, label %invoke.cont22, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %invoke.cont20
@@ -10169,7 +10169,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerItera
   br i1 %cmp.i7.i.i, label %invoke.cont22, label %while.body.i.i, !llvm.loop !366
 
 invoke.cont22:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i, %invoke.cont20
-  %retval.sroa.0.0.i.i = phi ptr [ %6, %invoke.cont20 ], [ %retval.sroa.0.2.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %add.ptr2.i.i.i, %invoke.cont20 ], [ %retval.sroa.0.2.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i ]
   %call28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %lower_, ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.i.i)
           to label %invoke.cont36 unwind label %lpad.loopexit.split-lp
 
@@ -10181,7 +10181,7 @@ invoke.cont36:                                    ; preds = %invoke.cont22
   %add.ptr.i.i.i16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %conv.i.i.i14
   %add.ptr2.i.i.i17 = getelementptr inbounds i8, ptr %add.ptr.i.i.i16, i64 -32
   call void @llvm.assume(i1 %cmp.not.i.i.i15)
-  %cmp.i714.i.i23 = icmp eq ptr %add.ptr2.i.i.i17, %10
+  %cmp.i714.i.i23 = icmp eq i32 %9, 1
   br i1 %cmp.i714.i.i23, label %invoke.cont38, label %while.body.i.i27.preheader
 
 while.body.i.i27.preheader:                       ; preds = %invoke.cont36
@@ -10209,7 +10209,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerItera
   br i1 %cmp.i7.i.i38, label %invoke.cont38, label %while.body.i.i27, !llvm.loop !367
 
 invoke.cont38:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34, %invoke.cont36
-  %retval.sroa.0.0.i.i42 = phi ptr [ %10, %invoke.cont36 ], [ %retval.sroa.0.2.i.i36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34 ]
+  %retval.sroa.0.0.i.i42 = phi ptr [ %add.ptr2.i.i.i17, %invoke.cont36 ], [ %retval.sroa.0.2.i.i36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34 ]
   %call44 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper_, ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.i.i42)
           to label %invoke.cont43 unwind label %lpad.loopexit.split-lp
 

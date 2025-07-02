@@ -101,7 +101,7 @@ define hidden void @mbedtls_aesni_inverse_key(ptr noundef initializes((0, 16)) %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) %6, i64 16, i1 false)
   %.016 = getelementptr inbounds i8, ptr %6, i64 -16
   %.01417 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = icmp ugt ptr %.016, %1
+  %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph

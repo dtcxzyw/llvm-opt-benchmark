@@ -32017,7 +32017,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   %30 = getelementptr i8, ptr %29, i64 %19
   %31 = getelementptr i8, ptr %30, i64 -9
   store ptr %31, ptr %3, align 8, !tbaa !73
-  %.not.i.not.i.i12 = icmp eq ptr %31, %29
+  %.not.i.not.i.i12 = icmp eq i64 %19, 9
   br i1 %.not.i.not.i.i12, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseBareSourceNameEv.exit27.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i.i13
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i.i13: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit

@@ -3861,13 +3861,13 @@ define hidden void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnul
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i32, ptr %15, align 8
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 -8
-  %.not63 = icmp ult ptr %19, %14
+  %.not63 = icmp eq i32 %16, 0
   br i1 %.not63, label %._crit_edge67, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %9
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %19 = getelementptr inbounds i8, ptr %18, i64 -8
   %.not8.i = icmp eq ptr %2, null
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -10918,13 +10918,13 @@ define hidden void @_ZN4Node10replace_byEPS_(ptr noundef nonnull readonly align 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
-  %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 -8
-  %.not32 = icmp ult ptr %9, %4
+  %.not32 = icmp eq i32 %6, 0
   br i1 %.not32, label %._crit_edge36, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %2
+  %7 = zext i32 %6 to i64
+  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = icmp eq ptr %1, null
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32

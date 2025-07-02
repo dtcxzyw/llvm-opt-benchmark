@@ -1896,7 +1896,7 @@ define i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2, double n
   br i1 %.not14, label %38, label %34
 
 34:                                               ; preds = %33
-  %.not7.i = icmp ult ptr %0, %10
+  %.not7.i = icmp sgt i64 %1, 1
   br i1 %.not7.i, label %36, label %35
 
 35:                                               ; preds = %34

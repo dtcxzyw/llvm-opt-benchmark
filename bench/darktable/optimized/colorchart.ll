@@ -1404,13 +1404,13 @@ parse_double.exit538:                             ; preds = %.preheader680
   %342 = fadd reassoc nsz arcp contract afn float %.0410, %282
   %343 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %306) #16
   %.fr48.i = freeze i64 %343
-  %344 = getelementptr inbounds nuw i8, ptr %306, i64 %.fr48.i
-  %.02340.i = getelementptr inbounds i8, ptr %344, i64 -1
-  %.not41.i = icmp ult ptr %.02340.i, %306
+  %.not41.i = icmp slt i64 %.fr48.i, 1
   br i1 %.not41.i, label %.loopexit.backedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %341
-  %345 = add i64 %.fr48.i, 1
+  %344 = getelementptr inbounds nuw i8, ptr %306, i64 %.fr48.i
+  %.02340.i = getelementptr inbounds i8, ptr %344, i64 -1
+  %345 = add nuw i64 %.fr48.i, 1
   %.not29.i = icmp ult i64 %345, %304
   br i1 %.not29.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -1436,7 +1436,7 @@ parse_double.exit538:                             ; preds = %.preheader680
   br i1 %350, label %351, label %352
 
 351:                                              ; preds = %349
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.pn42.us.i, ptr nonnull align 1 %306, i64 %345, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.pn42.us.i, ptr noundef nonnull align 1 dereferenceable(1) %306, i64 %345, i1 false)
   store i8 %.022.ph.us.i, ptr %306, align 1, !tbaa !23
   br label %352
 
@@ -1491,19 +1491,19 @@ parse_double.exit538:                             ; preds = %.preheader680
   %366 = fadd reassoc nsz arcp contract afn float %.0412, %292
   %367 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %307) #16
   %.fr48.i539 = freeze i64 %367
-  %368 = getelementptr inbounds nuw i8, ptr %307, i64 %.fr48.i539
-  %.02340.i540 = getelementptr inbounds i8, ptr %368, i64 -1
-  %.not41.i541 = icmp ult ptr %.02340.i540, %307
-  br i1 %.not41.i541, label %.loopexit669.backedge, label %.lr.ph.i542
+  %.not41.i540 = icmp slt i64 %.fr48.i539, 1
+  br i1 %.not41.i540, label %.loopexit669.backedge, label %.lr.ph.i541
 
-.lr.ph.i542:                                      ; preds = %365
-  %369 = add i64 %.fr48.i539, 1
+.lr.ph.i541:                                      ; preds = %365
+  %368 = getelementptr inbounds nuw i8, ptr %307, i64 %.fr48.i539
+  %.02340.i542 = getelementptr inbounds i8, ptr %368, i64 -1
+  %369 = add nuw i64 %.fr48.i539, 1
   %.not29.i543 = icmp ult i64 %369, %305
   br i1 %.not29.i543, label %.lr.ph.split.us.i553, label %.lr.ph.split.i544
 
-.lr.ph.split.us.i553:                             ; preds = %.lr.ph.i542, %376
-  %.02343.us.i554 = phi ptr [ %.023.us.i558, %376 ], [ %.02340.i540, %.lr.ph.i542 ]
-  %.pn42.us.i555 = phi ptr [ %.02343.us.i554, %376 ], [ %368, %.lr.ph.i542 ]
+.lr.ph.split.us.i553:                             ; preds = %.lr.ph.i541, %376
+  %.02343.us.i554 = phi ptr [ %.023.us.i558, %376 ], [ %.02340.i542, %.lr.ph.i541 ]
+  %.pn42.us.i555 = phi ptr [ %.02343.us.i554, %376 ], [ %368, %.lr.ph.i541 ]
   %370 = load i8, ptr %.02343.us.i554, align 1, !tbaa !23
   switch i8 %370, label %.thread36.i550 [
     i8 122, label %371
@@ -1523,7 +1523,7 @@ parse_double.exit538:                             ; preds = %.preheader680
   br i1 %374, label %375, label %376
 
 375:                                              ; preds = %373
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.pn42.us.i555, ptr nonnull align 1 %307, i64 %369, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.pn42.us.i555, ptr noundef nonnull align 1 dereferenceable(1) %307, i64 %369, i1 false)
   store i8 %.022.ph.us.i557, ptr %307, align 1, !tbaa !23
   br label %376
 
@@ -1532,8 +1532,8 @@ parse_double.exit538:                             ; preds = %.preheader680
   %.not.us.i559 = icmp ult ptr %.023.us.i558, %307
   br i1 %.not.us.i559, label %.loopexit669.backedge, label %.lr.ph.split.us.i553
 
-.lr.ph.split.i544:                                ; preds = %.lr.ph.i542, %383
-  %.02343.i545 = phi ptr [ %.023.i547, %383 ], [ %.02340.i540, %.lr.ph.i542 ]
+.lr.ph.split.i544:                                ; preds = %.lr.ph.i541, %383
+  %.02343.i545 = phi ptr [ %.023.i547, %383 ], [ %.02340.i542, %.lr.ph.i541 ]
   %377 = load i8, ptr %.02343.i545, align 1, !tbaa !23
   switch i8 %377, label %.thread36.i550 [
     i8 122, label %378

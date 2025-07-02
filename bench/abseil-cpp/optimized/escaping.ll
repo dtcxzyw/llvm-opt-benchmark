@@ -241,7 +241,7 @@ define dso_local noundef i64 @_ZN4absl16strings_internal20Base64EscapeInternalEP
 
 .preheader:                                       ; preds = %10
   %14 = getelementptr inbounds i8, ptr %12, i64 -3
-  %15 = icmp ult ptr %0, %14
+  %15 = icmp sgt i64 %1, 3
   br i1 %15, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph

@@ -25,7 +25,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   %14 = xor i64 %.0.copyload.i.i.i.i.i.i.i, 7816392313619706465
   %15 = xor i64 %.0.copyload.i.i.i.i.i.i160.i, 7237128888997146477
   %16 = xor i64 %.0.copyload.i.i.i.i.i.i.i, 8317987319222330741
-  %.not167.i = icmp eq ptr %0, %9
+  %.not167.i = icmp ult i64 %1, 8
   br i1 %.not167.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %34
@@ -229,7 +229,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   %14 = xor i64 %.0.copyload.i.i.i.i.i.i.i, 7816392313619706465
   %15 = xor i64 %.0.copyload.i.i.i.i.i.i.i, 8317987319222330741
   %16 = xor i64 %.0.copyload.i.i.i.i.i.i203.i, 7237128888997146499
-  %.not210.i = icmp eq ptr %0, %9
+  %.not210.i = icmp ult i64 %1, 8
   br i1 %.not210.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %34

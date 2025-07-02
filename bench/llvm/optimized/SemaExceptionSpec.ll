@@ -7537,7 +7537,7 @@ tailrecurse.backedge:                             ; preds = %6, %156, %158, %163
   %.idx.i = and i64 %120, 524280
   %121 = getelementptr i8, ptr %118, i64 %.idx.i
   %122 = getelementptr i8, ptr %121, i64 -8
-  %.not244464 = icmp eq ptr %118, %122
+  %.not244464 = icmp eq i64 %.idx.i, 8
   br i1 %.not244464, label %common.ret, label %.lr.ph468
 
 123:                                              ; preds = %.lr.ph468

@@ -48,13 +48,13 @@ define dso_local noundef ptr @create_delta_index(ptr noundef %0, i64 noundef %1)
 
 25:                                               ; preds = %23
   %26 = shl i32 %spec.store.select, 4
-  %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
-  %.0132155 = getelementptr inbounds i8, ptr %28, i64 -16
-  %.not145156 = icmp ult ptr %.0132155, %0
+  %.not145156 = icmp eq i32 %26, 0
   br i1 %.not145156, label %.preheader149.preheader, label %.preheader150.preheader
 
 .preheader150.preheader:                          ; preds = %25
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
+  %.0132155 = getelementptr inbounds i8, ptr %28, i64 -16
   %29 = getelementptr inbounds nuw ptr, ptr %22, i64 %17
   br label %.preheader150
 

@@ -5146,16 +5146,24 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorIN12_GLOBAL__N_117CritSectionMark
 
 37:                                               ; preds = %"_ZN4llvm7copy_ifIRKNS_13ImmutableListIN12_GLOBAL__N_117CritSectionMarkerEEESt20back_insert_iteratorINS_11SmallVectorIS3_Lj4EEEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNSD_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E_EET0_OSL_SP_T1_.exit.i.i.i"
   %.val.i.i.i = load ptr, ptr %5, align 8, !tbaa !141
-  %38 = zext i32 %35 to i64
-  %.idx.i.i.i = shl nuw nsw i64 %38, 4
-  %39 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i.i
-  %.012.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 -16
-  %40 = icmp ult ptr %.val.i.i.i, %.012.i.i.i.i.i
-  br i1 %40, label %.lr.ph.i.i24.i.i.i, label %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i
+  %.not6.i.i.i = icmp eq i32 %35, 1
+  br i1 %.not6.i.i.i, label %._crit_edge.i.i.i.i.thread.i.i.i, label %.lr.ph.i.i24.preheader.i.i.i
 
-.lr.ph.i.i24.i.i.i:                               ; preds = %37, %.lr.ph.i.i24.i.i.i
-  %.014.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %.lr.ph.i.i24.i.i.i ], [ %.012.i.i.i.i.i, %37 ]
-  %.0913.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i24.i.i.i ], [ %.val.i.i.i, %37 ]
+._crit_edge.i.i.i.i.thread.i.i.i:                 ; preds = %37
+  %.sroa.03.0.copyload27.i.i.i = load ptr, ptr %.val, align 8, !tbaa !187
+  %38 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 16
+  br label %70
+
+.lr.ph.i.i24.preheader.i.i.i:                     ; preds = %37
+  %39 = zext i32 %35 to i64
+  %.idx.i.i.i = shl nuw nsw i64 %39, 4
+  %40 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i.i
+  %.012.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 -16
+  br label %.lr.ph.i.i24.i.i.i
+
+.lr.ph.i.i24.i.i.i:                               ; preds = %.lr.ph.i.i24.i.i.i, %.lr.ph.i.i24.preheader.i.i.i
+  %.014.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %.lr.ph.i.i24.i.i.i ], [ %.012.i.i.i.i.i, %.lr.ph.i.i24.preheader.i.i.i ]
+  %.0913.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i24.i.i.i ], [ %.val.i.i.i, %.lr.ph.i.i24.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.0913.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0913.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.014.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !186
@@ -5164,259 +5172,258 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorIN12_GLOBAL__N_117CritSectionMark
   %41 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i.i, i64 16
   %.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.014.i.i.i.i.i, i64 -16
   %42 = icmp ult ptr %41, %.0.i.i.i.i.i
-  br i1 %42, label %.lr.ph.i.i24.i.i.i, label %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.loopexit.i.i.i, !llvm.loop !702
+  br i1 %42, label %.lr.ph.i.i24.i.i.i, label %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i, !llvm.loop !702
 
-_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i24.i.i.i
+_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i: ; preds = %.lr.ph.i.i24.i.i.i
   %.val21.pre.i.i.i = load ptr, ptr %5, align 8, !tbaa !141
   %.val22.pre.i.i.i = load i32, ptr %19, align 8, !tbaa !138
-  %.pre21.i.i.i = zext i32 %.val22.pre.i.i.i to i64
-  %.pre22.i.i.i = shl nuw nsw i64 %.pre21.i.i.i, 4
-  br label %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i
-
-_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i: ; preds = %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.loopexit.i.i.i, %37
-  %.idx1.i.pre-phi.i.i.i = phi i64 [ %.pre22.i.i.i, %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.loopexit.i.i.i ], [ %.idx.i.i.i, %37 ]
-  %.pre-phi.i.i.i = phi i64 [ %.pre21.i.i.i, %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.loopexit.i.i.i ], [ %38, %37 ]
-  %.val22.i.i.i = phi i32 [ %.val22.pre.i.i.i, %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.loopexit.i.i.i ], [ %35, %37 ]
-  %.val21.i.i.i = phi ptr [ %.val21.pre.i.i.i, %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.loopexit.i.i.i ], [ %.val.i.i.i, %37 ]
   %.sroa.03.0.copyload.i.i.i = load ptr, ptr %.val, align 8, !tbaa !187
-  %43 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 %.idx1.i.pre-phi.i.i.i
-  %.not.i25.i.i.i = icmp ult i32 %.val22.i.i.i, 4
+  %43 = zext i32 %.val22.pre.i.i.i to i64
+  %.idx1.i.i.i.i = shl nuw nsw i64 %43, 4
+  %44 = getelementptr inbounds nuw i8, ptr %.val21.pre.i.i.i, i64 %.idx1.i.i.i.i
+  %.not.i25.i.i.i = icmp ult i32 %.val22.pre.i.i.i, 4
   br i1 %.not.i25.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i
-  %44 = lshr i64 %.pre-phi.i.i.i, 2
-  %45 = and i64 %.idx1.i.pre-phi.i.i.i, 68719476672
-  %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %.val21.i.i.i, i64 %45
+  %45 = lshr i64 %43, 2
+  %46 = and i64 %.idx1.i.i.i.i, 68719476672
+  %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %.val21.pre.i.i.i, i64 %46
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %56, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.051.i.i.i.i.i.i.i = phi i64 [ %58, %56 ], [ %44, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.02950.i.i.i.i.i.i.i = phi ptr [ %57, %56 ], [ %.val21.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %57, %.lr.ph.preheader.i.i.i.i.i.i.i
+  %.051.i.i.i.i.i.i.i = phi i64 [ %59, %57 ], [ %45, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.02950.i.i.i.i.i.i.i = phi ptr [ %58, %57 ], [ %.val21.pre.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i ]
   %.029.val.i.i.i.i.i.i.i = load ptr, ptr %.02950.i.i.i.i.i.i.i, align 8, !tbaa !703
-  %46 = icmp eq ptr %.029.val.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
-  br i1 %46, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i", label %47
+  %47 = icmp eq ptr %.029.val.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
+  br i1 %47, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i", label %48
 
-47:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 16
-  %.val31.i.i.i.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !703
-  %49 = icmp eq ptr %.val31.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
-  br i1 %49, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit", label %50
+48:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 16
+  %.val31.i.i.i.i.i.i.i = load ptr, ptr %49, align 8, !tbaa !703
+  %50 = icmp eq ptr %.val31.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
+  br i1 %50, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit", label %51
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 32
-  %.val33.i.i.i.i.i.i.i = load ptr, ptr %51, align 8, !tbaa !703
-  %52 = icmp eq ptr %.val33.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
-  br i1 %52, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit17", label %53
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 32
+  %.val33.i.i.i.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !703
+  %53 = icmp eq ptr %.val33.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
+  br i1 %53, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit17", label %54
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 48
-  %.val35.i.i.i.i.i.i.i = load ptr, ptr %54, align 8, !tbaa !703
-  %55 = icmp eq ptr %.val35.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
-  br i1 %55, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit19", label %56
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 48
+  %.val35.i.i.i.i.i.i.i = load ptr, ptr %55, align 8, !tbaa !703
+  %56 = icmp eq ptr %.val35.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
+  br i1 %56, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit19", label %57
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 64
-  %58 = add nsw i64 %.051.i.i.i.i.i.i.i, -1
-  %59 = icmp sgt i64 %.051.i.i.i.i.i.i.i, 1
-  br i1 %59, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !704
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 64
+  %59 = add nsw i64 %.051.i.i.i.i.i.i.i, -1
+  %60 = icmp sgt i64 %.051.i.i.i.i.i.i.i, 1
+  br i1 %60, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !704
 
-._crit_edge.loopexit.i.i.i.i.i.i.i:               ; preds = %56
-  %60 = and i32 %.val22.i.i.i, 3
+._crit_edge.loopexit.i.i.i.i.i.i.i:               ; preds = %57
+  %61 = and i32 %.val22.pre.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i
-  %.pre-phi57.i.i.i.i.i.i.i = phi i32 [ %60, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val22.i.i.i, %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i ]
-  %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val21.i.i.i, %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i ]
+  %.pre-phi57.i.i.i.i.i.i.i = phi i32 [ %61, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val22.pre.i.i.i, %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i ]
+  %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val21.pre.i.i.i, %_ZSt7reverseIPN12_GLOBAL__N_117CritSectionMarkerEEvT_S3_.exit.i.i.i ]
   switch i32 %.pre-phi57.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i.i.i.i [
-    i32 3, label %61
-    i32 2, label %65
-    i32 1, label %69
-    i32 0, label %71
+    i32 3, label %62
+    i32 2, label %66
+    i32 1, label %70
+    i32 0, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i"
   ]
 
-61:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
+62:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %.029.val37.i.i.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i.i.i, align 8, !tbaa !703
-  %62 = icmp eq ptr %.029.val37.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
-  br i1 %62, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i", label %63
+  %63 = icmp eq ptr %.029.val37.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
+  br i1 %63, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i", label %64
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 16
-  br label %65
+64:                                               ; preds = %62
+  %65 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 16
+  br label %66
 
-65:                                               ; preds = %63, %._crit_edge.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
+66:                                               ; preds = %64, %._crit_edge.i.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i.i = phi ptr [ %65, %64 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i.i, align 8, !tbaa !703
-  %66 = icmp eq ptr %.1.val.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
-  br i1 %66, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i", label %67
+  %67 = icmp eq ptr %.1.val.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
+  br i1 %67, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i", label %68
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i, i64 16
-  br label %69
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i, i64 16
+  br label %70
 
-69:                                               ; preds = %67, %._crit_edge.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
+70:                                               ; preds = %68, %._crit_edge.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.thread.i.i.i
+  %.val223144.i.i.i = phi i32 [ %.val22.pre.i.i.i, %68 ], [ %.val22.pre.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ 1, %._crit_edge.i.i.i.i.thread.i.i.i ]
+  %.val213342.i.i.i = phi ptr [ %.val21.pre.i.i.i, %68 ], [ %.val21.pre.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %.val.i.i.i, %._crit_edge.i.i.i.i.thread.i.i.i ]
+  %.sroa.03.0.copyload3440.i.i.i = phi ptr [ %.sroa.03.0.copyload.i.i.i, %68 ], [ %.sroa.03.0.copyload.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %.sroa.03.0.copyload27.i.i.i, %._crit_edge.i.i.i.i.thread.i.i.i ]
+  %71 = phi i64 [ %43, %68 ], [ %43, %._crit_edge.i.i.i.i.i.i.i ], [ 1, %._crit_edge.i.i.i.i.thread.i.i.i ]
+  %72 = phi ptr [ %44, %68 ], [ %44, %._crit_edge.i.i.i.i.i.i.i ], [ %38, %._crit_edge.i.i.i.i.thread.i.i.i ]
+  %.2.i.i.i.i.i.i.i = phi ptr [ %69, %68 ], [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %.val.i.i.i, %._crit_edge.i.i.i.i.thread.i.i.i ]
   %.2.val.i.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i.i, align 8, !tbaa !703
-  %70 = icmp eq ptr %.2.val.i.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
-  br i1 %70, label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i", label %71
+  %73 = icmp eq ptr %.2.val.i.i.i.i.i.i.i, %.sroa.03.0.copyload3440.i.i.i
+  %spec.select.i.i.i = select i1 %73, ptr %.2.i.i.i.i.i.i.i, ptr %72
+  br label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i"
 
 ._crit_edge.i.i.i.unreachabledefault.i.i.i.i:     ; preds = %._crit_edge.i.i.i.i.i.i.i
   unreachable
 
-71:                                               ; preds = %69, %._crit_edge.i.i.i.i.i.i.i
+"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit": ; preds = %48
+  %74 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i"
 
-"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit": ; preds = %47
-  %72 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 16
+"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit17": ; preds = %51
+  %75 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 32
   br label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i"
 
-"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit17": ; preds = %50
-  %73 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 32
+"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit19": ; preds = %54
+  %76 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i"
 
-"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit19": ; preds = %53
-  %74 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i, i64 48
-  br label %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i"
+"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit17", %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit19", %70, %66, %62, %._crit_edge.i.i.i.i.i.i.i
+  %77 = phi i64 [ %43, %62 ], [ %43, %66 ], [ %43, %._crit_edge.i.i.i.i.i.i.i ], [ %71, %70 ], [ %43, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit19" ], [ %43, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit17" ], [ %43, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit" ], [ %43, %.lr.ph.i.i.i.i.i.i.i ]
+  %.val2132.i.i.i = phi ptr [ %.val21.pre.i.i.i, %62 ], [ %.val21.pre.i.i.i, %66 ], [ %.val21.pre.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %.val213342.i.i.i, %70 ], [ %.val21.pre.i.i.i, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit19" ], [ %.val21.pre.i.i.i, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit17" ], [ %.val21.pre.i.i.i, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit" ], [ %.val21.pre.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.val2230.i.i.i = phi i32 [ %.val22.pre.i.i.i, %62 ], [ %.val22.pre.i.i.i, %66 ], [ %.val22.pre.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %.val223144.i.i.i, %70 ], [ %.val22.pre.i.i.i, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit19" ], [ %.val22.pre.i.i.i, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit17" ], [ %.val22.pre.i.i.i, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit" ], [ %.val22.pre.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %62 ], [ %.1.i.i.i.i.i.i.i, %66 ], [ %44, %._crit_edge.i.i.i.i.i.i.i ], [ %spec.select.i.i.i, %70 ], [ %76, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit19" ], [ %75, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit17" ], [ %74, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit" ], [ %.02950.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %78 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CritSectionMarker", ptr %.val2132.i.i.i, i64 %77
+  %79 = icmp eq ptr %.028.i.i.i.i.i.i.i, %78
+  br i1 %79, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i, label %80
 
-"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit17", %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit19", %71, %69, %65, %61
-  %.028.i.i.i.i.i.i.i = phi ptr [ %43, %71 ], [ %.029.lcssa.i.i.i.i.i.i.i, %61 ], [ %.1.i.i.i.i.i.i.i, %65 ], [ %.2.i.i.i.i.i.i.i, %69 ], [ %72, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit" ], [ %73, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit17" ], [ %74, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i.loopexit.split.loop.exit19" ], [ %.02950.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
-  %75 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CritSectionMarker", ptr %.val21.i.i.i, i64 %.pre-phi.i.i.i
-  %76 = icmp eq ptr %.028.i.i.i.i.i.i.i, %75
-  br i1 %76, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i, label %77
+80:                                               ; preds = %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i"
+  %81 = icmp eq i32 %.val2230.i.i.i, 1
+  br i1 %81, label %82, label %96
 
-77:                                               ; preds = %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i"
-  %78 = icmp eq i32 %.val22.i.i.i, 1
-  br i1 %78, label %79, label %93
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %84 = load ptr, ptr %83, align 8, !tbaa !114
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %86 = load ptr, ptr %85, align 8, !tbaa !115
+  %87 = ptrtoint ptr %84 to i64
+  %88 = ptrtoint ptr %86 to i64
+  %89 = sub i64 %87, %88
+  %90 = icmp ult i64 %89, 30
+  br i1 %90, label %91, label %93
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %81 = load ptr, ptr %80, align 8, !tbaa !114
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %83 = load ptr, ptr %82, align 8, !tbaa !115
-  %84 = ptrtoint ptr %81 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = icmp ult i64 %86, 30
-  br i1 %87, label %88, label %90
-
-88:                                               ; preds = %79
-  %89 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.27, i64 noundef 30) #17
+91:                                               ; preds = %82
+  %92 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.27, i64 noundef 30) #17
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
 
-90:                                               ; preds = %79
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %83, ptr noundef nonnull align 1 dereferenceable(30) @.str.27, i64 30, i1 false)
-  %91 = load ptr, ptr %82, align 8, !tbaa !115
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 30
-  store ptr %92, ptr %82, align 8, !tbaa !115
+93:                                               ; preds = %82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %86, ptr noundef nonnull align 1 dereferenceable(30) @.str.27, i64 30, i1 false)
+  %94 = load ptr, ptr %85, align 8, !tbaa !115
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 30
+  store ptr %95, ptr %85, align 8, !tbaa !115
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
 
-93:                                               ; preds = %77
-  %94 = ptrtoint ptr %.028.i.i.i.i.i.i.i to i64
-  %95 = ptrtoint ptr %.val21.i.i.i to i64
-  %96 = sub i64 %94, %95
-  %97 = ashr exact i64 %96, 4
-  %98 = add nsw i64 %97, 1
-  %99 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %100 = load ptr, ptr %99, align 8, !tbaa !114
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %102 = load ptr, ptr %101, align 8, !tbaa !115
-  %103 = ptrtoint ptr %100 to i64
-  %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = icmp ult i64 %105, 34
-  br i1 %106, label %107, label %109
+96:                                               ; preds = %80
+  %97 = ptrtoint ptr %.028.i.i.i.i.i.i.i to i64
+  %98 = ptrtoint ptr %.val2132.i.i.i to i64
+  %99 = sub i64 %97, %98
+  %100 = ashr exact i64 %99, 4
+  %101 = add nsw i64 %100, 1
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %103 = load ptr, ptr %102, align 8, !tbaa !114
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %105 = load ptr, ptr %104, align 8, !tbaa !115
+  %106 = ptrtoint ptr %103 to i64
+  %107 = ptrtoint ptr %105 to i64
+  %108 = sub i64 %106, %107
+  %109 = icmp ult i64 %108, 34
+  br i1 %109, label %110, label %112
 
-107:                                              ; preds = %93
-  %108 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.28, i64 noundef 34) #17
+110:                                              ; preds = %96
+  %111 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.28, i64 noundef 34) #17
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit29.i.i.i
 
-109:                                              ; preds = %93
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %102, ptr noundef nonnull align 1 dereferenceable(34) @.str.28, i64 34, i1 false)
-  %110 = load ptr, ptr %101, align 8, !tbaa !115
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 34
-  store ptr %111, ptr %101, align 8, !tbaa !115
+112:                                              ; preds = %96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %105, ptr noundef nonnull align 1 dereferenceable(34) @.str.28, i64 34, i1 false)
+  %113 = load ptr, ptr %104, align 8, !tbaa !115
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 34
+  store ptr %114, ptr %104, align 8, !tbaa !115
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit29.i.i.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit29.i.i.i:         ; preds = %109, %107
-  %.0.i.i28.i.i.i = phi ptr [ %108, %107 ], [ %2, %109 ]
-  %112 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i28.i.i.i, i64 noundef %98) #17
-  %113 = trunc i64 %98 to i32
-  %114 = urem i32 %113, 100
-  %.off.i.i.i.i = add nsw i32 %114, -11
+_ZN4llvm11raw_ostreamlsEPKc.exit29.i.i.i:         ; preds = %112, %110
+  %.0.i.i28.i.i.i = phi ptr [ %111, %110 ], [ %2, %112 ]
+  %115 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i28.i.i.i, i64 noundef %101) #17
+  %116 = trunc i64 %101 to i32
+  %117 = urem i32 %116, 100
+  %.off.i.i.i.i = add nsw i32 %117, -11
   %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, 3
-  br i1 %switch.i.i.i.i, label %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i, label %115
+  br i1 %switch.i.i.i.i, label %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i, label %118
 
-115:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit29.i.i.i
-  %116 = urem i32 %113, 10
-  %switch.tableidx = add nsw i32 %116, -1
-  %117 = icmp ult i32 %switch.tableidx, 3
-  br i1 %117, label %switch.lookup, label %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i
+118:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit29.i.i.i
+  %119 = urem i32 %116, 10
+  %switch.tableidx = add nsw i32 %119, -1
+  %120 = icmp ult i32 %switch.tableidx, 3
+  br i1 %120, label %switch.lookup, label %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i
 
-switch.lookup:                                    ; preds = %115
-  %118 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN5clang4ento22PathSensitiveBugReportERN4llvm11raw_ostreamEEZNK12_GLOBAL__N_129BlockInCriticalSectionChecker21createCritSectionNoteENS8_17CritSectionMarkerERNS1_14CheckerContextEE3$_0E9_M_invokeERKSt9_Any_dataS3_S6_", i64 0, i64 %118
+switch.lookup:                                    ; preds = %118
+  %121 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZNSt17_Function_handlerIFvRN5clang4ento22PathSensitiveBugReportERN4llvm11raw_ostreamEEZNK12_GLOBAL__N_129BlockInCriticalSectionChecker21createCritSectionNoteENS8_17CritSectionMarkerERNS1_14CheckerContextEE3$_0E9_M_invokeERKSt9_Any_dataS3_S6_", i64 0, i64 %121
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i
 
-_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i:          ; preds = %115, %switch.lookup, %_ZN4llvm11raw_ostreamlsEPKc.exit29.i.i.i
-  %.sroa.0.0.i.i.i.i = phi ptr [ @.str.30, %_ZN4llvm11raw_ostreamlsEPKc.exit29.i.i.i ], [ %switch.load, %switch.lookup ], [ @.str.30, %115 ]
-  %119 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %120 = load ptr, ptr %119, align 8, !tbaa !114
-  %121 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %122 = load ptr, ptr %121, align 8, !tbaa !115
-  %123 = ptrtoint ptr %120 to i64
-  %124 = ptrtoint ptr %122 to i64
-  %125 = sub i64 %123, %124
-  %126 = icmp ult i64 %125, 2
-  br i1 %126, label %127, label %129
+_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i:          ; preds = %118, %switch.lookup, %_ZN4llvm11raw_ostreamlsEPKc.exit29.i.i.i
+  %.sroa.0.0.i.i.i.i = phi ptr [ @.str.30, %_ZN4llvm11raw_ostreamlsEPKc.exit29.i.i.i ], [ %switch.load, %switch.lookup ], [ @.str.30, %118 ]
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 24
+  %123 = load ptr, ptr %122, align 8, !tbaa !114
+  %124 = getelementptr inbounds nuw i8, ptr %115, i64 32
+  %125 = load ptr, ptr %124, align 8, !tbaa !115
+  %126 = ptrtoint ptr %123 to i64
+  %127 = ptrtoint ptr %125 to i64
+  %128 = sub i64 %126, %127
+  %129 = icmp ult i64 %128, 2
+  br i1 %129, label %130, label %132
 
-127:                                              ; preds = %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i
-  %128 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %112, ptr noundef nonnull %.sroa.0.0.i.i.i.i, i64 noundef 2) #17
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %128, i64 32
+130:                                              ; preds = %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i
+  %131 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %115, ptr noundef nonnull %.sroa.0.0.i.i.i.i, i64 noundef 2) #17
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %131, i64 32
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !115
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i
 
-129:                                              ; preds = %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i
-  %130 = load i16, ptr %.sroa.0.0.i.i.i.i, align 1
-  store i16 %130, ptr %122, align 1
-  %131 = load ptr, ptr %121, align 8, !tbaa !115
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 2
-  store ptr %132, ptr %121, align 8, !tbaa !115
+132:                                              ; preds = %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i
+  %133 = load i16, ptr %.sroa.0.0.i.i.i.i, align 1
+  store i16 %133, ptr %125, align 1
+  %134 = load ptr, ptr %124, align 8, !tbaa !115
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 2
+  store ptr %135, ptr %124, align 8, !tbaa !115
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i: ; preds = %129, %127
-  %133 = phi ptr [ %.pre.i.i.i, %127 ], [ %132, %129 ]
-  %.0.i.i.i.i = phi ptr [ %128, %127 ], [ %112, %129 ]
-  %134 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %135 = load ptr, ptr %134, align 8, !tbaa !114
-  %136 = ptrtoint ptr %135 to i64
-  %137 = ptrtoint ptr %133 to i64
-  %138 = sub i64 %136, %137
-  %139 = icmp ult i64 %138, 10
-  br i1 %139, label %140, label %142
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i: ; preds = %132, %130
+  %136 = phi ptr [ %.pre.i.i.i, %130 ], [ %135, %132 ]
+  %.0.i.i.i.i = phi ptr [ %131, %130 ], [ %115, %132 ]
+  %137 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %138 = load ptr, ptr %137, align 8, !tbaa !114
+  %139 = ptrtoint ptr %138 to i64
+  %140 = ptrtoint ptr %136 to i64
+  %141 = sub i64 %139, %140
+  %142 = icmp ult i64 %141, 10
+  br i1 %142, label %143, label %145
 
-140:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i
-  %141 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i, ptr noundef nonnull @.str.29, i64 noundef 10) #17
+143:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i
+  %144 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i, ptr noundef nonnull @.str.29, i64 noundef 10) #17
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
 
-142:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i
-  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %133, ptr noundef nonnull align 1 dereferenceable(10) @.str.29, i64 10, i1 false)
-  %144 = load ptr, ptr %143, align 8, !tbaa !115
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 10
-  store ptr %145, ptr %143, align 8, !tbaa !115
+145:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i
+  %146 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %136, ptr noundef nonnull align 1 dereferenceable(10) @.str.29, i64 10, i1 false)
+  %147 = load ptr, ptr %146, align 8, !tbaa !115
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 10
+  store ptr %148, ptr %146, align 8, !tbaa !115
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %142, %140, %90, %88, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i", %"_ZN4llvm7copy_ifIRKNS_13ImmutableListIN12_GLOBAL__N_117CritSectionMarkerEEESt20back_insert_iteratorINS_11SmallVectorIS3_Lj4EEEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNSD_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E_EET0_OSL_SP_T1_.exit.i.i.i", %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_118ActiveCritSectionsEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i.i.i, %"_ZN4llvm7copy_ifIRKNS_13ImmutableListIN12_GLOBAL__N_117CritSectionMarkerEEESt20back_insert_iteratorINS_11SmallVectorIS3_Lj4EEEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNSD_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E_EET0_OSL_SP_T1_.exit.thread.i.i.i"
-  %146 = phi ptr [ %14, %"_ZN4llvm7copy_ifIRKNS_13ImmutableListIN12_GLOBAL__N_117CritSectionMarkerEEESt20back_insert_iteratorINS_11SmallVectorIS3_Lj4EEEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNSD_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E_EET0_OSL_SP_T1_.exit.thread.i.i.i" ], [ %18, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i" ], [ %18, %"_ZN4llvm7copy_ifIRKNS_13ImmutableListIN12_GLOBAL__N_117CritSectionMarkerEEESt20back_insert_iteratorINS_11SmallVectorIS3_Lj4EEEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNSD_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E_EET0_OSL_SP_T1_.exit.i.i.i" ], [ %18, %88 ], [ %18, %90 ], [ %18, %140 ], [ %18, %142 ], [ %18, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_118ActiveCritSectionsEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i.i.i ]
-  %147 = load ptr, ptr %5, align 8, !tbaa !141
-  %148 = icmp eq ptr %147, %146
-  br i1 %148, label %_ZN4llvm11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EED2Ev.exit.i.i.i, label %149
+_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %145, %143, %93, %91, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i", %"_ZN4llvm7copy_ifIRKNS_13ImmutableListIN12_GLOBAL__N_117CritSectionMarkerEEESt20back_insert_iteratorINS_11SmallVectorIS3_Lj4EEEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNSD_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E_EET0_OSL_SP_T1_.exit.i.i.i", %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_118ActiveCritSectionsEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i.i.i, %"_ZN4llvm7copy_ifIRKNS_13ImmutableListIN12_GLOBAL__N_117CritSectionMarkerEEESt20back_insert_iteratorINS_11SmallVectorIS3_Lj4EEEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNSD_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E_EET0_OSL_SP_T1_.exit.thread.i.i.i"
+  %149 = phi ptr [ %14, %"_ZN4llvm7copy_ifIRKNS_13ImmutableListIN12_GLOBAL__N_117CritSectionMarkerEEESt20back_insert_iteratorINS_11SmallVectorIS3_Lj4EEEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNSD_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E_EET0_OSL_SP_T1_.exit.thread.i.i.i" ], [ %18, %"_ZN4llvm7find_ifIRKNS_11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNS9_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E0_EEDaOSH_T0_.exit.i.i.i" ], [ %18, %"_ZN4llvm7copy_ifIRKNS_13ImmutableListIN12_GLOBAL__N_117CritSectionMarkerEEESt20back_insert_iteratorINS_11SmallVectorIS3_Lj4EEEEZZNKS2_29BlockInCriticalSectionChecker21createCritSectionNoteES3_RN5clang4ento14CheckerContextEENK3$_0clERNSD_22PathSensitiveBugReportERNS_11raw_ostreamEEUlRKT_E_EET0_OSL_SP_T1_.exit.i.i.i" ], [ %18, %91 ], [ %18, %93 ], [ %18, %143 ], [ %18, %145 ], [ %18, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_118ActiveCritSectionsEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i.i.i ]
+  %150 = load ptr, ptr %5, align 8, !tbaa !141
+  %151 = icmp eq ptr %150, %149
+  br i1 %151, label %_ZN4llvm11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EED2Ev.exit.i.i.i, label %152
 
-149:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
-  call void @free(ptr noundef %147) #17
+152:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
+  call void @free(ptr noundef %150) #17
   br label %_ZN4llvm11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EED2Ev.exit.i.i.i
 
-_ZN4llvm11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EED2Ev.exit.i.i.i: ; preds = %149, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
+_ZN4llvm11SmallVectorIN12_GLOBAL__N_117CritSectionMarkerELj4EED2Ev.exit.i.i.i: ; preds = %152, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #17
   br label %"_ZSt10__invoke_rIvRZNK12_GLOBAL__N_129BlockInCriticalSectionChecker21createCritSectionNoteENS0_17CritSectionMarkerERN5clang4ento14CheckerContextEE3$_0JRNS4_22PathSensitiveBugReportERN4llvm11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 

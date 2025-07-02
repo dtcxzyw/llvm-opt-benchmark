@@ -1944,37 +1944,31 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %18 = getelementptr i8, ptr %15, i64 8
   %19 = add nsw i64 %11, -1
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %.thread32, label %22
+  br i1 %20, label %.lr.ph.preheader, label %21
 
-.thread32:                                        ; preds = %.noexc9
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %18, ptr %21, align 8, !tbaa !31
+21:                                               ; preds = %.noexc9
+  %22 = add nsw i64 %14, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 %22, i1 false), !tbaa !40
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %19, 3
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.preheader
 
-22:                                               ; preds = %.noexc9
-  %23 = add nsw i64 %14, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 %23, i1 false), !tbaa !40
-  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %19, 3
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i.i.i.i.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %25, align 8, !tbaa !31
-  %.not27 = icmp eq ptr %15, %24
-  br i1 %.not27, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.thread32, %22
-  %.0.i.i.i.i.i35 = phi ptr [ %18, %.thread32 ], [ %24, %22 ]
+.lr.ph.preheader:                                 ; preds = %.noexc9, %21
+  %.sink = phi ptr [ %23, %21 ], [ %18, %.noexc9 ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %24, align 8, !tbaa !31
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %.thread, %22
+._crit_edge:                                      ; preds = %.lr.ph, %.thread
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.029 = phi i64 [ %26, %.lr.ph ], [ %.sroa.speculated17, %.lr.ph.preheader ]
-  %.sroa.010.028 = phi ptr [ %27, %.lr.ph ], [ %15, %.lr.ph.preheader ]
+  %.029 = phi i64 [ %25, %.lr.ph ], [ %.sroa.speculated17, %.lr.ph.preheader ]
+  %.sroa.010.028 = phi ptr [ %26, %.lr.ph ], [ %15, %.lr.ph.preheader ]
   store i64 %.029, ptr %.sroa.010.028, align 8, !tbaa !40
-  %26 = add nsw i64 %.029, %3
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.010.028, i64 8
-  %.not = icmp eq ptr %27, %.0.i.i.i.i.i35
+  %25 = add nsw i64 %.029, %3
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.010.028, i64 8
+  %.not = icmp eq ptr %26, %.sink
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 }
 
@@ -2055,23 +2049,18 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %2
   %9 = getelementptr i8, ptr %6, i64 8
   %10 = add nsw i64 %1, -1
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %.thread32.i, label %12
-
-.thread32.i:                                      ; preds = %.noexc9.i
-  store ptr %9, ptr %4, align 8, !tbaa !31, !alias.scope !67
-  br label %.lr.ph.preheader.i
+  br i1 %11, label %.lr.ph.preheader.i, label %12
 
 12:                                               ; preds = %.noexc9.i
   %13 = add nsw i64 %5, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %13, i1 false), !tbaa !40, !noalias !67
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %10, 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i.i.i.i.i.i.i
-  store ptr %14, ptr %4, align 8, !tbaa !31, !alias.scope !67
-  %.not27.i = icmp eq ptr %6, %14
-  br i1 %.not27.i, label %_ZN6casadi5rangeExxxx.exit, label %.lr.ph.preheader.i
+  br label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %12, %.thread32.i
-  %.0.i.i.i.i.i35.i = phi ptr [ %9, %.thread32.i ], [ %14, %12 ]
+.lr.ph.preheader.i:                               ; preds = %.noexc9.i, %12
+  %storemerge = phi ptr [ %14, %12 ], [ %9, %.noexc9.i ]
+  store ptr %storemerge, ptr %4, align 8, !tbaa !31, !alias.scope !67
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -2080,10 +2069,10 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %2
   store i64 %.029.i, ptr %.sroa.010.028.i, align 8, !tbaa !40, !noalias !67
   %15 = add nuw nsw i64 %.029.i, 1
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.010.028.i, i64 8
-  %.not.i = icmp eq ptr %16, %.0.i.i.i.i.i35.i
+  %.not.i = icmp eq ptr %16, %storemerge
   br i1 %.not.i, label %_ZN6casadi5rangeExxxx.exit, label %.lr.ph.i, !llvm.loop !59
 
-_ZN6casadi5rangeExxxx.exit:                       ; preds = %.lr.ph.i, %.thread.i, %12
+_ZN6casadi5rangeExxxx.exit:                       ; preds = %.lr.ph.i, %.thread.i
   ret void
 }
 
@@ -3990,23 +3979,18 @@ _ZN6casadi7productIxEET_RKSt6vectorIS1_SaIS1_EE.exit: ; preds = %.lr.ph.i
   %26 = getelementptr i8, ptr %23, i64 8
   %27 = add nsw i64 %13, -1
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.thread32.i.i, label %29
-
-.thread32.i.i:                                    ; preds = %.noexc9.i.i
-  store ptr %26, ptr %21, align 8, !tbaa !31, !alias.scope !108
-  br label %.lr.ph.preheader.i.i
+  br i1 %28, label %.lr.ph.preheader.i.i, label %29
 
 29:                                               ; preds = %.noexc9.i.i
   %30 = add nsw i64 %22, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 %30, i1 false), !tbaa !40, !noalias !108
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %27, 3
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i.i.i.i.i.i.i
-  store ptr %31, ptr %21, align 8, !tbaa !31, !alias.scope !108
-  %.not27.i.i = icmp eq ptr %23, %31
-  br i1 %.not27.i.i, label %_ZN6casadi5rangeEx.exit, label %.lr.ph.preheader.i.i
+  br label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %29, %.thread32.i.i
-  %.0.i.i.i.i.i35.i.i = phi ptr [ %26, %.thread32.i.i ], [ %31, %29 ]
+.lr.ph.preheader.i.i:                             ; preds = %29, %.noexc9.i.i
+  %storemerge.i = phi ptr [ %31, %29 ], [ %26, %.noexc9.i.i ]
+  store ptr %storemerge.i, ptr %21, align 8, !tbaa !31, !alias.scope !108
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -4015,7 +3999,7 @@ _ZN6casadi7productIxEET_RKSt6vectorIS1_SaIS1_EE.exit: ; preds = %.lr.ph.i
   store i64 %.029.i.i, ptr %.sroa.010.028.i.i, align 8, !tbaa !40, !noalias !108
   %32 = add nuw nsw i64 %.029.i.i, 1
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.010.028.i.i, i64 8
-  %.not.i.i = icmp eq ptr %33, %.0.i.i.i.i.i35.i.i
+  %.not.i.i = icmp eq ptr %33, %storemerge.i
   br i1 %.not.i.i, label %_ZN6casadi5rangeEx.exit, label %.lr.ph.i.i, !llvm.loop !59
 
 34:                                               ; preds = %17
@@ -4434,7 +4418,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit131:                 ; preds = %_ZNSt6vectorIxSaIxE
   tail call void @_ZdlPvm(ptr noundef nonnull %166, i64 noundef %171) #26
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit133
 
-_ZN6casadi5rangeEx.exit:                          ; preds = %.lr.ph.i.i, %_ZNSt6vectorIxSaIxEED2Ev.exit119.thread, %29, %46, %16
+_ZN6casadi5rangeEx.exit:                          ; preds = %.lr.ph.i.i, %_ZNSt6vectorIxSaIxEED2Ev.exit119.thread, %46, %16
   ret void
 
 _ZNSt6vectorIxSaIxEED2Ev.exit133:                 ; preds = %167, %_ZNSt6vectorIxSaIxEED2Ev.exit131

@@ -3018,13 +3018,16 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread154.i: ; preds = %_ZNK4llvm9Stri
   br i1 %413, label %414, label %.critedge88.i
 
 414:                                              ; preds = %410
-  %415 = getelementptr inbounds i8, ptr %405, i64 -3
-  %.not79.not.not181.i = icmp eq ptr %415, %369
-  br i1 %.not79.not.not181.i, label %_ZL23verifyDiagnosticWordingRKN4llvm6RecordE.exit, label %.lr.ph185.i
+  %.not79.not.not181.i = icmp eq i64 %370, 3
+  br i1 %.not79.not.not181.i, label %_ZL23verifyDiagnosticWordingRKN4llvm6RecordE.exit, label %.lr.ph185.preheader.i
 
-.lr.ph185.i:                                      ; preds = %414, %.thread158.i
-  %.071183.i = phi i64 [ %.273161.i, %.thread158.i ], [ 1, %414 ]
-  %.074182.i = phi ptr [ %420, %.thread158.i ], [ %415, %414 ]
+.lr.ph185.preheader.i:                            ; preds = %414
+  %415 = getelementptr inbounds i8, ptr %405, i64 -3
+  br label %.lr.ph185.i
+
+.lr.ph185.i:                                      ; preds = %.thread158.i, %.lr.ph185.preheader.i
+  %.071183.i = phi i64 [ %.273161.i, %.thread158.i ], [ 1, %.lr.ph185.preheader.i ]
+  %.074182.i = phi ptr [ %420, %.thread158.i ], [ %415, %.lr.ph185.preheader.i ]
   %416 = load i8, ptr %.074182.i, align 1, !tbaa !17
   switch i8 %416, label %.thread158.i [
     i8 125, label %418

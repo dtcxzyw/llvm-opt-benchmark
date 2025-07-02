@@ -21928,7 +21928,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i: ; preds = %27, %14
   %.pre = phi ptr [ %22, %14 ], [ %.pre.pre, %27 ]
   %.pre-phi.i.i = phi i64 [ 0, %14 ], [ %.pre8.i.i, %27 ]
   %28 = phi i32 [ 0, %14 ], [ %.pre.i.i, %27 ]
-  %.not9.i.i.i.i.i.i = icmp eq ptr %21, %3
+  %.not9.i.i.i.i.i.i = icmp eq i32 %17, 1
   br i1 %.not9.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPKNS_5ValueELj6EEC2IPKNS_3UseEEERKNS_14iterator_rangeIT_EE.exit, label %.lr.ph.i.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i
@@ -22074,7 +22074,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i: ; preds = %37, %27
   %.pre = phi ptr [ %12, %27 ], [ %.pre.pre, %37 ]
   %.pre-phi.i.i = phi i64 [ 0, %27 ], [ %.pre8.i.i, %37 ]
   %38 = phi i32 [ 0, %27 ], [ %.pre.i.i, %37 ]
-  %.not9.i.i.i.i.i.i = icmp eq ptr %34, %16
+  %.not9.i.i.i.i.i.i = icmp eq i32 %30, 1
   br i1 %.not9.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPKNS_5ValueELj6EEC2IPKNS_3UseEEERKNS_14iterator_rangeIT_EE.exit, label %.lr.ph.i.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i

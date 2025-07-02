@@ -2267,7 +2267,7 @@ _ZN4llvm22AggressiveAntiDepState11UnionGroupsEjj.exit: ; preds = %_ZN4llvm22Aggr
   %127 = extractvalue { ptr, i64 } %125, 1
   %128 = getelementptr inbounds nuw i16, ptr %126, i64 %127
   %spec.select.i63 = getelementptr inbounds i8, ptr %128, i64 -2
-  %.not149159 = icmp eq ptr %126, %spec.select.i63
+  %.not149159 = icmp eq i64 %127, 1
   br i1 %.not149159, label %._crit_edge163, label %.lr.ph162
 
 .lr.ph162:                                        ; preds = %123
@@ -4092,7 +4092,7 @@ _ZN4llvm22AggressiveAntiDepState6IsLiveEj.exit.thread: ; preds = %265, %_ZN4llvm
   %290 = extractvalue { ptr, i64 } %288, 1
   %291 = getelementptr inbounds nuw i16, ptr %289, i64 %290
   %spec.select.i = getelementptr inbounds i8, ptr %291, i64 -2
-  %.not352384 = icmp eq ptr %289, %spec.select.i
+  %.not352384 = icmp eq i64 %290, 1
   br i1 %.not352384, label %.critedge403, label %.lr.ph387
 
 .lr.ph387:                                        ; preds = %286

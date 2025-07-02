@@ -25854,17 +25854,17 @@ define range(i32 0, 2) i32 @dt_exif_xmp_read(ptr noundef %0, ptr noundef %1, i32
   %113 = alloca %"class.std::__cxx11::basic_string", align 8
   %114 = alloca %"class.std::__cxx11::basic_string", align 8
   %115 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #35
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 %115
-  %117 = getelementptr inbounds i8, ptr %116, i64 -4
-  %.not = icmp ult ptr %117, %1
-  br i1 %.not, label %120, label %118
+  %.not = icmp slt i64 %115, 4
+  br i1 %.not, label %120, label %116
 
-118:                                              ; preds = %3
-  %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(5) @.str.282) #40
+116:                                              ; preds = %3
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 %115
+  %118 = getelementptr inbounds i8, ptr %117, i64 -4
+  %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %118, ptr noundef nonnull dereferenceable(5) @.str.282) #40
   %.not422 = icmp eq i32 %119, 0
   br i1 %.not422, label %2931, label %120
 
-120:                                              ; preds = %3, %118
+120:                                              ; preds = %3, %116
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %83) #35
   %121 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -33299,8 +33299,8 @@ _ZNSt10unique_ptrIN5Exiv25ImageESt14default_deleteIS1_EED2Ev.exit818: ; preds = 
   call void @__cxa_end_catch()
   br label %2931
 
-2931:                                             ; preds = %_ZNSt10unique_ptrIN5Exiv25ImageESt14default_deleteIS1_EED2Ev.exit, %118, %2929
-  %.0 = phi i32 [ 1, %2929 ], [ 1, %118 ], [ %not.cond, %_ZNSt10unique_ptrIN5Exiv25ImageESt14default_deleteIS1_EED2Ev.exit ]
+2931:                                             ; preds = %_ZNSt10unique_ptrIN5Exiv25ImageESt14default_deleteIS1_EED2Ev.exit, %116, %2929
+  %.0 = phi i32 [ 1, %2929 ], [ 1, %116 ], [ %not.cond, %_ZNSt10unique_ptrIN5Exiv25ImageESt14default_deleteIS1_EED2Ev.exit ]
   ret i32 %.0
 
 2932:                                             ; preds = %2926

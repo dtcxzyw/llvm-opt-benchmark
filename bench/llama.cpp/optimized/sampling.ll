@@ -2492,7 +2492,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %27, ptr %28, align 8, !tbaa !79
   %29 = ptrtoint ptr %18 to i64
-  %.not = icmp eq ptr %27, %18
+  %.not = icmp eq i64 %12, -4
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread21, %25

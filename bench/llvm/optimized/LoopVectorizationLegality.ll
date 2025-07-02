@@ -6531,16 +6531,19 @@ _ZN4llvm12PatternMatch5matchINS_14BinaryOperatorENS0_14BinaryOp_matchINS0_12OneO
   %127 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %128 = load i32, ptr %127, align 4
   %129 = and i32 %128, 134217727
+  %.not3243.i = icmp eq i32 %129, 1
+  br i1 %.not3243.i, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %126
   %130 = zext nneg i32 %129 to i64
   %131 = sub nsw i64 0, %130
   %132 = getelementptr inbounds %"class.llvm::Use", ptr %73, i64 %131
   %.02842.i = getelementptr inbounds nuw i8, ptr %132, i64 32
-  %.not3243.i = icmp eq ptr %.02842.i, %73
-  br i1 %.not3243.i, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit, label %.lr.ph.i
+  br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %126, %133
-  %.02845.i = phi ptr [ %.028.i, %133 ], [ %.02842.i, %126 ]
-  %.02444.i = phi i1 [ %136, %133 ], [ true, %126 ]
+.lr.ph.i:                                         ; preds = %133, %.lr.ph.preheader.i
+  %.02845.i = phi ptr [ %.028.i, %133 ], [ %.02842.i, %.lr.ph.preheader.i ]
+  %.02444.i = phi i1 [ %136, %133 ], [ true, %.lr.ph.preheader.i ]
   br i1 %.02444.i, label %133, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit
 
 133:                                              ; preds = %.lr.ph.i

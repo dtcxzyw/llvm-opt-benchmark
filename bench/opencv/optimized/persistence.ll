@@ -17528,14 +17528,17 @@ define void @_ZN2cv11FileStorage20getDefaultObjectNameERKNSt7__cxx1112basic_stri
 
 _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %2, %14
   %16 = phi ptr [ %12, %2 ], [ %15, %14 ]
-  %.04566 = getelementptr inbounds i8, ptr %10, i64 -1
-  %.not4967 = icmp ult ptr %.04566, %7
-  br i1 %.not4967, label %.critedge.thread, label %.lr.ph
+  %.not4967 = icmp slt i64 %9, 1
+  br i1 %.not4967, label %.critedge.thread, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %_ZN2cv10AutoBufferIcLm1032EEC2Em.exit, %.tail.thread
-  %.04570 = phi ptr [ %.045, %.tail.thread ], [ %.04566, %_ZN2cv10AutoBufferIcLm1032EEC2Em.exit ]
-  %.069 = phi ptr [ %.1, %.tail.thread ], [ %10, %_ZN2cv10AutoBufferIcLm1032EEC2Em.exit ]
-  %.pn5768 = phi ptr [ %.04570, %.tail.thread ], [ %10, %_ZN2cv10AutoBufferIcLm1032EEC2Em.exit ]
+.lr.ph.preheader:                                 ; preds = %_ZN2cv10AutoBufferIcLm1032EEC2Em.exit
+  %.04566 = getelementptr inbounds i8, ptr %10, i64 -1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.tail.thread
+  %.04570 = phi ptr [ %.045, %.tail.thread ], [ %.04566, %.lr.ph.preheader ]
+  %.069 = phi ptr [ %.1, %.tail.thread ], [ %10, %.lr.ph.preheader ]
+  %.pn5768 = phi ptr [ %.04570, %.tail.thread ], [ %10, %.lr.ph.preheader ]
   %17 = load i8, ptr %.04570, align 1, !tbaa !5
   switch i8 %17, label %.tail.thread [
     i8 92, label %.critedge

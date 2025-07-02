@@ -46,7 +46,7 @@ define dso_local i64 @__siphash_unaligned(ptr noundef %0, i64 noundef %1, ptr no
   %15 = xor i64 %14, 7816392313619706465
   %16 = xor i64 %12, 7237128888997146477
   %17 = xor i64 %14, 8317987319222330741
-  %18 = icmp eq ptr %7, %0
+  %18 = icmp ult i64 %1, 8
   br i1 %18, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3, %.preheader
@@ -1142,7 +1142,7 @@ define dso_local i32 @__hsiphash_unaligned(ptr noundef %0, i64 noundef %1, ptr n
   %15 = xor i64 %14, 7816392313619706465
   %16 = xor i64 %12, 7237128888997146477
   %17 = xor i64 %14, 8317987319222330741
-  %18 = icmp eq ptr %7, %0
+  %18 = icmp ult i64 %1, 8
   br i1 %18, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3, %.preheader

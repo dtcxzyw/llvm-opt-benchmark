@@ -6089,7 +6089,7 @@ define hidden void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_writer..ZipWri
   br i1 %79, label %86, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h301723e644ebb8e3E.exit17.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h301723e644ebb8e3E.exit17.i": ; preds = %76
-  %80 = icmp ne ptr %72, %77
+  %80 = icmp ne i64 %3, 1
   tail call void @llvm.assume(i1 %80)
   %81 = getelementptr inbounds i8, ptr %74, i64 -2
   %82 = load i8, ptr %81, align 1, !noalias !969, !noundef !4
@@ -6103,7 +6103,7 @@ define hidden void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_writer..ZipWri
   br label %113
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h301723e644ebb8e3E.exit19.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h301723e644ebb8e3E.exit17.i"
-  %88 = icmp ne ptr %72, %81
+  %88 = icmp ne i64 %3, 2
   tail call void @llvm.assume(i1 %88)
   %89 = getelementptr inbounds i8, ptr %74, i64 -3
   %90 = load i8, ptr %89, align 1, !noalias !969, !noundef !4
@@ -6121,7 +6121,7 @@ define hidden void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_writer..ZipWri
   br label %113
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h301723e644ebb8e3E.exit21.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h301723e644ebb8e3E.exit19.i"
-  %99 = icmp ne ptr %72, %89
+  %99 = icmp ne i64 %3, 3
   tail call void @llvm.assume(i1 %99)
   %100 = getelementptr inbounds i8, ptr %74, i64 -4
   %101 = load i8, ptr %100, align 1, !noalias !969, !noundef !4

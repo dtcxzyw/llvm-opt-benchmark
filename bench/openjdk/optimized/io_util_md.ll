@@ -110,13 +110,16 @@ define hidden void @fileOpen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 11:                                               ; preds = %8
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
-  %13 = getelementptr inbounds i8, ptr %9, i64 %12
-  %.038 = getelementptr inbounds i8, ptr %13, i64 -1
-  %14 = icmp ugt ptr %.038, %9
-  br i1 %14, label %.lr.ph, label %.critedge
+  %13 = icmp sgt i64 %12, 1
+  br i1 %13, label %.lr.ph.preheader, label %.critedge
 
-.lr.ph:                                           ; preds = %11, %17
-  %.039 = phi ptr [ %.0, %17 ], [ %.038, %11 ]
+.lr.ph.preheader:                                 ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %12
+  %.038 = getelementptr inbounds i8, ptr %14, i64 -1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
+  %.039 = phi ptr [ %.0, %17 ], [ %.038, %.lr.ph.preheader ]
   %15 = load i8, ptr %.039, align 1
   %16 = icmp eq i8 %15, 47
   br i1 %16, label %17, label %.critedge

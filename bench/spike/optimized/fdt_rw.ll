@@ -155,95 +155,97 @@ define internal fastcc range(i32 -4, 1) i32 @fdt_splice_mem_rsv_(ptr noundef %0,
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %0, i64 %43
   %45 = zext nneg i32 %5 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 %45
-  %47 = icmp ugt ptr %46, %44
-  %48 = icmp ult ptr %1, %0
-  %or.cond32.i = or i1 %48, %47
-  br i1 %or.cond32.i, label %fdt_splice_.exit.thread, label %49
+  %46 = sub nsw i64 0, %45
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %45
+  %48 = icmp ugt ptr %47, %44
+  %49 = icmp ult ptr %1, %0
+  %or.cond32.i = or i1 %49, %48
+  br i1 %or.cond32.i, label %fdt_splice_.exit.thread, label %50
 
-49:                                               ; preds = %4
-  %50 = sub nsw i64 0, %45
+50:                                               ; preds = %4
   %51 = shl nuw nsw i32 %3, 4
-  %52 = getelementptr inbounds i8, ptr %44, i64 %50
-  %53 = zext nneg i32 %51 to i64
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %53
-  %55 = icmp ult ptr %54, %0
+  %52 = zext nneg i32 %51 to i64
+  %53 = sub nsw i64 %52, %45
+  %54 = add nsw i64 %53, %43
+  %55 = icmp slt i64 %54, 0
   br i1 %55, label %fdt_splice_.exit.thread, label %56
 
-56:                                               ; preds = %49
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %58 = load i8, ptr %57, align 1, !tbaa !3
-  %59 = zext i8 %58 to i64
-  %60 = shl nuw nsw i64 %59, 24
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %62 = load i8, ptr %61, align 1, !tbaa !3
-  %63 = zext i8 %62 to i64
-  %64 = shl nuw nsw i64 %63, 16
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %66 = load i8, ptr %65, align 1, !tbaa !3
-  %67 = zext i8 %66 to i64
-  %68 = shl nuw nsw i64 %67, 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %70 = load i8, ptr %69, align 1, !tbaa !3
-  %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 %64
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %60
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %68
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %71
-  %76 = icmp ugt ptr %54, %75
-  br i1 %76, label %fdt_splice_.exit.thread, label %77
+56:                                               ; preds = %50
+  %57 = getelementptr inbounds i8, ptr %44, i64 %46
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %52
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %60 = load i8, ptr %59, align 1, !tbaa !3
+  %61 = zext i8 %60 to i64
+  %62 = shl nuw nsw i64 %61, 24
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %64 = load i8, ptr %63, align 1, !tbaa !3
+  %65 = zext i8 %64 to i64
+  %66 = shl nuw nsw i64 %65, 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %68 = load i8, ptr %67, align 1, !tbaa !3
+  %69 = zext i8 %68 to i64
+  %70 = shl nuw nsw i64 %69, 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %72 = load i8, ptr %71, align 1, !tbaa !3
+  %73 = zext i8 %72 to i64
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 %66
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %62
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %70
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %73
+  %78 = icmp ugt ptr %58, %77
+  br i1 %78, label %fdt_splice_.exit.thread, label %79
 
-77:                                               ; preds = %56
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 %53
-  %79 = ptrtoint ptr %44 to i64
-  %80 = ptrtoint ptr %1 to i64
-  %81 = add i64 %45, %80
-  %82 = sub i64 %79, %81
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %78, ptr align 1 %46, i64 %82, i1 false)
-  %83 = sub nsw i32 %3, %2
-  %84 = shl nsw i32 %83, 4
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %86 = load i8, ptr %85, align 1, !tbaa !3
-  %87 = zext i8 %86 to i32
-  %88 = shl nuw i32 %87, 24
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %90 = load i8, ptr %89, align 1, !tbaa !3
-  %91 = zext i8 %90 to i32
-  %92 = shl nuw nsw i32 %91, 16
-  %93 = or disjoint i32 %92, %88
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %95 = load i8, ptr %94, align 1, !tbaa !3
-  %96 = zext i8 %95 to i32
-  %97 = shl nuw nsw i32 %96, 8
-  %98 = or disjoint i32 %93, %97
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %100 = load i8, ptr %99, align 1, !tbaa !3
-  %101 = zext i8 %100 to i32
-  %102 = or disjoint i32 %98, %101
-  %103 = add i32 %102, %84
-  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %103)
-  store i32 %rev.i.i, ptr %85, align 4, !tbaa !13
-  %104 = load i8, ptr %6, align 1, !tbaa !3
-  %105 = zext i8 %104 to i32
-  %106 = shl nuw i32 %105, 24
-  %107 = load i8, ptr %10, align 1, !tbaa !3
-  %108 = zext i8 %107 to i32
-  %109 = shl nuw nsw i32 %108, 16
-  %110 = or disjoint i32 %109, %106
-  %111 = load i8, ptr %15, align 1, !tbaa !3
-  %112 = zext i8 %111 to i32
-  %113 = shl nuw nsw i32 %112, 8
-  %114 = or disjoint i32 %110, %113
-  %115 = load i8, ptr %20, align 1, !tbaa !3
-  %116 = zext i8 %115 to i32
-  %117 = or disjoint i32 %114, %116
-  %118 = add i32 %117, %84
-  %rev.i.i15 = tail call noundef i32 @llvm.bswap.i32(i32 %118)
+79:                                               ; preds = %56
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 %52
+  %81 = ptrtoint ptr %44 to i64
+  %82 = ptrtoint ptr %1 to i64
+  %83 = add i64 %45, %82
+  %84 = sub i64 %81, %83
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %80, ptr align 1 %47, i64 %84, i1 false)
+  %85 = sub nsw i32 %3, %2
+  %86 = shl nsw i32 %85, 4
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %88 = load i8, ptr %87, align 1, !tbaa !3
+  %89 = zext i8 %88 to i32
+  %90 = shl nuw i32 %89, 24
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %92 = load i8, ptr %91, align 1, !tbaa !3
+  %93 = zext i8 %92 to i32
+  %94 = shl nuw nsw i32 %93, 16
+  %95 = or disjoint i32 %94, %90
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %97 = load i8, ptr %96, align 1, !tbaa !3
+  %98 = zext i8 %97 to i32
+  %99 = shl nuw nsw i32 %98, 8
+  %100 = or disjoint i32 %95, %99
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %102 = load i8, ptr %101, align 1, !tbaa !3
+  %103 = zext i8 %102 to i32
+  %104 = or disjoint i32 %100, %103
+  %105 = add i32 %104, %86
+  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %105)
+  store i32 %rev.i.i, ptr %87, align 4, !tbaa !13
+  %106 = load i8, ptr %6, align 1, !tbaa !3
+  %107 = zext i8 %106 to i32
+  %108 = shl nuw i32 %107, 24
+  %109 = load i8, ptr %10, align 1, !tbaa !3
+  %110 = zext i8 %109 to i32
+  %111 = shl nuw nsw i32 %110, 16
+  %112 = or disjoint i32 %111, %108
+  %113 = load i8, ptr %15, align 1, !tbaa !3
+  %114 = zext i8 %113 to i32
+  %115 = shl nuw nsw i32 %114, 8
+  %116 = or disjoint i32 %112, %115
+  %117 = load i8, ptr %20, align 1, !tbaa !3
+  %118 = zext i8 %117 to i32
+  %119 = or disjoint i32 %116, %118
+  %120 = add i32 %119, %86
+  %rev.i.i15 = tail call noundef i32 @llvm.bswap.i32(i32 %120)
   store i32 %rev.i.i15, ptr %6, align 4, !tbaa !14
   br label %fdt_splice_.exit.thread
 
-fdt_splice_.exit.thread:                          ; preds = %56, %49, %4, %77
-  %.0 = phi i32 [ 0, %77 ], [ -3, %56 ], [ -4, %49 ], [ -4, %4 ]
+fdt_splice_.exit.thread:                          ; preds = %56, %50, %4, %79
+  %.0 = phi i32 [ 0, %79 ], [ -3, %56 ], [ -4, %50 ], [ -4, %4 ]
   ret i32 %.0
 }
 
@@ -483,95 +485,97 @@ define internal fastcc range(i32 -4, 1) i32 @fdt_splice_struct_(ptr noundef %0, 
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %0, i64 %42
   %44 = sext i32 %2 to i64
-  %45 = getelementptr inbounds i8, ptr %1, i64 %44
-  %46 = icmp slt i32 %2, 0
-  %47 = icmp ugt ptr %45, %43
-  %or.cond.i = select i1 %46, i1 true, i1 %47
-  %48 = icmp ult ptr %1, %0
-  %or.cond32.i = or i1 %48, %or.cond.i
-  br i1 %or.cond32.i, label %fdt_splice_.exit.thread, label %49
+  %45 = sub nsw i64 0, %44
+  %46 = getelementptr inbounds i8, ptr %1, i64 %44
+  %47 = icmp slt i32 %2, 0
+  %48 = icmp ugt ptr %46, %43
+  %or.cond.i = select i1 %47, i1 true, i1 %48
+  %49 = icmp ult ptr %1, %0
+  %or.cond32.i = or i1 %49, %or.cond.i
+  br i1 %or.cond32.i, label %fdt_splice_.exit.thread, label %50
 
-49:                                               ; preds = %4
-  %50 = sub nsw i64 0, %44
-  %51 = getelementptr inbounds i8, ptr %43, i64 %50
-  %52 = sext i32 %3 to i64
-  %53 = getelementptr inbounds i8, ptr %51, i64 %52
-  %54 = icmp ult ptr %53, %0
+50:                                               ; preds = %4
+  %51 = sext i32 %3 to i64
+  %52 = sub nsw i64 %51, %44
+  %53 = add nsw i64 %52, %42
+  %54 = icmp slt i64 %53, 0
   br i1 %54, label %fdt_splice_.exit.thread, label %55
 
-55:                                               ; preds = %49
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %57 = load i8, ptr %56, align 1, !tbaa !3
-  %58 = zext i8 %57 to i64
-  %59 = shl nuw nsw i64 %58, 24
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %61 = load i8, ptr %60, align 1, !tbaa !3
-  %62 = zext i8 %61 to i64
-  %63 = shl nuw nsw i64 %62, 16
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %65 = load i8, ptr %64, align 1, !tbaa !3
-  %66 = zext i8 %65 to i64
-  %67 = shl nuw nsw i64 %66, 8
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %69 = load i8, ptr %68, align 1, !tbaa !3
-  %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %63
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %59
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %67
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %70
-  %75 = icmp ugt ptr %53, %74
-  br i1 %75, label %fdt_splice_.exit.thread, label %76
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds i8, ptr %43, i64 %45
+  %57 = getelementptr inbounds i8, ptr %56, i64 %51
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %59 = load i8, ptr %58, align 1, !tbaa !3
+  %60 = zext i8 %59 to i64
+  %61 = shl nuw nsw i64 %60, 24
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %63 = load i8, ptr %62, align 1, !tbaa !3
+  %64 = zext i8 %63 to i64
+  %65 = shl nuw nsw i64 %64, 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %67 = load i8, ptr %66, align 1, !tbaa !3
+  %68 = zext i8 %67 to i64
+  %69 = shl nuw nsw i64 %68, 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %71 = load i8, ptr %70, align 1, !tbaa !3
+  %72 = zext i8 %71 to i64
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 %65
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %61
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %69
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %72
+  %77 = icmp ugt ptr %57, %76
+  br i1 %77, label %fdt_splice_.exit.thread, label %78
 
-76:                                               ; preds = %55
-  %77 = getelementptr inbounds i8, ptr %1, i64 %52
-  %78 = ptrtoint ptr %43 to i64
-  %79 = ptrtoint ptr %1 to i64
-  %80 = add i64 %44, %79
-  %81 = sub i64 %78, %80
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %77, ptr align 1 %45, i64 %81, i1 false)
-  %82 = sub nsw i32 %3, %2
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %84 = load i8, ptr %83, align 1, !tbaa !3
-  %85 = zext i8 %84 to i32
-  %86 = shl nuw i32 %85, 24
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  %88 = load i8, ptr %87, align 1, !tbaa !3
-  %89 = zext i8 %88 to i32
-  %90 = shl nuw nsw i32 %89, 16
-  %91 = or disjoint i32 %90, %86
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  %93 = load i8, ptr %92, align 1, !tbaa !3
-  %94 = zext i8 %93 to i32
-  %95 = shl nuw nsw i32 %94, 8
-  %96 = or disjoint i32 %91, %95
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 39
-  %98 = load i8, ptr %97, align 1, !tbaa !3
-  %99 = zext i8 %98 to i32
-  %100 = or disjoint i32 %96, %99
-  %101 = add i32 %100, %82
-  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %101)
-  store i32 %rev.i.i, ptr %83, align 4, !tbaa !16
-  %102 = load i8, ptr %5, align 1, !tbaa !3
-  %103 = zext i8 %102 to i32
-  %104 = shl nuw i32 %103, 24
-  %105 = load i8, ptr %9, align 1, !tbaa !3
-  %106 = zext i8 %105 to i32
-  %107 = shl nuw nsw i32 %106, 16
-  %108 = or disjoint i32 %107, %104
-  %109 = load i8, ptr %14, align 1, !tbaa !3
-  %110 = zext i8 %109 to i32
-  %111 = shl nuw nsw i32 %110, 8
-  %112 = or disjoint i32 %108, %111
-  %113 = load i8, ptr %19, align 1, !tbaa !3
-  %114 = zext i8 %113 to i32
-  %115 = or disjoint i32 %112, %114
-  %116 = add i32 %115, %82
-  %rev.i.i14 = tail call noundef i32 @llvm.bswap.i32(i32 %116)
+78:                                               ; preds = %55
+  %79 = getelementptr inbounds i8, ptr %1, i64 %51
+  %80 = ptrtoint ptr %43 to i64
+  %81 = ptrtoint ptr %1 to i64
+  %82 = add i64 %44, %81
+  %83 = sub i64 %80, %82
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %79, ptr align 1 %46, i64 %83, i1 false)
+  %84 = sub nsw i32 %3, %2
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %86 = load i8, ptr %85, align 1, !tbaa !3
+  %87 = zext i8 %86 to i32
+  %88 = shl nuw i32 %87, 24
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %90 = load i8, ptr %89, align 1, !tbaa !3
+  %91 = zext i8 %90 to i32
+  %92 = shl nuw nsw i32 %91, 16
+  %93 = or disjoint i32 %92, %88
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 38
+  %95 = load i8, ptr %94, align 1, !tbaa !3
+  %96 = zext i8 %95 to i32
+  %97 = shl nuw nsw i32 %96, 8
+  %98 = or disjoint i32 %93, %97
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 39
+  %100 = load i8, ptr %99, align 1, !tbaa !3
+  %101 = zext i8 %100 to i32
+  %102 = or disjoint i32 %98, %101
+  %103 = add i32 %102, %84
+  %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %103)
+  store i32 %rev.i.i, ptr %85, align 4, !tbaa !16
+  %104 = load i8, ptr %5, align 1, !tbaa !3
+  %105 = zext i8 %104 to i32
+  %106 = shl nuw i32 %105, 24
+  %107 = load i8, ptr %9, align 1, !tbaa !3
+  %108 = zext i8 %107 to i32
+  %109 = shl nuw nsw i32 %108, 16
+  %110 = or disjoint i32 %109, %106
+  %111 = load i8, ptr %14, align 1, !tbaa !3
+  %112 = zext i8 %111 to i32
+  %113 = shl nuw nsw i32 %112, 8
+  %114 = or disjoint i32 %110, %113
+  %115 = load i8, ptr %19, align 1, !tbaa !3
+  %116 = zext i8 %115 to i32
+  %117 = or disjoint i32 %114, %116
+  %118 = add i32 %117, %84
+  %rev.i.i14 = tail call noundef i32 @llvm.bswap.i32(i32 %118)
   store i32 %rev.i.i14, ptr %5, align 4, !tbaa !14
   br label %fdt_splice_.exit.thread
 
-fdt_splice_.exit.thread:                          ; preds = %55, %49, %4, %76
-  %.0 = phi i32 [ 0, %76 ], [ -3, %55 ], [ -4, %49 ], [ -4, %4 ]
+fdt_splice_.exit.thread:                          ; preds = %55, %50, %4, %78
+  %.0 = phi i32 [ 0, %78 ], [ -3, %55 ], [ -4, %50 ], [ -4, %4 ]
   ret i32 %.0
 }
 
@@ -795,17 +799,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fdt_add_property_(ptr noun
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i8, ptr %0, i64 %89
   %91 = icmp ugt ptr %87, %90
-  %92 = icmp ult ptr %87, %0
-  %or.cond32.i.i.i = or i1 %92, %91
-  br i1 %or.cond32.i.i.i, label %fdt_find_add_string_.exit.thread, label %93
+  br i1 %91, label %fdt_find_add_string_.exit.thread, label %92
 
-93:                                               ; preds = %55
-  %94 = sext i32 %30 to i64
-  %95 = getelementptr inbounds i8, ptr %90, i64 %94
-  %96 = icmp ult ptr %95, %0
-  br i1 %96, label %fdt_find_add_string_.exit.thread, label %97
+92:                                               ; preds = %55
+  %93 = sext i32 %30 to i64
+  %94 = add nsw i64 %89, %93
+  %95 = icmp slt i64 %94, 0
+  br i1 %95, label %fdt_find_add_string_.exit.thread, label %96
 
-97:                                               ; preds = %93
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds i8, ptr %90, i64 %93
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %99 = load i8, ptr %98, align 1, !tbaa !3
   %100 = zext i8 %99 to i64
@@ -825,11 +828,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fdt_add_property_(ptr noun
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 %101
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 %109
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 %112
-  %117 = icmp ugt ptr %95, %116
+  %117 = icmp ugt ptr %97, %116
   br i1 %117, label %fdt_find_add_string_.exit.thread, label %118
 
-118:                                              ; preds = %97
-  %119 = getelementptr inbounds i8, ptr %87, i64 %94
+118:                                              ; preds = %96
+  %119 = getelementptr inbounds i8, ptr %87, i64 %93
   %120 = add nuw nsw i64 %84, %86
   %gepdiff.i.i = sub nsw i64 %89, %120
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %119, ptr nonnull align 1 %87, i64 %gepdiff.i.i, i1 false)
@@ -851,7 +854,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fdt_add_property_(ptr noun
   %rev.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %135)
   store i32 %rev.i.i.i.i, ptr %31, align 4, !tbaa !23
   %136 = getelementptr inbounds nuw i8, ptr %27, i64 %86
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %136, ptr nonnull align 1 %2, i64 %94, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %136, ptr nonnull align 1 %2, i64 %93, i1 false)
   br label %fdt_find_add_string_.exit
 
 fdt_find_add_string_.exit:                        ; preds = %50, %118
@@ -926,8 +929,8 @@ fdt_find_add_string_.exit:                        ; preds = %50, %118
   store i32 %rev.i28, ptr %186, align 4, !tbaa !20
   br label %fdt_find_add_string_.exit.thread
 
-fdt_find_add_string_.exit.thread:                 ; preds = %97, %93, %55, %164, %165, %fdt_find_add_string_.exit, %5, %183
-  %.0 = phi i32 [ 0, %183 ], [ %6, %5 ], [ %.0.i, %fdt_find_add_string_.exit ], [ %163, %165 ], [ %163, %164 ], [ -3, %97 ], [ -4, %93 ], [ -4, %55 ]
+fdt_find_add_string_.exit.thread:                 ; preds = %96, %92, %55, %164, %165, %fdt_find_add_string_.exit, %5, %183
+  %.0 = phi i32 [ 0, %183 ], [ %6, %5 ], [ %.0.i, %fdt_find_add_string_.exit ], [ %163, %165 ], [ %163, %164 ], [ -3, %96 ], [ -4, %92 ], [ -4, %55 ]
   ret i32 %.0
 }
 

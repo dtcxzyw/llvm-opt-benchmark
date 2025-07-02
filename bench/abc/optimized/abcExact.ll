@@ -1908,17 +1908,17 @@ define internal fastcc void @Ses_ManPrintFuncs(ptr noundef readonly captures(non
   %32 = add nsw i32 %19, -6
   %33 = shl nuw i32 1, %32
   %34 = select i1 %31, i32 1, i32 %33
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i64, ptr %18, i64 %35
-  %.021.i = getelementptr inbounds i8, ptr %36, i64 -8
-  %.not22.i = icmp ult ptr %.021.i, %18
+  %.not22.i = icmp slt i32 %34, 1
   br i1 %.not22.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %30
   %notmask.i = shl nsw i32 -1, %21
-  %37 = xor i32 %notmask.i, -1
-  %38 = select i1 %20, i32 15, i32 %37
-  %39 = zext nneg i32 %38 to i64
+  %35 = xor i32 %notmask.i, -1
+  %36 = select i1 %20, i32 15, i32 %35
+  %37 = zext nneg i32 %34 to i64
+  %38 = getelementptr inbounds nuw i64, ptr %18, i64 %37
+  %.021.i = getelementptr inbounds i8, ptr %38, i64 -8
+  %39 = zext nneg i32 %36 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
@@ -4635,17 +4635,17 @@ Abc_NormalizeArrivalTimes.exit:                   ; preds = %.lr.ph30.i, %._crit
   %120 = add nsw i32 %1, -6
   %121 = shl nuw i32 1, %120
   %122 = select i1 %119, i32 1, i32 %121
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i64, ptr %0, i64 %123
-  %.021.i = getelementptr inbounds i8, ptr %124, i64 -8
-  %.not22.i = icmp ult ptr %.021.i, %0
+  %.not22.i = icmp slt i32 %122, 1
   br i1 %.not22.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %118
   %notmask.i = shl nsw i32 -1, %109
-  %125 = xor i32 %notmask.i, -1
-  %126 = select i1 %108, i32 15, i32 %125
-  %127 = zext nneg i32 %126 to i64
+  %123 = xor i32 %notmask.i, -1
+  %124 = select i1 %108, i32 15, i32 %123
+  %125 = zext nneg i32 %122 to i64
+  %126 = getelementptr inbounds nuw i64, ptr %0, i64 %125
+  %.021.i = getelementptr inbounds i8, ptr %126, i64 -8
+  %127 = zext nneg i32 %124 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
@@ -4949,17 +4949,17 @@ Abc_Clock.exit134:                                ; preds = %159, %162
   %270 = add nsw i32 %1, -6
   %271 = shl nuw i32 1, %270
   %272 = select i1 %269, i32 1, i32 %271
-  %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds i64, ptr %0, i64 %273
-  %.021.i.i = getelementptr inbounds i8, ptr %274, i64 -8
-  %.not22.i.i = icmp ult ptr %.021.i.i, %0
+  %.not22.i.i = icmp slt i32 %272, 1
   br i1 %.not22.i.i, label %Abc_TtPrintHexRev.exit.i, label %.lr.ph.us.preheader.i.i
 
 .lr.ph.us.preheader.i.i:                          ; preds = %268
   %notmask.i.i = shl nsw i32 -1, %179
-  %275 = xor i32 %notmask.i.i, -1
-  %276 = select i1 %259, i32 15, i32 %275
-  %277 = zext nneg i32 %276 to i64
+  %273 = xor i32 %notmask.i.i, -1
+  %274 = select i1 %259, i32 15, i32 %273
+  %275 = zext nneg i32 %272 to i64
+  %276 = getelementptr inbounds nuw i64, ptr %0, i64 %275
+  %.021.i.i = getelementptr inbounds i8, ptr %276, i64 -8
+  %277 = zext nneg i32 %274 to i64
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %..loopexit_crit_edge.us.i.i, %.lr.ph.us.preheader.i.i

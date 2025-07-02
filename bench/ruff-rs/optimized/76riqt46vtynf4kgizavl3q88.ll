@@ -4757,7 +4757,7 @@ define internal fastcc noundef i32 @_ZN16ruff_source_file8newlines4Line3end17haf
   ]
 
 12:                                               ; preds = %8
-  %13 = icmp eq ptr %.val, %10
+  %13 = icmp eq i64 %.val3, 1
   br i1 %13, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i", label %14
 
 14:                                               ; preds = %12
@@ -9398,7 +9398,7 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN4core4iter8ada
   ]
 
 25:                                               ; preds = %21
-  %26 = icmp eq ptr %.val.i.i, %23
+  %26 = icmp eq i64 %.val3.i.i, 1
   br i1 %26, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i", label %27
 
 27:                                               ; preds = %25
@@ -57122,7 +57122,7 @@ _ZN11ruff_linter7locator7Locator5slice17h4a87bdd24d049517E.exit.i: ; preds = %46
   ]
 
 481:                                              ; preds = %477
-  %482 = icmp eq ptr %474, %479
+  %482 = icmp eq i64 %.sroa.2.0.copyload.i, 1
   br i1 %482, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i", label %483
 
 483:                                              ; preds = %481
@@ -57538,7 +57538,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17hfa6b85a1b6a3f72cE.exit.i.i: ; preds
   ]
 
 593:                                              ; preds = %589
-  %594 = icmp eq ptr %586, %591
+  %594 = icmp eq i64 %.sroa.2103.0.copyload.i, 1
   br i1 %594, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i71.i", label %595
 
 595:                                              ; preds = %593
@@ -57652,7 +57652,7 @@ _ZN16ruff_source_file8newlines4Line3end17hafc80ec87d8cf243E.exit77.i: ; preds = 
   ]
 
 636:                                              ; preds = %632
-  %637 = icmp eq ptr %.val.i78.i, %634
+  %637 = icmp eq i64 %.val3.i79.i, 1
   br i1 %637, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i80.i", label %638
 
 638:                                              ; preds = %636
@@ -58688,7 +58688,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h7ef6c48f17392cd5E.exit.thread.
   ]
 
 922:                                              ; preds = %918
-  %923 = icmp eq ptr %914, %920
+  %923 = icmp eq i64 %.val57.i, 1
   br i1 %923, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i", label %924
 
 924:                                              ; preds = %922
@@ -58770,7 +58770,7 @@ _ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit.i: ; preds =
   ]
 
 953:                                              ; preds = %949
-  %954 = icmp eq ptr %914, %951
+  %954 = icmp eq i64 %.val57.i, 1
   br i1 %954, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i.i.i", label %955
 
 955:                                              ; preds = %953
@@ -59028,7 +59028,7 @@ _ZN4core3ops8function6FnOnce9call_once17h94b5bb9363b8d923E.exit.i.i: ; preds = %
   ]
 
 1034:                                             ; preds = %1030
-  %1035 = icmp eq ptr %914, %1032
+  %1035 = icmp eq i64 %.val57.i, 1
   br i1 %1035, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i170", label %1036
 
 1036:                                             ; preds = %1034
@@ -59236,7 +59236,7 @@ _ZN16ruff_source_file8newlines4Line6as_str17hb2375d9b0b292798E.exit.i.i173: ; pr
   ]
 
 1091:                                             ; preds = %1087
-  %1092 = icmp eq ptr %.val.i100.i, %1089
+  %1092 = icmp eq i64 %.val3.i101.i, 1
   br i1 %1092, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i102.i", label %1093
 
 1093:                                             ; preds = %1091
@@ -76586,7 +76586,7 @@ _ZN11ruff_linter7locator7Locator5after17h796cd0798345d109E.exit: ; preds = %2, %
   ]
 
 42:                                               ; preds = %38
-  %43 = icmp eq ptr %.val.i, %40
+  %43 = icmp eq i64 %.val3.i, 1
   br i1 %43, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i", label %44
 
 44:                                               ; preds = %42
@@ -80846,7 +80846,7 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle5rules19trailing_whitespa
   ]
 
 34:                                               ; preds = %30
-  %35 = icmp eq ptr %.val.i, %32
+  %35 = icmp eq i64 %.val3.i, 1
   br i1 %35, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i", label %36
 
 36:                                               ; preds = %34
@@ -80909,7 +80909,7 @@ _ZN16ruff_source_file8newlines4Line3end17hafc80ec87d8cf243E.exit: ; preds = %25
   ]
 
 58:                                               ; preds = %54
-  %59 = icmp eq ptr %.val.i, %32
+  %59 = icmp eq i64 %.val3.i, 1
   br i1 %59, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i20", label %60
 
 60:                                               ; preds = %58
@@ -80992,7 +80992,7 @@ _ZN16ruff_source_file8newlines4Line3end17hafc80ec87d8cf243E.exit26: ; preds = %_
   ]
 
 91:                                               ; preds = %87
-  %92 = icmp eq ptr %.val.i, %89
+  %92 = icmp eq i64 %.val3.i, 1
   br i1 %92, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i29", label %93
 
 93:                                               ; preds = %91

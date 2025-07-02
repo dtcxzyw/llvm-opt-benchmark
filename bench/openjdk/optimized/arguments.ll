@@ -7417,13 +7417,16 @@ define hidden void @_ZN9Arguments16fix_appclasspathEv() local_unnamed_addr #0 al
 14:                                               ; preds = %10
   %15 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %.017, i8 noundef zeroext 19) #31
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #30
-  %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  %.019 = getelementptr inbounds i8, ptr %17, i64 -1
-  %.not20 = icmp ult ptr %.019, %15
-  br i1 %.not20, label %.critedge, label %.lr.ph
+  %.not20 = icmp slt i64 %16, 1
+  br i1 %.not20, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %14, %20
-  %.021 = phi ptr [ %.0, %20 ], [ %.019, %14 ]
+.lr.ph.preheader:                                 ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
+  %.019 = getelementptr inbounds i8, ptr %17, i64 -1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %.021 = phi ptr [ %.0, %20 ], [ %.019, %.lr.ph.preheader ]
   %18 = load i8, ptr %.021, align 1
   %19 = icmp eq i8 %18, %7
   br i1 %19, label %20, label %.critedge

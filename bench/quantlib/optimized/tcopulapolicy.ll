@@ -2108,7 +2108,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
   %sub.ptr.sub.i11 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.rhs.cast.i10
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i11
   %add.ptr.i13 = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
-  %cmp.i.not6.i = icmp eq ptr %1, %add.ptr.i13
+  %cmp.i.not6.i = icmp eq i64 %sub.ptr.sub.i11, 8
   br i1 %cmp.i.not6.i, label %invoke.cont21, label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont, %call.i.i.noexc
@@ -2138,7 +2138,7 @@ invoke.cont21.loopexit:                           ; preds = %call.i.i.noexc
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %invoke.cont21.loopexit, %invoke.cont
-  %sub.ptr.sub.i18.pre-phi = phi i64 [ %.pre41, %invoke.cont21.loopexit ], [ %sub.ptr.sub.i11, %invoke.cont ]
+  %sub.ptr.sub.i18.pre-phi = phi i64 [ %.pre41, %invoke.cont21.loopexit ], [ 8, %invoke.cont ]
   %8 = phi ptr [ %.pre38, %invoke.cont21.loopexit ], [ %0, %invoke.cont ]
   %9 = phi ptr [ %.pre, %invoke.cont21.loopexit ], [ %1, %invoke.cont ]
   %add.ptr.i20 = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub.i18.pre-phi

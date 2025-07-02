@@ -534,12 +534,13 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %20 = shl i32 %19, 1
   %21 = add i32 %20, 2
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw double, ptr %17, i64 %22
+  %.idx.i = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
   %25 = load double, ptr %24, align 8, !tbaa !62
   %26 = getelementptr inbounds i8, ptr %23, i64 -16
   %27 = load double, ptr %26, align 8, !tbaa !62
-  %28 = icmp ugt ptr %26, %17
+  %28 = icmp ugt i32 %21, 2
   br i1 %28, label %.lr.ph.i.i, label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i, %.lr.ph.i.i
@@ -612,12 +613,13 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %20 = shl i32 %19, 1
   %21 = add i32 %20, 2
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw double, ptr %17, i64 %22
+  %.idx.i = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
   %25 = load double, ptr %24, align 8, !tbaa !62
   %26 = getelementptr inbounds i8, ptr %23, i64 -16
   %27 = load double, ptr %26, align 8, !tbaa !62
-  %28 = icmp ugt ptr %26, %17
+  %28 = icmp ugt i32 %21, 2
   br i1 %28, label %.lr.ph.i.i, label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i, %.lr.ph.i.i

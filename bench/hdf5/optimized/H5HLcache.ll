@@ -825,12 +825,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef n
   br i1 %12, label %13, label %198, !prof !9
 
 13:                                               ; preds = %4
-  %14 = icmp ugt ptr %1, %.ptr79
+  %14 = icmp slt i64 %2, 1
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %13
   %16 = ptrtoint ptr %.ptr79 to i64
-  %17 = icmp ult i64 %2, 4
+  %17 = icmp samesign ult i64 %2, 4
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %13, %15
@@ -851,7 +851,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef n
   br label %198
 
 27:                                               ; preds = %22
-  %28 = icmp slt i64 %2, 5
+  %28 = icmp eq i64 %2, 4
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27

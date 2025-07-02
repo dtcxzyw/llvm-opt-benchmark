@@ -120,7 +120,7 @@ define internal ptr @H5G__cache_node_deserialize(ptr noundef %0, i64 noundef %1,
   br label %107
 
 43:                                               ; preds = %20
-  %44 = icmp ugt ptr %0, %.ptr55
+  %44 = icmp slt i64 %1, 1
   br i1 %44, label %51, label %45
 
 45:                                               ; preds = %43
@@ -151,7 +151,7 @@ define internal ptr @H5G__cache_node_deserialize(ptr noundef %0, i64 noundef %1,
 60:                                               ; preds = %55
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store ptr %61, ptr %5, align 8, !tbaa !12
-  %62 = icmp slt i64 %1, 5
+  %62 = icmp samesign ult i64 %1, 5
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %60

@@ -3375,27 +3375,21 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i5, i64 8
   %sub.i.i.i.i.i = add nsw i64 %sub.ptr.div.i.i, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont.thread30, label %invoke.cont
-
-invoke.cont.thread30:                             ; preds = %if.then.i.i.i.i.i
-  %_M_finish.i.i7.i32 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i32, align 8, !tbaa !129
-  br label %for.body.lr.ph
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.lr.ph, label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i
   %3 = add nsw i64 %sub.ptr.sub.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %3, i1 false), !tbaa !128
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
-  %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !129
-  %cmp21.not = icmp eq ptr %add.ptr.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i5
-  br i1 %cmp21.not, label %nrvo.skipdtor, label %for.body.lr.ph
+  br label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %invoke.cont.thread30, %invoke.cont
-  %__first.addr.0.i.i.i.i.i35 = phi ptr [ %incdec.ptr.i.i.i.i.i, %invoke.cont.thread30 ], [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont ]
+for.body.lr.ph:                                   ; preds = %if.then.i.i.i.i.i, %invoke.cont
+  %add.ptr.i.i.i.i.i.i.i.sink = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
+  %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store ptr %add.ptr.i.i.i.i.i.i.i.sink, ptr %_M_finish.i.i7.i, align 8, !tbaa !129
   %sub.ptr.rhs.cast.i36 = ptrtoint ptr %call5.i.i.i.i2.i.i5 to i64
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i35 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i.sink to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i36
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -3458,7 +3452,7 @@ lpad3.loopexit.split-lp:                          ; preds = %if.then.i.i.i
           cleanup
   br label %eh.resume
 
-nrvo.skipdtor:                                    ; preds = %invoke.cont9, %invoke.cont.thread, %invoke.cont
+nrvo.skipdtor:                                    ; preds = %invoke.cont9, %invoke.cont.thread
   ret void
 
 eh.resume:                                        ; preds = %lpad3.loopexit.split-lp, %lpad3.loopexit

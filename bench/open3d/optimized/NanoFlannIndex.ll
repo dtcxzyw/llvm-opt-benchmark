@@ -45431,7 +45431,7 @@ define linkonce_odr void @_ZN3fmt3v106detail18for_each_codepointIZNS1_11find_esc
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 -3
-  %.not3668 = icmp ult ptr %0, %8
+  %.not3668 = icmp sgt i64 %1, 3
   br i1 %.not3668, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit
@@ -60630,9 +60630,9 @@ define linkonce_odr void @_ZN6open3d4core3nns4impl12KnnSearchCPUIfiNS1_23Neighbo
   %or.cond.i = or i1 %59, %58
   %60 = icmp eq ptr %0, null
   %or.cond3.i = or i1 %60, %or.cond.i
-  br i1 %or.cond3.i, label %.lr.ph.i.i.i.preheader.i, label %63
+  br i1 %or.cond3.i, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, label %63
 
-.lr.ph.i.i.i.preheader.i:                         ; preds = %55
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i:                 ; preds = %55
   %61 = shl i64 %4, 3
   %62 = add i64 %61, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %62, i1 false), !tbaa !9
@@ -61124,7 +61124,7 @@ common.resume:                                    ; preds = %392, %223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIfiNS1_23NeighborSearchAllocatorIfiEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i
+_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIfiNS1_23NeighborSearchAllocatorIfiEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
@@ -61156,9 +61156,9 @@ _ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIfiNS1_23NeighborSearchAllo
   %or.cond.i23 = or i1 %228, %227
   %229 = icmp eq ptr %0, null
   %or.cond3.i24 = or i1 %229, %or.cond.i23
-  br i1 %or.cond3.i24, label %.lr.ph.i.i.i.preheader.i93, label %232
+  br i1 %or.cond3.i24, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i93, label %232
 
-.lr.ph.i.i.i.preheader.i93:                       ; preds = %224
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i93:               ; preds = %224
   %230 = shl i64 %4, 3
   %231 = add i64 %230, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %231, i1 false), !tbaa !9
@@ -61646,7 +61646,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit70.i29:              ; preds = %387, %.body.i32, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIfiNS1_23NeighborSearchAllocatorIfiEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i93, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i91
+_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIfiNS1_23NeighborSearchAllocatorIfiEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i93, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
@@ -63754,13 +63754,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %33 = load i32, ptr %32, align 4, !tbaa !29
   %34 = load i32, ptr %28, align 8, !tbaa !1406
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw float, ptr %2, i64 %35
+  %.idx.i = shl nuw nsw i64 %35, 2
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %37 = getelementptr inbounds i8, ptr %36, i64 -12
   %38 = load ptr, ptr %27, align 8
   %39 = zext i32 %33 to i64
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = icmp ult ptr %2, %37
+  %42 = icmp ugt i32 %34, 3
   br i1 %42, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %31
@@ -66787,13 +66788,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %33 = load i32, ptr %32, align 4, !tbaa !29
   %34 = load i32, ptr %28, align 8, !tbaa !181
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw float, ptr %2, i64 %35
+  %.idx.i = shl nuw nsw i64 %35, 2
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %37 = getelementptr inbounds i8, ptr %36, i64 -12
   %38 = load ptr, ptr %27, align 8
   %39 = zext i32 %33 to i64
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = icmp ult ptr %2, %37
+  %42 = icmp ugt i32 %34, 3
   br i1 %42, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %31
@@ -68032,9 +68034,9 @@ define linkonce_odr void @_ZN6open3d4core3nns4impl12KnnSearchCPUIflNS1_23Neighbo
   %or.cond.i = or i1 %59, %58
   %60 = icmp eq ptr %0, null
   %or.cond3.i = or i1 %60, %or.cond.i
-  br i1 %or.cond3.i, label %.lr.ph.i.i.i.preheader.i, label %63
+  br i1 %or.cond3.i, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, label %63
 
-.lr.ph.i.i.i.preheader.i:                         ; preds = %55
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i:                 ; preds = %55
   %61 = shl i64 %4, 3
   %62 = add i64 %61, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %62, i1 false), !tbaa !9
@@ -68526,7 +68528,7 @@ common.resume:                                    ; preds = %392, %223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIflNS1_23NeighborSearchAllocatorIflEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i
+_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIflNS1_23NeighborSearchAllocatorIflEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
@@ -68558,9 +68560,9 @@ _ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIflNS1_23NeighborSearchAllo
   %or.cond.i23 = or i1 %228, %227
   %229 = icmp eq ptr %0, null
   %or.cond3.i24 = or i1 %229, %or.cond.i23
-  br i1 %or.cond3.i24, label %.lr.ph.i.i.i.preheader.i93, label %232
+  br i1 %or.cond3.i24, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i93, label %232
 
-.lr.ph.i.i.i.preheader.i93:                       ; preds = %224
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i93:               ; preds = %224
   %230 = shl i64 %4, 3
   %231 = add i64 %230, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %231, i1 false), !tbaa !9
@@ -69048,7 +69050,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit70.i29:              ; preds = %387, %.body.i32, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIflNS1_23NeighborSearchAllocatorIflEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i93, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i91
+_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIflNS1_23NeighborSearchAllocatorIflEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i93, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
@@ -70764,9 +70766,10 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i32, ptr %28, align 8, !tbaa !1540
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw float, ptr %2, i64 %30
+  %.idx.i = shl nuw nsw i64 %30, 2
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %32 = getelementptr inbounds i8, ptr %31, i64 -12
-  %33 = icmp ult ptr %2, %32
+  %33 = icmp ugt i32 %29, 3
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %1, align 8
   br label %36
@@ -72811,9 +72814,10 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i32, ptr %28, align 8, !tbaa !907
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw float, ptr %2, i64 %30
+  %.idx.i = shl nuw nsw i64 %30, 2
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %32 = getelementptr inbounds i8, ptr %31, i64 -12
-  %33 = icmp ult ptr %2, %32
+  %33 = icmp ugt i32 %29, 3
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %1, align 8
   br label %36
@@ -73974,9 +73978,9 @@ define linkonce_odr void @_ZN6open3d4core3nns4impl12KnnSearchCPUIdiNS1_23Neighbo
   %or.cond.i = or i1 %59, %58
   %60 = icmp eq ptr %0, null
   %or.cond3.i = or i1 %60, %or.cond.i
-  br i1 %or.cond3.i, label %.lr.ph.i.i.i.preheader.i, label %63
+  br i1 %or.cond3.i, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, label %63
 
-.lr.ph.i.i.i.preheader.i:                         ; preds = %55
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i:                 ; preds = %55
   %61 = shl i64 %4, 3
   %62 = add i64 %61, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %62, i1 false), !tbaa !9
@@ -74468,7 +74472,7 @@ common.resume:                                    ; preds = %392, %223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdiNS1_23NeighborSearchAllocatorIdiEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i
+_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdiNS1_23NeighborSearchAllocatorIdiEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
@@ -74500,9 +74504,9 @@ _ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdiNS1_23NeighborSearchAllo
   %or.cond.i23 = or i1 %228, %227
   %229 = icmp eq ptr %0, null
   %or.cond3.i24 = or i1 %229, %or.cond.i23
-  br i1 %or.cond3.i24, label %.lr.ph.i.i.i.preheader.i93, label %232
+  br i1 %or.cond3.i24, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i93, label %232
 
-.lr.ph.i.i.i.preheader.i93:                       ; preds = %224
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i93:               ; preds = %224
   %230 = shl i64 %4, 3
   %231 = add i64 %230, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %231, i1 false), !tbaa !9
@@ -74990,7 +74994,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit70.i29:              ; preds = %387, %.body.i32, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdiNS1_23NeighborSearchAllocatorIdiEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i93, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i91
+_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdiNS1_23NeighborSearchAllocatorIdiEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i93, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
@@ -76715,13 +76719,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %33 = load i32, ptr %32, align 4, !tbaa !29
   %34 = load i32, ptr %28, align 8, !tbaa !1655
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw double, ptr %2, i64 %35
+  %.idx.i = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %37 = getelementptr inbounds i8, ptr %36, i64 -24
   %38 = load ptr, ptr %27, align 8
   %39 = zext i32 %33 to i64
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = icmp ult ptr %2, %37
+  %42 = icmp ugt i32 %34, 3
   br i1 %42, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %31
@@ -78758,13 +78763,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %33 = load i32, ptr %32, align 4, !tbaa !29
   %34 = load i32, ptr %28, align 8, !tbaa !1015
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw double, ptr %2, i64 %35
+  %.idx.i = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %37 = getelementptr inbounds i8, ptr %36, i64 -24
   %38 = load ptr, ptr %27, align 8
   %39 = zext i32 %33 to i64
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = icmp ult ptr %2, %37
+  %42 = icmp ugt i32 %34, 3
   br i1 %42, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %31
@@ -79905,9 +79911,9 @@ define linkonce_odr void @_ZN6open3d4core3nns4impl12KnnSearchCPUIdlNS1_23Neighbo
   %or.cond.i = or i1 %59, %58
   %60 = icmp eq ptr %0, null
   %or.cond3.i = or i1 %60, %or.cond.i
-  br i1 %or.cond3.i, label %.lr.ph.i.i.i.preheader.i, label %63
+  br i1 %or.cond3.i, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, label %63
 
-.lr.ph.i.i.i.preheader.i:                         ; preds = %55
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i:                 ; preds = %55
   %61 = shl i64 %4, 3
   %62 = add i64 %61, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %62, i1 false), !tbaa !9
@@ -80399,7 +80405,7 @@ common.resume:                                    ; preds = %392, %223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdlNS1_23NeighborSearchAllocatorIdlEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i
+_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdlNS1_23NeighborSearchAllocatorIdlEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
@@ -80431,9 +80437,9 @@ _ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdlNS1_23NeighborSearchAllo
   %or.cond.i23 = or i1 %228, %227
   %229 = icmp eq ptr %0, null
   %or.cond3.i24 = or i1 %229, %or.cond.i23
-  br i1 %or.cond3.i24, label %.lr.ph.i.i.i.preheader.i93, label %232
+  br i1 %or.cond3.i24, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i93, label %232
 
-.lr.ph.i.i.i.preheader.i93:                       ; preds = %224
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i93:               ; preds = %224
   %230 = shl i64 %4, 3
   %231 = add i64 %230, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %231, i1 false), !tbaa !9
@@ -80921,7 +80927,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit70.i29:              ; preds = %387, %.body.i32, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdlNS1_23NeighborSearchAllocatorIdlEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i93, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i91
+_ZN6open3d4core3nns4impl12_GLOBAL__N_113_KnnSearchCPUIdlNS1_23NeighborSearchAllocatorIdlEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mibbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i93, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
@@ -82586,9 +82592,10 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i32, ptr %28, align 8, !tbaa !1758
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw double, ptr %2, i64 %30
+  %.idx.i = shl nuw nsw i64 %30, 3
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %32 = getelementptr inbounds i8, ptr %31, i64 -24
-  %33 = icmp ult ptr %2, %32
+  %33 = icmp ugt i32 %29, 3
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %1, align 8
   br label %36
@@ -84633,9 +84640,10 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i32, ptr %28, align 8, !tbaa !1124
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw double, ptr %2, i64 %30
+  %.idx.i = shl nuw nsw i64 %30, 3
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %32 = getelementptr inbounds i8, ptr %31, i64 -24
-  %33 = icmp ult ptr %2, %32
+  %33 = icmp ugt i32 %29, 3
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %1, align 8
   br label %36
@@ -85917,9 +85925,9 @@ define linkonce_odr void @_ZN6open3d4core3nns4impl15RadiusSearchCPUIfiNS1_23Neig
   %or.cond.i = or i1 %67, %66
   %68 = icmp eq ptr %0, null
   %or.cond3.i = or i1 %68, %or.cond.i
-  br i1 %or.cond3.i, label %.lr.ph.i.i.i.preheader.i, label %71
+  br i1 %or.cond3.i, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, label %71
 
-.lr.ph.i.i.i.preheader.i:                         ; preds = %61
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i:                 ; preds = %61
   %69 = shl i64 %4, 3
   %70 = add i64 %69, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %70, i1 false), !tbaa !9
@@ -86423,7 +86431,7 @@ common.resume:                                    ; preds = %404, %232
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIfiNS1_23NeighborSearchAllocatorIfiEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i
+_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIfiNS1_23NeighborSearchAllocatorIfiEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
@@ -86460,9 +86468,9 @@ _ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIfiNS1_23NeighborSearchA
   %or.cond.i27 = or i1 %239, %238
   %240 = icmp eq ptr %0, null
   %or.cond3.i28 = or i1 %240, %or.cond.i27
-  br i1 %or.cond3.i28, label %.lr.ph.i.i.i.preheader.i100, label %243
+  br i1 %or.cond3.i28, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i100, label %243
 
-.lr.ph.i.i.i.preheader.i100:                      ; preds = %233
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i100:              ; preds = %233
   %241 = shl i64 %4, 3
   %242 = add i64 %241, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %242, i1 false), !tbaa !9
@@ -86962,7 +86970,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit71.i33:              ; preds = %399, %.body.i36, %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIfiNS1_23NeighborSearchAllocatorIfiEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i100, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i98
+_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIfiNS1_23NeighborSearchAllocatorIfiEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i100, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
@@ -88053,13 +88061,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %26 = load i32, ptr %25, align 4, !tbaa !29
   %27 = load i32, ptr %21, align 8, !tbaa !1406
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw float, ptr %2, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 2
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %30 = getelementptr inbounds i8, ptr %29, i64 -12
   %31 = load ptr, ptr %20, align 8
   %32 = zext i32 %26 to i64
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = icmp ult ptr %2, %30
+  %35 = icmp ugt i32 %27, 3
   br i1 %35, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %23
@@ -90670,13 +90679,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %26 = load i32, ptr %25, align 4, !tbaa !29
   %27 = load i32, ptr %21, align 8, !tbaa !181
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw float, ptr %2, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 2
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %30 = getelementptr inbounds i8, ptr %29, i64 -12
   %31 = load ptr, ptr %20, align 8
   %32 = zext i32 %26 to i64
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = icmp ult ptr %2, %30
+  %35 = icmp ugt i32 %27, 3
   br i1 %35, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %23
@@ -91690,9 +91700,9 @@ define linkonce_odr void @_ZN6open3d4core3nns4impl15RadiusSearchCPUIflNS1_23Neig
   %or.cond.i = or i1 %67, %66
   %68 = icmp eq ptr %0, null
   %or.cond3.i = or i1 %68, %or.cond.i
-  br i1 %or.cond3.i, label %.lr.ph.i.i.i.preheader.i, label %71
+  br i1 %or.cond3.i, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, label %71
 
-.lr.ph.i.i.i.preheader.i:                         ; preds = %61
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i:                 ; preds = %61
   %69 = shl i64 %4, 3
   %70 = add i64 %69, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %70, i1 false), !tbaa !9
@@ -92196,7 +92206,7 @@ common.resume:                                    ; preds = %404, %232
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIflNS1_23NeighborSearchAllocatorIflEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i
+_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIflNS1_23NeighborSearchAllocatorIflEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
@@ -92233,9 +92243,9 @@ _ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIflNS1_23NeighborSearchA
   %or.cond.i27 = or i1 %239, %238
   %240 = icmp eq ptr %0, null
   %or.cond3.i28 = or i1 %240, %or.cond.i27
-  br i1 %or.cond3.i28, label %.lr.ph.i.i.i.preheader.i100, label %243
+  br i1 %or.cond3.i28, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i100, label %243
 
-.lr.ph.i.i.i.preheader.i100:                      ; preds = %233
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i100:              ; preds = %233
   %241 = shl i64 %4, 3
   %242 = add i64 %241, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %242, i1 false), !tbaa !9
@@ -92735,7 +92745,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit71.i33:              ; preds = %399, %.body.i36, %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIflNS1_23NeighborSearchAllocatorIflEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i100, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i98
+_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIflNS1_23NeighborSearchAllocatorIflEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i100, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
@@ -93825,13 +93835,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %26 = load i64, ptr %25, align 8, !tbaa !9
   %27 = load i32, ptr %21, align 8, !tbaa !1540
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw float, ptr %2, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 2
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %30 = getelementptr inbounds i8, ptr %29, i64 -12
   %31 = load ptr, ptr %20, align 8
   %32 = and i64 %26, 4294967295
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = icmp ult ptr %2, %30
+  %35 = icmp ugt i32 %27, 3
   br i1 %35, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %23
@@ -96362,13 +96373,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %26 = load i64, ptr %25, align 8, !tbaa !9
   %27 = load i32, ptr %21, align 8, !tbaa !907
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw float, ptr %2, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 2
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %30 = getelementptr inbounds i8, ptr %29, i64 -12
   %31 = load ptr, ptr %20, align 8
   %32 = and i64 %26, 4294967295
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = icmp ult ptr %2, %30
+  %35 = icmp ugt i32 %27, 3
   br i1 %35, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %23
@@ -97382,9 +97394,9 @@ define linkonce_odr void @_ZN6open3d4core3nns4impl15RadiusSearchCPUIdiNS1_23Neig
   %or.cond.i = or i1 %67, %66
   %68 = icmp eq ptr %0, null
   %or.cond3.i = or i1 %68, %or.cond.i
-  br i1 %or.cond3.i, label %.lr.ph.i.i.i.preheader.i, label %71
+  br i1 %or.cond3.i, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, label %71
 
-.lr.ph.i.i.i.preheader.i:                         ; preds = %61
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i:                 ; preds = %61
   %69 = shl i64 %4, 3
   %70 = add i64 %69, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %70, i1 false), !tbaa !9
@@ -97888,7 +97900,7 @@ common.resume:                                    ; preds = %404, %232
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdiNS1_23NeighborSearchAllocatorIdiEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i
+_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdiNS1_23NeighborSearchAllocatorIdiEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
@@ -97925,9 +97937,9 @@ _ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdiNS1_23NeighborSearchA
   %or.cond.i27 = or i1 %239, %238
   %240 = icmp eq ptr %0, null
   %or.cond3.i28 = or i1 %240, %or.cond.i27
-  br i1 %or.cond3.i28, label %.lr.ph.i.i.i.preheader.i100, label %243
+  br i1 %or.cond3.i28, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i100, label %243
 
-.lr.ph.i.i.i.preheader.i100:                      ; preds = %233
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i100:              ; preds = %233
   %241 = shl i64 %4, 3
   %242 = add i64 %241, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %242, i1 false), !tbaa !9
@@ -98427,7 +98439,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit71.i33:              ; preds = %399, %.body.i36, %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdiNS1_23NeighborSearchAllocatorIdiEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i100, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i98
+_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdiNS1_23NeighborSearchAllocatorIdiEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i100, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit.i98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
@@ -99518,13 +99530,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %26 = load i32, ptr %25, align 4, !tbaa !29
   %27 = load i32, ptr %21, align 8, !tbaa !1655
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw double, ptr %2, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %30 = getelementptr inbounds i8, ptr %29, i64 -24
   %31 = load ptr, ptr %20, align 8
   %32 = zext i32 %26 to i64
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = icmp ult ptr %2, %30
+  %35 = icmp ugt i32 %27, 3
   br i1 %35, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %23
@@ -102057,13 +102070,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %26 = load i32, ptr %25, align 4, !tbaa !29
   %27 = load i32, ptr %21, align 8, !tbaa !1015
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw double, ptr %2, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %30 = getelementptr inbounds i8, ptr %29, i64 -24
   %31 = load ptr, ptr %20, align 8
   %32 = zext i32 %26 to i64
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = icmp ult ptr %2, %30
+  %35 = icmp ugt i32 %27, 3
   br i1 %35, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %23
@@ -103078,9 +103092,9 @@ define linkonce_odr void @_ZN6open3d4core3nns4impl15RadiusSearchCPUIdlNS1_23Neig
   %or.cond.i = or i1 %67, %66
   %68 = icmp eq ptr %0, null
   %or.cond3.i = or i1 %68, %or.cond.i
-  br i1 %or.cond3.i, label %.lr.ph.i.i.i.preheader.i, label %71
+  br i1 %or.cond3.i, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, label %71
 
-.lr.ph.i.i.i.preheader.i:                         ; preds = %61
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i:                 ; preds = %61
   %69 = shl i64 %4, 3
   %70 = add i64 %69, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %70, i1 false), !tbaa !9
@@ -103584,7 +103598,7 @@ common.resume:                                    ; preds = %404, %232
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdlNS1_23NeighborSearchAllocatorIdlEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i
+_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdlNS1_23NeighborSearchAllocatorIdlEELi0EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
@@ -103621,9 +103635,9 @@ _ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdlNS1_23NeighborSearchA
   %or.cond.i27 = or i1 %239, %238
   %240 = icmp eq ptr %0, null
   %or.cond3.i28 = or i1 %240, %or.cond.i27
-  br i1 %or.cond3.i28, label %.lr.ph.i.i.i.preheader.i100, label %243
+  br i1 %or.cond3.i28, label %_ZSt4fillIPliEvT_S1_RKT0_.exit.i100, label %243
 
-.lr.ph.i.i.i.preheader.i100:                      ; preds = %233
+_ZSt4fillIPliEvT_S1_RKT0_.exit.i100:              ; preds = %233
   %241 = shl i64 %4, 3
   %242 = add i64 %241, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %242, i1 false), !tbaa !9
@@ -104123,7 +104137,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit71.i33:              ; preds = %399, %.body.i36, %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #36
   br label %common.resume
 
-_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdlNS1_23NeighborSearchAllocatorIdlEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %.lr.ph.i.i.i.preheader.i100, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i98
+_ZN6open3d4core3nns4impl12_GLOBAL__N_116_RadiusSearchCPUIdlNS1_23NeighborSearchAllocatorIdlEELi1EEEvPNS1_24NanoFlannIndexHolderBaseEPlmPKT_mSC_mSC_bbbbRT1_.exit: ; preds = %_ZSt4fillIPliEvT_S1_RKT0_.exit.i100, %_ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit.i98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
@@ -105213,13 +105227,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %26 = load i64, ptr %25, align 8, !tbaa !9
   %27 = load i32, ptr %21, align 8, !tbaa !1758
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw double, ptr %2, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %30 = getelementptr inbounds i8, ptr %29, i64 -24
   %31 = load ptr, ptr %20, align 8
   %32 = and i64 %26, 4294967295
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = icmp ult ptr %2, %30
+  %35 = icmp ugt i32 %27, 3
   br i1 %35, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %23
@@ -107751,13 +107766,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK9nanoflann24KDTreeSingleIndexAdaptor
   %26 = load i64, ptr %25, align 8, !tbaa !9
   %27 = load i32, ptr %21, align 8, !tbaa !1124
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw double, ptr %2, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %30 = getelementptr inbounds i8, ptr %29, i64 -24
   %31 = load ptr, ptr %20, align 8
   %32 = and i64 %26, 4294967295
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = icmp ult ptr %2, %30
+  %35 = icmp ugt i32 %27, 3
   br i1 %35, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %23

@@ -3792,6 +3792,8 @@ for.cond61.preheader:                             ; preds = %invoke.cont57
 for.body63.lr.ph:                                 ; preds = %for.cond61.preheader
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %sub.ptr.sub.i, i64 2097152)
   %cmp7742 = icmp ne ptr %13, null
+  %cmp7843 = icmp ne i64 %sub.ptr.sub.i, 32
+  %15 = and i1 %cmp7742, %cmp7843
   br label %for.body63
 
 for.body63:                                       ; preds = %for.body63.lr.ph, %for.inc
@@ -3799,8 +3801,6 @@ for.body63:                                       ; preds = %for.body63.lr.ph, %
   %add.ptr = getelementptr inbounds i8, ptr %13, i64 %subRangeStart.046
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %.sroa.speculated
   %add.ptr74 = getelementptr i8, ptr %add.ptr.i, i64 -32
-  %cmp7843 = icmp ne ptr %add.ptr, %add.ptr74
-  %15 = and i1 %cmp7742, %cmp7843
   br i1 %15, label %while.body, label %for.inc
 
 while.body:                                       ; preds = %for.body63, %invoke.cont86
@@ -3959,6 +3959,7 @@ for.cond9.preheader:                              ; preds = %for.body
 
 for.body11.lr.ph:                                 ; preds = %for.cond9.preheader
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.sub.i, i64 2097152)
+  %cmp19.not196 = icmp eq i64 %sub.ptr.sub.i, 32
   br label %for.body11
 
 if.then7:                                         ; preds = %for.body
@@ -3973,7 +3974,6 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %subRangeStart.0205
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %.sroa.speculated
   %add.ptr17 = getelementptr i8, ptr %add.ptr.i, i64 -32
-  %cmp19.not196 = icmp eq ptr %add.ptr, %add.ptr17
   br i1 %cmp19.not196, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %for.body11, %if.end88

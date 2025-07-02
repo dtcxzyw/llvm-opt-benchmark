@@ -638,12 +638,12 @@ define noundef zeroext i1 @_Z21IsRelativeSymlinkSafeP11CommandDataPKwS2_S2_(ptr 
 38:                                               ; preds = %35
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %5, ptr noundef %2, i64 noundef 2048)
   %39 = call i64 @wcslen(ptr noundef nonnull %5) #14
-  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %39
-  %.016.i = getelementptr inbounds i8, ptr %40, i64 -4
-  %.not1517.i = icmp ugt ptr %.016.i, %5
+  %.not1517.i = icmp ugt i64 %39, 1
   br i1 %.not1517.i, label %.lr.ph.i, label %_ZL10LinkInPathPKw.exit
 
 .lr.ph.i:                                         ; preds = %38
+  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %39
+  %.016.i = getelementptr inbounds i8, ptr %40, i64 -4
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8208
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8205
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8204

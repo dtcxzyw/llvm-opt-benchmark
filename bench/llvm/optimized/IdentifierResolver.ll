@@ -1033,7 +1033,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE28reserveForParamAndGe
   %110 = getelementptr inbounds i8, ptr %109, i64 -8
   %111 = load ptr, ptr %110, align 8, !tbaa !10
   store ptr %111, ptr %109, align 8, !tbaa !10
-  %.not.i.i.i.i.i.i.i.i28 = icmp eq ptr %110, %108
+  %.not.i.i.i.i.i.i.i.i28 = icmp eq i64 %.pre-phi16.i.i.i26, 1
   br i1 %.not.i.i.i.i.i.i.i.i28, label %_ZSt13move_backwardIPPN5clang9NamedDeclES3_ET0_T_S5_S4_.exit.i.i.i32, label %112
 
 112:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9NamedDeclELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i25

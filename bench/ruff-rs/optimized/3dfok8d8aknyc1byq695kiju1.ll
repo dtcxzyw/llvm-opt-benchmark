@@ -9189,11 +9189,11 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %15 = icmp eq i64 %9, %13
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 %9
   %17 = getelementptr inbounds i8, ptr %16, i64 -1
-  %18 = icmp ne ptr %11, %17
+  %18 = icmp ne i64 %9, 1
   %19 = getelementptr inbounds i8, ptr %16, i64 -2
-  %20 = icmp ne ptr %11, %19
+  %20 = icmp ne i64 %9, 2
   %21 = getelementptr inbounds i8, ptr %16, i64 -3
-  %22 = icmp ne ptr %11, %21
+  %22 = icmp ne i64 %9, 3
   %23 = getelementptr inbounds i8, ptr %16, i64 -4
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -45397,7 +45397,7 @@ define hidden void @_ZN11ruff_linter5rules10flake8_pyi5rules17type_alias_naming2
   br i1 %22, label %29, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i": ; preds = %19
-  %23 = icmp ne ptr %14, %20
+  %23 = icmp ne i64 %15, 1
   call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds i8, ptr %18, i64 -2
   %25 = load i8, ptr %24, align 1, !alias.scope !5922, !noalias !5925, !noundef !4
@@ -45411,7 +45411,7 @@ define hidden void @_ZN11ruff_linter5rules10flake8_pyi5rules17type_alias_naming2
   br label %_ZN4core3str11validations23next_code_point_reverse17hd370926ca822532dE.exit.i
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit19.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i"
-  %31 = icmp ne ptr %14, %24
+  %31 = icmp ne i64 %15, 2
   call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds i8, ptr %18, i64 -3
   %33 = load i8, ptr %32, align 1, !alias.scope !5922, !noalias !5925, !noundef !4
@@ -45430,7 +45430,7 @@ define hidden void @_ZN11ruff_linter5rules10flake8_pyi5rules17type_alias_naming2
   br label %_ZN4core3str11validations23next_code_point_reverse17hd370926ca822532dE.exit.i
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit21.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit19.i.i"
-  %42 = icmp ne ptr %14, %32
+  %42 = icmp ne i64 %15, 3
   call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds i8, ptr %18, i64 -4
   %44 = load i8, ptr %43, align 1, !alias.scope !5922, !noalias !5925, !noundef !4
@@ -51303,7 +51303,7 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle5rules30missing_newline_a
   br i1 %26, label %33, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i.i.i": ; preds = %19
-  %27 = icmp ne ptr %13, %24
+  %27 = icmp ne i64 %14, 1
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds i8, ptr %20, i64 -2
   store ptr %28, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !6425, !noalias !6422
@@ -51318,7 +51318,7 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle5rules30missing_newline_a
   br label %60
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit19.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit17.i.i.i.i"
-  %35 = icmp ne ptr %13, %28
+  %35 = icmp ne i64 %14, 2
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds i8, ptr %20, i64 -3
   store ptr %36, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !6428, !noalias !6422
@@ -51337,7 +51337,7 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle5rules30missing_newline_a
   br label %60
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit21.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb6395a744f824a91E.exit19.i.i.i.i"
-  %46 = icmp ne ptr %13, %36
+  %46 = icmp ne i64 %14, 3
   tail call void @llvm.assume(i1 %46)
   %47 = getelementptr inbounds i8, ptr %20, i64 -4
   store ptr %47, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !6431, !noalias !6422
