@@ -1970,9 +1970,9 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %43, %37, %45
   %56 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %57 = load i64, ptr %47, align 8
   %58 = lshr i64 %57, 29
-  %.idx = and i64 %58, 536870904
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx
-  %60 = add nuw nsw i64 %.idx, 24
+  %59 = and i64 %58, 536870904
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 %59
+  %60 = add nuw nsw i64 %59, 24
   %.not126 = icmp samesign eq i64 %spec.select.v.i.i, %60
   br i1 %.not126, label %._crit_edge, label %.lr.ph
 
@@ -2394,7 +2394,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZNSt6vectorIN4cvc5
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit55: ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %228, %234
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #26
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0127, i64 8
-  %.not = icmp eq ptr %238, %59
+  %.not = icmp eq ptr %238, %60
   br i1 %.not, label %._crit_edge, label %97
 
 239:                                              ; preds = %210, %208

@@ -2080,7 +2080,7 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.FT_Vector_, align 8
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %214, label %4
+  br i1 %.not, label %210, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 41
@@ -2093,7 +2093,7 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
   %9 = load i64, ptr %0, align 8, !tbaa !45
   %10 = tail call fastcc i32 @ft_stroker_cap(ptr noundef %0, i64 noundef %9)
   %.not49 = icmp eq i32 %10, 0
-  br i1 %.not49, label %11, label %214
+  br i1 %.not49, label %11, label %210
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -2227,7 +2227,7 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
 ft_stroker_add_reverse_left.exit:                 ; preds = %32, %39
   %76 = phi i32 [ %43, %39 ], [ %38, %32 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
-  br label %214
+  br label %210
 
 77:                                               ; preds = %._crit_edge.i, %11
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2238,7 +2238,7 @@ ft_stroker_add_reverse_left.exit:                 ; preds = %32, %39
   %82 = add nsw i64 %81, 11796480
   %83 = call fastcc i32 @ft_stroker_cap(ptr noundef %0, i64 noundef %82)
   %.not51 = icmp eq i32 %83, 0
-  br i1 %.not51, label %84, label %214
+  br i1 %.not51, label %84, label %210
 
 84:                                               ; preds = %77
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -2286,7 +2286,7 @@ ft_stroke_border_close.exit:                      ; preds = %89, %90
   store i32 -1, ptr %85, align 4, !tbaa !24
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 0, ptr %113, align 8, !tbaa !50
-  br label %214
+  br label %210
 
 114:                                              ; preds = %4
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2311,7 +2311,7 @@ ft_stroke_border_close.exit:                      ; preds = %89, %90
 128:                                              ; preds = %121, %114
   %129 = tail call i32 @FT_Stroker_LineTo(ptr noundef nonnull %0, ptr noundef nonnull %117)
   %.not47 = icmp eq i32 %129, 0
-  br i1 %.not47, label %130, label %214
+  br i1 %.not47, label %130, label %210
 
 130:                                              ; preds = %121, %128
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2322,7 +2322,7 @@ ft_stroke_border_close.exit:                      ; preds = %89, %90
   %135 = load i64, ptr %134, align 8, !tbaa !52
   %136 = tail call fastcc i32 @ft_stroker_process_corner(ptr noundef %0, i64 noundef %135)
   %.not48 = icmp eq i32 %136, 0
-  br i1 %.not48, label %137, label %214
+  br i1 %.not48, label %137, label %210
 
 137:                                              ; preds = %130
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -2424,16 +2424,16 @@ ft_stroke_border_close.exit54:                    ; preds = %143, %144
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %.048.i = getelementptr inbounds i8, ptr %.04857.i, i64 -16
   %.049.i = getelementptr inbounds nuw i8, ptr %.04958.i, i64 16
-  %193 = icmp ult ptr %.049.i, %.048.i
-  br i1 %193, label %.lr.ph.i60, label %._crit_edge.i57, !llvm.loop !61
+  %191 = icmp ult ptr %.049.i, %.048.i
+  br i1 %191, label %.lr.ph.i60, label %._crit_edge.i56, !llvm.loop !61
 
-._crit_edge.i57:                                  ; preds = %.lr.ph.i60, %174
+._crit_edge.i56:                                  ; preds = %.lr.ph.i60, %174
   %194 = add nuw nsw i64 %178, 1
   %195 = add nsw i64 %180, -1
   %196 = icmp slt i64 %194, %195
   br i1 %196, label %.lr.ph64.preheader.i, label %.loopexit.i
 
-.lr.ph64.preheader.i:                             ; preds = %._crit_edge.i57
+.lr.ph64.preheader.i:; preds = %._crit_edge.i57
   %197 = load ptr, ptr %182, align 8, !tbaa !35
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 %178
   %.04760.i = getelementptr inbounds nuw i8, ptr %198, i64 1
@@ -2441,7 +2441,7 @@ ft_stroke_border_close.exit54:                    ; preds = %143, %144
   %.059.i = getelementptr inbounds i8, ptr %199, i64 -1
   br label %.lr.ph64.i
 
-.lr.ph64.i:                                       ; preds = %.lr.ph64.i, %.lr.ph64.preheader.i
+.lr.ph64.i: ; preds = %.lr.ph64.i, %.lr.ph64.preheader.i
   %.04762.i = phi ptr [ %.047.i, %.lr.ph64.i ], [ %.04760.i, %.lr.ph64.preheader.i ]
   %.061.i = phi ptr [ %.0.i58, %.lr.ph64.i ], [ %.059.i, %.lr.ph64.preheader.i ]
   %200 = load i8, ptr %.04762.i, align 1, !tbaa !49
@@ -2450,10 +2450,10 @@ ft_stroke_border_close.exit54:                    ; preds = %143, %144
   store i8 %200, ptr %.061.i, align 1, !tbaa !49
   %.0.i58 = getelementptr inbounds i8, ptr %.061.i, i64 -1
   %.047.i = getelementptr inbounds nuw i8, ptr %.04762.i, i64 1
-  %202 = icmp ult ptr %.047.i, %.0.i58
-  br i1 %202, label %.lr.ph64.i, label %.loopexit.i, !llvm.loop !62
+  %198 = icmp ult ptr %.047.i, %.0.i58
+  br i1 %198, label %.lr.ph64.i, label %.loopexit.i.loopexit, !llvm.loop !62
 
-.loopexit.i:                                      ; preds = %.lr.ph64.i, %._crit_edge.i57
+.loopexit.i.loopexit:                             ; preds = %.lr.ph64.i, %._crit_edge.i57
   %203 = load ptr, ptr %182, align 8, !tbaa !35
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 %178
   %205 = load i8, ptr %204, align 1, !tbaa !49
@@ -2470,11 +2470,11 @@ ft_stroke_border_close.exit54:                    ; preds = %143, %144
 
 ft_stroke_border_close.exit61:                    ; preds = %173, %.loopexit.i
   store i32 -1, ptr %169, align 4, !tbaa !24
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i8 0, ptr %213, align 8, !tbaa !50
-  br label %214
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i8 0, ptr %209, align 8, !tbaa !50
+  br label %210
 
-214:                                              ; preds = %ft_stroker_add_reverse_left.exit, %128, %130, %ft_stroke_border_close.exit61, %1, %77, %7, %ft_stroke_border_close.exit
+210:                                              ; preds = %ft_stroker_add_reverse_left.exit, %128, %130, %ft_stroke_border_close.exit61, %1, %77, %7, %ft_stroke_border_close.exit
   %.035 = phi i32 [ %136, %130 ], [ 0, %ft_stroke_border_close.exit61 ], [ %129, %128 ], [ 6, %1 ], [ 0, %ft_stroke_border_close.exit ], [ %10, %7 ], [ %76, %ft_stroker_add_reverse_left.exit ], [ %83, %77 ]
   ret i32 %.035
 }

@@ -870,73 +870,73 @@ fwd_aa_tab_clear.exit:                            ; preds = %86, %73, %62
 .lr.ph.i37:                                       ; preds = %94
   %97 = add nuw nsw i64 %.idx, 8
   %.0121.i.i.i46 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  br label %98
+  br label %97
 
-98:                                               ; preds = %aa_table.exit.i39, %.lr.ph.i37
+97:                                               ; preds = %aa_table.exit.i39, %.lr.ph.i37
   %.014.in27.i38 = phi i16 [ %.014.in25.i34, %.lr.ph.i37 ], [ %.014.in.i40, %aa_table.exit.i39 ]
-  %99 = zext i16 %.014.in27.i38 to i64
-  %100 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %99
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 2
-  %102 = load i16, ptr %101, align 2, !tbaa !4
-  %103 = icmp eq i16 %102, 34
-  br i1 %103, label %104, label %aa_table.exit.i39
+  %98 = zext i16 %.014.in27.i38 to i64
+  %99 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %98
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 2
+  %101 = load i16, ptr %100, align 2, !tbaa !4
+  %102 = icmp eq i16 %101, 34
+  br i1 %102, label %103, label %aa_table.exit.i39
 
-104:                                              ; preds = %98
-  %105 = load i16, ptr %100, align 8, !tbaa !4
-  %106 = icmp eq i16 %3, %105
-  br i1 %106, label %fwd_aa_tab_clear.exit.thread59, label %107
+103:                                              ; preds = %97
+  %104 = load i16, ptr %99, align 8, !tbaa !4
+  %105 = icmp eq i16 %3, %104
+  br i1 %105, label %fwd_aa_tab_clear.exit.thread59, label %106
 
-107:                                              ; preds = %104
-  %108 = zext i16 %105 to i64
-  %.idx100 = shl nuw nsw i64 %108, 3
+106:                                              ; preds = %103
+  %107 = zext i16 %104 to i64
+  %.idx100 = shl nuw nsw i64 %107, 3
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx100
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 5
   %111 = load i8, ptr %110, align 1, !tbaa !4
   %112 = add i8 %111, -83
-  %or.cond.i.i41 = icmp ult i8 %112, -2
+  %112 = icmp ult i8 %112, -2
   %113 = icmp samesign ult i64 %97, %.idx100
   %or.cond = select i1 %or.cond.i.i41, i1 %113, i1 false
   br i1 %or.cond, label %.lr.ph.i.i.i47, label %aa_table.exit.i39
 
-.lr.ph.i.i.i47:                                   ; preds = %107, %120
+.lr.ph.i.i.i47:                                   ; preds = %106, %119
   %.0123.i.i.i48 = phi ptr [ %.012.i.i.i50, %120 ], [ %.0121.i.i.i46, %107 ]
   %.pn2.i.i.i49 = phi ptr [ %.0123.i.i.i48, %120 ], [ %90, %107 ]
-  %114 = getelementptr inbounds nuw i8, ptr %.pn2.i.i.i49, i64 10
-  %115 = load i16, ptr %114, align 2, !tbaa !4
-  %116 = icmp eq i16 %3, %115
-  br i1 %116, label %117, label %120
+  %113 = getelementptr inbounds nuw i8, ptr %.pn2.i.i.i49, i64 10
+  %114 = load i16, ptr %113, align 2, !tbaa !4
+  %115 = icmp eq i16 %3, %114
+  br i1 %115, label %116, label %119
 
-117:                                              ; preds = %.lr.ph.i.i.i47
-  %118 = getelementptr inbounds nuw i8, ptr %.pn2.i.i.i49, i64 13
-  %119 = load i8, ptr %118, align 1, !tbaa !4
-  %.off.i.i.i51 = add i8 %119, -74
+116:                                              ; preds = %.lr.ph.i.i.i47
+  %117 = getelementptr inbounds nuw i8, ptr %.pn2.i.i.i49, i64 13
+  %118 = load i8, ptr %117, align 1, !tbaa !4
+  %.off.i.i.i51 = add i8 %118, -74
   %switch.i.i.i52 = icmp ult i8 %.off.i.i.i51, 4
-  br i1 %switch.i.i.i52, label %fwd_aa_tab_clear.exit.thread59, label %120
+  br i1 %switch.i.i.i52, label %fwd_aa_tab_clear.exit.thread59, label %119
 
-120:                                              ; preds = %117, %.lr.ph.i.i.i47
+119:                                              ; preds = %116, %.lr.ph.i.i.i47
   %.012.i.i.i50 = getelementptr inbounds nuw i8, ptr %.0123.i.i.i48, i64 8
-  %121 = icmp ult ptr %.012.i.i.i50, %109
-  br i1 %121, label %.lr.ph.i.i.i47, label %aa_table.exit.i39, !llvm.loop !28
+  %120 = icmp ult ptr %.012.i.i.i50, %109
+  br i1 %120, label %.lr.ph.i.i.i47, label %aa_table.exit.i39, !llvm.loop !28
 
-aa_table.exit.i39:                                ; preds = %120, %107, %98
-  %122 = getelementptr inbounds nuw i8, ptr %100, i64 6
-  %.014.in.i40 = load i16, ptr %122, align 2, !tbaa !4
-  %123 = icmp ugt i16 %.014.in.i40, %3
-  br i1 %123, label %98, label %fwd_aa_tab_clear.exit53, !llvm.loop !31
+aa_table.exit.i39:                                ; preds = %119, %106, %97
+  %121 = getelementptr inbounds nuw i8, ptr %99, i64 6
+  %.014.in.i40 = load i16, ptr %121, align 2, !tbaa !4
+  %122 = icmp ugt i16 %.014.in.i40, %3
+  br i1 %122, label %97, label %fwd_aa_tab_clear.exit53, !llvm.loop !31
 
 fwd_aa_tab_clear.exit53:                          ; preds = %aa_table.exit.i39, %94
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %125 = load i8, ptr %124, align 4, !tbaa !4
-  %126 = and i8 %125, 127
-  store i8 %126, ptr %124, align 4, !tbaa !4
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %124 = load i8, ptr %123, align 4, !tbaa !4
+  %125 = and i8 %124, 127
+  store i8 %125, ptr %123, align 4, !tbaa !4
   br label %fwd_aa_tab_clear.exit.thread59
 
-fwd_aa_tab_clear.exit.thread59:                   ; preds = %72, %83, %104, %117, %44, %31, %55, %17, %._crit_edge, %fwd_aa_tab_clear.exit53
-  %127 = tail call i32 @lj_opt_cse(ptr noundef %0) #6
+fwd_aa_tab_clear.exit.thread59:                   ; preds = %72, %83, %103, %116, %44, %31, %55, %17, %._crit_edge, %fwd_aa_tab_clear.exit53
+  %126 = tail call i32 @lj_opt_cse(ptr noundef %0) #6
   br label %fwd_aa_tab_clear.exit.thread64
 
 fwd_aa_tab_clear.exit.thread64:                   ; preds = %aa_table.exit.i, %23, %fwd_aa_tab_clear.exit.thread59
-  %.2 = phi i32 [ %127, %fwd_aa_tab_clear.exit.thread59 ], [ %.027.le, %23 ], [ %.027.le, %aa_table.exit.i ]
+  %.2 = phi i32 [ %126, %fwd_aa_tab_clear.exit.thread59 ], [ %.027.le, %23 ], [ %.027.le, %aa_table.exit.i ]
   ret i32 %.2
 }
 

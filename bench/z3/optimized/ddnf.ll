@@ -2094,8 +2094,8 @@ _ZNK15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgr
 
 12:                                               ; preds = %.lr.ph
   %.idx.i = shl nuw nsw i64 %indvars.iv, 3
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
-  %14 = load ptr, ptr %13, align 8, !tbaa !58
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
+  %15 = load ptr, ptr %14, align 8, !tbaa !58
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = load i32, ptr %15, align 4, !tbaa !57
   %17 = zext i32 %16 to i64
@@ -2105,7 +2105,7 @@ _ZNK15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgr
   br i1 %.not11.i.i, label %_ZN6vectorIPN7datalog9ddnf_nodeELb0EjE5eraseEPS2_.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %12
-  %.010.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.010.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = ptrtoint ptr %4 to i64
   %20 = ptrtoint ptr %13 to i64
   %21 = add i64 %19, -16

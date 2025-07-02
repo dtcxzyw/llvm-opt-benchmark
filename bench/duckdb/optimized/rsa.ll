@@ -1664,11 +1664,11 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL27rsa_rsassa_pkcs1_v
   %.not72 = icmp samesign eq i64 %64, %3
   br i1 %.not72, label %.thread, label %65
 
-65:                                               ; preds = %42
+64:                                               ; preds = %42
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef %3)
   br label %.thread
 
-.thread:                                          ; preds = %16, %13, %11, %8, %42, %31, %28, %22, %65, %40
+.thread:                                          ; preds = %16, %13, %11, %8, %42, %31, %28, %22, %64, %40
   %.1 = phi i32 [ 0, %40 ], [ -16512, %65 ], [ -16512, %22 ], [ -16512, %28 ], [ -16512, %31 ], [ 0, %42 ], [ -16512, %8 ], [ -16512, %11 ], [ -16512, %13 ], [ -16512, %16 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9

@@ -132,8 +132,8 @@ define hidden noundef i32 @mlib_ImageAffine_u8_1ch_bc(ptr noundef readonly captu
   %.0204236 = sext i16 %65 to i32
   %.0205237 = sext i16 %63 to i32
   %.0206238 = sext i16 %61 to i32
-  %.not221239.not = icmp sgt i32 %40, %38
-  br i1 %.not221239.not, label %.lr.ph, label %._crit_edge
+  %.not221239 = icmp sgt i32 %40, %38
+  br i1 %.not221239, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %52, %.lr.ph
   %.0206255 = phi i32 [ %.0206, %.lr.ph ], [ %.0206238, %52 ]
@@ -549,8 +549,8 @@ define hidden noundef i32 @mlib_ImageAffine_u8_2ch_bc(ptr noundef readonly captu
   %.0208.in240 = getelementptr inbounds nuw i8, ptr %.0224235, i64 2
   %.0208241 = load i8, ptr %.0208.in240, align 1
   %.0209242 = load i8, ptr %.0224235, align 1
-  %.not230251.not = icmp slt i64 %indvars.iv, %invariant.op
-  br i1 %.not230251.not, label %.lr.ph, label %._crit_edge
+  %.not230251 = icmp slt i64 %indvars.iv, %invariant.op
+  br i1 %.not230251, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87, %.lr.ph
   %.0218267 = phi i32 [ %.0218, %.lr.ph ], [ %.0218250, %87 ]
@@ -968,8 +968,8 @@ define hidden noundef i32 @mlib_ImageAffine_u8_3ch_bc(ptr noundef readonly captu
   %.0208.in240 = getelementptr inbounds nuw i8, ptr %.0224235, i64 3
   %.0208241 = load i8, ptr %.0208.in240, align 1
   %.0209242 = load i8, ptr %.0224235, align 1
-  %.not230251.not = icmp slt i64 %indvars.iv, %invariant.op
-  br i1 %.not230251.not, label %.lr.ph, label %._crit_edge
+  %.not230251 = icmp slt i64 %indvars.iv, %invariant.op
+  br i1 %.not230251, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87, %.lr.ph
   %.0218267 = phi i32 [ %.0218, %.lr.ph ], [ %.0218250, %87 ]
@@ -1389,8 +1389,8 @@ define hidden noundef i32 @mlib_ImageAffine_u8_4ch_bc(ptr noundef readonly captu
   %.0208.in240 = getelementptr inbounds nuw i8, ptr %.0224235, i64 4
   %.0208241 = load i8, ptr %.0208.in240, align 1
   %.0209242 = load i8, ptr %.0224235, align 1
-  %.not230251.not = icmp slt i64 %indvars.iv, %invariant.op
-  br i1 %.not230251.not, label %.lr.ph, label %._crit_edge
+  %.not230251 = icmp slt i64 %indvars.iv, %invariant.op
+  br i1 %.not230251, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87, %.lr.ph
   %.0218267 = phi i32 [ %.0218, %.lr.ph ], [ %.0218250, %87 ]
