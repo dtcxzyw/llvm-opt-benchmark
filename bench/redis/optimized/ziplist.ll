@@ -2100,7 +2100,7 @@ define dso_local noundef ptr @ziplistIndex(ptr noundef %0, i32 noundef %1) local
   %5 = load i32, ptr %0, align 4, !tbaa !5
   %6 = zext i32 %5 to i64
   %7 = icmp slt i32 %1, 0
-  br i1 %7, label %8, label %44
+  br i1 %7, label %8, label %46
 
 8:                                                ; preds = %2
   %9 = xor i32 %1, -1
@@ -2126,133 +2126,133 @@ define dso_local noundef ptr @ziplistIndex(ptr noundef %0, i32 noundef %1) local
   %20 = icmp slt i64 %18, %19
   br i1 %20, label %.thread70, label %21, !prof !14
 
-21:                                               ; preds = %.thread, %14
+23:                                               ; preds = %.thread, %14
   tail call void @_serverAssert(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 1163) #17
   tail call void @abort() #18
   unreachable
 
-22:                                               ; preds = %14
-  %23 = zext i8 %13 to i32
-  br label %26
+24:                                               ; preds = %14
+  %25 = zext i8 %13 to i32
+  br label %28
 
 .thread70:                                        ; preds = %.thread
-  %24 = getelementptr i8, ptr %.ptr67, i64 1
-  %25 = load i32, ptr %24, align 1
-  br label %26
+  %26 = getelementptr i8, ptr %.ptr67, i64 1
+  %27 = load i32, ptr %26, align 1
+  br label %28
 
-26:                                               ; preds = %.thread70, %22
-  %27 = phi i64 [ %16, %22 ], [ %19, %.thread70 ]
-  %.048 = phi i32 [ %23, %22 ], [ %25, %.thread70 ]
+28:                                               ; preds = %.thread70, %24
+  %29 = phi i64 [ %16, %22 ], [ %19, %.thread70 ]
+  %.048 = phi i32 [ %25, %22 ], [ %27, %.thread70 ]
   %.not6574 = icmp eq i32 %.048, 0
   br i1 %.not6574, label %.critedge.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %26, %43
+.lr.ph:                                           ; preds = %28, %45
   %.177 = phi i32 [ %.2, %43 ], [ %.048, %26 ]
   %.052.idx76 = phi i64 [ %.052.add, %43 ], [ %12, %26 ]
-  %.05575 = phi i32 [ %28, %43 ], [ %9, %26 ]
-  %28 = add nsw i32 %.05575, -1
+  %.05575 = phi i32 [ %30, %43 ], [ %9, %26 ]
+  %30 = add nsw i32 %.05575, -1
   %.not66 = icmp eq i32 %.05575, 0
-  br i1 %.not66, label %.critedge.loopexit, label %29
+  br i1 %.not66, label %.critedge.loopexit, label %31
 
-29:                                               ; preds = %.lr.ph
-  %30 = zext i32 %.177 to i64
-  %.052.add = sub nsw i64 %.052.idx76, %30
+31:                                               ; preds = %.lr.ph
+  %32 = zext i32 %.177 to i64
+  %.052.add = sub nsw i64 %.052.idx76, %32
   %.ptr = getelementptr inbounds i8, ptr %0, i64 %.052.add
-  %31 = icmp sgt i64 %.052.add, 9
-  %32 = icmp slt i64 %.052.add, %27
-  %33 = and i1 %31, %32
-  br i1 %33, label %35, label %34, !prof !14
+  %33 = icmp sgt i64 %.052.add, 9
+  %34 = icmp slt i64 %.052.add, %29
+  %33 = and i1 %33, %34
+  br i1 %33, label %37, label %36, !prof !14
 
-34:                                               ; preds = %29
+36:                                               ; preds = %31
   tail call void @_serverAssert(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 1167) #17
   tail call void @abort() #18
   unreachable
 
-35:                                               ; preds = %29
-  %36 = load i8, ptr %.ptr, align 1, !tbaa !9
-  %37 = icmp ult i8 %36, -2
-  br i1 %37, label %38, label %40
+37:                                               ; preds = %31
+  %38 = load i8, ptr %.ptr, align 1, !tbaa !9
+  %39 = icmp ult i8 %38, -2
+  br i1 %39, label %40, label %42
 
-38:                                               ; preds = %35
-  %39 = zext i8 %36 to i32
-  br label %43
+40:                                               ; preds = %37
+  %41 = zext i8 %38 to i32
+  br label %45
 
-40:                                               ; preds = %35
-  %41 = getelementptr i8, ptr %.ptr, i64 1
-  %42 = load i32, ptr %41, align 1
-  br label %43
+42:                                               ; preds = %37
+  %43 = getelementptr i8, ptr %.ptr, i64 1
+  %44 = load i32, ptr %43, align 1
+  br label %45
 
-43:                                               ; preds = %40, %38
-  %.2 = phi i32 [ %39, %38 ], [ %42, %40 ]
+45:                                               ; preds = %42, %40
+  %.2 = phi i32 [ %41, %38 ], [ %44, %40 ]
   %.not65 = icmp eq i32 %.2, 0
   br i1 %.not65, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !33
 
-44:                                               ; preds = %2
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  br label %48
+46:                                               ; preds = %2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  br label %50
 
-48:                                               ; preds = %zipRawEntryLengthSafe.exit, %44
-  %.257 = phi i32 [ %1, %44 ], [ %49, %zipRawEntryLengthSafe.exit ]
-  %.254 = phi ptr [ %45, %44 ], [ %57, %zipRawEntryLengthSafe.exit ]
-  %49 = add nsw i32 %.257, -1
+50:                                               ; preds = %zipRawEntryLengthSafe.exit, %46
+  %.257 = phi i32 [ %1, %44 ], [ %51, %zipRawEntryLengthSafe.exit ]
+  %.254 = phi ptr [ %47, %44 ], [ %59, %zipRawEntryLengthSafe.exit ]
+  %51 = add nsw i32 %.257, -1
   %.not = icmp eq i32 %.257, 0
-  br i1 %.not, label %.critedge, label %50
-
-50:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
-  %51 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %6, ptr noundef nonnull %.254, ptr noundef %4, i32 noundef 0)
-  %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %52, label %zipRawEntryLengthSafe.exit, !prof !24
+  br i1 %.not, label %.critedge, label %52
 
 52:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
+  %53 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %6, ptr noundef nonnull %.254, ptr noundef %4, i32 noundef 0)
+  %.not.i = icmp eq i32 %53, 0
+  br i1 %.not.i, label %54, label %zipRawEntryLengthSafe.exit, !prof !24
+
+54:                                               ; preds = %52
   tail call void @_serverAssert(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 693) #17
   tail call void @abort() #18
   unreachable
 
-zipRawEntryLengthSafe.exit:                       ; preds = %50
-  %53 = load i32, ptr %46, align 8, !tbaa !22
-  %54 = load i32, ptr %47, align 4, !tbaa !21
-  %55 = add i32 %54, %53
+zipRawEntryLengthSafe.exit:                       ; preds = %52
+  %55 = load i32, ptr %48, align 8, !tbaa !22
+  %56 = load i32, ptr %49, align 4, !tbaa !21
+  %57 = add i32 %56, %55
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #17
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %.254, i64 %56
-  %58 = load i8, ptr %57, align 1, !tbaa !9
-  %59 = icmp eq i8 %58, -1
-  br i1 %59, label %.critedge, label %48, !llvm.loop !34
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw i8, ptr %.254, i64 %58
+  %60 = load i8, ptr %59, align 1, !tbaa !9
+  %61 = icmp eq i8 %60, -1
+  br i1 %61, label %.critedge, label %50, !llvm.loop !34
 
-.critedge.loopexit:                               ; preds = %43, %.lr.ph, %26
+.critedge.loopexit:                               ; preds = %45, %.lr.ph, %28
   %.052.idx.lcssa = phi i64 [ %12, %26 ], [ %.052.idx76, %.lr.ph ], [ %.052.add, %43 ]
-  %.156.ph = phi i32 [ %9, %26 ], [ -1, %.lr.ph ], [ %28, %43 ]
+  %.156.ph = phi i32 [ %9, %26 ], [ -1, %.lr.ph ], [ %30, %43 ]
   %.052.ptr.le = getelementptr inbounds i8, ptr %0, i64 %.052.idx.lcssa
   br label %.critedge
 
-.critedge:                                        ; preds = %48, %zipRawEntryLengthSafe.exit, %.critedge.loopexit, %8
-  %.156 = phi i32 [ %9, %8 ], [ %.156.ph, %.critedge.loopexit ], [ -1, %48 ], [ %49, %zipRawEntryLengthSafe.exit ]
-  %.153 = phi ptr [ %.ptr67, %8 ], [ %.052.ptr.le, %.critedge.loopexit ], [ %.254, %48 ], [ %57, %zipRawEntryLengthSafe.exit ]
-  %60 = load i8, ptr %.153, align 1, !tbaa !9
-  %61 = icmp eq i8 %60, -1
-  %62 = icmp sgt i32 %.156, 0
-  %or.cond = select i1 %61, i1 true, i1 %62
-  br i1 %or.cond, label %66, label %63
+.critedge:                                        ; preds = %50, %zipRawEntryLengthSafe.exit, %.critedge.loopexit, %8
+  %.156 = phi i32 [ %9, %8 ], [ %.156.ph, %.critedge.loopexit ], [ -1, %48 ], [ %51, %zipRawEntryLengthSafe.exit ]
+  %.153 = phi ptr [ %.ptr67, %8 ], [ %.052.ptr.le, %.critedge.loopexit ], [ %.254, %48 ], [ %59, %zipRawEntryLengthSafe.exit ]
+  %62 = load i8, ptr %.153, align 1, !tbaa !9
+  %63 = icmp eq i8 %62, -1
+  %64 = icmp sgt i32 %.156, 0
+  %or.cond = select i1 %63, i1 true, i1 %64
+  br i1 %or.cond, label %68, label %65
 
-63:                                               ; preds = %.critedge
+65:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
-  %64 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %6, ptr noundef nonnull %.153, ptr noundef %3, i32 noundef 1)
-  %.not.i68 = icmp eq i32 %64, 0
-  br i1 %.not.i68, label %65, label %zipAssertValidEntry.exit, !prof !24
+  %66 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %6, ptr noundef nonnull %.153, ptr noundef %3, i32 noundef 1)
+  %.not.i68 = icmp eq i32 %66, 0
+  br i1 %.not.i68, label %67, label %zipAssertValidEntry.exit, !prof !24
 
-65:                                               ; preds = %63
+67:                                               ; preds = %65
   tail call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 707) #17
   tail call void @abort() #18
   unreachable
 
-zipAssertValidEntry.exit:                         ; preds = %63
+zipAssertValidEntry.exit:                         ; preds = %65
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
-  br label %66
+  br label %68
 
-66:                                               ; preds = %.critedge, %zipAssertValidEntry.exit
+68:                                               ; preds = %.critedge, %zipAssertValidEntry.exit
   %.0 = phi ptr [ %.153, %zipAssertValidEntry.exit ], [ null, %.critedge ]
   ret ptr %.0
 }

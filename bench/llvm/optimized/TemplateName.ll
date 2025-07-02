@@ -1572,8 +1572,8 @@ _ZNK5clang12TemplateName30getAsSubstTemplateTemplateParmEv.exit: ; preds = %11
   br label %_ZNK5clang12TemplateName7getKindEv.exit
 
 _ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit: ; preds = %11
-  %.not95 = icmp eq i64 %6, 2
-  %spec.select94 = select i1 %.not95, ptr %9, ptr null
+  %.not96 = icmp eq i64 %6, 2
+  %spec.select95 = select i1 %.not96, ptr %9, ptr null
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.0.0.copyload.i39 = load i64, ptr %78, align 8
@@ -1585,18 +1585,18 @@ _ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit: ; preds = %11
   %82 = lshr i32 %80, 17
   %narrow = mul nuw nsw i32 %82, 24
   %.idx = zext nneg i32 %narrow to i64
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx
   %.not81 = icmp ult i32 %80, 131072
   br i1 %.not81, label %_ZNK5clang12TemplateName7getKindEv.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit, %.lr.ph
-  %.02183 = phi ptr [ %87, %.lr.ph ], [ %81, %_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit ]
+  %.02183.pn = phi ptr [ %87, %.lr.ph ], [ %81, %_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit ]
   %.05382 = phi i8 [ %86, %.lr.ph ], [ %79, %_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit ]
-  %84 = tail call noundef zeroext i8 @_ZNK5clang16TemplateArgument13getDependenceEv(ptr noundef nonnull align 8 dereferenceable(24) %.02183) #19
+  %84 = tail call noundef zeroext i8 @_ZNK5clang16TemplateArgument13getDependenceEv(ptr noundef nonnull align 8 dereferenceable(24) %.02183.pn) #19
   %85 = and i8 %84, 15
   %86 = or i8 %85, %.05382
   %87 = getelementptr inbounds nuw i8, ptr %.02183, i64 24
-  %.not = icmp eq ptr %87, %83
+  %.not = icmp eq ptr %87, %82
   br i1 %.not, label %_ZNK5clang12TemplateName7getKindEv.exit, label %.lr.ph
 
 _ZNK5clang12TemplateName7getKindEv.exit.fold.split: ; preds = %11

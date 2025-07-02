@@ -128,11 +128,11 @@ define hidden range(i32 0, 2) i32 @lj_str_haspattern(ptr noundef readonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %5
-  %.not15 = icmp eq i32 %4, 0
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  %.ptr15 = getelementptr inbounds nuw i8, ptr %2, i64 %5
+  %.not16 = icmp eq i32 %4, 0
+  br i1 %.not16, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %1, %.critedge
+.lr.ph.preheader:                                 ; preds = %1, %.critedge
   %.01012 = phi ptr [ %7, %.critedge ], [ %2, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %.01012, i64 1
   %8 = load i8, ptr %.01012, align 1, !tbaa !14
@@ -143,15 +143,15 @@ define hidden range(i32 0, 2) i32 @lj_str_haspattern(ptr noundef readonly captur
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %.critedge, label %13
 
-13:                                               ; preds = %.lr.ph
+13:; preds = %.lr.ph
   %14 = zext i8 %8 to i32
   %memchr = tail call ptr @memchr(ptr nonnull dereferenceable(1) @.str, i32 %14, i64 11)
   %.not11 = icmp eq ptr %memchr, null
   br i1 %.not11, label %.critedge, label %._crit_edge13, !llvm.loop !15
 
 .critedge:                                        ; preds = %13, %.lr.ph
-  %15 = icmp ult ptr %7, %6
-  br i1 %15, label %.lr.ph, label %._crit_edge
+  %14 = icmp ult ptr %7, %.ptr15
+  br i1 %14, label %.lr.ph, label %._crit_edge
 
 ._crit_edge13:                                    ; preds = %13
   br label %._crit_edge, !llvm.loop !15

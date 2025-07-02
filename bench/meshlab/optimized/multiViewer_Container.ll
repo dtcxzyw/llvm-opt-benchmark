@@ -2362,13 +2362,13 @@ _ZN5QListIP6GLAreaE6detachEv.exit:                ; preds = %26, %_ZN5QListIP6GL
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   %.idx28 = shl nsw i64 %58, 3
-  %59 = getelementptr inbounds i8, ptr %49, i64 %.idx28
+  %60 = getelementptr inbounds i8, ptr %49, i64 %.idx28
   %60 = add nsw i64 %.idx, %.idx27
   %61 = add nsw i64 %60, 8
   %.not25 = icmp eq i64 %61, %.idx28
   br i1 %.not25, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZN5QListIP6GLAreaE6detachEv.exit
+.lr.ph.preheader:; preds = %_ZN5QListIP6GLAreaE6detachEv.exit
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 8
   br label %.lr.ph
 
@@ -2377,9 +2377,9 @@ _ZN5QListIP6GLAreaE6detachEv.exit:                ; preds = %26, %_ZN5QListIP6GL
   %.01826 = phi ptr [ %.1, %69 ], [ %55, %.lr.ph.preheader ]
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, %15
-  br i1 %65, label %69, label %66
+  br i1 %65, label %69, label %67
 
-66:                                               ; preds = %.lr.ph
+67:                                               ; preds = %.lr.ph
   %67 = ptrtoint ptr %64 to i64
   %68 = getelementptr inbounds nuw i8, ptr %.01826, i64 8
   store i64 %67, ptr %.01826, align 8
@@ -2394,25 +2394,25 @@ _ZN5QListIP6GLAreaE6detachEv.exit:                ; preds = %26, %_ZN5QListIP6GL
 ._crit_edge.loopexit:                             ; preds = %69
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 12
-  %.pre30 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre28 = load i32, ptr %.phi.trans.insert, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN5QListIP6GLAreaE6detachEv.exit
-  %71 = phi i32 [ %57, %_ZN5QListIP6GLAreaE6detachEv.exit ], [ %.pre30, %._crit_edge.loopexit ]
-  %72 = phi ptr [ %48, %_ZN5QListIP6GLAreaE6detachEv.exit ], [ %.pre, %._crit_edge.loopexit ]
+  %69 = phi i32 [ %57, %_ZN5QListIP6GLAreaE6detachEv.exit ], [ %.pre28, %._crit_edge.loopexit ]
+  %70 = phi ptr [ %48, %_ZN5QListIP6GLAreaE6detachEv.exit ], [ %.pre, %._crit_edge.loopexit ]
   %.018.lcssa = phi ptr [ %55, %_ZN5QListIP6GLAreaE6detachEv.exit ], [ %.1, %._crit_edge.loopexit ]
-  %73 = ptrtoint ptr %59 to i64
-  %74 = ptrtoint ptr %.018.lcssa to i64
-  %75 = sub i64 %73, %74
-  %76 = lshr exact i64 %75, 3
-  %77 = trunc i64 %76 to i32
-  %78 = getelementptr inbounds nuw i8, ptr %72, i64 12
-  %79 = sub nsw i32 %71, %77
-  store i32 %79, ptr %78, align 4
+  %71 = ptrtoint ptr %59 to i64
+  %72 = ptrtoint ptr %.018.lcssa to i64
+  %73 = sub i64 %71, %72
+  %74 = lshr exact i64 %73, 3
+  %75 = trunc i64 %74 to i32
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 12
+  %77 = sub nsw i32 %69, %75
+  store i32 %77, ptr %76, align 4
   br label %_ZNK5QListIP6GLAreaE7indexOfERKS1_i.exit.thread
 
 _ZNK5QListIP6GLAreaE7indexOfERKS1_i.exit.thread:  ; preds = %16, %2, %_ZNK5QListIP6GLAreaE7indexOfERKS1_i.exit, %._crit_edge
-  %.0 = phi i32 [ %77, %._crit_edge ], [ 0, %_ZNK5QListIP6GLAreaE7indexOfERKS1_i.exit ], [ 0, %2 ], [ 0, %16 ]
+  %.0 = phi i32 [ %75, %._crit_edge ], [ 0, %_ZNK5QListIP6GLAreaE7indexOfERKS1_i.exit ], [ 0, %2 ], [ 0, %16 ]
   ret i32 %.0
 }
 

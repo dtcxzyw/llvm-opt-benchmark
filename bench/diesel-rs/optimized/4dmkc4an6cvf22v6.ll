@@ -6400,7 +6400,7 @@ define { i64, i64 } @"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$a
   %.0.i.i.i = select i1 %trunc.i.i.i, ptr %17, ptr %16
   %18 = load ptr, ptr %.0.i.i.i, align 8, !noalias !1300, !nonnull !4, !noundef !4
   %19 = invoke noundef i32 @sqlite3_column_count(ptr noundef nonnull %18)
-          to label %.noexc unwind label %46
+          to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %15
   store i32 0, ptr %5, align 4, !noalias !1295
@@ -6413,7 +6413,7 @@ define { i64, i64 } @"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$a
   %.sroa.53.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %.sroa.53.0..sroa_idx.i, align 8, !noalias !1295
   %21 = invoke { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h96668452fd8632deE.llvm.3868854263495710559(ptr noalias noundef nonnull align 4 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
-          to label %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit unwind label %46
+          to label %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit unwind label %45
 
 _ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit: ; preds = %.noexc
   %.fca.0.extract.i = extractvalue { i32, i32 } %21, 0
@@ -6435,7 +6435,7 @@ _ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d732
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.idx = mul nsw i64 %27, 24
-  %29 = getelementptr inbounds i8, ptr %28, i64 %.idx
+  %28 = getelementptr inbounds i8, ptr %28, i64 %.idx
   %30 = icmp eq i64 %27, 0
   br i1 %30, label %.loopexit, label %.lr.ph.i
 
@@ -6444,49 +6444,49 @@ _ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d732
   %31 = phi ptr [ %32, %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i" ], [ %28, %23 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1308)
-  %33 = load i64, ptr %31, align 8, !range !56, !alias.scope !1308, !noalias !1311, !noundef !4
-  %34 = icmp eq i64 %33, -9223372036854775808
-  br i1 %34, label %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i", label %35
+  %32 = load i64, ptr %31, align 8, !range !56, !alias.scope !1308, !noalias !1311, !noundef !4
+  %33 = icmp eq i64 %32, -9223372036854775808
+  br i1 %33, label %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i", label %34
 
-35:                                               ; preds = %.lr.ph.i
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %37 = load i64, ptr %36, align 8, !alias.scope !1308, !noalias !1311, !noundef !4
-  %.not.i.i.i = icmp eq i64 %37, %2
+34:                                               ; preds = %.lr.ph.i
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %36 = load i64, ptr %35, align 8, !alias.scope !1308, !noalias !1311, !noundef !4
+  %.not.i.i.i = icmp eq i64 %36, %2
   br i1 %.not.i.i.i, label %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.i", label %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i"
 
-"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.i": ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %39 = load ptr, ptr %38, align 8, !alias.scope !1308, !noalias !1311, !nonnull !4, !noundef !4
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %39, ptr nonnull readonly align 1 %1, i64 %2), !alias.scope !1315, !noalias !1319
-  %40 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %40, label %43, label %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i"
+"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.i": ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %38 = load ptr, ptr %37, align 8, !alias.scope !1308, !noalias !1311, !nonnull !4, !noundef !4
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %38, ptr nonnull readonly align 1 %1, i64 %2), !alias.scope !1315, !noalias !1319
+  %39 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %39, label %42, label %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i"
 
-"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i": ; preds = %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.i", %35, %.lr.ph.i
-  %41 = add nuw nsw i64 %.013.i, 1
-  %42 = icmp eq ptr %32, %29
-  br i1 %42, label %.loopexit, label %.lr.ph.i
+"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i": ; preds = %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.i", %34, %.lr.ph.i
+  %40 = add nuw nsw i64 %.013.i, 1
+  %41 = icmp eq ptr %32, %29
+  br i1 %41, label %.loopexit, label %.lr.ph.i
 
-43:                                               ; preds = %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.i"
-  %44 = icmp ult i64 %.013.i, %27
-  tail call void @llvm.assume(i1 %44)
+42:                                               ; preds = %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.i"
+  %43 = icmp ult i64 %.013.i, %27
+  tail call void @llvm.assume(i1 %43)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i", %23, %43, %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit
-  %45 = phi i64 [ %22, %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit ], [ 0, %43 ], [ 0, %23 ], [ 0, %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i" ]
+.loopexit:                                        ; preds = %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i", %23, %42, %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit
+  %44 = phi i64 [ %22, %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit ], [ 0, %43 ], [ 0, %23 ], [ 0, %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i" ]
   %.sroa.0.0.i14.pn = phi i64 [ %spec.select7.i, %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit ], [ 1, %43 ], [ 0, %23 ], [ 0, %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i" ]
   %.sroa.3.0.i.pn = phi i64 [ %spec.select.i, %_ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d7329acf197d11E.exit ], [ %.013.i, %43 ], [ undef, %23 ], [ undef, %"_ZN99_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c8359ef3f1e28E.exit.thread.i" ]
-  %.pn19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i14.pn, 0
-  %.pn = insertvalue { i64, i64 } %.pn19, i64 %.sroa.3.0.i.pn, 1
-  store i64 %45, ptr %7, align 8, !noalias !1301
+  %.pn20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i14.pn, 0
+  %.pn = insertvalue { i64, i64 } %.pn20, i64 %.sroa.3.0.i.pn, 1
+  store i64 %44, ptr %7, align 8, !noalias !1301
   ret { i64, i64 } %.pn
 
-46:                                               ; preds = %15, %.noexc
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %15, %.noexc
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %48 = load i64, ptr %7, align 8, !noalias !1320, !noundef !4
-  %49 = add i64 %48, 1
-  store i64 %49, ptr %7, align 8, !noalias !1320
-  resume { ptr, i32 } %47
+  %47 = load i64, ptr %7, align 8, !noalias !1320, !noundef !4
+  %48 = add i64 %47, 1
+  store i64 %48, ptr %7, align 8, !noalias !1320
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: nonlazybind uwtable

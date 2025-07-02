@@ -145618,7 +145618,7 @@ define hidden void @"_ZN3vim3Vim13input_ignored28_$u7b$$u7b$closure$u7d$$u7d$17h
   %30 = icmp eq i64 %.val4, 0
   br i1 %30, label %_ZN4core3str11validations15next_code_point17h0603fe6d9162d691E.exit.thread.i.i, label %31
 
-31:                                               ; preds = %"_ZN78_$LT$gpui..app..GlobalLease$LT$G$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h921d586cd3fabec7E.exit.i"
+31:; preds = %"_ZN78_$LT$gpui..app..GlobalLease$LT$G$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h921d586cd3fabec7E.exit.i"
   %32 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %33 = load i8, ptr %32, align 1, !noalias !30409, !noundef !4
   %34 = icmp sgt i8 %33, -1

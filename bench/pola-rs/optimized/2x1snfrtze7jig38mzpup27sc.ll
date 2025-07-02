@@ -6795,7 +6795,7 @@ define hidden void @_ZN10polars_row5utils16decode_opt_nulls17hc96ea560cd6162abE(
 
 26:                                               ; preds = %18
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder20extend_constant_slow17h6b1eb0ecaf954308E(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %.sroa.02.013.i, i1 noundef zeroext true)
-          to label %._crit_edge unwind label %99
+          to label %._crit_edge unwind label %98
 
 ._crit_edge:                                      ; preds = %26
   %.pre = load i64, ptr %20, align 8
@@ -6823,15 +6823,15 @@ define hidden void @_ZN10polars_row5utils16decode_opt_nulls17hc96ea560cd6162abE(
 
 40:                                               ; preds = %34
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef 1)
-          to label %._crit_edge19 unwind label %99
+          to label %._crit_edge19 unwind label %98
 
-._crit_edge19:                                    ; preds = %40
-  %.pre20 = load i64, ptr %20, align 8, !alias.scope !489
-  %.pre22 = add i64 %.pre20, 1
+._crit_edge18:                                    ; preds = %40
+  %.pre19 = load i64, ptr %20, align 8, !alias.scope !489
+  %.pre21 = add i64 %.pre19, 1
   br label %41
 
-41:                                               ; preds = %._crit_edge19, %34
-  %.pre-phi = phi i64 [ %.pre22, %._crit_edge19 ], [ %36, %34 ]
+41:                                               ; preds = %._crit_edge18, %34
+  %.pre-phi = phi i64 [ %.pre21, %._crit_edge19 ], [ %36, %34 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !489)
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %43 = load i64, ptr %42, align 8, !alias.scope !489, !noundef !3
@@ -6857,11 +6857,11 @@ define hidden void @_ZN10polars_row5utils16decode_opt_nulls17hc96ea560cd6162abE(
   %57 = add i64 %56, %54
   store i64 %57, ptr %55, align 8, !alias.scope !489
   store i64 0, ptr %42, align 8, !alias.scope !489
-  %.pre21 = load i64, ptr %20, align 8, !alias.scope !492, !noalias !495
+  %.pre20 = load i64, ptr %20, align 8, !alias.scope !492, !noalias !495
   br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit: ; preds = %41, %46
-  %58 = phi i64 [ %.pre-phi, %41 ], [ %.pre21, %46 ]
+  %58 = phi i64 [ %.pre-phi, %41 ], [ %.pre20, %46 ]
   %.idx15 = shl nuw nsw i64 %.sroa.02.013.i, 4
   %59 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %.sroa.02.013.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -6874,7 +6874,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 65:                                               ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %61)
-          to label %.noexc unwind label %99
+          to label %.noexc unwind label %98
 
 .noexc:                                           ; preds = %65, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %66 = add nuw nsw i64 %.idx15, 16
@@ -6882,61 +6882,61 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br i1 %67, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder23extend_trusted_len_iter17h0440ac0a6bd90a2dE.exit, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i": ; preds = %.noexc
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %70 = load ptr, ptr %69, align 8, !alias.scope !492, !noalias !495, !nonnull !3
-  %71 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %69 = load ptr, ptr %68, align 8, !alias.scope !492, !noalias !495, !nonnull !3
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.pre.i = load i64, ptr %20, align 8, !alias.scope !497, !noalias !495
   %.pre15.i = load i64, ptr %42, align 8, !alias.scope !497, !noalias !495
-  %.promoted = load i64, ptr %68, align 8
-  %.promoted17 = load i64, ptr %71, align 8
+  %.promoted = load i64, ptr %67, align 8
+  %.promoted16 = load i64, ptr %70, align 8
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i": ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i"
-  %72 = phi i64 [ %.promoted17, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i" ], [ %94, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i ]
-  %73 = phi i64 [ %.promoted, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i" ], [ %95, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i ]
-  %74 = phi i64 [ %.pre15.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i" ], [ %96, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i ]
-  %75 = phi i64 [ %.pre.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i" ], [ %85, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i ]
-  %.sroa.07.014.i = phi ptr [ %60, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i" ], [ %76, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.07.014.i, i64 16
+  %71 = phi i64 [ %.promoted16, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i" ], [ %93, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i ]
+  %72 = phi i64 [ %.promoted, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i" ], [ %94, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i ]
+  %73 = phi i64 [ %.pre15.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i" ], [ %95, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i ]
+  %74 = phi i64 [ %.pre.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i" ], [ %84, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i ]
+  %.sroa.07.014.i = phi ptr [ %60, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.lr.ph.i" ], [ %75, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i ]
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.07.014.i, i64 16
   %.val3.i.i = load ptr, ptr %.sroa.07.014.i, align 8, !noalias !500, !nonnull !3, !align !42, !noundef !3
-  %77 = getelementptr i8, ptr %.sroa.07.014.i, i64 8
-  %.val4.i.i = load i64, ptr %77, align 8, !noalias !500, !noundef !3
-  %78 = icmp ne i64 %.val4.i.i, 0
-  call void @llvm.assume(i1 %78)
-  %79 = load i8, ptr %.val3.i.i, align 1, !noalias !500, !noundef !3
-  %80 = icmp ne i8 %79, %3
+  %76 = getelementptr i8, ptr %.sroa.07.014.i, i64 8
+  %.val4.i.i = load i64, ptr %76, align 8, !noalias !500, !noundef !3
+  %77 = icmp ne i64 %.val4.i.i, 0
+  call void @llvm.assume(i1 %77)
+  %78 = load i8, ptr %.val3.i.i, align 1, !noalias !500, !noundef !3
+  %79 = icmp ne i8 %78, %3
   call void @llvm.experimental.noalias.scope.decl(metadata !503)
-  %81 = zext i1 %80 to i64
-  %82 = and i64 %75, 63
-  %83 = shl nuw i64 %81, %82
-  %84 = or i64 %83, %74
-  store i64 %84, ptr %42, align 8, !alias.scope !497, !noalias !495
-  %85 = add i64 %75, 1
-  store i64 %85, ptr %20, align 8, !alias.scope !497, !noalias !495
-  %86 = and i64 %85, 63
-  %87 = icmp eq i64 %86, 0
-  br i1 %87, label %88, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
+  %80 = zext i1 %79 to i64
+  %81 = and i64 %74, 63
+  %82 = shl nuw i64 %80, %81
+  %83 = or i64 %82, %73
+  store i64 %83, ptr %42, align 8, !alias.scope !497, !noalias !495
+  %84 = add i64 %74, 1
+  store i64 %84, ptr %20, align 8, !alias.scope !497, !noalias !495
+  %85 = and i64 %84, 63
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
 
-88:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i"
-  %89 = icmp sgt i64 %73, -1
-  call void @llvm.assume(i1 %89)
-  %90 = getelementptr inbounds nuw i8, ptr %70, i64 %73
-  store i64 %84, ptr %90, align 1, !noalias !504
-  %91 = add nuw i64 %73, 8
-  store i64 %91, ptr %68, align 8, !alias.scope !497, !noalias !495
-  %92 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %84)
-  %93 = add i64 %72, %92
-  store i64 %93, ptr %71, align 8, !alias.scope !497, !noalias !495
+87:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i"
+  %88 = icmp sgt i64 %72, -1
+  call void @llvm.assume(i1 %88)
+  %89 = getelementptr inbounds nuw i8, ptr %69, i64 %72
+  store i64 %83, ptr %89, align 1, !noalias !504
+  %90 = add nuw i64 %72, 8
+  store i64 %90, ptr %67, align 8, !alias.scope !497, !noalias !495
+  %91 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %83)
+  %92 = add i64 %71, %91
+  store i64 %92, ptr %70, align 8, !alias.scope !497, !noalias !495
   store i64 0, ptr %42, align 8, !alias.scope !497, !noalias !495
   br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i: ; preds = %88, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i"
-  %94 = phi i64 [ %72, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i" ], [ %93, %88 ]
-  %95 = phi i64 [ %73, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i" ], [ %91, %88 ]
-  %96 = phi i64 [ %84, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i" ], [ 0, %88 ]
-  %97 = icmp eq ptr %76, %7
-  br i1 %97, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder23extend_trusted_len_iter17h0440ac0a6bd90a2dE.exit, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i"
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i: ; preds = %87, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i"
+  %93 = phi i64 [ %71, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i" ], [ %92, %88 ]
+  %94 = phi i64 [ %72, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i" ], [ %90, %88 ]
+  %95 = phi i64 [ %83, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i" ], [ 0, %88 ]
+  %96 = icmp eq ptr %75, %7
+  br i1 %96, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder23extend_trusted_len_iter17h0440ac0a6bd90a2dE.exit, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f27d506bff415cbE.exit.i"
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder23extend_trusted_len_iter17h0440ac0a6bd90a2dE.exit: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.i, %.noexc
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
@@ -6946,17 +6946,17 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder23extend_trusted_len_iter17h0440a
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   br label %25
 
-98:                                               ; preds = %99
+97:                                               ; preds = %98
   resume { ptr, i32 } %lpad.thr_comm
 
-99:                                               ; preds = %40, %26, %65
+98:                                               ; preds = %40, %26, %65
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17h7fcb0a5d78babb09E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6) #24
-          to label %98 unwind label %100
+          to label %98 unwind label %99
 
-100:                                              ; preds = %99
-  %101 = landingpad { ptr, i32 }
+99:                                               ; preds = %98
+  %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #25
   unreachable

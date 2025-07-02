@@ -205,9 +205,9 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   %.383.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond, i64 2, i64 0
   %.383.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %.383.idx.sroa.sel.idx.sroa.sel.idx
   %.not107133.not = icmp sgt i64 %80, %.383.idx
-  br i1 %.not107133.not, label %.lr.ph137.preheader, label %.thread117
+  br i1 %.not107133.not, label %.lr.ph137, label %.thread117
 
-.lr.ph137.preheader:                              ; preds = %77
+.lr.ph137:                                        ; preds = %77
   %82 = getelementptr inbounds i8, ptr %4, i64 %80
   %.073132 = getelementptr inbounds i8, ptr %82, i64 -1
   br label %.lr.ph137

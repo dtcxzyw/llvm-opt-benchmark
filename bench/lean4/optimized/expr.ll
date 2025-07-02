@@ -2493,9 +2493,9 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4lean12get_app_
   %4 = load i64, ptr %3, align 8, !tbaa !60
   %5 = load ptr, ptr %0, align 8, !tbaa !10
   %6 = getelementptr i8, ptr %5, i64 4
-  %.val.i.i.i.i10 = load i32, ptr %6, align 4
-  %.mask.i11 = and i32 %.val.i.i.i.i10, -16777216
-  %7 = icmp eq i32 %.mask.i11, 83886080
+  %.val.i.i.i.i9 = load i32, ptr %6, align 4
+  %.mask.i10 = and i32 %.val.i.i.i.i9, -16777216
+  %7 = icmp eq i32 %.mask.i10, 83886080
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
@@ -2505,7 +2505,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4lean12get_app_
 9:                                                ; preds = %.lr.ph, %_ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit
   %10 = phi i64 [ %4, %.lr.ph ], [ %30, %_ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit ]
   %11 = phi ptr [ %5, %.lr.ph ], [ %33, %_ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit ]
-  %.012 = phi ptr [ %0, %.lr.ph ], [ %32, %_ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit ]
+  %.011 = phi ptr [ %0, %.lr.ph ], [ %32, %_ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %8, align 8, !tbaa !61
   %.not.i = icmp ult i64 %10, %13
@@ -2551,7 +2551,7 @@ _ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit: ; preds = %16, %25, %27, %
   %29 = phi i64 [ %17, %16 ], [ %17, %25 ], [ %17, %27 ], [ %.pre2.i, %28 ]
   %30 = add i64 %29, 1
   store i64 %30, ptr %3, align 8, !tbaa !60
-  %31 = load ptr, ptr %.012, align 8, !tbaa !10
+  %31 = load ptr, ptr %.011, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !10
   %34 = getelementptr i8, ptr %33, i64 4
@@ -2584,13 +2584,13 @@ _ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit: ; preds = %16, %25, %27, %
   %.0913.i.i = phi ptr [ %46, %.lr.ph.i.i ], [ %43, %.lr.ph.i.i.preheader ]
   %44 = load ptr, ptr %.0913.i.i, align 8, !tbaa !10
   store ptr inttoptr (i64 1 to ptr), ptr %.0913.i.i, align 8, !tbaa !10
-  %45 = load ptr, ptr %.014.i.i, align 8, !tbaa !10
-  store ptr %45, ptr %.0913.i.i, align 8, !tbaa !10
+  %44 = load ptr, ptr %.014.i.i, align 8, !tbaa !10
+  store ptr %44, ptr %.0913.i.i, align 8, !tbaa !10
   store ptr %44, ptr %.014.i.i, align 8, !tbaa !10
-  %46 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 8
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -8
-  %47 = icmp ult ptr %46, %.0.i.i
-  br i1 %47, label %.lr.ph.i.i, label %_ZSt7reverseIPN4lean4exprEEvT_S3_.exit, !llvm.loop !77
+  %46 = icmp ult ptr %45, %.0.i.i
+  br i1 %46, label %.lr.ph.i.i, label %_ZSt7reverseIPN4lean4exprEEvT_S3_.exit, !llvm.loop !77
 
 _ZSt7reverseIPN4lean4exprEEvT_S3_.exit:           ; preds = %.lr.ph.i.i, %._crit_edge
   ret ptr %.0.lcssa
@@ -2602,12 +2602,12 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4lean20get_app_
   %5 = load i64, ptr %4, align 8, !tbaa !60
   %6 = load ptr, ptr %0, align 8, !tbaa !10
   %7 = getelementptr i8, ptr %6, i64 4
-  %.val.i.i.i.i14 = load i32, ptr %7, align 4
-  %.mask.i15 = and i32 %.val.i.i.i.i14, -16777216
-  %8 = icmp ne i32 %.mask.i15, 83886080
+  %.val.i.i.i.i13 = load i32, ptr %7, align 4
+  %.mask.i14 = and i32 %.val.i.i.i.i13, -16777216
+  %8 = icmp ne i32 %.mask.i14, 83886080
   %9 = icmp eq i32 %1, 0
-  %or.cond16 = or i1 %8, %9
-  br i1 %or.cond16, label %._crit_edge, label %.lr.ph
+  %or.cond15 = or i1 %8, %9
+  br i1 %or.cond15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2616,8 +2616,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4lean20get_app_
 11:                                               ; preds = %.lr.ph, %_ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit
   %12 = phi i64 [ %5, %.lr.ph ], [ %32, %_ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit ]
   %13 = phi ptr [ %6, %.lr.ph ], [ %36, %_ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit ]
-  %.018 = phi i32 [ 0, %.lr.ph ], [ %35, %_ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit ]
-  %.01217 = phi ptr [ %0, %.lr.ph ], [ %34, %_ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit ]
+  %.017 = phi i32 [ 0, %.lr.ph ], [ %35, %_ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit ]
+  %.01216 = phi ptr [ %0, %.lr.ph ], [ %34, %_ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %10, align 8, !tbaa !61
   %.not.i = icmp ult i64 %12, %15
@@ -2663,9 +2663,9 @@ _ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit: ; preds = %18, %27, %29, %
   %31 = phi i64 [ %19, %18 ], [ %19, %27 ], [ %19, %29 ], [ %.pre2.i, %30 ]
   %32 = add i64 %31, 1
   store i64 %32, ptr %4, align 8, !tbaa !60
-  %33 = load ptr, ptr %.01217, align 8, !tbaa !10
+  %33 = load ptr, ptr %.01216, align 8, !tbaa !10
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = add nuw i32 %.018, 1
+  %35 = add nuw i32 %.017, 1
   %36 = load ptr, ptr %34, align 8, !tbaa !10
   %37 = getelementptr i8, ptr %36, i64 4
   %.val.i.i.i.i = load i32, ptr %37, align 4
@@ -2699,13 +2699,13 @@ _ZN4lean6bufferINS_4exprELm16EE9push_backERKS1_.exit: ; preds = %18, %27, %29, %
   %.0913.i.i = phi ptr [ %50, %.lr.ph.i.i ], [ %47, %.lr.ph.i.i.preheader ]
   %48 = load ptr, ptr %.0913.i.i, align 8, !tbaa !10
   store ptr inttoptr (i64 1 to ptr), ptr %.0913.i.i, align 8, !tbaa !10
-  %49 = load ptr, ptr %.014.i.i, align 8, !tbaa !10
-  store ptr %49, ptr %.0913.i.i, align 8, !tbaa !10
+  %48 = load ptr, ptr %.014.i.i, align 8, !tbaa !10
+  store ptr %48, ptr %.0913.i.i, align 8, !tbaa !10
   store ptr %48, ptr %.014.i.i, align 8, !tbaa !10
-  %50 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 8
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -8
-  %51 = icmp ult ptr %50, %.0.i.i
-  br i1 %51, label %.lr.ph.i.i, label %_ZSt7reverseIPN4lean4exprEEvT_S3_.exit, !llvm.loop !77
+  %50 = icmp ult ptr %49, %.0.i.i
+  br i1 %50, label %.lr.ph.i.i, label %_ZSt7reverseIPN4lean4exprEEvT_S3_.exit, !llvm.loop !77
 
 _ZSt7reverseIPN4lean4exprEEvT_S3_.exit:           ; preds = %.lr.ph.i.i, %._crit_edge
   ret ptr %.012.lcssa

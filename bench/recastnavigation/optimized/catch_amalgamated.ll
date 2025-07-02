@@ -46888,7 +46888,7 @@ _ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EEC2ERKS3_.exit: ; preds = %.lr.ph.i.
   %25 = phi ptr [ %13, %.thread ], [ %20, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %24, %.lr.ph.i.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i.i, ptr %25, align 8
-  br label %43
+  br label %45
 
 _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN5Catch14TestCaseHandleESt6vectorIS3_SaIS3_EEEEET_SA_NSt15iterator_traitsISA_E15difference_typeE.exit: ; preds = %4
   %26 = ashr exact i64 %11, 4
@@ -46923,28 +46923,28 @@ _ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN5Catch14TestCaseHandleESaIS1_EE11_M_allocateEm.exit.thread.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseIN5Catch14TestCaseHandleESaIS1_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %36 = getelementptr inbounds nuw i8, ptr null, i64 %gepdiff
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %36, ptr %37, align 8
-  br label %41
-
-.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %38 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %gepdiff) #57
-  store ptr %38, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %gepdiff
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %39, ptr %40, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr align 8 %33, i64 %gepdiff, i1 false)
-  %scevgep.i.i = getelementptr i8, ptr %38, i64 %gepdiff
-  br label %41
-
-41:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %_ZNSt12_Vector_baseIN5Catch14TestCaseHandleESaIS1_EE11_M_allocateEm.exit.thread.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i, %.lr.ph.i.i.i.i.preheader.i.i ], [ null, %_ZNSt12_Vector_baseIN5Catch14TestCaseHandleESaIS1_EE11_M_allocateEm.exit.thread.i.i ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %42, align 8
+  %38 = getelementptr inbounds nuw i8, ptr null, i64 %gepdiff
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %38, ptr %39, align 8
   br label %43
 
-43:                                               ; preds = %41, %_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EEC2ERKS3_.exit
+.lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
+  %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %gepdiff) #57
+  store ptr %40, ptr %0, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %gepdiff
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %41, ptr %42, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr align 8 %33, i64 %gepdiff, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %40, i64 %gepdiff
+  br label %43
+
+43:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %_ZNSt12_Vector_baseIN5Catch14TestCaseHandleESaIS1_EE11_M_allocateEm.exit.thread.i.i
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i, %.lr.ph.i.i.i.i.preheader.i.i ], [ null, %_ZNSt12_Vector_baseIN5Catch14TestCaseHandleESaIS1_EE11_M_allocateEm.exit.thread.i.i ]
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %44, align 8
+  br label %45
+
+45:                                               ; preds = %43, %_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EEC2ERKS3_.exit
   ret void
 }
 

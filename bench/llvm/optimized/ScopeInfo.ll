@@ -1324,7 +1324,7 @@ define dso_local void @_ZNK5clang4sema15LambdaScopeInfo22visitPotentialCapturesE
   ret void
 
 .lr.ph46:                                         ; preds = %3, %.loopexit
-  %.045 = phi ptr [ %32, %.loopexit ], [ %5, %3 ]
+  %.045 = phi ptr [ %31, %.loopexit ], [ %5, %3 ]
   %10 = load ptr, ptr %.045, align 8, !tbaa !157
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, 511
@@ -1358,16 +1358,16 @@ define dso_local void @_ZNK5clang4sema15LambdaScopeInfo22visitPotentialCapturesE
   %27 = load i32, ptr %26, align 4, !tbaa !199
   %28 = zext i32 %27 to i64
   %.idx47 = shl nuw nsw i64 %28, 3
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx47
+  %.ptr48 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx47
   %.not3142 = icmp eq i32 %27, 0
-  br i1 %.not3142, label %.loopexit, label %.lr.ph
+  br i1 %.not3142, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %23, %.lr.ph
+.lr.ph.preheader:                                 ; preds = %23, %.lr.ph
   %.02643 = phi ptr [ %31, %.lr.ph ], [ %25, %23 ]
   %30 = load ptr, ptr %.02643, align 8, !tbaa !201
   tail call void %1(i64 noundef %2, ptr noundef %30, ptr noundef nonnull %10) #14
   %31 = getelementptr inbounds nuw i8, ptr %.02643, i64 8
-  %.not31 = icmp eq ptr %31, %29
+  %.not31 = icmp eq ptr %31, %.ptr48
   br i1 %.not31, label %.loopexit, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %13, %21
@@ -1377,8 +1377,8 @@ define dso_local void @_ZNK5clang4sema15LambdaScopeInfo22visitPotentialCapturesE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %23
-  %32 = getelementptr inbounds nuw i8, ptr %.045, i64 8
-  %.not = icmp eq ptr %32, %9
+  %31 = getelementptr inbounds nuw i8, ptr %.045, i64 8
+  %.not = icmp eq ptr %31, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph46
 }
 
