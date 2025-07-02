@@ -34902,26 +34902,22 @@ define hidden void @_ZN12polars_arrow2io3ipc5write9serialize7binview13write_binv
   %15 = load ptr, ptr %14, align 8, !nonnull !10, !noundef !10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i64, ptr %16, align 8, !noundef !10
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.idx = mul nuw nsw i64 %17, 24
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %19 = icmp eq i64 %17, 0
-  br i1 %19, label %._crit_edge, label %.lr.ph.preheader
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
+  %20 = icmp eq i64 %17, 0
+  br i1 %20, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %6
-  %.ptr = getelementptr inbounds nuw i8, ptr %15, i64 16
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.02.03 = phi ptr [ %20, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.02.03, i64 24
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.02.03, i64 8
-  %22 = load ptr, ptr %21, align 8, !noundef !10
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.02.03, i64 16
-  %24 = load i64, ptr %23, align 8, !noundef !10
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize11write_bytes17h8cad35ef6b156f9cE(ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %24, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i8 noundef %5)
-  %25 = icmp eq ptr %20, %.ptr4
-  br i1 %25, label %._crit_edge, label %.lr.ph
+.lr.ph:                                           ; preds = %6, %.lr.ph
+  %.sroa.02.03 = phi ptr [ %21, %.lr.ph ], [ %18, %6 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.02.03, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.02.03, i64 8
+  %23 = load ptr, ptr %22, align 8, !noundef !10
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.02.03, i64 16
+  %25 = load i64, ptr %24, align 8, !noundef !10
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize11write_bytes17h8cad35ef6b156f9cE(ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %25, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i8 noundef %5)
+  %26 = icmp eq ptr %21, %19
+  br i1 %26, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -34944,26 +34940,22 @@ define hidden void @_ZN12polars_arrow2io3ipc5write9serialize7binview13write_binv
   %15 = load ptr, ptr %14, align 8, !nonnull !10, !noundef !10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i64, ptr %16, align 8, !noundef !10
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.idx = mul nuw nsw i64 %17, 24
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
-  %.ptr4 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %19 = icmp eq i64 %17, 0
-  br i1 %19, label %._crit_edge, label %.lr.ph.preheader
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
+  %20 = icmp eq i64 %17, 0
+  br i1 %20, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %6
-  %.ptr = getelementptr inbounds nuw i8, ptr %15, i64 16
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.02.03 = phi ptr [ %20, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.02.03, i64 24
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.02.03, i64 8
-  %22 = load ptr, ptr %21, align 8, !noundef !10
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.02.03, i64 16
-  %24 = load i64, ptr %23, align 8, !noundef !10
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize11write_bytes17h8cad35ef6b156f9cE(ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %24, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i8 noundef %5)
-  %25 = icmp eq ptr %20, %.ptr4
-  br i1 %25, label %._crit_edge, label %.lr.ph
+.lr.ph:                                           ; preds = %6, %.lr.ph
+  %.sroa.02.03 = phi ptr [ %21, %.lr.ph ], [ %18, %6 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.02.03, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.02.03, i64 8
+  %23 = load ptr, ptr %22, align 8, !noundef !10
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.02.03, i64 16
+  %25 = load i64, ptr %24, align 8, !noundef !10
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize11write_bytes17h8cad35ef6b156f9cE(ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %25, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i8 noundef %5)
+  %26 = icmp eq ptr %21, %19
+  br i1 %26, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void

@@ -1630,9 +1630,9 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL27rsa_rsassa_pkcs1_v
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 2
   store i8 48, ptr %39, align 1, !tbaa !15
   %44 = zext i32 %1 to i64
-  %45 = add nuw nsw i64 %44, 8
-  %46 = add i64 %45, %32
-  %47 = trunc i64 %46 to i8
+  %45 = add i64 %32, %44
+  %46 = trunc i64 %45 to i8
+  %47 = add i8 %46, 8
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 %.161
   store i8 %47, ptr %43, align 1, !tbaa !15
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
@@ -1658,17 +1658,18 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL27rsa_rsassa_pkcs1_v
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i8 %60, ptr %59, align 1, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr align 1 %2, i64 %44, i1 false)
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %44
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 %3
-  %.not72 = icmp eq ptr %62, %63
-  br i1 %.not72, label %.thread, label %64
+  %62 = add nuw nsw i64 %44, 10
+  %63 = add nuw nsw i64 %62, %.161
+  %64 = add nuw nsw i64 %63, %32
+  %.not72 = icmp samesign eq i64 %64, %3
+  br i1 %.not72, label %.thread, label %65
 
-64:                                               ; preds = %42
+65:                                               ; preds = %42
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef %3)
   br label %.thread
 
-.thread:                                          ; preds = %16, %13, %11, %8, %42, %31, %28, %22, %64, %40
-  %.1 = phi i32 [ 0, %40 ], [ -16512, %64 ], [ -16512, %22 ], [ -16512, %28 ], [ -16512, %31 ], [ 0, %42 ], [ -16512, %8 ], [ -16512, %11 ], [ -16512, %13 ], [ -16512, %16 ]
+.thread:                                          ; preds = %16, %13, %11, %8, %42, %31, %28, %22, %65, %40
+  %.1 = phi i32 [ 0, %40 ], [ -16512, %65 ], [ -16512, %22 ], [ -16512, %28 ], [ -16512, %31 ], [ 0, %42 ], [ -16512, %8 ], [ -16512, %11 ], [ -16512, %13 ], [ -16512, %16 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   ret i32 %.1

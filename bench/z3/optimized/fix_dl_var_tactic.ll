@@ -3179,7 +3179,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.preheader:  ; preds = %_ZN6vectorIP4exprLb
   br label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit
 
 _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.preheader, %_ZN17fix_dl_var_tactic9is_target11process_appEP3app.exit
-  %86 = phi ptr [ %126, %_ZN17fix_dl_var_tactic9is_target11process_appEP3app.exit ], [ %.ph, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.preheader ]
+  %86 = phi ptr [ %127, %_ZN17fix_dl_var_tactic9is_target11process_appEP3app.exit ], [ %.ph, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.preheader ]
   %87 = getelementptr inbounds i8, ptr %86, i64 -4
   %88 = load i32, ptr %87, align 4, !tbaa !147
   %89 = icmp eq i32 %88, 0
@@ -3254,31 +3254,27 @@ _ZN17fix_dl_var_tactic9is_target8is_arithEP4expr.exit.thread.i: ; preds = %_ZN17
   unreachable
 
 _Z11is_uninterpPK4expr.exit.thread.i:             ; preds = %_ZNK3app13get_family_idEv.exit10, %.thread, %_ZN17fix_dl_var_tactic9is_target8is_arithEP4expr.exit.i
-  %120 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  %121 = load i32, ptr %120, align 8, !tbaa !145
-  %122 = zext i32 %121 to i64
-  %.idx.i = shl nuw nsw i64 %122, 3
-  %123 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i
-  %.ptr15.i = getelementptr inbounds nuw i8, ptr %123, i64 32
-  %.not13.i = icmp eq i32 %121, 0
-  br i1 %.not13.i, label %_ZN17fix_dl_var_tactic9is_target11process_appEP3app.exit, label %.lr.ph.preheader.i
+  %120 = getelementptr inbounds nuw i8, ptr %93, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %93, i64 24
+  %122 = load i32, ptr %121, align 8, !tbaa !145
+  %123 = zext i32 %122 to i64
+  %.idx.i = shl nuw nsw i64 %123, 3
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 %.idx.i
+  %.not13.i = icmp eq i32 %122, 0
+  br i1 %.not13.i, label %_ZN17fix_dl_var_tactic9is_target11process_appEP3app.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %_Z11is_uninterpPK4expr.exit.thread.i
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %93, i64 32
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.014.i = phi ptr [ %125, %.lr.ph.i ], [ %.ptr.i, %.lr.ph.preheader.i ]
-  %124 = load ptr, ptr %.014.i, align 8, !tbaa !118
-  tail call void @_ZN17fix_dl_var_tactic9is_target5visitEP4exprb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %124, i1 noundef zeroext false)
-  %125 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %.not.i11 = icmp eq ptr %125, %.ptr15.i
+.lr.ph.i:                                         ; preds = %_Z11is_uninterpPK4expr.exit.thread.i, %.lr.ph.i
+  %.014.i = phi ptr [ %126, %.lr.ph.i ], [ %120, %_Z11is_uninterpPK4expr.exit.thread.i ]
+  %125 = load ptr, ptr %.014.i, align 8, !tbaa !118
+  tail call void @_ZN17fix_dl_var_tactic9is_target5visitEP4exprb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %125, i1 noundef zeroext false)
+  %126 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
+  %.not.i11 = icmp eq ptr %126, %124
   br i1 %.not.i11, label %_ZN17fix_dl_var_tactic9is_target11process_appEP3app.exit, label %.lr.ph.i
 
 _ZN17fix_dl_var_tactic9is_target11process_appEP3app.exit: ; preds = %.lr.ph.i, %_Z11is_uninterpPK4expr.exit.thread.i, %112, %110
-  %126 = load ptr, ptr %42, align 8, !tbaa !55
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !153
+  %127 = load ptr, ptr %42, align 8, !tbaa !55
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !153
 
 _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread:     ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %_ZN17fix_dl_var_tactic9is_target11process_appEP3app.exit, %_ZN13ast_fast_markILj1EE4markEP3ast.exit, %2, %41
   ret void
@@ -3504,8 +3500,7 @@ _Z11is_uninterpPK4expr.exit.thread.i:             ; preds = %_ZN17fix_dl_var_tac
   %32 = load i32, ptr %31, align 8, !tbaa !145
   %33 = zext i32 %32 to i64
   %.idx.i = shl nuw nsw i64 %33, 3
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  %.ptr15.i = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %.not13.i = icmp eq i32 %32, 0
   br i1 %.not13.i, label %_ZN17fix_dl_var_tactic9is_target11process_appEP3app.exit, label %.lr.ph.i
 
@@ -3514,7 +3509,7 @@ _Z11is_uninterpPK4expr.exit.thread.i:             ; preds = %_ZN17fix_dl_var_tac
   %35 = load ptr, ptr %.014.i, align 8, !tbaa !118
   tail call void @_ZN17fix_dl_var_tactic9is_target5visitEP4exprb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %35, i1 noundef zeroext false)
   %36 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %.not.i = icmp eq ptr %36, %.ptr15.i
+  %.not.i = icmp eq ptr %36, %34
   br i1 %.not.i, label %_ZN17fix_dl_var_tactic9is_target11process_appEP3app.exit, label %.lr.ph.i
 
 37:                                               ; preds = %_ZN17fix_dl_var_tactic9is_target8is_arithEP4expr.exit

@@ -7383,8 +7383,8 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal10btree_
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = zext i8 %6 to i64
-  %.idx.i = mul nuw nsw i64 %9, 40
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %.idx12.i = mul nuw nsw i64 %9, 40
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx12.i
   %.not9.i = icmp eq i8 %6, 0
   br i1 %.not9.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE15value_destroy_nEhhPSF_.exit, label %.lr.ph.i
 
@@ -7488,8 +7488,8 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112
   %56 = load i8, ptr %55, align 1, !tbaa !17
   %57 = getelementptr inbounds nuw i8, ptr %.150, i64 16
   %58 = zext i8 %56 to i64
-  %.idx.i55 = mul nuw nsw i64 %58, 40
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i55
+  %.idx12.i55 = mul nuw nsw i64 %58, 40
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx12.i55
   %.not9.i56 = icmp eq i8 %56, 0
   br i1 %.not9.i56, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE15value_destroy_nEhhPSF_.exit63, label %.lr.ph.i57
 
@@ -7549,8 +7549,8 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112
   %84 = load ptr, ptr %.3, align 8, !tbaa !64
   %85 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   %86 = zext i8 %81 to i64
-  %.idx.i64 = mul nuw nsw i64 %86, 40
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx.i64
+  %.idx12.i64 = mul nuw nsw i64 %86, 40
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx12.i64
   %.not9.i65 = icmp eq i8 %81, 0
   br i1 %.not9.i65, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEE15value_destroy_nEhhPSF_.exit72, label %.lr.ph.i66
 
@@ -7690,8 +7690,8 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal10btree_
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = zext i8 %6 to i64
-  %.idx.i = shl nuw nsw i64 %9, 6
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %.idx12.i = shl nuw nsw i64 %9, 6
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx12.i
   %.not9.i = icmp eq i8 %6, 0
   br i1 %.not9.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15value_destroy_nEhhPSF_.exit, label %.lr.ph.i
 
@@ -7813,8 +7813,8 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %63 = load i8, ptr %62, align 1, !tbaa !17
   %64 = getelementptr inbounds nuw i8, ptr %.150, i64 16
   %65 = zext i8 %63 to i64
-  %.idx.i55 = shl nuw nsw i64 %65, 6
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i55
+  %.idx12.i55 = shl nuw nsw i64 %65, 6
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx12.i55
   %.not9.i56 = icmp eq i8 %63, 0
   br i1 %.not9.i56, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15value_destroy_nEhhPSF_.exit66, label %.lr.ph.i57
 
@@ -7892,8 +7892,8 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %98 = load ptr, ptr %.3, align 8, !tbaa !139
   %99 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   %100 = zext i8 %95 to i64
-  %.idx.i67 = shl nuw nsw i64 %100, 6
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx.i67
+  %.idx12.i67 = shl nuw nsw i64 %100, 6
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx12.i67
   %.not9.i68 = icmp eq i8 %95, 0
   br i1 %.not9.i68, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15value_destroy_nEhhPSF_.exit78, label %.lr.ph.i69
 

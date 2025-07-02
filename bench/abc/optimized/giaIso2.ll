@@ -309,9 +309,9 @@ define void @Gia_Iso2ManPropagate(ptr noundef readonly captures(none) %0) local_
   %6 = getelementptr i8, ptr %0, i64 16
   %.val51 = load i32, ptr %6, align 8, !tbaa !40
   %7 = icmp sgt i32 %.val51, 0
-  br i1 %7, label %.lr.ph62, label %.critedge2
+  br i1 %7, label %.lr.ph64, label %.critedge2
 
-.lr.ph62:                                         ; preds = %.critedge.preheader
+.lr.ph64:                                         ; preds = %.critedge.preheader
   %8 = getelementptr i8, ptr %0, i64 72
   %.val53 = load ptr, ptr %8, align 8, !tbaa !30
   %9 = getelementptr i8, ptr %.val53, i64 4
@@ -322,17 +322,18 @@ define void @Gia_Iso2ManPropagate(ptr noundef readonly captures(none) %0) local_
   %11 = getelementptr i8, ptr %.val53, i64 8
   %.val55.val = load ptr, ptr %11, align 8, !tbaa !32
   %.not38 = icmp eq ptr %.val54, null
-  br i1 %.not38, label %.critedge2, label %.lr.ph62.split
+  %invariant.gep = getelementptr i8, ptr %.val54, i64 8
+  br i1 %.not38, label %.critedge2, label %.lr.ph64.split
 
-.lr.ph62.split:                                   ; preds = %.lr.ph62
+.lr.ph64.split:                                   ; preds = %.lr.ph64
   %12 = getelementptr i8, ptr %0, i64 64
   %.val49 = load ptr, ptr %12, align 8, !tbaa !3
   %13 = getelementptr i8, ptr %.val49, i64 8
   %.val57.val = load ptr, ptr %13, align 8, !tbaa !32
   %14 = getelementptr i8, ptr %.val49, i64 4
   %.val49.val = load i32, ptr %14, align 4, !tbaa !28
-  %invariant.op63 = sub i32 %.val49.val, %.val51
-  %wide.trip.count69 = zext nneg i32 %.val51 to i64
+  %invariant.op65 = sub i32 %.val49.val, %.val51
+  %wide.trip.count71 = zext nneg i32 %.val51 to i64
   br label %64
 
 15:                                               ; preds = %.lr.ph, %63
@@ -409,45 +410,46 @@ define void @Gia_Iso2ManPropagate(ptr noundef readonly captures(none) %0) local_
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.preheader, label %15, !llvm.loop !42
 
-64:                                               ; preds = %.lr.ph62.split, %.critedge
-  %indvars.iv66 = phi i64 [ 0, %.lr.ph62.split ], [ %indvars.iv.next67, %.critedge ]
-  %65 = trunc nuw nsw i64 %indvars.iv66 to i32
+64:                                               ; preds = %.lr.ph64.split, %.critedge
+  %indvars.iv68 = phi i64 [ 0, %.lr.ph64.split ], [ %indvars.iv.next69, %.critedge ]
+  %65 = trunc nuw nsw i64 %indvars.iv68 to i32
   %.reass = add i32 %invariant.op, %65
   %66 = sext i32 %.reass to i64
   %67 = getelementptr inbounds i32, ptr %.val55.val, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !34
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %69
-  %.reass64 = add i32 %invariant.op63, %65
-  %71 = sext i32 %.reass64 to i64
+  %.idx60 = mul nsw i64 %69, 12
+  %70 = getelementptr inbounds i8, ptr %.val54, i64 %.idx60
+  %.reass66 = add i32 %invariant.op65, %65
+  %71 = sext i32 %.reass66 to i64
   %72 = getelementptr inbounds i32, ptr %.val57.val, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !34
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %74
-  %76 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %77 = load i32, ptr %76, align 4, !tbaa !37
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %79 = load i32, ptr %78, align 4, !tbaa !37
-  %80 = add i32 %79, %77
-  store i32 %80, ptr %78, align 4, !tbaa !37
-  %81 = load i64, ptr %70, align 4
-  %82 = and i64 %81, 536870911
-  %83 = sub nsw i64 0, %82
-  %84 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %70, i64 %83
-  %85 = icmp eq ptr %75, %84
-  br i1 %85, label %86, label %.critedge
+  %.idx = mul nsw i64 %74, 12
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %76 = load i32, ptr %75, align 4, !tbaa !37
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %77 = load i32, ptr %gep, align 4, !tbaa !37
+  %78 = add i32 %77, %76
+  store i32 %78, ptr %gep, align 4, !tbaa !37
+  %79 = load i64, ptr %70, align 4
+  %80 = and i64 %79, 536870911
+  %.idx61 = mul nsw i64 %80, -12
+  %81 = add nsw i64 %.idx61, %.idx60
+  %82 = icmp eq i64 %.idx, %81
+  br i1 %82, label %83, label %.critedge
 
-86:                                               ; preds = %64
-  %87 = add i32 %80, 1673142178
-  store i32 %87, ptr %78, align 4, !tbaa !37
+83:                                               ; preds = %64
+  %84 = add i32 %78, 1673142178
+  store i32 %84, ptr %gep, align 4, !tbaa !37
   br label %.critedge
 
-.critedge:                                        ; preds = %64, %86
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %.critedge2, label %64, !llvm.loop !43
+.critedge:                                        ; preds = %64, %83
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
+  br i1 %exitcond72.not, label %.critedge2, label %64, !llvm.loop !43
 
-.critedge2:                                       ; preds = %.critedge, %.lr.ph62, %.critedge.preheader
+.critedge2:                                       ; preds = %.critedge, %.lr.ph64, %.critedge.preheader
   ret void
 }
 

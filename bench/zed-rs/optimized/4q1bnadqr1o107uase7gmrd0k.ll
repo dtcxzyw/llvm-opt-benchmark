@@ -145615,22 +145615,20 @@ define hidden void @"_ZN3vim3Vim13input_ignored28_$u7b$$u7b$closure$u7d$$u7d$17h
 "_ZN78_$LT$gpui..app..GlobalLease$LT$G$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h921d586cd3fabec7E.exit.i": ; preds = %.noexc.i
   %29 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr i8, ptr %.val, i64 %.val4
-  %.ptr4.i.i = getelementptr i8, ptr %30, i64 16
-  %31 = icmp eq i64 %.val4, 0
-  br i1 %31, label %_ZN4core3str11validations15next_code_point17h0603fe6d9162d691E.exit.thread.i.i, label %32
+  %30 = icmp eq i64 %.val4, 0
+  br i1 %30, label %_ZN4core3str11validations15next_code_point17h0603fe6d9162d691E.exit.thread.i.i, label %31
 
-32:                                               ; preds = %"_ZN78_$LT$gpui..app..GlobalLease$LT$G$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h921d586cd3fabec7E.exit.i"
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %33 = load i8, ptr %.ptr.i.i, align 1, !noalias !30409, !noundef !4
+31:                                               ; preds = %"_ZN78_$LT$gpui..app..GlobalLease$LT$G$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h921d586cd3fabec7E.exit.i"
+  %32 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %33 = load i8, ptr %32, align 1, !noalias !30409, !noundef !4
   %34 = icmp sgt i8 %33, -1
   br i1 %34, label %45, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i.i.i"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i.i.i": ; preds = %32
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i.i.i": ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %.val, i64 17
   %36 = and i8 %33, 31
   %37 = zext nneg i8 %36 to i32
-  %38 = icmp ne ptr %35, %.ptr4.i.i
+  %38 = icmp ne i64 %.val4, 1
   tail call void @llvm.assume(i1 %38)
   %39 = load i8, ptr %35, align 1, !noalias !30409, !noundef !4
   %40 = shl nuw nsw i32 %37, 6
@@ -145640,13 +145638,13 @@ define hidden void @"_ZN3vim3Vim13input_ignored28_$u7b$$u7b$closure$u7d$$u7d$17h
   %44 = icmp samesign ugt i8 %33, -33
   br i1 %44, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i", label %_ZN4core3str11validations15next_code_point17h0603fe6d9162d691E.exit.thread.i.i
 
-45:                                               ; preds = %32
+45:                                               ; preds = %31
   %46 = zext nneg i8 %33 to i32
   br label %_ZN4core3str11validations15next_code_point17h0603fe6d9162d691E.exit.thread.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit12.i.i.i"
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 18
-  %48 = icmp ne ptr %47, %.ptr4.i.i
+  %48 = icmp ne i64 %.val4, 2
   tail call void @llvm.assume(i1 %48)
   %49 = load i8, ptr %47, align 1, !noalias !30409, !noundef !4
   %50 = shl nuw nsw i32 %42, 6
@@ -145660,7 +145658,7 @@ define hidden void @"_ZN3vim3Vim13input_ignored28_$u7b$$u7b$closure$u7d$$u7d$17h
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit16.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i"
   %57 = getelementptr inbounds nuw i8, ptr %.val, i64 19
-  %58 = icmp ne ptr %57, %.ptr4.i.i
+  %58 = icmp ne i64 %.val4, 3
   tail call void @llvm.assume(i1 %58)
   %59 = load i8, ptr %57, align 1, !noalias !30409, !noundef !4
   %60 = shl nuw nsw i32 %37, 18

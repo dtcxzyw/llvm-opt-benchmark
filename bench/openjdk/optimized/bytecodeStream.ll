@@ -24,21 +24,21 @@ define hidden noundef i32 @_ZN17RawBytecodeStream16raw_next_specialEN9Bytecodes4
   %15 = getelementptr inbounds i8, ptr %7, i64 %14
   %16 = tail call noundef i32 @_ZN9Bytecodes21raw_special_length_atEPhS0_(ptr noundef nonnull %11, ptr noundef nonnull %15) #2
   %17 = icmp slt i32 %16, 1
-  br i1 %17, label %36, label %18
+  br i1 %17, label %37, label %18
 
 18:                                               ; preds = %2
   %19 = load i32, ptr %8, align 8
   %20 = load i32, ptr %12, align 8
   %21 = sub nsw i32 %20, %16
   %22 = icmp sgt i32 %19, %21
-  br i1 %22, label %36, label %23
+  br i1 %22, label %37, label %23
 
 23:                                               ; preds = %18
   %24 = sub nsw i32 %19, %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %26 = load i32, ptr %25, align 4
   %.not = icmp slt i32 %24, %26
-  br i1 %.not, label %27, label %36
+  br i1 %.not, label %27, label %37
 
 27:                                               ; preds = %23
   %28 = add nsw i32 %26, %16
@@ -46,23 +46,24 @@ define hidden noundef i32 @_ZN17RawBytecodeStream16raw_next_specialEN9Bytecodes4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %29, align 8
   %30 = icmp eq i32 %1, 196
-  br i1 %30, label %31, label %36
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %.not17 = icmp ult ptr %32, %15
-  br i1 %.not17, label %33, label %36
+  %32 = add nsw i64 %10, 1
+  %.not17 = icmp slt i64 %32, %14
+  br i1 %.not17, label %33, label %37
 
 33:                                               ; preds = %31
-  %34 = load i8, ptr %32, align 1
-  %35 = zext i8 %34 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
   store i8 1, ptr %29, align 8
-  br label %36
+  br label %37
 
-36:                                               ; preds = %31, %2, %18, %23, %27, %33
-  %.0 = phi i32 [ %35, %33 ], [ %1, %27 ], [ -1, %23 ], [ -1, %18 ], [ -1, %2 ], [ -1, %31 ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %.0, ptr %37, align 4
+37:                                               ; preds = %31, %2, %18, %23, %27, %33
+  %.0 = phi i32 [ %36, %33 ], [ %1, %27 ], [ -1, %23 ], [ -1, %18 ], [ -1, %2 ], [ -1, %31 ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %.0, ptr %38, align 4
   ret i32 %.0
 }
 
