@@ -487,7 +487,7 @@ build_lookup_table.exit.thread.i.i:               ; preds = %84
   %136 = getelementptr inbounds nuw i8, ptr %124, i64 4
   store float 0.000000e+00, ptr %124, align 64, !noalias !96
   store float 1.000000e+00, ptr %136, align 4, !noalias !96
-  %.05664.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %.05664.i.i.i.i = getelementptr inbounds nuw i8, ptr %124, i64 8
   %137 = icmp sgt i32 %116, 0
   br i1 %137, label %.lr.ph.i.i.i.i, label %interpolate_cubic_bezier.exit.i.i.i
 
@@ -497,7 +497,7 @@ build_lookup_table.exit.thread.i.i:               ; preds = %84
   br label %139
 
 139:                                              ; preds = %139, %.lr.ph.i.i.i.i
-  %.05668.i.i.i.i = phi ptr [ %.05664.i.ptr.i.i.i, %.lr.ph.i.i.i.i ], [ %.056.i.i.i.i, %139 ]
+  %.05668.i.i.i.i = phi ptr [ %.05664.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.056.i.i.i.i, %139 ]
   %.067.i.i.i.i = phi i32 [ 1, %.lr.ph.i.i.i.i ], [ %152, %139 ]
   %.05566.i.i.i.i = phi float [ %135, %.lr.ph.i.i.i.i ], [ %151, %139 ]
   %.pn65.i.i.i.i = phi ptr [ %124, %.lr.ph.i.i.i.i ], [ %.05668.i.i.i.i, %139 ]
@@ -522,14 +522,13 @@ build_lookup_table.exit.thread.i.i:               ; preds = %84
 
 interpolate_cubic_bezier.exit.i.i.i:              ; preds = %139, %129
   %.pn.lcssa.i.i.i.i = phi ptr [ %124, %129 ], [ %.05668.i.i.i.i, %139 ]
-  %.056.lcssa.i.i.i.i = phi ptr [ %.05664.i.ptr.i.i.i, %129 ], [ %.056.i.i.i.i, %139 ]
+  %.056.lcssa.i.i.i.i = phi ptr [ %.05664.i.i.i.i, %129 ], [ %.056.i.i.i.i, %139 ]
   %153 = getelementptr inbounds nuw i8, ptr %.pn.lcssa.i.i.i.i, i64 12
   store float 1.000000e+00, ptr %.056.lcssa.i.i.i.i, align 4, !noalias !96
   store float 0.000000e+00, ptr %153, align 4, !noalias !96
   %sext.i.i = mul i64 %97, 42949672960
   %.idx.i.i.i = ashr exact i64 %sext.i.i, 29
-  %154 = getelementptr i8, ptr %124, i64 %.idx.i.i.i
-  %.ptr.i.i.i = getelementptr i8, ptr %154, i64 8
+  %154 = getelementptr inbounds i8, ptr %.05664.i.i.i.i, i64 %.idx.i.i.i
   %155 = sitofp i32 %116 to float
   %156 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %155
   store float 1.000000e+00, ptr %126, align 64, !tbaa !11, !noalias !96
@@ -545,7 +544,7 @@ build_lookup_table.exit.thread124.i.i:            ; preds = %interpolate_cubic_b
   %.05260.i.i.i = phi ptr [ %.052.i.i.i, %165 ], [ %.05256.i.i.i, %interpolate_cubic_bezier.exit.i.i.i ]
   %.04959.i.i.i = phi i32 [ %178, %165 ], [ 1, %interpolate_cubic_bezier.exit.i.i.i ]
   %.05058.i.i.i = phi float [ %158, %165 ], [ 0.000000e+00, %interpolate_cubic_bezier.exit.i.i.i ]
-  %.05157.i.i.i = phi ptr [ %.1.i.i.i, %165 ], [ %.05664.i.ptr.i.i.i, %interpolate_cubic_bezier.exit.i.i.i ]
+  %.05157.i.i.i = phi ptr [ %.1.i.i.i, %165 ], [ %.05664.i.i.i.i, %interpolate_cubic_bezier.exit.i.i.i ]
   %158 = fadd reassoc nsz arcp contract afn float %.05058.i.i.i, %156
   br label %159
 
@@ -553,7 +552,7 @@ build_lookup_table.exit.thread124.i.i:            ; preds = %interpolate_cubic_b
   %.1.i.i.i = phi ptr [ %.05157.i.i.i, %.lr.ph.i.i.i ], [ %164, %159 ]
   %160 = load float, ptr %.1.i.i.i, align 4, !noalias !96
   %161 = fcmp reassoc nsz arcp contract afn olt float %160, %158
-  %162 = icmp ult ptr %.1.i.i.i, %.ptr.i.i.i
+  %162 = icmp ult ptr %.1.i.i.i, %154
   %163 = select i1 %161, i1 %162, i1 false
   %164 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
   br i1 %163, label %159, label %165

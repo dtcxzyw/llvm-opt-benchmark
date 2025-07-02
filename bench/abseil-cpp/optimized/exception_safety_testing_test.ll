@@ -29336,14 +29336,14 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit42.i: ; preds = %_ZNKSt7__cxx1112ba
   br label %182
 
 182:                                              ; preds = %183, %.noexc15.i.i33
-  %.idx.i.i.i.i = phi i64 [ 8, %.noexc15.i.i33 ], [ %.add.i.i.i.i, %183 ]
+  %.idx.i.i.i.i = phi i64 [ %.add.i.i.i.i, %183 ], [ 8, %.noexc15.i.i33 ]
   %.ptr.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %181, i64 %.idx.i.i.i.i
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.ptr.ptr.i.i.i.i)
           to label %183 unwind label %185, !noalias !243
 
 183:                                              ; preds = %182
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 4
-  %184 = icmp samesign eq i64 %.add.i.i.i.i, 16
+  %184 = icmp eq i64 %.idx.i.i.i.i, 12
   br i1 %184, label %192, label %182
 
 185:                                              ; preds = %182
@@ -29560,14 +29560,14 @@ _ZN7testing7MessageD2Ev.exit22.i.i:               ; preds = %_ZNKSt14default_del
   br label %250
 
 250:                                              ; preds = %251, %.noexc32.i31
-  %.idx.i.i.i = phi i64 [ 8, %.noexc32.i31 ], [ %.add.i.i.i, %251 ]
+  %.idx.i.i.i = phi i64 [ %.add.i.i.i, %251 ], [ 8, %.noexc32.i31 ]
   %.ptr.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %249, i64 %.idx.i.i.i
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.ptr.ptr.i.i.i)
           to label %251 unwind label %253, !noalias !248
 
 251:                                              ; preds = %250
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 4
-  %252 = icmp samesign eq i64 %.add.i.i.i, 16
+  %252 = icmp eq i64 %.idx.i.i.i, 12
   br i1 %252, label %260, label %250
 
 253:                                              ; preds = %250

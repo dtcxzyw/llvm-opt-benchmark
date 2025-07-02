@@ -1016,11 +1016,10 @@ get_ftp_result.exit215:                           ; preds = %201, %.backedge.i21
   %221 = load ptr, ptr %214, align 8, !tbaa !48
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   store i64 %220, ptr %222, align 8, !tbaa !45
-  %.ptr = getelementptr inbounds nuw i8, ptr %221, i64 24
-  %223 = getelementptr inbounds nuw i8, ptr %221, i64 %220
-  %.ptr31 = getelementptr inbounds nuw i8, ptr %223, i64 24
-  %224 = icmp sgt i64 %220, 0
-  br i1 %224, label %.lr.ph, label %._crit_edge
+  %223 = getelementptr inbounds nuw i8, ptr %221, i64 24
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 %220
+  %.not31 = icmp eq i64 %220, 0
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %216
   %225 = tail call ptr @__ctype_b_loc() #18
@@ -1029,11 +1028,11 @@ get_ftp_result.exit215:                           ; preds = %201, %.backedge.i21
 
 227:                                              ; preds = %230
   %228 = getelementptr inbounds nuw i8, ptr %.013726, i64 1
-  %229 = icmp ult ptr %228, %.ptr31
+  %229 = icmp ult ptr %228, %224
   br i1 %229, label %230, label %._crit_edge
 
 230:                                              ; preds = %.lr.ph, %227
-  %.013726 = phi ptr [ %.ptr, %.lr.ph ], [ %228, %227 ]
+  %.013726 = phi ptr [ %223, %.lr.ph ], [ %228, %227 ]
   %231 = load i8, ptr %.013726, align 1, !tbaa !17
   %232 = zext i8 %231 to i64
   %233 = getelementptr inbounds nuw i16, ptr %226, i64 %232
@@ -1043,11 +1042,11 @@ get_ftp_result.exit215:                           ; preds = %201, %.backedge.i21
   br i1 %.not163, label %227, label %236
 
 236:                                              ; preds = %230
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.29, ptr noundef nonnull %.ptr) #16
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.29, ptr noundef nonnull %223) #16
   br label %.thread11
 
 ._crit_edge:                                      ; preds = %227, %216
-  %237 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %45, ptr noundef nonnull @.str.30, ptr noundef nonnull %.ptr) #16
+  %237 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %45, ptr noundef nonnull @.str.30, ptr noundef nonnull %223) #16
   br label %240
 
 238:                                              ; preds = %.thread2
@@ -1135,11 +1134,10 @@ get_ftp_result.exit224:                           ; preds = %258, %.backedge.i22
   %281 = load ptr, ptr %274, align 8, !tbaa !49
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 16
   store i64 %280, ptr %282, align 8, !tbaa !45
-  %.ptr32 = getelementptr inbounds nuw i8, ptr %281, i64 24
-  %283 = getelementptr inbounds nuw i8, ptr %281, i64 %280
-  %.ptr33 = getelementptr inbounds nuw i8, ptr %283, i64 24
-  %284 = icmp sgt i64 %280, 0
-  br i1 %284, label %.lr.ph29, label %._crit_edge30
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 24
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 %280
+  %.not32 = icmp eq i64 %280, 0
+  br i1 %.not32, label %._crit_edge30, label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %276
   %285 = tail call ptr @__ctype_b_loc() #18
@@ -1148,11 +1146,11 @@ get_ftp_result.exit224:                           ; preds = %258, %.backedge.i22
 
 287:                                              ; preds = %290
   %288 = getelementptr inbounds nuw i8, ptr %.013527, i64 1
-  %289 = icmp ult ptr %288, %.ptr33
+  %289 = icmp ult ptr %288, %284
   br i1 %289, label %290, label %._crit_edge30
 
 290:                                              ; preds = %.lr.ph29, %287
-  %.013527 = phi ptr [ %.ptr32, %.lr.ph29 ], [ %288, %287 ]
+  %.013527 = phi ptr [ %283, %.lr.ph29 ], [ %288, %287 ]
   %291 = load i8, ptr %.013527, align 1, !tbaa !17
   %292 = zext i8 %291 to i64
   %293 = getelementptr inbounds nuw i16, ptr %286, i64 %292
@@ -1162,11 +1160,11 @@ get_ftp_result.exit224:                           ; preds = %258, %.backedge.i22
   br i1 %.not167, label %287, label %296
 
 296:                                              ; preds = %290
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.32, ptr noundef nonnull %.ptr32) #16
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.32, ptr noundef nonnull %283) #16
   br label %.thread11
 
 ._crit_edge30:                                    ; preds = %287, %276
-  %297 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %45, ptr noundef nonnull @.str.33, ptr noundef nonnull %.ptr32) #16
+  %297 = call i64 (ptr, ptr, ...) @_php_stream_printf(ptr noundef nonnull %45, ptr noundef nonnull @.str.33, ptr noundef nonnull %283) #16
   br label %304
 
 298:                                              ; preds = %273
@@ -1201,30 +1199,30 @@ get_ftp_result.exit224:                           ; preds = %258, %.backedge.i22
   br label %.thread11
 
 311:                                              ; preds = %304
-  br i1 %.not158, label %.thread38, label %312
+  br i1 %.not158, label %.thread37, label %312
 
 312:                                              ; preds = %311
   %313 = load ptr, ptr %3, align 8, !tbaa !24
   %.not168 = icmp eq ptr %313, null
-  br i1 %.not168, label %.thread38, label %314
+  br i1 %.not168, label %.thread37, label %314
 
 314:                                              ; preds = %312
   call void @php_stream_notification_notify(ptr noundef nonnull %3, i32 noundef 10, i32 noundef 0, ptr noundef nonnull %9, i32 noundef %305, i64 noundef 0, i64 noundef 0, ptr noundef null) #16
-  br label %.thread38
+  br label %.thread37
 
 315:                                              ; preds = %get_ftp_result.exit224
   %or.cond11 = icmp ult i32 %268, -100
-  br i1 %or.cond11, label %.thread11, label %.thread38
+  br i1 %or.cond11, label %.thread11, label %.thread37
 
-.thread38:                                        ; preds = %311, %312, %314, %315
+.thread37:                                        ; preds = %311, %312, %314, %315
   %.not170 = icmp eq ptr %6, null
   br i1 %.not170, label %317, label %316
 
-316:                                              ; preds = %.thread38
+316:                                              ; preds = %.thread37
   store i32 %31, ptr %6, align 4, !tbaa !11
   br label %317
 
-317:                                              ; preds = %316, %.thread38
+317:                                              ; preds = %316, %.thread37
   %.not171 = icmp eq ptr %7, null
   br i1 %.not171, label %319, label %318
 

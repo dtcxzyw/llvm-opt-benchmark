@@ -3901,8 +3901,8 @@ LZ4HC_countPattern.exit715:                       ; preds = %.preheader.i695, %.
   br i1 %942, label %1005, label %976
 
 976:                                              ; preds = %LZ4HC_countPattern.exit715
-  %977 = getelementptr inbounds nuw i8, ptr %945, i64 %975
-  %978 = icmp eq ptr %977, %.ptr1475
+  %977 = add nuw nsw i64 %975, %944
+  %978 = icmp eq i64 %977, %.add
   br i1 %978, label %979, label %1005
 
 979:                                              ; preds = %976
@@ -5205,8 +5205,8 @@ LZ4HC_countPattern.exit799:                       ; preds = %.preheader.i779, %.
   br i1 %1516, label %1579, label %1550
 
 1550:                                             ; preds = %LZ4HC_countPattern.exit799
-  %1551 = getelementptr inbounds nuw i8, ptr %1519, i64 %1549
-  %1552 = icmp eq ptr %1551, %.ptr1482
+  %1551 = add nuw nsw i64 %1549, %1518
+  %1552 = icmp eq i64 %1551, %.add1479
   br i1 %1552, label %1553, label %1579
 
 1553:                                             ; preds = %1550
@@ -6766,8 +6766,8 @@ LZ4HC_countPattern.exit892:                       ; preds = %.preheader.i872, %.
   br i1 %2201, label %2264, label %2235
 
 2235:                                             ; preds = %LZ4HC_countPattern.exit892
-  %2236 = getelementptr inbounds nuw i8, ptr %2204, i64 %2234
-  %2237 = icmp eq ptr %2236, %.ptr1492
+  %2236 = add nuw nsw i64 %2234, %2203
+  %2237 = icmp eq i64 %2236, %.add1489
   br i1 %2237, label %2238, label %2264
 
 2238:                                             ; preds = %2235
@@ -8988,8 +8988,8 @@ LZ4HC_countPattern.exit1046.i:                    ; preds = %.critedge.loopexit.
   br i1 %3211, label %3274, label %3245
 
 3245:                                             ; preds = %LZ4HC_countPattern.exit1046.i
-  %3246 = getelementptr inbounds nuw i8, ptr %3214, i64 %3244
-  %3247 = icmp eq ptr %3246, %.ptr1713.ptr.ptr.i
+  %3246 = add nuw nsw i64 %3244, %3213
+  %3247 = icmp eq i64 %3246, %.add.i
   br i1 %3247, label %3248, label %3274
 
 3248:                                             ; preds = %3245
@@ -10442,8 +10442,8 @@ LZ4HC_countPattern.exit1128.i:                    ; preds = %.critedge.loopexit.
   br i1 %3857, label %3920, label %3891
 
 3891:                                             ; preds = %LZ4HC_countPattern.exit1128.i
-  %3892 = getelementptr inbounds nuw i8, ptr %3860, i64 %3890
-  %3893 = icmp eq ptr %3892, %.ptr1713.ptr.ptr.i
+  %3892 = add nuw nsw i64 %3890, %3859
+  %3893 = icmp eq i64 %3892, %.add.i
   br i1 %3893, label %3894, label %3920
 
 3894:                                             ; preds = %3891
@@ -11620,8 +11620,8 @@ LZ4HC_countPattern.exit1219.i:                    ; preds = %.critedge.loopexit.
   br i1 %4382, label %4445, label %4416
 
 4416:                                             ; preds = %LZ4HC_countPattern.exit1219.i
-  %4417 = getelementptr inbounds nuw i8, ptr %4385, i64 %4415
-  %4418 = icmp eq ptr %4417, %.ptr1713.ptr.ptr.i
+  %4417 = add nuw nsw i64 %4415, %4384
+  %4418 = icmp eq i64 %4417, %.add.i
   br i1 %4418, label %4419, label %4445
 
 4419:                                             ; preds = %4416

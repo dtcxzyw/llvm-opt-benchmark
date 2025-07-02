@@ -1751,11 +1751,11 @@ for.inc.i.i51:                                    ; preds = %for.inc.i.i51.prehe
   br i1 %exitcond.not.i.i56, label %invoke.cont64, label %for.inc.i.i51, !llvm.loop !18
 
 invoke.cont64:                                    ; preds = %for.inc.i.i51, %if.else
-  %incdec.ptr108 = getelementptr inbounds i8, ptr %add.ptr49, i64 -1
-  %cmp72109 = icmp ult ptr %incdec.ptr108, %add.ptr54
-  br i1 %cmp72109, label %for.end, label %if.end.preheader
+  %cmp72109.not = icmp sgt i64 %.sroa.speculated, %add
+  br i1 %cmp72109.not, label %if.end.preheader, label %for.end
 
 if.end.preheader:                                 ; preds = %invoke.cont64
+  %incdec.ptr108 = getelementptr inbounds i8, ptr %add.ptr49, i64 -1
   %add.ptr70 = getelementptr inbounds i8, ptr %add.ptr52, i64 %sub55
   br label %if.end
 

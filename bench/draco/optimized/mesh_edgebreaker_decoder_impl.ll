@@ -24198,22 +24198,21 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco31MeshEdgebreakerTraversalDecod
   %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #22
   store i64 %6, ptr %9, align 16
   %.ptr13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %10 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %.ptr13, i64 %6
-  br label %11
+  br label %10
 
-11:                                               ; preds = %12, %5
-  %.idx = phi i64 [ 8, %5 ], [ %.add, %12 ]
+10:                                               ; preds = %11, %5
+  %.idx = phi i64 [ 8, %5 ], [ %.add, %11 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %.ptr.ptr)
-          to label %12 unwind label %32
+          to label %11 unwind label %32
 
-12:                                               ; preds = %11
+11:                                               ; preds = %10
   %.add = add nuw nsw i64 %.idx, 24
-  %.ptr12 = getelementptr inbounds nuw i8, ptr %9, i64 %.add
-  %13 = icmp eq ptr %.ptr12, %10
-  br i1 %13, label %14, label %11
+  %12 = add nuw nsw i64 %.idx, 16
+  %13 = icmp eq i64 %12, %7
+  br i1 %13, label %14, label %10
 
-14:                                               ; preds = %12
+14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %16 = load ptr, ptr %15, align 8, !tbaa !311
   store ptr %.ptr13, ptr %15, align 8, !tbaa !311
@@ -24255,7 +24254,7 @@ _ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit: ;
   %31 = icmp slt i64 %indvars.iv.next, %30
   br i1 %31, label %.lr.ph, label %.thread, !llvm.loop !607
 
-32:                                               ; preds = %11
+32:                                               ; preds = %10
   %33 = landingpad { ptr, i32 }
           cleanup
   %34 = icmp eq i64 %.idx, 8

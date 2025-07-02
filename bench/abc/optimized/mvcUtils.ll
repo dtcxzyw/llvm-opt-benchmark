@@ -882,30 +882,26 @@ define noundef i32 @Mvc_CoverSetCubeSizes(ptr noundef readonly captures(none) %0
 
 7:                                                ; preds = %.lr.ph22, %._crit_edge
   %.01420 = phi ptr [ %.01418, %.lr.ph22 ], [ %.014, %._crit_edge ]
-  %8 = getelementptr i8, ptr %.01420, i64 %5
-  %.ptr24 = getelementptr i8, ptr %8, i64 16
-  br i1 %6, label %.lr.ph.preheader, label %._crit_edge
+  %8 = getelementptr inbounds nuw i8, ptr %.01420, i64 16
+  %9 = getelementptr inbounds i8, ptr %8, i64 %5
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %7
-  %.ptr = getelementptr inbounds nuw i8, ptr %.01420, i64 16
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.017 = phi i32 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01516 = phi ptr [ %14, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  %9 = load i8, ptr %.01516, align 1, !tbaa !35
-  %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i32], ptr @bit_count, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4, !tbaa !3
-  %13 = add nsw i32 %12, %.017
-  %14 = getelementptr inbounds nuw i8, ptr %.01516, i64 1
-  %15 = icmp ult ptr %14, %.ptr24
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+.lr.ph:                                           ; preds = %7, %.lr.ph
+  %.017 = phi i32 [ %14, %.lr.ph ], [ 0, %7 ]
+  %.01516 = phi ptr [ %15, %.lr.ph ], [ %8, %7 ]
+  %10 = load i8, ptr %.01516, align 1, !tbaa !35
+  %11 = zext i8 %10 to i64
+  %12 = getelementptr inbounds nuw [256 x i32], ptr @bit_count, i64 0, i64 %11
+  %13 = load i32, ptr %12, align 4, !tbaa !3
+  %14 = add nsw i32 %13, %.017
+  %15 = getelementptr inbounds nuw i8, ptr %.01516, i64 1
+  %16 = icmp ult ptr %15, %9
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %.0.lcssa = phi i32 [ 0, %7 ], [ %13, %.lr.ph ]
-  %16 = getelementptr inbounds nuw i8, ptr %.01420, i64 12
-  store i32 %.0.lcssa, ptr %16, align 4, !tbaa !37
+  %.0.lcssa = phi i32 [ 0, %7 ], [ %14, %.lr.ph ]
+  %17 = getelementptr inbounds nuw i8, ptr %.01420, i64 12
+  store i32 %.0.lcssa, ptr %17, align 4, !tbaa !37
   %.014 = load ptr, ptr %.01420, align 8, !tbaa !7
   %.not = icmp eq ptr %.014, null
   br i1 %.not, label %._crit_edge23, label %7, !llvm.loop !38
@@ -929,14 +925,13 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %9 = sext i32 %6 to i64
-  %10 = getelementptr i8, ptr %3, i64 %9
-  %.ptr63 = getelementptr i8, ptr %10, i64 16
+  %10 = getelementptr inbounds i8, ptr %7, i64 %9
   %11 = icmp sgt i32 %6, 0
   br i1 %11, label %.preheader48.us, label %.preheader48
 
 .preheader48.us:                                  ; preds = %.preheader48.lr.ph, %.loopexit49.us
   %.04362.us = phi ptr [ %.043.us.pre, %.loopexit49.us ], [ %.04359, %.preheader48.lr.ph ]
-  %.04161.us = phi i64 [ %indvars.iv.next76, %.loopexit49.us ], [ 0, %.preheader48.lr.ph ]
+  %.04161.us = phi i64 [ %indvars.iv.next75, %.loopexit49.us ], [ 0, %.preheader48.lr.ph ]
   %.04453.us = load ptr, ptr %.04362.us, align 8, !tbaa !30
   %.not4754.us = icmp eq ptr %.04453.us, null
   br i1 %.not4754.us, label %._crit_edge, label %.lr.ph57.us
@@ -950,12 +945,12 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
   %12 = getelementptr inbounds nuw i8, ptr %.04362.us, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %.04362.us, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %.04362.us, i64 20
-  %sext88 = shl i64 %.04161.us, 32
-  %15 = ashr exact i64 %sext88, 32
+  %sext87 = shl i64 %.04161.us, 32
+  %15 = ashr exact i64 %sext87, 32
   br label %16
 
 16:                                               ; preds = %._crit_edge.us.us, %.lr.ph57.us
-  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %._crit_edge.us.us ], [ %15, %.lr.ph57.us ]
+  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %._crit_edge.us.us ], [ %15, %.lr.ph57.us ]
   %.04456.us.us = phi ptr [ %.044.us.us, %._crit_edge.us.us ], [ %.04453.us, %.lr.ph57.us ]
   %17 = load i32, ptr %12, align 8
   %18 = and i32 %17, 16777215
@@ -997,21 +992,21 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %37 = add nsw i32 %36, %.04252.us.us
   %38 = getelementptr inbounds nuw i8, ptr %.04551.us.us, i64 1
-  %39 = icmp ult ptr %38, %.ptr63
+  %39 = icmp ult ptr %38, %10
   br i1 %39, label %.lr.ph.us.us, label %._crit_edge.us.us, !llvm.loop !40
 
 40:                                               ; preds = %.preheader.us.us, %40
-  %indvars.iv72 = phi i64 [ %49, %.preheader.us.us ], [ %indvars.iv.next73, %40 ]
-  %41 = getelementptr inbounds nuw [1 x i32], ptr %13, i64 0, i64 %indvars.iv72
+  %indvars.iv71 = phi i64 [ %49, %.preheader.us.us ], [ %indvars.iv.next72, %40 ]
+  %41 = getelementptr inbounds nuw [1 x i32], ptr %13, i64 0, i64 %indvars.iv71
   %42 = load i32, ptr %41, align 4, !tbaa !3
-  %43 = getelementptr inbounds nuw [1 x i32], ptr %47, i64 0, i64 %indvars.iv72
+  %43 = getelementptr inbounds nuw [1 x i32], ptr %47, i64 0, i64 %indvars.iv71
   %44 = load i32, ptr %43, align 4, !tbaa !3
   %45 = xor i32 %44, %42
-  %46 = getelementptr inbounds nuw [1 x i32], ptr %7, i64 0, i64 %indvars.iv72
+  %46 = getelementptr inbounds nuw [1 x i32], ptr %7, i64 0, i64 %indvars.iv71
   store i32 %45, ptr %46, align 4, !tbaa !3
-  %indvars.iv.next73 = add nsw i64 %indvars.iv72, -1
-  %.not89 = icmp eq i64 %indvars.iv72, 0
-  br i1 %.not89, label %.lr.ph.us.us.preheader, label %40, !llvm.loop !41
+  %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
+  %.not88 = icmp eq i64 %indvars.iv71, 0
+  br i1 %.not88, label %.lr.ph.us.us.preheader, label %40, !llvm.loop !41
 
 .preheader.us.us:                                 ; preds = %16
   %47 = getelementptr inbounds nuw i8, ptr %.04456.us.us, i64 16
@@ -1021,8 +1016,8 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
 
 ._crit_edge.us.us:                                ; preds = %.lr.ph.us.us
   %50 = trunc i32 %37 to i8
-  %indvars.iv.next76 = add nsw i64 %indvars.iv75, 1
-  %51 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv75
+  %indvars.iv.next75 = add nsw i64 %indvars.iv74, 1
+  %51 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv74
   store i8 %50, ptr %51, align 1, !tbaa !35
   %.044.us.us = load ptr, ptr %.04456.us.us, align 8, !tbaa !30
   %.not47.us.us = icmp eq ptr %.044.us.us, null
@@ -1035,7 +1030,7 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
 
 .preheader48:                                     ; preds = %.preheader48.lr.ph, %.loopexit49
   %.04362 = phi ptr [ %.043.pre, %.loopexit49 ], [ %.04359, %.preheader48.lr.ph ]
-  %.04161 = phi i64 [ %indvars.iv.next70, %.loopexit49 ], [ 0, %.preheader48.lr.ph ]
+  %.04161 = phi i64 [ %indvars.iv.next69, %.loopexit49 ], [ 0, %.preheader48.lr.ph ]
   %.04453 = load ptr, ptr %.04362, align 8, !tbaa !30
   %.not4754 = icmp eq ptr %.04453, null
   br i1 %.not4754, label %._crit_edge, label %.lr.ph57
@@ -1049,7 +1044,7 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
   br label %56
 
 56:                                               ; preds = %.lr.ph57, %.loopexit
-  %indvars.iv69 = phi i64 [ %55, %.lr.ph57 ], [ %indvars.iv.next70, %.loopexit ]
+  %indvars.iv68 = phi i64 [ %55, %.lr.ph57 ], [ %indvars.iv.next69, %.loopexit ]
   %.04456 = phi ptr [ %.04453, %.lr.ph57 ], [ %.044, %.loopexit ]
   %57 = load i32, ptr %52, align 8
   %58 = and i32 %57, 16777215
@@ -1095,12 +1090,12 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
   %82 = getelementptr inbounds nuw [1 x i32], ptr %7, i64 0, i64 %indvars.iv
   store i32 %81, ptr %82, align 4, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not87 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not87, label %.loopexit, label %76, !llvm.loop !41
+  %.not86 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not86, label %.loopexit, label %76, !llvm.loop !41
 
 .loopexit:                                        ; preds = %76, %67, %62
-  %indvars.iv.next70 = add nsw i64 %indvars.iv69, 1
-  %83 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv69
+  %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
+  %83 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv68
   store i8 0, ptr %83, align 1, !tbaa !35
   %.044 = load ptr, ptr %.04456, align 8, !tbaa !30
   %.not47 = icmp eq ptr %.044, null

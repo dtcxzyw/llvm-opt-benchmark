@@ -21,9 +21,9 @@ define void @ff_rtp_send_h261(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 56
   br label %12
 
-12:                                               ; preds = %.lr.ph, %46
-  %.041 = phi ptr [ %1, %.lr.ph ], [ %54, %46 ]
-  %.03540 = phi i32 [ %2, %.lr.ph ], [ %55, %46 ]
+12:                                               ; preds = %.lr.ph, %45
+  %.041 = phi ptr [ %1, %.lr.ph ], [ %53, %45 ]
+  %.03540 = phi i32 [ %2, %.lr.ph ], [ %54, %45 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !29
   store i8 1, ptr %13, align 1, !tbaa !30
   %14 = load ptr, ptr %10, align 8, !tbaa !29
@@ -58,61 +58,57 @@ define void @ff_rtp_send_h261(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %29 = add nsw i32 %28, -4
   %.035. = tail call i32 @llvm.smin.i32(i32 %29, i32 %.03540)
   %30 = icmp slt i32 %29, %.03540
-  br i1 %30, label %31, label %46
+  br i1 %30, label %31, label %45
 
 31:                                               ; preds = %27
   %32 = sext i32 %.035. to i64
-  %.ptr = getelementptr i8, ptr %.041, i64 %32
-  %33 = getelementptr inbounds nuw i8, ptr %.041, i64 1
-  %34 = icmp sgt i32 %.035., 2
-  br i1 %34, label %.lr.ph.i.preheader, label %find_resync_marker_reverse.exit
+  %.ptr = getelementptr inbounds i8, ptr %.041, i64 %32
+  %33 = icmp sgt i32 %.035., 2
+  br i1 %33, label %.lr.ph.i, label %find_resync_marker_reverse.exit
 
-.lr.ph.i.preheader:                               ; preds = %31
-  %.011.i.ptr = getelementptr i8, ptr %.ptr, i64 -1
-  br label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %31, %39
+  %.013.i.idx.in = phi i64 [ %.013.i.idx, %39 ], [ %32, %31 ]
+  %.pn12.i = phi ptr [ %.013.i.ptr, %39 ], [ %.ptr, %31 ]
+  %.013.i.idx = add nsw i64 %.013.i.idx.in, -1
+  %.013.i.ptr = getelementptr inbounds i8, ptr %.041, i64 %.013.i.idx
+  %34 = load i8, ptr %.013.i.ptr, align 1, !tbaa !30, !alias.scope !32, !noalias !35
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %36, label %39
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %40
-  %.013.i = phi ptr [ %.0.i, %40 ], [ %.011.i.ptr, %.lr.ph.i.preheader ]
-  %.pn12.i = phi ptr [ %.013.i, %40 ], [ %.ptr, %.lr.ph.i.preheader ]
-  %35 = load i8, ptr %.013.i, align 1, !tbaa !30, !alias.scope !32, !noalias !35
-  %36 = icmp eq i8 %35, 0
-  br i1 %36, label %37, label %40
+36:                                               ; preds = %.lr.ph.i
+  %37 = load i8, ptr %.pn12.i, align 1, !tbaa !30, !alias.scope !32, !noalias !35
+  %38 = icmp eq i8 %37, 1
+  br i1 %38, label %find_resync_marker_reverse.exit, label %39
 
-37:                                               ; preds = %.lr.ph.i
-  %38 = load i8, ptr %.pn12.i, align 1, !tbaa !30, !alias.scope !32, !noalias !35
-  %39 = icmp eq i8 %38, 1
-  br i1 %39, label %find_resync_marker_reverse.exit, label %40
+39:                                               ; preds = %36, %.lr.ph.i
+  %40 = icmp sgt i64 %.013.i.idx.in, 3
+  br i1 %40, label %.lr.ph.i, label %find_resync_marker_reverse.exit, !llvm.loop !37
 
-40:                                               ; preds = %37, %.lr.ph.i
-  %.0.i = getelementptr inbounds i8, ptr %.013.i, i64 -1
-  %41 = icmp ugt ptr %.0.i, %33
-  br i1 %41, label %.lr.ph.i, label %find_resync_marker_reverse.exit, !llvm.loop !37
+find_resync_marker_reverse.exit:                  ; preds = %36, %39, %31
+  %.010.i = phi ptr [ %.ptr, %31 ], [ %.013.i.ptr, %36 ], [ %.ptr, %39 ]
+  %41 = ptrtoint ptr %.010.i to i64
+  %42 = ptrtoint ptr %.041 to i64
+  %43 = sub i64 %41, %42
+  %44 = trunc i64 %43 to i32
+  br label %45
 
-find_resync_marker_reverse.exit:                  ; preds = %37, %40, %31
-  %.010.i = phi ptr [ %.ptr, %31 ], [ %.013.i, %37 ], [ %.ptr, %40 ]
-  %42 = ptrtoint ptr %.010.i to i64
-  %43 = ptrtoint ptr %.041 to i64
-  %44 = sub i64 %42, %43
-  %45 = trunc i64 %44 to i32
-  br label %46
+45:                                               ; preds = %find_resync_marker_reverse.exit, %27
+  %.036 = phi i32 [ %44, %find_resync_marker_reverse.exit ], [ %.035., %27 ]
+  %46 = icmp eq i32 %.036, %.03540
+  %47 = zext i1 %46 to i32
+  %48 = load ptr, ptr %10, align 8, !tbaa !29
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %50 = sext i32 %.036 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr align 1 %.041, i64 %50, i1 false)
+  %51 = load ptr, ptr %10, align 8, !tbaa !29
+  %52 = add nsw i32 %.036, 4
+  tail call void @ff_rtp_send_data(ptr noundef %0, ptr noundef %51, i32 noundef %52, i32 noundef %47) #4
+  %53 = getelementptr inbounds i8, ptr %.041, i64 %50
+  %54 = sub nsw i32 %.03540, %.036
+  %55 = icmp sgt i32 %54, 0
+  br i1 %55, label %12, label %._crit_edge, !llvm.loop !39
 
-46:                                               ; preds = %find_resync_marker_reverse.exit, %27
-  %.036 = phi i32 [ %45, %find_resync_marker_reverse.exit ], [ %.035., %27 ]
-  %47 = icmp eq i32 %.036, %.03540
-  %48 = zext i1 %47 to i32
-  %49 = load ptr, ptr %10, align 8, !tbaa !29
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %51 = sext i32 %.036 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %.041, i64 %51, i1 false)
-  %52 = load ptr, ptr %10, align 8, !tbaa !29
-  %53 = add nsw i32 %.036, 4
-  tail call void @ff_rtp_send_data(ptr noundef %0, ptr noundef %52, i32 noundef %53, i32 noundef %48) #4
-  %54 = getelementptr inbounds i8, ptr %.041, i64 %51
-  %55 = sub nsw i32 %.03540, %.036
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %12, label %._crit_edge, !llvm.loop !39
-
-._crit_edge:                                      ; preds = %46, %3
+._crit_edge:                                      ; preds = %45, %3
   ret void
 }
 

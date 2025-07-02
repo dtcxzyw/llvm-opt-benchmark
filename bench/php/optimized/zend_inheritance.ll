@@ -12920,7 +12920,7 @@ define internal fastcc void @zend_type_copy_ctor(ptr noundef captures(none) %0) 
   %3 = load i32, ptr %2, align 8, !tbaa !9
   %4 = and i32 %3, 4194304
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %41, label %5
+  br i1 %.not, label %42, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !tbaa !12
@@ -12971,45 +12971,41 @@ zend_arena_alloc.exit.i:                          ; preds = %23, %21
   %34 = and i32 %33, -30408705
   %35 = or disjoint i32 %34, 5242880
   store i32 %35, ptr %2, align 8, !tbaa !9
-  %36 = load i32, ptr %.0.i.i, align 8, !tbaa !4
-  %37 = zext i32 %36 to i64
-  %.idx = shl nuw nsw i64 %37, 4
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.idx
-  %.ptr8 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %.not9 = icmp eq i32 %36, 0
-  br i1 %.not9, label %zend_type_list_copy_ctor.exit, label %.lr.ph.preheader
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %37 = load i32, ptr %.0.i.i, align 8, !tbaa !4
+  %38 = zext i32 %37 to i64
+  %.idx = shl nuw nsw i64 %38, 4
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
+  %.not8 = icmp eq i32 %37, 0
+  br i1 %.not8, label %zend_type_list_copy_ctor.exit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %zend_arena_alloc.exit.i
-  %.ptr = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.i67 = phi ptr [ %39, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %zend_arena_alloc.exit.i, %.lr.ph
+  %.0.i67 = phi ptr [ %40, %.lr.ph ], [ %36, %zend_arena_alloc.exit.i ]
   tail call fastcc void @zend_type_copy_ctor(ptr noundef nonnull %.0.i67)
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i67, i64 16
-  %40 = icmp ult ptr %39, %.ptr8
-  br i1 %40, label %.lr.ph, label %zend_type_list_copy_ctor.exit
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i67, i64 16
+  %41 = icmp ult ptr %40, %39
+  br i1 %41, label %.lr.ph, label %zend_type_list_copy_ctor.exit
 
-41:                                               ; preds = %1
-  %42 = and i32 %3, 16777216
-  %.not5 = icmp eq i32 %42, 0
-  br i1 %.not5, label %zend_type_list_copy_ctor.exit, label %43
+42:                                               ; preds = %1
+  %43 = and i32 %3, 16777216
+  %.not5 = icmp eq i32 %43, 0
+  br i1 %.not5, label %zend_type_list_copy_ctor.exit, label %44
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr %0, align 8, !tbaa !12
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %46 = load i32, ptr %45, align 4, !tbaa !21
-  %47 = and i32 %46, 64
-  %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %48, label %zend_type_list_copy_ctor.exit
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %0, align 8, !tbaa !12
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %47 = load i32, ptr %46, align 4, !tbaa !21
+  %48 = and i32 %47, 64
+  %.not.i = icmp eq i32 %48, 0
+  br i1 %.not.i, label %49, label %zend_type_list_copy_ctor.exit
 
-48:                                               ; preds = %43
-  %49 = load i32, ptr %44, align 4, !tbaa !84
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %44, align 4, !tbaa !84
+49:                                               ; preds = %44
+  %50 = load i32, ptr %45, align 4, !tbaa !84
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %45, align 4, !tbaa !84
   br label %zend_type_list_copy_ctor.exit
 
-zend_type_list_copy_ctor.exit:                    ; preds = %.lr.ph, %zend_arena_alloc.exit.i, %48, %43, %41
+zend_type_list_copy_ctor.exit:                    ; preds = %.lr.ph, %zend_arena_alloc.exit.i, %49, %44, %42
   ret void
 }
 
