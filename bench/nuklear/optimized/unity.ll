@@ -37475,19 +37475,19 @@ define internal fastcc range(i32 0, 2) i32 @nk_panel_begin(ptr noundef %0, ptr n
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %443, label %6
+  br i1 %.not, label %441, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %8 = load ptr, ptr %7, align 8, !tbaa !824
   %.not363 = icmp eq ptr %8, null
-  br i1 %.not363, label %443, label %9
+  br i1 %.not363, label %441, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %11 = load ptr, ptr %10, align 8, !tbaa !825
   %.not364 = icmp eq ptr %11, null
-  br i1 %.not364, label %443, label %12
+  br i1 %.not364, label %441, label %12
 
 12:                                               ; preds = %9
   %13 = ptrtoint ptr %11 to i64
@@ -37544,7 +37544,7 @@ nk_zero.exit:                                     ; preds = %.loopexit46.i.i.thr
 nk_zero.exit407:                                  ; preds = %.loopexit46.i.i401.thread, %.loopexit46.i.i401
   %26 = phi ptr [ %22, %.loopexit46.i.i401.thread ], [ %.pre455, %.loopexit46.i.i401 ]
   store i32 %2, ptr %26, align 8, !tbaa !909
-  br label %443
+  br label %441
 
 27:                                               ; preds = %nk_zero.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -38170,17 +38170,17 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader4
   %.pre460 = load i32, ptr %97, align 4, !tbaa !910
   br label %350
 
-350:                                              ; preds = %nk_strlen.exit, %170
+366:                                              ; preds = %nk_strlen.exit, %170
   %351 = phi i32 [ %.pre460, %nk_strlen.exit ], [ %18, %170 ]
   %352 = and i32 %351, 34816
   %or.cond397 = icmp eq i32 %352, 0
   br i1 %or.cond397, label %353, label %375
 
-353:                                              ; preds = %350
+368:                                              ; preds = %350
   %354 = load float, ptr %99, align 4, !tbaa !900
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %354, i64 0
-  %355 = getelementptr inbounds nuw i8, ptr %16, i64 84
-  %356 = load float, ptr %355, align 4, !tbaa !902
+  %371 = getelementptr inbounds nuw i8, ptr %16, i64 84
+  %372 = load float, ptr %371, align 4, !tbaa !902
   %.sroa.7.8.vec.insert = insertelement <2 x float> poison, float %356, i64 0
   %357 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %358 = load float, ptr %357, align 4, !tbaa !901
@@ -38199,17 +38199,17 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader4
     i32 0, label %370
   ]
 
-366:                                              ; preds = %353
-  %367 = getelementptr inbounds nuw i8, ptr %0, i64 9472
+373:                                              ; preds = %353
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 9472
   tail call void @nk_draw_image(ptr noundef nonnull %32, <2 x float> %.sroa.0.4.vec.insert, <2 x float> %.sroa.7.12.vec.insert, ptr noundef nonnull %367, i32 -1)
   br label %375
 
-368:                                              ; preds = %353
+368: ; preds = %368
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 9472
   tail call void @nk_draw_nine_slice(ptr noundef nonnull %32, <2 x float> %.sroa.0.4.vec.insert, <2 x float> %.sroa.7.12.vec.insert, ptr noundef nonnull %369, i32 -1)
   br label %375
 
-370:                                              ; preds = %353
+370: ; preds = %368
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 9608
   %372 = load float, ptr %371, align 8, !tbaa !934
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 9472
@@ -38234,89 +38234,89 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader4
   %388 = fcmp olt float %387, %378
   %..i = select i1 %388, float %378, float %387
   %.sroa.0.0.vec.insert429 = insertelement <2 x float> poison, float %..i, i64 0
-  %389 = getelementptr inbounds nuw i8, ptr %16, i64 116
-  %390 = load float, ptr %389, align 4, !tbaa !124
-  %391 = fcmp olt float %390, %380
-  %392 = select i1 %391, float %380, float %390
-  %.sroa.0.4.vec.insert430 = insertelement <2 x float> %.sroa.0.0.vec.insert429, float %392, i64 1
-  %393 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  %394 = load float, ptr %393, align 4, !tbaa !123
-  %395 = fadd float %387, %394
-  %396 = fcmp olt float %395, %383
-  %397 = select i1 %396, float %395, float %383
-  %398 = fsub float %397, %..i
-  %399 = getelementptr inbounds nuw i8, ptr %16, i64 124
-  %400 = load float, ptr %399, align 4, !tbaa !125
-  %401 = fadd float %390, %400
-  %402 = fcmp olt float %401, %386
-  %403 = select i1 %402, float %401, float %386
-  %404 = fsub float %403, %392
-  %405 = fcmp ogt float %398, 0.000000e+00
-  %406 = select i1 %405, float %398, float 0.000000e+00
-  %.sroa.6.8.vec.insert = insertelement <2 x float> poison, float %406, i64 0
-  %407 = fcmp ogt float %404, 0.000000e+00
-  %408 = select i1 %407, float %404, float 0.000000e+00
-  %.sroa.6.12.vec.insert = insertelement <2 x float> %.sroa.6.8.vec.insert, float %408, i64 1
+  %387 = getelementptr inbounds nuw i8, ptr %16, i64 116
+  %388 = load float, ptr %387, align 4, !tbaa !124
+  %389 = fcmp olt float %388, %380
+  %390 = select i1 %389, float %380, float %388
+  %.sroa.0.4.vec.insert430 = insertelement <2 x float> %.sroa.0.0.vec.insert429, float %390, i64 1
+  %391 = getelementptr inbounds nuw i8, ptr %16, i64 120
+  %392 = load float, ptr %391, align 4, !tbaa !123
+  %393 = fadd float %387, %392
+  %394 = fcmp olt float %393, %383
+  %395 = select i1 %394, float %393, float %383
+  %396 = fsub float %395, %..i
+  %397 = getelementptr inbounds nuw i8, ptr %16, i64 124
+  %398 = load float, ptr %397, align 4, !tbaa !125
+  %399 = fadd float %388, %398
+  %400 = fcmp olt float %399, %386
+  %401 = select i1 %400, float %399, float %386
+  %402 = fsub float %401, %390
+  %403 = fcmp ogt float %396, 0.000000e+00
+  %404 = select i1 %403, float %396, float 0.000000e+00
+  %.sroa.6.8.vec.insert = insertelement <2 x float> poison, float %404, i64 0
+  %405 = fcmp ogt float %402, 0.000000e+00
+  %406 = select i1 %405, float %402, float 0.000000e+00
+  %.sroa.6.12.vec.insert = insertelement <2 x float> %.sroa.6.8.vec.insert, float %406, i64 1
   store float %..i, ptr %377, align 8, !tbaa !86
-  store float %392, ptr %389, align 4, !tbaa !90
-  store float %406, ptr %393, align 8, !tbaa !91
-  store float %408, ptr %399, align 4, !tbaa !92
-  %409 = load ptr, ptr %32, align 8, !tbaa !93
-  %410 = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %409, i32 noundef 0, i64 noundef 24, i64 noundef 8)
-  %.not.i.i427 = icmp eq ptr %410, null
-  br i1 %.not.i.i427, label %nk_push_scissor.exit, label %411
+  store float %390, ptr %387, align 4, !tbaa !90
+  store float %404, ptr %391, align 8, !tbaa !91
+  store float %406, ptr %397, align 4, !tbaa !92
+  %407 = load ptr, ptr %32, align 8, !tbaa !93
+  %408 = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %407, i32 noundef 0, i64 noundef 24, i64 noundef 8)
+  %.not.i.i427 = icmp eq ptr %408, null
+  br i1 %.not.i.i427, label %nk_push_scissor.exit, label %409
 
-411:                                              ; preds = %375
-  %412 = load ptr, ptr %32, align 8, !tbaa !93
-  %413 = getelementptr inbounds nuw i8, ptr %412, i64 64
-  %414 = load ptr, ptr %413, align 8, !tbaa !41
-  %415 = ptrtoint ptr %410 to i64
-  %416 = ptrtoint ptr %414 to i64
-  %417 = sub i64 %415, %416
-  %418 = getelementptr inbounds nuw i8, ptr %16, i64 160
-  store i64 %417, ptr %418, align 8, !tbaa !94
-  %419 = getelementptr inbounds nuw i8, ptr %410, i64 24
-  %420 = getelementptr inbounds nuw i8, ptr %410, i64 31
-  %421 = ptrtoint ptr %420 to i64
-  %422 = and i64 %421, -8
-  %423 = ptrtoint ptr %419 to i64
-  %424 = sub i64 %422, %423
-  store i32 1, ptr %410, align 8, !tbaa !95
-  %425 = getelementptr inbounds nuw i8, ptr %412, i64 88
-  %426 = load i64, ptr %425, align 8, !tbaa !49
-  %427 = add i64 %426, %424
-  %428 = getelementptr inbounds nuw i8, ptr %410, i64 8
-  store i64 %427, ptr %428, align 8, !tbaa !97
-  %429 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  store i64 %427, ptr %429, align 8, !tbaa !98
-  %430 = fptosi float %..i to i16
-  %431 = getelementptr inbounds nuw i8, ptr %410, i64 16
-  store i16 %430, ptr %431, align 8, !tbaa !99
-  %432 = fptosi float %392 to i16
-  %433 = getelementptr inbounds nuw i8, ptr %410, i64 18
-  store i16 %432, ptr %433, align 2, !tbaa !102
+409:                                              ; preds = %375
+  %410 = load ptr, ptr %32, align 8, !tbaa !93
+  %411 = getelementptr inbounds nuw i8, ptr %410, i64 64
+  %412 = load ptr, ptr %411, align 8, !tbaa !41
+  %413 = ptrtoint ptr %408 to i64
+  %414 = ptrtoint ptr %412 to i64
+  %415 = sub i64 %413, %414
+  %416 = getelementptr inbounds nuw i8, ptr %16, i64 160
+  store i64 %415, ptr %416, align 8, !tbaa !94
+  %417 = getelementptr inbounds nuw i8, ptr %408, i64 24
+  %418 = getelementptr inbounds nuw i8, ptr %408, i64 31
+  %419 = ptrtoint ptr %418 to i64
+  %420 = and i64 %419, -8
+  %421 = ptrtoint ptr %417 to i64
+  %422 = sub i64 %420, %421
+  store i32 1, ptr %408, align 8, !tbaa !95
+  %423 = getelementptr inbounds nuw i8, ptr %410, i64 88
+  %424 = load i64, ptr %423, align 8, !tbaa !49
+  %425 = add i64 %424, %422
+  %426 = getelementptr inbounds nuw i8, ptr %408, i64 8
+  store i64 %425, ptr %426, align 8, !tbaa !97
+  %427 = getelementptr inbounds nuw i8, ptr %16, i64 152
+  store i64 %425, ptr %427, align 8, !tbaa !98
+  %428 = fptosi float %..i to i16
+  %429 = getelementptr inbounds nuw i8, ptr %408, i64 16
+  store i16 %428, ptr %429, align 8, !tbaa !99
+  %430 = fptosi float %390 to i16
+  %431 = getelementptr inbounds nuw i8, ptr %408, i64 18
+  store i16 %430, ptr %431, align 2, !tbaa !102
   %434 = fptoui float %406 to i16
-  %435 = getelementptr inbounds nuw i8, ptr %410, i64 20
+  %435 = getelementptr inbounds nuw i8, ptr %408, i64 20
   store i16 %434, ptr %435, align 4, !tbaa !103
   %436 = fptoui float %408 to i16
   %437 = getelementptr inbounds nuw i8, ptr %410, i64 22
   store i16 %436, ptr %437, align 2, !tbaa !104
   br label %nk_push_scissor.exit
 
-nk_push_scissor.exit:                             ; preds = %375, %411
+nk_push_scissor.exit:                             ; preds = %375, %409
   store <2 x float> %.sroa.0.4.vec.insert430, ptr %376, align 4
   store <2 x float> %.sroa.6.12.vec.insert, ptr %381, align 4
-  %438 = load i32, ptr %97, align 4, !tbaa !910
-  %439 = and i32 %438, 8192
-  %.not392 = icmp eq i32 %439, 0
-  %440 = lshr i32 %438, 15
-  %.lobit = and i32 %440, 1
-  %441 = xor i32 %.lobit, 1
-  %442 = select i1 %.not392, i32 %441, i32 0
-  br label %443
+  %436 = load i32, ptr %97, align 4, !tbaa !910
+  %437 = and i32 %436, 8192
+  %.not392 = icmp eq i32 %437, 0
+  %438 = lshr i32 %436, 15
+  %.lobit = and i32 %438, 1
+  %439 = xor i32 %.lobit, 1
+  %440 = select i1 %.not392, i32 %439, i32 0
+  br label %441
 
-443:                                              ; preds = %3, %6, %9, %nk_push_scissor.exit, %nk_zero.exit407
-  %.0 = phi i32 [ 0, %nk_zero.exit407 ], [ %442, %nk_push_scissor.exit ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ]
+441:                                              ; preds = %3, %6, %9, %nk_push_scissor.exit, %nk_zero.exit407
+  %.0 = phi i32 [ 0, %nk_zero.exit407 ], [ %440, %nk_push_scissor.exit ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 
