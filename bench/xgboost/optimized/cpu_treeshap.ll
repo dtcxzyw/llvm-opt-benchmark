@@ -658,10 +658,10 @@ define void @_ZN7xgboost8TreeShapERKNS_7RegTreeERKNS0_4FVecEPfijPNS_11PathElemen
 
 _ZSt4copyIPN7xgboost11PathElementES2_ET0_T_S4_S3_.exit: ; preds = %12
   %20 = zext i32 %4 to i64
-  %21 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %5, i64 %20
+  %.idx118 = shl nuw nsw i64 %20, 4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx118
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %.idx = shl nuw nsw i64 %20, 4
-  %23 = add nuw nsw i64 %.idx, 16
+  %23 = add nuw nsw i64 %.idx118, 16
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %22, ptr noundef nonnull align 4 dereferenceable(1) %5, i64 %23, i1 false)
   %24 = icmp ne i32 %9, 0
   %.not = icmp eq i32 %10, %8
@@ -880,7 +880,7 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
   br label %.lr.ph.split.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.i114
-  %153 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
+  %153 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx118
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 12
   %155 = load float, ptr %154, align 4, !tbaa !11
   %156 = zext nneg i32 %.04951.i to i64

@@ -6146,48 +6146,48 @@ declare noundef zeroext i1 @_ZN4llvm20NullPointerIsDefinedEPKNS_8FunctionEj(ptr 
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11GEPOperator17hasAllZeroIndicesEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
-  %4 = and i32 %3, 134217727
-  %.not20 = icmp eq i32 %4, 1
+  %4 = shl i32 %3, 5
+  %.not20 = icmp eq i32 %4, 32
   br i1 %.not20, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %5 = zext nneg i32 %4 to i64
-  %6 = sub nsw i64 0, %5
-  %7 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %6
-  %.01119 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %5 = zext i32 %4 to i64
+  %.idx = sub nsw i64 0, %5
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %.01119 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
-  %.01121 = phi ptr [ %.011, %20 ], [ %.01119, %.lr.ph.preheader ]
-  %8 = load ptr, ptr %.01121, align 8, !tbaa !12
-  %9 = load i8, ptr %8, align 8, !tbaa !3
-  %.not18 = icmp eq i8 %9, 17
-  br i1 %.not18, label %10, label %._crit_edge
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %.01121 = phi ptr [ %.011, %19 ], [ %.01119, %.lr.ph.preheader ]
+  %7 = load ptr, ptr %.01121, align 8, !tbaa !12
+  %8 = load i8, ptr %7, align 8, !tbaa !3
+  %.not18 = icmp eq i8 %8, 17
+  br i1 %.not18, label %9, label %._crit_edge
 
-10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %13 = load i32, ptr %12, align 8, !tbaa !36
-  %14 = icmp ult i32 %13, 65
-  br i1 %14, label %15, label %_ZNK4llvm11ConstantInt6isZeroEv.exit
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %12 = load i32, ptr %11, align 8, !tbaa !36
+  %13 = icmp ult i32 %12, 65
+  br i1 %13, label %14, label %_ZNK4llvm11ConstantInt6isZeroEv.exit
 
-15:                                               ; preds = %10
-  %16 = load i64, ptr %11, align 8, !tbaa !38
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %20, label %._crit_edge
+14:                                               ; preds = %9
+  %15 = load i64, ptr %10, align 8, !tbaa !38
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %19, label %._crit_edge
 
-_ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %10
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %11) #12
-  %19 = icmp eq i32 %18, %13
-  br i1 %19, label %20, label %._crit_edge
+_ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %9
+  %17 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %10) #12
+  %18 = icmp eq i32 %17, %12
+  br i1 %18, label %19, label %._crit_edge
 
-20:                                               ; preds = %_ZNK4llvm11ConstantInt6isZeroEv.exit, %15
+19:                                               ; preds = %_ZNK4llvm11ConstantInt6isZeroEv.exit, %14
   %.011 = getelementptr inbounds nuw i8, ptr %.01121, i64 32
   %.not = icmp eq ptr %.011, %0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
-._crit_edge:                                      ; preds = %20, %.lr.ph, %_ZNK4llvm11ConstantInt6isZeroEv.exit, %15, %1
-  %.not.lcssa = phi i1 [ true, %1 ], [ false, %15 ], [ false, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ false, %.lr.ph ], [ true, %20 ]
+._crit_edge:                                      ; preds = %19, %.lr.ph, %_ZNK4llvm11ConstantInt6isZeroEv.exit, %14, %1
+  %.not.lcssa = phi i1 [ true, %1 ], [ false, %14 ], [ false, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ false, %.lr.ph ], [ true, %19 ]
   ret i1 %.not.lcssa
 }
 

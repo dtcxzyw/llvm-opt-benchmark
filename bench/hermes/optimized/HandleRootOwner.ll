@@ -30,7 +30,8 @@ for.body:                                         ; preds = %entry, %_ZN6hermes2
   %curChunkIndex_.i = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 208
   %1 = load i32, ptr %curChunkIndex_.i, align 8
   %idx.ext.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %0, i64 %idx.ext.i
+  %add.ptr.idx.i = shl nuw nsw i64 %idx.ext.i, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.idx.i
   %curChunkEnd_.i = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 200
   %next_.i = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 192
   br label %for.body.i
@@ -79,7 +80,8 @@ for.body.lr.ph:
   %curChunkIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %1 = load i32, ptr %curChunkIndex_, align 8
   %idx.ext = zext i32 %1 to i64
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %0, i64 %idx.ext
+  %add.ptr.idx = shl nuw nsw i64 %idx.ext, 3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.idx
   %curChunkEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %next_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   br label %for.body

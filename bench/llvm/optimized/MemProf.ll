@@ -395,7 +395,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.._crit_edge_crit_edge: ; preds = %_ZNSt6v
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
-  %85 = getelementptr inbounds nuw i64, ptr %80, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx83
   %86 = getelementptr inbounds i8, ptr %85, i64 %.neg
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not20 = icmp eq ptr %3, null
@@ -1362,7 +1362,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.._crit_edge_crit_edge: ; preds = %_ZNSt6v
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
-  %86 = getelementptr inbounds nuw i32, ptr %81, i64 %84
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx71
   %87 = getelementptr inbounds i8, ptr %86, i64 %.neg
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not20 = icmp eq ptr %3, null

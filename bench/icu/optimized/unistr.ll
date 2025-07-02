@@ -6452,7 +6452,8 @@ _ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.thread: ; preds = %.sink.split
   %51 = load ptr, ptr %21, align 8
   %52 = select i1 %.not.i28, ptr %51, ptr %20
   %53 = getelementptr inbounds i16, ptr %52, i64 %24
-  %54 = getelementptr inbounds nuw i16, ptr %53, i64 %26
+  %.idx = shl nuw nsw i64 %26, 1
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %55 = getelementptr inbounds i8, ptr %54, i64 -2
   br label %.lr.ph
 

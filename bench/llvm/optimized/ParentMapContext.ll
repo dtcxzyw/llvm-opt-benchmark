@@ -32774,7 +32774,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %12 = load i32, ptr %11, align 4, !tbaa !1657
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %15 = getelementptr ptr, ptr %14, i64 %13
+  %.idx = shl nuw nsw i64 %13, 3
+  %15 = getelementptr i8, ptr %14, i64 %.idx
   %16 = getelementptr i8, ptr %15, i64 -8
   %.not50 = icmp eq i32 %12, 1
   br i1 %.not50, label %.critedge, label %.lr.ph
@@ -32795,8 +32796,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !1664
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !482
-  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
+  %.idx59 = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx59
   %.not.i52 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i52, label %._crit_edge, label %.lr.ph54
 

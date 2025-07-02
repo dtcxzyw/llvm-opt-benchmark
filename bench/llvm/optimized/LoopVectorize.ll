@@ -48272,7 +48272,8 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_.exit: ; preds =
   %586 = getelementptr inbounds nuw i8, ptr %.0123691, i64 16
   %587 = load i32, ptr %586, align 8, !tbaa !26
   %588 = zext i32 %587 to i64
-  %589 = getelementptr ptr, ptr %585, i64 %588
+  %.idx711 = shl nuw nsw i64 %588, 3
+  %589 = getelementptr i8, ptr %585, i64 %.idx711
   %590 = getelementptr i8, ptr %589, i64 -8
   %.not143685 = icmp eq i32 %587, 1
   br i1 %.not143685, label %._crit_edge689, label %.lr.ph688.preheader

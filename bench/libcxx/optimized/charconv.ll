@@ -2790,8 +2790,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__136_Floating_to_chars_general_p
   br i1 %29, label %.lr.ph.i.i.i.i, label %30
 
 30:                                               ; preds = %28
-  %31 = zext nneg i32 %3 to i64
-  %32 = getelementptr inbounds nuw i64, ptr @_ZNSt3__125_General_precision_tablesIdE17_Ordinary_X_tableE, i64 %31
+  %31 = shl nuw nsw i32 %3, 3
+  %.idx = zext nneg i32 %31 to i64
+  %32 = getelementptr inbounds nuw i8, ptr @_ZNSt3__125_General_precision_tablesIdE17_Ordinary_X_tableE, i64 %.idx
   %.057 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %33 = icmp samesign ugt i32 %3, 155
   br i1 %33, label %.lr.ph.i.i.i.i, label %44

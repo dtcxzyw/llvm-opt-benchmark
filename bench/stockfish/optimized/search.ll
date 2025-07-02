@@ -852,13 +852,13 @@ define dso_local void @_ZN9Stockfish6Search6Worker19iterative_deepeningEv(ptr no
   br i1 %37, label %32, label %.preheader366, !llvm.loop !9
 
 38:                                               ; preds = %.preheader366, %38
-  %indvars.iv462 = phi i64 [ 0, %.preheader366 ], [ %indvars.iv.next463, %38 ]
-  %39 = mul nuw nsw i64 %indvars.iv462, 56
+  %indvars.iv461 = phi i64 [ 0, %.preheader366 ], [ %indvars.iv.next462, %38 ]
+  %39 = mul nuw nsw i64 %indvars.iv461, 56
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %39
-  %40 = trunc nuw nsw i64 %indvars.iv462 to i32
+  %40 = trunc nuw nsw i64 %indvars.iv461 to i32
   store i32 %40, ptr %gep, align 8
-  %indvars.iv.next463 = add nuw nsw i64 %indvars.iv462, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next463, 249
+  %indvars.iv.next462 = add nuw nsw i64 %indvars.iv461, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next462, 249
   br i1 %exitcond.not, label %41, label %38, !llvm.loop !10
 
 41:                                               ; preds = %38
@@ -1145,23 +1145,23 @@ _ZN9Stockfish6OptionD2Ev.exit195:                 ; preds = %_ZN9Stockfish6Optio
   %172 = load ptr, ptr %119, align 16
   %173 = load atomic i8, ptr %172 seq_cst, align 1
   %174 = trunc i8 %173 to i1
-  br i1 %174, label %.critedge3, label %.lr.ph539
+  br i1 %174, label %.critedge3, label %.lr.ph538
 
 175:                                              ; preds = %384
   %176 = load ptr, ptr %119, align 16
   %177 = load atomic i8, ptr %176 seq_cst, align 1
   %178 = trunc i8 %177 to i1
-  br i1 %178, label %.critedge3, label %.lr.ph539, !llvm.loop !12
+  br i1 %178, label %.critedge3, label %.lr.ph538, !llvm.loop !12
 
-.lr.ph539:                                        ; preds = %.lr.ph415, %175
-  %.0147412538 = phi i64 [ %.1148, %175 ], [ 0, %.lr.ph415 ]
+.lr.ph538:                                        ; preds = %.lr.ph415, %175
+  %.0147412537 = phi i64 [ %.1148, %175 ], [ 0, %.lr.ph415 ]
   %179 = load i64, ptr %122, align 16
   %180 = load i64, ptr %121, align 8
   %181 = icmp eq i64 %179, %180
   %.pre = load ptr, ptr %110, align 64
   br i1 %181, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.lr.ph539
+.preheader:                                       ; preds = %.lr.ph538
   %182 = load ptr, ptr %111, align 8
   %183 = ptrtoint ptr %182 to i64
   %184 = ptrtoint ptr %.pre to i64
@@ -1184,8 +1184,8 @@ _ZN9Stockfish6OptionD2Ev.exit195:                 ; preds = %_ZN9Stockfish6Optio
   %.not160 = icmp eq i32 %192, %193
   br i1 %.not160, label %188, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %188, %190, %.lr.ph539
-  %.1148 = phi i64 [ %.0147412538, %.lr.ph539 ], [ %179, %190 ], [ %179, %188 ]
+.loopexit:                                        ; preds = %188, %190, %.lr.ph538
+  %.1148 = phi i64 [ %.0147412537, %.lr.ph538 ], [ %179, %190 ], [ %179, %188 ]
   store i32 0, ptr %123, align 8
   %194 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %.pre, i64 %179, i32 2
   %195 = load i32, ptr %194, align 8
@@ -1435,14 +1435,14 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit: ; preds = %.lr.ph.i.i, %260
   %.idx360 = mul nsw i64 %.1148, 56
   %299 = getelementptr inbounds i8, ptr %298, i64 %.idx360
   %300 = load i64, ptr %122, align 16
-  %301 = getelementptr inbounds %"struct.Stockfish::Search::RootMove", ptr %298, i64 %300
+  %.idx359 = mul nsw i64 %300, 56
+  %301 = getelementptr inbounds i8, ptr %298, i64 %.idx359
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 56
   %303 = icmp eq ptr %299, %302
   br i1 %303, label %_ZSt13__stable_sortIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit268, label %304
 
 304:                                              ; preds = %297
-  %.idx359426 = sub i64 %300, %.1148
-  %reass.sub = mul i64 %.idx359426, 56
+  %reass.sub = sub i64 %.idx359, %.idx360
   %gepdiff361 = add i64 %reass.sub, 56
   %305 = icmp sgt i64 %gepdiff361, 0
   br i1 %305, label %.lr.ph.i.i.preheader.i244, label %.thread.i241
@@ -1655,11 +1655,11 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit208: ; preds = %.lr.ph.i.i203, 
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 1
   %396 = load atomic i8, ptr %395 seq_cst, align 1
   %397 = trunc i8 %396 to i1
-  %.pre467 = load ptr, ptr %110, align 64
+  %.pre466 = load ptr, ptr %110, align 64
   br i1 %397, label %398, label %451
 
 398:                                              ; preds = %393
-  %399 = load i32, ptr %.pre467, align 8
+  %399 = load i32, ptr %.pre466, align 8
   %.not = icmp ne i32 %399, -32001
   %400 = icmp slt i32 %399, -31506
   %or.cond355 = and i1 %.not, %400
@@ -1669,7 +1669,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit208: ; preds = %.lr.ph.i.i203, 
   %.val180 = load ptr, ptr %111, align 8
   %.val181 = load ptr, ptr %3, align 8
   %402 = ptrtoint ptr %.val180 to i64
-  %403 = ptrtoint ptr %.pre467 to i64
+  %403 = ptrtoint ptr %.pre466 to i64
   %404 = sub i64 %402, %403
   %405 = sdiv exact i64 %404, 56
   %406 = ashr i64 %405, 2
@@ -1679,12 +1679,12 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit208: ; preds = %.lr.ph.i.i203, 
 .lr.ph.i.i.i.i:                                   ; preds = %401
   %.val.val.val.i.i.i.i = load i16, ptr %.val181, align 2
   %408 = mul nuw nsw i64 %406, 224
-  %scevgep.i.i.i.i = getelementptr i8, ptr %.pre467, i64 %408
+  %scevgep.i.i.i.i = getelementptr i8, ptr %.pre466, i64 %408
   br label %409
 
 409:                                              ; preds = %421, %.lr.ph.i.i.i.i
   %.064.i.i.i.i = phi i64 [ %406, %.lr.ph.i.i.i.i ], [ %423, %421 ]
-  %.sroa.044.063.i.i.i.i = phi ptr [ %.pre467, %.lr.ph.i.i.i.i ], [ %422, %421 ]
+  %.sroa.044.063.i.i.i.i = phi ptr [ %.pre466, %.lr.ph.i.i.i.i ], [ %422, %421 ]
   %410 = getelementptr i8, ptr %.sroa.044.063.i.i.i.i, i64 32
   %.val1.i.i.i.i.i = load ptr, ptr %410, align 8
   %.val1.val.i.i.i.i.i = load i16, ptr %.val1.i.i.i.i.i, align 2
@@ -1725,7 +1725,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit208: ; preds = %.lr.ph.i.i203, 
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %401
   %.pre-phi75.i.i.i.i = phi i64 [ %.pre74.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %404, %401 ]
-  %.sroa.044.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %.pre467, %401 ]
+  %.sroa.044.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %.pre466, %401 ]
   %425 = sdiv exact i64 %.pre-phi75.i.i.i.i, 56
   switch i64 %425, label %"_ZN9Stockfish7Utility13move_to_frontINS_6Search8RootMoveEZNS2_6Worker19iterative_deepeningEvE3$_0EEvRSt6vectorIT_SaIS7_EET0_.exit" [
     i64 3, label %426
@@ -1795,12 +1795,12 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit208: ; preds = %.lr.ph.i.i203, 
 
 442:                                              ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEEZNS3_6Worker19iterative_deepeningEvE3$_0ET_SC_SC_T0_.exit.i"
   %443 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 56
-  %444 = call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_St26random_access_iterator_tag(ptr nonnull %.pre467, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, ptr nonnull %443)
-  %.pre469 = load ptr, ptr %110, align 64
+  %444 = call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_St26random_access_iterator_tag(ptr nonnull %.pre466, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, ptr nonnull %443)
+  %.pre468 = load ptr, ptr %110, align 64
   br label %"_ZN9Stockfish7Utility13move_to_frontINS_6Search8RootMoveEZNS2_6Worker19iterative_deepeningEvE3$_0EEvRSt6vectorIT_SaIS7_EET0_.exit"
 
 "_ZN9Stockfish7Utility13move_to_frontINS_6Search8RootMoveEZNS2_6Worker19iterative_deepeningEvE3$_0EEvRSt6vectorIT_SaIS7_EET0_.exit": ; preds = %._crit_edge.i.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEEZNS3_6Worker19iterative_deepeningEvE3$_0ET_SC_SC_T0_.exit.i", %442
-  %445 = phi ptr [ %.pre467, %._crit_edge.i.i.i.i ], [ %.pre467, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEEZNS3_6Worker19iterative_deepeningEvE3$_0ET_SC_SC_T0_.exit.i" ], [ %.pre469, %442 ]
+  %445 = phi ptr [ %.pre466, %._crit_edge.i.i.i.i ], [ %.pre466, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEEZNS3_6Worker19iterative_deepeningEvE3$_0ET_SC_SC_T0_.exit.i" ], [ %.pre468, %442 ]
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 32
   %447 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN9Stockfish4MoveESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %446, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %448 = load ptr, ptr %110, align 64
@@ -1811,7 +1811,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit208: ; preds = %.lr.ph.i.i203, 
   br label %496
 
 451:                                              ; preds = %398, %393
-  %452 = getelementptr inbounds nuw i8, ptr %.pre467, i64 32
+  %452 = getelementptr inbounds nuw i8, ptr %.pre466, i64 32
   %453 = load ptr, ptr %452, align 8
   %454 = load ptr, ptr %3, align 8
   %455 = load i16, ptr %453, align 2
@@ -1824,7 +1824,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit208: ; preds = %.lr.ph.i.i203, 
   br i1 %.not.i210, label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EEaSERKS3_.exit, label %458
 
 458:                                              ; preds = %457
-  %459 = getelementptr inbounds nuw i8, ptr %.pre467, i64 40
+  %459 = getelementptr inbounds nuw i8, ptr %.pre466, i64 40
   %460 = load ptr, ptr %459, align 8
   %461 = ptrtoint ptr %460 to i64
   %462 = ptrtoint ptr %453 to i64
@@ -1910,11 +1910,11 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN9Stockfish4MoveESt6vectorIS3_SaIS3_E
   %491 = load ptr, ptr %3, align 8
   %492 = getelementptr inbounds i8, ptr %491, i64 %463
   store ptr %492, ptr %27, align 8
-  %.pre468 = load ptr, ptr %110, align 64
+  %.pre467 = load ptr, ptr %110, align 64
   br label %_ZNSt6vectorIN9Stockfish4MoveESaIS1_EEaSERKS3_.exit
 
 _ZNSt6vectorIN9Stockfish4MoveESaIS1_EEaSERKS3_.exit: ; preds = %457, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN9Stockfish4MoveESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i
-  %493 = phi ptr [ %.pre467, %457 ], [ %.pre468, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN9Stockfish4MoveESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i ]
+  %493 = phi ptr [ %.pre466, %457 ], [ %.pre467, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN9Stockfish4MoveESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i ]
   %494 = load i32, ptr %493, align 8
   %495 = load i32, ptr %118, align 8
   br label %496

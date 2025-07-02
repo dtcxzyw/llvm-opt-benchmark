@@ -11588,8 +11588,8 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIfLi1EiEC2ERKS1_(ptr nou
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !655
-  %46 = load ptr, ptr %4, align 8, !tbaa !655
   %.idx.i = shl nsw i64 %41, 2
+  %46 = load ptr, ptr %4, align 8, !tbaa !655
   %47 = add nsw i64 %.idx.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %46, ptr align 4 %45, i64 %47, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
@@ -13567,8 +13567,8 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIfLi0EiEC2ERKS1_(ptr nou
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !725
-  %46 = load ptr, ptr %4, align 8, !tbaa !725
   %.idx.i = shl nsw i64 %41, 2
+  %46 = load ptr, ptr %4, align 8, !tbaa !725
   %47 = add nsw i64 %.idx.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %46, ptr align 4 %45, i64 %47, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
@@ -18295,8 +18295,8 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixISt7complexIdELi0EiEC2ER
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !921
-  %46 = load ptr, ptr %4, align 8, !tbaa !921
   %.idx.i = shl nsw i64 %41, 2
+  %46 = load ptr, ptr %4, align 8, !tbaa !921
   %47 = add nsw i64 %.idx.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %46, ptr align 4 %45, i64 %47, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i

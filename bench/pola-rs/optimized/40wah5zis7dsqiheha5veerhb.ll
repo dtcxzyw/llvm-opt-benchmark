@@ -13565,9 +13565,9 @@ _ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread32: ; preds = %.pre
 
 58:                                               ; preds = %54
   %59 = extractvalue { i64, i64 } %55, 1
-  %60 = getelementptr i32, ptr %1, i64 %59
-  %.idx.mask = and i64 %59, 4611686018427387903
-  %61 = icmp eq i64 %.idx.mask, 4611686018427387903
+  %.idx = shl i64 %59, 2
+  %60 = getelementptr i8, ptr %1, i64 %.idx
+  %61 = icmp eq i64 %.idx, -4
   br i1 %61, label %.critedge, label %.lr.ph
 
 62:                                               ; preds = %54
@@ -13773,9 +13773,9 @@ _ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread32: ; preds = %.pre
 
 56:                                               ; preds = %52
   %57 = extractvalue { i64, i64 } %53, 1
-  %58 = getelementptr i64, ptr %1, i64 %57
-  %.idx.mask = and i64 %57, 2305843009213693951
-  %59 = icmp eq i64 %.idx.mask, 2305843009213693951
+  %.idx = shl i64 %57, 3
+  %58 = getelementptr i8, ptr %1, i64 %.idx
+  %59 = icmp eq i64 %.idx, -8
   br i1 %59, label %.critedge, label %.lr.ph
 
 60:                                               ; preds = %52

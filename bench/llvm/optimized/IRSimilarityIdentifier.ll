@@ -2101,110 +2101,110 @@ _ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit41: ; preds = %36
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %80 = load i32, ptr %79, align 4
-  %81 = and i32 %80, 134217727
+  %81 = shl i32 %80, 5
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %83 = load i32, ptr %82, align 4
-  %84 = and i32 %83, 134217727
-  %85 = icmp ne i32 %81, 2
-  %86 = icmp ne i32 %84, 2
+  %84 = shl i32 %83, 5
+  %85 = icmp ne i32 %81, 64
+  %86 = icmp ne i32 %84, 64
   %.not3.i2.i.i.i.i.i44 = select i1 %85, i1 %86, i1 false
   br i1 %.not3.i2.i.i.i.i.i44, label %.lr.ph.i.preheader.i.i.i.i47, label %.thread74
 
 .lr.ph.i.preheader.i.i.i.i47:                     ; preds = %78
-  %87 = zext nneg i32 %84 to i64
-  %88 = sub nsw i64 0, %87
-  %89 = getelementptr inbounds %"class.llvm::Use", ptr %13, i64 %88
-  %scevgep21.sink.i.i.i.i = getelementptr i8, ptr %89, i64 64
-  %90 = zext nneg i32 %81 to i64
-  %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds %"class.llvm::Use", ptr %11, i64 %91
-  %.in.i.i = getelementptr i8, ptr %92, i64 64
+  %87 = zext i32 %84 to i64
+  %.idx83 = sub nsw i64 0, %87
+  %88 = getelementptr inbounds i8, ptr %13, i64 %.idx83
+  %scevgep21.sink.i.i.i.i = getelementptr i8, ptr %88, i64 64
+  %89 = zext i32 %81 to i64
+  %.idx = sub nsw i64 0, %89
+  %90 = getelementptr inbounds i8, ptr %11, i64 %.idx
+  %.in.i.i = getelementptr i8, ptr %90, i64 64
   %.val.val.i.i5.i.i.i.i48 = load ptr, ptr %scevgep21.sink.i.i.i.i, align 8, !tbaa !97, !noalias !195
   %.val1.val.i.i6.i.i.i.i49 = load ptr, ptr %.in.i.i, align 8, !tbaa !97, !noalias !195
   %.not.i7.i.i.i.i50 = icmp eq ptr %.val1.val.i.i6.i.i.i.i49, %.val.val.i.i5.i.i.i.i48
   br i1 %.not.i7.i.i.i.i50, label %.lr.ph.i.i.i.i51, label %.thread74
 
 .lr.ph.i.i.i.i.i53:                               ; preds = %.lr.ph.i.i.i.i51
-  %.val.val.i.i.i.i.i.i54 = load ptr, ptr %96, align 8, !tbaa !97, !noalias !195
-  %.val1.val.i.i.i.i.i.i55 = load ptr, ptr %95, align 8, !tbaa !97, !noalias !195
+  %.val.val.i.i.i.i.i.i54 = load ptr, ptr %94, align 8, !tbaa !97, !noalias !195
+  %.val1.val.i.i.i.i.i.i55 = load ptr, ptr %93, align 8, !tbaa !97, !noalias !195
   %.not.i.i.i.i.i56 = icmp eq ptr %.val1.val.i.i.i.i.i.i55, %.val.val.i.i.i.i.i.i54
   br i1 %.not.i.i.i.i.i56, label %.lr.ph.i.i.i.i51, label %.loopexit, !llvm.loop !202
 
 .lr.ph.i.i.i.i51:                                 ; preds = %.lr.ph.i.preheader.i.i.i.i47, %.lr.ph.i.i.i.i.i53
-  %93 = phi ptr [ %96, %.lr.ph.i.i.i.i.i53 ], [ %scevgep21.sink.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i47 ]
-  %94 = phi ptr [ %95, %.lr.ph.i.i.i.i.i53 ], [ %.in.i.i, %.lr.ph.i.preheader.i.i.i.i47 ]
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  %96 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  %97 = icmp ne ptr %95, %spec.select.i.i
-  %98 = icmp ne ptr %96, %13
-  %.not3.i.i.i.i.i.i52 = select i1 %97, i1 %98, i1 false
+  %91 = phi ptr [ %94, %.lr.ph.i.i.i.i.i53 ], [ %scevgep21.sink.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i47 ]
+  %92 = phi ptr [ %93, %.lr.ph.i.i.i.i.i53 ], [ %.in.i.i, %.lr.ph.i.preheader.i.i.i.i47 ]
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 32
+  %95 = icmp ne ptr %93, %spec.select.i.i
+  %96 = icmp ne ptr %94, %13
+  %.not3.i.i.i.i.i.i52 = select i1 %95, i1 %96, i1 false
   br i1 %.not3.i.i.i.i.i.i52, label %.lr.ph.i.i.i.i.i53, label %"._ZSt9__find_ifIN4llvm6detail12zip_shortestIJPNS0_3UseES4_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_12IRSimilarity7isCloseERKNS9_17IRInstructionDataESC_E3$_1EEET_SF_SF_T0_St18input_iterator_tag.exit.loopexit_crit_edge.i.i.i.i", !llvm.loop !202
 
 "._ZSt9__find_ifIN4llvm6detail12zip_shortestIJPNS0_3UseES4_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_12IRSimilarity7isCloseERKNS9_17IRInstructionDataESC_E3$_1EEET_SF_SF_T0_St18input_iterator_tag.exit.loopexit_crit_edge.i.i.i.i": ; preds = %.lr.ph.i.i.i.i51
   br label %.loopexit, !llvm.loop !202
 
 .thread74:                                        ; preds = %.lr.ph.i.preheader.i.i.i.i47, %78
-  %99 = icmp eq i32 %81, 2
-  %100 = icmp eq i32 %84, 2
-  %101 = select i1 %99, i1 true, i1 %100
+  %97 = icmp eq i32 %81, 64
+  %98 = icmp eq i32 %84, 64
+  %99 = select i1 %97, i1 true, i1 %98
   br label %.thread71
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i53, %"._ZSt9__find_ifIN4llvm6detail12zip_shortestIJPNS0_3UseES4_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_12IRSimilarity7isCloseERKNS9_17IRInstructionDataESC_E3$_1EEET_SF_SF_T0_St18input_iterator_tag.exit.loopexit_crit_edge.i.i.i.i"
-  %102 = icmp eq ptr %spec.select.i.i, %95
-  %103 = icmp eq ptr %13, %96
-  %104 = select i1 %102, i1 true, i1 %103
+  %100 = icmp eq ptr %spec.select.i.i, %93
+  %101 = icmp eq ptr %13, %94
+  %102 = select i1 %100, i1 true, i1 %101
   br label %.thread71
 
 .thread:                                          ; preds = %72
   switch i8 %15, label %.thread82 [
-    i8 85, label %105
-    i8 31, label %119
+    i8 85, label %103
+    i8 31, label %117
   ]
 
-105:                                              ; preds = %.thread
-  %106 = load i8, ptr %13, align 8, !tbaa !90
-  %107 = icmp eq i8 %106, 85
-  br i1 %107, label %108, label %.thread82
+103:                                              ; preds = %.thread
+  %104 = load i8, ptr %13, align 8, !tbaa !90
+  %105 = icmp eq i8 %104, 85
+  br i1 %105, label %106, label %.thread82
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %110 = load ptr, ptr %109, align 8, !tbaa !149
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %112 = load i64, ptr %111, align 8, !tbaa !152
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %114 = load ptr, ptr %113, align 8, !tbaa !149
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %116 = load i64, ptr %115, align 8, !tbaa !152
-  %.not.i.i = icmp eq i64 %112, %116
-  br i1 %.not.i.i, label %117, label %.thread71
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %108 = load ptr, ptr %107, align 8, !tbaa !149
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %110 = load i64, ptr %109, align 8, !tbaa !152
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %112 = load ptr, ptr %111, align 8, !tbaa !149
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %114 = load i64, ptr %113, align 8, !tbaa !152
+  %.not.i.i = icmp eq i64 %110, %114
+  br i1 %.not.i.i, label %115, label %.thread71
 
-117:                                              ; preds = %108
-  %118 = icmp eq i64 %112, 0
-  br i1 %118, label %.thread82, label %_ZN4llvmneENS_9StringRefES0_.exit
+115:                                              ; preds = %106
+  %116 = icmp eq i64 %110, 0
+  br i1 %116, label %.thread82, label %_ZN4llvmneENS_9StringRefES0_.exit
 
-_ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %117
-  %bcmp.i.i = tail call i32 @bcmp(ptr %110, ptr %114, i64 %112)
-  %.not83 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not83, label %.thread82, label %.thread71
+_ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %115
+  %bcmp.i.i = tail call i32 @bcmp(ptr %108, ptr %112, i64 %110)
+  %.not84 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not84, label %.thread82, label %.thread71
 
-119:                                              ; preds = %.thread
-  %120 = load i8, ptr %13, align 8, !tbaa !90
-  %121 = icmp eq i8 %120, 31
-  br i1 %121, label %122, label %.thread82
+117:                                              ; preds = %.thread
+  %118 = load i8, ptr %13, align 8, !tbaa !90
+  %119 = icmp eq i8 %118, 31
+  br i1 %119, label %120, label %.thread82
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 136
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %122 = load i32, ptr %121, align 8, !tbaa !26
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %124 = load i32, ptr %123, align 8, !tbaa !26
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %126 = load i32, ptr %125, align 8, !tbaa !26
-  %.not33 = icmp eq i32 %124, %126
+  %.not33 = icmp eq i32 %122, %124
   br i1 %.not33, label %.thread82, label %.thread71
 
-.thread82:                                        ; preds = %.thread, %117, %105, %_ZN4llvmneENS_9StringRefES0_.exit, %122, %119
+.thread82:                                        ; preds = %.thread, %115, %103, %_ZN4llvmneENS_9StringRefES0_.exit, %120, %117
   br label %.thread71
 
-.thread71:                                        ; preds = %.loopexit, %108, %74, %.thread74, %122, %_ZN4llvmneENS_9StringRefES0_.exit, %16, %18, %_ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit41, %2, %.thread82, %"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJRKNS_11SmallVectorIPNS_5ValueELj4EEES9_EEEZNS_12IRSimilarity7isCloseERKNSC_17IRInstructionDataESF_E3$_0EEbOT_T0_.exit"
-  %.0 = phi i1 [ true, %.thread82 ], [ %104, %.loopexit ], [ %71, %"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJRKNS_11SmallVectorIPNS_5ValueELj4EEES9_EEEZNS_12IRSimilarity7isCloseERKNSC_17IRInstructionDataESF_E3$_0EEbOT_T0_.exit" ], [ false, %2 ], [ false, %_ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit41 ], [ false, %18 ], [ false, %16 ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit ], [ false, %122 ], [ %101, %.thread74 ], [ false, %74 ], [ false, %108 ]
+.thread71:                                        ; preds = %.loopexit, %106, %74, %.thread74, %120, %_ZN4llvmneENS_9StringRefES0_.exit, %16, %18, %_ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit41, %2, %.thread82, %"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJRKNS_11SmallVectorIPNS_5ValueELj4EEES9_EEEZNS_12IRSimilarity7isCloseERKNSC_17IRInstructionDataESF_E3$_0EEbOT_T0_.exit"
+  %.0 = phi i1 [ true, %.thread82 ], [ %102, %.loopexit ], [ %71, %"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJRKNS_11SmallVectorIPNS_5ValueELj4EEES9_EEEZNS_12IRSimilarity7isCloseERKNSC_17IRInstructionDataESF_E3$_0EEbOT_T0_.exit" ], [ false, %2 ], [ false, %_ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv.exit41 ], [ false, %18 ], [ false, %16 ], [ false, %_ZN4llvmneENS_9StringRefES0_.exit ], [ false, %120 ], [ %99, %.thread74 ], [ false, %74 ], [ false, %106 ]
   ret i1 %.0
 }
 

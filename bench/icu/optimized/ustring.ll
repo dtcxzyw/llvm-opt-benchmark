@@ -979,7 +979,8 @@ u_strlen_77.exit:                                 ; preds = %.preheader79
 
 21:                                               ; preds = %19
   %22 = sext i32 %.054 to i64
-  %23 = getelementptr inbounds i16, ptr %2, i64 %22
+  %.idx = shl nsw i64 %22, 1
+  %23 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %24 = getelementptr inbounds i8, ptr %23, i64 -2
   %25 = load i16, ptr %24, align 2, !tbaa !3
   %26 = add nsw i32 %.054, -1

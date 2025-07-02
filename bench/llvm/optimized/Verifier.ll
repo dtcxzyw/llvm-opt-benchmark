@@ -46652,8 +46652,8 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i: ; preds = %
   %2273 = load i32, ptr %1567, align 4
   %2274 = and i32 %2273, 134217727
   %2275 = zext nneg i32 %2274 to i64
-  %.neg = mul nsw i64 %2275, -32
-  %.add375 = or disjoint i64 %.neg, 8
+  %.neg.i.i = mul nsw i64 %2275, -32
+  %.add375 = or disjoint i64 %.neg.i.i, 8
   store ptr %697, ptr %129, align 8, !tbaa !25
   store i32 0, ptr %698, align 8, !tbaa !26
   store i32 16, ptr %699, align 4, !tbaa !27

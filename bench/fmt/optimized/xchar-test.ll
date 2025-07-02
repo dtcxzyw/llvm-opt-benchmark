@@ -75264,10 +75264,10 @@ define linkonce_odr hidden ptr @_ZN3fmt3v116detail9copy_unitINS0_14basic_appende
   %6 = load ptr, ptr %5, align 8, !tbaa !225
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !226
-  %9 = getelementptr i32, ptr %6, i64 %8
+  %.idx = shl i64 %8, 2
+  %9 = getelementptr i8, ptr %6, i64 %.idx
   %10 = getelementptr i8, ptr %9, i64 -4
-  %.idx.mask = and i64 %8, 4611686018427387903
-  %.not24.i.i = icmp eq i64 %.idx.mask, 1
+  %.not24.i.i = icmp eq i64 %.idx, 4
   br i1 %.not24.i.i, label %_ZN3fmt3v116detail4copyIwPKwNS0_14basic_appenderIwEETnNSt9enable_ifIXaasr23is_back_insert_iteratorIT1_EE5valuesr41has_back_insert_iterator_container_appendIS8_T0_EE5valueEiE4typeELi0EEES8_S9_S9_S8_.exit, label %.lr.ph27.i.i
 
 .lr.ph27.i.i:                                     ; preds = %4

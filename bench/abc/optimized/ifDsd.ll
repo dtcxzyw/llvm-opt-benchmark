@@ -2455,6 +2455,7 @@ Vec_IntStart.exit:                                ; preds = %14, %Vec_IntAlloc.e
   %notmask.i = shl nsw i32 -1, %34
   %35 = xor i32 %notmask.i, -1
   %36 = zext nneg i32 %33 to i64
+  %.idx.i = shl nuw nsw i64 %36, 3
   %37 = zext nneg i32 %35 to i64
   %38 = select i1 %.mux, i64 15, i64 %37
   br label %39
@@ -2546,7 +2547,7 @@ If_DsdObjTruthId.exit47:                          ; preds = %If_DsdObjTruthId.ex
   br i1 %.not22.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %.thread55
-  %90 = getelementptr inbounds nuw i64, ptr %89, i64 %36
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i
   %.021.i = getelementptr inbounds i8, ptr %90, i64 -8
   br label %.lr.ph.us.i
 
@@ -2755,7 +2756,8 @@ If_DsdManComputeTruthPtr.exit:                    ; preds = %.lr.ph18.i.i, %26, 
   %notmask.i = shl nsw i32 -1, %64
   %65 = xor i32 %notmask.i, -1
   %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw i64, ptr %25, i64 %66
+  %.idx.i = shl nuw nsw i64 %66, 3
+  %67 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i
   %.021.i = getelementptr inbounds i8, ptr %67, i64 -8
   %68 = zext nneg i32 %65 to i64
   %69 = select i1 %58, i64 15, i64 %68
@@ -3021,7 +3023,8 @@ If_DsdObjTruth.exit:                              ; preds = %33, %40
   %76 = xor i32 %notmask.i, -1
   %77 = select i1 %71, i32 15, i32 %76
   %78 = zext nneg i32 %75 to i64
-  %79 = getelementptr inbounds nuw i64, ptr %61, i64 %78
+  %.idx.i = shl nuw nsw i64 %78, 3
+  %79 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i
   %.021.i = getelementptr inbounds i8, ptr %79, i64 -8
   %80 = zext nneg i32 %77 to i64
   br label %.lr.ph.us.i

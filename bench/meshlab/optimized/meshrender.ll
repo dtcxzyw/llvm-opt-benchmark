@@ -11868,30 +11868,32 @@ define linkonce_odr void @_ZN5QListIP7QActionE6appendERKS1_(ptr noundef nonnull 
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds ptr, ptr %15, i64 %18
   %.not.i.i = icmp ne ptr %12, %19
-  %.pre21.i = load i32, ptr %3, align 4
-  %20 = icmp sgt i32 %.pre21.i, 0
+  %.pre18.i = load i32, ptr %3, align 4
+  %20 = icmp sgt i32 %.pre18.i, 0
   %or.cond.i = select i1 %.not.i.i, i1 %20, i1 false
   br i1 %or.cond.i, label %21, label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i
 
 21:                                               ; preds = %7
-  %22 = zext nneg i32 %.pre21.i to i64
+  %22 = zext nneg i32 %.pre18.i to i64
   %.idx.i = shl nuw nsw i64 %22, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 8 %12, i64 %.idx.i, i1 false)
   %.pre.i = load ptr, ptr %0, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  %.pre19.i = load i32, ptr %.phi.trans.insert.i, align 8
-  %.pre20.i = load i32, ptr %3, align 4
-  %.pre22.i = sext i32 %.pre19.i to i64
+  %.pre16.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %.pre17.i = load i32, ptr %3, align 4
+  %.pre19.i = sext i32 %.pre16.i to i64
   br label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i
 
 _ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i: ; preds = %21, %7
-  %.pre-phi.i = phi i64 [ %18, %7 ], [ %.pre22.i, %21 ]
-  %23 = phi i32 [ %.pre21.i, %7 ], [ %.pre20.i, %21 ]
+  %.pre-phi.i = phi i64 [ %18, %7 ], [ %.pre19.i, %21 ]
+  %23 = phi i32 [ %.pre18.i, %7 ], [ %.pre17.i, %21 ]
   %24 = phi ptr [ %14, %7 ], [ %.pre.i, %21 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %.pre-phi.i
+  %.idx12.i = shl nsw i64 %.pre-phi.i, 3
+  %26 = getelementptr inbounds i8, ptr %25, i64 %.idx12.i
   %27 = sext i32 %23 to i64
-  %28 = getelementptr inbounds ptr, ptr %26, i64 %27
+  %.idx13.i = shl nsw i64 %27, 3
+  %28 = getelementptr inbounds i8, ptr %26, i64 %.idx13.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = getelementptr inbounds %"struct.QList<QAction *>::Node", ptr %12, i64 %27
   %.not.i6.i = icmp eq ptr %30, %29
@@ -11901,14 +11903,14 @@ _ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i: ; preds = %21, %7
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
-  %.neg = xor i64 %.pre-phi.i, -1
-  %.neg8 = sub nsw i64 %.neg, %27
-  %35 = add nsw i64 %.neg8, %34
-  %36 = icmp sgt i64 %35, 0
+  %.idx11.i = shl nsw i64 %34, 3
+  %35 = add nsw i64 %.idx12.i, %.idx13.i
+  %reass.sub = sub nsw i64 %.idx11.i, %35
+  %36 = icmp sgt i64 %reass.sub, 8
   br i1 %36, label %37, label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i
 
 37:                                               ; preds = %31
-  %gepdiff.i = shl nuw nsw i64 %35, 3
+  %gepdiff.i = add nsw i64 %reass.sub, -8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %30, i64 %gepdiff.i, i1 false)
   br label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i
 

@@ -4726,7 +4726,8 @@ _ZN4llvh11SmallVectorIjLj5EED2Ev.exit:            ; preds = %_ZNSt6vectorISt10un
   %add.ptr.i43 = getelementptr inbounds ptr, ptr %33, i64 %idx.0176
   store ptr %32, ptr %add.ptr.i43, align 8
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr ptr, ptr %34, i64 %idx.0176
+  %.idx = shl i64 %idx.0176, 3
+  %35 = getelementptr i8, ptr %34, i64 %.idx
   %add.ptr.i44 = getelementptr i8, ptr %35, i64 8
   %add.ptr.i45.idx = shl nsw i64 %idx.1.lcssa, 3
   %add.ptr.i45 = getelementptr inbounds i8, ptr %34, i64 %add.ptr.i45.idx
@@ -4734,7 +4735,7 @@ _ZN4llvh11SmallVectorIjLj5EED2Ev.exit:            ; preds = %_ZNSt6vectorISt10un
   br i1 %cmp.not3.i.i.i.i, label %if.end, label %for.body.preheader.i.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %_ZN4llvh11SmallVectorIjLj5EED2Ev.exit
-  %reass.sub = shl i64 %sub, 3
+  %reass.sub = sub i64 %add.ptr.i45.idx, %.idx
   %gepdiff = add i64 %reass.sub, -8
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i44, i8 0, i64 %gepdiff, i1 false)
   br label %if.end

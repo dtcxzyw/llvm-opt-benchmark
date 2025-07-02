@@ -4941,7 +4941,8 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %63, %_ZN5ImGui14Deb
 define noundef i32 @_Z17ImTextStrFromUtf8PtiPKcS1_PS1_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone captures(address) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #26 {
   %6 = alloca i32, align 4
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i16, ptr %0, i64 %7
+  %.idx = shl nsw i64 %7, 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %9 = getelementptr inbounds i8, ptr %8, i64 -2
   %10 = icmp sgt i32 %1, 1
   br i1 %10, label %.lr.ph, label %.critedge

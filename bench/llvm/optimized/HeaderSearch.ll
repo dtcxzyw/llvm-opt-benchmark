@@ -17043,7 +17043,7 @@ _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bi
   %59 = add nsw i64 %3, %29
   %60 = sdiv i64 %59, 64
   %.idx = shl nsw i64 %60, 3
-  %61 = getelementptr inbounds i64, ptr %1, i64 %60
+  %61 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %62 = and i64 %59, -9223372036854775745
   %63 = icmp ugt i64 %62, -9223372036854775808
   %storemerge.idx.i.i.i75.neg = select i1 %63, i64 8, i64 0
@@ -17242,7 +17242,7 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %152 = add nsw i64 %3, %151
   %153 = sdiv i64 %152, 64
   %.idx158 = shl nsw i64 %153, 3
-  %154 = getelementptr inbounds i64, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %153
+  %154 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %.idx158
   %155 = and i64 %152, -9223372036854775745
   %156 = icmp ugt i64 %155, -9223372036854775808
   %storemerge.idx.i.i.i85.neg = select i1 %156, i64 8, i64 0

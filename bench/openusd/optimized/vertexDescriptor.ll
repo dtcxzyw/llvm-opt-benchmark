@@ -181,15 +181,15 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj8ELb1EE7SetSizeEj.exit: ; pr
 
 .lr.ph.i.i.i.preheader:                           ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj8ELb1EE7SetSizeEj.exit
   %27 = sext i16 %26 to i64
-  %28 = shl nsw i64 %27, 2
-  %29 = add nsw i64 %28, 4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 %29, i1 false)
+  %.idx = shl nsw i64 %27, 2
+  %28 = add nsw i64 %.idx, 4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 %28, i1 false)
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.preheader, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj8ELb1EE7SetSizeEj.exit
-  %30 = load i8, ptr %0, align 8
-  %31 = or i8 %30, 32
-  store i8 %31, ptr %0, align 8
+  %29 = load i8, ptr %0, align 8
+  %30 = or i8 %29, 32
+  store i8 %30, ptr %0, align 8
   ret void
 }
 

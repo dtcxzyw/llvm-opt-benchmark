@@ -10138,7 +10138,8 @@ invoke.cont20:                                    ; preds = %.noexc
   %conv.i.i.i = zext i32 %5 to i64
   %cmp.not.i.i.i = icmp ne i32 %5, 0
   %6 = load ptr, ptr %values_, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %conv.i.i.i
+  %add.ptr.i.i.i.idx = shl nuw nsw i64 %conv.i.i.i, 5
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %add.ptr.i.i.i.idx
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -32
   call void @llvm.assume(i1 %cmp.not.i.i.i)
   %cmp.i714.i.i = icmp eq i32 %5, 1
@@ -10178,7 +10179,8 @@ invoke.cont36:                                    ; preds = %invoke.cont22
   %conv.i.i.i14 = zext i32 %9 to i64
   %cmp.not.i.i.i15 = icmp ne i32 %9, 0
   %10 = load ptr, ptr %values_, align 8
-  %add.ptr.i.i.i16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %conv.i.i.i14
+  %add.ptr.i.i.i16.idx = shl nuw nsw i64 %conv.i.i.i14, 5
+  %add.ptr.i.i.i16 = getelementptr inbounds nuw i8, ptr %10, i64 %add.ptr.i.i.i16.idx
   %add.ptr2.i.i.i17 = getelementptr inbounds i8, ptr %add.ptr.i.i.i16, i64 -32
   call void @llvm.assume(i1 %cmp.not.i.i.i15)
   %cmp.i714.i.i23 = icmp eq i32 %9, 1

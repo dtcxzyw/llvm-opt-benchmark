@@ -1228,7 +1228,8 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit343: ; preds = %_ZN5Block8map
 
 .lr.ph430:                                        ; preds = %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit343
   %689 = zext i32 %688 to i64
-  %690 = getelementptr inbounds nuw ptr, ptr %686, i64 %689
+  %.idx441 = shl nuw nsw i64 %689, 3
+  %690 = getelementptr inbounds nuw i8, ptr %686, i64 %.idx441
   %.0255427 = getelementptr inbounds i8, ptr %690, i64 -8
   %691 = getelementptr inbounds nuw i8, ptr %649, i64 16
   %692 = getelementptr inbounds nuw i8, ptr %649, i64 32

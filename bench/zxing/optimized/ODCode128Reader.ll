@@ -2723,7 +2723,7 @@ _ZZN5ZXing13FindLeftGuardILi3ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 _ZZN5ZXing13FindLeftGuardILi3ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread: ; preds = %30, %21, %_ZNK5ZXing11PatternView3sumEi.exit.i.i, %_ZZN5ZXing13FindLeftGuardILi3ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit, %10
   %43 = sext i32 %7 to i64
   %.idx = shl nsw i64 %43, 1
-  %44 = getelementptr inbounds i16, ptr %11, i64 %43
+  %44 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %45 = sext i32 %2 to i64
   %.neg = mul nsw i64 %45, -2
   %46 = getelementptr inbounds i8, ptr %44, i64 %.neg

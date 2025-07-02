@@ -2237,7 +2237,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i: ; pr
 
 .lr.ph23.i:                                       ; preds = %._crit_edge.i
   %56 = zext i32 %53 to i64
-  %57 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre24.pre.i, i64 %56
+  %.idx.i = shl nuw nsw i64 %56, 4
+  %57 = getelementptr inbounds nuw i8, ptr %.pre24.pre.i, i64 %.idx.i
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 33

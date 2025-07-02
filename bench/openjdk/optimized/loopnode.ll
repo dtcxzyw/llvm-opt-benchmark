@@ -3660,7 +3660,8 @@ _ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit:        ; preds = %29, %36, %47
 
 .lr.ph:                                           ; preds = %54
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
+  %.idx = shl nuw nsw i64 %60, 3
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %64
@@ -16413,7 +16414,8 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %191, %199, %210
 
 .lr.ph188:                                        ; preds = %228
   %233 = zext i32 %232 to i64
-  %234 = getelementptr inbounds nuw ptr, ptr %230, i64 %233
+  %.idx197 = shl nuw nsw i64 %233, 3
+  %234 = getelementptr inbounds nuw i8, ptr %230, i64 %.idx197
   %235 = getelementptr inbounds i8, ptr %234, i64 -8
   %236 = icmp eq ptr %227, null
   %237 = getelementptr inbounds nuw i8, ptr %227, i64 16

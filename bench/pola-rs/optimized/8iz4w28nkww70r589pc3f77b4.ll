@@ -10744,9 +10744,9 @@ _ZN8simdutf814implementation3x8619validate_utf8_basic17h06c25a15e128ed05E.exit.i
 
 69:                                               ; preds = %.noexc26
   %70 = extractvalue { i64, i64 } %66, 1
-  %71 = getelementptr i64, ptr %21, i64 %70
-  %.idx.mask.i = and i64 %70, 2305843009213693951
-  %72 = icmp eq i64 %.idx.mask.i, 2305843009213693951
+  %.idx.i = shl i64 %70, 3
+  %71 = getelementptr i8, ptr %21, i64 %.idx.i
+  %72 = icmp eq i64 %.idx.i, -8
   br i1 %72, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %69, %.lr.ph.i

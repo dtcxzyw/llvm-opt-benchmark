@@ -1601,7 +1601,7 @@ _ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 _ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread: ; preds = %28, %_ZNK5ZXing11PatternView3sumEi.exit.i.i, %_ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit, %10
   %41 = sext i32 %7 to i64
   %.idx = shl nsw i64 %41, 1
-  %42 = getelementptr inbounds i16, ptr %11, i64 %41
+  %42 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %43 = sext i32 %2 to i64
   %.neg = mul nsw i64 %43, -2
   %44 = getelementptr inbounds i8, ptr %42, i64 %.neg

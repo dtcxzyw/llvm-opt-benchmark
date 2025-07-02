@@ -159296,8 +159296,8 @@ select.unfold.i:                                  ; preds = %151, %149
   %174 = call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %173) #30
   %175 = load i16, ptr %174, align 8
   %176 = and i16 %175, 511
-  %.not80.i = icmp eq i16 %176, 48
-  br i1 %.not80.i, label %.lr.ph.i, label %select.unfold._crit_edge.i
+  %.not81.i = icmp eq i16 %176, 48
+  br i1 %.not81.i, label %.lr.ph.i, label %select.unfold._crit_edge.i
 
 select.unfold._crit_edge.i:                       ; preds = %select.unfold.i
   %.not.i = xor i1 %2, true
@@ -159318,7 +159318,8 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i
 
 .lr.ph66.preheader.i:                             ; preds = %177
   %182 = zext i32 %160 to i64
-  %183 = getelementptr inbounds nuw ptr, ptr %181, i64 %182
+  %.idx.i = shl nuw nsw i64 %182, 3
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx.i
   %184 = getelementptr inbounds i8, ptr %183, i64 -8
   br label %.lr.ph66.i
 
@@ -159330,15 +159331,15 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i
   %185 = phi i32 [ %222, %._crit_edge.loopexit.i ], [ 0, %177 ]
   %186 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %178, %177 ]
   %187 = zext i32 %185 to i64
-  %.idx.i = shl nuw nsw i64 %187, 2
-  %188 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.i
+  %.idx77.i = shl nuw nsw i64 %187, 2
+  %188 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx77.i
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %190 = load ptr, ptr %189, align 8, !tbaa !29
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %192 = load i32, ptr %191, align 8, !tbaa !30
   %193 = zext i32 %192 to i64
-  %.idx77.i = shl nuw nsw i64 %193, 2
-  %194 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx77.i
+  %.idx78.i = shl nuw nsw i64 %193, 2
+  %194 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx78.i
   %195 = icmp ne i32 %185, 0
   %196 = icmp ne i32 %192, 0
   %197 = select i1 %195, i1 %196, i1 false

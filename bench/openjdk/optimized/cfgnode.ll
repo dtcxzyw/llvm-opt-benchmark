@@ -2041,7 +2041,8 @@ _ZN4Node7set_reqEjPS_.exit297:                    ; preds = %_ZN10RegionNode21is
 
 .lr.ph400:                                        ; preds = %504
   %509 = zext i32 %508 to i64
-  %510 = getelementptr inbounds nuw ptr, ptr %506, i64 %509
+  %.idx403 = shl nuw nsw i64 %509, 3
+  %510 = getelementptr inbounds nuw i8, ptr %506, i64 %.idx403
   %.0199396 = getelementptr inbounds i8, ptr %510, i64 -8
   %511 = getelementptr inbounds nuw i8, ptr %..i298, i64 32
   %.not8.i303 = icmp eq ptr %.0201, null

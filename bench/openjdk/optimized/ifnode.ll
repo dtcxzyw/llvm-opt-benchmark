@@ -5694,7 +5694,8 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
 
 .lr.ph452.preheader:                              ; preds = %_ZN4Node7set_reqEjPS_.exit377
   %417 = zext i32 %416 to i64
-  %418 = getelementptr inbounds nuw ptr, ptr %414, i64 %417
+  %.idx479 = shl nuw nsw i64 %417, 3
+  %418 = getelementptr inbounds nuw i8, ptr %414, i64 %.idx479
   %.0321447 = getelementptr inbounds i8, ptr %418, i64 -8
   br label %.lr.ph452
 
@@ -5868,7 +5869,8 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
 
 .lr.ph469.preheader:                              ; preds = %._crit_edge453
   %493 = zext i32 %492 to i64
-  %494 = getelementptr inbounds nuw ptr, ptr %491, i64 %493
+  %.idx480 = shl nuw nsw i64 %493, 3
+  %494 = getelementptr inbounds nuw i8, ptr %491, i64 %.idx480
   %.0311465 = getelementptr inbounds i8, ptr %494, i64 -8
   br label %.lr.ph469
 
@@ -5890,7 +5892,8 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
 
 .lr.ph463.preheader:                              ; preds = %.lr.ph469
   %505 = zext i32 %504 to i64
-  %506 = getelementptr inbounds nuw ptr, ptr %502, i64 %505
+  %.idx481 = shl nuw nsw i64 %505, 3
+  %506 = getelementptr inbounds nuw i8, ptr %502, i64 %.idx481
   %507 = getelementptr inbounds i8, ptr %506, i64 -8
   br label %.lr.ph463
 
@@ -5960,7 +5963,8 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
 
 .lr.ph475.preheader:                              ; preds = %._crit_edge470
   %534 = zext i32 %533 to i64
-  %535 = getelementptr inbounds nuw ptr, ptr %532, i64 %534
+  %.idx483 = shl nuw nsw i64 %534, 3
+  %535 = getelementptr inbounds nuw i8, ptr %532, i64 %.idx483
   %.0304471 = getelementptr inbounds i8, ptr %535, i64 -8
   br label %.lr.ph475
 
@@ -6442,7 +6446,8 @@ define hidden noundef ptr @_ZN6IfNode12dominated_byEP4NodeP12PhaseIterGVNb(ptr n
 
 .lr.ph74:                                         ; preds = %4
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %.idx = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.04870 = getelementptr inbounds i8, ptr %23, i64 -8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 2408
   br label %25
@@ -6470,7 +6475,8 @@ define hidden noundef ptr @_ZN6IfNode12dominated_byEP4NodeP12PhaseIterGVNb(ptr n
 
 .lr.ph:                                           ; preds = %25
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %.idx76 = shl nuw nsw i64 %41, 3
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx76
   %.04967 = getelementptr inbounds i8, ptr %42, i64 -8
   %.not54 = icmp ne ptr %31, %17
   %or.cond.not = and i1 %3, %.not54

@@ -123,7 +123,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.252" = type { ptr, %"class.llvm::SmallVector.240" }
 %"class.llvm::SmallVector.240" = type { %"class.llvm::SmallVectorImpl.122", %"struct.llvm::SmallVectorStorage.241" }
 %"struct.llvm::SmallVectorStorage.241" = type { [48 x i8] }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %"class.llvm::function_ref" = type { ptr, i64 }
 %"class.std::set.289" = type { %"class.std::_Rb_tree.290" }
 %"class.std::_Rb_tree.290" = type { %"struct.std::_Rb_tree<std::pair<long, int>, std::pair<long, int>, std::_Identity<std::pair<long, int>>, llvm::less_first>::_Rb_tree_impl" }
@@ -136,6 +135,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.622" = type { %"class.llvm::SmallVectorTemplateCommon.623" }
 %"class.llvm::SmallVectorTemplateCommon.623" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.624" = type { [48 x i8] }
+%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %class.anon.337 = type { ptr, ptr }
 %"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
 %"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
@@ -5555,111 +5555,111 @@ define internal fastcc noundef zeroext i1 @_ZL14isNoWrapAddRecPN4llvm5ValueEPKNS
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = and i32 %13, 134217727
-  %.not4817 = icmp eq i32 %14, 1
+  %14 = shl i32 %13, 5
+  %.not4817 = icmp eq i32 %14, 32
   br i1 %.not4817, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %11
-  %15 = zext nneg i32 %14 to i64
-  %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %16
-  %.04316 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %15 = zext i32 %14 to i64
+  %.idx = sub nsw i64 0, %15
+  %16 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %.04316 = getelementptr inbounds nuw i8, ptr %16, i64 32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %.04319 = phi ptr [ %.043, %21 ], [ %.04316, %.lr.ph.preheader ]
-  %.03918 = phi ptr [ %.342, %21 ], [ null, %.lr.ph.preheader ]
-  %18 = load ptr, ptr %.04319, align 8, !tbaa !235
-  %19 = load i8, ptr %18, align 8, !tbaa !234
-  %20 = icmp eq i8 %19, 17
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %.04319 = phi ptr [ %.043, %20 ], [ %.04316, %.lr.ph.preheader ]
+  %.03918 = phi ptr [ %.342, %20 ], [ null, %.lr.ph.preheader ]
+  %17 = load ptr, ptr %.04319, align 8, !tbaa !235
+  %18 = load i8, ptr %17, align 8, !tbaa !234
+  %19 = icmp eq i8 %18, 17
   %.not49 = icmp eq ptr %.03918, null
-  %cond4 = select i1 %20, i1 true, i1 %.not49
-  br i1 %cond4, label %21, label %.critedge
+  %cond4 = select i1 %19, i1 true, i1 %.not49
+  br i1 %cond4, label %20, label %.critedge
 
-21:                                               ; preds = %.lr.ph
-  %spec.select53 = select i1 %.not49, ptr %18, ptr %.03918
-  %.342 = select i1 %20, ptr %.03918, ptr %spec.select53
+20:                                               ; preds = %.lr.ph
+  %spec.select53 = select i1 %.not49, ptr %17, ptr %.03918
+  %.342 = select i1 %19, ptr %.03918, ptr %spec.select53
   %.043 = getelementptr inbounds nuw i8, ptr %.04319, i64 32
   %.not48 = icmp eq ptr %.043, %0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %21
+._crit_edge:                                      ; preds = %20
   %.not50 = icmp eq ptr %.342, null
-  br i1 %.not50, label %.critedge, label %22
+  br i1 %.not50, label %.critedge, label %21
 
-22:                                               ; preds = %._crit_edge
-  %23 = load i8, ptr %.342, align 8, !tbaa !234
-  %24 = icmp ugt i8 %23, 28
-  br i1 %24, label %25, label %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i
+21:                                               ; preds = %._crit_edge
+  %22 = load i8, ptr %.342, align 8, !tbaa !234
+  %23 = icmp ugt i8 %22, 28
+  br i1 %23, label %24, label %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i
 
-25:                                               ; preds = %22
-  %26 = zext i8 %23 to i32
-  %27 = add nsw i32 %26, -42
-  %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 31)
-  switch i32 %28, label %.critedge [
+24:                                               ; preds = %21
+  %25 = zext i8 %22 to i32
+  %26 = add nsw i32 %25, -42
+  %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 31)
+  switch i32 %27, label %.critedge [
     i32 0, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit
     i32 1, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit
     i32 2, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit
     i32 6, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit
   ]
 
-_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i: ; preds = %22
-  %29 = icmp eq i8 %23, 5
-  br i1 %29, label %30, label %.critedge
+_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i: ; preds = %21
+  %28 = icmp eq i8 %22, 5
+  br i1 %28, label %29, label %.critedge
 
-30:                                               ; preds = %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %.342, i64 2
-  %32 = load i16, ptr %31, align 2, !tbaa !335
-  %33 = zext i16 %32 to i32
-  %34 = add nsw i32 %33, -13
-  %35 = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 31)
-  switch i32 %35, label %.critedge [
+29:                                               ; preds = %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %.342, i64 2
+  %31 = load i16, ptr %30, align 2, !tbaa !335
+  %32 = zext i16 %31 to i32
+  %33 = add nsw i32 %32, -13
+  %34 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 31)
+  switch i32 %34, label %.critedge [
     i32 0, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit
     i32 1, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit
     i32 2, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit
     i32 6, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit
   ]
 
-_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit: ; preds = %25, %25, %25, %25, %30, %30, %30, %30
-  %36 = getelementptr inbounds nuw i8, ptr %.342, i64 1
-  %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 4
-  %.not13 = icmp eq i8 %38, 0
-  br i1 %.not13, label %.critedge, label %39
+_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit: ; preds = %24, %24, %24, %24, %29, %29, %29, %29
+  %35 = getelementptr inbounds nuw i8, ptr %.342, i64 1
+  %36 = load i8, ptr %35, align 1
+  %37 = and i8 %36, 4
+  %.not13 = icmp eq i8 %37, 0
+  br i1 %.not13, label %.critedge, label %38
 
-39:                                               ; preds = %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit
-  %40 = getelementptr inbounds i8, ptr %.342, i64 -32
-  %41 = load ptr, ptr %40, align 8, !tbaa !235
-  %42 = load i8, ptr %41, align 8, !tbaa !234
-  %43 = icmp eq i8 %42, 17
-  br i1 %43, label %44, label %.critedge
+38:                                               ; preds = %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit
+  %39 = getelementptr inbounds i8, ptr %.342, i64 -32
+  %40 = load ptr, ptr %39, align 8, !tbaa !235
+  %41 = load i8, ptr %40, align 8, !tbaa !234
+  %42 = icmp eq i8 %41, 17
+  br i1 %42, label %43, label %.critedge
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %.342, i64 -64
-  %46 = load ptr, ptr %45, align 8, !tbaa !235
-  %47 = tail call noundef ptr @_ZN4llvm25PredicatedScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %46) #28
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = load i16, ptr %48, align 8, !tbaa !150
-  %50 = icmp ne i16 %49, 8
-  %.not5214 = icmp eq ptr %47, null
-  %.not52 = or i1 %.not5214, %50
-  br i1 %.not52, label %.critedge, label %51
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds i8, ptr %.342, i64 -64
+  %45 = load ptr, ptr %44, align 8, !tbaa !235
+  %46 = tail call noundef ptr @_ZN4llvm25PredicatedScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %45) #28
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %48 = load i16, ptr %47, align 8, !tbaa !150
+  %49 = icmp ne i16 %48, 8
+  %.not5214 = icmp eq ptr %46, null
+  %.not52 = or i1 %.not5214, %49
+  br i1 %.not52, label %.critedge, label %50
 
-51:                                               ; preds = %44
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %53 = load ptr, ptr %52, align 8, !tbaa !173
-  %54 = icmp eq ptr %53, %2
-  br i1 %54, label %55, label %.critedge
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 48
+  %52 = load ptr, ptr %51, align 8, !tbaa !173
+  %53 = icmp eq ptr %52, %2
+  br i1 %53, label %54, label %.critedge
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %47, i64 28
-  %57 = load i16, ptr %56, align 4, !tbaa !316
-  %58 = and i16 %57, 4
-  %59 = icmp ne i16 %58, 0
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 28
+  %56 = load i16, ptr %55, align 4, !tbaa !316
+  %57 = and i16 %56, 4
+  %58 = icmp ne i16 %57, 0
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %11, %30, %25, %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i, %55, %51, %39, %44, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit, %9, %7, %._crit_edge, %5, %3
-  %.0 = phi i1 [ true, %3 ], [ true, %5 ], [ false, %9 ], [ false, %7 ], [ false, %._crit_edge ], [ false, %51 ], [ %59, %55 ], [ false, %39 ], [ false, %44 ], [ false, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit ], [ false, %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i ], [ false, %25 ], [ false, %30 ], [ false, %11 ], [ false, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %11, %29, %24, %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i, %54, %50, %38, %43, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit, %9, %7, %._crit_edge, %5, %3
+  %.0 = phi i1 [ true, %3 ], [ true, %5 ], [ false, %9 ], [ false, %7 ], [ false, %._crit_edge ], [ false, %50 ], [ %58, %54 ], [ false, %38 ], [ false, %43 ], [ false, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit ], [ false, %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i ], [ false, %24 ], [ false, %29 ], [ false, %11 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

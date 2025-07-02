@@ -12851,7 +12851,7 @@ _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bi
   %add.i.i.i21 = add nsw i64 %__n, %conv3.i.i.i.i.i.i
   %div.i.i.i22 = sdiv i64 %add.i.i.i21, 64
   %add.ptr.i.i.i23.idx = shl nsw i64 %div.i.i.i22, 3
-  %add.ptr.i.i.i23 = getelementptr inbounds i64, ptr %__position.coerce0, i64 %div.i.i.i22
+  %add.ptr.i.i.i23 = getelementptr inbounds i8, ptr %__position.coerce0, i64 %add.ptr.i.i.i23.idx
   %9 = and i64 %add.i.i.i21, -9223372036854775745
   %cmp.i.i.i24 = icmp ugt i64 %9, -9223372036854775808
   %storemerge.idx.i.i.i25.neg = select i1 %cmp.i.i.i24, i64 8, i64 0
@@ -13050,7 +13050,7 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %add.i.i.i56 = add nsw i64 %__n, %conv.i.i.i55
   %div.i.i.i57 = sdiv i64 %add.i.i.i56, 64
   %add.ptr.i.i.i58.idx = shl nsw i64 %div.i.i.i57, 3
-  %add.ptr.i.i.i58 = getelementptr inbounds i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, i64 %div.i.i.i57
+  %add.ptr.i.i.i58 = getelementptr inbounds i8, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, i64 %add.ptr.i.i.i58.idx
   %27 = and i64 %add.i.i.i56, -9223372036854775745
   %cmp.i.i.i59 = icmp ugt i64 %27, -9223372036854775808
   %storemerge.idx.i.i.i60.neg = select i1 %cmp.i.i.i59, i64 8, i64 0

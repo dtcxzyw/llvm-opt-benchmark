@@ -6771,7 +6771,8 @@ _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit: ; pr
   %16 = tail call noundef i64 @_ZN5ropey4tree4node4Node14assert_balance17h4c2adef8466d66bfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %15)
   store i64 %16, ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = getelementptr ptr, ptr %17, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %18 = getelementptr i8, ptr %17, i64 %.idx
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = icmp eq i8 %9, 1
   br i1 %20, label %._crit_edge, label %.lr.ph

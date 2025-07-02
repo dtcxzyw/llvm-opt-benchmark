@@ -6530,176 +6530,176 @@ _ZN4llvm12PatternMatch5matchINS_14BinaryOperatorENS0_14BinaryOp_matchINS0_12OneO
 126:                                              ; preds = %124
   %127 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %128 = load i32, ptr %127, align 4
-  %129 = and i32 %128, 134217727
-  %.not3243.i = icmp eq i32 %129, 1
+  %129 = shl i32 %128, 5
+  %.not3243.i = icmp eq i32 %129, 32
   br i1 %.not3243.i, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %126
-  %130 = zext nneg i32 %129 to i64
-  %131 = sub nsw i64 0, %130
-  %132 = getelementptr inbounds %"class.llvm::Use", ptr %73, i64 %131
-  %.02842.i = getelementptr inbounds nuw i8, ptr %132, i64 32
+  %130 = zext i32 %129 to i64
+  %.idx.i = sub nsw i64 0, %130
+  %131 = getelementptr inbounds i8, ptr %73, i64 %.idx.i
+  %.02842.i = getelementptr inbounds nuw i8, ptr %131, i64 32
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %133, %.lr.ph.preheader.i
-  %.02845.i = phi ptr [ %.028.i, %133 ], [ %.02842.i, %.lr.ph.preheader.i ]
-  %.02444.i = phi i1 [ %136, %133 ], [ true, %.lr.ph.preheader.i ]
-  br i1 %.02444.i, label %133, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit
+.lr.ph.i:                                         ; preds = %132, %.lr.ph.preheader.i
+  %.02845.i = phi ptr [ %.028.i, %132 ], [ %.02842.i, %.lr.ph.preheader.i ]
+  %.02444.i = phi i1 [ %135, %132 ], [ true, %.lr.ph.preheader.i ]
+  br i1 %.02444.i, label %132, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit
 
-133:                                              ; preds = %.lr.ph.i
-  %134 = load ptr, ptr %.02845.i, align 8, !tbaa !310
-  %135 = load i8, ptr %134, align 8, !tbaa !173
-  %136 = icmp eq i8 %135, 17
+132:                                              ; preds = %.lr.ph.i
+  %133 = load ptr, ptr %.02845.i, align 8, !tbaa !310
+  %134 = load i8, ptr %133, align 8, !tbaa !173
+  %135 = icmp eq i8 %134, 17
   %.028.i = getelementptr inbounds nuw i8, ptr %.02845.i, i64 32
   %.not32.i = icmp eq ptr %.028.i, %73
   br i1 %.not32.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
-._crit_edge.loopexit.i:                           ; preds = %133
-  br i1 %136, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit, label %._crit_edge.i
+._crit_edge.loopexit.i:                           ; preds = %132
+  br i1 %135, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i
-  switch i8 %135, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit [
-    i8 68, label %137
-    i8 69, label %156
-    i8 61, label %175
+  switch i8 %134, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit [
+    i8 68, label %136
+    i8 69, label %155
+    i8 61, label %174
   ]
 
-137:                                              ; preds = %._crit_edge.i
-  %138 = getelementptr inbounds i8, ptr %134, i64 -32
-  %139 = load ptr, ptr %138, align 8, !tbaa !310
-  %140 = load i8, ptr %139, align 8, !tbaa !173
-  %141 = icmp eq i8 %140, 61
-  br i1 %141, label %142, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit
+136:                                              ; preds = %._crit_edge.i
+  %137 = getelementptr inbounds i8, ptr %133, i64 -32
+  %138 = load ptr, ptr %137, align 8, !tbaa !310
+  %139 = load i8, ptr %138, align 8, !tbaa !173
+  %140 = icmp eq i8 %139, 61
+  br i1 %140, label %141, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit
 
-142:                                              ; preds = %137
-  %143 = getelementptr inbounds nuw i8, ptr %139, i64 4
-  %144 = load i32, ptr %143, align 4
-  %145 = and i32 %144, 1073741824
-  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %145, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %149, label %146
+141:                                              ; preds = %136
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 4
+  %143 = load i32, ptr %142, align 4
+  %144 = and i32 %143, 1073741824
+  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %144, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %148, label %145
 
-146:                                              ; preds = %142
-  %147 = getelementptr inbounds i8, ptr %139, i64 -8
-  %148 = load ptr, ptr %147, align 8, !tbaa !331
+145:                                              ; preds = %141
+  %146 = getelementptr inbounds i8, ptr %138, i64 -8
+  %147 = load ptr, ptr %146, align 8, !tbaa !331
   br label %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i.i
 
-149:                                              ; preds = %142
-  %150 = and i32 %144, 134217727
-  %151 = zext nneg i32 %150 to i64
-  %152 = sub nsw i64 0, %151
-  %153 = getelementptr inbounds %"class.llvm::Use", ptr %139, i64 %152
+148:                                              ; preds = %141
+  %149 = and i32 %143, 134217727
+  %150 = zext nneg i32 %149 to i64
+  %151 = sub nsw i64 0, %150
+  %152 = getelementptr inbounds %"class.llvm::Use", ptr %138, i64 %151
   br label %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i.i
 
-_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i.i:    ; preds = %149, %146
-  %154 = phi ptr [ %148, %146 ], [ %153, %149 ]
-  %155 = load ptr, ptr %154, align 8, !tbaa !310
-  %.not.i.not.i.i.i.i.i.i = icmp eq ptr %155, null
+_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i.i:    ; preds = %148, %145
+  %153 = phi ptr [ %147, %145 ], [ %152, %148 ]
+  %154 = load ptr, ptr %153, align 8, !tbaa !310
+  %.not.i.not.i.i.i.i.i.i = icmp eq ptr %154, null
   br i1 %.not.i.not.i.i.i.i.i.i, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS3_INS0_14CastInst_matchINS0_12OneOps_matchINS0_7bind_tyIS2_EELj32EEENS_8ZExtInstEEENS4_IS8_NS_8SExtInstEEEEES8_EEEEbPT_RKT0_.exit.i
 
-156:                                              ; preds = %._crit_edge.i
-  %157 = getelementptr inbounds i8, ptr %134, i64 -32
-  %158 = load ptr, ptr %157, align 8, !tbaa !310
-  %159 = load i8, ptr %158, align 8, !tbaa !173
-  %160 = icmp eq i8 %159, 61
-  br i1 %160, label %161, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit
+155:                                              ; preds = %._crit_edge.i
+  %156 = getelementptr inbounds i8, ptr %133, i64 -32
+  %157 = load ptr, ptr %156, align 8, !tbaa !310
+  %158 = load i8, ptr %157, align 8, !tbaa !173
+  %159 = icmp eq i8 %158, 61
+  br i1 %159, label %160, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit
 
-161:                                              ; preds = %156
-  %162 = getelementptr inbounds nuw i8, ptr %158, i64 4
-  %163 = load i32, ptr %162, align 4
-  %164 = and i32 %163, 1073741824
-  %.not.i.i.i.i7.i.i.i.i = icmp eq i32 %164, 0
-  br i1 %.not.i.i.i.i7.i.i.i.i, label %168, label %165
+160:                                              ; preds = %155
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 4
+  %162 = load i32, ptr %161, align 4
+  %163 = and i32 %162, 1073741824
+  %.not.i.i.i.i7.i.i.i.i = icmp eq i32 %163, 0
+  br i1 %.not.i.i.i.i7.i.i.i.i, label %167, label %164
 
-165:                                              ; preds = %161
-  %166 = getelementptr inbounds i8, ptr %158, i64 -8
-  %167 = load ptr, ptr %166, align 8, !tbaa !331
+164:                                              ; preds = %160
+  %165 = getelementptr inbounds i8, ptr %157, i64 -8
+  %166 = load ptr, ptr %165, align 8, !tbaa !331
   br label %_ZNK4llvm4User10getOperandEj.exit.i.i8.i.i.i.i
 
-168:                                              ; preds = %161
-  %169 = and i32 %163, 134217727
-  %170 = zext nneg i32 %169 to i64
-  %171 = sub nsw i64 0, %170
-  %172 = getelementptr inbounds %"class.llvm::Use", ptr %158, i64 %171
+167:                                              ; preds = %160
+  %168 = and i32 %162, 134217727
+  %169 = zext nneg i32 %168 to i64
+  %170 = sub nsw i64 0, %169
+  %171 = getelementptr inbounds %"class.llvm::Use", ptr %157, i64 %170
   br label %_ZNK4llvm4User10getOperandEj.exit.i.i8.i.i.i.i
 
-_ZNK4llvm4User10getOperandEj.exit.i.i8.i.i.i.i:   ; preds = %168, %165
-  %173 = phi ptr [ %167, %165 ], [ %172, %168 ]
-  %174 = load ptr, ptr %173, align 8, !tbaa !310
-  %.not.i.not.i.i9.i.i.i.i = icmp eq ptr %174, null
+_ZNK4llvm4User10getOperandEj.exit.i.i8.i.i.i.i:   ; preds = %167, %164
+  %172 = phi ptr [ %166, %164 ], [ %171, %167 ]
+  %173 = load ptr, ptr %172, align 8, !tbaa !310
+  %.not.i.not.i.i9.i.i.i.i = icmp eq ptr %173, null
   br i1 %.not.i.not.i.i9.i.i.i.i, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS3_INS0_14CastInst_matchINS0_12OneOps_matchINS0_7bind_tyIS2_EELj32EEENS_8ZExtInstEEENS4_IS8_NS_8SExtInstEEEEES8_EEEEbPT_RKT0_.exit.i
 
-175:                                              ; preds = %._crit_edge.i
-  %176 = getelementptr inbounds nuw i8, ptr %134, i64 4
-  %177 = load i32, ptr %176, align 4
-  %178 = and i32 %177, 1073741824
-  %.not.i.i.i.i.i.i = icmp eq i32 %178, 0
-  br i1 %.not.i.i.i.i.i.i, label %182, label %179
+174:                                              ; preds = %._crit_edge.i
+  %175 = getelementptr inbounds nuw i8, ptr %133, i64 4
+  %176 = load i32, ptr %175, align 4
+  %177 = and i32 %176, 1073741824
+  %.not.i.i.i.i.i.i = icmp eq i32 %177, 0
+  br i1 %.not.i.i.i.i.i.i, label %181, label %178
 
-179:                                              ; preds = %175
-  %180 = getelementptr inbounds i8, ptr %134, i64 -8
-  %181 = load ptr, ptr %180, align 8, !tbaa !331
+178:                                              ; preds = %174
+  %179 = getelementptr inbounds i8, ptr %133, i64 -8
+  %180 = load ptr, ptr %179, align 8, !tbaa !331
   br label %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i
 
-182:                                              ; preds = %175
-  %183 = and i32 %177, 134217727
-  %184 = zext nneg i32 %183 to i64
-  %185 = sub nsw i64 0, %184
-  %186 = getelementptr inbounds %"class.llvm::Use", ptr %134, i64 %185
+181:                                              ; preds = %174
+  %182 = and i32 %176, 134217727
+  %183 = zext nneg i32 %182 to i64
+  %184 = sub nsw i64 0, %183
+  %185 = getelementptr inbounds %"class.llvm::Use", ptr %133, i64 %184
   br label %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i
 
-_ZNK4llvm4User10getOperandEj.exit.i.i.i.i:        ; preds = %182, %179
-  %187 = phi ptr [ %181, %179 ], [ %186, %182 ]
-  %188 = load ptr, ptr %187, align 8, !tbaa !310
-  %.not.i.not.i.i.i50.i = icmp eq ptr %188, null
+_ZNK4llvm4User10getOperandEj.exit.i.i.i.i:        ; preds = %181, %178
+  %186 = phi ptr [ %180, %178 ], [ %185, %181 ]
+  %187 = load ptr, ptr %186, align 8, !tbaa !310
+  %.not.i.not.i.i.i50.i = icmp eq ptr %187, null
   br i1 %.not.i.not.i.i.i50.i, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS3_INS0_14CastInst_matchINS0_12OneOps_matchINS0_7bind_tyIS2_EELj32EEENS_8ZExtInstEEENS4_IS8_NS_8SExtInstEEEEES8_EEEEbPT_RKT0_.exit.i
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS3_INS0_14CastInst_matchINS0_12OneOps_matchINS0_7bind_tyIS2_EELj32EEENS_8ZExtInstEEENS4_IS8_NS_8SExtInstEEEEES8_EEEEbPT_RKT0_.exit.i: ; preds = %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit.i.i8.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i.i
-  %.047.i = phi ptr [ %155, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i.i ], [ %174, %_ZNK4llvm4User10getOperandEj.exit.i.i8.i.i.i.i ], [ %188, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i ]
-  %189 = getelementptr inbounds nuw i8, ptr %50, i64 88
-  %190 = load ptr, ptr %189, align 8, !tbaa !238
-  %191 = tail call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %190, ptr noundef nonnull %.047.i) #20
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  %193 = load i16, ptr %192, align 8, !tbaa !275
-  %194 = icmp ne i16 %193, 8
-  %.not3540.i = icmp eq ptr %191, null
-  %.not35.i = or i1 %.not3540.i, %194
-  br i1 %.not35.i, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit, label %195
+  %.047.i = phi ptr [ %154, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i.i ], [ %173, %_ZNK4llvm4User10getOperandEj.exit.i.i8.i.i.i.i ], [ %187, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i ]
+  %188 = getelementptr inbounds nuw i8, ptr %50, i64 88
+  %189 = load ptr, ptr %188, align 8, !tbaa !238
+  %190 = tail call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %189, ptr noundef nonnull %.047.i) #20
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 24
+  %192 = load i16, ptr %191, align 8, !tbaa !275
+  %193 = icmp ne i16 %192, 8
+  %.not3540.i = icmp eq ptr %190, null
+  %.not35.i = or i1 %.not3540.i, %193
+  br i1 %.not35.i, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit, label %194
 
-195:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS3_INS0_14CastInst_matchINS0_12OneOps_matchINS0_7bind_tyIS2_EELj32EEENS_8ZExtInstEEENS4_IS8_NS_8SExtInstEEEEES8_EEEEbPT_RKT0_.exit.i
-  %196 = getelementptr inbounds nuw i8, ptr %191, i64 48
-  %197 = load ptr, ptr %196, align 8, !tbaa !505
-  %.not36.i = icmp eq ptr %197, %48
-  br i1 %.not36.i, label %198, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit
+194:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS3_INS0_14CastInst_matchINS0_12OneOps_matchINS0_7bind_tyIS2_EELj32EEENS_8ZExtInstEEENS4_IS8_NS_8SExtInstEEEEES8_EEEEbPT_RKT0_.exit.i
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 48
+  %196 = load ptr, ptr %195, align 8, !tbaa !505
+  %.not36.i = icmp eq ptr %196, %48
+  br i1 %.not36.i, label %197, label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit
 
-198:                                              ; preds = %195
+197:                                              ; preds = %194
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
-  %199 = getelementptr inbounds i8, ptr %70, i64 -64
-  %200 = load ptr, ptr %199, align 8, !tbaa !310
-  store ptr %200, ptr %4, align 8, !tbaa !509
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 40
-  %202 = load ptr, ptr %201, align 8, !tbaa !314
-  %203 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  %204 = load ptr, ptr %203, align 8, !tbaa !314
-  %.not37.i = icmp eq ptr %202, %204
-  br i1 %.not37.i, label %205, label %210
+  %198 = getelementptr inbounds i8, ptr %70, i64 -64
+  %199 = load ptr, ptr %198, align 8, !tbaa !310
+  store ptr %199, ptr %4, align 8, !tbaa !509
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 40
+  %201 = load ptr, ptr %200, align 8, !tbaa !314
+  %202 = getelementptr inbounds nuw i8, ptr %70, i64 40
+  %203 = load ptr, ptr %202, align 8, !tbaa !314
+  %.not37.i = icmp eq ptr %201, %203
+  br i1 %.not37.i, label %204, label %209
 
-205:                                              ; preds = %198
-  %206 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %207 = load ptr, ptr %206, align 8, !tbaa !314
-  %.not38.i = icmp eq ptr %202, %207
-  br i1 %.not38.i, label %208, label %210
+204:                                              ; preds = %197
+  %205 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %206 = load ptr, ptr %205, align 8, !tbaa !314
+  %.not38.i = icmp eq ptr %201, %206
+  br i1 %.not38.i, label %207, label %209
 
-208:                                              ; preds = %205
-  %209 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplINS_13HistogramInfoEE12emplace_backIJRPNS_8LoadInstERPNS_14BinaryOperatorERPNS_9StoreInstEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %210
+207:                                              ; preds = %204
+  %208 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplINS_13HistogramInfoEE12emplace_backIJRPNS_8LoadInstERPNS_14BinaryOperatorERPNS_9StoreInstEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  br label %209
 
-210:                                              ; preds = %208, %205, %198
-  %.9.i = phi i1 [ true, %208 ], [ false, %205 ], [ false, %198 ]
+209:                                              ; preds = %207, %204, %197
+  %.9.i = phi i1 [ true, %207 ], [ false, %204 ], [ false, %197 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   br label %_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit
 
-_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit: ; preds = %.lr.ph.i, %_ZNK4llvm4User10getOperandEj.exit.i.i.i, %_ZNK4llvm4User10getOperandEj.exit.i.i.thread.i, %_ZNK4llvm4User10getOperandEj.exit7.i.i.i, %76, %77, %_ZN4llvm12PatternMatch12OneOps_matchINS0_14specificval_tyELj32EE5matchINS_5ValueEEEbPT_.exit.i.i.i.i, %97, %100, %_ZN4llvm12PatternMatch12OneOps_matchINS0_14specificval_tyELj32EE5matchINS_5ValueEEEbPT_.exit.i.i.i45.i, %120, %_ZN4llvm12PatternMatch5matchINS_14BinaryOperatorENS0_14BinaryOp_matchINS0_12OneOps_matchINS0_14specificval_tyELj32EEENS0_7bind_tyINS_5ValueEEELj15ELb0EEEEEbPT_RKT0_.exit.i, %124, %126, %._crit_edge.loopexit.i, %._crit_edge.i, %137, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i.i, %156, %_ZNK4llvm4User10getOperandEj.exit.i.i8.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS3_INS0_14CastInst_matchINS0_12OneOps_matchINS0_7bind_tyIS2_EELj32EEENS_8ZExtInstEEENS4_IS8_NS_8SExtInstEEEEES8_EEEEbPT_RKT0_.exit.i, %195, %210
-  %.0.i = phi i1 [ false, %_ZNK4llvm4User10getOperandEj.exit.i.i.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit7.i.i.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i.i.thread.i ], [ false, %_ZN4llvm12PatternMatch5matchINS_14BinaryOperatorENS0_14BinaryOp_matchINS0_12OneOps_matchINS0_14specificval_tyELj32EEENS0_7bind_tyINS_5ValueEEELj15ELb0EEEEEbPT_RKT0_.exit.i ], [ false, %124 ], [ false, %120 ], [ false, %_ZN4llvm12PatternMatch12OneOps_matchINS0_14specificval_tyELj32EE5matchINS_5ValueEEEbPT_.exit.i.i.i45.i ], [ false, %100 ], [ false, %97 ], [ false, %_ZN4llvm12PatternMatch12OneOps_matchINS0_14specificval_tyELj32EE5matchINS_5ValueEEEbPT_.exit.i.i.i.i ], [ false, %77 ], [ false, %76 ], [ %.9.i, %210 ], [ false, %195 ], [ false, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS3_INS0_14CastInst_matchINS0_12OneOps_matchINS0_7bind_tyIS2_EELj32EEENS_8ZExtInstEEENS4_IS8_NS_8SExtInstEEEEES8_EEEEbPT_RKT0_.exit.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i ], [ false, %137 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i.i ], [ false, %156 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i.i8.i.i.i.i ], [ false, %._crit_edge.i ], [ false, %126 ], [ false, %._crit_edge.loopexit.i ], [ false, %.lr.ph.i ]
+_ZN4llvmL13findHistogramEPNS_8LoadInstEPNS_9StoreInstEPNS_4LoopERKNS_25PredicatedScalarEvolutionERNS_15SmallVectorImplINS_13HistogramInfoEEE.exit: ; preds = %.lr.ph.i, %_ZNK4llvm4User10getOperandEj.exit.i.i.i, %_ZNK4llvm4User10getOperandEj.exit.i.i.thread.i, %_ZNK4llvm4User10getOperandEj.exit7.i.i.i, %76, %77, %_ZN4llvm12PatternMatch12OneOps_matchINS0_14specificval_tyELj32EE5matchINS_5ValueEEEbPT_.exit.i.i.i.i, %97, %100, %_ZN4llvm12PatternMatch12OneOps_matchINS0_14specificval_tyELj32EE5matchINS_5ValueEEEbPT_.exit.i.i.i45.i, %120, %_ZN4llvm12PatternMatch5matchINS_14BinaryOperatorENS0_14BinaryOp_matchINS0_12OneOps_matchINS0_14specificval_tyELj32EEENS0_7bind_tyINS_5ValueEEELj15ELb0EEEEEbPT_RKT0_.exit.i, %124, %126, %._crit_edge.loopexit.i, %._crit_edge.i, %136, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i.i, %155, %_ZNK4llvm4User10getOperandEj.exit.i.i8.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS3_INS0_14CastInst_matchINS0_12OneOps_matchINS0_7bind_tyIS2_EELj32EEENS_8ZExtInstEEENS4_IS8_NS_8SExtInstEEEEES8_EEEEbPT_RKT0_.exit.i, %194, %209
+  %.0.i = phi i1 [ false, %_ZNK4llvm4User10getOperandEj.exit.i.i.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit7.i.i.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i.i.thread.i ], [ false, %_ZN4llvm12PatternMatch5matchINS_14BinaryOperatorENS0_14BinaryOp_matchINS0_12OneOps_matchINS0_14specificval_tyELj32EEENS0_7bind_tyINS_5ValueEEELj15ELb0EEEEEbPT_RKT0_.exit.i ], [ false, %124 ], [ false, %120 ], [ false, %_ZN4llvm12PatternMatch12OneOps_matchINS0_14specificval_tyELj32EE5matchINS_5ValueEEEbPT_.exit.i.i.i45.i ], [ false, %100 ], [ false, %97 ], [ false, %_ZN4llvm12PatternMatch12OneOps_matchINS0_14specificval_tyELj32EE5matchINS_5ValueEEEbPT_.exit.i.i.i.i ], [ false, %77 ], [ false, %76 ], [ %.9.i, %209 ], [ false, %194 ], [ false, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS3_INS0_14CastInst_matchINS0_12OneOps_matchINS0_7bind_tyIS2_EELj32EEENS_8ZExtInstEEENS4_IS8_NS_8SExtInstEEEEES8_EEEEbPT_RKT0_.exit.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i ], [ false, %136 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i.i ], [ false, %155 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i.i8.i.i.i.i ], [ false, %._crit_edge.i ], [ false, %126 ], [ false, %._crit_edge.loopexit.i ], [ false, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %.thread45

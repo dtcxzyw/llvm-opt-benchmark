@@ -46562,7 +46562,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE30WalkUpFromOpenACCWa
   %28 = load i32, ptr %27, align 4, !tbaa !869
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %31 = getelementptr ptr, ptr %30, i64 %29
+  %.idx.i = shl nuw nsw i64 %29, 3
+  %31 = getelementptr i8, ptr %30, i64 %.idx.i
   %32 = getelementptr i8, ptr %31, i64 -8
   %.not44.i = icmp eq i32 %28, 1
   br i1 %.not44.i, label %.critedge.i, label %.lr.ph.i
@@ -122084,7 +122085,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE30WalkUpFromOpenACCWa
   %28 = load i32, ptr %27, align 4, !tbaa !869
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %31 = getelementptr ptr, ptr %30, i64 %29
+  %.idx.i = shl nuw nsw i64 %29, 3
+  %31 = getelementptr i8, ptr %30, i64 %.idx.i
   %32 = getelementptr i8, ptr %31, i64 -8
   %.not44.i = icmp eq i32 %28, 1
   br i1 %.not44.i, label %.critedge.i, label %.lr.ph.i

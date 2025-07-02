@@ -2818,7 +2818,8 @@ Vec_WecGrow.exit23:                               ; preds = %.Vec_WecGrow.exit23
 
 .lr.ph.preheader:                                 ; preds = %Vec_WecGrow.exit23
   %44 = zext nneg i32 %42 to i64
-  %45 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %40, i64 %44
+  %.idx = shl nuw nsw i64 %44, 4
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   %46 = getelementptr inbounds i8, ptr %45, i64 -32
   br label %.lr.ph
 

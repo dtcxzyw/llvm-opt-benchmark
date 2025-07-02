@@ -233,7 +233,8 @@ define dso_local ptr @zend_generator_freeze_call_stack(ptr noundef captures(none
   %18 = load i32, ptr %17, align 4, !tbaa !24
   %19 = add i32 %18, 5
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct._zval_struct, ptr %14, i64 %.1
+  %.idx = shl nuw nsw i64 %.1, 4
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.neg = mul nsw i64 %20, -16
   %22 = getelementptr inbounds i8, ptr %21, i64 %.neg
   %23 = shl nuw nsw i64 %20, 4
@@ -274,7 +275,6 @@ zend_vm_stack_free_call_frame_ex.exit:            ; preds = %31, %40
   br i1 %.not64, label %41, label %16
 
 41:                                               ; preds = %zend_vm_stack_free_call_frame_ex.exit
-  %.idx = shl nuw nsw i64 %.1, 4
   store ptr null, ptr %2, align 8, !tbaa !57
   %42 = sub nsw i64 0, %.neg
   %43 = icmp eq i64 %.idx, %42

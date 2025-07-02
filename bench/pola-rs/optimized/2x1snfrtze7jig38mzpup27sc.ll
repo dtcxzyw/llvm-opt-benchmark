@@ -6862,7 +6862,8 @@ define hidden void @_ZN10polars_row5utils16decode_opt_nulls17hc96ea560cd6162abE(
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit: ; preds = %41, %46
   %58 = phi i64 [ %.pre-phi, %41 ], [ %.pre20, %46 ]
-  %59 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %.sroa.02.013.i
+  %.idx14 = shl nuw nsw i64 %.sroa.02.013.i, 4
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx14
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %.neg = xor i64 %.sroa.02.013.i, -1
   %61 = add i64 %2, %.neg

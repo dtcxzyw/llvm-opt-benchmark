@@ -6979,7 +6979,8 @@ _ZN12regex_syntax7unicode16script_extension17h2b5084373c71ae02E.exit: ; preds = 
 .lr.ph:                                           ; preds = %"_ZN12regex_syntax7unicode4ages3imp28_$u7b$$u7b$closure$u7d$$u7d$17hbae9bc061ef2f1e1E.exit.i.i.i"
   %447 = icmp samesign ult i64 %.013.i.i.i, 25
   call void @llvm.assume(i1 %447)
-  %448 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4146, i64 %.013.i.i.i
+  %.idx = shl nuw nsw i64 %.013.i.i.i, 5
+  %448 = getelementptr inbounds nuw i8, ptr @anon.ee024262027212e939cdd9996d089225.4146, i64 %.idx
   %449 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %450 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %451 = getelementptr inbounds nuw i8, ptr %29, i64 16

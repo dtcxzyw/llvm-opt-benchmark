@@ -658,7 +658,8 @@ _ZNK4llvm6detail12DenseSetImplISt5tupleIJPKNS_7DIScopeES5_PKNS_15DILocalVariable
   %126 = load ptr, ptr %51, align 8, !tbaa !8
   %127 = load i32, ptr %52, align 8, !tbaa !11
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw %"class.llvm::DenseMap.5", ptr %126, i64 %128
+  %.idx.i = mul nuw nsw i64 %128, 24
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i
   %130 = getelementptr inbounds i8, ptr %129, i64 -24
   %.not8.i = icmp eq i32 %127, 1
   br i1 %.not8.i, label %_ZN4llvm20DroppedVariableStats20removeVarFromAllSetsESt5tupleIJPKNS_7DIScopeES4_PKNS_15DILocalVariableEEEPKNS_8FunctionE.exit, label %.lr.ph.i.preheader

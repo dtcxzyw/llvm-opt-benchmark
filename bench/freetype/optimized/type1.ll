@@ -2444,7 +2444,8 @@ define internal noundef i32 @Get_Kerning(ptr noundef readonly captures(none) %0,
   %14 = getelementptr i8, ptr %7, i64 72
   %.val = load ptr, ptr %14, align 8, !tbaa !245
   %15 = zext i32 %.val7 to i64
-  %16 = getelementptr inbounds nuw %struct.AFM_KernPairRec_, ptr %.val, i64 %15
+  %.idx.i = shl nuw nsw i64 %15, 4
+  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %17 = getelementptr inbounds i8, ptr %16, i64 -16
   br label %.lr.ph.i
 

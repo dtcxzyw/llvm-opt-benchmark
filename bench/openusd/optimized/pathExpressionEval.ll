@@ -1153,7 +1153,8 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
 
 124:                                              ; preds = %116
   %125 = sub nuw i64 %122, %87
-  %126 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %.sroa.0.0229, i64 %125
+  %.idx.i = shl nsw i64 %125, 3
+  %126 = getelementptr inbounds i8, ptr %.sroa.0.0229, i64 %.idx.i
   %.not3338.i = icmp eq i64 %125, -1
   br i1 %.not3338.i, label %.loopexit204.split.loop.exit212, label %.lr.ph.i
 

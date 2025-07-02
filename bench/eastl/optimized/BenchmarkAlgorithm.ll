@@ -11953,7 +11953,7 @@ invoke.cont591:                                   ; preds = %call.i.i.noexc1050
   %sub.ptr.div.i1056 = sdiv exact i64 %sub.ptr.sub.i1055, 24
   %div58987 = lshr i64 %sub.ptr.div.i1056, 1
   %.idx = mul i64 %div58987, 24
-  %312 = getelementptr %struct.TestObject, ptr %310, i64 %div58987
+  %312 = getelementptr i8, ptr %310, i64 %.idx
   %add.ptr.i.i.i1057 = getelementptr i8, ptr %312, i64 -24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %313 = load i32, ptr %mnUnits.i.i.i142, align 8
@@ -12189,7 +12189,7 @@ invoke.cont671:                                   ; preds = %call.i.i.noexc1174
   %sub.ptr.div.i1181 = sdiv exact i64 %sub.ptr.sub.i1180, 24
   %div66991 = lshr i64 %sub.ptr.div.i1181, 1
   %.idx1525 = mul i64 %div66991, 24
-  %343 = getelementptr %struct.TestObject, ptr %341, i64 %div66991
+  %343 = getelementptr i8, ptr %341, i64 %.idx1525
   %add.ptr.i.i.i1182 = getelementptr i8, ptr %343, i64 -24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %344 = load i32, ptr %mnUnits.i.i.i142, align 8

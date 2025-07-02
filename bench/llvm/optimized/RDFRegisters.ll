@@ -1885,7 +1885,8 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit:      ; preds = %_ZNSt8_Rb_treeIjjSt
   %51 = tail call { ptr, i64 } @_ZNK4llvm14MCRegisterInfo18getCachedAliasesOfENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(232) %50, i32 %2) #20
   %52 = extractvalue { ptr, i64 } %51, 0
   %53 = extractvalue { ptr, i64 } %51, 1
-  %54 = getelementptr inbounds nuw i16, ptr %52, i64 %53
+  %.idx = shl nuw nsw i64 %53, 1
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx
   %spec.select.i = getelementptr inbounds i8, ptr %54, i64 -2
   %.not3843 = icmp eq i64 %53, 1
   br i1 %.not3843, label %.loopexit, label %.lr.ph

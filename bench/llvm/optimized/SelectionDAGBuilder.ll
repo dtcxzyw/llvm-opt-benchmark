@@ -44004,10 +44004,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit229: ; pre
   %317 = load i16, ptr %165, align 8, !tbaa !2081
   %318 = zext i16 %317 to i64
   %.idx = mul nuw nsw i64 %318, 40
-  %.idx285 = mul nuw nsw i64 %318, 40
   %. = select i1 %.0.i, i64 -40, i64 -80
-  %.add = add nsw i64 %.idx285, %.
-  %.ptr286 = getelementptr inbounds i8, ptr %316, i64 %.add
+  %.add = add nsw i64 %.idx, %.
+  %.ptr285 = getelementptr inbounds i8, ptr %316, i64 %.add
   %319 = getelementptr inbounds nuw i8, ptr %316, i64 80
   %320 = add nsw i64 %.idx, %.
   %gepdiff = add nsw i64 %320, -80
@@ -44042,7 +44041,7 @@ _ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i: ; preds = %327, %.loop
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.0810.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !207
   %331 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 40
   %332 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i230 = icmp eq ptr %331, %.ptr286
+  %.not.i.i.i.i.i230 = icmp eq ptr %331, %.ptr285
   br i1 %.not.i.i.i.i.i230, label %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE18uninitialized_copyIPNS_5SDUseEPS1_EEvT_S7_T0_.exit.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !2097
 
 _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE18uninitialized_copyIPNS_5SDUseEPS1_EEvT_S7_T0_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i

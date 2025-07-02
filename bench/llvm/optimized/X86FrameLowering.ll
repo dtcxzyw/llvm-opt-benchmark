@@ -21353,7 +21353,8 @@ _ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit.i: 
   %40 = tail call { ptr, i64 } @_ZNK4llvm14MCRegisterInfo18getCachedAliasesOfENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(232) %39, i32 %0) #24
   %41 = extractvalue { ptr, i64 } %40, 0
   %42 = extractvalue { ptr, i64 } %40, 1
-  %43 = getelementptr inbounds nuw i16, ptr %41, i64 %42
+  %.idx.i = shl nuw nsw i64 %42, 1
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i
   %spec.select.i.i = getelementptr inbounds i8, ptr %43, i64 -2
   %.not15.i = icmp eq i64 %42, 1
   br i1 %.not15.i, label %"_ZZNK4llvm16X86FrameLowering25spillCalleeSavedRegistersERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8ArrayRefINS_15CalleeSavedInfoEEEPKNS_18TargetRegisterInfoEENK3$_0clENS_8RegisterE.exit.thread", label %.lr.ph.i

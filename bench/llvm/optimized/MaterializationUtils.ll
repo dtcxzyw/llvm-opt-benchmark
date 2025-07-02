@@ -2419,9 +2419,10 @@ _ZN4llvm3isaINS_18AnyCoroSuspendInstEPNS_11InstructionEEEbRKT0_.exit.thread.i: ;
   br i1 %.not1024.i, label %._crit_edge29.i, label %.lr.ph28.i
 
 .lr.ph28.i:                                       ; preds = %_ZN4llvm3isaINS_18AnyCoroSuspendInstEPNS_11InstructionEEEbRKT0_.exit.thread.i
-  %883 = zext i32 %.val89.i to i64
   %.val88.i = load ptr, ptr %34, align 8, !tbaa !19
-  %884 = getelementptr inbounds nuw ptr, ptr %.val88.i, i64 %883
+  %883 = zext i32 %.val89.i to i64
+  %.idx42.i = shl nuw nsw i64 %883, 3
+  %884 = getelementptr inbounds nuw i8, ptr %.val88.i, i64 %.idx42.i
   %885 = getelementptr inbounds i8, ptr %884, i64 -8
   %886 = extractvalue { ptr, i64 } %.fca.0.insert.i.pn.i, 0
   %887 = getelementptr inbounds nuw i8, ptr %428, i64 4

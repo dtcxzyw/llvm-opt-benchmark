@@ -739,7 +739,8 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %pSource, i64 %nSourceLength
   %cmp1.i = icmp slt i64 %nSourceLength, 0
   %spec.select.i = select i1 %cmp1.i, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr.i
-  %add.ptr4.i = getelementptr inbounds i16, ptr %pDest, i64 %nDestCapacity
+  %add.ptr4.idx.i = shl nsw i64 %nDestCapacity, 1
+  %add.ptr4.i = getelementptr inbounds i8, ptr %pDest, i64 %add.ptr4.idx.i
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -2
   %cmp665.i = icmp ult ptr %pSource, %spec.select.i
   %cmp766.i = icmp sgt i64 %nDestCapacity, 1
@@ -868,7 +869,8 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %pSource, i64 %add.ptr.idx.i
   %cmp1.i = icmp slt i64 %nSourceLength, 0
   %spec.select.i = select i1 %cmp1.i, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr.i
-  %add.ptr4.i = getelementptr inbounds i16, ptr %pDest, i64 %nDestCapacity
+  %add.ptr4.idx.i = shl nsw i64 %nDestCapacity, 1
+  %add.ptr4.i = getelementptr inbounds i8, ptr %pDest, i64 %add.ptr4.idx.i
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -2
   %cmp622.i = icmp ult ptr %pSource, %spec.select.i
   %cmp723.i = icmp sgt i64 %nDestCapacity, 1
@@ -934,7 +936,8 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %pSource, i64 %nSourceLength
   %cmp1.i = icmp slt i64 %nSourceLength, 0
   %spec.select.i = select i1 %cmp1.i, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr.i
-  %add.ptr4.i = getelementptr inbounds i32, ptr %pDest, i64 %nDestCapacity
+  %add.ptr4.idx.i = shl nsw i64 %nDestCapacity, 2
+  %add.ptr4.i = getelementptr inbounds i8, ptr %pDest, i64 %add.ptr4.idx.i
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -4
   %cmp665.i = icmp ult ptr %pSource, %spec.select.i
   %cmp766.i = icmp sgt i64 %nDestCapacity, 1
@@ -1062,7 +1065,8 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %pSource, i64 %add.ptr.idx.i
   %cmp1.i = icmp slt i64 %nSourceLength, 0
   %spec.select.i = select i1 %cmp1.i, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr.i
-  %add.ptr4.i = getelementptr inbounds i32, ptr %pDest, i64 %nDestCapacity
+  %add.ptr4.idx.i = shl nsw i64 %nDestCapacity, 2
+  %add.ptr4.i = getelementptr inbounds i8, ptr %pDest, i64 %add.ptr4.idx.i
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -4
   %cmp621.i = icmp ult ptr %pSource, %spec.select.i
   %cmp722.i = icmp sgt i64 %nDestCapacity, 1
@@ -7073,7 +7077,8 @@ entry:
   br i1 %cmp11, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %add.ptr = getelementptr inbounds nuw i32, ptr %pString, i64 %wcslen.i
+  %add.ptr.idx = shl nsw i64 %wcslen.i, 2
+  %add.ptr = getelementptr inbounds nuw i8, ptr %pString, i64 %add.ptr.idx
   %p2.010 = getelementptr inbounds i8, ptr %add.ptr, i64 -4
   br label %for.body
 

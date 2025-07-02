@@ -3144,9 +3144,10 @@ invoke.cont20:                                    ; preds = %for.inc.i28.i, %_ZS
   br i1 %cmp.not273, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont20
-  %idx.ext.i78 = sext i32 %36 to i64
   %37 = load ptr, ptr %16, align 8
-  %add.ptr.i79 = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %37, i64 %idx.ext.i78
+  %idx.ext.i78 = sext i32 %36 to i64
+  %add.ptr.i79.idx = shl nsw i64 %idx.ext.i78, 3
+  %add.ptr.i79 = getelementptr inbounds i8, ptr %37, i64 %add.ptr.i79.idx
   %i.0272 = getelementptr inbounds i8, ptr %add.ptr.i79, i64 -8
   %start_unanchored_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %start_.i = getelementptr inbounds nuw i8, ptr %this, i64 8

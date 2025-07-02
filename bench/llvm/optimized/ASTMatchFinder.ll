@@ -38771,7 +38771,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   %12 = load i32, ptr %11, align 4, !tbaa !1505
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %15 = getelementptr ptr, ptr %14, i64 %13
+  %.idx = shl nuw nsw i64 %13, 3
+  %15 = getelementptr i8, ptr %14, i64 %.idx
   %16 = getelementptr i8, ptr %15, i64 -8
   %.not50 = icmp eq i32 %12, 1
   br i1 %.not50, label %.critedge, label %.lr.ph
@@ -38792,8 +38793,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12a
   %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !1512
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !769
-  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
+  %.idx59 = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx59
   %.not.i52 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i52, label %._crit_edge, label %.lr.ph54
 
@@ -106318,7 +106319,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
   %22 = load i32, ptr %21, align 4, !tbaa !1505
   %23 = zext i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %25 = getelementptr ptr, ptr %24, i64 %23
+  %.idx = shl nuw nsw i64 %23, 3
+  %25 = getelementptr i8, ptr %24, i64 %.idx
   %26 = getelementptr i8, ptr %25, i64 -8
   %.not71 = icmp eq i32 %22, 1
   br i1 %.not71, label %.critedge, label %.lr.ph
@@ -106363,8 +106365,8 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor12TraverseStmtEPN
   %.sroa.0.0.copyload.i = load ptr, ptr %39, align 8, !tbaa !1512
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !769
-  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
+  %.idx80 = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx80
   %.not.i4373 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4373, label %._crit_edge, label %.lr.ph75
 

@@ -1354,7 +1354,8 @@ common.resume:                                    ; preds = %49
   store i32 %36, ptr %.sroa.11.0..sroa_idx.i, align 8, !alias.scope !373, !noalias !376
   %37 = zext i32 %16 to i64
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %39 = getelementptr { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %38, i64 %37
+  %.idx = mul nuw nsw i64 %37, 48
+  %39 = getelementptr i8, ptr %38, i64 %.idx
   %40 = getelementptr i8, ptr %39, i64 -48
   %41 = icmp ne ptr %40, null
   call void @llvm.assume(i1 %41)

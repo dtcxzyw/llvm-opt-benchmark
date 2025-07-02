@@ -859,7 +859,8 @@ define hidden void @_ZN7Compile14gvn_replace_byEP4NodeS1_(ptr noundef nonnull re
 
 .lr.ph45:                                         ; preds = %3
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %.idx = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %10 = getelementptr inbounds i8, ptr %9, i64 -8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1952
   %12 = icmp eq ptr %2, null
