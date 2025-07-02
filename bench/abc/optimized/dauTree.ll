@@ -365,7 +365,8 @@ define void @Dss_NtkPrint_rec(ptr noundef readonly captures(none) %0, ptr nounde
   %31 = xor i32 %notmask.i, -1
   %32 = select i1 %26, i32 15, i32 %31
   %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %15, i64 %33
+  %.idx.i = shl nuw nsw i64 %33, 3
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   %.021.i = getelementptr inbounds i8, ptr %34, i64 -8
   %35 = zext nneg i32 %32 to i64
   br label %.lr.ph.us.i
@@ -2785,7 +2786,8 @@ define void @Dss_ManPrint_rec(ptr noundef captures(none) %0, ptr noundef readonl
   %46 = xor i32 %notmask.i, -1
   %47 = select i1 %41, i32 15, i32 %46
   %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr inbounds nuw i64, ptr %30, i64 %48
+  %.idx.i = shl nuw nsw i64 %48, 3
+  %49 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i
   %.021.i = getelementptr inbounds i8, ptr %49, i64 -8
   %50 = zext nneg i32 %47 to i64
   br label %.lr.ph.us.i
@@ -3096,7 +3098,8 @@ Abc_TtStretch6.exit:                              ; preds = %41, %.lr.ph18.prehe
   %60 = xor i32 %notmask.i, -1
   %61 = select i1 %45, i32 15, i32 %60
   %62 = zext nneg i32 %59 to i64
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %62
+  %.idx.i = shl nuw nsw i64 %62, 3
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx.i
   %63 = zext nneg i32 %61 to i64
   br label %.lr.ph.us.i
 

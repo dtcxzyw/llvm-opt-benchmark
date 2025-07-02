@@ -6684,8 +6684,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hb461e16f615105c9E.exit.i: ; pre
   %.sroa.613.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 64
   %.sroa.714.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 65
   %invariant.gep.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 47
-  %invariant.gep.i = getelementptr i8, ptr %105, i64 40
-  %invariant.op.i = add nsw i64 %.idx.i, -40
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %105, i64 40
+  %.neg = add nsw i64 %.idx.i, -40
   br label %120
 
 120:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9bab6e3675a22c46E.exit.i.i", %119
@@ -6696,15 +6696,15 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hb461e16f615105c9E.exit.i: ; pre
   %.val16.i.i = load i64, ptr %123, align 8, !noalias !590
   %124 = add nuw i64 %121, 1
   %.not.i.not.i.i.i.i.i.i.i = icmp uge i64 %121, %107
-  %gep.i = getelementptr { { i64, i64 }, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %invariant.gep.i, i64 %121
+  %.idx117.i = mul nuw nsw i64 %121, 40
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx117.i
   %125 = icmp eq ptr %gep.i, %108
-  %or.cond.i = or i1 %.not.i.not.i.i.i.i.i.i.i, %125
+  %or.cond.i = select i1 %.not.i.not.i.i.i.i.i.i.i, i1 true, i1 %125
   br i1 %or.cond.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9bab6e3675a22c46E.exit.i.i", label %126
 
 126:                                              ; preds = %120
-  %.idx117.neg.i = mul i64 %121, -40
-  %gepdiff.reass.i = add i64 %invariant.op.i, %.idx117.neg.i
-  %127 = udiv exact i64 %gepdiff.reass.i, 40
+  %gepdiff.i = sub i64 %.neg, %.idx117.i
+  %127 = udiv exact i64 %gepdiff.i, 40
   %128 = call i64 @llvm.usub.sat.i64(i64 %.val16.i.i, i64 1)
   br label %129
 

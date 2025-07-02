@@ -3866,7 +3866,8 @@ define hidden void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnul
 
 .lr.ph66:                                         ; preds = %9
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %.idx = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %19 = getelementptr inbounds i8, ptr %18, i64 -8
   %.not8.i = icmp eq ptr %2, null
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3896,14 +3897,14 @@ define hidden void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnul
 
 .lr.ph.us:                                        ; preds = %.lr.ph66.split.us
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %wide.trip.count79 = zext i32 %25 to i64
+  %wide.trip.count80 = zext i32 %25 to i64
   br label %30
 
 30:                                               ; preds = %53, %.lr.ph.us
-  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %53 ], [ 0, %.lr.ph.us ]
+  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %53 ], [ 0, %.lr.ph.us ]
   %.04462.us.us = phi i32 [ %.1.us.us, %53 ], [ 0, %.lr.ph.us ]
   %31 = load ptr, ptr %29, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv76
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv77
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %1
   br i1 %34, label %35, label %53
@@ -3944,9 +3945,9 @@ _ZN4Node7del_outEPS_.exit.i.us.us:                ; preds = %47, %35
 
 53:                                               ; preds = %_ZN4Node7del_outEPS_.exit.i.us.us, %30
   %.1.us.us = phi i32 [ %52, %_ZN4Node7del_outEPS_.exit.i.us.us ], [ %.04462.us.us, %30 ]
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge.split.us.us.loopexit, label %30, !llvm.loop !29
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
+  br i1 %exitcond81.not, label %._crit_edge.split.us.us.loopexit, label %30, !llvm.loop !29
 
 .lr.ph66.split:                                   ; preds = %.lr.ph66, %._crit_edge.split
   %.064 = phi ptr [ %97, %._crit_edge.split ], [ %19, %.lr.ph66 ]
@@ -4075,10 +4076,10 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %114 = load i32, ptr %113, align 8
   %115 = zext i32 %114 to i64
-  %.idx = shl nuw nsw i64 %115, 3
-  %116 = getelementptr inbounds nuw i8, ptr %112, i64 %.idx
-  %.not72 = icmp eq i32 %114, 0
-  br i1 %.not72, label %.loopexit, label %.lr.ph69
+  %.idx72 = shl nuw nsw i64 %115, 3
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 %.idx72
+  %.not73 = icmp eq i32 %114, 0
+  br i1 %.not73, label %.loopexit, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %110
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -10923,7 +10924,8 @@ define hidden void @_ZN4Node10replace_byEPS_(ptr noundef nonnull readonly align 
 
 .lr.ph35:                                         ; preds = %2
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = icmp eq ptr %1, null
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16

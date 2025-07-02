@@ -4612,7 +4612,8 @@ define hidden void @_ZN16PhaseMacroExpand27process_users_of_allocationEP8CallNod
 
 .lr.ph112:                                        ; preds = %5
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4642,7 +4643,8 @@ define hidden void @_ZN16PhaseMacroExpand27process_users_of_allocationEP8CallNod
 
 .lr.ph.preheader:                                 ; preds = %26
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %31
+  %.idx123 = shl nuw nsw i64 %31, 3
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx123
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
   br label %.lr.ph
 
@@ -4954,10 +4956,10 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
 
 .lr.ph117:                                        ; preds = %220
   %223 = zext i32 %222 to i64
-  %.idx = shl nuw nsw i64 %223, 3
+  %.idx124 = shl nuw nsw i64 %223, 3
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 %.idx
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 %.idx124
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %229
@@ -4996,21 +4998,22 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
 ._crit_edge118:                                   ; preds = %245
   %.pre = load ptr, ptr %218, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre124 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.pre126 = load i32, ptr %.phi.trans.insert125, align 8
-  %.not89119 = icmp eq i32 %.pre126, 0
+  %.pre126 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert127 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  %.pre128 = load i32, ptr %.phi.trans.insert127, align 8
+  %.not89119 = icmp eq i32 %.pre128, 0
   br i1 %.not89119, label %.loopexit, label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %._crit_edge118
-  %248 = zext i32 %.pre126 to i64
-  %249 = getelementptr inbounds nuw ptr, ptr %.pre124, i64 %248
+  %248 = zext i32 %.pre128 to i64
+  %.idx125 = shl nuw nsw i64 %248, 3
+  %249 = getelementptr inbounds nuw i8, ptr %.pre126, i64 %.idx125
   %250 = getelementptr inbounds i8, ptr %249, i64 -8
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %252
 
 252:                                              ; preds = %.lr.ph122, %280
-  %253 = phi i32 [ %.pre126, %.lr.ph122 ], [ %283, %280 ]
+  %253 = phi i32 [ %.pre128, %.lr.ph122 ], [ %283, %280 ]
   %.075120 = phi ptr [ %250, %.lr.ph122 ], [ %287, %280 ]
   %254 = load ptr, ptr %.075120, align 8
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 44
@@ -5062,7 +5065,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
   %285 = zext i32 %284 to i64
   %286 = sub nsw i64 0, %285
   %287 = getelementptr inbounds ptr, ptr %.075120, i64 %286
-  %.not89 = icmp ult ptr %287, %.pre124
+  %.not89 = icmp ult ptr %287, %.pre126
   br i1 %.not89, label %.loopexit, label %252, !llvm.loop !31
 
 .loopexit:                                        ; preds = %280, %._crit_edge118, %220, %217
@@ -12776,7 +12779,8 @@ define hidden void @_ZN16PhaseMacroExpand24expand_subtypecheck_nodeEP16SubTypeCh
 
 .lr.ph:                                           ; preds = %2
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %.idx = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.036 = getelementptr inbounds i8, ptr %18, i64 -8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 40

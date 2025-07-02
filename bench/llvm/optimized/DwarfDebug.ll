@@ -14331,8 +14331,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm10DwarfDebug17buildLocationListERNS
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !26
   %18 = zext i32 %17 to i64
-  %.idx = shl nuw nsw i64 %18, 4
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
+  %.idx196 = shl nuw nsw i64 %18, 4
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx196
   %.not186 = icmp eq i32 %17, 0
   br i1 %.not186, label %._crit_edge193.thread, label %.lr.ph192
 
@@ -14396,13 +14396,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm10DwarfDebug17buildLocationListERNS
   %46 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 176
   %.val35.i.i.i.i.i.i = load i64, ptr %46, align 8, !tbaa !1492
   %.not44.i.i.i.i.i.i = icmp ugt i64 %.val35.i.i.i.i.i.i, %37
-  br i1 %.not44.i.i.i.i.i.i, label %47, label %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit214"
+  br i1 %.not44.i.i.i.i.i.i, label %47, label %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit215"
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 264
   %.val33.i.i.i.i.i.i = load i64, ptr %48, align 8, !tbaa !1492
   %.not45.i.i.i.i.i.i = icmp ugt i64 %.val33.i.i.i.i.i.i, %37
-  br i1 %.not45.i.i.i.i.i.i, label %49, label %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit216"
+  br i1 %.not45.i.i.i.i.i.i, label %49, label %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit217"
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 352
@@ -14453,16 +14453,16 @@ define dso_local noundef zeroext i1 @_ZN4llvm10DwarfDebug17buildLocationListERNS
   %59 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 88
   br label %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit214": ; preds = %45
+"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit215": ; preds = %45
   %60 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 176
   br label %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit216": ; preds = %47
+"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit217": ; preds = %47
   %61 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 264
   br label %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i": ; preds = %42, %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit214", %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit216", %._crit_edge._crit_edge63.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %54
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %54 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge63.i.i.i.i.i.i ], [ %59, %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %60, %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit214" ], [ %61, %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit216" ], [ %.02956.i.i.i.i.i.i, %42 ]
+"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i": ; preds = %42, %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit215", %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit217", %._crit_edge._crit_edge63.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %54
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %54 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge63.i.i.i.i.i.i ], [ %59, %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %60, %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit215" ], [ %61, %"_ZSt9__find_ifIPSt4pairImN4llvm11DbgValueLocEEN9__gnu_cxx5__ops10_Iter_predIZNS1_10DwarfDebug17buildLocationListERNS1_15SmallVectorImplINS1_13DebugLocEntryEEERKNS1_11SmallVectorINS1_18DbgValueHistoryMap5EntryELj4EEEE3$_0EEET_SL_SL_T0_.exit.i.i.i.i.loopexit.split.loop.exit217" ], [ %.02956.i.i.i.i.i.i, %42 ]
   %62 = icmp eq ptr %.028.i.i.i.i.i.i, %39
   %.01731.i.i.i.i = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i.i, i64 88
   %.not32.i.i.i.i = icmp eq ptr %.01731.i.i.i.i, %39
@@ -14891,8 +14891,8 @@ _ZNK4llvm12MachineInstr17isUndefDebugValueEv.exit: ; preds = %186, %_ZN4llvm11Db
   store i32 4, ptr %29, align 4, !tbaa !27
   %238 = load ptr, ptr %5, align 8, !tbaa !25
   %239 = zext i32 %233 to i64
-  %.idx196 = mul nuw nsw i64 %239, 88
-  %240 = getelementptr inbounds nuw i8, ptr %238, i64 %.idx196
+  %.idx197 = mul nuw nsw i64 %239, 88
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 %.idx197
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_11DbgValueLocELb0EE9push_backERKS1_.exit
@@ -15024,8 +15024,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11DbgValueLocELb0EE9push_backERKS1_.exit: ;
   %304 = getelementptr inbounds nuw i8, ptr %241, i64 192
   %305 = load i32, ptr %304, align 8, !tbaa !26
   %306 = zext i32 %305 to i64
-  %.idx197 = mul nuw nsw i64 %306, 24
-  %307 = getelementptr inbounds nuw i8, ptr %303, i64 %.idx197
+  %.idx198 = mul nuw nsw i64 %306, 24
+  %307 = getelementptr inbounds nuw i8, ptr %303, i64 %.idx198
   %.not107182 = icmp eq i32 %305, 0
   br i1 %.not107182, label %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exitthread-pre-split, label %.lr.ph185
 
@@ -15164,7 +15164,8 @@ _ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7
   %381 = phi i32 [ %.pr, %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exitthread-pre-split ], [ %337, %322 ], [ %380, %366 ]
   %382 = load ptr, ptr %1, align 8, !tbaa !25, !noalias !1520
   %383 = zext i32 %381 to i64
-  %384 = getelementptr inbounds nuw %"class.llvm::DebugLocEntry", ptr %382, i64 %383
+  %.idx = mul nuw nsw i64 %383, 112
+  %384 = getelementptr inbounds nuw i8, ptr %382, i64 %.idx
   %.not169 = icmp eq i32 %381, 1
   br i1 %.not169, label %_ZN4llvm23SmallVectorTemplateBaseINS_13DebugLocEntryELb0EE8pop_backEv.exit, label %385
 
@@ -15208,11 +15209,11 @@ _ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7
 
 .loopexit.loopexit:                               ; preds = %397
   %.pre = load i32, ptr %30, align 8, !tbaa !26
-  %.pre205 = load ptr, ptr %1, align 8, !tbaa !25
+  %.pre206 = load ptr, ptr %1, align 8, !tbaa !25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader.i
-  %406 = phi ptr [ %.pre205, %.loopexit.loopexit ], [ %382, %.preheader.i ]
+  %406 = phi ptr [ %.pre206, %.loopexit.loopexit ], [ %382, %.preheader.i ]
   %407 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %381, %.preheader.i ]
   %408 = getelementptr inbounds i8, ptr %384, i64 -104
   %409 = load ptr, ptr %408, align 8, !tbaa !1519
@@ -15318,11 +15319,11 @@ _ZN4llvm11SmallVectorINS_11DbgValueLocELj4EED2Ev.exit: ; preds = %_ZN4llvm23Smal
   br i1 %.not, label %._crit_edge193, label %32, !llvm.loop !1525
 
 ._crit_edge193.thread:                            ; preds = %3, %._crit_edge193
-  %.086.lcssa210 = phi ptr [ %.187, %._crit_edge193 ], [ null, %3 ]
-  %.089.lcssa209 = phi ptr [ %.291, %._crit_edge193 ], [ null, %3 ]
+  %.086.lcssa211 = phi ptr [ %.187, %._crit_edge193 ], [ null, %3 ]
+  %.089.lcssa210 = phi ptr [ %.291, %._crit_edge193 ], [ null, %3 ]
   %443 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %444 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %445 = call fastcc noundef zeroext i1 @_ZL15validThroughoutRN4llvm13LexicalScopesEPKNS_12MachineInstrES4_RKNS_19InstructionOrderingE(ptr noundef nonnull align 8 dereferenceable(256) %443, ptr noundef %.086.lcssa210, ptr noundef %.089.lcssa209, ptr noundef nonnull align 8 dereferenceable(24) %444)
+  %445 = call fastcc noundef zeroext i1 @_ZL15validThroughoutRN4llvm13LexicalScopesEPKNS_12MachineInstrES4_RKNS_19InstructionOrderingE(ptr noundef nonnull align 8 dereferenceable(256) %443, ptr noundef %.086.lcssa211, ptr noundef %.089.lcssa210, ptr noundef nonnull align 8 dereferenceable(24) %444)
   br i1 %445, label %446, label %_ZN4llvmneINS_11DbgValueLocEEEbNS_8ArrayRefIT_EES4_.exit.thread
 
 446:                                              ; preds = %._crit_edge193.thread

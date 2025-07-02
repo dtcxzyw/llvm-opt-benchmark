@@ -23,9 +23,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_class_name = type { ptr, ptr }
 %struct._zend_op = type { ptr, %union._znode_op, %union._znode_op, %union._znode_op, i32, i32, i8, i8, i8, i8 }
 %union._znode_op = type { i32 }
-%struct._zend_live_range = type { i32, i32, i32 }
 %struct._zend_try_catch_element = type { i32, i32, i32, i32 }
 %struct._zend_brk_cont_element = type { i32, i32, i32, i32, i8 }
+%struct._zend_live_range = type { i32, i32, i32 }
 
 @zend_op_array_extension_handles = external local_unnamed_addr global i32, align 4
 @zend_extension_flags = external local_unnamed_addr global i32, align 4
@@ -3381,44 +3381,39 @@ keeps_op1_alive.exit.thread:                      ; preds = %57, %57, %57, %57, 
   %108 = getelementptr inbounds nuw i8, ptr %.0122147, i64 12
   %.0 = getelementptr inbounds i8, ptr %.0149, i64 -12
   %109 = icmp ult ptr %108, %.0
-  br i1 %109, label %.lr.ph151, label %.lr.ph155.preheader
+  br i1 %109, label %.lr.ph151, label %.lr.ph155
 
-.lr.ph155.preheader:                              ; preds = %.lr.ph151
-  %110 = getelementptr inbounds nuw %struct._zend_live_range, ptr %95, i64 %96
-  %111 = getelementptr inbounds i8, ptr %110, i64 -12
-  br label %.lr.ph155
-
-.lr.ph155:                                        ; preds = %.lr.ph155.preheader, %123
-  %.1153 = phi ptr [ %124, %123 ], [ %95, %.lr.ph155.preheader ]
-  %112 = getelementptr inbounds nuw i8, ptr %.1153, i64 4
+.lr.ph155:                                        ; preds = %.lr.ph151, %121
+  %.1153 = phi ptr [ %122, %121 ], [ %95, %.lr.ph151 ]
+  %110 = getelementptr inbounds nuw i8, ptr %.1153, i64 4
+  %111 = load i32, ptr %110, align 4, !tbaa !171
+  %112 = getelementptr inbounds nuw i8, ptr %.1153, i64 16
   %113 = load i32, ptr %112, align 4, !tbaa !171
-  %114 = getelementptr inbounds nuw i8, ptr %.1153, i64 16
-  %115 = load i32, ptr %114, align 4, !tbaa !171
-  %116 = icmp ugt i32 %113, %115
-  br i1 %116, label %117, label %123
+  %114 = icmp ugt i32 %111, %113
+  br i1 %114, label %115, label %121
 
-117:                                              ; preds = %.lr.ph155
-  %118 = ptrtoint ptr %111 to i64
-  %119 = ptrtoint ptr %.1153 to i64
-  %120 = sub i64 %118, %119
-  %121 = sdiv exact i64 %120, 12
-  %122 = add nsw i64 %121, 1
-  tail call void @zend_sort(ptr noundef nonnull %.1153, i64 noundef %122, i64 noundef 12, ptr noundef nonnull @cmp_live_range, ptr noundef nonnull @swap_live_range) #14
+115:                                              ; preds = %.lr.ph155
+  %116 = ptrtoint ptr %.0146 to i64
+  %117 = ptrtoint ptr %.1153 to i64
+  %118 = sub i64 %116, %117
+  %119 = sdiv exact i64 %118, 12
+  %120 = add nsw i64 %119, 1
+  tail call void @zend_sort(ptr noundef nonnull %.1153, i64 noundef %120, i64 noundef 12, ptr noundef nonnull @cmp_live_range, ptr noundef nonnull @swap_live_range) #14
   br label %.loopexit
 
-123:                                              ; preds = %.lr.ph155
-  %124 = getelementptr inbounds nuw i8, ptr %.1153, i64 12
-  %125 = icmp ult ptr %124, %111
-  br i1 %125, label %.lr.ph155, label %.loopexit
+121:                                              ; preds = %.lr.ph155
+  %122 = getelementptr inbounds nuw i8, ptr %.1153, i64 12
+  %123 = icmp ult ptr %122, %.0146
+  br i1 %123, label %.lr.ph155, label %.loopexit
 
-.loopexit:                                        ; preds = %123, %117, %._crit_edge
-  br i1 %15, label %126, label %127, !prof !98
+.loopexit:                                        ; preds = %121, %115, %._crit_edge
+  br i1 %15, label %124, label %125, !prof !98
 
-126:                                              ; preds = %.loopexit
+124:                                              ; preds = %.loopexit
   call void @_efree(ptr noundef %21) #14
-  br label %127
+  br label %125
 
-127:                                              ; preds = %126, %.loopexit
+125:                                              ; preds = %124, %.loopexit
   ret void
 }
 

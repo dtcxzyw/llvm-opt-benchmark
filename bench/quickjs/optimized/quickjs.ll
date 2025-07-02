@@ -213571,8 +213571,8 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   ]
 
 28:                                               ; preds = %23
-  %.not83 = icmp eq i32 %20, 1
-  br i1 %.not83, label %JS_DupValue.exit, label %.lr.ph79.preheader
+  %.not85 = icmp eq i32 %20, 1
+  br i1 %.not85, label %JS_DupValue.exit, label %.lr.ph79.preheader
 
 .lr.ph79.preheader:                               ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -213595,14 +213595,15 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   br i1 %36, label %.lr.ph79, label %JS_DupValue.exit, !llvm.loop !1302
 
 37:                                               ; preds = %23
-  %.not82 = icmp eq i32 %20, 1
-  br i1 %.not82, label %JS_DupValue.exit, label %.lr.ph75.preheader
+  %.not84 = icmp eq i32 %20, 1
+  br i1 %.not84, label %JS_DupValue.exit, label %.lr.ph75.preheader
 
 .lr.ph75.preheader:                               ; preds = %37
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %39 = load ptr, ptr %38, align 8, !tbaa !46
-  %40 = zext nneg i32 %20 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %39, i64 %40
+  %40 = shl nuw i32 %20, 1
+  %.idx83 = zext i32 %40 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx83
   %.05272 = getelementptr inbounds i8, ptr %41, i64 -2
   br label %.lr.ph75
 
@@ -213619,14 +213620,15 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   br i1 %45, label %.lr.ph75, label %JS_DupValue.exit, !llvm.loop !1303
 
 46:                                               ; preds = %23
-  %.not81 = icmp eq i32 %20, 1
-  br i1 %.not81, label %JS_DupValue.exit, label %.lr.ph71.preheader
+  %.not82 = icmp eq i32 %20, 1
+  br i1 %.not82, label %JS_DupValue.exit, label %.lr.ph71.preheader
 
 .lr.ph71.preheader:                               ; preds = %46
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %48 = load ptr, ptr %47, align 8, !tbaa !46
   %49 = zext nneg i32 %20 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
+  %.idx81 = shl nuw nsw i64 %49, 2
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx81
   %.05068 = getelementptr inbounds i8, ptr %50, i64 -4
   br label %.lr.ph71
 
@@ -213650,7 +213652,8 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %57 = load ptr, ptr %56, align 8, !tbaa !46
   %58 = zext nneg i32 %20 to i64
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %.idx = shl nuw nsw i64 %58, 3
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx
   %.065 = getelementptr inbounds i8, ptr %59, i64 -8
   br label %.lr.ph
 

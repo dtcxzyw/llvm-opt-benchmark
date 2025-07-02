@@ -1669,18 +1669,19 @@ define hidden void @"_ZN113_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$
 define hidden void @_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !3
-  %4 = icmp eq i64 %3, 0
-  br i1 %4, label %._crit_edge, label %.lr.ph.preheader
+  %4 = and i64 %3, 127
+  %5 = lshr i64 %3, 3
+  %.idx = and i64 %5, 2305843009213693936
+  %6 = or i64 %.idx, %4
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %5 = and i64 %3, 127
-  %.not = icmp eq i64 %5, 0
+  %.not = icmp eq i64 %4, 0
   %.idx7 = select i1 %.not, i64 0, i64 16
-  %6 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %7 = lshr i64 %3, 3
-  %8 = and i64 %7, 2305843009213693936
-  %9 = add nuw nsw i64 %.idx7, %8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %6, i8 0, i64 %9, i1 false)
+  %8 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
+  %9 = add nuw nsw i64 %.idx7, %.idx
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 0, i64 %9, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %1
@@ -3818,18 +3819,19 @@ define hidden void @"_ZN52_$LT$$RF$G$u20$as$u20$petgraph..visit..Visitable$GT$9r
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1097)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1100, !noalias !1092, !noundef !3
-  %6 = icmp eq i64 %5, 0
-  br i1 %6, label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i, label %.lr.ph.preheader.i.i
+  %6 = and i64 %5, 127
+  %7 = lshr i64 %5, 3
+  %.idx.i.i = and i64 %7, 2305843009213693936
+  %8 = or i64 %.idx.i.i, %6
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %2
-  %7 = and i64 %5, 127
-  %.not.i.i = icmp eq i64 %7, 0
+  %.not.i.i = icmp eq i64 %6, 0
   %.idx7.i.i = select i1 %.not.i.i, i64 0, i64 16
-  %8 = load ptr, ptr %1, align 8, !alias.scope !1100, !noalias !1092, !nonnull !3, !noundef !3
-  %9 = lshr i64 %5, 3
-  %10 = and i64 %9, 2305843009213693936
-  %11 = add nuw nsw i64 %.idx7.i.i, %10
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 0, i64 %11, i1 false), !noalias !1101
+  %10 = load ptr, ptr %1, align 8, !alias.scope !1100, !noalias !1092, !nonnull !3, !noundef !3
+  %11 = add nuw nsw i64 %.idx7.i.i, %.idx.i.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %10, i8 0, i64 %11, i1 false), !noalias !1101
   br label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i
 
 _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i: ; preds = %.lr.ph.preheader.i.i, %2
@@ -9945,18 +9947,19 @@ define hidden void @"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2204)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !2204, !noundef !3
-  %5 = icmp eq i64 %4, 0
-  br i1 %5, label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit, label %.lr.ph.preheader.i
+  %5 = and i64 %4, 127
+  %6 = lshr i64 %4, 3
+  %.idx.i = and i64 %6, 2305843009213693936
+  %7 = or i64 %.idx.i, %5
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2
-  %6 = and i64 %4, 127
-  %.not.i = icmp eq i64 %6, 0
+  %.not.i = icmp eq i64 %5, 0
   %.idx7.i = select i1 %.not.i, i64 0, i64 16
-  %7 = load ptr, ptr %1, align 8, !alias.scope !2204, !nonnull !3, !noundef !3
-  %8 = lshr i64 %4, 3
-  %9 = and i64 %8, 2305843009213693936
-  %10 = add nuw nsw i64 %.idx7.i, %9
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 0, i64 %10, i1 false), !noalias !2204
+  %9 = load ptr, ptr %1, align 8, !alias.scope !2204, !nonnull !3, !noundef !3
+  %10 = add nuw nsw i64 %.idx7.i, %.idx.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %9, i8 0, i64 %10, i1 false), !noalias !2204
   br label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit
 
 _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit: ; preds = %2, %.lr.ph.preheader.i
