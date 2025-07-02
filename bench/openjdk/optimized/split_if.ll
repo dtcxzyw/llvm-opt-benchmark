@@ -5156,8 +5156,8 @@ _ZNK14PhaseIdealLoop4idomEP4Node.exit:            ; preds = %_ZNK10Node_ArrayixE
 .preheader:                                       ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %64 = load i32, ptr %63, align 8
-  %.not260 = icmp eq i32 %64, 0
-  br i1 %.not260, label %.loopexit, label %.lr.ph
+  %.not259 = icmp eq i32 %64, 0
+  br i1 %.not259, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -5884,7 +5884,7 @@ _ZN4Node7set_reqEjPS_.exit191:                    ; preds = %_ZN14PhaseIdealLoop
   br i1 %exitcond.not.i206, label %_ZN14PhaseIdealLoop14find_use_blockEP4NodeS1_S1_S1_S1_S1_.exit, label %440, !llvm.loop !32
 
 ._crit_edge.loopexit.split.loop.exit.i207:        ; preds = %440
-  %.pre272 = and i64 %indvars.iv.i204, 4294967295
+  %.pre271 = and i64 %indvars.iv.i204, 4294967295
   br label %_ZN14PhaseIdealLoop14find_use_blockEP4NodeS1_S1_S1_S1_S1_.exit
 
 445:                                              ; preds = %430
@@ -5998,7 +5998,7 @@ _ZN14PhaseIdealLoop14find_use_blockEP4NodeS1_S1_S1_S1_S1_.exit.thread212: ; pred
   br label %_ZN14PhaseIdealLoop10handle_useEP4NodeS1_P11small_cacheS1_S1_S1_S1_S1_.exit
 
 _ZN14PhaseIdealLoop14find_use_blockEP4NodeS1_S1_S1_S1_S1_.exit: ; preds = %444, %._crit_edge.loopexit.split.loop.exit.i207, %.preheader.i
-  %.026.lcssa.i = phi i64 [ 1, %.preheader.i ], [ %.pre272, %._crit_edge.loopexit.split.loop.exit.i207 ], [ %wide.trip.count.i203, %444 ]
+  %.026.lcssa.i = phi i64 [ 1, %.preheader.i ], [ %.pre271, %._crit_edge.loopexit.split.loop.exit.i207 ], [ %wide.trip.count.i203, %444 ]
   %506 = load ptr, ptr %439, align 8
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 8
   %508 = load ptr, ptr %507, align 8

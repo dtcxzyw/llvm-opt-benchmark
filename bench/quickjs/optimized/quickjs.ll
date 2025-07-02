@@ -213571,8 +213571,8 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   ]
 
 28:                                               ; preds = %23
-  %.not85 = icmp eq i32 %20, 1
-  br i1 %.not85, label %JS_DupValue.exit, label %.lr.ph79.preheader
+  %.not83 = icmp eq i32 %20, 1
+  br i1 %.not83, label %JS_DupValue.exit, label %.lr.ph79.preheader
 
 .lr.ph79.preheader:                               ; preds = %28
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -213595,8 +213595,8 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   br i1 %36, label %.lr.ph79, label %JS_DupValue.exit, !llvm.loop !1302
 
 37:                                               ; preds = %23
-  %.not84 = icmp eq i32 %20, 1
-  br i1 %.not84, label %JS_DupValue.exit, label %.lr.ph75.preheader
+  %.not82 = icmp eq i32 %20, 1
+  br i1 %.not82, label %JS_DupValue.exit, label %.lr.ph75.preheader
 
 .lr.ph75.preheader:                               ; preds = %37
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -213620,8 +213620,8 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   br i1 %45, label %.lr.ph75, label %JS_DupValue.exit, !llvm.loop !1303
 
 46:                                               ; preds = %23
-  %.not82 = icmp eq i32 %20, 1
-  br i1 %.not82, label %JS_DupValue.exit, label %.lr.ph71.preheader
+  %.not81 = icmp eq i32 %20, 1
+  br i1 %.not81, label %JS_DupValue.exit, label %.lr.ph71.preheader
 
 .lr.ph71.preheader:                               ; preds = %46
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 56

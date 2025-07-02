@@ -3381,18 +3381,18 @@ keeps_op1_alive.exit.thread:                      ; preds = %57, %57, %57, %57, 
   %108 = getelementptr inbounds nuw i8, ptr %.0122147, i64 12
   %.0 = getelementptr inbounds i8, ptr %.0149, i64 -12
   %109 = icmp ult ptr %108, %.0
-  br i1 %109, label %.lr.ph151, label %.lr.ph155
+  br i1 %109, label %.lr.ph151, label %.lr.ph155.preheader
 
-.lr.ph155:                                        ; preds = %.lr.ph151, %121
+.lr.ph155.preheader:                              ; preds = %.lr.ph151, %121
   %.1153 = phi ptr [ %122, %121 ], [ %95, %.lr.ph151 ]
-  %110 = getelementptr inbounds nuw i8, ptr %.1153, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %.1153, i64 4
   %111 = load i32, ptr %110, align 4, !tbaa !171
   %112 = getelementptr inbounds nuw i8, ptr %.1153, i64 16
   %113 = load i32, ptr %112, align 4, !tbaa !171
   %114 = icmp ugt i32 %111, %113
   br i1 %114, label %115, label %121
 
-115:                                              ; preds = %.lr.ph155
+115:; preds = %.lr.ph155
   %116 = ptrtoint ptr %.0146 to i64
   %117 = ptrtoint ptr %.1153 to i64
   %118 = sub i64 %116, %117
@@ -3401,19 +3401,19 @@ keeps_op1_alive.exit.thread:                      ; preds = %57, %57, %57, %57, 
   tail call void @zend_sort(ptr noundef nonnull %.1153, i64 noundef %120, i64 noundef 12, ptr noundef nonnull @cmp_live_range, ptr noundef nonnull @swap_live_range) #14
   br label %.loopexit
 
-121:                                              ; preds = %.lr.ph155
-  %122 = getelementptr inbounds nuw i8, ptr %.1153, i64 12
-  %123 = icmp ult ptr %122, %.0146
-  br i1 %123, label %.lr.ph155, label %.loopexit
+123:                                              ; preds = %.lr.ph155
+  %124 = getelementptr inbounds nuw i8, ptr %.1153, i64 12
+  %125 = icmp ult ptr %124, %.0146
+  br i1 %125, label %.lr.ph155, label %.loopexit
 
-.loopexit:                                        ; preds = %121, %115, %._crit_edge
-  br i1 %15, label %124, label %125, !prof !98
+.loopexit:                                        ; preds = %123, %115, %._crit_edge
+  br i1 %15, label %126, label %127, !prof !98
 
-124:                                              ; preds = %.loopexit
+126:                                              ; preds = %.loopexit
   call void @_efree(ptr noundef %21) #14
-  br label %125
+  br label %127
 
-125:                                              ; preds = %124, %.loopexit
+127:                                              ; preds = %126, %.loopexit
   ret void
 }
 

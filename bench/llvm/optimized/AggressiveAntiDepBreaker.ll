@@ -2099,12 +2099,12 @@ _ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_i
   br i1 %.not146, label %._crit_edge.loopexit, label %31
 
 ._crit_edge169:                                   ; preds = %197
-  %.pre184 = load i24, ptr %10, align 8, !noalias !291
+  %.pre183 = load i24, ptr %10, align 8, !noalias !291
   %43 = load ptr, ptr %8, align 8, !tbaa !273, !noalias !291
-  %44 = zext i24 %.pre184 to i64
+  %44 = zext i24 %.pre183 to i64
   %.idx.i48 = shl nuw nsw i64 %44, 5
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i48
-  %.not1.i.i.i.i.i49 = icmp eq i24 %.pre184, 0
+  %.not1.i.i.i.i.i49 = icmp eq i24 %.pre183, 0
   br i1 %.not1.i.i.i.i.i49, label %_ZN4llvm12MachineInstr8all_defsEv.exit58, label %.lr.ph.i.i.i.i.i50
 
 .lr.ph.i.i.i.i.i50:                               ; preds = %._crit_edge169, %49
@@ -2166,13 +2166,13 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %62
   br i1 %73, label %94, label %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge: ; preds = %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit
-  %.pre183 = load i32, ptr %21, align 4
-  %.pre185 = and i32 %.pre183, 12
+  %.pre182 = load i32, ptr %21, align 4
+  %.pre184 = and i32 %.pre182, 12
   br label %74
 
 74:                                               ; preds = %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge, %68
-  %.pre-phi = phi i32 [ %.pre185, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge ], [ %64, %68 ]
-  %75 = phi i32 [ %.pre183, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge ], [ %63, %68 ]
+  %.pre-phi = phi i32 [ %.pre184, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge ], [ %64, %68 ]
+  %75 = phi i32 [ %.pre182, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge ], [ %63, %68 ]
   %76 = icmp eq i32 %.pre-phi, 0
   %77 = and i32 %75, 4
   %78 = icmp ne i32 %77, 0
@@ -2462,8 +2462,8 @@ _ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit.thread: ; preds = %204, %_ZNKSt8_Rb_
   %213 = tail call { ptr, i64 } @_ZNK4llvm14MCRegisterInfo18getCachedAliasesOfENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(232) %212, i32 %200) #18
   %214 = extractvalue { ptr, i64 } %213, 0
   %215 = extractvalue { ptr, i64 } %213, 1
-  %.idx177 = shl nuw nsw i64 %215, 1
-  %216 = getelementptr inbounds nuw i8, ptr %214, i64 %.idx177
+  %.idx = shl nuw nsw i64 %215, 1
+  %216 = getelementptr inbounds nuw i8, ptr %214, i64 %.idx
   %.not152170 = icmp eq i64 %215, 0
   br i1 %.not152170, label %.critedge, label %.lr.ph172
 

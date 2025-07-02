@@ -6685,7 +6685,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hb461e16f615105c9E.exit.i: ; pre
   %.sroa.714.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 65
   %invariant.gep.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 47
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %105, i64 40
-  %.neg = add nsw i64 %.idx.i, -40
+  %invariant.op.i = add nsw i64 %.idx.i, -40
   br label %120
 
 120:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9bab6e3675a22c46E.exit.i.i", %119

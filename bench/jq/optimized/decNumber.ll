@@ -15684,9 +15684,9 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   %63 = add nuw nsw i32 %53, 2
   %64 = udiv i32 %63, 3
   %65 = shl nuw nsw i32 %64, 1
-  %.idx.i47 = zext nneg i32 %65 to i64
-  %.add48 = add nuw nsw i64 %.idx.i47, 10
-  %.add4149 = add nuw nsw i64 %.idx.i47, 8
+  %.idx47 = zext nneg i32 %65 to i64
+  %.add48 = add nuw nsw i64 %.idx47, 10
+  %.add4149 = add nuw nsw i64 %.idx47, 8
   br label %78
 
 66:                                               ; preds = %61
@@ -15695,9 +15695,9 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   %69 = load i8, ptr %68, align 1, !tbaa !19
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 1
-  %.idx.i = zext nneg i32 %71 to i64
-  %.add = add nuw nsw i64 %.idx.i, 10
-  %.add41 = add nuw nsw i64 %.idx.i, 8
+  %.idx = zext nneg i32 %71 to i64
+  %.add = add nuw nsw i64 %.idx, 10
+  %.add41 = add nuw nsw i64 %.idx, 8
   %72 = icmp samesign ult i32 %54, 50
   br i1 %72, label %73, label %78
 

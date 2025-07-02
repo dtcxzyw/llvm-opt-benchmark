@@ -39786,16 +39786,16 @@ _ZL13write_xpm_mapP8_IO_FILEiiPiff5t_rgbS2_.exit: ; preds = %88, %47
 
 _ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit: ; preds = %_ZL13write_xpm_mapP8_IO_FILEiiPiff5t_rgbS2_.exit, %._crit_edge.i
   %129 = sext i32 %7 to i64
-  %.idx56 = shl nsw i64 %129, 2
+  %.idx57 = shl nsw i64 %129, 2
   %130 = shl i32 %1, 1
   %131 = and i32 %130, 4
-  %.idx57 = zext nneg i32 %131 to i64
-  %132 = sub nsw i64 0, %.idx57
-  %133 = icmp eq i64 %.idx56, %132
+  %.idx58 = zext nneg i32 %131 to i64
+  %132 = sub nsw i64 0, %.idx58
+  %133 = icmp eq i64 %.idx57, %132
   br i1 %133, label %_ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit42, label %.lr.ph.preheader.i36
 
 .lr.ph.preheader.i36:                             ; preds = %_ZL12writeXpmAxisP8_IO_FILEPKcN3gmx8ArrayRefIKfEE.exit
-  %134 = add nsw i64 %.idx56, %.idx57
+  %134 = add nsw i64 %.idx57, %.idx58
   %135 = ashr exact i64 %134, 2
   br label %.lr.ph.i37
 

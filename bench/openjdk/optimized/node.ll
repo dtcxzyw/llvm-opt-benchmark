@@ -7105,10 +7105,10 @@ _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %_ZN4Node8out_growEj
 187:                                              ; preds = %.lr.ph188.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %104, i64 44
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  br i1 %47, label %._crit_edge210.i, label %188
+  br i1 %47, label %._crit_edge209.i, label %188
 
-._crit_edge210.i:                                 ; preds = %187
-  %.pre211.i = and i32 %.pre.i, 255
+._crit_edge209.i:                                 ; preds = %187
+  %.pre210.i = and i32 %.pre.i, 255
   br label %213
 
 188:                                              ; preds = %187
@@ -7151,8 +7151,8 @@ _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %_ZN4Node8out_growEj
   call void @llvm.memset.p0.i64(ptr align 1 %209, i8 0, i64 %212, i1 false)
   br label %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i
 
-213:                                              ; preds = %193, %188, %._crit_edge210.i
-  %.pre-phi.i = phi i32 [ %.pre211.i, %._crit_edge210.i ], [ %191, %193 ], [ %191, %188 ]
+213:                                              ; preds = %193, %188, %._crit_edge209.i
+  %.pre-phi.i = phi i32 [ %.pre210.i, %._crit_edge210.i ], [ %191, %193 ], [ %191, %188 ]
   %214 = icmp ne i32 %.pre-phi.i, 224
   %215 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %216 = load i32, ptr %215, align 8
@@ -7403,12 +7403,12 @@ _ZN9Node_List4pushEP4Node.exit.i.i:               ; preds = %335, %329
 
 _ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i: ; preds = %_ZN9Node_List4pushEP4Node.exit.i.i, %298, %296, %199, %197, %173, %_ZN4Node7set_reqEjPS_.exit.i
   %.sink.i = phi i32 [ %331, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.47.1186.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %.sroa.47.1186.i, %173 ], [ %.sroa.47.1186.i, %197 ], [ %.sroa.47.1186.i, %199 ], [ %.sroa.47.1186.i, %296 ], [ %.sroa.47.1186.i, %298 ]
-  %.sink213.i = phi ptr [ %354, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.27.1184.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %182, %173 ], [ %.sroa.27.1184.i, %197 ], [ %208, %199 ], [ %.sroa.27.1184.i, %296 ], [ %307, %298 ]
+  %.sink212.i = phi ptr [ %354, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.27.1184.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %182, %173 ], [ %.sroa.27.1184.i, %197 ], [ %208, %199 ], [ %.sroa.27.1184.i, %296 ], [ %307, %298 ]
   %.sroa.27.2.ph.i = phi ptr [ %.sroa.27.1184.i, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.27.1184.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %182, %173 ], [ %.sroa.27.1184.i, %197 ], [ %208, %199 ], [ %.sroa.27.1184.i, %296 ], [ %307, %298 ]
   %.sroa.7.2.ph.i = phi i32 [ %.sroa.7.1185.i, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.7.1185.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %.0.i.i.i.i.i104.i, %173 ], [ %.sroa.7.1185.i, %197 ], [ %.0.i.i.i.i.i108.i, %199 ], [ %.sroa.7.1185.i, %296 ], [ %.0.i.i.i.i.i124.i, %298 ]
   %.sroa.47.2.ph.i = phi i32 [ %.sroa.47.1186.i, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %172, %_ZN4Node7set_reqEjPS_.exit.i ], [ %172, %173 ], [ %198, %197 ], [ %198, %199 ], [ %297, %296 ], [ %297, %298 ]
   %355 = zext i32 %.sink.i to i64
-  %356 = getelementptr inbounds nuw ptr, ptr %.sink213.i, i64 %355
+  %356 = getelementptr inbounds nuw ptr, ptr %.sink212.i, i64 %355
   store ptr %104, ptr %356, align 8
   br label %_ZN16Unique_Node_List4pushEP4Node.exit.i
 
@@ -7449,20 +7449,20 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i:  ; preds = %370, %361
   store ptr %365, ptr %374, align 8
   %375 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %376 = load i32, ptr %375, align 8
-  %.not205.i = icmp eq i32 %376, 0
-  br i1 %.not205.i, label %._crit_edge197.i, label %.lr.ph196.i
+  %.not204.i = icmp eq i32 %376, 0
+  br i1 %.not204.i, label %._crit_edge197.i, label %.lr.ph196.i
 
 .lr.ph196.i:                                      ; preds = %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i
   %377 = getelementptr inbounds nuw i8, ptr %59, i64 8
   br label %378
 
 378:                                              ; preds = %431, %.lr.ph196.i
-  %indvars.iv207.i = phi i64 [ 0, %.lr.ph196.i ], [ %indvars.iv.next208.i, %431 ]
+  %indvars.iv206.i = phi i64 [ 0, %.lr.ph196.i ], [ %indvars.iv.next207.i, %431 ]
   %.sroa.47.4194.i = phi i32 [ %56, %.lr.ph196.i ], [ %.sroa.47.5.i, %431 ]
   %.sroa.7.4193.i = phi i32 [ %.sroa.7.0202.i, %.lr.ph196.i ], [ %.sroa.7.5.i, %431 ]
   %.sroa.27.4192.i = phi ptr [ %.sroa.27.0201.i, %.lr.ph196.i ], [ %.sroa.27.5.i, %431 ]
   %379 = load ptr, ptr %377, align 8
-  %380 = getelementptr inbounds nuw ptr, ptr %379, i64 %indvars.iv207.i
+  %380 = getelementptr inbounds nuw ptr, ptr %379, i64 %indvars.iv206.i
   %381 = load ptr, ptr %380, align 8
   %.not91.i = icmp eq ptr %381, null
   br i1 %.not91.i, label %431, label %382
@@ -7474,7 +7474,7 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i:  ; preds = %370, %361
   br i1 %385, label %431, label %386
 
 386:                                              ; preds = %382
-  %387 = trunc nuw i64 %indvars.iv207.i to i32
+  %387 = trunc nuw i64 %indvars.iv206.i to i32
   call void @_ZN4Node7set_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %59, i32 noundef %387, ptr noundef %43)
   %388 = getelementptr inbounds nuw i8, ptr %381, i64 32
   %389 = load i32, ptr %388, align 8
@@ -7564,10 +7564,10 @@ thread-pre-split.i:                               ; preds = %412
   %.sroa.27.5.i = phi ptr [ %.sroa.27.4192.i, %378 ], [ %.sroa.27.4192.i, %382 ], [ %.sroa.27.4192.i, %390 ], [ %.sroa.27.11.i, %_ZN9Node_List4pushEP4Node.exit132.i ], [ %.sroa.27.4192.i, %414 ], [ %.sroa.27.4192.i, %423 ], [ %.sroa.27.4192.i, %424 ]
   %.sroa.7.5.i = phi i32 [ %.sroa.7.4193.i, %378 ], [ %.sroa.7.4193.i, %382 ], [ %.sroa.7.4193.i, %390 ], [ %.sroa.7.11.i, %_ZN9Node_List4pushEP4Node.exit132.i ], [ %.sroa.7.4193.i, %414 ], [ %.sroa.7.4193.i, %423 ], [ %.sroa.7.4193.i, %424 ]
   %.sroa.47.5.i = phi i32 [ %.sroa.47.4194.i, %378 ], [ %.sroa.47.4194.i, %382 ], [ %.sroa.47.4194.i, %390 ], [ %395, %_ZN9Node_List4pushEP4Node.exit132.i ], [ %.sroa.47.4194.i, %414 ], [ %.sroa.47.4194.i, %423 ], [ %.sroa.47.4194.i, %424 ]
-  %indvars.iv.next208.i = add nuw nsw i64 %indvars.iv207.i, 1
+  %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
   %432 = load i32, ptr %375, align 8
   %433 = zext i32 %432 to i64
-  %434 = icmp samesign ult i64 %indvars.iv.next208.i, %433
+  %434 = icmp samesign ult i64 %indvars.iv.next207.i, %433
   br i1 %434, label %378, label %._crit_edge197.i, !llvm.loop !39
 
 ._crit_edge197.i:                                 ; preds = %431, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i

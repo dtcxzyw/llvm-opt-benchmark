@@ -4956,10 +4956,10 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
 
 .lr.ph117:                                        ; preds = %220
   %223 = zext i32 %222 to i64
-  %.idx124 = shl nuw nsw i64 %223, 3
+  %.idx = shl nuw nsw i64 %223, 3
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 %.idx124
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 %.idx
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %229
@@ -4998,14 +4998,14 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
 ._crit_edge118:                                   ; preds = %245
   %.pre = load ptr, ptr %218, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre126 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert127 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.pre128 = load i32, ptr %.phi.trans.insert127, align 8
-  %.not89119 = icmp eq i32 %.pre128, 0
+  %.pre124 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  %.pre126 = load i32, ptr %.phi.trans.insert125, align 8
+  %.not89119 = icmp eq i32 %.pre126, 0
   br i1 %.not89119, label %.loopexit, label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %._crit_edge118
-  %248 = zext i32 %.pre128 to i64
+  %248 = zext i32 %.pre126 to i64
   %.idx125 = shl nuw nsw i64 %248, 3
   %249 = getelementptr inbounds nuw i8, ptr %.pre126, i64 %.idx125
   %250 = getelementptr inbounds i8, ptr %249, i64 -8
@@ -5013,7 +5013,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
   br label %252
 
 252:                                              ; preds = %.lr.ph122, %280
-  %253 = phi i32 [ %.pre128, %.lr.ph122 ], [ %283, %280 ]
+  %253 = phi i32 [ %.pre126, %.lr.ph122 ], [ %283, %280 ]
   %.075120 = phi ptr [ %250, %.lr.ph122 ], [ %287, %280 ]
   %254 = load ptr, ptr %.075120, align 8
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 44
@@ -5065,7 +5065,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
   %285 = zext i32 %284 to i64
   %286 = sub nsw i64 0, %285
   %287 = getelementptr inbounds ptr, ptr %.075120, i64 %286
-  %.not89 = icmp ult ptr %287, %.pre126
+  %.not89 = icmp ult ptr %287, %.pre124
   br i1 %.not89, label %.loopexit, label %252, !llvm.loop !31
 
 .loopexit:                                        ; preds = %280, %._crit_edge118, %220, %217

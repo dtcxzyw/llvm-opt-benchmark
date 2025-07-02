@@ -1679,9 +1679,9 @@ define hidden void @_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm
 .lr.ph.preheader:                                 ; preds = %1
   %.not = icmp eq i64 %4, 0
   %.idx7 = select i1 %.not, i64 0, i64 16
-  %8 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %9 = add nuw nsw i64 %.idx7, %.idx
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 0, i64 %9, i1 false)
+  %6 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
+  %7 = add nuw nsw i64 %.idx7, %.idx
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 0, i64 %7, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %1
@@ -3829,7 +3829,7 @@ define hidden void @"_ZN52_$LT$$RF$G$u20$as$u20$petgraph..visit..Visitable$GT$9r
 .lr.ph.preheader.i.i:                             ; preds = %2
   %.not.i.i = icmp eq i64 %6, 0
   %.idx7.i.i = select i1 %.not.i.i, i64 0, i64 16
-  %10 = load ptr, ptr %1, align 8, !alias.scope !1100, !noalias !1092, !nonnull !3, !noundef !3
+  %8 = load ptr, ptr %1, align 8, !alias.scope !1100, !noalias !1092, !nonnull !3, !noundef !3
   %11 = add nuw nsw i64 %.idx7.i.i, %.idx.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %10, i8 0, i64 %11, i1 false), !noalias !1101
   br label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i
@@ -9957,9 +9957,9 @@ define hidden void @"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT
 .lr.ph.preheader.i:                               ; preds = %2
   %.not.i = icmp eq i64 %5, 0
   %.idx7.i = select i1 %.not.i, i64 0, i64 16
-  %9 = load ptr, ptr %1, align 8, !alias.scope !2204, !nonnull !3, !noundef !3
-  %10 = add nuw nsw i64 %.idx7.i, %.idx.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %9, i8 0, i64 %10, i1 false), !noalias !2204
+  %7 = load ptr, ptr %1, align 8, !alias.scope !2204, !nonnull !3, !noundef !3
+  %8 = add nuw nsw i64 %.idx7.i, %.idx.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %9, i8 0, i64 %8, i1 false), !noalias !2204
   br label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit
 
 _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit: ; preds = %2, %.lr.ph.preheader.i

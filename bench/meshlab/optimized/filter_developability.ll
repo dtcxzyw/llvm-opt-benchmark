@@ -9600,33 +9600,33 @@ _ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iterat
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = ptrtoint ptr %116 to i64
   %.not.i.i24 = icmp eq i64 %.120, -1
-  br i1 %.not.i.i24, label %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit32, label %118
+  br i1 %.not.i.i24, label %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit32, label %116
 
-118:                                              ; preds = %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit
+116:                                              ; preds = %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit
   %.not11.i.i25 = icmp eq ptr %116, %114
   br i1 %.not11.i.i25, label %._crit_edge.i.i29, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3vcg4face3PosI6CFaceOEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i26
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3vcg4face3PosI6CFaceOEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i26: ; preds = %118
-  %119 = ptrtoint ptr %114 to i64
-  %120 = sub i64 %119, %117
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %105, ptr nonnull align 8 %116, i64 %120, i1 false)
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3vcg4face3PosI6CFaceOEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i26: ; preds = %116
+  %117 = ptrtoint ptr %114 to i64
+  %118 = sub i64 %117, %117
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %105, ptr nonnull align 8 %116, i64 %118, i1 false)
   %.pre.i.i27 = load ptr, ptr %4, align 8
   %.pre13.i.i28 = ptrtoint ptr %.pre.i.i27 to i64
   br label %._crit_edge.i.i29
 
-._crit_edge.i.i29:                                ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3vcg4face3PosI6CFaceOEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i26, %118
+._crit_edge.i.i29:                                ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3vcg4face3PosI6CFaceOEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i26, %116
   %.pre-phi14.i.i30 = phi i64 [ %.pre13.i.i28, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3vcg4face3PosI6CFaceOEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i26 ], [ %117, %118 ]
-  %121 = phi ptr [ %.pre.i.i27, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3vcg4face3PosI6CFaceOEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i26 ], [ %114, %118 ]
-  %122 = sub i64 %.pre-phi14.i.i30, %117
-  %123 = getelementptr inbounds i8, ptr %105, i64 %122
-  %.not.i.i.i31 = icmp eq ptr %121, %123
-  br i1 %.not.i.i.i31, label %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit32, label %124
+  %119 = phi ptr [ %.pre.i.i27, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3vcg4face3PosI6CFaceOEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i26 ], [ %114, %118 ]
+  %120 = sub i64 %.pre-phi14.i.i30, %117
+  %121 = getelementptr inbounds i8, ptr %105, i64 %120
+  %.not.i.i.i31 = icmp eq ptr %119, %121
+  br i1 %.not.i.i.i31, label %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit32, label %122
 
-124:                                              ; preds = %._crit_edge.i.i29
-  store ptr %123, ptr %4, align 8
+122:                                              ; preds = %._crit_edge.i.i29
+  store ptr %121, ptr %4, align 8
   br label %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit32
 
-_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit32: ; preds = %124, %._crit_edge.i.i29, %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit, %102
+_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit32: ; preds = %122, %._crit_edge.i.i29, %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit, %102
   ret void
 }
 

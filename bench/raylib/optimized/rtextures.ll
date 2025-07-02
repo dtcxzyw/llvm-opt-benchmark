@@ -57912,75 +57912,75 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   %6 = getelementptr inbounds float, ptr %0, i64 %5
   %7 = sext i32 %1 to i64
   %.neg = mul nsw i64 %7, -4
-  %8 = getelementptr inbounds i8, ptr %6, i64 %.neg
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.neg
   %.not = icmp slt i32 %1, 8
   br i1 %.not, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.150 = phi ptr [ %33, %.preheader ], [ %9, %.preheader.preheader ]
-  %.1 = phi ptr [ %34, %.preheader ], [ %0, %.preheader.preheader ]
+  %.150 = phi ptr [ %34, %.preheader ], [ %10, %.preheader.preheader ]
+  %.1 = phi ptr [ %35, %.preheader ], [ %0, %.preheader.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.150) #54, !srcloc !352
-  %10 = getelementptr inbounds i8, ptr %.150, i64 -32
-  %11 = load <4 x float>, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %.150, i64 -16
-  %13 = load <4 x float>, ptr %12, align 1
-  %14 = bitcast <4 x float> %11 to <2 x i64>
-  %15 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 3, i32 3>
-  %16 = bitcast <4 x float> %13 to <2 x i64>
-  %17 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 3, i32 3>
-  %18 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 2>
-  %19 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 2>
-  %20 = fmul <4 x float> %15, %18
-  %21 = fmul <4 x float> %17, %19
-  %22 = extractelement <2 x i64> %14, i64 0
-  store i64 %22, ptr %.1, align 1
-  %23 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  store <4 x float> %20, ptr %23, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %.1, i64 12
-  %25 = bitcast <4 x float> %11 to <2 x double>
-  %26 = extractelement <2 x double> %25, i64 1
-  store double %26, ptr %24, align 1
-  %27 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %28 = extractelement <2 x i64> %16, i64 0
-  store i64 %28, ptr %27, align 1
-  %29 = getelementptr inbounds nuw i8, ptr %.1, i64 32
-  store <4 x float> %21, ptr %29, align 1
-  %30 = getelementptr inbounds nuw i8, ptr %.1, i64 36
-  %31 = bitcast <4 x float> %13 to <2 x double>
-  %32 = extractelement <2 x double> %31, i64 1
-  store double %32, ptr %30, align 1
-  %33 = getelementptr inbounds nuw i8, ptr %.150, i64 32
-  %34 = getelementptr inbounds nuw i8, ptr %.1, i64 48
-  %.not55 = icmp ugt ptr %33, %6
+  %11 = getelementptr inbounds i8, ptr %.150, i64 -32
+  %12 = load <4 x float>, ptr %11, align 1
+  %13 = getelementptr inbounds i8, ptr %.150, i64 -16
+  %14 = load <4 x float>, ptr %13, align 1
+  %15 = bitcast <4 x float> %12 to <2 x i64>
+  %16 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 3, i32 3>
+  %17 = bitcast <4 x float> %14 to <2 x i64>
+  %18 = shufflevector <4 x float> %14, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 3, i32 3>
+  %19 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 2>
+  %20 = shufflevector <4 x float> %14, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 2>
+  %21 = fmul <4 x float> %16, %19
+  %22 = fmul <4 x float> %18, %20
+  %23 = extractelement <2 x i64> %15, i64 0
+  store i64 %23, ptr %.1, align 1
+  %24 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  store <4 x float> %21, ptr %24, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %.1, i64 12
+  %26 = bitcast <4 x float> %12 to <2 x double>
+  %27 = extractelement <2 x double> %26, i64 1
+  store double %27, ptr %25, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 24
+  %29 = extractelement <2 x i64> %17, i64 0
+  store i64 %29, ptr %28, align 1
+  %30 = getelementptr inbounds nuw i8, ptr %.1, i64 32
+  store <4 x float> %22, ptr %30, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 36
+  %32 = bitcast <4 x float> %14 to <2 x double>
+  %33 = extractelement <2 x double> %32, i64 1
+  store double %33, ptr %31, align 1
+  %34 = getelementptr inbounds nuw i8, ptr %.150, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.1, i64 48
+  %.not55 = icmp ugt ptr %34, %6
   br i1 %.not55, label %.loopexit, label %.preheader, !llvm.loop !353
 
 .loopexit:                                        ; preds = %.preheader, %2
-  %35 = phi ptr [ %8, %2 ], [ %.150, %.preheader ]
-  %.0 = phi ptr [ %0, %2 ], [ %34, %.preheader ]
-  %36 = icmp ult ptr %35, %6
-  br i1 %36, label %.lr.ph, label %._crit_edge
+  %36 = phi ptr [ %9, %2 ], [ %.150, %.preheader ]
+  %.0 = phi ptr [ %0, %2 ], [ %35, %.preheader ]
+  %37 = icmp ult ptr %36, %6
+  br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
-  %.257 = phi ptr [ %43, %.lr.ph ], [ %.0, %.loopexit ]
-  %.25156 = phi ptr [ %44, %.lr.ph ], [ %35, %.loopexit ]
-  %37 = load float, ptr %.25156, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %.25156, i64 4
-  %39 = load float, ptr %38, align 4
+  %.257 = phi ptr [ %44, %.lr.ph ], [ %.0, %.loopexit ]
+  %.25156 = phi ptr [ %45, %.lr.ph ], [ %36, %.loopexit ]
+  %38 = load float, ptr %.25156, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %.25156, i64 4
+  %40 = load float, ptr %39, align 4
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.25156) #54, !srcloc !354
-  store float %37, ptr %.257, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %.257, i64 4
-  store float %39, ptr %40, align 4
-  %41 = fmul float %37, %39
-  %42 = getelementptr inbounds nuw i8, ptr %.257, i64 8
-  store float %41, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %.257, i64 12
-  %44 = getelementptr inbounds nuw i8, ptr %.25156, i64 8
-  %45 = icmp ult ptr %44, %6
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !355
+  store float %38, ptr %.257, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %.257, i64 4
+  store float %40, ptr %41, align 4
+  %42 = fmul float %38, %40
+  %43 = getelementptr inbounds nuw i8, ptr %.257, i64 8
+  store float %42, ptr %43, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %.257, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %.25156, i64 8
+  %46 = icmp ult ptr %45, %6
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !355
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   ret void

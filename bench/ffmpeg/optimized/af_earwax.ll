@@ -74,7 +74,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %17
 
 17:                                               ; preds = %2, %29
-  %.not129 = phi i1 [ true, %2 ], [ false, %29 ]
+  %.not126 = phi i1 [ true, %2 ], [ false, %29 ]
   %indvars.iv = phi i64 [ 0, %2 ], [ 1, %29 ]
   %18 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !20
@@ -102,7 +102,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %269
 
 29:                                               ; preds = %20, %25
-  br i1 %.not129, label %17, label %.critedge, !llvm.loop !40
+  br i1 %.not126, label %17, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %29
   %.not30 = icmp eq ptr %14, null
@@ -233,38 +233,38 @@ convolve.exit:                                    ; preds = %scalarproduct.exit4
   %93 = getelementptr inbounds i8, ptr %84, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %.val31, i64 64
   %95 = icmp sgt i32 %90, 0
-  br i1 %95, label %.preheader.i.i53, label %scalarproduct.exit.i40
+  br i1 %95, label %.preheader.i.i52, label %scalarproduct.exit.i40
 
-.preheader.i.i53:                                 ; preds = %convolve.exit, %105
-  %.01419.i.i54 = phi ptr [ %109, %105 ], [ %88, %convolve.exit ]
-  %.01518.i.i55 = phi ptr [ %110, %105 ], [ %84, %convolve.exit ]
+.preheader.i.i52:                                 ; preds = %convolve.exit, %105
+  %.01419.i.i53 = phi ptr [ %109, %105 ], [ %88, %convolve.exit ]
+  %.01518.i.i54 = phi ptr [ %110, %105 ], [ %84, %convolve.exit ]
   br label %96
 
-96:                                               ; preds = %96, %.preheader.i.i53
-  %indvars.iv.i.i56 = phi i64 [ 0, %.preheader.i.i53 ], [ %indvars.iv.next.i.i58, %96 ]
-  %.01316.i.i57 = phi i32 [ 0, %.preheader.i.i53 ], [ %104, %96 ]
-  %97 = getelementptr inbounds nuw i16, ptr %.01518.i.i55, i64 %indvars.iv.i.i56
+96:                                               ; preds = %96, %.preheader.i.i52
+  %indvars.iv.i.i55 = phi i64 [ 0, %.preheader.i.i53 ], [ %indvars.iv.next.i.i57, %96 ]
+  %.01316.i.i56 = phi i32 [ 0, %.preheader.i.i53 ], [ %104, %96 ]
+  %97 = getelementptr inbounds nuw i16, ptr %.01518.i.i54, i64 %indvars.iv.i.i55
   %98 = load i16, ptr %97, align 2, !tbaa !43
   %99 = sext i16 %98 to i32
-  %100 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv.i.i56
+  %100 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv.i.i55
   %101 = load i16, ptr %100, align 2, !tbaa !43
   %102 = sext i16 %101 to i32
   %103 = mul nsw i32 %102, %99
-  %104 = add nsw i32 %103, %.01316.i.i57
-  %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i56, 1
-  %exitcond.not.i.i59 = icmp eq i64 %indvars.iv.next.i.i58, 32
-  br i1 %exitcond.not.i.i59, label %105, label %96, !llvm.loop !45
+  %104 = add nsw i32 %103, %.01316.i.i56
+  %indvars.iv.next.i.i57 = add nuw nsw i64 %indvars.iv.i.i55, 1
+  %exitcond.not.i.i58 = icmp eq i64 %indvars.iv.next.i.i57, 32
+  br i1 %exitcond.not.i.i58, label %105, label %96, !llvm.loop !45
 
 105:                                              ; preds = %96
   %106 = ashr i32 %104, 7
   %107 = tail call i32 @llvm.smax.i32(i32 %106, i32 -32768)
   %108 = tail call i32 @llvm.smin.i32(i32 %107, i32 32767)
-  %.0.i.i.i60 = trunc nsw i32 %108 to i16
-  store i16 %.0.i.i.i60, ptr %.01419.i.i54, align 2, !tbaa !43
-  %109 = getelementptr inbounds nuw i8, ptr %.01419.i.i54, i64 2
-  %110 = getelementptr inbounds nuw i8, ptr %.01518.i.i55, i64 2
+  %.0.i.i.i59 = trunc nsw i32 %108 to i16
+  store i16 %.0.i.i.i59, ptr %.01419.i.i53, align 2, !tbaa !43
+  %109 = getelementptr inbounds nuw i8, ptr %.01419.i.i53, i64 2
+  %110 = getelementptr inbounds nuw i8, ptr %.01518.i.i54, i64 2
   %111 = icmp ult ptr %110, %93
-  br i1 %111, label %.preheader.i.i53, label %scalarproduct.exit.i40, !llvm.loop !46
+  br i1 %111, label %.preheader.i.i52, label %scalarproduct.exit.i40, !llvm.loop !46
 
 scalarproduct.exit.i40:                           ; preds = %105, %convolve.exit
   %.014.lcssa.i.i41 = phi ptr [ %88, %convolve.exit ], [ %109, %105 ]
@@ -277,51 +277,51 @@ scalarproduct.exit.i40:                           ; preds = %105, %convolve.exit
   %.idx1.i42 = zext i32 %115 to i64
   %116 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx1.i42
   %117 = getelementptr inbounds i8, ptr %116, i64 -64
-  %.not.i43 = icmp eq i32 %112, 32
-  br i1 %.not.i43, label %scalarproduct.exit41.i52, label %.preheader.i33.i44
+  %.not.i42 = icmp eq i32 %112, 32
+  br i1 %.not.i42, label %scalarproduct.exit41.i51, label %.preheader.i33.i43
 
-.preheader.i33.i44:                               ; preds = %114, %127
-  %.01419.i34.i45 = phi ptr [ %131, %127 ], [ %.014.lcssa.i.i41, %114 ]
-  %.01518.i35.i46 = phi ptr [ %132, %127 ], [ %89, %114 ]
+.preheader.i33.i43:                               ; preds = %114, %127
+  %.01419.i34.i44 = phi ptr [ %131, %127 ], [ %.014.lcssa.i.i41, %114 ]
+  %.01518.i35.i45 = phi ptr [ %132, %127 ], [ %89, %114 ]
   br label %118
 
-118:                                              ; preds = %118, %.preheader.i33.i44
-  %indvars.iv.i36.i47 = phi i64 [ 0, %.preheader.i33.i44 ], [ %indvars.iv.next.i38.i49, %118 ]
-  %.01316.i37.i48 = phi i32 [ 0, %.preheader.i33.i44 ], [ %126, %118 ]
-  %119 = getelementptr inbounds nuw i16, ptr %.01518.i35.i46, i64 %indvars.iv.i36.i47
+118:                                              ; preds = %118, %.preheader.i33.i43
+  %indvars.iv.i36.i46 = phi i64 [ 0, %.preheader.i33.i44 ], [ %indvars.iv.next.i38.i48, %118 ]
+  %.01316.i37.i47 = phi i32 [ 0, %.preheader.i33.i44 ], [ %126, %118 ]
+  %119 = getelementptr inbounds nuw i16, ptr %.01518.i35.i45, i64 %indvars.iv.i36.i46
   %120 = load i16, ptr %119, align 2, !tbaa !43
   %121 = sext i16 %120 to i32
-  %122 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv.i36.i47
+  %122 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv.i36.i46
   %123 = load i16, ptr %122, align 2, !tbaa !43
   %124 = sext i16 %123 to i32
   %125 = mul nsw i32 %124, %121
-  %126 = add nsw i32 %125, %.01316.i37.i48
-  %indvars.iv.next.i38.i49 = add nuw nsw i64 %indvars.iv.i36.i47, 1
-  %exitcond.not.i39.i50 = icmp eq i64 %indvars.iv.next.i38.i49, 32
-  br i1 %exitcond.not.i39.i50, label %127, label %118, !llvm.loop !45
+  %126 = add nsw i32 %125, %.01316.i37.i47
+  %indvars.iv.next.i38.i48 = add nuw nsw i64 %indvars.iv.i36.i46, 1
+  %exitcond.not.i39.i49 = icmp eq i64 %indvars.iv.next.i38.i48, 32
+  br i1 %exitcond.not.i39.i49, label %127, label %118, !llvm.loop !45
 
 127:                                              ; preds = %118
   %128 = ashr i32 %126, 7
   %129 = tail call i32 @llvm.smax.i32(i32 %128, i32 -32768)
   %130 = tail call i32 @llvm.smin.i32(i32 %129, i32 32767)
-  %.0.i.i40.i51 = trunc nsw i32 %130 to i16
-  store i16 %.0.i.i40.i51, ptr %.01419.i34.i45, align 2, !tbaa !43
-  %131 = getelementptr inbounds nuw i8, ptr %.01419.i34.i45, i64 2
-  %132 = getelementptr inbounds nuw i8, ptr %.01518.i35.i46, i64 2
+  %.0.i.i40.i50 = trunc nsw i32 %130 to i16
+  store i16 %.0.i.i40.i50, ptr %.01419.i34.i44, align 2, !tbaa !43
+  %131 = getelementptr inbounds nuw i8, ptr %.01419.i34.i44, i64 2
+  %132 = getelementptr inbounds nuw i8, ptr %.01518.i35.i45, i64 2
   %133 = icmp ult ptr %132, %117
-  br i1 %133, label %.preheader.i33.i44, label %scalarproduct.exit41.i52, !llvm.loop !46
+  br i1 %133, label %.preheader.i33.i43, label %scalarproduct.exit41.i51, !llvm.loop !46
 
-scalarproduct.exit41.i52:                         ; preds = %127, %114
+scalarproduct.exit41.i51:                         ; preds = %127, %114
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %84, ptr noundef nonnull align 2 dereferenceable(64) %117, i64 64, i1 false)
-  br label %convolve.exit61
+  br label %convolve.exit60
 
 134:                                              ; preds = %scalarproduct.exit.i40
   %135 = sext i32 %112 to i64
   %136 = getelementptr inbounds i16, ptr %84, i64 %135
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %84, ptr noundef nonnull align 2 dereferenceable(64) %136, i64 64, i1 false)
-  br label %convolve.exit61
+  br label %convolve.exit60
 
-convolve.exit61:                                  ; preds = %scalarproduct.exit41.i52, %134
+convolve.exit60:                                  ; preds = %scalarproduct.exit41.i51, %134
   %.val32 = load ptr, ptr %7, align 8, !tbaa !4
   %137 = getelementptr inbounds nuw i8, ptr %.val32, i64 384
   %138 = getelementptr inbounds nuw i8, ptr %.val32, i64 648
@@ -330,102 +330,102 @@ convolve.exit61:                                  ; preds = %scalarproduct.exit4
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %142 = load ptr, ptr %141, align 8, !tbaa !42
   %143 = load i32, ptr %12, align 8, !tbaa !34
-  %narrow.i62 = tail call i32 @llvm.smin.i32(i32 %143, i32 32)
-  %spec.select.i63 = sext i32 %narrow.i62 to i64
+  %narrow.i61 = tail call i32 @llvm.smin.i32(i32 %143, i32 32)
+  %spec.select.i62 = sext i32 %narrow.i61 to i64
   %144 = getelementptr inbounds nuw i8, ptr %.val32, i64 448
-  %145 = shl nsw i64 %spec.select.i63, 1
+  %145 = shl nsw i64 %spec.select.i62, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %144, ptr align 2 %142, i64 %145, i1 false)
   %146 = getelementptr inbounds i8, ptr %137, i64 %145
   %147 = icmp sgt i32 %143, 0
-  br i1 %147, label %.preheader.i.i77, label %scalarproduct.exit.i64
+  br i1 %147, label %.preheader.i.i75, label %scalarproduct.exit.i63
 
-.preheader.i.i77:                                 ; preds = %convolve.exit61, %157
-  %.01419.i.i78 = phi ptr [ %161, %157 ], [ %140, %convolve.exit61 ]
-  %.01518.i.i79 = phi ptr [ %162, %157 ], [ %137, %convolve.exit61 ]
+.preheader.i.i75:                                 ; preds = %convolve.exit60, %157
+  %.01419.i.i76 = phi ptr [ %161, %157 ], [ %140, %convolve.exit61 ]
+  %.01518.i.i77 = phi ptr [ %162, %157 ], [ %137, %convolve.exit61 ]
   br label %148
 
-148:                                              ; preds = %148, %.preheader.i.i77
-  %indvars.iv.i.i80 = phi i64 [ 0, %.preheader.i.i77 ], [ %indvars.iv.next.i.i82, %148 ]
-  %.01316.i.i81 = phi i32 [ 0, %.preheader.i.i77 ], [ %156, %148 ]
-  %149 = getelementptr inbounds nuw i16, ptr %.01518.i.i79, i64 %indvars.iv.i.i80
+148:                                              ; preds = %148, %.preheader.i.i75
+  %indvars.iv.i.i78 = phi i64 [ 0, %.preheader.i.i77 ], [ %indvars.iv.next.i.i80, %148 ]
+  %.01316.i.i79 = phi i32 [ 0, %.preheader.i.i77 ], [ %156, %148 ]
+  %149 = getelementptr inbounds nuw i16, ptr %.01518.i.i77, i64 %indvars.iv.i.i78
   %150 = load i16, ptr %149, align 2, !tbaa !43
   %151 = sext i16 %150 to i32
-  %152 = getelementptr inbounds nuw i16, ptr %.val32, i64 %indvars.iv.i.i80
+  %152 = getelementptr inbounds nuw i16, ptr %.val32, i64 %indvars.iv.i.i78
   %153 = load i16, ptr %152, align 2, !tbaa !43
   %154 = sext i16 %153 to i32
   %155 = mul nsw i32 %154, %151
-  %156 = add nsw i32 %155, %.01316.i.i81
-  %indvars.iv.next.i.i82 = add nuw nsw i64 %indvars.iv.i.i80, 1
-  %exitcond.not.i.i83 = icmp eq i64 %indvars.iv.next.i.i82, 32
-  br i1 %exitcond.not.i.i83, label %157, label %148, !llvm.loop !45
+  %156 = add nsw i32 %155, %.01316.i.i79
+  %indvars.iv.next.i.i80 = add nuw nsw i64 %indvars.iv.i.i78, 1
+  %exitcond.not.i.i81 = icmp eq i64 %indvars.iv.next.i.i80, 32
+  br i1 %exitcond.not.i.i81, label %157, label %148, !llvm.loop !45
 
 157:                                              ; preds = %148
   %158 = ashr i32 %156, 7
   %159 = tail call i32 @llvm.smax.i32(i32 %158, i32 -32768)
   %160 = tail call i32 @llvm.smin.i32(i32 %159, i32 32767)
-  %.0.i.i.i84 = trunc nsw i32 %160 to i16
-  store i16 %.0.i.i.i84, ptr %.01419.i.i78, align 2, !tbaa !43
-  %161 = getelementptr inbounds nuw i8, ptr %.01419.i.i78, i64 2
-  %162 = getelementptr inbounds nuw i8, ptr %.01518.i.i79, i64 2
+  %.0.i.i.i82 = trunc nsw i32 %160 to i16
+  store i16 %.0.i.i.i82, ptr %.01419.i.i76, align 2, !tbaa !43
+  %161 = getelementptr inbounds nuw i8, ptr %.01419.i.i76, i64 2
+  %162 = getelementptr inbounds nuw i8, ptr %.01518.i.i77, i64 2
   %163 = icmp ult ptr %162, %146
-  br i1 %163, label %.preheader.i.i77, label %scalarproduct.exit.i64, !llvm.loop !46
+  br i1 %163, label %.preheader.i.i75, label %scalarproduct.exit.i63, !llvm.loop !46
 
-scalarproduct.exit.i64:                           ; preds = %157, %convolve.exit61
-  %.014.lcssa.i.i65 = phi ptr [ %140, %convolve.exit61 ], [ %161, %157 ]
+scalarproduct.exit.i63:                           ; preds = %157, %convolve.exit60
+  %.014.lcssa.i.i64 = phi ptr [ %140, %convolve.exit61 ], [ %161, %157 ]
   %164 = load i32, ptr %12, align 8, !tbaa !34
   %165 = icmp sgt i32 %164, 31
   br i1 %165, label %166, label %186
 
-166:                                              ; preds = %scalarproduct.exit.i64
+166:                                              ; preds = %scalarproduct.exit.i63
   %167 = shl nuw i32 %164, 1
   %.idx1.i66 = zext i32 %167 to i64
   %168 = getelementptr inbounds nuw i8, ptr %142, i64 %.idx1.i66
   %169 = getelementptr inbounds i8, ptr %168, i64 -64
-  %.not.i67 = icmp eq i32 %164, 32
-  br i1 %.not.i67, label %scalarproduct.exit41.i76, label %.preheader.i33.i68
+  %.not.i65 = icmp eq i32 %164, 32
+  br i1 %.not.i65, label %scalarproduct.exit41.i74, label %.preheader.i33.i66
 
-.preheader.i33.i68:                               ; preds = %166, %179
-  %.01419.i34.i69 = phi ptr [ %183, %179 ], [ %.014.lcssa.i.i65, %166 ]
-  %.01518.i35.i70 = phi ptr [ %184, %179 ], [ %142, %166 ]
+.preheader.i33.i66:                               ; preds = %166, %179
+  %.01419.i34.i67 = phi ptr [ %183, %179 ], [ %.014.lcssa.i.i64, %166 ]
+  %.01518.i35.i68 = phi ptr [ %184, %179 ], [ %142, %166 ]
   br label %170
 
-170:                                              ; preds = %170, %.preheader.i33.i68
-  %indvars.iv.i36.i71 = phi i64 [ 0, %.preheader.i33.i68 ], [ %indvars.iv.next.i38.i73, %170 ]
-  %.01316.i37.i72 = phi i32 [ 0, %.preheader.i33.i68 ], [ %178, %170 ]
-  %171 = getelementptr inbounds nuw i16, ptr %.01518.i35.i70, i64 %indvars.iv.i36.i71
+170:                                              ; preds = %170, %.preheader.i33.i66
+  %indvars.iv.i36.i69 = phi i64 [ 0, %.preheader.i33.i68 ], [ %indvars.iv.next.i38.i71, %170 ]
+  %.01316.i37.i70 = phi i32 [ 0, %.preheader.i33.i68 ], [ %178, %170 ]
+  %171 = getelementptr inbounds nuw i16, ptr %.01518.i35.i68, i64 %indvars.iv.i36.i69
   %172 = load i16, ptr %171, align 2, !tbaa !43
   %173 = sext i16 %172 to i32
-  %174 = getelementptr inbounds nuw i16, ptr %.val32, i64 %indvars.iv.i36.i71
+  %174 = getelementptr inbounds nuw i16, ptr %.val32, i64 %indvars.iv.i36.i69
   %175 = load i16, ptr %174, align 2, !tbaa !43
   %176 = sext i16 %175 to i32
   %177 = mul nsw i32 %176, %173
-  %178 = add nsw i32 %177, %.01316.i37.i72
-  %indvars.iv.next.i38.i73 = add nuw nsw i64 %indvars.iv.i36.i71, 1
-  %exitcond.not.i39.i74 = icmp eq i64 %indvars.iv.next.i38.i73, 32
-  br i1 %exitcond.not.i39.i74, label %179, label %170, !llvm.loop !45
+  %178 = add nsw i32 %177, %.01316.i37.i70
+  %indvars.iv.next.i38.i71 = add nuw nsw i64 %indvars.iv.i36.i69, 1
+  %exitcond.not.i39.i72 = icmp eq i64 %indvars.iv.next.i38.i71, 32
+  br i1 %exitcond.not.i39.i72, label %179, label %170, !llvm.loop !45
 
 179:                                              ; preds = %170
   %180 = ashr i32 %178, 7
   %181 = tail call i32 @llvm.smax.i32(i32 %180, i32 -32768)
   %182 = tail call i32 @llvm.smin.i32(i32 %181, i32 32767)
-  %.0.i.i40.i75 = trunc nsw i32 %182 to i16
-  store i16 %.0.i.i40.i75, ptr %.01419.i34.i69, align 2, !tbaa !43
-  %183 = getelementptr inbounds nuw i8, ptr %.01419.i34.i69, i64 2
-  %184 = getelementptr inbounds nuw i8, ptr %.01518.i35.i70, i64 2
+  %.0.i.i40.i73 = trunc nsw i32 %182 to i16
+  store i16 %.0.i.i40.i73, ptr %.01419.i34.i67, align 2, !tbaa !43
+  %183 = getelementptr inbounds nuw i8, ptr %.01419.i34.i67, i64 2
+  %184 = getelementptr inbounds nuw i8, ptr %.01518.i35.i68, i64 2
   %185 = icmp ult ptr %184, %169
-  br i1 %185, label %.preheader.i33.i68, label %scalarproduct.exit41.i76, !llvm.loop !46
+  br i1 %185, label %.preheader.i33.i66, label %scalarproduct.exit41.i74, !llvm.loop !46
 
-scalarproduct.exit41.i76:                         ; preds = %179, %166
+scalarproduct.exit41.i74:                         ; preds = %179, %166
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %137, ptr noundef nonnull align 2 dereferenceable(64) %169, i64 64, i1 false)
-  br label %convolve.exit85
+  br label %convolve.exit83
 
-186:                                              ; preds = %scalarproduct.exit.i64
+186:                                              ; preds = %scalarproduct.exit.i63
   %187 = sext i32 %164 to i64
   %188 = getelementptr inbounds i16, ptr %137, i64 %187
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %137, ptr noundef nonnull align 2 dereferenceable(64) %188, i64 64, i1 false)
-  br label %convolve.exit85
+  br label %convolve.exit83
 
-convolve.exit85:                                  ; preds = %scalarproduct.exit41.i76, %186
+convolve.exit83:                                  ; preds = %scalarproduct.exit41.i74, %186
   %.val33 = load ptr, ptr %7, align 8, !tbaa !4
   %189 = getelementptr inbounds nuw i8, ptr %.val33, i64 512
   %190 = getelementptr inbounds nuw i8, ptr %.val33, i64 648
@@ -434,103 +434,103 @@ convolve.exit85:                                  ; preds = %scalarproduct.exit4
   %193 = load ptr, ptr %192, align 8, !tbaa !42
   %194 = load ptr, ptr %141, align 8, !tbaa !42
   %195 = load i32, ptr %12, align 8, !tbaa !34
-  %narrow.i86 = tail call i32 @llvm.smin.i32(i32 %195, i32 32)
-  %spec.select.i87 = sext i32 %narrow.i86 to i64
+  %narrow.i84 = tail call i32 @llvm.smin.i32(i32 %195, i32 32)
+  %spec.select.i85 = sext i32 %narrow.i84 to i64
   %196 = getelementptr inbounds nuw i8, ptr %.val33, i64 576
-  %197 = shl nsw i64 %spec.select.i87, 1
+  %197 = shl nsw i64 %spec.select.i85, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %196, ptr align 2 %194, i64 %197, i1 false)
   %198 = getelementptr inbounds i8, ptr %189, i64 %197
   %199 = getelementptr inbounds nuw i8, ptr %.val33, i64 64
   %200 = icmp sgt i32 %195, 0
-  br i1 %200, label %.preheader.i.i101, label %scalarproduct.exit.i88
+  br i1 %200, label %.preheader.i.i98, label %scalarproduct.exit.i86
 
-.preheader.i.i101:                                ; preds = %convolve.exit85, %210
-  %.01419.i.i102 = phi ptr [ %214, %210 ], [ %193, %convolve.exit85 ]
-  %.01518.i.i103 = phi ptr [ %215, %210 ], [ %189, %convolve.exit85 ]
+.preheader.i.i98:                                 ; preds = %convolve.exit83, %210
+  %.01419.i.i99 = phi ptr [ %214, %210 ], [ %193, %convolve.exit85 ]
+  %.01518.i.i100 = phi ptr [ %215, %210 ], [ %189, %convolve.exit85 ]
   br label %201
 
-201:                                              ; preds = %201, %.preheader.i.i101
-  %indvars.iv.i.i104 = phi i64 [ 0, %.preheader.i.i101 ], [ %indvars.iv.next.i.i106, %201 ]
-  %.01316.i.i105 = phi i32 [ 0, %.preheader.i.i101 ], [ %209, %201 ]
-  %202 = getelementptr inbounds nuw i16, ptr %.01518.i.i103, i64 %indvars.iv.i.i104
+201:                                              ; preds = %201, %.preheader.i.i98
+  %indvars.iv.i.i101 = phi i64 [ 0, %.preheader.i.i101 ], [ %indvars.iv.next.i.i103, %201 ]
+  %.01316.i.i102 = phi i32 [ 0, %.preheader.i.i101 ], [ %209, %201 ]
+  %202 = getelementptr inbounds nuw i16, ptr %.01518.i.i100, i64 %indvars.iv.i.i101
   %203 = load i16, ptr %202, align 2, !tbaa !43
   %204 = sext i16 %203 to i32
-  %205 = getelementptr inbounds nuw i16, ptr %199, i64 %indvars.iv.i.i104
+  %205 = getelementptr inbounds nuw i16, ptr %199, i64 %indvars.iv.i.i101
   %206 = load i16, ptr %205, align 2, !tbaa !43
   %207 = sext i16 %206 to i32
   %208 = mul nsw i32 %207, %204
-  %209 = add nsw i32 %208, %.01316.i.i105
-  %indvars.iv.next.i.i106 = add nuw nsw i64 %indvars.iv.i.i104, 1
-  %exitcond.not.i.i107 = icmp eq i64 %indvars.iv.next.i.i106, 32
-  br i1 %exitcond.not.i.i107, label %210, label %201, !llvm.loop !45
+  %209 = add nsw i32 %208, %.01316.i.i102
+  %indvars.iv.next.i.i103 = add nuw nsw i64 %indvars.iv.i.i101, 1
+  %exitcond.not.i.i104 = icmp eq i64 %indvars.iv.next.i.i103, 32
+  br i1 %exitcond.not.i.i104, label %210, label %201, !llvm.loop !45
 
 210:                                              ; preds = %201
   %211 = ashr i32 %209, 7
   %212 = tail call i32 @llvm.smax.i32(i32 %211, i32 -32768)
   %213 = tail call i32 @llvm.smin.i32(i32 %212, i32 32767)
-  %.0.i.i.i108 = trunc nsw i32 %213 to i16
-  store i16 %.0.i.i.i108, ptr %.01419.i.i102, align 2, !tbaa !43
-  %214 = getelementptr inbounds nuw i8, ptr %.01419.i.i102, i64 2
-  %215 = getelementptr inbounds nuw i8, ptr %.01518.i.i103, i64 2
+  %.0.i.i.i105 = trunc nsw i32 %213 to i16
+  store i16 %.0.i.i.i105, ptr %.01419.i.i99, align 2, !tbaa !43
+  %214 = getelementptr inbounds nuw i8, ptr %.01419.i.i99, i64 2
+  %215 = getelementptr inbounds nuw i8, ptr %.01518.i.i100, i64 2
   %216 = icmp ult ptr %215, %198
-  br i1 %216, label %.preheader.i.i101, label %scalarproduct.exit.i88, !llvm.loop !46
+  br i1 %216, label %.preheader.i.i98, label %scalarproduct.exit.i86, !llvm.loop !46
 
-scalarproduct.exit.i88:                           ; preds = %210, %convolve.exit85
-  %.014.lcssa.i.i89 = phi ptr [ %193, %convolve.exit85 ], [ %214, %210 ]
+scalarproduct.exit.i86:                           ; preds = %210, %convolve.exit83
+  %.014.lcssa.i.i87 = phi ptr [ %193, %convolve.exit85 ], [ %214, %210 ]
   %217 = load i32, ptr %12, align 8, !tbaa !34
   %218 = icmp sgt i32 %217, 31
   br i1 %218, label %219, label %239
 
-219:                                              ; preds = %scalarproduct.exit.i88
+219:                                              ; preds = %scalarproduct.exit.i86
   %220 = shl nuw i32 %217, 1
   %.idx1.i90 = zext i32 %220 to i64
   %221 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx1.i90
   %222 = getelementptr inbounds i8, ptr %221, i64 -64
-  %.not.i91 = icmp eq i32 %217, 32
-  br i1 %.not.i91, label %scalarproduct.exit41.i100, label %.preheader.i33.i92
+  %.not.i88 = icmp eq i32 %217, 32
+  br i1 %.not.i88, label %scalarproduct.exit41.i97, label %.preheader.i33.i89
 
-.preheader.i33.i92:                               ; preds = %219, %232
-  %.01419.i34.i93 = phi ptr [ %236, %232 ], [ %.014.lcssa.i.i89, %219 ]
-  %.01518.i35.i94 = phi ptr [ %237, %232 ], [ %194, %219 ]
+.preheader.i33.i89:                               ; preds = %219, %232
+  %.01419.i34.i90 = phi ptr [ %236, %232 ], [ %.014.lcssa.i.i87, %219 ]
+  %.01518.i35.i91 = phi ptr [ %237, %232 ], [ %194, %219 ]
   br label %223
 
-223:                                              ; preds = %223, %.preheader.i33.i92
-  %indvars.iv.i36.i95 = phi i64 [ 0, %.preheader.i33.i92 ], [ %indvars.iv.next.i38.i97, %223 ]
-  %.01316.i37.i96 = phi i32 [ 0, %.preheader.i33.i92 ], [ %231, %223 ]
-  %224 = getelementptr inbounds nuw i16, ptr %.01518.i35.i94, i64 %indvars.iv.i36.i95
+223:                                              ; preds = %223, %.preheader.i33.i89
+  %indvars.iv.i36.i92 = phi i64 [ 0, %.preheader.i33.i92 ], [ %indvars.iv.next.i38.i94, %223 ]
+  %.01316.i37.i93 = phi i32 [ 0, %.preheader.i33.i92 ], [ %231, %223 ]
+  %224 = getelementptr inbounds nuw i16, ptr %.01518.i35.i91, i64 %indvars.iv.i36.i92
   %225 = load i16, ptr %224, align 2, !tbaa !43
   %226 = sext i16 %225 to i32
-  %227 = getelementptr inbounds nuw i16, ptr %199, i64 %indvars.iv.i36.i95
+  %227 = getelementptr inbounds nuw i16, ptr %199, i64 %indvars.iv.i36.i92
   %228 = load i16, ptr %227, align 2, !tbaa !43
   %229 = sext i16 %228 to i32
   %230 = mul nsw i32 %229, %226
-  %231 = add nsw i32 %230, %.01316.i37.i96
-  %indvars.iv.next.i38.i97 = add nuw nsw i64 %indvars.iv.i36.i95, 1
-  %exitcond.not.i39.i98 = icmp eq i64 %indvars.iv.next.i38.i97, 32
-  br i1 %exitcond.not.i39.i98, label %232, label %223, !llvm.loop !45
+  %231 = add nsw i32 %230, %.01316.i37.i93
+  %indvars.iv.next.i38.i94 = add nuw nsw i64 %indvars.iv.i36.i92, 1
+  %exitcond.not.i39.i95 = icmp eq i64 %indvars.iv.next.i38.i94, 32
+  br i1 %exitcond.not.i39.i95, label %232, label %223, !llvm.loop !45
 
 232:                                              ; preds = %223
   %233 = ashr i32 %231, 7
   %234 = tail call i32 @llvm.smax.i32(i32 %233, i32 -32768)
   %235 = tail call i32 @llvm.smin.i32(i32 %234, i32 32767)
-  %.0.i.i40.i99 = trunc nsw i32 %235 to i16
-  store i16 %.0.i.i40.i99, ptr %.01419.i34.i93, align 2, !tbaa !43
-  %236 = getelementptr inbounds nuw i8, ptr %.01419.i34.i93, i64 2
-  %237 = getelementptr inbounds nuw i8, ptr %.01518.i35.i94, i64 2
+  %.0.i.i40.i96 = trunc nsw i32 %235 to i16
+  store i16 %.0.i.i40.i96, ptr %.01419.i34.i90, align 2, !tbaa !43
+  %236 = getelementptr inbounds nuw i8, ptr %.01419.i34.i90, i64 2
+  %237 = getelementptr inbounds nuw i8, ptr %.01518.i35.i91, i64 2
   %238 = icmp ult ptr %237, %222
-  br i1 %238, label %.preheader.i33.i92, label %scalarproduct.exit41.i100, !llvm.loop !46
+  br i1 %238, label %.preheader.i33.i89, label %scalarproduct.exit41.i97, !llvm.loop !46
 
-scalarproduct.exit41.i100:                        ; preds = %232, %219
+scalarproduct.exit41.i97:                         ; preds = %232, %219
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %189, ptr noundef nonnull align 2 dereferenceable(64) %222, i64 64, i1 false)
-  br label %convolve.exit109
+  br label %convolve.exit106
 
-239:                                              ; preds = %scalarproduct.exit.i88
+239:                                              ; preds = %scalarproduct.exit.i86
   %240 = sext i32 %217 to i64
   %241 = getelementptr inbounds i16, ptr %189, i64 %240
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %189, ptr noundef nonnull align 2 dereferenceable(64) %241, i64 64, i1 false)
-  br label %convolve.exit109
+  br label %convolve.exit106
 
-convolve.exit109:                                 ; preds = %scalarproduct.exit41.i100, %239
+convolve.exit106:                                 ; preds = %scalarproduct.exit41.i97, %239
   %.val34 = load ptr, ptr %7, align 8, !tbaa !4
   %242 = getelementptr i8, ptr %.val34, i64 640
   %.val34.val = load ptr, ptr %242, align 8, !tbaa !20
@@ -543,9 +543,9 @@ convolve.exit109:                                 ; preds = %scalarproduct.exit4
   %248 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %249 = load i32, ptr %248, align 8, !tbaa !34
   %250 = icmp sgt i32 %249, 0
-  br i1 %250, label %.lr.ph.preheader.i, label %mix.exit116
+  br i1 %250, label %.lr.ph.preheader.i, label %mix.exit113
 
-.lr.ph.preheader.i:                               ; preds = %convolve.exit109
+.lr.ph.preheader.i:                               ; preds = %convolve.exit106
   %wide.trip.count.i = zext nneg i32 %249 to i64
   br label %.lr.ph.i
 
@@ -560,35 +560,35 @@ convolve.exit109:                                 ; preds = %scalarproduct.exit4
   store i16 %255, ptr %256, align 2, !tbaa !43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader.i110, label %.lr.ph.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i107, label %.lr.ph.i, !llvm.loop !47
 
-.lr.ph.preheader.i110:                            ; preds = %.lr.ph.i
+.lr.ph.preheader.i107:                            ; preds = %.lr.ph.i
   %257 = load ptr, ptr %.val34.val, align 8, !tbaa !42
   %258 = getelementptr inbounds nuw i8, ptr %.val34.val37, i64 8
   %259 = load ptr, ptr %258, align 8, !tbaa !42
   %260 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %261 = load ptr, ptr %260, align 8, !tbaa !42
-  br label %.lr.ph.i112
+  br label %.lr.ph.i109
 
-.lr.ph.i112:                                      ; preds = %.lr.ph.i112, %.lr.ph.preheader.i110
-  %indvars.iv.i113 = phi i64 [ 0, %.lr.ph.preheader.i110 ], [ %indvars.iv.next.i114, %.lr.ph.i112 ]
-  %262 = getelementptr inbounds nuw i16, ptr %257, i64 %indvars.iv.i113
+.lr.ph.i109:                                      ; preds = %.lr.ph.i109, %.lr.ph.preheader.i107
+  %indvars.iv.i110 = phi i64 [ 0, %.lr.ph.preheader.i110 ], [ %indvars.iv.next.i111, %.lr.ph.i112 ]
+  %262 = getelementptr inbounds nuw i16, ptr %257, i64 %indvars.iv.i110
   %263 = load i16, ptr %262, align 2, !tbaa !43
-  %264 = getelementptr inbounds nuw i16, ptr %259, i64 %indvars.iv.i113
+  %264 = getelementptr inbounds nuw i16, ptr %259, i64 %indvars.iv.i110
   %265 = load i16, ptr %264, align 2, !tbaa !43
   %266 = tail call i16 @llvm.sadd.sat.i16(i16 %263, i16 %265)
-  %267 = getelementptr inbounds nuw i16, ptr %261, i64 %indvars.iv.i113
+  %267 = getelementptr inbounds nuw i16, ptr %261, i64 %indvars.iv.i110
   store i16 %266, ptr %267, align 2, !tbaa !43
-  %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
-  %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, %wide.trip.count.i
-  br i1 %exitcond.not.i115, label %mix.exit116, label %.lr.ph.i112, !llvm.loop !47
+  %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1
+  %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, %wide.trip.count.i
+  br i1 %exitcond.not.i112, label %mix.exit113, label %.lr.ph.i109, !llvm.loop !47
 
-mix.exit116:                                      ; preds = %.lr.ph.i112, %convolve.exit109
+mix.exit113:                                      ; preds = %.lr.ph.i109, %convolve.exit106
   call void @av_frame_free(ptr noundef nonnull %3) #7
   %268 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef nonnull %14) #7
   br label %269
 
-269:                                              ; preds = %28, %mix.exit116, %30
+269:                                              ; preds = %28, %mix.exit113, %30
   %.1 = phi i32 [ %268, %mix.exit116 ], [ -12, %30 ], [ -12, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   ret i32 %.1

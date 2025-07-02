@@ -165383,85 +165383,85 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(56) ptr @_ZN5
   %21 = icmp eq i32 %20, 0
   %22 = select i1 %19, i1 %21, i1 false
   %23 = icmp eq i32 %10, 2
-  br i1 %23, label %26, label %24
+  br i1 %23, label %26, label %25
 
-24:                                               ; preds = %2
-  %25 = icmp eq i32 %13, 2
+25:                                               ; preds = %2
+  %26 = icmp eq i32 %13, 2
   %or.cond = and i1 %11, %22
-  %or.cond30 = or i1 %25, %or.cond
+  %or.cond30 = or i1 %26, %or.cond
   %or.cond3 = and i1 %14, %18
   %or.cond31 = or i1 %or.cond3, %or.cond30
-  br i1 %or.cond31, label %26, label %39
+  br i1 %or.cond31, label %27, label %40
 
-26:                                               ; preds = %24, %2
-  %27 = load atomic i8, ptr @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val acquire, align 8
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEv.exit, !prof !101
+27:                                               ; preds = %25, %2
+  %28 = load atomic i8, ptr @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val acquire, align 8
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %30, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEv.exit, !prof !101
 
-29:                                               ; preds = %26
-  %30 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val) #59
-  %.not.i = icmp eq i32 %30, 0
-  br i1 %.not.i, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEv.exit, label %31
+30:                                               ; preds = %27
+  %31 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val) #59
+  %.not.i = icmp eq i32 %31, 0
+  br i1 %.not.i, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEv.exit, label %32
 
-31:                                               ; preds = %29
+32:                                               ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val, i8 0, i64 45, i1 false)
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val, i64 48), align 4, !tbaa !1570
   store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val, i64 52), align 4, !tbaa !1571
-  %32 = tail call ptr @llvm.invariant.start.p0(i64 56, ptr nonnull @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val)
+  %33 = tail call ptr @llvm.invariant.start.p0(i64 56, ptr nonnull @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val) #59
   br label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEv.exit
 
-_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEv.exit: ; preds = %26, %29, %31
+_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEv.exit: ; preds = %27, %30, %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(40) @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val, i64 40, i1 false)
-  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val, i64 40), align 4, !tbaa !1564
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %33, ptr %34, align 4, !tbaa !1564
-  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val, i64 44), align 4, !tbaa !1569, !range !17, !noundef !18
-  store i8 %35, ptr %3, align 4, !tbaa !1569
-  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val, i64 48), align 4, !tbaa !1570
-  store i32 %36, ptr %9, align 4, !tbaa !1570
-  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val, i64 52), align 4, !tbaa !1571
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %37, ptr %38, align 4, !tbaa !1571
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val, i64 40), align 4, !tbaa !1564
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %34, ptr %35, align 4, !tbaa !1564
+  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val, i64 44), align 4, !tbaa !1569, !range !17, !noundef !18
+  store i8 %36, ptr %3, align 4, !tbaa !1569
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val, i64 48), align 4, !tbaa !1570
+  store i32 %37, ptr %9, align 4, !tbaa !1570
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEvE3val, i64 52), align 4, !tbaa !1571
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 %38, ptr %39, align 4, !tbaa !1571
   br label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit
 
-39:                                               ; preds = %24
+40:                                               ; preds = %25
   %or.cond5 = or i1 %11, %14
-  br i1 %or.cond5, label %40, label %60
+  br i1 %or.cond5, label %41, label %61
 
-40:                                               ; preds = %39
-  %41 = load atomic i8, ptr @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val acquire, align 8
-  %42 = icmp eq i8 %41, 0
-  br i1 %42, label %43, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit, !prof !101
+41:                                               ; preds = %40
+  %42 = load atomic i8, ptr @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val acquire, align 8
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %44, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit, !prof !101
 
-43:                                               ; preds = %40
-  %44 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val) #59
-  %.not.i32 = icmp eq i32 %44, 0
-  br i1 %.not.i32, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit, label %45
+44:                                               ; preds = %41
+  %45 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val) #59
+  %.not.i32 = icmp eq i32 %45, 0
+  br i1 %.not.i32, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit, label %46
 
-45:                                               ; preds = %43
+46:                                               ; preds = %44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val, i8 0, i64 45, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val, i64 48), align 4, !tbaa !1570
   store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val, i64 52), align 4, !tbaa !1571
-  %46 = tail call ptr @llvm.invariant.start.p0(i64 56, ptr nonnull @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val)
+  %47 = tail call ptr @llvm.invariant.start.p0(i64 56, ptr nonnull @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val) #59
   br label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit
 
-_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit: ; preds = %40, %43, %45
+_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit: ; preds = %41, %44, %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(40) @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val, i64 40, i1 false)
-  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val, i64 40), align 4, !tbaa !1564
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %47, ptr %48, align 4, !tbaa !1564
-  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val, i64 44), align 4, !tbaa !1569, !range !17, !noundef !18
-  store i8 %49, ptr %3, align 4, !tbaa !1569
-  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val, i64 48), align 4, !tbaa !1570
-  store i32 %50, ptr %9, align 4, !tbaa !1570
-  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val, i64 52), align 4, !tbaa !1571
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %51, ptr %52, align 4, !tbaa !1571
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val, i64 40), align 4, !tbaa !1564
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %48, ptr %49, align 4, !tbaa !1564
+  %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val, i64 44), align 4, !tbaa !1569, !range !17, !noundef !18
+  store i8 %50, ptr %3, align 4, !tbaa !1569
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val, i64 48), align 4, !tbaa !1570
+  store i32 %51, ptr %9, align 4, !tbaa !1570
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEvE3val, i64 52), align 4, !tbaa !1571
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 %52, ptr %53, align 4, !tbaa !1571
   br i1 %7, label %53, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit
 
-53:                                               ; preds = %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit
+59:                                               ; preds = %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit
   %54 = icmp eq i32 %50, 0
   %55 = load i32, ptr %0, align 4
   %56 = icmp eq i32 %55, 0
@@ -165473,150 +165473,150 @@ _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit: ; preds =
   store i8 %59, ptr %3, align 4, !tbaa !1569
   br label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit
 
-60:                                               ; preds = %39
+61:                                               ; preds = %40
   %or.cond7 = or i1 %18, %22
-  br i1 %or.cond7, label %61, label %74
+  br i1 %or.cond7, label %62, label %75
 
-61:                                               ; preds = %60
-  %62 = load atomic i8, ptr @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val acquire, align 8
-  %63 = icmp eq i8 %62, 0
-  br i1 %63, label %64, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv.exit, !prof !101
+62:                                               ; preds = %61
+  %63 = load atomic i8, ptr @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val acquire, align 8
+  %64 = icmp eq i8 %63, 0
+  br i1 %64, label %65, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv.exit, !prof !101
 
-64:                                               ; preds = %61
-  %65 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val) #59
-  %.not.i33 = icmp eq i32 %65, 0
-  br i1 %.not.i33, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv.exit, label %66
+65:                                               ; preds = %62
+  %66 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val) #59
+  %.not.i33 = icmp eq i32 %66, 0
+  br i1 %.not.i33, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv.exit, label %67
 
-66:                                               ; preds = %64
+67:                                               ; preds = %65
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val, i64 48), align 4, !tbaa !1570, !alias.scope !2864
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val, i8 0, i64 45, i1 false)
   store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val, i64 52), align 4, !tbaa !1571, !alias.scope !2864
-  %67 = tail call ptr @llvm.invariant.start.p0(i64 56, ptr nonnull @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val)
+  %68 = tail call ptr @llvm.invariant.start.p0(i64 56, ptr nonnull @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val) #59
   br label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv.exit
 
-_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv.exit: ; preds = %61, %64, %66
+_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv.exit: ; preds = %62, %65, %67
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(40) @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val, i64 40, i1 false)
-  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val, i64 40), align 4, !tbaa !1564
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %68, ptr %69, align 4, !tbaa !1564
-  %70 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val, i64 44), align 4, !tbaa !1569, !range !17, !noundef !18
-  store i8 %70, ptr %3, align 4, !tbaa !1569
-  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val, i64 48), align 4, !tbaa !1570
-  store i32 %71, ptr %9, align 4, !tbaa !1570
-  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val, i64 52), align 4, !tbaa !1571
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %72, ptr %73, align 4, !tbaa !1571
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val, i64 40), align 4, !tbaa !1564
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %69, ptr %70, align 4, !tbaa !1564
+  %71 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val, i64 44), align 4, !tbaa !1569, !range !17, !noundef !18
+  store i8 %71, ptr %3, align 4, !tbaa !1569
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val, i64 48), align 4, !tbaa !1570
+  store i32 %72, ptr %9, align 4, !tbaa !1570
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEvE3val, i64 52), align 4, !tbaa !1571
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 %73, ptr %74, align 4, !tbaa !1571
   br label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit
 
-74:                                               ; preds = %60
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %76 = load i32, ptr %75, align 4, !tbaa !1564
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %78 = load i32, ptr %77, align 4, !tbaa !1564
-  %79 = add nsw i32 %78, %76
-  %80 = icmp sgt i32 %79, 67108863
-  store i32 %79, ptr %75, align 4, !tbaa !1564
+75:                                               ; preds = %61
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %77 = load i32, ptr %76, align 4, !tbaa !1564
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %79 = load i32, ptr %78, align 4, !tbaa !1564
+  %80 = add nsw i32 %79, %77
+  %81 = icmp sgt i32 %80, 67108863
+  store i32 %80, ptr %75, align 4, !tbaa !1564
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %83 = load i32, ptr %82, align 4, !tbaa !263
-  %84 = load i32, ptr %81, align 4, !tbaa !263
+  %85 = load i32, ptr %81, align 4, !tbaa !263
   %85 = tail call i32 @llvm.smin.i32(i32 %83, i32 %84)
   tail call void @_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE39eval_mul_dispatch_multiplication_methodILj50EEEvRKNS2_IXT_EivEEiPKNSt9enable_ifIXaaeqT_Lj50Eltsr13cpp_dec_floatIXT_EivEE25cpp_dec_float_elem_numberL_ZNS3_28cpp_dec_float_elems_for_karaEEEvE4typeE(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(56) %1, i32 noundef %85, ptr noundef null)
-  br i1 %80, label %86, label %103
+  br i1 %80, label %86, label %157
 
-86:                                               ; preds = %74
+86:; preds = %74
   %87 = load atomic i8, ptr @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val acquire, align 8
   %88 = icmp eq i8 %87, 0
   br i1 %88, label %89, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEv.exit, !prof !101
 
-89:                                               ; preds = %86
-  %90 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val) #59
-  %.not.i34 = icmp eq i32 %90, 0
-  br i1 %.not.i34, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEv.exit, label %91
+143:                                              ; preds = %86
+  %144 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val) #59
+  %.not.i35 = icmp eq i32 %144, 0
+  br i1 %.not.i35, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEv.exit, label %145
 
-91:                                               ; preds = %89
+145:                                              ; preds = %143
   store i32 1, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val, i64 4), i8 0, i64 36, i1 false)
   store i32 67108864, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val, i64 40), align 4, !tbaa !1564, !alias.scope !2867
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val, i64 44), align 4, !tbaa !1569, !alias.scope !2867
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val, i64 48), align 4, !tbaa !1570, !alias.scope !2867
   store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val, i64 52), align 4, !tbaa !1571, !alias.scope !2867
-  %92 = tail call ptr @llvm.invariant.start.p0(i64 56, ptr nonnull @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val)
+  %146 = tail call ptr @llvm.invariant.start.p0(i64 56, ptr nonnull @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val) #59
   br label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEv.exit
 
-_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEv.exit: ; preds = %86, %89, %91
-  %93 = tail call noundef i32 @_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE7compareERKS3_(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(56) @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val)
-  %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %95, label %.thread
+_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEv.exit: ; preds = %86, %143, %145
+  %147 = tail call noundef i32 @_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE7compareERKS3_(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(56) @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEvE3val)
+  %148 = icmp sgt i32 %147, 0
+  br i1 %148, label %149, label %.thread
 
-95:                                               ; preds = %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEv.exit
-  %96 = tail call noundef nonnull align 4 dereferenceable(56) ptr @_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv()
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(56) %96, i64 40, i1 false)
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  %98 = load i32, ptr %97, align 4, !tbaa !1564
-  store i32 %98, ptr %75, align 4, !tbaa !1564
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 48
-  %100 = load i32, ptr %99, align 4, !tbaa !1570
-  store i32 %100, ptr %9, align 4, !tbaa !1570
-  %101 = getelementptr inbounds nuw i8, ptr %96, i64 52
-  %102 = load i32, ptr %101, align 4, !tbaa !1571
-  store i32 %102, ptr %81, align 4, !tbaa !1571
+149:                                              ; preds = %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEv.exit
+  %150 = tail call noundef nonnull align 4 dereferenceable(56) ptr @_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv()
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(56) %150, i64 40, i1 false)
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
+  %152 = load i32, ptr %151, align 4, !tbaa !1564
+  store i32 %152, ptr %76, align 4, !tbaa !1564
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 48
+  %154 = load i32, ptr %153, align 4, !tbaa !1570
+  store i32 %154, ptr %9, align 4, !tbaa !1570
+  %155 = getelementptr inbounds nuw i8, ptr %150, i64 52
+  %156 = load i32, ptr %155, align 4, !tbaa !1571
+  store i32 %156, ptr %81, align 4, !tbaa !1571
   br label %.thread
 
-103:                                              ; preds = %74
+157:                                              ; preds = %74
   %104 = icmp slt i32 %79, -67108863
   br i1 %104, label %105, label %.thread
 
-105:                                              ; preds = %103
-  %106 = load atomic i8, ptr @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val acquire, align 8
-  %107 = icmp eq i8 %106, 0
-  br i1 %107, label %108, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEv.exit, !prof !101
+158:                                              ; preds = %157
+  %159 = load atomic i8, ptr @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val acquire, align 8
+  %160 = icmp eq i8 %159, 0
+  br i1 %160, label %161, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEv.exit, !prof !101
 
-108:                                              ; preds = %105
-  %109 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val) #59
-  %.not.i35 = icmp eq i32 %109, 0
-  br i1 %.not.i35, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEv.exit, label %110
+161:                                              ; preds = %158
+  %162 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val) #59
+  %.not.i36 = icmp eq i32 %162, 0
+  br i1 %.not.i36, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEv.exit, label %163
 
-110:                                              ; preds = %108
+163:                                              ; preds = %161
   store i32 1, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val, i64 4), i8 0, i64 36, i1 false)
   store i32 -67108864, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val, i64 40), align 4, !tbaa !1564, !alias.scope !2870
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val, i64 44), align 4, !tbaa !1569, !alias.scope !2870
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val, i64 48), align 4, !tbaa !1570, !alias.scope !2870
   store i32 10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val, i64 52), align 4, !tbaa !1571, !alias.scope !2870
-  %111 = tail call ptr @llvm.invariant.start.p0(i64 56, ptr nonnull @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val)
+  %164 = tail call ptr @llvm.invariant.start.p0(i64 56, ptr nonnull @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val) #59
   br label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEv.exit
 
-_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEv.exit: ; preds = %105, %108, %110
-  %112 = tail call noundef i32 @_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE7compareERKS3_(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(56) @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val)
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %114, label %.thread
+_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEv.exit: ; preds = %158, %161, %163
+  %165 = tail call noundef i32 @_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE7compareERKS3_(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(56) @_ZZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEvE3val)
+  %166 = icmp slt i32 %165, 0
+  br i1 %166, label %167, label %.thread
 
-114:                                              ; preds = %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEv.exit
-  %115 = tail call noundef nonnull align 4 dereferenceable(56) ptr @_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv()
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(56) %115, i64 40, i1 false)
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
-  %117 = load i32, ptr %116, align 4, !tbaa !1564
-  store i32 %117, ptr %75, align 4, !tbaa !1564
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 44
-  %119 = load i8, ptr %118, align 4, !tbaa !1569, !range !17, !noundef !18
-  store i8 %119, ptr %3, align 4, !tbaa !1569
-  %120 = getelementptr inbounds nuw i8, ptr %115, i64 48
-  %121 = load i32, ptr %120, align 4, !tbaa !1570
-  store i32 %121, ptr %9, align 4, !tbaa !1570
-  %122 = getelementptr inbounds nuw i8, ptr %115, i64 52
-  %123 = load i32, ptr %122, align 4, !tbaa !1571
-  store i32 %123, ptr %81, align 4, !tbaa !1571
+167:                                              ; preds = %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEv.exit
+  %168 = tail call noundef nonnull align 4 dereferenceable(56) ptr @_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv()
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(56) %168, i64 40, i1 false)
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 40
+  %170 = load i32, ptr %169, align 4, !tbaa !1564
+  store i32 %170, ptr %76, align 4, !tbaa !1564
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 44
+  %172 = load i8, ptr %171, align 4, !tbaa !1569, !range !17, !noundef !18
+  store i8 %172, ptr %3, align 4, !tbaa !1569
+  %173 = getelementptr inbounds nuw i8, ptr %168, i64 48
+  %174 = load i32, ptr %173, align 4, !tbaa !1570
+  store i32 %174, ptr %9, align 4, !tbaa !1570
+  %175 = getelementptr inbounds nuw i8, ptr %168, i64 52
+  %176 = load i32, ptr %175, align 4, !tbaa !1571
+  store i32 %176, ptr %81, align 4, !tbaa !1571
   br label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit
 
-.thread:                                          ; preds = %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEv.exit, %95, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEv.exit, %103
+.thread:                                          ; preds = %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3maxEv.exit, %149, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3minEv.exit, %157
   store i8 %8, ptr %3, align 4, !tbaa !1569
   br label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit
 
-_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit: ; preds = %58, %53, %114, %.thread, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv.exit, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEv.exit
+_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE6negateEv.exit: ; preds = %58, %59, %167, %.thread, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3infEv.exit, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE4zeroEv.exit, %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEv.exit
   ret ptr %0
 }
 
@@ -235012,7 +235012,7 @@ attributes #67 = { nounwind willreturn memory(read) }
 !2871 = distinct !{!2871, !2872, !"_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE8from_lstESt16initializer_listIjEib: argument 0"}
 !2872 = distinct !{!2872, !"_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE8from_lstESt16initializer_listIjEib"}
 !2873 = distinct !{!2873, !146}
-!2874 = distinct !{!2874, !146}
+!2874 = distinct !{!2875, !146}
 !2875 = distinct !{!2875, !146}
 !2876 = distinct !{!2876, !146}
 !2877 = distinct !{!2877, !146}
