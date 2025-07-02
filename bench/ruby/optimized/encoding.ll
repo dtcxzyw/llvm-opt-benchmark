@@ -1639,7 +1639,7 @@ define internal zeroext i1 @pm_encoding_gb1988_isupper_char(ptr noundef readonly
 define internal range(i64 0, 3) i64 @pm_encoding_gbk_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp ult i8 %3, -127
-  br i1 %4, label %52, label %5
+  br i1 %4, label %53, label %5
 
 5:                                                ; preds = %2
   %6 = icmp sgt i64 %1, 1
@@ -1655,7 +1655,7 @@ define internal range(i64 0, 3) i64 @pm_encoding_gbk_char_width(ptr noundef read
   %11 = load i8, ptr %10, align 1, !tbaa !7
   %12 = add i8 %11, 1
   %or.cond64 = icmp ult i8 %12, -94
-  br i1 %or.cond64, label %.thread84.thread, label %52
+  br i1 %or.cond64, label %.thread84.thread, label %53
 
 13:                                               ; preds = %7
   %14 = add nsw i8 %3, 80
@@ -1667,7 +1667,7 @@ define internal range(i64 0, 3) i64 @pm_encoding_gbk_char_width(ptr noundef read
   %17 = load i8, ptr %16, align 1, !tbaa !7
   %18 = add i8 %17, 1
   %or.cond66 = icmp ult i8 %18, -94
-  br i1 %or.cond66, label %.thread84.thread116, label %52
+  br i1 %or.cond66, label %.thread84.thread116, label %53
 
 19:                                               ; preds = %13
   %20 = icmp samesign ult i8 %3, -95
@@ -1682,84 +1682,84 @@ define internal range(i64 0, 3) i64 @pm_encoding_gbk_char_width(ptr noundef read
 
 switch.early.test:                                ; preds = %21
   %25 = and i8 %.fr, 127
-  %switch.selectcmp = icmp eq i8 %25, 127
-  %26 = select i1 %switch.selectcmp, i64 0, i64 2
-  br label %52
+  %26 = icmp eq i8 %25, 127
+  %27 = select i1 %26, i64 0, i64 2
+  br label %53
 
 .thread84:                                        ; preds = %19
   %.not57 = icmp eq i8 %3, -1
-  %27 = add nsw i8 %3, 1
-  %or.cond70 = icmp ult i8 %27, -85
+  %28 = add nsw i8 %3, 1
+  %or.cond70 = icmp ult i8 %28, -85
   br i1 %or.cond70, label %.thread84.thread, label %.thread84.thread116
 
 .thread84.thread116:                              ; preds = %15, %.thread84
   %.not57119 = phi i1 [ %.not57, %.thread84 ], [ false, %15 ]
-  %28 = getelementptr i8, ptr %0, i64 1
-  %29 = load i8, ptr %28, align 1, !tbaa !7
-  %30 = add i8 %29, 95
-  %or.cond71 = icmp ult i8 %30, -97
-  %.not58 = icmp eq i8 %29, 127
+  %29 = getelementptr i8, ptr %0, i64 1
+  %30 = load i8, ptr %29, align 1, !tbaa !7
+  %31 = add i8 %30, 95
+  %or.cond71 = icmp ult i8 %31, -97
+  %.not58 = icmp eq i8 %30, 127
   %or.cond72 = or i1 %.not58, %or.cond71
-  br i1 %or.cond72, label %.thread92, label %52
+  br i1 %or.cond72, label %.thread92, label %53
 
 .thread84.thread:                                 ; preds = %9, %.thread84
   %.not5790 = phi i1 [ %.not57, %.thread84 ], [ false, %9 ]
-  %31 = and i8 %3, -2
-  %or.cond73 = icmp eq i8 %31, -88
-  br i1 %or.cond73, label %32, label %.thread92
+  %32 = and i8 %3, -2
+  %or.cond73 = icmp eq i8 %32, -88
+  br i1 %or.cond73, label %33, label %.thread92
 
-32:                                               ; preds = %.thread84.thread
-  %33 = getelementptr i8, ptr %0, i64 1
-  %34 = load i8, ptr %33, align 1, !tbaa !7
-  %35 = add i8 %34, 95
-  %or.cond74 = icmp ult i8 %35, -97
-  %.not59 = icmp eq i8 %34, 127
+33:                                               ; preds = %.thread84.thread
+  %34 = getelementptr i8, ptr %0, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !7
+  %36 = add i8 %35, 95
+  %or.cond74 = icmp ult i8 %36, -97
+  %.not59 = icmp eq i8 %35, 127
   %or.cond75 = or i1 %.not59, %or.cond74
-  br i1 %or.cond75, label %.thread105, label %52
+  br i1 %or.cond75, label %.thread105, label %53
 
 .thread92:                                        ; preds = %.thread84.thread116, %.thread84.thread
   %.not579095 = phi i1 [ %.not5790, %.thread84.thread ], [ %.not57119, %.thread84.thread116 ]
-  %36 = add nsw i8 %3, 86
-  %or.cond76 = icmp ult i8 %36, 6
-  br i1 %or.cond76, label %37, label %41
+  %37 = add nsw i8 %3, 86
+  %or.cond76 = icmp ult i8 %37, 6
+  br i1 %or.cond76, label %38, label %42
 
-37:                                               ; preds = %.thread92
-  %38 = getelementptr i8, ptr %0, i64 1
-  %39 = load i8, ptr %38, align 1, !tbaa !7
-  %40 = add i8 %39, 1
-  %or.cond77 = icmp ult i8 %40, -94
-  br i1 %or.cond77, label %.thread105, label %52
+38:                                               ; preds = %.thread92
+  %39 = getelementptr i8, ptr %0, i64 1
+  %40 = load i8, ptr %39, align 1, !tbaa !7
+  %41 = add i8 %40, 1
+  %or.cond77 = icmp ult i8 %41, -94
+  br i1 %or.cond77, label %.thread105, label %53
 
-41:                                               ; preds = %.thread92
-  %42 = icmp samesign ult i8 %3, -8
-  %or.cond78 = or i1 %42, %.not579095
-  br i1 %or.cond78, label %47, label %43
+42:                                               ; preds = %.thread92
+  %43 = icmp samesign ult i8 %3, -8
+  %or.cond78 = or i1 %43, %.not579095
+  br i1 %or.cond78, label %48, label %44
 
-43:                                               ; preds = %41
-  %44 = getelementptr i8, ptr %0, i64 1
-  %45 = load i8, ptr %44, align 1, !tbaa !7
-  %46 = add i8 %45, 1
-  %or.cond79 = icmp ult i8 %46, -94
-  br i1 %or.cond79, label %.thread105, label %52
+44:                                               ; preds = %42
+  %45 = getelementptr i8, ptr %0, i64 1
+  %46 = load i8, ptr %45, align 1, !tbaa !7
+  %47 = add i8 %46, 1
+  %or.cond79 = icmp ult i8 %47, -94
+  br i1 %or.cond79, label %.thread105, label %53
 
-47:                                               ; preds = %41
+48:                                               ; preds = %42
   %or.cond80 = icmp ult i8 %8, 7
-  br i1 %or.cond80, label %48, label %.thread105
+  br i1 %or.cond80, label %49, label %.thread105
 
-48:                                               ; preds = %47
-  %49 = getelementptr i8, ptr %0, i64 1
-  %50 = load i8, ptr %49, align 1, !tbaa !7
-  %51 = add i8 %50, 95
-  %or.cond81 = icmp ult i8 %51, -97
-  %.not63 = icmp eq i8 %50, 127
+49:                                               ; preds = %48
+  %50 = getelementptr i8, ptr %0, i64 1
+  %51 = load i8, ptr %50, align 1, !tbaa !7
+  %52 = add i8 %51, 95
+  %or.cond81 = icmp ult i8 %52, -97
+  %.not63 = icmp eq i8 %51, 127
   %or.cond82 = or i1 %.not63, %or.cond81
-  br i1 %or.cond82, label %.thread105, label %52
+  br i1 %or.cond82, label %.thread105, label %53
 
-.thread105:                                       ; preds = %21, %32, %37, %43, %48, %47, %5
-  br label %52
+.thread105:                                       ; preds = %21, %33, %38, %44, %49, %48, %5
+  br label %53
 
-52:                                               ; preds = %switch.early.test, %9, %15, %.thread84.thread116, %32, %37, %43, %48, %2, %.thread105
-  %.0 = phi i64 [ 0, %.thread105 ], [ 1, %2 ], [ 2, %48 ], [ 2, %43 ], [ 2, %37 ], [ 2, %32 ], [ 2, %.thread84.thread116 ], [ 2, %15 ], [ 2, %9 ], [ %26, %switch.early.test ]
+53:                                               ; preds = %switch.early.test, %9, %15, %.thread84.thread116, %33, %38, %44, %49, %2, %.thread105
+  %.0 = phi i64 [ 0, %.thread105 ], [ 1, %2 ], [ 2, %49 ], [ 2, %44 ], [ 2, %38 ], [ 2, %33 ], [ 2, %.thread84.thread116 ], [ 2, %15 ], [ 2, %9 ], [ %27, %switch.early.test ]
   ret i64 %.0
 }
 

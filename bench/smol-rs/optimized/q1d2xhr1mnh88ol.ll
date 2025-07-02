@@ -909,10 +909,9 @@ define hidden void @"_ZN14event_listener3sys14Inner$LT$T$GT$6remove17he1c2357fed
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %33 = load i8, ptr %7, align 8, !range !84, !noundef !4
-  %34 = add nsw i8 %33, -1
-  %switch.and = and i8 %34, -3
-  %switch.selectcmp = icmp eq i8 %switch.and, 0
-  br i1 %switch.selectcmp, label %35, label %39
+  %34 = and i8 %33, 1
+  %.not = icmp eq i8 %34, 0
+  br i1 %.not, label %39, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
