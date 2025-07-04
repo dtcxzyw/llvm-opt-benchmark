@@ -307,10 +307,9 @@ default.unreachable:                              ; preds = %1
   br label %9
 
 9:                                                ; preds = %1, %8, %6
-  %.sroa.4.0 = phi i8 [ %2, %6 ], [ %2, %8 ], [ undef, %1 ]
   %.sroa.0.0 = phi i1 [ true, %6 ], [ true, %8 ], [ false, %1 ]
   %10 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
-  %11 = insertvalue { i1, i8 } %10, i8 %.sroa.4.0, 1
+  %11 = insertvalue { i1, i8 } %10, i8 %2, 1
   ret { i1, i8 } %11
 }
 
