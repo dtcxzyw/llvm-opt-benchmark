@@ -7489,9 +7489,9 @@ define range(i64 -30, 1) i64 @ZSTDv07_decompressBegin_usingDict(ptr noundef capt
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #26
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #26
-  br i1 %77, label %79, label %ZSTDv07_decompress_insertDictionary.exit.thread
+  br i1 %77, label %81, label %ZSTDv07_decompress_insertDictionary.exit.thread
 
-79:                                               ; preds = %74
+81:                                               ; preds = %74
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %81 = icmp ugt ptr %80, %38
   br i1 %81, label %ZSTDv07_decompress_insertDictionary.exit.thread, label %82
@@ -7499,35 +7499,35 @@ define range(i64 -30, 1) i64 @ZSTDv07_decompressBegin_usingDict(ptr noundef capt
 82:                                               ; preds = %79
   %.371.val.i.i = load i32, ptr %78, align 1
   store i32 %.371.val.i.i, ptr %20, align 8, !tbaa !3
-  %83 = icmp ne i32 %.371.val.i.i, 0
-  %84 = zext i32 %.371.val.i.i to i64
-  %.not92.i.i = icmp ugt i64 %37, %84
-  %or.cond.i.i = and i1 %83, %.not92.i.i
-  br i1 %or.cond.i.i, label %85, label %ZSTDv07_decompress_insertDictionary.exit.thread
+  %82 = icmp ne i32 %.371.val.i.i, 0
+  %83 = zext i32 %.371.val.i.i to i64
+  %.not92.i.i = icmp ugt i64 %37, %83
+  %or.cond.i.i = and i1 %82, %.not92.i.i
+  br i1 %or.cond.i.i, label %84, label %ZSTDv07_decompress_insertDictionary.exit.thread
 
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %.val102.i.i = load i32, ptr %86, align 1
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 21564
-  store i32 %.val102.i.i, ptr %87, align 4, !tbaa !3
-  %88 = icmp ne i32 %.val102.i.i, 0
-  %89 = zext i32 %.val102.i.i to i64
-  %.not93.i.i = icmp ugt i64 %37, %89
-  %or.cond95.i.i = and i1 %88, %.not93.i.i
-  br i1 %or.cond95.i.i, label %90, label %ZSTDv07_decompress_insertDictionary.exit.thread
+84:                                               ; preds = %82
+  %85 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %.val102.i.i = load i32, ptr %85, align 1
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 21564
+  store i32 %.val102.i.i, ptr %86, align 4, !tbaa !3
+  %87 = icmp ne i32 %.val102.i.i, 0
+  %88 = zext i32 %.val102.i.i to i64
+  %.not93.i.i = icmp ugt i64 %37, %88
+  %or.cond95.i.i = and i1 %87, %.not93.i.i
+  br i1 %or.cond95.i.i, label %89, label %ZSTDv07_decompress_insertDictionary.exit.thread
 
-90:                                               ; preds = %85
-  %91 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %.val.i.i = load i32, ptr %91, align 1
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 21568
-  store i32 %.val.i.i, ptr %92, align 8, !tbaa !3
-  %93 = icmp ne i32 %.val.i.i, 0
-  %94 = zext i32 %.val.i.i to i64
-  %.not94.i.i = icmp ugt i64 %37, %94
-  %or.cond96.i.i = and i1 %93, %.not94.i.i
+89:                                               ; preds = %84
+  %90 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %.val.i.i = load i32, ptr %90, align 1
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 21568
+  store i32 %.val.i.i, ptr %91, align 8, !tbaa !3
+  %92 = icmp ne i32 %.val.i.i, 0
+  %93 = zext i32 %.val.i.i to i64
+  %.not94.i.i = icmp ugt i64 %37, %93
+  %or.cond96.i.i = and i1 %92, %.not94.i.i
   br i1 %or.cond96.i.i, label %ZSTDv07_loadEntropy.exit.i, label %ZSTDv07_decompress_insertDictionary.exit.thread
 
-ZSTDv07_loadEntropy.exit.i:                       ; preds = %90
+ZSTDv07_loadEntropy.exit.i:                       ; preds = %89
   store i32 1, ptr %17, align 4, !tbaa !69
   store i32 1, ptr %18, align 8, !tbaa !70
   %95 = ptrtoint ptr %80 to i64
@@ -7552,7 +7552,7 @@ ZSTDv07_loadEntropy.exit.i:                       ; preds = %90
   store ptr %38, ptr %15, align 8, !tbaa !81
   br label %ZSTDv07_decompress_insertDictionary.exit.thread
 
-ZSTDv07_decompress_insertDictionary.exit.thread:  ; preds = %99, %30, %25, %.thread110.i.i, %.thread106.i.i, %.thread.i.i, %90, %85, %82, %79, %34, %48, %61, %74, %ZSTDv07_loadEntropy.exit.i, %3
+ZSTDv07_decompress_insertDictionary.exit.thread:  ; preds = %99, %30, %25, %.thread110.i.i, %.thread106.i.i, %.thread.i.i, %89, %84, %82, %81, %34, %48, %61, %74, %ZSTDv07_loadEntropy.exit.i, %3
   %.1 = phi i64 [ 0, %3 ], [ -30, %ZSTDv07_loadEntropy.exit.i ], [ -30, %74 ], [ -30, %61 ], [ -30, %48 ], [ -30, %34 ], [ -30, %79 ], [ -30, %82 ], [ -30, %85 ], [ -30, %90 ], [ -30, %.thread.i.i ], [ -30, %.thread106.i.i ], [ -30, %.thread110.i.i ], [ 0, %25 ], [ 0, %30 ], [ 0, %99 ]
   ret i64 %.1
 }

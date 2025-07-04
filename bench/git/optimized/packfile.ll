@@ -5218,7 +5218,7 @@ st_mult.exit32:                                   ; preds = %st_mult.exit23
   %44 = icmp ult ptr %43, %4
   br i1 %44, label %45, label %48
 
-45:                                               ; preds = %st_mult.exit32
+45: ; preds = %st_mult.exit32
   %46 = tail call fastcc ptr @_(ptr noundef nonnull @.str.41)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void (ptr, ...) @die(ptr noundef %46, ptr noundef nonnull %47) #25
@@ -5239,10 +5239,10 @@ st_mult.exit32:                                   ; preds = %st_mult.exit23
   unreachable
 
 check_pack_index_ptr.exit:                        ; preds = %48
-  %56 = load i8, ptr %43, align 1, !tbaa !12
-  %57 = zext i8 %56 to i64
-  %58 = shl nuw nsw i64 %57, 24
-  %59 = getelementptr inbounds nuw i8, ptr %43, i64 1
+  %51 = load i8, ptr %43, align 1, !tbaa !12
+  %52 = zext i8 %51 to i64
+  %53 = shl nuw nsw i64 %52, 24
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %60 = load i8, ptr %59, align 1, !tbaa !12
   %61 = zext i8 %60 to i64
   %62 = shl nuw nsw i64 %61, 16

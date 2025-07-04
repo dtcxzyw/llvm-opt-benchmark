@@ -1218,7 +1218,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator", align 8
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %70, label %4
+  br i1 %.not, label %71, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
@@ -1327,24 +1327,24 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   store i64 %64, ptr %66, align 8
   br label %70
 
-67:                                               ; preds = %17, %4, %20, %46, %52
+67:; preds = %17, %4, %20, %46, %52
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %68 = load ptr, ptr %2, align 8
+  %69 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
-  %69 = load ptr, ptr %0, align 8
-  store ptr %68, ptr %0, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %69, null
+  %70 = load ptr, ptr %0, align 8
+  store ptr %69, ptr %0, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoraSEOS1_.exit, label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataEEclEPS3_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataEEclEPS3_.exit.i.i.i.i.i: ; preds = %67
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 80) #24
+  call void @_ZdlPvm(ptr noundef nonnull %70, i64 noundef 80) #24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoraSEOS1_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoraSEOS1_.exit: ; preds = %67, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataEEclEPS3_.exit.i.i.i.i.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
-  br label %70
+  br label %71
 
-70:                                               ; preds = %58, %_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoraSEOS1_.exit, %1
+71:                                               ; preds = %58, %_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoraSEOS1_.exit, %1
   ret ptr %0
 }
 
@@ -1783,10 +1783,10 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_Ite
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store ptr %55, ptr %0, align 8
   store ptr %1, ptr %55, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store i64 %2, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store i32 67324752, ptr %59, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i64 %2, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  store i32 67324752, ptr %58, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 20
   store i16 %18, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 22
@@ -1821,10 +1821,10 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_Ite
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_ReadLocalFileHeaderERNS0_12_InputStreamE.exit.thread
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataESt14default_deleteIS3_EED2Ev.exit: ; preds = %54
-  %63 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %0, align 8
-  resume { ptr, i32 } %63
+  resume { ptr, i32 } %64
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_ReadLocalFileHeaderERNS0_12_InputStreamE.exit.thread: ; preds = %13, %48, %42, %16, %3, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataESt14default_deleteIS3_EE5resetEPS3_.exit
   ret void

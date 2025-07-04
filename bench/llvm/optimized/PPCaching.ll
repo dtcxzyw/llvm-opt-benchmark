@@ -1377,13 +1377,13 @@ define dso_local void @_ZN5clang12Preprocessor26ReplacePreviousCachedTokenEN4llv
   br label %_ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit
 
 _ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit: ; preds = %3, %22
-  %26 = phi i64 [ %13, %3 ], [ %.pre, %22 ]
-  %27 = phi i32 [ %19, %3 ], [ %.pre.i, %22 ]
-  %28 = add i32 %27, -1
-  store i32 %28, ptr %18, align 8, !tbaa !14
-  %29 = add i64 %2, -1
-  %30 = add i64 %29, %26
-  store i64 %30, ptr %6, align 8, !tbaa !267
+  %24 = phi i64 [ %13, %3 ], [ %.pre, %22 ]
+  %25 = phi i32 [ %19, %3 ], [ %.pre.i, %22 ]
+  %26 = add i32 %25, -1
+  store i32 %26, ptr %18, align 8, !tbaa !14
+  %27 = add i64 %2, -1
+  %28 = add i64 %27, %24
+  store i64 %28, ptr %6, align 8, !tbaa !267
   ret void
 }
 

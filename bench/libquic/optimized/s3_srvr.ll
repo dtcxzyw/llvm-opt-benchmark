@@ -3912,7 +3912,7 @@ define hidden i32 @ssl3_send_new_session_ticket(ptr noundef %0) local_unnamed_ad
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %11 = load i32, ptr %10, align 4, !tbaa !43
   %12 = icmp eq i32 %11, 8688
-  br i1 %12, label %13, label %195
+  br i1 %12, label %13, label %194
 
 13:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
@@ -3981,7 +3981,7 @@ define hidden i32 @ssl3_send_new_session_ticket(ptr noundef %0) local_unnamed_ad
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  br label %204
+  br label %203
 
 56:                                               ; preds = %19
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4140,83 +4140,83 @@ define hidden i32 @ssl3_send_new_session_ticket(ptr noundef %0) local_unnamed_ad
   %158 = ptrtoint ptr %157 to i64
   %159 = ptrtoint ptr %138 to i64
   %160 = sub i64 %158, %159
-  %161 = call i32 @HMAC_Update(ptr noundef nonnull %5, ptr noundef nonnull %138, i64 noundef %160) #10
-  %.not90 = icmp eq i32 %161, 0
-  br i1 %.not90, label %.thread, label %162
+  %160 = call i32 @HMAC_Update(ptr noundef nonnull %5, ptr noundef nonnull %138, i64 noundef %160) #10
+  %.not90 = icmp eq i32 %160, 0
+  br i1 %.not90, label %.thread, label %161
 
-162:                                              ; preds = %154
-  %163 = call i32 @HMAC_Final(ptr noundef nonnull %5, ptr noundef nonnull %157, ptr noundef nonnull %7) #10
-  %.not91 = icmp eq i32 %163, 0
-  br i1 %.not91, label %.thread, label %164
+161:                                              ; preds = %154
+  %162 = call i32 @HMAC_Final(ptr noundef nonnull %5, ptr noundef nonnull %157, ptr noundef nonnull %7) #10
+  %.not91 = icmp eq i32 %162, 0
+  br i1 %.not91, label %.thread, label %163
 
-164:                                              ; preds = %162
-  %165 = load i32, ptr %7, align 4, !tbaa !93
-  %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw i8, ptr %157, i64 %166
-  %168 = load ptr, ptr %57, align 8, !tbaa !44
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %170 = load ptr, ptr %169, align 8, !tbaa !90
-  %171 = load ptr, ptr %59, align 8, !tbaa !64
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 96
-  %173 = load i32, ptr %172, align 8, !tbaa !132
-  %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw i8, ptr %170, i64 %174
-  %176 = ptrtoint ptr %167 to i64
-  %177 = ptrtoint ptr %175 to i64
-  %178 = sub i64 %176, %177
-  %179 = trunc i64 %178 to i32
-  store i32 %179, ptr %6, align 4, !tbaa !93
-  %180 = getelementptr inbounds nuw i8, ptr %175, i64 4
-  %181 = add i32 %179, 65530
-  %182 = lshr i32 %181, 8
-  %183 = trunc i32 %182 to i8
-  store i8 %183, ptr %180, align 1, !tbaa !86
-  %184 = load i32, ptr %6, align 4, !tbaa !93
-  %185 = trunc i32 %184 to i8
-  %186 = add i8 %185, -6
-  %187 = getelementptr inbounds nuw i8, ptr %175, i64 5
-  store i8 %186, ptr %187, align 1, !tbaa !86
-  %188 = load ptr, ptr %59, align 8, !tbaa !64
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 104
-  %190 = load ptr, ptr %189, align 8, !tbaa !71
-  %191 = load i32, ptr %6, align 4, !tbaa !93
-  %192 = sext i32 %191 to i64
-  %193 = call i32 %190(ptr noundef nonnull %0, i32 noundef 4, i64 noundef %192) #10
-  %.not92 = icmp eq i32 %193, 0
-  br i1 %.not92, label %.thread, label %194
+163:                                              ; preds = %161
+  %164 = load i32, ptr %7, align 4, !tbaa !93
+  %165 = zext i32 %164 to i64
+  %166 = getelementptr inbounds nuw i8, ptr %157, i64 %165
+  %167 = load ptr, ptr %57, align 8, !tbaa !44
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %169 = load ptr, ptr %168, align 8, !tbaa !90
+  %170 = load ptr, ptr %59, align 8, !tbaa !64
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 96
+  %172 = load i32, ptr %171, align 8, !tbaa !132
+  %173 = zext i32 %172 to i64
+  %174 = getelementptr inbounds nuw i8, ptr %169, i64 %173
+  %175 = ptrtoint ptr %166 to i64
+  %176 = ptrtoint ptr %174 to i64
+  %177 = sub i64 %175, %176
+  %178 = trunc i64 %177 to i32
+  store i32 %178, ptr %6, align 4, !tbaa !93
+  %179 = getelementptr inbounds nuw i8, ptr %174, i64 4
+  %180 = add i32 %178, 65530
+  %181 = lshr i32 %180, 8
+  %182 = trunc i32 %181 to i8
+  store i8 %182, ptr %179, align 1, !tbaa !86
+  %183 = load i32, ptr %6, align 4, !tbaa !93
+  %184 = trunc i32 %183 to i8
+  %185 = add i8 %184, -6
+  %186 = getelementptr inbounds nuw i8, ptr %174, i64 5
+  store i8 %185, ptr %186, align 1, !tbaa !86
+  %187 = load ptr, ptr %59, align 8, !tbaa !64
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 104
+  %189 = load ptr, ptr %188, align 8, !tbaa !71
+  %190 = load i32, ptr %6, align 4, !tbaa !93
+  %191 = sext i32 %190 to i64
+  %192 = call i32 %190(ptr noundef nonnull %0, i32 noundef 4, i64 noundef %191) #10
+  %.not92 = icmp eq i32 %192, 0
+  br i1 %.not92, label %.thread, label %193
 
-.thread:                                          ; preds = %13, %22, %56, %79, %88, %84, %82, %136, %149, %162, %154, %164
+.thread:                                          ; preds = %13, %22, %56, %79, %88, %84, %82, %136, %149, %161, %154, %163
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  br label %201
+  br label %200
 
-194:                                              ; preds = %164
+193:                                              ; preds = %163
   store i32 8689, ptr %10, align 4, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  br label %195
+  br label %194
 
-195:                                              ; preds = %194, %1
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %197 = load ptr, ptr %196, align 8, !tbaa !64
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 112
-  %199 = load ptr, ptr %198, align 8, !tbaa !65
-  %200 = call i32 %199(ptr noundef nonnull %0) #10
-  br label %201
+194:                                              ; preds = %193, %1
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %196 = load ptr, ptr %195, align 8, !tbaa !64
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 112
+  %198 = load ptr, ptr %197, align 8, !tbaa !65
+  %199 = call i32 %199(ptr noundef nonnull %0) #10
+  br label %200
 
-201:                                              ; preds = %.thread, %195
-  %.076 = phi i32 [ %200, %195 ], [ -1, %.thread ]
-  %202 = load ptr, ptr %2, align 8, !tbaa !143
-  call void @free(ptr noundef %202) #10
-  %203 = call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %4) #10
+200:                                              ; preds = %.thread, %194
+  %.076 = phi i32 [ %199, %195 ], [ -1, %.thread ]
+  %201 = load ptr, ptr %2, align 8, !tbaa !143
+  call void @free(ptr noundef %201) #10
+  %202 = call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %4) #10
   call void @HMAC_CTX_cleanup(ptr noundef nonnull %5) #10
-  br label %204
+  br label %203
 
-204:                                              ; preds = %.thread96, %201
+203:                                              ; preds = %.thread96, %200
   %.2 = phi i32 [ %.076, %201 ], [ %55, %.thread96 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #10

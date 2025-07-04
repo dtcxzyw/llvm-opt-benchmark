@@ -20,11 +20,11 @@ define dso_local noundef range(i64 0, 2) i64 @parse_header(ptr noundef %0, ptr n
   %5 = icmp slt i64 %2, 33
   br i1 %5, label %.loopexit, label %6
 
-6:                                                ; preds = %3
+6:; preds = %3
   %7 = getelementptr i8, ptr %0, i64 9
   br label %8
 
-8:                                                ; preds = %15, %6
+8:; preds = %15, %6
   %9 = phi i64 [ 0, %6 ], [ %17, %15 ]
   %10 = phi ptr [ %0, %6 ], [ %16, %15 ]
   %11 = load i8, ptr %10, align 1
@@ -33,13 +33,13 @@ define dso_local noundef range(i64 0, 2) i64 @parse_header(ptr noundef %0, ptr n
   %14 = icmp eq i8 %11, %13
   br i1 %14, label %15, label %.loopexit
 
-15:                                               ; preds = %8
+15:; preds = %8
   %16 = getelementptr i8, ptr %10, i64 1
   %17 = add nuw nsw i64 %9, 1
   %18 = icmp eq i64 %17, 9
   br i1 %18, label %19, label %8, !llvm.loop !5
 
-19:                                               ; preds = %15
+19:; preds = %15
   %20 = load i16, ptr %7, align 1
   %21 = tail call i16 @llvm.bswap.i16(i16 %20)
   %22 = icmp ugt i16 %21, 2367
@@ -56,7 +56,7 @@ define dso_local noundef range(i64 0, 2) i64 @parse_header(ptr noundef %0, ptr n
   %28 = icmp slt i64 %gepdiff, 13
   br i1 %28, label %.loopexit, label %29
 
-29:                                               ; preds = %19
+29:; preds = %19
   %30 = select i1 %27, i64 4, i64 8
   %31 = getelementptr i8, ptr %24, i64 %30
   %32 = ptrtoint ptr %4 to i64
@@ -67,21 +67,21 @@ define dso_local noundef range(i64 0, 2) i64 @parse_header(ptr noundef %0, ptr n
   %37 = zext i8 %36 to i64
   %38 = ptrtoint ptr %35 to i64
   %39 = sub i64 %32, %38
-  %40 = add nuw nsw i64 %37, 4
-  %41 = icmp slt i64 %39, %40
-  br i1 %41, label %.loopexit, label %42
+  %37 = add nuw nsw i64 %37, 4
+  %38 = icmp slt i64 %39, %37
+  br i1 %38, label %.loopexit, label %39
 
-42:                                               ; preds = %29
-  %43 = getelementptr i8, ptr %35, i64 %40
+39:                                               ; preds = %29
+  %43 = getelementptr i8, ptr %35, i64 %37
   %44 = ptrtoint ptr %43 to i64
   %45 = ptrtoint ptr %0 to i64
   %46 = sub i64 %44, %45
   store i64 %46, ptr %1, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %42, %29, %19, %3
-  %47 = phi i64 [ 1, %42 ], [ 0, %3 ], [ 0, %19 ], [ 0, %29 ], [ 0, %8 ]
-  ret i64 %47
+.loopexit:                                        ; preds = %8, %39, %29, %19, %3
+  %43 = phi i64 [ 1, %42 ], [ 0, %3 ], [ 0, %19 ], [ 0, %29 ], [ 0, %8 ]
+  ret i64 %43
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

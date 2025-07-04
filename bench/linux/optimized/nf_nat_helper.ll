@@ -152,37 +152,37 @@ define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32
   %29 = getelementptr i8, ptr %13, i64 %28
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %25 to i64
-  %32 = sub i64 %30, %31
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %23, ptr align 1 %25, i64 %32, i1 false)
+  %gepdiff = sub i64 %30, %31
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %23, ptr align 1 %25, i64 %gepdiff, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %4, i64 %22, i1 false)
-  %33 = icmp ugt i32 %5, %3
-  br i1 %33, label %34, label %37
+  %32 = icmp ugt i32 %5, %3
+  br i1 %32, label %33, label %36
 
-34:                                               ; preds = %11
-  %35 = sub nuw i32 %5, %3
-  %36 = tail call ptr @skb_put(ptr noundef %0, i32 noundef %35) #5
+33:                                               ; preds = %11
+  %34 = sub nuw i32 %5, %3
+  %35 = tail call ptr @skb_put(ptr noundef %0, i32 noundef %34) #5
   br label %54
 
-37:                                               ; preds = %11
-  %38 = load i32, ptr %7, align 4
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %41, label %40, !prof !5
+36:                                               ; preds = %11
+  %37 = load i32, ptr %7, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %40, label %39, !prof !5
 
-40:                                               ; preds = %37
+39:                                               ; preds = %36
   tail call void asm sideeffect "414: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 414b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 414) #5, !srcloc !8
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 3061, i32 2305, i64 12) #5, !srcloc !9
   tail call void asm sideeffect "415: nop\0A\09.pushsection .discard.instr_end\0A\09.long 415b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 415) #5, !srcloc !10
   br label %54
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %43 = load i32, ptr %42, align 8
-  %44 = sub i32 %5, %3
-  %45 = add i32 %43, %44
-  store i32 %45, ptr %42, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %12, align 8
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %42 = load i32, ptr %41, align 8
+  %43 = sub i32 %5, %3
+  %44 = add i32 %42, %43
+  store i32 %44, ptr %41, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %12, align 8
   %49 = ptrtoint ptr %47 to i64
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
@@ -191,7 +191,7 @@ define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32
   store i32 %53, ptr %26, align 8
   br label %54
 
-54:                                               ; preds = %41, %40, %34
+54: ; preds = %40, %40, %34
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, -8
@@ -204,7 +204,7 @@ define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32
   %64 = trunc i32 %63 to i16
   br i1 %61, label %65, label %76
 
-65:                                               ; preds = %54
+65:; preds = %54
   %66 = tail call i16 @llvm.bswap.i16(i16 %64)
   %67 = load ptr, ptr %12, align 8
   %68 = load i16, ptr %14, align 4
@@ -219,7 +219,7 @@ define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32
   tail call void @ip_send_check(ptr noundef %75) #5
   br label %84
 
-76:                                               ; preds = %54
+76:; preds = %54
   %77 = add i16 %64, -40
   %78 = tail call i16 @llvm.bswap.i16(i16 %77)
   %79 = load ptr, ptr %12, align 8

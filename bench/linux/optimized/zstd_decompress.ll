@@ -2133,31 +2133,31 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   store i32 0, ptr %6, align 4, !annotation !11
   %gepdiff = sub i64 %19, %20
-  %25 = call i64 @FSE_readNCount(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %23, i64 noundef %gepdiff) #10
-  %26 = icmp ult i64 %25, -119
-  br i1 %26, label %27, label %.thread
+  %24 = call i64 @FSE_readNCount(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %23, i64 noundef %gepdiff) #10
+  %25 = icmp ult i64 %24, -119
+  br i1 %25, label %26, label %.thread
 
-27:                                               ; preds = %24
-  %28 = load i32, ptr %5, align 4
-  %29 = icmp ugt i32 %28, 31
-  br i1 %29, label %.thread, label %30
+26:                                               ; preds = %24
+  %27 = load i32, ptr %5, align 4
+  %28 = icmp ugt i32 %27, 31
+  br i1 %28, label %.thread, label %29
 
-30:                                               ; preds = %27
-  %31 = load i32, ptr %6, align 4
-  %32 = icmp ugt i32 %31, 8
-  br i1 %32, label %.thread, label %33
+29:                                               ; preds = %26
+  %30 = load i32, ptr %6, align 4
+  %31 = icmp ugt i32 %30, 8
+  br i1 %31, label %.thread, label %32
 
-.thread:                                          ; preds = %24, %27, %30
+.thread:                                          ; preds = %24, %26, %29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
   br label %.thread18
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4104
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 26664
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %34, ptr noundef nonnull %4, i32 noundef %28, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %31, ptr noundef nonnull %35, i64 noundef 628, i32 noundef 0) #10
-  %36 = getelementptr i8, ptr %23, i64 %25
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4104
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 26664
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %33, ptr noundef nonnull %4, i32 noundef %27, ptr noundef nonnull @OF_base, ptr noundef nonnull @OF_bits, i32 noundef %30, ptr noundef nonnull %34, i64 noundef 628, i32 noundef 0) #10
+  %35 = getelementptr i8, ptr %23, i64 %24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
@@ -2167,32 +2167,32 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   store i32 52, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
   store i32 0, ptr %9, align 4, !annotation !11
-  %37 = add i64 %20, %25
-  %gepdiff20 = sub i64 %19, %37
-  %38 = call i64 @FSE_readNCount(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %36, i64 noundef %gepdiff20) #10
-  %39 = icmp ult i64 %38, -119
-  br i1 %39, label %40, label %.thread15
+  %36 = add i64 %20, %24
+  %gepdiff20 = sub i64 %19, %36
+  %37 = call i64 @FSE_readNCount(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %35, i64 noundef %gepdiff20) #10
+  %38 = icmp ult i64 %37, -119
+  br i1 %38, label %39, label %.thread15
 
-40:                                               ; preds = %33
-  %41 = load i32, ptr %8, align 4
-  %42 = icmp ugt i32 %41, 52
-  br i1 %42, label %.thread15, label %43
+39:                                               ; preds = %32
+  %40 = load i32, ptr %8, align 4
+  %41 = icmp ugt i32 %40, 52
+  br i1 %41, label %.thread15, label %42
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr %9, align 4
-  %45 = icmp ugt i32 %44, 9
-  br i1 %45, label %.thread15, label %46
+42:                                               ; preds = %39
+  %43 = load i32, ptr %9, align 4
+  %44 = icmp ugt i32 %43, 9
+  br i1 %44, label %.thread15, label %45
 
-.thread15:                                        ; preds = %33, %40, %43
+.thread15:                                        ; preds = %32, %39, %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #10
   br label %.thread18
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 6160
-  call void @ZSTD_buildFSETable(ptr noundef nonnull %47, ptr noundef nonnull %7, i32 noundef %41, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, i32 noundef %44, ptr noundef nonnull %35, i64 noundef 628, i32 noundef 0) #10
-  %48 = getelementptr i8, ptr %36, i64 %38
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 6160
+  call void @ZSTD_buildFSETable(ptr noundef nonnull %46, ptr noundef nonnull %7, i32 noundef %40, ptr noundef nonnull @ML_base, ptr noundef nonnull @ML_bits, i32 noundef %43, ptr noundef nonnull %34, i64 noundef 628, i32 noundef 0) #10
+  %47 = getelementptr i8, ptr %35, i64 %37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #10
@@ -2202,39 +2202,39 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   store i32 35, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #10
   store i32 0, ptr %12, align 4, !annotation !11
-  %49 = ptrtoint ptr %48 to i64
-  %50 = sub i64 %18, %49
-  %51 = call i64 @FSE_readNCount(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %48, i64 noundef %50) #10
-  %52 = icmp ult i64 %51, -119
-  br i1 %52, label %53, label %.thread17
+  %49 = ptrtoint ptr %47 to i64
+  %gepdiff21 = sub i64 %18, %49
+  %49 = call i64 @FSE_readNCount(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %47, i64 noundef %gepdiff21) #10
+  %50 = icmp ult i64 %49, -119
+  br i1 %50, label %51, label %.thread17
 
-53:                                               ; preds = %46
-  %54 = load i32, ptr %11, align 4
-  %55 = icmp ugt i32 %54, 35
-  br i1 %55, label %.thread17, label %56
+51:                                               ; preds = %45
+  %52 = load i32, ptr %11, align 4
+  %53 = icmp ugt i32 %52, 35
+  br i1 %53, label %.thread17, label %54
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %12, align 4
-  %58 = icmp ugt i32 %57, 9
-  br i1 %58, label %.thread17, label %59
+54:                                               ; preds = %51
+  %55 = load i32, ptr %12, align 4
+  %56 = icmp ugt i32 %55, 9
+  br i1 %56, label %.thread17, label %57
 
-.thread17:                                        ; preds = %46, %53, %56
+.thread17:                                        ; preds = %45, %51, %54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #10
   br label %.thread18
 
-59:                                               ; preds = %56
-  call void @ZSTD_buildFSETable(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %54, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %57, ptr noundef nonnull %35, i64 noundef 628, i32 noundef 0) #10
-  %60 = getelementptr i8, ptr %48, i64 %51
+57:                                               ; preds = %54
+  call void @ZSTD_buildFSETable(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %52, ptr noundef nonnull @LL_base, ptr noundef nonnull @LL_bits, i32 noundef %55, ptr noundef nonnull %34, i64 noundef 628, i32 noundef 0) #10
+  %58 = getelementptr i8, ptr %47, i64 %49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #10
-  %61 = getelementptr i8, ptr %60, i64 12
-  %62 = icmp ugt ptr %61, %13
-  br i1 %62, label %.thread18, label %63
+  %59 = getelementptr i8, ptr %58, i64 12
+  %60 = icmp ugt ptr %59, %13
+  br i1 %60, label %.thread18, label %61
 
-63:                                               ; preds = %59
+61:                                               ; preds = %57
   %64 = ptrtoint ptr %61 to i64
   %65 = sub i64 %18, %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 26652
@@ -2249,39 +2249,39 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   %72 = getelementptr i8, ptr %60, i64 4
   br label %.preheader
 
-73:                                               ; preds = %.preheader
-  %74 = load i32, ptr %80, align 1
-  %75 = getelementptr i8, ptr %80, i64 4
-  %76 = icmp eq i32 %74, 0
-  %77 = zext i32 %74 to i64
-  %78 = icmp ult i64 %65, %77
-  %79 = or i1 %76, %78
-  br i1 %79, label %86, label %.preheader, !llvm.loop !14
+70:                                               ; preds = %.preheader
+  %71 = load i32, ptr %77, align 1
+  %72 = getelementptr i8, ptr %77, i64 4
+  %73 = icmp eq i32 %71, 0
+  %74 = zext i32 %71 to i64
+  %75 = icmp ult i64 %65, %74
+  %76 = or i1 %73, %75
+  br i1 %76, label %83, label %.preheader, !llvm.loop !14
 
-.preheader:                                       ; preds = %.preheader.preheader, %73
-  %80 = phi ptr [ %75, %73 ], [ %72, %.preheader.preheader ]
-  %81 = phi i32 [ %74, %73 ], [ %67, %.preheader.preheader ]
-  %82 = phi i64 [ %84, %73 ], [ 0, %.preheader.preheader ]
-  %83 = getelementptr [3 x i32], ptr %66, i64 0, i64 %82
-  store i32 %81, ptr %83, align 4
-  %84 = add nuw nsw i64 %82, 1
-  %85 = icmp eq i64 %84, 3
-  br i1 %85, label %.thread19, label %73, !llvm.loop !14
+.preheader:                                       ; preds = %.preheader.preheader, %70
+  %77 = phi ptr [ %72, %73 ], [ %72, %.preheader.preheader ]
+  %78 = phi i32 [ %71, %73 ], [ %67, %.preheader.preheader ]
+  %79 = phi i64 [ %81, %73 ], [ 0, %.preheader.preheader ]
+  %80 = getelementptr [3 x i32], ptr %66, i64 0, i64 %79
+  store i32 %78, ptr %80, align 4
+  %81 = add nuw nsw i64 %79, 1
+  %82 = icmp eq i64 %81, 3
+  br i1 %82, label %.thread19, label %70, !llvm.loop !14
 
-86:                                               ; preds = %73
-  %87 = icmp samesign ugt i64 %82, 1
-  br i1 %87, label %.thread19, label %.thread18
+83:                                               ; preds = %70
+  %84 = icmp samesign ugt i64 %79, 1
+  br i1 %84, label %.thread19, label %.thread18
 
-.thread19:                                        ; preds = %.preheader, %86
-  %88 = phi ptr [ %75, %86 ], [ %80, %.preheader ]
-  %89 = ptrtoint ptr %88 to i64
-  %90 = ptrtoint ptr %1 to i64
-  %91 = sub i64 %89, %90
+.thread19:                                        ; preds = %.preheader, %83
+  %85 = phi ptr [ %72, %86 ], [ %77, %.preheader ]
+  %86 = ptrtoint ptr %85 to i64
+  %87 = ptrtoint ptr %1 to i64
+  %88 = sub i64 %86, %87
   br label %.thread18
 
-.thread18:                                        ; preds = %63, %.thread17, %.thread15, %.thread, %.thread19, %86, %59, %15, %3
-  %92 = phi i64 [ %91, %.thread19 ], [ -30, %86 ], [ -30, %15 ], [ -30, %3 ], [ -30, %59 ], [ -30, %.thread ], [ -30, %.thread15 ], [ -30, %.thread17 ], [ -30, %63 ]
-  ret i64 %92
+.thread18:                                        ; preds = %61, %.thread17, %.thread15, %.thread, %.thread19, %83, %57, %15, %3
+  %89 = phi i64 [ %88, %.thread19 ], [ -30, %86 ], [ -30, %15 ], [ -30, %3 ], [ -30, %59 ], [ -30, %.thread ], [ -30, %.thread15 ], [ -30, %.thread17 ], [ -30, %63 ]
+  ret i64 %89
 }
 
 ; Function Attrs: null_pointer_is_valid
