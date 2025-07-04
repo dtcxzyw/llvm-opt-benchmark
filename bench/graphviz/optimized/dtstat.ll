@@ -93,7 +93,7 @@ dthstat.exit:                                     ; preds = %34, %19
   br i1 %39, label %40, label %dthstat.exit._crit_edge
 
 dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
-  %.pre83 = load ptr, ptr @dtstat.Count, align 8, !tbaa !26
+  %.pre82 = load ptr, ptr @dtstat.Count, align 8, !tbaa !26
   br label %50
 
 40:                                               ; preds = %dthstat.exit
@@ -121,14 +121,14 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   br label %50
 
 50:                                               ; preds = %dthstat.exit._crit_edge, %48
-  %51 = phi ptr [ %.pre83, %dthstat.exit._crit_edge ], [ %47, %48 ]
+  %51 = phi ptr [ %.pre82, %dthstat.exit._crit_edge ], [ %47, %48 ]
   br label %63
 
 52:                                               ; preds = %63
   %.val62 = load ptr, ptr %20, align 8
   %.val63 = load i32, ptr %21, align 8, !tbaa !18
   %53 = icmp sgt i32 %.val63, 0
-  br i1 %53, label %.lr.ph.split.i.preheader, label %dthstat.exit75
+  br i1 %53, label %.lr.ph.split.i.preheader, label %dthstat.exit74
 
 .lr.ph.split.i.preheader:                         ; preds = %52
   %.0141.i65 = add nsw i32 %.val63, -1
@@ -159,10 +159,10 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   br i1 %exitcond.not.i, label %dthstat.exit75, label %.lr.ph.split.i, !llvm.loop !24
 
 63:                                               ; preds = %50, %63
-  %.04478 = phi i64 [ 0, %50 ], [ %65, %63 ]
-  %64 = getelementptr inbounds nuw i64, ptr %51, i64 %.04478
+  %.04477 = phi i64 [ 0, %50 ], [ %65, %63 ]
+  %64 = getelementptr inbounds nuw i64, ptr %51, i64 %.04477
   store i64 0, ptr %64, align 8, !tbaa !25
-  %65 = add i64 %.04478, 1
+  %65 = add i64 %.04477, 1
   %66 = load i64, ptr %10, align 8, !tbaa !23
   %.not60 = icmp ugt i64 %65, %66
   br i1 %.not60, label %52, label %63, !llvm.loop !27
@@ -170,13 +170,13 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 67:                                               ; preds = %17
   %68 = and i32 %15, 12
   %.not52 = icmp eq i32 %68, 0
-  br i1 %.not52, label %dthstat.exit75, label %69
+  br i1 %.not52, label %dthstat.exit74, label %69
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load ptr, ptr %70, align 8, !tbaa !28
   %.not53 = icmp eq ptr %71, null
-  br i1 %.not53, label %dthstat.exit75, label %72
+  br i1 %.not53, label %dthstat.exit74, label %72
 
 72:                                               ; preds = %69
   tail call fastcc void @dttstat(ptr noundef nonnull %1, ptr noundef nonnull %71, i64 noundef 0, ptr noundef null)
@@ -187,7 +187,7 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   br i1 %76, label %77, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72
-  %.pre85 = load ptr, ptr @dtstat.Count, align 8, !tbaa !26
+  %.pre84 = load ptr, ptr @dtstat.Count, align 8, !tbaa !26
   br label %87
 
 77:                                               ; preds = %72
@@ -197,11 +197,11 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 78:                                               ; preds = %77
   %79 = load ptr, ptr @dtstat.Count, align 8, !tbaa !26
   tail call void @free(ptr noundef %79) #7
-  %.pre84 = load i64, ptr %11, align 8, !tbaa !22
+  %.pre83 = load i64, ptr %11, align 8, !tbaa !22
   br label %80
 
 80:                                               ; preds = %78, %77
-  %81 = phi i64 [ %.pre84, %78 ], [ %73, %77 ]
+  %81 = phi i64 [ %.pre83, %78 ], [ %73, %77 ]
   %82 = shl i64 %81, 2
   %83 = add i64 %82, 4
   %84 = tail call noalias ptr @malloc(i64 noundef %83) #8
@@ -215,7 +215,7 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   br label %87
 
 87:                                               ; preds = %._crit_edge, %85
-  %88 = phi ptr [ %.pre85, %._crit_edge ], [ %84, %85 ]
+  %88 = phi ptr [ %.pre84, %._crit_edge ], [ %84, %85 ]
   br label %93
 
 89:                                               ; preds = %93
@@ -228,18 +228,18 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   br label %97
 
 93:                                               ; preds = %87, %93
-  %.04379 = phi i64 [ 0, %87 ], [ %95, %93 ]
-  %94 = getelementptr inbounds nuw i64, ptr %88, i64 %.04379
+  %.04378 = phi i64 [ 0, %87 ], [ %95, %93 ]
+  %94 = getelementptr inbounds nuw i64, ptr %88, i64 %.04378
   store i64 0, ptr %94, align 8, !tbaa !25
-  %95 = add i64 %.04379, 1
+  %95 = add i64 %.04378, 1
   %96 = load i64, ptr %11, align 8, !tbaa !22
   %.not56 = icmp ugt i64 %95, %96
   br i1 %.not56, label %89, label %93, !llvm.loop !29
 
 97:                                               ; preds = %89, %103
-  %.080 = phi i64 [ 0, %89 ], [ %105, %103 ]
+  %.079 = phi i64 [ 0, %89 ], [ %105, %103 ]
   %98 = phi i64 [ %.promoted, %89 ], [ %104, %103 ]
-  %99 = getelementptr inbounds nuw i64, ptr %88, i64 %.080
+  %99 = getelementptr inbounds nuw i64, ptr %88, i64 %.079
   %100 = load i64, ptr %99, align 8, !tbaa !25
   %101 = icmp ugt i64 %100, %98
   br i1 %101, label %102, label %103
@@ -250,16 +250,16 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 
 103:                                              ; preds = %97, %102
   %104 = phi i64 [ %98, %97 ], [ %100, %102 ]
-  %105 = add nuw i64 %.080, 1
+  %105 = add nuw i64 %.079, 1
   %exitcond = icmp eq i64 %105, %umax
-  br i1 %exitcond, label %dthstat.exit75, label %97, !llvm.loop !30
+  br i1 %exitcond, label %dthstat.exit74, label %97, !llvm.loop !30
 
-dthstat.exit75:                                   ; preds = %58, %103, %52, %67, %69
+dthstat.exit74:                                   ; preds = %58, %103, %52, %67, %69
   %106 = load ptr, ptr @dtstat.Count, align 8, !tbaa !26
   store ptr %106, ptr %12, align 8, !tbaa !31
   br label %107
 
-107:                                              ; preds = %80, %43, %9, %dthstat.exit75
+107:                                              ; preds = %80, %43, %9, %dthstat.exit74
   %.045 = phi i32 [ 0, %dthstat.exit75 ], [ 0, %9 ], [ -1, %43 ], [ -1, %80 ]
   ret i32 %.045
 }

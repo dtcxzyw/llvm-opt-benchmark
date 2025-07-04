@@ -548,11 +548,11 @@ define noalias noundef ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) 
   br label %.lr.ph80
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
-  %33 = phi float [ %.pre, %.lr.ph74.preheader ], [ %49, %.lr.ph74 ]
+  %35 = phi float [ %.pre, %.lr.ph74.preheader ], [ %49, %.lr.ph74 ]
   %indvars.iv86 = phi i64 [ 1, %.lr.ph74.preheader ], [ %indvars.iv.next87, %.lr.ph74 ]
   %.idx = mul i64 %indvars.iv86, 12
-  %34 = getelementptr i8, ptr %1, i64 %.idx
-  %35 = getelementptr i8, ptr %34, i64 -4
+  %36 = getelementptr i8, ptr %1, i64 %.idx
+  %37 = getelementptr i8, ptr %36, i64 -4
   %36 = load float, ptr %35, align 4, !tbaa !6
   %37 = getelementptr i8, ptr %34, i64 -8
   %38 = load float, ptr %37, align 4, !tbaa !6
@@ -576,8 +576,8 @@ define noalias noundef ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) 
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
   %indvars.iv91 = phi i64 [ %32, %.lr.ph80.preheader ], [ %indvars.iv.next92, %.lr.ph80 ]
-  %50 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv91
-  %51 = load float, ptr %50, align 4, !tbaa !6
+  %52 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv91
+  %53 = load float, ptr %52, align 4, !tbaa !6
   %52 = add nuw nsw i64 %indvars.iv91, 1
   %.idx97 = mul nuw nsw i64 %52, 12
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx97
@@ -588,9 +588,9 @@ define noalias noundef ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) 
   %58 = fsub reassoc nsz arcp contract afn float %51, %57
   %gep77.idx = mul nuw nsw i64 %indvars.iv91, 12
   %gep77 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep77.idx
-  %59 = load float, ptr %gep77, align 4, !tbaa !6
-  %60 = fdiv reassoc nsz arcp contract afn float %58, %59
-  store float %60, ptr %50, align 4, !tbaa !6
+  %58 = load float, ptr %gep77, align 4, !tbaa !6
+  %59 = fdiv reassoc nsz arcp contract afn float %58, %58
+  store float %59, ptr %52, align 4, !tbaa !6
   %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
   %61 = and i64 %indvars.iv.next92, 4294967295
   %exitcond94.not = icmp eq i64 %61, 4294967295

@@ -220,7 +220,7 @@ define hidden void @WebPMultARGBRows(ptr noundef %0, i32 noundef %1, i32 noundef
   %.09 = phi i32 [ 0, %.lr.ph ], [ %11, %8 ]
   %.078 = phi ptr [ %0, %.lr.ph ], [ %10, %8 ]
   %9 = load ptr, ptr @WebPMultARGBRow, align 8, !tbaa !11
-  tail call void %9(ptr noundef %.078, i32 noundef %2, i32 noundef %4) #6
+  tail call void %9(ptr noundef %.078, i32 noundef %2, i32 noundef %4) #5
   %10 = getelementptr inbounds i8, ptr %.078, i64 %7
   %11 = add nuw nsw i32 %.09, 1
   %exitcond.not = icmp eq i32 %11, %3
@@ -245,7 +245,7 @@ define hidden void @WebPMultRows(ptr noalias noundef %0, i32 noundef %1, ptr noa
   %.01013 = phi ptr [ %0, %.lr.ph ], [ %13, %11 ]
   %.01112 = phi ptr [ %2, %.lr.ph ], [ %14, %11 ]
   %12 = load ptr, ptr @WebPMultRow, align 8, !tbaa !11
-  tail call void %12(ptr noundef %.01013, ptr noundef %.01112, i32 noundef %4, i32 noundef %6) #6
+  tail call void %12(ptr noundef %.01013, ptr noundef %.01112, i32 noundef %4, i32 noundef %6) #5
   %13 = getelementptr inbounds i8, ptr %.01013, i64 %9
   %14 = getelementptr inbounds i8, ptr %.01112, i64 %10
   %15 = add nuw nsw i32 %.014, 1
@@ -258,7 +258,7 @@ define hidden void @WebPMultRows(ptr noalias noundef %0, i32 noundef %1, ptr noa
 
 ; Function Attrs: nounwind uwtable
 define hidden void @WebPInitAlphaProcessing() local_unnamed_addr #1 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #6
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #5
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %14
 
@@ -285,25 +285,25 @@ define hidden void @WebPInitAlphaProcessing() local_unnamed_addr #1 {
   br i1 %.not.i, label %WebPInitAlphaProcessing_body.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 %4(i32 noundef 0) #6
+  %7 = tail call i32 %4(i32 noundef 0) #5
   %.not1.i = icmp eq i32 %7, 0
   br i1 %.not1.i, label %WebPInitAlphaProcessing_body.exit, label %8
 
 8:                                                ; preds = %6
-  tail call void @WebPInitAlphaProcessingSSE2() #6
+  tail call void @WebPInitAlphaProcessingSSE2() #5
   %9 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !11
-  %10 = tail call i32 %9(i32 noundef 3) #6
+  %10 = tail call i32 %9(i32 noundef 3) #5
   %.not2.i = icmp eq i32 %10, 0
   br i1 %.not2.i, label %WebPInitAlphaProcessing_body.exit, label %11
 
 11:                                               ; preds = %8
-  tail call void @WebPInitAlphaProcessingSSE41() #6
+  tail call void @WebPInitAlphaProcessingSSE41() #5
   br label %WebPInitAlphaProcessing_body.exit
 
 WebPInitAlphaProcessing_body.exit:                ; preds = %11, %8, %6, %5, %2
   %12 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !11
   store volatile ptr %12, ptr @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_last_cpuinfo_used, align 8, !tbaa !11
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #6
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #5
   br label %14
 
 14:                                               ; preds = %0, %WebPInitAlphaProcessing_body.exit
@@ -379,8 +379,8 @@ define internal void @ApplyAlphaMultiply_16b_C(ptr noundef captures(none) %0, i3
 ._crit_edge.us.i:                                 ; preds = %8
   %41 = add nsw i32 %.in.i, -1
   %42 = getelementptr inbounds i8, ptr %.032.us.i, i64 %7
-  %exitcond36.not.i = icmp eq i32 %41, 0
-  br i1 %exitcond36.not.i, label %ApplyAlphaMultiply4444_C.exit, label %.preheader.us.i, !llvm.loop !16
+  %43 = icmp eq i32 %41, 0
+  br i1 %43, label %ApplyAlphaMultiply4444_C.exit, label %.preheader.us.i, !llvm.loop !16
 
 ApplyAlphaMultiply4444_C.exit:                    ; preds = %._crit_edge.us.i, %4, %.preheader.lr.ph.i
   ret void
@@ -490,8 +490,8 @@ define internal void @ApplyAlphaMultiply_C(ptr noundef captures(none) %0, i32 no
 
 ._crit_edge.us:                                   ; preds = %39
   %40 = getelementptr inbounds i8, ptr %.033.us, i64 %10
-  %exitcond39.not = icmp eq i32 %11, 0
-  br i1 %exitcond39.not, label %._crit_edge36, label %.lr.ph.us, !llvm.loop !19
+  %41 = icmp eq i32 %11, 0
+  br i1 %41, label %._crit_edge36, label %.lr.ph.us, !llvm.loop !19
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.lr.ph35, %5
   ret void
@@ -676,20 +676,20 @@ define internal range(i32 0, 2) i32 @HasAlpha8b_C(ptr noundef readonly captures(
   %smin = tail call i32 @llvm.smin.i32(i32 %1, i32 0)
   br label %3
 
-3:                                                ; preds = %4, %2
-  %.02 = phi ptr [ %0, %2 ], [ %6, %4 ]
-  %.0 = phi i32 [ %1, %2 ], [ %5, %4 ]
-  %exitcond.not = icmp eq i32 %.0, %smin
-  br i1 %exitcond.not, label %8, label %4
+3:                                                ; preds = %5, %2
+  %.02 = phi ptr [ %0, %2 ], [ %7, %4 ]
+  %.0 = phi i32 [ %1, %2 ], [ %6, %4 ]
+  %4 = icmp eq i32 %.0, %smin
+  br i1 %4, label %8, label %4
 
-4:                                                ; preds = %3
-  %5 = add i32 %.0, -1
-  %6 = getelementptr inbounds nuw i8, ptr %.02, i64 1
-  %7 = load i8, ptr %.02, align 1, !tbaa !9
-  %.not = icmp eq i8 %7, -1
-  br i1 %.not, label %3, label %8, !llvm.loop !27
+5:                                                ; preds = %3
+  %6 = add i32 %.0, -1
+  %7 = getelementptr inbounds nuw i8, ptr %.02, i64 1
+  %8 = load i8, ptr %.02, align 1, !tbaa !9
+  %.not = icmp eq i8 %8, -1
+  br i1 %.not, label %3, label %9, !llvm.loop !27
 
-8:                                                ; preds = %3, %4
+9:                                                ; preds = %3, %5
   %.03 = phi i32 [ 1, %4 ], [ 0, %3 ]
   ret i32 %.03
 }
@@ -702,15 +702,15 @@ define internal range(i32 0, 2) i32 @HasAlpha32b_C(ptr noundef readonly captures
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %5 = add i32 %.in, -1
-  %exitcond.not = icmp eq i32 %5, 0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %2, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %2 ]
   %.in = phi i32 [ %5, %4 ], [ %1, %2 ]
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %7 = load i8, ptr %6, align 1, !tbaa !9
-  %.not = icmp eq i8 %7, -1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %8 = load i8, ptr %7, align 1, !tbaa !9
+  %.not = icmp eq i8 %8, -1
   br i1 %.not, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %2

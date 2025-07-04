@@ -4400,7 +4400,7 @@ while.end236:                                     ; preds = %while.end236.loopex
   br i1 %cmp254257, label %land.rhs255.preheader, label %while.end265
 
 land.rhs255.preheader:                            ; preds = %45
-  %conv251 = zext nneg i16 %.pre to i32
+  %47 = zext nneg i16 %.pre to i32
   %47 = zext nneg i16 %.pre to i64
   %48 = add i32 %nExponentAdd.1324, %conv251
   %49 = add i32 %48, -1
@@ -4421,7 +4421,7 @@ while.body262:                                    ; preds = %land.rhs255
   %exitcond289.not = icmp eq i64 %51, 1
   br i1 %exitcond289.not, label %if.then267, label %land.rhs255, !llvm.loop !42
 
-while.end265:                                     ; preds = %45
+while.end265:; preds = %45
   %cmp266 = icmp eq i16 %.pre, 1
   br i1 %cmp266, label %if.then267, label %if.else271
 
@@ -5482,7 +5482,7 @@ if.end94:                                         ; preds = %if.then86, %if.then
 sw.bb99:                                          ; preds = %while.body
   %10 = and i32 %c.0266, 65280
   %cmp.i161 = icmp eq i32 %10, 0
-  br i1 %cmp.i161, label %_ZN2EA4StdC7ToupperEDs.exit, label %while.end236.loopexit440
+  br i1 %cmp.i161, label %_ZN2EA4StdC7ToupperEDs.exit, label %while.end236.loopexit433
 
 _ZN2EA4StdC7ToupperEDs.exit:                      ; preds = %sw.bb99
   %conv100.mask = and i32 %c.0266, 255
@@ -5490,7 +5490,7 @@ _ZN2EA4StdC7ToupperEDs.exit:                      ; preds = %sw.bb99
   %arrayidx.i165 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WUPPER_MAPE, i64 0, i64 %conv.i164
   %11 = load i8, ptr %arrayidx.i165, align 1
   %cmp103 = icmp eq i8 %11, 69
-  br i1 %cmp103, label %if.then104, label %while.end236.loopexit440
+  br i1 %cmp103, label %if.then104, label %while.end236.loopexit433
 
 if.then104:                                       ; preds = %_ZN2EA4StdC7ToupperEDs.exit
   %call105 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
@@ -5542,7 +5542,7 @@ sw.bb140:                                         ; preds = %while.body
   %conv141 = trunc i32 %c.0266 to i16
   %13 = add i16 %conv141, -58
   %cmp.i168 = icmp ult i16 %13, -10
-  br i1 %cmp.i168, label %while.end236.loopexit440, label %if.then144
+  br i1 %cmp.i168, label %while.end236.loopexit433, label %if.then144
 
 if.then144:                                       ; preds = %sw.bb140
   %mul = mul nsw i32 %nExponent.0261, 10
@@ -5721,9 +5721,9 @@ sw.epilog235:                                     ; preds = %sw.bb133, %if.else1
   %or.cond146.not204 = select i1 %cmp.not, i1 %cmp2.not, i1 false
   %tobool.not = icmp samesign ult i32 %state.1, 16384
   %or.cond147 = select i1 %or.cond146.not204, i1 %tobool.not, i1 false
-  br i1 %or.cond147, label %while.body, label %while.end236.loopexit440, !llvm.loop !50
+  br i1 %or.cond147, label %while.body, label %while.end236.loopexit433, !llvm.loop !50
 
-while.end236.loopexit440:                         ; preds = %sw.epilog235, %_ZN2EA4StdC7ToupperEDs.exit, %sw.bb140, %sw.bb99
+while.end236.loopexit433:                         ; preds = %sw.epilog235, %_ZN2EA4StdC7ToupperEDs.exit, %sw.bb140, %sw.bb99
   %c.1348.ph = phi i32 [ %c.1, %sw.epilog235 ], [ %c.0266, %sw.bb99 ], [ %c.0266, %sw.bb140 ], [ %c.0266, %_ZN2EA4StdC7ToupperEDs.exit ]
   %state.1347.ph = phi i32 [ %state.1, %sw.epilog235 ], [ 16384, %sw.bb99 ], [ 16384, %sw.bb140 ], [ 16384, %_ZN2EA4StdC7ToupperEDs.exit ]
   %bExponentNegative.1346.ph = phi i1 [ %bExponentNegative.1, %sw.epilog235 ], [ %bExponentNegative.0264, %sw.bb99 ], [ %bExponentNegative.0264, %sw.bb140 ], [ %bExponentNegative.0264, %_ZN2EA4StdC7ToupperEDs.exit ]
@@ -5737,7 +5737,7 @@ while.end236.loopexit440:                         ; preds = %sw.epilog235, %_ZN2
   %28 = icmp eq i32 %27, 0
   br label %while.end236
 
-while.end236:                                     ; preds = %lor.rhs, %while.end236.loopexit440, %while.end197, %while.end218, %while.end
+while.end236:                                     ; preds = %lor.rhs, %while.end236.loopexit433, %while.end197, %while.end218, %while.end
   %c.1348 = phi i32 [ %c.4247, %while.end197 ], [ %c.5.lcssa, %while.end218 ], [ %c.3253, %while.end ], [ %c.1348.ph, %while.end236.loopexit440 ], [ %c.5250, %lor.rhs ]
   %state.1347 = phi i1 [ true, %while.end197 ], [ true, %while.end218 ], [ true, %while.end ], [ %28, %while.end236.loopexit440 ], [ true, %lor.rhs ]
   %bExponentNegative.1346 = phi i1 [ %bExponentNegative.0264, %while.end197 ], [ %bExponentNegative.0264, %while.end218 ], [ %bExponentNegative.0264, %while.end ], [ %bExponentNegative.1346.ph, %while.end236.loopexit440 ], [ %bExponentNegative.0264, %lor.rhs ]
@@ -5774,7 +5774,7 @@ while.end236:                                     ; preds = %lor.rhs, %while.end
   br i1 %cmp254275, label %land.rhs255.preheader, label %while.end265
 
 land.rhs255.preheader:                            ; preds = %34
-  %conv251 = zext nneg i16 %.pre to i32
+  %36 = zext nneg i16 %.pre to i32
   %36 = zext nneg i16 %.pre to i64
   %37 = add i32 %nExponentAdd.1344, %conv251
   %38 = add i32 %37, -1
@@ -5795,7 +5795,7 @@ while.body262:                                    ; preds = %land.rhs255
   %exitcond309.not = icmp eq i64 %40, 1
   br i1 %exitcond309.not, label %if.then267, label %land.rhs255, !llvm.loop !51
 
-while.end265:                                     ; preds = %34
+while.end265:; preds = %34
   %cmp266 = icmp eq i16 %.pre, 1
   br i1 %cmp266, label %if.then267, label %if.else271
 
@@ -6836,14 +6836,14 @@ if.end89:                                         ; preds = %if.then81, %if.then
 
 sw.bb94:                                          ; preds = %while.body
   %cmp.i164 = icmp ult i32 %c.0272, 256
-  br i1 %cmp.i164, label %_ZN2EA4StdC7ToupperEDi.exit, label %while.end221.loopexit446
+  br i1 %cmp.i164, label %_ZN2EA4StdC7ToupperEDi.exit, label %while.end221.loopexit439
 
 _ZN2EA4StdC7ToupperEDi.exit:                      ; preds = %sw.bb94
   %conv1.i = zext nneg i32 %c.0272 to i64
   %arrayidx.i167 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WUPPER_MAPE, i64 0, i64 %conv1.i
   %9 = load i8, ptr %arrayidx.i167, align 1
   %cmp96 = icmp eq i8 %9, 69
-  br i1 %cmp96, label %if.then97, label %while.end221.loopexit446
+  br i1 %cmp96, label %if.then97, label %while.end221.loopexit439
 
 if.then97:                                        ; preds = %_ZN2EA4StdC7ToupperEDi.exit
   %call98 = tail call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
@@ -6893,7 +6893,7 @@ if.then127:                                       ; preds = %sw.bb125
 sw.bb132:                                         ; preds = %while.body
   %sub.i171 = add i32 %c.0272, -48
   %cmp.i172 = icmp ugt i32 %sub.i171, 9
-  br i1 %cmp.i172, label %while.end221.loopexit446, label %if.then135
+  br i1 %cmp.i172, label %while.end221.loopexit439, label %if.then135
 
 if.then135:                                       ; preds = %sw.bb132
   %mul = mul nsw i32 %nExponent.0267, 10
@@ -7063,9 +7063,9 @@ sw.epilog220:                                     ; preds = %sw.bb125, %if.else1
   %or.cond146.not210 = select i1 %cmp.not, i1 %cmp2.not, i1 false
   %tobool.not = icmp samesign ult i32 %state.1, 16384
   %or.cond147 = select i1 %or.cond146.not210, i1 %tobool.not, i1 false
-  br i1 %or.cond147, label %while.body, label %while.end221.loopexit446, !llvm.loop !59
+  br i1 %or.cond147, label %while.body, label %while.end221.loopexit439, !llvm.loop !59
 
-while.end221.loopexit446:                         ; preds = %sw.epilog220, %_ZN2EA4StdC7ToupperEDi.exit, %sw.bb132, %sw.bb94
+while.end221.loopexit439:                         ; preds = %sw.epilog220, %_ZN2EA4StdC7ToupperEDi.exit, %sw.bb132, %sw.bb94
   %c.1354.ph = phi i32 [ %c.1, %sw.epilog220 ], [ %c.0272, %sw.bb94 ], [ %c.0272, %sw.bb132 ], [ %c.0272, %_ZN2EA4StdC7ToupperEDi.exit ]
   %state.1353.ph = phi i32 [ %state.1, %sw.epilog220 ], [ 16384, %sw.bb94 ], [ 16384, %sw.bb132 ], [ 16384, %_ZN2EA4StdC7ToupperEDi.exit ]
   %bExponentNegative.1352.ph = phi i1 [ %bExponentNegative.1, %sw.epilog220 ], [ %bExponentNegative.0270, %sw.bb94 ], [ %bExponentNegative.0270, %sw.bb132 ], [ %bExponentNegative.0270, %_ZN2EA4StdC7ToupperEDi.exit ]
@@ -7079,7 +7079,7 @@ while.end221.loopexit446:                         ; preds = %sw.epilog220, %_ZN2
   %23 = icmp eq i32 %22, 0
   br label %while.end221
 
-while.end221:                                     ; preds = %lor.rhs, %while.end221.loopexit446, %while.end184, %while.end203, %while.end
+while.end221:                                     ; preds = %lor.rhs, %while.end221.loopexit439, %while.end184, %while.end203, %while.end
   %c.1354 = phi i32 [ %c.4253, %while.end184 ], [ %c.5.lcssa, %while.end203 ], [ %c.3259, %while.end ], [ %c.1354.ph, %while.end221.loopexit446 ], [ %c.5256, %lor.rhs ]
   %state.1353 = phi i1 [ true, %while.end184 ], [ true, %while.end203 ], [ true, %while.end ], [ %23, %while.end221.loopexit446 ], [ true, %lor.rhs ]
   %bExponentNegative.1352 = phi i1 [ %bExponentNegative.0270, %while.end184 ], [ %bExponentNegative.0270, %while.end203 ], [ %bExponentNegative.0270, %while.end ], [ %bExponentNegative.1352.ph, %while.end221.loopexit446 ], [ %bExponentNegative.0270, %lor.rhs ]
@@ -7116,7 +7116,7 @@ while.end221:                                     ; preds = %lor.rhs, %while.end
   br i1 %cmp239281, label %land.rhs240.preheader, label %while.end250
 
 land.rhs240.preheader:                            ; preds = %29
-  %conv236 = zext nneg i16 %.pre to i32
+  %31 = zext nneg i16 %.pre to i32
   %31 = zext nneg i16 %.pre to i64
   %32 = add i32 %nExponentAdd.1350, %conv236
   %33 = add i32 %32, -1
@@ -7137,7 +7137,7 @@ while.body247:                                    ; preds = %land.rhs240
   %exitcond315.not = icmp eq i64 %35, 1
   br i1 %exitcond315.not, label %if.then252, label %land.rhs240, !llvm.loop !60
 
-while.end250:                                     ; preds = %29
+while.end250:; preds = %29
   %cmp251 = icmp eq i16 %.pre, 1
   br i1 %cmp251, label %if.then252, label %if.else256
 

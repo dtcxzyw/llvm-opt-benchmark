@@ -2341,7 +2341,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h7e019d5f5bdf418aE.exit: ; pred
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h122c446e6946bf45E.exit", label %.lr.ph
 
-31:                                               ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h7e019d5f5bdf418aE.exit20
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h122c446e6946bf45E.exit.preheader": ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h7e019d5f5bdf418aE.exit20
   ret void
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h122c446e6946bf45E.exit": ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h7e019d5f5bdf418aE.exit, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h7e019d5f5bdf418aE.exit20
@@ -2353,11 +2353,11 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h7e019d5f5bdf418aE.exit: ; pred
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %33, i64 40, i1 false), !alias.scope !619
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  %.not1.i11 = icmp ugt i64 %32, 1
-  br i1 %.not1.i11, label %.lr.ph.i12, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h7e019d5f5bdf418aE.exit20
+  %.not1.i1125 = icmp ugt i64 %32, 1
+  br i1 %.not1.i1125, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h7e019d5f5bdf418aE.exit20
 
-.lr.ph.i12:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h122c446e6946bf45E.exit", %50
-  %34 = phi i64 [ %52, %50 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h122c446e6946bf45E.exit" ]
+.lr.ph.i12.preheader:                             ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h122c446e6946bf45E.exit", %50
+  %33 = phi i64 [ %52, %50 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h122c446e6946bf45E.exit" ]
   %35 = phi i64 [ %51, %50 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h122c446e6946bf45E.exit" ]
   %.sroa.0.02.i13 = phi i64 [ %.sroa.04.0.i14, %50 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h122c446e6946bf45E.exit" ]
   %36 = add nuw i64 %35, 2

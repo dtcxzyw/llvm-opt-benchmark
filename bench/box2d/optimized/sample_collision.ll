@@ -5048,7 +5048,7 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i8, ptr %8, align 4, !tbaa !201, !range !13, !noundef !14
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %44, label %11
+  br i1 %10, label %48, label %11
 
 11:                                               ; preds = %7, %5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 60
@@ -5081,19 +5081,19 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %19, %.preheader
-  %.15355 = phi i64 [ %indvars.iv, %.preheader ], [ 0, %19 ]
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %wide.trip.count = and i64 %.15355, 4294967295
+  %.15356 = phi i64 [ %indvars.iv, %.preheader ], [ 0, %19 ]
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %wide.trip.count = and i64 %.15356, 4294967295
   br label %32
 
 ._crit_edge:                                      ; preds = %32, %.preheader.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %wide.trip.count, %32 ]
-  %25 = getelementptr inbounds nuw [3 x %struct.b2Vec2], ptr %4, i64 0, i64 %.pre-phi
+  %.15355 = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %wide.trip.count, %32 ]
+  %25 = getelementptr inbounds nuw [3 x %struct.b2Vec2], ptr %4, i64 0, i64 %.15355
   store <2 x float> %1, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %27 = getelementptr inbounds nuw [3 x %struct.b2Vec2], ptr %26, i64 0, i64 %.pre-phi
-  store <2 x float> %2, ptr %27, align 4
-  %28 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %.pre-phi
+  %29 = getelementptr inbounds nuw [3 x %struct.b2Vec2], ptr %26, i64 0, i64 %.15355
+  store <2 x float> %2, ptr %29, align 4
+  %28 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %.15355
   store float %3, ptr %28, align 4, !tbaa !15
   %29 = tail call i32 @llvm.smin.i32(i32 %13, i32 2)
   %30 = add nsw i32 %29, 1
@@ -5104,8 +5104,8 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv49 = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next50, %32 ]
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
-  %33 = getelementptr inbounds nuw [3 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv.next50
-  %34 = getelementptr inbounds nuw [3 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv49
+  %36 = getelementptr inbounds nuw [3 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv.next50
+  %37 = getelementptr inbounds nuw [3 x %struct.b2Vec2], ptr %4, i64 0, i64 %indvars.iv49
   %35 = load i64, ptr %33, align 4
   store i64 %35, ptr %34, align 4
   %36 = getelementptr inbounds nuw [3 x %struct.b2Vec2], ptr %24, i64 0, i64 %indvars.iv.next50
@@ -5120,12 +5120,12 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !230
 
 .sink.split:                                      ; preds = %._crit_edge, %21
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %43 = load float, ptr %42, align 4, !tbaa !15
-  br label %44
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %47 = load float, ptr %46, align 4, !tbaa !15
+  br label %48
 
-44:                                               ; preds = %.sink.split, %._crit_edge, %7
-  %.042 = phi float [ -1.000000e+00, %7 ], [ 1.000000e+00, %._crit_edge ], [ %43, %.sink.split ]
+48:                                               ; preds = %.sink.split, %._crit_edge, %7
+  %.042 = phi float [ -1.000000e+00, %7 ], [ 1.000000e+00, %._crit_edge ], [ %47, %.sink.split ]
   ret float %.042
 }
 

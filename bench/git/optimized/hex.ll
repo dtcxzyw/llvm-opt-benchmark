@@ -213,8 +213,8 @@ oid_set_algo.exit.i:                              ; preds = %3, %23
 
 get_oid_hex_algop.exit:                           ; preds = %hex2chr.exit.i.i
   %32 = add i32 %.017, -1
-  %exitcond28.not = icmp eq i32 %32, 0
-  br i1 %exitcond28.not, label %get_oid_hex_algop.exit.thread, label %3, !llvm.loop !39
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %get_oid_hex_algop.exit.thread, label %3, !llvm.loop !39
 
 get_oid_hex_algop.exit.thread:                    ; preds = %get_oid_hex_algop.exit, %29, %oid_set_algo.exit.i
   %.06 = phi i32 [ %.017, %oid_set_algo.exit.i ], [ %.017, %29 ], [ 0, %get_oid_hex_algop.exit ]
@@ -453,27 +453,27 @@ oid_set_algo.exit.i.i:                            ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %.017.i, ptr %30, align 4, !tbaa !37
   %.not10.i.i = icmp eq i64 %7, 32
-  br i1 %.not10.i.i, label %35, label %31
+  br i1 %.not10.i.i, label %get_oid_hex_any.exit, label %31
 
 31:                                               ; preds = %oid_set_algo.exit.i.i.thread, %oid_set_algo.exit.i.i
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %33 = sub i64 32, %7
   tail call void @llvm.memset.p0.i64(ptr align 1 %32, i8 0, i64 %33, i1 false)
-  br label %35
+  br label %get_oid_hex_any.exit
 
 get_oid_hex_algop.exit.i:                         ; preds = %hex2chr.exit.i.i.i
   %34 = add nsw i32 %.017.i, -1
-  %exitcond28.not.i = icmp eq i32 %34, 0
-  br i1 %exitcond28.not.i, label %get_oid_hex_any.exit, label %4, !llvm.loop !39
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %get_oid_hex_any.exit, label %4, !llvm.loop !39
 
-35:                                               ; preds = %oid_set_algo.exit.i.i, %31
+get_oid_hex_any.exit:                             ; preds = %oid_set_algo.exit.i.i, %31
   %36 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %5, i32 3
   %37 = load i64, ptr %36, align 8, !tbaa !40
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
   store ptr %38, ptr %2, align 8, !tbaa !41
   br label %get_oid_hex_any.exit
 
-get_oid_hex_any.exit:                             ; preds = %get_oid_hex_algop.exit.i, %35
+get_oid_hex_any.exit:; preds = %get_oid_hex_algop.exit.i, %35
   %.06.i10 = phi i32 [ %.017.i, %35 ], [ 0, %get_oid_hex_algop.exit.i ]
   ret i32 %.06.i10
 }

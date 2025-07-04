@@ -171,8 +171,8 @@ _ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit: ; preds = %21
   br label %.lr.ph208
 
 .lr.ph208:                                        ; preds = %.lr.ph208.preheader, %71
-  %indvars.iv251 = phi i64 [ %61, %.lr.ph208.preheader ], [ %indvars.iv.next252, %71 ]
-  %62 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv251
+  %indvars.iv249 = phi i64 [ %61, %.lr.ph208.preheader ], [ %indvars.iv.next250, %71 ]
+  %62 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv249
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !17
   %.not138 = icmp eq i32 %64, -1
@@ -185,12 +185,12 @@ _ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit: ; preds = %21
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %65
-  %70 = trunc nuw nsw i64 %indvars.iv251 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv249 to i32
   store i32 %70, ptr %10, align 4, !tbaa !15
   br label %.loopexit
 
 71:                                               ; preds = %.lr.ph208, %65
-  %indvars.iv.next252 = add nsw i64 %indvars.iv251, -1
+  %indvars.iv.next250 = add nsw i64 %indvars.iv249, -1
   %72 = and i64 %indvars.iv.next252, 4294967295
   %exitcond255.not = icmp eq i64 %72, 4294967295
   br i1 %exitcond255.not, label %.loopexit, label %.lr.ph208, !llvm.loop !20
@@ -488,8 +488,8 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %82
   br label %.lr.ph219
 
 .lr.ph219:                                        ; preds = %.lr.ph219.preheader, %193
-  %indvars.iv256 = phi i64 [ %185, %.lr.ph219.preheader ], [ %indvars.iv.next257, %193 ]
-  %186 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv256
+  %indvars.iv252 = phi i64 [ %185, %.lr.ph219.preheader ], [ %indvars.iv.next253, %193 ]
+  %186 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv252
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %188 = load i32, ptr %187, align 4, !tbaa !17
   %.not130 = icmp eq i32 %188, -1
@@ -502,7 +502,7 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %82
   br i1 %192, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread, label %193
 
 193:                                              ; preds = %.lr.ph219, %189
-  %indvars.iv.next257 = add nsw i64 %indvars.iv256, -1
+  %indvars.iv.next253 = add nsw i64 %indvars.iv252, -1
   %194 = and i64 %indvars.iv.next257, 4294967295
   %exitcond260.not = icmp eq i64 %194, 4294967295
   br i1 %exitcond260.not, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread, label %.lr.ph219, !llvm.loop !26

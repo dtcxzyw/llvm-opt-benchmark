@@ -53,7 +53,7 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %32 = zext nneg i32 %10 to i64
   %33 = zext nneg i32 %10 to i64
   %invariant.gep = getelementptr i64, ptr %22, i64 %32
-  %invariant.gep60 = getelementptr i64, ptr %22, i64 %33
+  %invariant.gep58 = getelementptr i64, ptr %22, i64 %33
   %34 = add nuw nsw i64 %32, %31
   %35 = shl nuw nsw i64 %34, 3
   %scevgep = getelementptr i8, ptr %22, i64 %35
@@ -66,7 +66,7 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
 .lr.ph51.preheader:                               ; preds = %.preheader
   %36 = zext nneg i32 %23 to i64
   %37 = zext nneg i32 %10 to i64
-  %invariant.gep62 = getelementptr i64, ptr %22, i64 %37
+  %invariant.gep60 = getelementptr i64, ptr %22, i64 %37
   br label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
@@ -74,8 +74,8 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, -1
   %38 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.next55
   %39 = load i64, ptr %38, align 8, !tbaa !15
-  %gep63 = getelementptr i64, ptr %invariant.gep62, i64 %indvars.iv.next55
-  store i64 %39, ptr %gep63, align 8, !tbaa !15
+  %gep61 = getelementptr i64, ptr %invariant.gep60, i64 %indvars.iv.next55
+  store i64 %39, ptr %gep61, align 8, !tbaa !15
   %40 = and i64 %indvars.iv.next55, 4294967295
   %exitcond58.not = icmp eq i64 %40, 0
   br i1 %exitcond58.not, label %.loopexit, label %.lr.ph51, !llvm.loop !17
@@ -91,8 +91,8 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %45 = or i64 %store_forwarded, %44
   store i64 %45, ptr %gep, align 8, !tbaa !15
   %46 = shl i64 %43, %30
-  %gep61 = getelementptr i64, ptr %invariant.gep60, i64 %indvars.iv.next
-  store i64 %46, ptr %gep61, align 8, !tbaa !15
+  %gep59 = getelementptr i64, ptr %invariant.gep58, i64 %indvars.iv.next
+  store i64 %46, ptr %gep59, align 8, !tbaa !15
   %47 = and i64 %indvars.iv.next, 4294967295
   %exitcond.not = icmp eq i64 %47, 0
   br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !19

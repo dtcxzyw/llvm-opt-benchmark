@@ -225,8 +225,8 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery8list_nthEPKNS_6PGListEi(ptr no
 
 _ZN17duckdb_libpgquery13list_nth_cellEPKNS_6PGListEi.exit: ; preds = %.preheader.i, %7
   %.08.i = phi ptr [ %9, %7 ], [ %.0.i, %.preheader.i ]
-  %11 = load ptr, ptr %.08.i, align 8, !tbaa !16
-  ret ptr %11
+  %12 = load ptr, ptr %.08.i, align 8, !tbaa !16
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress uwtable

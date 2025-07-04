@@ -12182,7 +12182,7 @@ dt_bauhaus_widget_get_quad_active.exit:           ; preds = %15, %17, %19
   %25 = lshr i32 %24, 4
   %.lobit.i = and i32 %25, 1
   %26 = uitofp nneg i32 %.lobit.i to float
-  br label %182
+  br label %181
 
 27:                                               ; preds = %10
   switch i32 %2, label %47 [
@@ -12355,7 +12355,7 @@ dt_bauhaus_widget_get_quad_active.exit57:         ; preds = %98, %100, %102
   %108 = lshr i32 %107, 4
   %.lobit.i55 = and i32 %108, 1
   %109 = uitofp nneg i32 %.lobit.i55 to float
-  br label %182
+  br label %181
 
 110:                                              ; preds = %93
   %111 = icmp eq i32 %2, 3
@@ -12436,7 +12436,7 @@ dt_bauhaus_combobox_get_default.exit:             ; preds = %dt_bauhaus_combobox
   %147 = inttoptr i64 %146 to ptr
   %148 = icmp ne ptr %.0.i61, %147
   %149 = uitofp i1 %148 to float
-  br label %182
+  br label %181
 
 150:                                              ; preds = %110
   br i1 %.not.i.i.i.i58, label %151, label %DT_BAUHAUS_WIDGET.exit.i.i69
@@ -12491,7 +12491,7 @@ dt_bauhaus_combobox_get.exit:                     ; preds = %159
   %172 = icmp eq i32 %.043.lcssa, %171
   %173 = select reassoc nsz arcp contract afn i1 %172, float -5.000000e-01, float 0.000000e+00
   %174 = fadd reassoc nsz arcp contract afn float %173, %170
-  br label %182
+  br label %181
 
 175:                                              ; preds = %.lr.ph, %175
   %indvars.iv = phi i64 [ %168, %.lr.ph ], [ %indvars.iv.next, %175 ]
@@ -12508,7 +12508,7 @@ dt_bauhaus_combobox_get.exit:                     ; preds = %159
   %exitcond.not = icmp eq i64 %181, 4294967295
   br i1 %exitcond.not, label %._crit_edge, label %175
 
-182:                                              ; preds = %._crit_edge, %dt_bauhaus_combobox_get_default.exit, %dt_bauhaus_widget_get_quad_active.exit57, %dt_bauhaus_widget_get_quad_active.exit
+181:                                              ; preds = %._crit_edge, %dt_bauhaus_combobox_get_default.exit, %dt_bauhaus_widget_get_quad_active.exit57, %dt_bauhaus_widget_get_quad_active.exit
   %.044 = phi nsz float [ %26, %dt_bauhaus_widget_get_quad_active.exit ], [ %109, %dt_bauhaus_widget_get_quad_active.exit57 ], [ %149, %dt_bauhaus_combobox_get_default.exit ], [ %174, %._crit_edge ]
   ret float %.044
 }

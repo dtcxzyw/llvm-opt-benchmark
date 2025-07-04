@@ -1025,10 +1025,10 @@ _ZL13DecodeFPDeltaPhS_iii.exit:                   ; preds = %.lr.ph77.i, %267
   br label %.lr.ph72.i
 
 .lr.ph72.i:                                       ; preds = %_Z17__DNG_HalfToFloatt.exit.i, %.lr.ph72.preheader.i
-  %indvars.iv81.i = phi i64 [ %299, %.lr.ph72.preheader.i ], [ %indvars.iv.next82.i, %_Z17__DNG_HalfToFloatt.exit.i ]
+  %indvars.iv80.i = phi i64 [ %299, %.lr.ph72.preheader.i ], [ %indvars.iv.next81.i, %_Z17__DNG_HalfToFloatt.exit.i ]
   %.04670.i = phi float [ 0.000000e+00, %.lr.ph72.preheader.i ], [ %.046..i, %_Z17__DNG_HalfToFloatt.exit.i ]
-  %indvars.iv.next82.i = add nsw i64 %indvars.iv81.i, -1
-  %300 = getelementptr inbounds nuw i16, ptr %186, i64 %indvars.iv.next82.i
+  %indvars.iv.next81.i = add nsw i64 %indvars.iv80.i, -1
+  %300 = getelementptr inbounds nuw i16, ptr %186, i64 %indvars.iv.next81.i
   %301 = load i16, ptr %300, align 2, !tbaa !136
   %302 = zext i16 %301 to i32
   %303 = lshr i32 %302, 15
@@ -1079,7 +1079,7 @@ _ZL13DecodeFPDeltaPhS_iii.exit:                   ; preds = %.lr.ph77.i, %267
 
 _Z17__DNG_HalfToFloatt.exit.i:                    ; preds = %319, %316, %314, %312
   %.022.i.i = phi i32 [ %313, %312 ], [ %325, %319 ], [ %318, %316 ], [ 0, %314 ]
-  %326 = getelementptr inbounds nuw i32, ptr %186, i64 %indvars.iv.next82.i
+  %326 = getelementptr inbounds nuw i32, ptr %186, i64 %indvars.iv.next81.i
   store i32 %.022.i.i, ptr %326, align 4, !tbaa !54
   %327 = bitcast i32 %.022.i.i to float
   %328 = fcmp reassoc nsz arcp contract afn ogt float %.04670.i, %327
@@ -2098,10 +2098,10 @@ _ZL13libraw_swap32Phi.exit:                       ; preds = %_ZL13libraw_swap24P
   br label %.lr.ph72.i
 
 .lr.ph72.i:                                       ; preds = %_Z17__DNG_HalfToFloatt.exit.i, %.lr.ph72.preheader.i
-  %indvars.iv81.i = phi i64 [ %235, %.lr.ph72.preheader.i ], [ %indvars.iv.next82.i, %_Z17__DNG_HalfToFloatt.exit.i ]
+  %indvars.iv80.i = phi i64 [ %235, %.lr.ph72.preheader.i ], [ %indvars.iv.next81.i, %_Z17__DNG_HalfToFloatt.exit.i ]
   %.04670.i = phi float [ 0.000000e+00, %.lr.ph72.preheader.i ], [ %.046..i, %_Z17__DNG_HalfToFloatt.exit.i ]
-  %indvars.iv.next82.i = add nsw i64 %indvars.iv81.i, -1
-  %236 = getelementptr inbounds nuw i16, ptr %196, i64 %indvars.iv.next82.i
+  %indvars.iv.next81.i = add nsw i64 %indvars.iv80.i, -1
+  %236 = getelementptr inbounds nuw i16, ptr %196, i64 %indvars.iv.next81.i
   %237 = load i16, ptr %236, align 2, !tbaa !136
   %238 = zext i16 %237 to i32
   %239 = lshr i32 %238, 15
@@ -2152,7 +2152,7 @@ _ZL13libraw_swap32Phi.exit:                       ; preds = %_ZL13libraw_swap24P
 
 _Z17__DNG_HalfToFloatt.exit.i:                    ; preds = %255, %252, %250, %248
   %.022.i.i = phi i32 [ %249, %248 ], [ %261, %255 ], [ %254, %252 ], [ 0, %250 ]
-  %262 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv.next82.i
+  %262 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv.next81.i
   store i32 %.022.i.i, ptr %262, align 4, !tbaa !54
   %263 = bitcast i32 %.022.i.i to float
   %264 = fcmp reassoc nsz arcp contract afn ogt float %.04670.i, %263

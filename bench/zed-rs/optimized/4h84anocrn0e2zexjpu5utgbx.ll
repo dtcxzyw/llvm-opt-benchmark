@@ -10590,12 +10590,12 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit: ; pred
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit", label %.lr.ph
 
-26:                                               ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20
+.lr.ph.i12.preheader:                             ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20
   ret void
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit": ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20
-  %.sroa.46.023 = phi i64 [ %27, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20 ], [ %1, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit ]
-  %27 = add i64 %.sroa.46.023, -1
+.lr.ph.i12:                                       ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20
+  %30 = phi i64 [ %27, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20 ], [ %1, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit ]
+  %27 = add i64 %30, -1
   %28 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %27
   %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8, !alias.scope !1790
   %29 = load i64, ptr %28, align 8, !alias.scope !1790
@@ -10639,9 +10639,9 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit: ; pred
   %.not.i17 = icmp ult i64 %46, %27
   br i1 %.not.i17, label %.lr.ph.i12, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20
 
-_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20: ; preds = %40, %44, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit"
+_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20: ; preds = %40, %44, %.lr.ph.i12
   %exitcond.not = icmp eq i64 %27, 1
-  br i1 %exitcond.not, label %26, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit"
+  br i1 %exitcond.not, label %26, label %.lr.ph.i12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable

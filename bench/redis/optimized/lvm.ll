@@ -2305,23 +2305,23 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   br i1 %675, label %.lr.ph876, label %._crit_edge877
 
 .lr.ph876:                                        ; preds = %667, %.lr.ph876
-  %indvars.iv900 = phi i64 [ %indvars.iv.next901, %.lr.ph876 ], [ 0, %667 ]
-  %676 = getelementptr inbounds nuw %struct.lua_TValue, ptr %663, i64 %indvars.iv900
-  %677 = getelementptr inbounds nuw %struct.lua_TValue, ptr %661, i64 %indvars.iv900
+  %indvars.iv899 = phi i64 [ %indvars.iv.next900, %.lr.ph876 ], [ 0, %667 ]
+  %676 = getelementptr inbounds nuw %struct.lua_TValue, ptr %663, i64 %indvars.iv899
+  %677 = getelementptr inbounds nuw %struct.lua_TValue, ptr %661, i64 %indvars.iv899
   %678 = load i64, ptr %676, align 8, !tbaa !9
   store i64 %678, ptr %677, align 8, !tbaa !9
   %679 = getelementptr inbounds nuw i8, ptr %676, i64 8
   %680 = load i32, ptr %679, align 8, !tbaa !4
   %681 = getelementptr inbounds nuw i8, ptr %677, i64 8
   store i32 %680, ptr %681, align 8, !tbaa !4
-  %indvars.iv.next901 = add nuw nsw i64 %indvars.iv900, 1
-  %682 = getelementptr inbounds nuw %struct.lua_TValue, ptr %663, i64 %indvars.iv.next901
+  %indvars.iv.next900 = add nuw nsw i64 %indvars.iv899, 1
+  %682 = getelementptr inbounds nuw %struct.lua_TValue, ptr %663, i64 %indvars.iv.next900
   %683 = load ptr, ptr %16, align 8, !tbaa !33
   %684 = icmp ult ptr %682, %683
   br i1 %684, label %.lr.ph876, label %._crit_edge877, !llvm.loop !77
 
 ._crit_edge877:                                   ; preds = %.lr.ph876, %667
-  %.lcssa854 = phi i64 [ 0, %667 ], [ %indvars.iv.next901, %.lr.ph876 ]
+  %.lcssa854 = phi i64 [ 0, %667 ], [ %indvars.iv.next900, %.lr.ph876 ]
   %685 = getelementptr inbounds nuw %struct.lua_TValue, ptr %661, i64 %.lcssa854
   store ptr %685, ptr %16, align 8, !tbaa !33
   %686 = getelementptr inbounds i8, ptr %658, i64 -24
@@ -2424,8 +2424,8 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 
 740:                                              ; preds = %734
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  %cond912 = icmp eq i32 %738, 4
-  br i1 %cond912, label %741, label %746
+  %cond911 = icmp eq i32 %738, 4
+  br i1 %cond911, label %741, label %746
 
 741:                                              ; preds = %740
   %742 = load ptr, ptr %95, align 8, !tbaa !9
@@ -2454,8 +2454,8 @@ luaV_tonumber.exit.thread:                        ; preds = %741
 
 751:                                              ; preds = %747
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  %cond911 = icmp eq i32 %749, 4
-  br i1 %cond911, label %752, label %757
+  %cond910 = icmp eq i32 %749, 4
+  br i1 %cond910, label %752, label %757
 
 752:                                              ; preds = %751
   %753 = load ptr, ptr %735, align 8, !tbaa !9

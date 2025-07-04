@@ -4159,7 +4159,7 @@ declare double @llvm.floor.f64(double) #20
 define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [10 x i8], align 1
   %6 = icmp ugt i64 %2, 12
-  br i1 %6, label %7, label %41
+  br i1 %6, label %7, label %40
 
 7:                                                ; preds = %4
   %8 = icmp slt i32 %3, 0
@@ -4228,7 +4228,7 @@ define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly 
   %exitcond.not = icmp eq i64 %27, 5
   br i1 %exitcond.not, label %._crit_edge56.thread, label %.lr.ph55, !llvm.loop !151
 
-._crit_edge56:                                    ; preds = %.preheader47
+._crit_edge56: ; preds = %.preheader47
   %28 = icmp ult i32 %spec.select, 6
   br i1 %28, label %30, label %.loopexit
 
@@ -4236,12 +4236,12 @@ define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly 
   %29 = icmp ult i32 %spec.select, 6
   br i1 %29, label %.thread90, label %.loopexit
 
-.thread90:                                        ; preds = %._crit_edge56.thread
+.thread90:; preds = %._crit_edge56.thread
   store i8 46, ptr %26, align 1, !tbaa !27
   %.25993 = getelementptr i8, ptr %.154, i64 2
   br label %.preheader
 
-30:                                               ; preds = %._crit_edge56
+.preheader:                                       ; preds = %._crit_edge56
   store i8 46, ptr %.03579, align 1, !tbaa !27
   %.259 = getelementptr i8, ptr %.03579, i64 1
   %.not97 = icmp eq i32 %16, 5
@@ -4263,30 +4263,30 @@ define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly 
   br i1 %.not4665, label %.loopexit, label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %.preheader, %.lr.ph68
-  %.367 = phi ptr [ %39, %.lr.ph68 ], [ %.2.lcssa, %.preheader ]
-  %.24066 = phi i32 [ %35, %.lr.ph68 ], [ %.139.lcssa8894, %.preheader ]
-  %35 = add i32 %.24066, -1
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !27
-  %39 = getelementptr inbounds nuw i8, ptr %.367, i64 1
-  store i8 %38, ptr %.367, align 1, !tbaa !27
-  %.not46 = icmp ult i32 %35, %spec.select
+  %.367 = phi ptr [ %38, %.lr.ph68 ], [ %.2.lcssa, %.preheader ]
+  %.24066 = phi i32 [ %34, %.lr.ph68 ], [ %.139.lcssa8894, %.preheader ]
+  %34 = add i32 %.24066, -1
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %35
+  %37 = load i8, ptr %36, align 1, !tbaa !27
+  %38 = getelementptr inbounds nuw i8, ptr %.367, i64 1
+  store i8 %37, ptr %.367, align 1, !tbaa !27
+  %.not46 = icmp ult i32 %34, %spec.select
   br i1 %.not46, label %.loopexit, label %.lr.ph68, !llvm.loop !152
 
 ._crit_edge.thread:                               ; preds = %11, %._crit_edge
   %.0358085 = phi ptr [ %.03579, %._crit_edge ], [ %1, %11 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.0358085, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.0358085, i64 1
   store i8 48, ptr %.0358085, align 1, !tbaa !27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph68, %._crit_edge56.thread, %.preheader, %._crit_edge56, %._crit_edge.thread
-  %.4 = phi ptr [ %.03579, %._crit_edge56 ], [ %40, %._crit_edge.thread ], [ %.2.lcssa, %.preheader ], [ %26, %._crit_edge56.thread ], [ %39, %.lr.ph68 ]
+  %.4 = phi ptr [ %.03579, %._crit_edge56 ], [ %39, %._crit_edge.thread ], [ %.2.lcssa, %.preheader ], [ %26, %._crit_edge56.thread ], [ %38, %.lr.ph68 ]
   store i8 0, ptr %.4, align 1, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #30
   ret void
 
-41:                                               ; preds = %4
+40:                                               ; preds = %4
   tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.55) #28
   unreachable
 }

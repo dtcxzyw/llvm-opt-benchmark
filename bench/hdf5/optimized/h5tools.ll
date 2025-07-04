@@ -3966,9 +3966,9 @@ define void @init_acc_pos(i32 noundef %0, ptr noundef readonly captures(none) %1
   br label %.lr.ph26
 
 .preheader:                                       ; preds = %.lr.ph26, %6
-  %15 = zext i32 %0 to i64
-  %16 = shl nuw nsw i64 %15, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %16, i1 false), !tbaa !7
+  %17 = zext i32 %0 to i64
+  %18 = shl nuw nsw i64 %17, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %18, i1 false), !tbaa !7
   br label %.loopexit
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %.lr.ph26
@@ -3976,8 +3976,8 @@ define void @init_acc_pos(i32 noundef %0, ptr noundef readonly captures(none) %1
   %17 = add nuw nsw i64 %indvars.iv, 1
   %18 = getelementptr inbounds nuw i64, ptr %2, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !7
-  %20 = getelementptr inbounds nuw i64, ptr %1, i64 %17
-  %21 = load i64, ptr %20, align 8, !tbaa !7
+  %21 = getelementptr inbounds nuw i64, ptr %1, i64 %17
+  %21 = load i64, ptr %21, align 8, !tbaa !7
   %22 = mul i64 %21, %19
   %23 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   store i64 %22, ptr %23, align 8, !tbaa !7

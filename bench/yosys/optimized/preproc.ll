@@ -6309,12 +6309,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #27
   br label %.loopexit.split-lp.i
 
-1814:                                             ; preds = %1815, %.preheader.i
+.preheader.i:                                     ; preds = %1815, %.preheader.i
   %.327.i = phi i32 [ %1816, %1815 ], [ %.125.i, %.preheader.i ]
-  %exitcond.not.i = icmp eq i32 %.327.i, %smin.i
-  br i1 %exitcond.not.i, label %1817, label %1815
+  %1814 = icmp eq i32 %.327.i, %smin.i
+  br i1 %1814, label %1817, label %1815
 
-1815:                                             ; preds = %1814
+1815:                                             ; preds = %.preheader.i
   %1816 = add i32 %.327.i, -1
   invoke fastcc void @_ZN5YosysL11return_charEc(i8 noundef signext 10)
           to label %1814 unwind label %.loopexit.i, !llvm.loop !140
@@ -6334,7 +6334,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128.i: ; preds = %
           cleanup
   br label %.loopexit.split-lp.i
 
-1817:                                             ; preds = %1814
+1817:                                             ; preds = %.preheader.i
   %1818 = load ptr, ptr %21, align 8, !tbaa !12
   %1819 = load i8, ptr %1818, align 1, !tbaa !18
   %1820 = sext i8 %1819 to i32
@@ -8574,7 +8574,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit205: ; preds = %_Z
   %.071 = phi i8 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit205 ], [ %432, %460 ]
   %407 = load ptr, ptr @_ZN5YosysL12input_bufferB5cxx11E, align 8, !tbaa !6
   %408 = icmp eq ptr %407, @_ZN5YosysL12input_bufferB5cxx11E
-  br i1 %408, label %_ZN5YosysL9next_charEv.exit216.thread, label %.lr.ph.preheader.i206
+  br i1 %408, label %_ZN5YosysL9next_charEv.exit216.thread.preheader, label %.lr.ph.preheader.i206
 
 .lr.ph.preheader.i206:                            ; preds = %406
   %.pre4.i207 = load i64, ptr @_ZN5YosysL18input_buffer_charpE, align 8, !tbaa !33
@@ -8622,7 +8622,7 @@ tailrecurse.backedge.i210:                        ; preds = %428, %_ZNSt7__cxx11
   %425 = phi ptr [ %.pre5.i214, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9pop_frontEv.exit.i212 ], [ %409, %428 ]
   %426 = phi i64 [ %.pre.i213, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9pop_frontEv.exit.i212 ], [ %429, %428 ]
   %427 = icmp eq ptr %425, @_ZN5YosysL12input_bufferB5cxx11E
-  br i1 %427, label %_ZN5YosysL9next_charEv.exit216.thread, label %.lr.ph.i208
+  br i1 %427, label %_ZN5YosysL9next_charEv.exit216.thread.preheader, label %.lr.ph.i208
 
 428:                                              ; preds = %.lr.ph.i208
   %429 = add i64 %410, 1
@@ -8632,7 +8632,7 @@ tailrecurse.backedge.i210:                        ; preds = %428, %_ZNSt7__cxx11
   %432 = load i8, ptr %431, align 1, !tbaa !18
   switch i8 %432, label %447 [
     i8 13, label %tailrecurse.backedge.i210
-    i8 0, label %_ZN5YosysL9next_charEv.exit216.thread
+    i8 0, label %_ZN5YosysL9next_charEv.exit216.thread.preheader
     i8 10, label %433
   ]
 
@@ -8721,19 +8721,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit224: ; preds = %_Z
   %463 = icmp eq i8 %.071, 42
   %464 = icmp eq i8 %432, 47
   %or.cond14 = and i1 %463, %464
-  br i1 %or.cond14, label %_ZN5YosysL9next_charEv.exit216.thread, label %406, !llvm.loop !151
+  br i1 %or.cond14, label %_ZN5YosysL9next_charEv.exit216.thread.preheader, label %406, !llvm.loop !151
 
-_ZN5YosysL9next_charEv.exit216.thread:            ; preds = %406, %460, %428, %tailrecurse.backedge.i210
-  %.1 = phi i32 [ %.072, %tailrecurse.backedge.i210 ], [ %.072, %428 ], [ %.072, %406 ], [ %.2, %460 ]
+_ZN5YosysL9next_charEv.exit216.thread.preheader:  ; preds = %406, %460, %428, %tailrecurse.backedge.i210
+  %.3.ph = phi i32 [ %.072, %tailrecurse.backedge.i210 ], [ %.072, %428 ], [ %.072, %406 ], [ %.2, %460 ]
   %smin = call i32 @llvm.smin.i32(i32 %.1, i32 0)
   br label %465
 
-465:                                              ; preds = %466, %_ZN5YosysL9next_charEv.exit216.thread
-  %.3 = phi i32 [ %.1, %_ZN5YosysL9next_charEv.exit216.thread ], [ %467, %466 ]
-  %exitcond.not = icmp eq i32 %.3, %smin
-  br i1 %exitcond.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, label %466
+_ZN5YosysL9next_charEv.exit216.thread:            ; preds = %466, %_ZN5YosysL9next_charEv.exit216.thread.preheader
+  %.3 = phi i32 [ %.3.ph, %_ZN5YosysL9next_charEv.exit216.thread ], [ %467, %466 ]
+  %465 = icmp eq i32 %.3, %smin
+  br i1 %465, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, label %466
 
-466:                                              ; preds = %465
+466:                                              ; preds = %_ZN5YosysL9next_charEv.exit216.thread
   %467 = add i32 %.3, -1
   invoke fastcc void @_ZN5YosysL11return_charEc(i8 noundef signext 10)
           to label %465 unwind label %.loopexit303, !llvm.loop !152
@@ -8980,7 +8980,7 @@ tailrecurse.backedge.i248:                        ; preds = %556, %_ZNSt7__cxx11
     i8 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
   ]
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %315, %tailrecurse.backedge.i174, %465, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit169, %269, %tailrecurse.backedge.i159, %242, %tailrecurse.backedge.i148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit113, %111, %tailrecurse.backedge.i103, %530, %556, %tailrecurse.backedge.i248, %.invoke, %.preheader291, %.preheader, %293, %220, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit239, %470, %._crit_edge, %247, %_ZN5YosysL9next_charEv.exit124.thread
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %315, %tailrecurse.backedge.i174, %_ZN5YosysL9next_charEv.exit216.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit169, %269, %tailrecurse.backedge.i159, %242, %tailrecurse.backedge.i148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit113, %111, %tailrecurse.backedge.i103, %530, %556, %tailrecurse.backedge.i248, %.invoke, %.preheader291, %.preheader, %293, %220, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit239, %470, %._crit_edge, %247, %_ZN5YosysL9next_charEv.exit124.thread
   %561 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %561, ptr %0, align 8, !tbaa !30
   %562 = load ptr, ptr %4, align 8, !tbaa !12

@@ -23649,13 +23649,13 @@ _ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i: ; preds = %60, %50
 
 _ZNK5caffe12NetParameter13IsInitializedEv.exit.thread: ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i, %42, %.loopexit
   %65 = and i32 %36, 128
-  %.not15 = icmp eq i32 %65, 0
+  %.not14 = icmp eq i32 %65, 0
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %67 = load ptr, ptr %66, align 8
   %68 = icmp ne ptr %67, null
-  %69 = select i1 %.not15, i1 true, i1 %68
+  %69 = select i1 %.not14, i1 true, i1 %68
   tail call void @llvm.assume(i1 %69)
-  br i1 %.not15, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %70
+  br i1 %.not14, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %70
 
 70:                                               ; preds = %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 120

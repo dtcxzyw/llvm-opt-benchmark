@@ -210,8 +210,8 @@ _ZN6google8protobuf12UnknownField6DeleteEv.exit.sink.split: ; preds = %if.then.i
   br label %_ZN6google8protobuf12UnknownField6DeleteEv.exit
 
 _ZN6google8protobuf12UnknownField6DeleteEv.exit:  ; preds = %_ZN6google8protobuf12UnknownField6DeleteEv.exit.sink.split, %do.body, %sw.bb.i, %sw.bb2.i
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %do.end, label %do.body, !llvm.loop !5
+  %cmp = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %cmp, label %do.end, label %do.body, !llvm.loop !5
 
 do.end:                                           ; preds = %_ZN6google8protobuf12UnknownField6DeleteEv.exit
   %11 = load ptr, ptr %this, align 8

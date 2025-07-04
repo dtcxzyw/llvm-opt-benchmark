@@ -677,14 +677,14 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   br label %9
 
 9:                                                ; preds = %.lr.ph33, %.loopexit
-  %indvars.iv48 = phi i64 [ 0, %.lr.ph33 ], [ %indvars.iv.next49, %.loopexit ]
+  %indvars.iv47 = phi i64 [ 0, %.lr.ph33 ], [ %indvars.iv.next48, %.loopexit ]
   %.01931 = phi i32 [ 0, %.lr.ph33 ], [ %.3, %.loopexit ]
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load ptr, ptr %13, align 8
-  %.idx = shl i64 %indvars.iv48, 3
+  %.idx = shl i64 %indvars.iv47, 3
   %15 = getelementptr i8, ptr %14, i64 %.idx
   %16 = getelementptr i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
@@ -757,10 +757,10 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
 
 .loopexit:                                        ; preds = %.loopexit.loopexit34, %.loopexit.loopexit, %.preheader, %26
   %.3 = phi i32 [ %.126, %26 ], [ %.01931, %.preheader ], [ %43, %.loopexit.loopexit ], [ %44, %.loopexit.loopexit34 ]
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %45 = load i32, ptr %3, align 4
   %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next49, %46
+  %47 = icmp slt i64 %indvars.iv.next48, %46
   br i1 %47, label %9, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
@@ -960,9 +960,9 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   br label %11
 
 11:                                               ; preds = %.lr.ph49, %._crit_edge
-  %indvars.iv65 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next66, %._crit_edge ]
+  %indvars.iv64 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next65, %._crit_edge ]
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::TopologyDescriptor::FVarChannel", ptr %12, i64 %indvars.iv65
+  %13 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::TopologyDescriptor::FVarChannel", ptr %12, i64 %indvars.iv64
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -974,7 +974,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   br i1 %21, label %.lr.ph47.preheader, label %._crit_edge
 
 .lr.ph47.preheader:                               ; preds = %11
-  %22 = trunc nuw nsw i64 %indvars.iv65 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv64 to i32
   br label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.loopexit
@@ -1053,10 +1053,10 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   br i1 %48, label %.lr.ph47, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.loopexit, %11
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %49 = load i32, ptr %3, align 4
   %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next66, %50
+  %51 = icmp slt i64 %indvars.iv.next65, %50
   br i1 %51, label %11, label %.loopexit37, !llvm.loop !28
 
 .loopexit37:                                      ; preds = %._crit_edge, %2

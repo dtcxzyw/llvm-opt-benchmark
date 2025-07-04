@@ -142,11 +142,11 @@ define dso_local range(i32 -255, 256) i32 @onig_strncmp(ptr noundef readonly cap
   %.07 = phi ptr [ %0, %3 ], [ %10, %5 ]
   %.06 = phi ptr [ %1, %3 ], [ %7, %5 ]
   %.05 = phi i32 [ %2, %3 ], [ %6, %5 ]
-  %exitcond.not = icmp eq i32 %.05, %smin
-  br i1 %exitcond.not, label %14, label %5
+  %5 = icmp eq i32 %.05, %smin
+  br i1 %5, label %14, label %15
 
-5:                                                ; preds = %4
-  %6 = add i32 %.05, -1
+15:                                               ; preds = %4
+  %6 = add i32 %.015, -1
   %7 = getelementptr inbounds nuw i8, ptr %.06, i64 1
   %8 = load i8, ptr %.06, align 1, !tbaa !10
   %9 = zext i8 %8 to i32
@@ -720,31 +720,31 @@ onig_name_to_group_numbers.exit.thread25..loopexit_crit_edge: ; preds = %onig_na
   %21 = zext nneg i32 %14 to i64
   br label %22
 
-22:                                               ; preds = %.preheader, %23
+22:                                               ; preds = %.preheader, %24
   %indvars.iv = phi i64 [ %21, %.preheader ], [ %indvars.iv.next, %23 ]
-  %exitcond.not = icmp eq i64 %indvars.iv, 0
-  br i1 %exitcond.not, label %.loopexit, label %23
+  %23 = icmp eq i64 %indvars.iv, 0
+  br i1 %23, label %.loopexit, label %23
 
-23:                                               ; preds = %22
+24:                                               ; preds = %22
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %24 = load ptr, ptr %20, align 8, !tbaa !52
-  %25 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.next
-  %26 = load i32, ptr %25, align 4, !tbaa !8
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %24, i64 %27
-  %29 = load i32, ptr %28, align 4, !tbaa !8
-  %.not18 = icmp eq i32 %29, -1
+  %25 = load ptr, ptr %20, align 8, !tbaa !52
+  %26 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.next
+  %27 = load i32, ptr %26, align 4, !tbaa !8
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i32, ptr %25, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !8
+  %.not18 = icmp eq i32 %30, -1
   br i1 %.not18, label %22, label %onig_name_to_group_numbers.exit.thread, !llvm.loop !55
 
 .loopexit:                                        ; preds = %22, %onig_name_to_group_numbers.exit.thread25..loopexit_crit_edge
   %.pre-phi = phi i64 [ %.pre, %onig_name_to_group_numbers.exit.thread25..loopexit_crit_edge ], [ %21, %22 ]
-  %30 = getelementptr i32, ptr %18, i64 %.pre-phi
-  %31 = getelementptr i8, ptr %30, i64 -4
-  %32 = load i32, ptr %31, align 4, !tbaa !8
+  %31 = getelementptr i32, ptr %18, i64 %.pre-phi
+  %32 = getelementptr i8, ptr %31, i64 -4
+  %33 = load i32, ptr %32, align 4, !tbaa !8
   br label %onig_name_to_group_numbers.exit.thread
 
-onig_name_to_group_numbers.exit.thread:           ; preds = %23, %12, %name_find.exit.thread.i, %name_find.exit.i, %onig_name_to_group_numbers.exit, %.loopexit, %onig_name_to_group_numbers.exit.thread25.thread32
-  %.0 = phi i32 [ %16, %onig_name_to_group_numbers.exit.thread25.thread32 ], [ %32, %.loopexit ], [ %14, %onig_name_to_group_numbers.exit ], [ -217, %name_find.exit.i ], [ -217, %name_find.exit.thread.i ], [ -11, %12 ], [ %26, %23 ]
+onig_name_to_group_numbers.exit.thread:           ; preds = %24, %12, %name_find.exit.thread.i, %name_find.exit.i, %onig_name_to_group_numbers.exit, %.loopexit, %onig_name_to_group_numbers.exit.thread25.thread32
+  %.0 = phi i32 [ %16, %onig_name_to_group_numbers.exit.thread25.thread32 ], [ %33, %.loopexit ], [ %14, %onig_name_to_group_numbers.exit ], [ -217, %name_find.exit.i ], [ -217, %name_find.exit.thread.i ], [ -11, %12 ], [ %27, %23 ]
   ret i32 %.0
 }
 

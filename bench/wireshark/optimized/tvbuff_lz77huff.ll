@@ -186,14 +186,14 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %umin.i.i.i = zext i1 %77 to i32
   br label %78
 
-78:                                               ; preds = %95, %.preheader.i.i.i
+77:                                               ; preds = %95, %.preheader.i.i.i
   %.028.i.i.i = phi i32 [ %80, %95 ], [ %73, %.preheader.i.i.i ]
   %.027.i.i.i = phi ptr [ %98, %95 ], [ %31, %.preheader.i.i.i ]
   %.026.i.i.i = phi i32 [ %.1.i.i.i, %95 ], [ %76, %.preheader.i.i.i ]
-  %exitcond.not.i.i.i = icmp eq i32 %.028.i.i.i, %umin.i.i.i
-  br i1 %exitcond.not.i.i.i, label %100, label %79
+  %78 = icmp eq i32 %.028.i.i.i, %umin.i.i.i
+  br i1 %78, label %100, label %79
 
-79:                                               ; preds = %78
+79:                                               ; preds = %77
   %80 = add nsw i32 %.028.i.i.i, -1
   %81 = lshr i32 %75, %80
   %82 = and i32 %81, 1
@@ -227,9 +227,9 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %.not6.i.i.i.i = icmp uge ptr %98, %31
   %99 = icmp ult ptr %98, %64
   %or.cond.i.i.i = and i1 %.not6.i.i.i.i, %99
-  br i1 %or.cond.i.i.i, label %78, label %PrefixCodeTreeRebuild.exit.thread.i, !llvm.loop !10
+  br i1 %or.cond.i.i.i, label %77, label %PrefixCodeTreeRebuild.exit.thread.i, !llvm.loop !10
 
-100:                                              ; preds = %78
+100:                                              ; preds = %77
   %101 = trunc nuw i32 %.05364.i.i to i16
   %102 = getelementptr inbounds nuw i8, ptr %.027.i.i.i, i64 4
   %103 = and i32 %75, 1

@@ -2950,29 +2950,29 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
   br label %76
 
 76:                                               ; preds = %.lr.ph130, %90
-  %indvars.iv147 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next148, %90 ]
+  %indvars.iv146 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next147, %90 ]
   %.064128 = phi i32 [ 0, %.lr.ph130 ], [ %.1, %90 ]
-  %77 = icmp eq i64 %indvars.iv147, 0
+  %77 = icmp eq i64 %indvars.iv146, 0
   br i1 %77, label %._crit_edge, label %78
 
 ._crit_edge:                                      ; preds = %76
-  %.pre154 = load i8, ptr %7, align 1, !tbaa !75
-  %.pre156 = load i8, ptr %8, align 1, !tbaa !75
+  %.pre153 = load i8, ptr %7, align 1, !tbaa !75
+  %.pre155 = load i8, ptr %8, align 1, !tbaa !75
   br label %84
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv147
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv146
   %80 = load i8, ptr %79, align 1, !tbaa !75
-  %81 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %indvars.iv147
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %indvars.iv146
   %82 = load i8, ptr %81, align 1, !tbaa !75
   %83 = icmp ne i8 %80, %82
-  %.not81 = icmp eq i64 %indvars.iv147, %75
+  %.not81 = icmp eq i64 %indvars.iv146, %75
   %or.cond87 = select i1 %83, i1 true, i1 %.not81
   br i1 %or.cond87, label %88, label %84
 
 84:                                               ; preds = %._crit_edge, %78
-  %85 = phi i8 [ %.pre156, %._crit_edge ], [ %80, %78 ]
-  %86 = phi i8 [ %.pre154, %._crit_edge ], [ %80, %78 ]
+  %85 = phi i8 [ %.pre155, %._crit_edge ], [ %80, %78 ]
+  %86 = phi i8 [ %.pre153, %._crit_edge ], [ %80, %78 ]
   %87 = call noundef i32 @_ZN10duckdb_re28Compiler20CachedRuneByteSuffixEhhbi(ptr noundef nonnull align 8 dereferenceable(228) %0, i8 noundef zeroext %86, i8 noundef zeroext %85, i1 noundef zeroext false, i32 noundef %.064128)
   br label %90
 
@@ -2982,9 +2982,9 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
 
 90:                                               ; preds = %84, %88
   %.1 = phi i32 [ %87, %84 ], [ %89, %88 ]
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond150.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count
-  br i1 %exitcond150.not, label %.loopexit, label %76, !llvm.loop !104
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %exitcond149.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count
+  br i1 %exitcond149.not, label %.loopexit, label %76, !llvm.loop !104
 
 91:                                               ; preds = %67
   br i1 %73, label %.lr.ph126.preheader, label %.loopexit
@@ -2993,7 +2993,7 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
   %92 = add nsw i32 %68, -1
   %93 = zext nneg i32 %92 to i64
   %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %93
-  %.phi.trans.insert151 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %93
+  %.phi.trans.insert150 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 0, i64 %93
   br label %.lr.ph126
 
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %108
@@ -3004,7 +3004,7 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
 
 .lr.ph126._crit_edge:                             ; preds = %.lr.ph126
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !75
-  %.pre152 = load i8, ptr %.phi.trans.insert151, align 1, !tbaa !75
+  %.pre151 = load i8, ptr %.phi.trans.insert150, align 1, !tbaa !75
   br label %102
 
 95:                                               ; preds = %.lr.ph126
@@ -3018,7 +3018,7 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
   br i1 %or.cond4, label %102, label %106
 
 102:                                              ; preds = %.lr.ph126._crit_edge, %95
-  %103 = phi i8 [ %.pre152, %.lr.ph126._crit_edge ], [ %99, %95 ]
+  %103 = phi i8 [ %.pre151, %.lr.ph126._crit_edge ], [ %99, %95 ]
   %104 = phi i8 [ %.pre, %.lr.ph126._crit_edge ], [ %97, %95 ]
   %105 = call noundef i32 @_ZN10duckdb_re28Compiler20CachedRuneByteSuffixEhhbi(ptr noundef nonnull align 8 dereferenceable(228) %0, i8 noundef zeroext %104, i8 noundef zeroext %103, i1 noundef zeroext false, i32 noundef %.3123)
   br label %108

@@ -6338,8 +6338,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
   %C.addr.135.i = phi i32 [ %C.addr.038.i, %for.cond.preheader.i ], [ %div9.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %arrayidx.i = getelementptr inbounds [17 x i8], ptr %TempBuffer.i, i64 0, i64 %indvars.iv.i
-  %63 = trunc i32 %C.addr.135.i to i8
-  %conv.i = and i8 %63, 15
+  %61 = trunc i32 %C.addr.135.i to i8
+  %conv.i = and i8 %61, 15
   %cmp.i.i253 = icmp samesign ult i8 %conv.i, 10
   %add.i.i254 = or disjoint i8 %conv.i, 48
   %sub.i.i = add nuw nsw i8 %conv.i, 55
@@ -6372,16 +6372,16 @@ while.end.i:                                      ; preds = %for.end.i
 
 if.end.i.i17.i:                                   ; preds = %while.end.i
   %CurrentPosition.i.i.i18.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
-  %64 = load i64, ptr %CurrentPosition.i.i.i18.i, align 8
-  %add.i.i.i19.i = add i64 %64, %call.i11.i
+  %62 = load i64, ptr %CurrentPosition.i.i.i18.i, align 8
+  %add.i.i.i19.i = add i64 %62, %call.i11.i
   %BufferCapacity.i.i.i20.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
-  %65 = load i64, ptr %BufferCapacity.i.i.i20.i, align 8
-  %cmp.not.i.i.i21.i = icmp ult i64 %add.i.i.i19.i, %65
+  %63 = load i64, ptr %BufferCapacity.i.i.i20.i, align 8
+  %cmp.not.i.i.i21.i = icmp ult i64 %add.i.i.i19.i, %63
   %.pre.i.i22.i = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i21.i, label %_ZN12OutputStream4growEm.exit.i.i30.i, label %if.then.i.i.i23.i
 
 if.then.i.i.i23.i:                                ; preds = %if.end.i.i17.i
-  %mul.i.i.i24.i = shl i64 %65, 1
+  %mul.i.i.i24.i = shl i64 %63, 1
   %spec.store.select.i.i.i25.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i24.i, i64 %add.i.i.i19.i)
   store i64 %spec.store.select.i.i.i25.i, ptr %BufferCapacity.i.i.i20.i, align 8
   %call.i.i.i26.i = tail call ptr @realloc(ptr noundef %.pre.i.i22.i, i64 noundef %spec.store.select.i.i.i25.i) #26
@@ -6398,12 +6398,12 @@ if.then15.i.i.i33.i:                              ; preds = %if.then.i.i.i23.i
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i30.i:            ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i28.i, %if.end.i.i17.i
-  %66 = phi i64 [ %64, %if.end.i.i17.i ], [ %.pre5.i.i29.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i28.i ]
-  %67 = phi ptr [ %.pre.i.i22.i, %if.end.i.i17.i ], [ %call.i.i.i26.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i28.i ]
-  %add.ptr.i.i31.i = getelementptr inbounds i8, ptr %67, i64 %66
+  %64 = phi i64 [ %62, %if.end.i.i17.i ], [ %.pre5.i.i29.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i28.i ]
+  %65 = phi ptr [ %.pre.i.i22.i, %if.end.i.i17.i ], [ %call.i.i.i26.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i28.i ]
+  %add.ptr.i.i31.i = getelementptr inbounds i8, ptr %65, i64 %64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i31.i, ptr nonnull align 1 %arrayidx8.i.le, i64 %call.i11.i, i1 false)
-  %68 = load i64, ptr %CurrentPosition.i.i.i18.i, align 8
-  %add.i.i32.i = add i64 %68, %call.i11.i
+  %66 = load i64, ptr %CurrentPosition.i.i.i18.i, align 8
+  %add.i.i32.i = add i64 %66, %call.i11.i
   store i64 %add.i.i32.i, ptr %CurrentPosition.i.i.i18.i, align 8
   br label %_ZL9outputHexR12OutputStreamj.exit
 

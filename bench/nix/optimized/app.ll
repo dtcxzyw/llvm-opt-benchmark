@@ -13369,7 +13369,7 @@ define linkonce_odr void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align
   %20 = lshr i64 %19, 3
   %21 = and i64 %20, 2305843009213693944
   %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #28
-          to label %.noexc unwind label %56
+          to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %18
   %23 = lshr i64 %19, 6
@@ -13457,17 +13457,17 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %47, %44
   %.sroa.03.1.idx.i.i.i.i.i.i = select i1 %54, i64 8, i64 0
   %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.03.016.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
   %55 = add nsw i64 %.019.i.i.i.i.i.i, -1
-  %exitcond.not.i = icmp eq i64 %55, 0
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !97
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !97
 
 .loopexit:                                        ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
   ret void
 
-56:                                               ; preds = %18
-  %57 = landingpad { ptr, i32 }
+57:                                               ; preds = %18
+  %58 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
-  resume { ptr, i32 } %57
+  resume { ptr, i32 } %58
 }
 
 ; Function Attrs: mustprogress uwtable

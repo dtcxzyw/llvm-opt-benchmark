@@ -25382,7 +25382,7 @@ define dso_local noundef i32 @_ZN11NetOptimize17eliminate_dropoutEv(ptr noundef 
 
 ._crit_edge..thread_crit_edge:                    ; preds = %._crit_edge
   %.pre = load ptr, ptr %2, align 8, !tbaa !39
-  %.pre43 = load ptr, ptr %.pre, align 8, !tbaa !44
+  %.pre42 = load ptr, ptr %.pre, align 8, !tbaa !44
   br label %.thread
 
 .thread.loopexit:                                 ; preds = %53
@@ -25390,7 +25390,7 @@ define dso_local noundef i32 @_ZN11NetOptimize17eliminate_dropoutEv(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge..thread_crit_edge, %.thread.loopexit
-  %60 = phi ptr [ %.pre43, %._crit_edge..thread_crit_edge ], [ %43, %.thread.loopexit ]
+  %60 = phi ptr [ %.pre42, %._crit_edge..thread_crit_edge ], [ %43, %.thread.loopexit ]
   %.02427 = phi i32 [ %.02429, %._crit_edge..thread_crit_edge ], [ %59, %.thread.loopexit ]
   %61 = sext i32 %.02427 to i64
   %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
@@ -25421,8 +25421,8 @@ define dso_local noundef i32 @_ZN11NetOptimize17eliminate_dropoutEv(ptr noundef 
 ._crit_edge.thread:                               ; preds = %56, %20, %._crit_edge, %.thread, %12
   %83 = add nuw i64 %.032, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
-  %exitcond42.not = icmp eq i64 %83, %10
-  br i1 %exitcond42.not, label %._crit_edge35, label %12, !llvm.loop !864
+  %exitcond.not = icmp eq i64 %83, %10
+  br i1 %exitcond.not, label %._crit_edge35, label %12, !llvm.loop !864
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25625,8 +25625,8 @@ define dso_local noundef i32 @_ZN11NetOptimize20eliminate_pooling1x1Ev(ptr nound
 113:                                              ; preds = %33, %30, %27, %20, %45, %42, %39, %36, %48, %._crit_edge, %89, %12
   %114 = add nuw i64 %.065, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
-  %exitcond77.not = icmp eq i64 %114, %10
-  br i1 %exitcond77.not, label %._crit_edge68, label %12, !llvm.loop !867
+  %exitcond76.not = icmp eq i64 %114, %10
+  br i1 %exitcond76.not, label %._crit_edge68, label %12, !llvm.loop !867
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25704,8 +25704,8 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
   %49 = getelementptr inbounds nuw %"class.ncnn::Blob", ptr %44, i64 %48, i32 1
   store i32 -1, ptr %49, align 8, !tbaa !127
   %50 = add nuw i64 %.04562, 1
-  %exitcond79.not = icmp eq i64 %50, %42
-  br i1 %exitcond79.not, label %.loopexit50.thread.sink.split, label %45, !llvm.loop !868
+  %exitcond78.not = icmp eq i64 %50, %42
+  br i1 %exitcond78.not, label %.loopexit50.thread.sink.split, label %45, !llvm.loop !868
 
 51:                                               ; preds = %20
   %52 = load i32, ptr %26, align 4, !tbaa !78
@@ -25789,9 +25789,9 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
   %99 = load ptr, ptr %98, align 8, !tbaa !77
   %100 = load i32, ptr %99, align 4, !tbaa !78
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 136
-  %sext91 = shl i64 %.04456, 32
+  %sext90 = shl i64 %.04456, 32
   %102 = load ptr, ptr %101, align 8, !tbaa !77
-  %103 = ashr exact i64 %sext91, 30
+  %103 = ashr exact i64 %sext90, 30
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 %103
   store i32 %100, ptr %104, align 4, !tbaa !78
   %105 = load ptr, ptr %11, align 8, !tbaa !45
@@ -25811,8 +25811,8 @@ define dso_local noundef i32 @_ZN11NetOptimize14eliminate_noopEv(ptr noundef non
 .loopexit50.thread:                               ; preds = %.loopexit, %.loopexit50.thread.sink.split, %51, %.loopexit50, %12
   %113 = add nuw i64 %.064, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
-  %exitcond81.not = icmp eq i64 %113, %10
-  br i1 %exitcond81.not, label %._crit_edge67, label %12, !llvm.loop !871
+  %exitcond80.not = icmp eq i64 %113, %10
+  br i1 %exitcond80.not, label %._crit_edge67, label %12, !llvm.loop !871
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25894,7 +25894,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !872
 
 ._crit_edge.thread:                               ; preds = %20, %._crit_edge
-  %.045.lcssa90 = phi i64 [ %36, %._crit_edge ], [ -1, %20 ]
+  %.045.lcssa89 = phi i64 [ %36, %._crit_edge ], [ -1, %20 ]
   %46 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %47 = load ptr, ptr %46, align 8, !tbaa !77
   %48 = load i32, ptr %47, align 4, !tbaa !78
@@ -25984,7 +25984,7 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
   %93 = load ptr, ptr %92, align 8, !tbaa !52
   %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.188, ptr noundef %91, ptr noundef %93) #27
   %95 = load ptr, ptr %25, align 8, !tbaa !77
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %.045.lcssa90
+  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %.045.lcssa89
   %97 = load i32, ptr %96, align 4, !tbaa !78
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 136
   %99 = load ptr, ptr %98, align 8, !tbaa !77
@@ -26004,8 +26004,8 @@ define dso_local noundef i32 @_ZN11NetOptimize15eliminate_splitEv(ptr noundef no
 109:                                              ; preds = %._crit_edge, %._crit_edge64, %83, %12
   %110 = add nuw i64 %.072, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
-  %exitcond87.not = icmp eq i64 %110, %10
-  br i1 %exitcond87.not, label %._crit_edge75, label %12, !llvm.loop !875
+  %exitcond86.not = icmp eq i64 %110, %10
+  br i1 %exitcond86.not, label %._crit_edge75, label %12, !llvm.loop !875
 }
 
 ; Function Attrs: mustprogress uwtable

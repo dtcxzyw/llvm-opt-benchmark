@@ -9612,14 +9612,14 @@ m_sg.exit:                                        ; preds = %m_mday.exit, %133
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #21
   %134 = call fastcc i32 @valid_civil_p(i64 noundef %.026, i32 noundef %.027, i32 noundef %.0.i38, double noundef %.0.i49, ptr noundef %4, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %6, ptr noundef %10)
   %.not55 = icmp eq i32 %134, 0
-  br i1 %.not55, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %.not55, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %m_sg.exit
+.lr.ph:                                           ; preds = %m_sg.exit
   %135 = icmp ne i32 %.0.i38, 0
   %136 = zext i1 %135 to i32
-  br label %.lr.ph
+  br label %136
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %139
+136:                                              ; preds = %.lr.ph, %139
   %.02856 = phi i32 [ %140, %139 ], [ %.0.i38, %.lr.ph.preheader ]
   %exitcond = icmp eq i32 %.02856, %136
   br i1 %exitcond, label %137, label %139
@@ -9629,8 +9629,8 @@ m_sg.exit:                                        ; preds = %m_mday.exit, %133
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %138, ptr noundef nonnull @.str.168) #22
   unreachable
 
-139:                                              ; preds = %.lr.ph
-  %140 = add nsw i32 %.02856, -1
+138:                                              ; preds = %.lr.ph
+  %139 = add nsw i32 %.02856, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
@@ -9639,42 +9639,42 @@ m_sg.exit:                                        ; preds = %m_mday.exit, %133
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #21
-  %141 = call fastcc i32 @valid_civil_p(i64 noundef %.026, i32 noundef %.027, i32 noundef %140, double noundef %.0.i49, ptr noundef %4, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %6, ptr noundef %10)
-  %.not = icmp eq i32 %141, 0
+  %140 = call fastcc i32 @valid_civil_p(i64 noundef %.026, i32 noundef %.027, i32 noundef %139, double noundef %.0.i49, ptr noundef %4, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %6, ptr noundef %10)
+  %.not = icmp eq i32 %140, 0
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %139, %m_sg.exit
+._crit_edge:                                      ; preds = %138, %m_sg.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
-  %142 = load i64, ptr %4, align 8, !tbaa !6
-  %143 = load i32, ptr %6, align 4, !tbaa !33
-  call fastcc void @encode_jd(i64 noundef %142, i32 noundef %143, ptr noundef %5)
-  %144 = load i64, ptr %5, align 8, !tbaa !6
+  %141 = load i64, ptr %4, align 8, !tbaa !6
+  %142 = load i32, ptr %6, align 4, !tbaa !33
+  call fastcc void @encode_jd(i64 noundef %141, i32 noundef %142, ptr noundef %5)
+  %143 = load i64, ptr %5, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
-  %145 = load i32, ptr %11, align 8, !tbaa !47
-  %146 = and i32 %145, 128
-  %.not.i.i50 = icmp eq i32 %146, 0
-  br i1 %.not.i.i50, label %m_real_local_jd.exit, label %147
+  %144 = load i32, ptr %11, align 8, !tbaa !47
+  %145 = and i32 %144, 128
+  %.not.i.i50 = icmp eq i32 %145, 0
+  br i1 %.not.i.i50, label %m_real_local_jd.exit, label %146
 
-147:                                              ; preds = %._crit_edge
+146:                                              ; preds = %._crit_edge
   tail call fastcc void @get_c_civil(ptr noundef nonnull %11)
   br label %m_real_local_jd.exit
 
-m_real_local_jd.exit:                             ; preds = %._crit_edge, %147
+m_real_local_jd.exit:                             ; preds = %._crit_edge, %146
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !47
-  %148 = tail call fastcc i32 @m_local_jd(ptr noundef nonnull %11)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %148, ptr noundef %3)
-  %149 = load i64, ptr %3, align 8, !tbaa !6
+  %147 = tail call fastcc i32 @m_local_jd(ptr noundef nonnull %11)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %147, ptr noundef %3)
+  %148 = load i64, ptr %3, align 8, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  %150 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %144, i64 noundef 45, i32 noundef 1, i64 noundef %149) #21
-  %151 = tail call i64 @d_lite_plus(i64 noundef %0, i64 noundef %150)
+  %149 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %143, i64 noundef 45, i32 noundef 1, i64 noundef %148) #21
+  %150 = tail call i64 @d_lite_plus(i64 noundef %0, i64 noundef %149)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  ret i64 %151
+  ret i64 %150
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

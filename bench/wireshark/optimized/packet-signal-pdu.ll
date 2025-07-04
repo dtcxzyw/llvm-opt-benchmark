@@ -6049,8 +6049,8 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %119
 194:                                              ; preds = %184, %.lr.ph.split.i.i
   %.155.i.i = phi i64 [ %193, %184 ], [ %.05465.i.i, %.lr.ph.split.i.i ]
   %195 = add nsw i32 %.05664.i.i, -1
-  %exitcond79.not.i.i = icmp eq i32 %.05664.i.i, %.083131
-  br i1 %exitcond79.not.i.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph.split.i.i, !llvm.loop !32
+  %.not.not.i.i = icmp eq i32 %.05664.i.i, %.083131
+  br i1 %.not.not.i.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph.split.i.i, !llvm.loop !32
 
 .lr.ph69.split.i.i:                               ; preds = %.lr.ph69.split.i.preheader.i, %.lr.ph69.split.i.i
   %.15767.i310.i = phi i32 [ %202, %.lr.ph69.split.i.i ], [ %.083131, %.lr.ph69.split.i.preheader.i ]

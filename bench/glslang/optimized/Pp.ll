@@ -2027,8 +2027,8 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread: ; preds = %_ZNSt3mapIiN7g
 
 95:                                               ; preds = %.preheader143
   %96 = add nsw i32 %.0114154, -1
-  %exitcond.not = icmp eq i32 %.0114154, 0
-  br i1 %exitcond.not, label %.critedge, label %.preheader143, !llvm.loop !17
+  %.not171 = icmp eq i32 %.0114154, 0
+  br i1 %.not171, label %.critedge, label %.preheader143, !llvm.loop !17
 
 .preheader143:                                    ; preds = %tailrecurse, %95
   %.0114154 = phi i32 [ %96, %95 ], [ 3, %tailrecurse ]
@@ -2087,8 +2087,8 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread: ; preds = %_ZNSt3mapIiN7g
 
 124:                                              ; preds = %.preheader
   %125 = add nsw i32 %.0113155, -1
-  %exitcond171.not = icmp eq i32 %.0113155, 0
-  br i1 %exitcond171.not, label %.thread, label %.preheader, !llvm.loop !18
+  %.not172 = icmp eq i32 %.0113155, 0
+  br i1 %.not172, label %.thread, label %.preheader, !llvm.loop !18
 
 126:                                              ; preds = %.preheader
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 4

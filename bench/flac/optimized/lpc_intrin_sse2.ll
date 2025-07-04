@@ -51,12 +51,12 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_8(ptr noun
   %.037.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %21, %.lr.ph ]
   %.036.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %23, %.lr.ph ]
   store <2 x double> %.039.lcssa, ptr %3, align 1, !tbaa !9
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store <2 x double> %.038.lcssa, ptr %25, align 1, !tbaa !9
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store <2 x double> %.037.lcssa, ptr %26, align 1, !tbaa !9
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store <2 x double> %.036.lcssa, ptr %27, align 1, !tbaa !9
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store <2 x double> %.038.lcssa, ptr %24, align 1, !tbaa !9
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store <2 x double> %.037.lcssa, ptr %25, align 1, !tbaa !9
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store <2 x double> %.036.lcssa, ptr %26, align 1, !tbaa !9
   ret void
 }
 
@@ -114,14 +114,14 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_10(ptr nou
   %.045.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %24, %.lr.ph ]
   %.039.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %26, %.lr.ph ]
   store <2 x double> %.048.lcssa, ptr %3, align 1, !tbaa !9
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store <2 x double> %.047.lcssa, ptr %28, align 1, !tbaa !9
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store <2 x double> %.046.lcssa, ptr %29, align 1, !tbaa !9
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store <2 x double> %.045.lcssa, ptr %30, align 1, !tbaa !9
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store <2 x double> %.039.lcssa, ptr %31, align 1, !tbaa !9
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store <2 x double> %.047.lcssa, ptr %27, align 1, !tbaa !9
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store <2 x double> %.046.lcssa, ptr %28, align 1, !tbaa !9
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store <2 x double> %.045.lcssa, ptr %29, align 1, !tbaa !9
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store <2 x double> %.039.lcssa, ptr %30, align 1, !tbaa !9
   ret void
 }
 
@@ -191,18 +191,18 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_14(ptr nou
   %.054.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %30, %.lr.ph ]
   %.053.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %32, %.lr.ph ]
   store <2 x double> %.066.lcssa, ptr %3, align 1, !tbaa !9
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store <2 x double> %.065.lcssa, ptr %34, align 1, !tbaa !9
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store <2 x double> %.064.lcssa, ptr %35, align 1, !tbaa !9
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store <2 x double> %.063.lcssa, ptr %36, align 1, !tbaa !9
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store <2 x double> %.057.lcssa, ptr %37, align 1, !tbaa !9
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store <2 x double> %.054.lcssa, ptr %38, align 1, !tbaa !9
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store <2 x double> %.053.lcssa, ptr %39, align 1, !tbaa !9
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store <2 x double> %.065.lcssa, ptr %33, align 1, !tbaa !9
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store <2 x double> %.064.lcssa, ptr %34, align 1, !tbaa !9
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store <2 x double> %.063.lcssa, ptr %35, align 1, !tbaa !9
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store <2 x double> %.057.lcssa, ptr %36, align 1, !tbaa !9
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store <2 x double> %.054.lcssa, ptr %37, align 1, !tbaa !9
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store <2 x double> %.053.lcssa, ptr %38, align 1, !tbaa !9
   ret void
 }
 

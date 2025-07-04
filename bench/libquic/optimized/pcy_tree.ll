@@ -221,7 +221,7 @@ define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly capt
   br i1 %or.cond.i, label %tree_init.exit, label %tree_init.exit.thread57
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %13
-  %.191.lcssa159.i = phi i32 [ %.393.i, %._crit_edge.i ], [ %.090.i, %13 ]
+  %.191.lcssa157.i = phi i32 [ %.393.i, %._crit_edge.i ], [ %.090.i, %13 ]
   %48 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
   %.not111.i = icmp eq ptr %48, null
   br i1 %.not111.i, label %tree_init.exit.thread, label %49
@@ -356,7 +356,7 @@ define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly capt
   br i1 %exitcond155.not.i, label %._crit_edge149.i, label %.lr.ph148.i, !llvm.loop !63
 
 ._crit_edge149.i:                                 ; preds = %110, %.preheader.i
-  %.not115.i = icmp eq i32 %.191.lcssa159.i, 0
+  %.not115.i = icmp eq i32 %.191.lcssa157.i, 0
   br i1 %.not115.i, label %114, label %.thread72
 
 112:                                              ; preds = %58, %55

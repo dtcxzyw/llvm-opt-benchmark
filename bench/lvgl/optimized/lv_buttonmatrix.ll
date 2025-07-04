@@ -273,17 +273,17 @@ has_popovers_in_top_row.exit:                     ; preds = %32
   %106 = load i8, ptr %105, align 4
   %107 = and i8 %106, 1
   %.not329 = icmp eq i8 %107, 0
-  %.pre438 = load i32, ptr %85, align 8, !tbaa !18
+  %.pre436 = load i32, ptr %85, align 8, !tbaa !18
   br i1 %.not329, label %109, label %108
 
 108:                                              ; preds = %104
-  tail call fastcc void @make_one_button_checked(ptr noundef nonnull %10, i32 noundef %.pre438)
+  tail call fastcc void @make_one_button_checked(ptr noundef nonnull %10, i32 noundef %.pre436)
   %.pre = load ptr, ptr %88, align 8, !tbaa !20
-  %.pre437 = load i32, ptr %85, align 8, !tbaa !18
+  %.pre435 = load i32, ptr %85, align 8, !tbaa !18
   br label %109
 
 109:                                              ; preds = %104, %108, %87
-  %110 = phi i32 [ %.pre438, %104 ], [ %.pre437, %108 ], [ %86, %87 ]
+  %110 = phi i32 [ %.pre436, %104 ], [ %.pre435, %108 ], [ %86, %87 ]
   %111 = phi ptr [ %89, %104 ], [ %.pre, %108 ], [ %89, %87 ]
   %112 = zext i32 %110 to i64
   %113 = getelementptr inbounds nuw i32, ptr %111, i64 %112
@@ -304,11 +304,11 @@ has_popovers_in_top_row.exit:                     ; preds = %32
   br i1 %.not330, label %._crit_edge, label %.critedge337
 
 ._crit_edge:                                      ; preds = %118
-  %.pre439 = load i32, ptr %85, align 8, !tbaa !18
+  %.pre437 = load i32, ptr %85, align 8, !tbaa !18
   br label %120
 
 120:                                              ; preds = %._crit_edge, %109, %84
-  %121 = phi i32 [ %.pre439, %._crit_edge ], [ %110, %109 ], [ 65535, %84 ]
+  %121 = phi i32 [ %.pre437, %._crit_edge ], [ %110, %109 ], [ 65535, %84 ]
   call fastcc void @invalidate_button_area(ptr noundef nonnull %10, i32 noundef %121)
   br label %.critedge337
 
@@ -466,7 +466,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
   ]
 
 ..critedge340_crit_edge:                          ; preds = %180
-  %.pre441 = load i32, ptr %181, align 8, !tbaa !18
+  %.pre439 = load i32, ptr %181, align 8, !tbaa !18
   br label %.critedge340
 
 184:                                              ; preds = %180
@@ -480,13 +480,13 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
   %spec.store.select341 = select i1 %.not322, i32 %storemerge321, i32 0
   store i32 %spec.store.select341, ptr %181, align 8
   %190 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %.pre440 = load ptr, ptr %190, align 8, !tbaa !20
+  %.pre438 = load ptr, ptr %190, align 8, !tbaa !20
   br label %191
 
 191:                                              ; preds = %.critedge18, %184
   %192 = phi i32 [ %spec.store.select, %.critedge18 ], [ %spec.store.select341, %184 ]
   %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %.pre440, i64 %193
+  %194 = getelementptr inbounds nuw i32, ptr %.pre438, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !27
   %196 = and i32 %195, 80
   %or.cond377.not = icmp eq i32 %196, 0
@@ -612,8 +612,8 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
   br label %255
 
 255:                                              ; preds = %.lr.ph412, %271
-  %indvars.iv432 = phi i64 [ %251, %.lr.ph412 ], [ %indvars.iv.next433, %271 ]
-  %256 = getelementptr inbounds nuw %struct.lv_area_t, ptr %250, i64 %indvars.iv432
+  %indvars.iv431 = phi i64 [ %251, %.lr.ph412 ], [ %indvars.iv.next432, %271 ]
+  %256 = getelementptr inbounds nuw %struct.lv_area_t, ptr %250, i64 %indvars.iv431
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
   %258 = load i32, ptr %257, align 4, !tbaa !34
   %259 = icmp sgt i32 %258, %253
@@ -633,20 +633,20 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 
 266:                                              ; preds = %262
   %267 = load ptr, ptr %254, align 8, !tbaa !20
-  %268 = getelementptr inbounds nuw i32, ptr %267, i64 %indvars.iv432
+  %268 = getelementptr inbounds nuw i32, ptr %267, i64 %indvars.iv431
   %269 = load i32, ptr %268, align 4, !tbaa !27
   %270 = and i32 %269, 80
   %or.cond383.not = icmp eq i32 %270, 0
   br i1 %or.cond383.not, label %272, label %271
 
 271:                                              ; preds = %255, %260, %262, %266
-  %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, 1
-  %lftr.wideiv435 = trunc i64 %indvars.iv.next433 to i32
-  %exitcond436.not = icmp eq i32 %248, %lftr.wideiv435
-  br i1 %exitcond436.not, label %.critedge340, label %255, !llvm.loop !36
+  %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next432 to i32
+  %exitcond434.not = icmp eq i32 %248, %lftr.wideiv
+  br i1 %exitcond434.not, label %.critedge340, label %255, !llvm.loop !36
 
 272:                                              ; preds = %266
-  %273 = trunc nuw i64 %indvars.iv432 to i32
+  %273 = trunc nuw i64 %indvars.iv431 to i32
   store i32 %273, ptr %181, align 8, !tbaa !18
   br label %.critedge340
 
@@ -750,7 +750,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
   br label %.critedge340
 
 .critedge340:                                     ; preds = %326, %283, %271, %228, %208, %191, %..critedge340_crit_edge, %292, %237, %291, %328, %236, %272, %218, %199
-  %331 = phi i32 [ %.pre441, %..critedge340_crit_edge ], [ %301, %292 ], [ %246, %237 ], [ 65535, %291 ], [ %330, %328 ], [ 65535, %236 ], [ %273, %272 ], [ 65535, %218 ], [ 65535, %199 ], [ %192, %191 ], [ %209, %208 ], [ %229, %228 ], [ %246, %271 ], [ %284, %283 ], [ %301, %326 ]
+  %331 = phi i32 [ %.pre439, %..critedge340_crit_edge ], [ %301, %292 ], [ %246, %237 ], [ 65535, %291 ], [ %330, %328 ], [ 65535, %236 ], [ %273, %272 ], [ 65535, %218 ], [ 65535, %199 ], [ %192, %191 ], [ %209, %208 ], [ %229, %228 ], [ %246, %271 ], [ %284, %283 ], [ %301, %326 ]
   tail call fastcc void @invalidate_button_area(ptr noundef nonnull %10, i32 noundef %331)
   br label %.critedge337
 

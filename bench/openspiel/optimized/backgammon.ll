@@ -8504,9 +8504,9 @@ _ZNK10open_spiel10backgammon15BackgammonState14CheckersInHomeEi.exit: ; preds = 
 31:                                               ; preds = %_ZNK10open_spiel10backgammon15BackgammonState14CheckersInHomeEi.exit
   %32 = icmp sgt i32 %3, 24
   %or.cond5 = and i1 %18, %32
-  br i1 %or.cond5, label %.preheader.preheader, label %36
+  br i1 %or.cond5, label %.preheader, label %36
 
-.preheader.preheader:                             ; preds = %31
+.preheader:                                       ; preds = %31
   %smin = tail call i32 @llvm.smin.i32(i32 %2, i32 18)
   br label %.preheader
 
@@ -8515,10 +8515,10 @@ _ZNK10open_spiel10backgammon15BackgammonState14CheckersInHomeEi.exit: ; preds = 
   %exitcond45.not = icmp eq i32 %.031.in, %smin
   br i1 %exitcond45.not, label %.loopexit, label %33
 
-33:                                               ; preds = %.preheader
+33: ; preds = %.preheader
   %.031 = add i32 %.031.in, -1
   %34 = tail call noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState5boardEii(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef 0, i32 noundef %.031)
-  %35 = icmp sgt i32 %34, 0
+  %38 = icmp sgt i32 %34, 0
   br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !33
 
 36:                                               ; preds = %31
@@ -8531,18 +8531,18 @@ _ZNK10open_spiel10backgammon15BackgammonState14CheckersInHomeEi.exit: ; preds = 
   %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 5)
   br label %.preheader36
 
-.preheader36:                                     ; preds = %.preheader36.preheader, %39
+.preheader36:                                     ; preds = %.preheader36.preheader, %40
   %.0.in = phi i32 [ %.0, %39 ], [ %2, %.preheader36.preheader ]
   %exitcond.not = icmp eq i32 %.0.in, %smax
-  br i1 %exitcond.not, label %.loopexit, label %39
+  br i1 %exitcond.not, label %.loopexit, label %40
 
-39:                                               ; preds = %.preheader36
+40:                                               ; preds = %.preheader36
   %.0 = add i32 %.0.in, 1
-  %40 = tail call noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState5boardEii(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef 1, i32 noundef %.0)
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %.loopexit, label %.preheader36, !llvm.loop !34
+  %41 = tail call noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState5boardEii(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef 1, i32 noundef %.0)
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %.loopexit, label %.preheader36, !llvm.loop !34
 
-.loopexit:                                        ; preds = %.preheader36, %39, %.preheader, %33, %16, %36, %_ZNK10open_spiel10backgammon15BackgammonState14CheckersInHomeEi.exit, %9, %6
+.loopexit:                                        ; preds = %.preheader36, %40, %.preheader, %33, %16, %36, %_ZNK10open_spiel10backgammon15BackgammonState14CheckersInHomeEi.exit, %9, %6
   %.032 = phi i1 [ false, %6 ], [ false, %9 ], [ false, %_ZNK10open_spiel10backgammon15BackgammonState14CheckersInHomeEi.exit ], [ true, %36 ], [ true, %16 ], [ %exitcond45.not, %33 ], [ %exitcond45.not, %.preheader ], [ %exitcond.not, %39 ], [ %exitcond.not, %.preheader36 ]
   ret i1 %.032
 }

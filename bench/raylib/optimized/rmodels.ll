@@ -13740,11 +13740,11 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
 13:                                               ; preds = %3, %2
   %14 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #60
   %.not87 = icmp eq ptr %14, null
-  br i1 %.not87, label %65, label %15
+  br i1 %.not87, label %66, label %15
 
 15:                                               ; preds = %13
   store i8 0, ptr %14, align 1
-  br label %65
+  br label %66
 
 .preheader99.split:                               ; preds = %.preheader99, %16
   %.0101 = phi i32 [ %18, %16 ], [ 0, %.preheader99 ]
@@ -13766,14 +13766,14 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #60
   %22 = ptrtoint ptr %21 to i64
   %.not91 = icmp eq ptr %21, null
-  br i1 %.not91, label %65, label %.preheader
+  br i1 %.not91, label %66, label %.preheader
 
 .preheader:                                       ; preds = %.critedge
   %.not92.not.not = icmp eq i32 %1, 0
   br i1 %.not92.not.not, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.critedge2.us
-  %23 = phi i8 [ %.pre130, %.critedge2.us ], [ %4, %.preheader ]
+  %23 = phi i8 [ %.pre129, %.critedge2.us ], [ %4, %.preheader ]
   %.074.us = phi ptr [ %24, %.critedge2.us ], [ %0, %.preheader ]
   switch i8 %23, label %.critedge4.preheader [
     i8 32, label %.critedge2.us
@@ -13783,7 +13783,7 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
 
 .critedge2.us:                                    ; preds = %.preheader.split.us, %.preheader.split.us, %.preheader.split.us
   %24 = getelementptr inbounds nuw i8, ptr %.074.us, i64 1
-  %.pre130 = load i8, ptr %24, align 1
+  %.pre129 = load i8, ptr %24, align 1
   br label %.preheader.split.us
 
 .preheader.split:                                 ; preds = %.preheader, %.critedge2
@@ -13803,7 +13803,7 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
   br i1 %.not93104, label %.critedge6.thread, label %.lr.ph
 
 .critedge6.thread:                                ; preds = %.critedge4.preheader
-  %.176.lcssa128133 = ptrtoint ptr %21 to i64
+  %.176.lcssa128132 = ptrtoint ptr %21 to i64
   br label %.critedge10
 
 .lr.ph:                                           ; preds = %.critedge4.preheader
@@ -13930,25 +13930,25 @@ define hidden noalias noundef ptr @_m3d_safestr(ptr noundef readonly captures(ad
   ]
 
 .critedge12:                                      ; preds = %.lr.ph119, %.lr.ph119, %.lr.ph119, %.lr.ph119
-  %exitcond129.not = icmp eq ptr %61, %21
-  br i1 %exitcond129.not, label %.critedge10.loopexit, label %.lr.ph119
+  %63 = icmp eq ptr %61, %21
+  br i1 %63, label %.critedge10.loopexit, label %.lr.ph119
 
 .critedge10.loopexit:                             ; preds = %.lr.ph119, %.critedge12
   %.4.lcssa.ph = phi ptr [ %scevgep, %.critedge12 ], [ %.4118, %.lr.ph119 ]
-  %.pre131 = ptrtoint ptr %.4.lcssa.ph to i64
+  %.pre130 = ptrtoint ptr %.4.lcssa.ph to i64
   br label %.critedge10
 
 .critedge10:                                      ; preds = %.critedge6.thread, %.critedge10.loopexit, %.critedge6
-  %.pre-phi = phi i64 [ %.pre131, %.critedge10.loopexit ], [ %.176.lcssa128, %.critedge6 ], [ %.176.lcssa128133, %.critedge6.thread ]
+  %.pre-phi = phi i64 [ %.pre130, %.critedge10.loopexit ], [ %.176.lcssa128, %.critedge6 ], [ %.176.lcssa128132, %.critedge6.thread ]
   %.4.lcssa = phi ptr [ %.4.lcssa.ph, %.critedge10.loopexit ], [ %.176.lcssa, %.critedge6 ], [ %21, %.critedge6.thread ]
   store i8 0, ptr %.4.lcssa, align 1
   %reass.sub = sub i64 %.pre-phi, %22
-  %63 = add i64 %reass.sub, 1
-  %64 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %63) #56
-  br label %65
+  %64 = add i64 %reass.sub, 1
+  %65 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %64) #56
+  br label %66
 
-65:                                               ; preds = %15, %.critedge10, %.critedge, %13
-  %.078 = phi ptr [ null, %13 ], [ null, %.critedge ], [ %64, %.critedge10 ], [ %14, %15 ]
+66:                                               ; preds = %15, %.critedge10, %.critedge, %13
+  %.078 = phi ptr [ null, %13 ], [ null, %.critedge ], [ %65, %.critedge10 ], [ %14, %15 ]
   ret ptr %.078
 }
 
@@ -28780,8 +28780,8 @@ allocate_perm.exit.i:                             ; preds = %8, %allocate_perm.e
   %36 = load i16, ptr %35, align 2
   store i16 %36, ptr %27, align 2
   %indvars.iv.next50.i = add nsw i64 %indvars.iv49.i, -1
-  %exitcond52.not.i = icmp eq i64 %indvars.iv49.i, 0
-  br i1 %exitcond52.not.i, label %par__simplex_noise.exit, label %18
+  %.not52.i = icmp eq i64 %indvars.iv49.i, 0
+  br i1 %.not52.i, label %par__simplex_noise.exit, label %18
 
 par__simplex_noise.exit:                          ; preds = %18, %2, %12
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #58
@@ -68515,18 +68515,18 @@ _m3dstbi__mad3sizes_valid.exit._crit_edge:        ; preds = %39, %_m3dstbi__mul2
   br i1 %9, label %121, label %127
 
 121:                                              ; preds = %120
-  %.pre995 = sext i32 %.0565832 to i64
-  br i1 %.not612, label %._crit_edge994, label %122
+  %.pre992 = sext i32 %.0565832 to i64
+  br i1 %.not612, label %._crit_edge991, label %122
 
 122:                                              ; preds = %121
-  %123 = getelementptr inbounds i8, ptr %71, i64 %.pre995
+  %123 = getelementptr inbounds i8, ptr %71, i64 %.pre992
   store i8 -1, ptr %123, align 1
   %124 = getelementptr i8, ptr %123, i64 1
   store i8 -1, ptr %124, align 1
-  br label %._crit_edge994
+  br label %._crit_edge991
 
-._crit_edge994:                                   ; preds = %121, %122
-  %125 = getelementptr inbounds i8, ptr %72, i64 %.pre995
+._crit_edge991:                                   ; preds = %121, %122
+  %125 = getelementptr inbounds i8, ptr %72, i64 %.pre992
   %126 = getelementptr inbounds i8, ptr %71, i64 %63
   br label %130
 
@@ -68535,11 +68535,11 @@ _m3dstbi__mad3sizes_valid.exit._crit_edge:        ; preds = %39, %_m3dstbi__mul2
   %129 = getelementptr inbounds nuw i8, ptr %.0551, i64 1
   br label %130
 
-130:                                              ; preds = %._crit_edge994, %127, %117
-  %.sink1026 = phi i64 [ %63, %._crit_edge994 ], [ 1, %127 ], [ %65, %117 ]
+130:                                              ; preds = %._crit_edge991, %127, %117
+  %.sink1023 = phi i64 [ %63, %._crit_edge994 ], [ 1, %127 ], [ %65, %117 ]
   %.1552 = phi ptr [ %126, %._crit_edge994 ], [ %129, %127 ], [ %119, %117 ]
   %.2533 = phi ptr [ %125, %._crit_edge994 ], [ %128, %127 ], [ %118, %117 ]
-  %131 = getelementptr inbounds i8, ptr %76, i64 %.sink1026
+  %131 = getelementptr inbounds i8, ptr %76, i64 %.sink1023
   br i1 %or.cond, label %132, label %208
 
 132:                                              ; preds = %130
@@ -69079,13 +69079,13 @@ _m3dstbi__mad3sizes_valid.exit._crit_edge:        ; preds = %39, %_m3dstbi__mul2
   %.1867 = add i32 %4, -1
   %320 = icmp sgt i32 %.1867, -1
   %321 = zext i32 %.1867 to i64
-  %wide.trip.count992 = zext i32 %5 to i64
+  %wide.trip.count989 = zext i32 %5 to i64
   br label %322
 
 322:                                              ; preds = %.lr.ph874, %.loopexit
-  %indvars.iv989 = phi i64 [ 0, %.lr.ph874 ], [ %indvars.iv.next990, %.loopexit ]
+  %indvars.iv986 = phi i64 [ 0, %.lr.ph874 ], [ %indvars.iv.next987, %.loopexit ]
   %323 = load ptr, ptr %31, align 8
-  %324 = trunc nuw i64 %indvars.iv989 to i32
+  %324 = trunc nuw i64 %indvars.iv986 to i32
   %325 = mul i32 %13, %324
   %326 = zext i32 %325 to i64
   %327 = getelementptr inbounds nuw i8, ptr %323, i64 %326
@@ -69356,15 +69356,15 @@ _m3dstbi__mad3sizes_valid.exit._crit_edge:        ; preds = %39, %_m3dstbi__mul2
   br i1 %320, label %.lr.ph872, label %.loopexit
 
 .lr.ph872:                                        ; preds = %.preheader, %.lr.ph872
-  %indvars.iv984 = phi i64 [ %indvars.iv.next985, %.lr.ph872 ], [ %321, %.preheader ]
-  %463 = shl nuw nsw i64 %indvars.iv984, 1
+  %indvars.iv983 = phi i64 [ %indvars.iv.next984, %.lr.ph872 ], [ %321, %.preheader ]
+  %463 = shl nuw nsw i64 %indvars.iv983, 1
   %464 = getelementptr inbounds nuw i8, ptr %462, i64 %463
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 1
   store i8 -1, ptr %465, align 1
-  %466 = getelementptr inbounds nuw i8, ptr %462, i64 %indvars.iv984
+  %466 = getelementptr inbounds nuw i8, ptr %462, i64 %indvars.iv983
   %467 = load i8, ptr %466, align 1
   store i8 %467, ptr %464, align 1
-  %indvars.iv.next985 = add nsw i64 %indvars.iv984, -1
+  %indvars.iv.next984 = add nsw i64 %indvars.iv983, -1
   %468 = and i64 %indvars.iv.next985, 4294967295
   %exitcond988.not = icmp eq i64 %468, 4294967295
   br i1 %exitcond988.not, label %.loopexit, label %.lr.ph872
@@ -69393,9 +69393,9 @@ _m3dstbi__mad3sizes_valid.exit._crit_edge:        ; preds = %39, %_m3dstbi__mul2
   br i1 %exitcond983.not, label %.loopexit, label %.lr.ph869
 
 .loopexit:                                        ; preds = %.lr.ph869, %.lr.ph872, %.preheader707, %.preheader, %.thread681
-  %indvars.iv.next990 = add nuw nsw i64 %indvars.iv989, 1
-  %exitcond993.not = icmp eq i64 %indvars.iv.next990, %wide.trip.count992
-  br i1 %exitcond993.not, label %.loopexit713, label %322
+  %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
+  %exitcond990.not = icmp eq i64 %indvars.iv.next987, %wide.trip.count989
+  br i1 %exitcond990.not, label %.loopexit713, label %322
 
 482:                                              ; preds = %._crit_edge837
   br i1 %9, label %483, label %.loopexit713

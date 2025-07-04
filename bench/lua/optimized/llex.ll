@@ -1108,14 +1108,14 @@ save.exit.i:                                      ; preds = %301, %._crit_edge.i
 322:                                              ; preds = %320, %314
   %323 = phi i32 [ %319, %314 ], [ %321, %320 ]
   store i32 %323, ptr %0, align 8, !tbaa !51
-  %.not62162.i = icmp eq i32 %323, %10
-  br i1 %.not62162.i, label %._crit_edge.i, label %.lr.ph163.i
+  %.not62161.i = icmp eq i32 %323, %10
+  br i1 %.not62161.i, label %._crit_edge.i, label %.lr.ph162.i
 
-.lr.ph163.i:                                      ; preds = %322
+.lr.ph162.i:                                      ; preds = %322
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %325
 
-325:                                              ; preds = %.loopexit.i, %.lr.ph163.i
+325:                                              ; preds = %.loopexit.i, %.lr.ph162.i
   %326 = phi i32 [ %323, %.lr.ph163.i ], [ %.pr.i, %.loopexit.i ]
   switch i32 %326, label %776 [
     i32 -1, label %327
@@ -1310,7 +1310,7 @@ save.exit.i.i.i:                                  ; preds = %387, %._crit_edge.i
   store i32 %407, ptr %0, align 8, !tbaa !51
   switch i32 %407, label %408 [
     i32 123, label %esccheck.exit.i.i.i
-    i32 -1, label %.loopexit111.i
+    i32 -1, label %.loopexit110.i
   ]
 
 408:                                              ; preds = %406
@@ -1338,9 +1338,9 @@ save.exit.i.i.i:                                  ; preds = %387, %._crit_edge.i
 420:                                              ; preds = %418, %412
   %421 = phi i32 [ %417, %412 ], [ %419, %418 ]
   store i32 %421, ptr %0, align 8, !tbaa !51
-  br label %.loopexit111.i
+  br label %.loopexit110.i
 
-.loopexit111.i:                                   ; preds = %406, %420
+.loopexit110.i:                                   ; preds = %406, %420
   call fastcc void @lexerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.51, i32 noundef 292) #7
   unreachable
 
@@ -1474,7 +1474,7 @@ esccheck.exit42.i.i.i:                            ; preds = %463
 486:                                              ; preds = %456
   switch i32 %457, label %487 [
     i32 125, label %esccheck.exit46.i.i.i
-    i32 -1, label %.loopexit112.i
+    i32 -1, label %.loopexit111.i
   ]
 
 487:                                              ; preds = %486
@@ -1502,9 +1502,9 @@ esccheck.exit42.i.i.i:                            ; preds = %463
 499:                                              ; preds = %497, %491
   %500 = phi i32 [ %496, %491 ], [ %498, %497 ]
   store i32 %500, ptr %0, align 8, !tbaa !51
-  br label %.loopexit112.i
+  br label %.loopexit111.i
 
-.loopexit112.i:                                   ; preds = %486, %499
+.loopexit111.i:                                   ; preds = %486, %499
   call fastcc void @lexerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.53, i32 noundef 292) #7
   unreachable
 
@@ -1706,11 +1706,11 @@ utf8esc.exit.i:                                   ; preds = %save.exit.i.i, %rea
   %598 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %597
   %599 = load i8, ptr %598, align 1, !tbaa !13
   %600 = and i8 %599, 8
-  %.not66161.i = icmp eq i8 %600, 0
-  br i1 %.not66161.i, label %.loopexit.i, label %.lr.ph.i
+  %.not66160.i = icmp eq i8 %600, 0
+  br i1 %.not66160.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %594, %inclinenumber.exit80.i
-  %601 = phi i32 [ %.pr110.i, %inclinenumber.exit80.i ], [ %595, %594 ]
+  %601 = phi i32 [ %.pr109.i, %inclinenumber.exit80.i ], [ %595, %594 ]
   switch i32 %601, label %636 [
     i32 10, label %602
     i32 13, label %602
@@ -1776,7 +1776,7 @@ utf8esc.exit.i:                                   ; preds = %save.exit.i.i, %rea
   br label %631
 
 631:                                              ; preds = %629, %616, %614
-  %.pr110194.i = phi i32 [ %630, %629 ], [ %601, %616 ], [ %615, %614 ]
+  %.pr109193.i = phi i32 [ %630, %629 ], [ %601, %616 ], [ %615, %614 ]
   %632 = load i32, ptr %9, align 4, !tbaa !26
   %633 = add nsw i32 %632, 1
   store i32 %633, ptr %9, align 4, !tbaa !26
@@ -1814,8 +1814,8 @@ utf8esc.exit.i:                                   ; preds = %save.exit.i.i, %rea
   br label %inclinenumber.exit80.i
 
 inclinenumber.exit80.i:                           ; preds = %648, %631
-  %.pr110.i = phi i32 [ %.pr110194.i, %631 ], [ %649, %648 ]
-  %650 = add nsw i32 %.pr110.i, 1
+  %.pr109.i = phi i32 [ %.pr109193.i, %631 ], [ %649, %648 ]
+  %650 = add nsw i32 %.pr109.i, 1
   %651 = sext i32 %650 to i64
   %652 = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %651
   %653 = load i8, ptr %652, align 1, !tbaa !13
@@ -1911,13 +1911,13 @@ esccheck.exit.i:                                  ; preds = %655, %717
   %701 = call ptr @luaM_saferealloc_(ptr noundef %699, ptr noundef %700, i64 noundef %692, i64 noundef %698) #6
   store ptr %701, ptr %687, align 8, !tbaa !32
   store i64 %698, ptr %691, align 8, !tbaa !31
-  %.pre15.i.i89.i = load i64, ptr %688, align 8, !tbaa !28
-  %.pre16.i.i90.i = add i64 %.pre15.i.i89.i, 1
+  %.pre15.i.i88.i = load i64, ptr %688, align 8, !tbaa !28
+  %.pre16.i.i89.i = add i64 %.pre15.i.i88.i, 1
   br label %save.exit.i86.i
 
 save.exit.i86.i:                                  ; preds = %697, %._crit_edge.i.i84.i
-  %.pre-phi.i.i87.i = phi i64 [ %690, %._crit_edge.i.i84.i ], [ %.pre16.i.i90.i, %697 ]
-  %702 = phi i64 [ %689, %._crit_edge.i.i84.i ], [ %.pre15.i.i89.i, %697 ]
+  %.pre-phi.i.i87.i = phi i64 [ %690, %._crit_edge.i.i84.i ], [ %.pre16.i.i89.i, %697 ]
+  %702 = phi i64 [ %689, %._crit_edge.i.i84.i ], [ %.pre15.i.i88.i, %697 ]
   %703 = phi ptr [ %.pre.i.i85.i, %._crit_edge.i.i84.i ], [ %701, %697 ]
   %704 = trunc i32 %677 to i8
   store i64 %.pre-phi.i.i87.i, ptr %688, align 8, !tbaa !28
@@ -1947,8 +1947,8 @@ save.exit.i86.i:                                  ; preds = %697, %._crit_edge.i
   %718 = phi i32 [ %714, %709 ], [ %716, %715 ]
   store i32 %718, ptr %0, align 8, !tbaa !51
   %719 = add nuw nsw i32 %.01519.i.i, 1
-  %exitcond.not.i88.i = icmp eq i32 %719, 3
-  br i1 %exitcond.not.i88.i, label %.critedge.i.i, label %esccheck.exit.i
+  %exitcond.not.i.i = icmp eq i32 %719, 3
+  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %esccheck.exit.i
 
 .critedge.i.i:                                    ; preds = %717, %esccheck.exit.i
   %720 = phi i32 [ %718, %717 ], [ %677, %esccheck.exit.i ]
@@ -2038,11 +2038,11 @@ inclinenumber.exit.i:                             ; preds = %755, %readdecesc.ex
   %761 = getelementptr inbounds nuw i8, ptr %757, i64 16
   %762 = load i64, ptr %761, align 8, !tbaa !31
   %763 = icmp ugt i64 %759, %762
-  br i1 %763, label %764, label %._crit_edge.i91.i
+  br i1 %763, label %764, label %._crit_edge.i90.i
 
-._crit_edge.i91.i:                                ; preds = %inclinenumber.exit.i
-  %.pre.i92.i = load ptr, ptr %757, align 8, !tbaa !32
-  br label %save.exit96.i
+._crit_edge.i90.i:                                ; preds = %inclinenumber.exit.i
+  %.pre.i91.i = load ptr, ptr %757, align 8, !tbaa !32
+  br label %save.exit95.i
 
 764:                                              ; preds = %inclinenumber.exit.i
   %765 = icmp ugt i64 %762, 4611686018427387902
@@ -2059,16 +2059,16 @@ inclinenumber.exit.i:                             ; preds = %755, %readdecesc.ex
   %771 = call ptr @luaM_saferealloc_(ptr noundef %769, ptr noundef %770, i64 noundef %762, i64 noundef %768) #6
   store ptr %771, ptr %757, align 8, !tbaa !32
   store i64 %768, ptr %761, align 8, !tbaa !31
-  %.pre15.i94.i = load i64, ptr %758, align 8, !tbaa !28
-  %.pre16.i95.i = add i64 %.pre15.i94.i, 1
-  br label %save.exit96.i
+  %.pre15.i93.i = load i64, ptr %758, align 8, !tbaa !28
+  %.pre16.i94.i = add i64 %.pre15.i93.i, 1
+  br label %save.exit95.i
 
-save.exit96.i:                                    ; preds = %767, %._crit_edge.i91.i
-  %.pre-phi.i93.i = phi i64 [ %759, %._crit_edge.i91.i ], [ %.pre16.i95.i, %767 ]
-  %772 = phi i64 [ %760, %._crit_edge.i91.i ], [ %.pre15.i94.i, %767 ]
-  %773 = phi ptr [ %.pre.i92.i, %._crit_edge.i91.i ], [ %771, %767 ]
+save.exit95.i:                                    ; preds = %767, %._crit_edge.i90.i
+  %.pre-phi.i92.i = phi i64 [ %759, %._crit_edge.i91.i ], [ %.pre16.i94.i, %767 ]
+  %772 = phi i64 [ %760, %._crit_edge.i91.i ], [ %.pre15.i93.i, %767 ]
+  %773 = phi ptr [ %.pre.i91.i, %._crit_edge.i91.i ], [ %771, %767 ]
   %774 = trunc i32 %.1.i to i8
-  store i64 %.pre-phi.i93.i, ptr %758, align 8, !tbaa !28
+  store i64 %.pre-phi.i92.i, ptr %758, align 8, !tbaa !28
   %775 = getelementptr inbounds nuw i8, ptr %773, i64 %772
   store i8 %774, ptr %775, align 1, !tbaa !13
   br label %.loopexit.i
@@ -2081,11 +2081,11 @@ save.exit96.i:                                    ; preds = %767, %._crit_edge.i
   %781 = getelementptr inbounds nuw i8, ptr %777, i64 16
   %782 = load i64, ptr %781, align 8, !tbaa !31
   %783 = icmp ugt i64 %780, %782
-  br i1 %783, label %784, label %._crit_edge.i97.i
+  br i1 %783, label %784, label %._crit_edge.i96.i
 
-._crit_edge.i97.i:                                ; preds = %776
-  %.pre.i98.i = load ptr, ptr %777, align 8, !tbaa !32
-  br label %save.exit102.i
+._crit_edge.i96.i:                                ; preds = %776
+  %.pre.i97.i = load ptr, ptr %777, align 8, !tbaa !32
+  br label %save.exit101.i
 
 784:                                              ; preds = %776
   %785 = icmp ugt i64 %782, 4611686018427387902
@@ -2102,16 +2102,16 @@ save.exit96.i:                                    ; preds = %767, %._crit_edge.i
   %791 = call ptr @luaM_saferealloc_(ptr noundef %789, ptr noundef %790, i64 noundef %782, i64 noundef %788) #6
   store ptr %791, ptr %777, align 8, !tbaa !32
   store i64 %788, ptr %781, align 8, !tbaa !31
-  %.pre15.i100.i = load i64, ptr %778, align 8, !tbaa !28
-  %.pre16.i101.i = add i64 %.pre15.i100.i, 1
-  br label %save.exit102.i
+  %.pre15.i99.i = load i64, ptr %778, align 8, !tbaa !28
+  %.pre16.i100.i = add i64 %.pre15.i99.i, 1
+  br label %save.exit101.i
 
-save.exit102.i:                                   ; preds = %787, %._crit_edge.i97.i
-  %.pre-phi.i99.i = phi i64 [ %780, %._crit_edge.i97.i ], [ %.pre16.i101.i, %787 ]
-  %792 = phi i64 [ %779, %._crit_edge.i97.i ], [ %.pre15.i100.i, %787 ]
-  %793 = phi ptr [ %.pre.i98.i, %._crit_edge.i97.i ], [ %791, %787 ]
+save.exit101.i:                                   ; preds = %787, %._crit_edge.i96.i
+  %.pre-phi.i98.i = phi i64 [ %780, %._crit_edge.i97.i ], [ %.pre16.i100.i, %787 ]
+  %792 = phi i64 [ %779, %._crit_edge.i97.i ], [ %.pre15.i99.i, %787 ]
+  %793 = phi ptr [ %.pre.i97.i, %._crit_edge.i97.i ], [ %791, %787 ]
   %794 = trunc i32 %326 to i8
-  store i64 %.pre-phi.i99.i, ptr %778, align 8, !tbaa !28
+  store i64 %.pre-phi.i98.i, ptr %778, align 8, !tbaa !28
   %795 = getelementptr inbounds nuw i8, ptr %793, i64 %792
   store i8 %794, ptr %795, align 1, !tbaa !13
   %796 = load ptr, ptr %8, align 8, !tbaa !53
@@ -2121,7 +2121,7 @@ save.exit102.i:                                   ; preds = %787, %._crit_edge.i
   %.not69.i = icmp eq i64 %797, 0
   br i1 %.not69.i, label %805, label %799
 
-799:                                              ; preds = %save.exit102.i
+799:                                              ; preds = %save.exit101.i
   %800 = getelementptr inbounds nuw i8, ptr %796, i64 8
   %801 = load ptr, ptr %800, align 8, !tbaa !61
   %802 = getelementptr inbounds nuw i8, ptr %801, i64 1
@@ -2130,7 +2130,7 @@ save.exit102.i:                                   ; preds = %787, %._crit_edge.i
   %804 = zext i8 %803 to i32
   br label %807
 
-805:                                              ; preds = %save.exit102.i
+805:                                              ; preds = %save.exit101.i
   %806 = call i32 @luaZ_fill(ptr noundef nonnull %796) #6
   br label %807
 
@@ -2139,7 +2139,7 @@ save.exit102.i:                                   ; preds = %787, %._crit_edge.i
   store i32 %808, ptr %0, align 8, !tbaa !51
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %inclinenumber.exit80.i, %807, %save.exit96.i, %594, %utf8esc.exit.i, %359
+.loopexit.i:                                      ; preds = %inclinenumber.exit80.i, %807, %save.exit95.i, %594, %utf8esc.exit.i, %359
   %.pr.i = load i32, ptr %0, align 8, !tbaa !51
   %.not62.i = icmp eq i32 %.pr.i, %10
   br i1 %.not62.i, label %._crit_edge.i, label %325
@@ -2152,11 +2152,11 @@ save.exit102.i:                                   ; preds = %787, %._crit_edge.i
   %813 = getelementptr inbounds nuw i8, ptr %809, i64 16
   %814 = load i64, ptr %813, align 8, !tbaa !31
   %815 = icmp ugt i64 %812, %814
-  br i1 %815, label %816, label %._crit_edge.i103.i
+  br i1 %815, label %816, label %._crit_edge.i102.i
 
-._crit_edge.i103.i:                               ; preds = %._crit_edge.i
-  %.pre.i104.i = load ptr, ptr %809, align 8, !tbaa !32
-  br label %save.exit108.i
+._crit_edge.i102.i:                               ; preds = %._crit_edge.i
+  %.pre.i103.i = load ptr, ptr %809, align 8, !tbaa !32
+  br label %save.exit107.i
 
 816:                                              ; preds = %._crit_edge.i
   %817 = icmp ugt i64 %814, 4611686018427387902
@@ -2174,15 +2174,15 @@ save.exit102.i:                                   ; preds = %787, %._crit_edge.i
   %824 = call ptr @luaM_saferealloc_(ptr noundef %822, ptr noundef %823, i64 noundef %814, i64 noundef %820) #6
   store ptr %824, ptr %809, align 8, !tbaa !32
   store i64 %820, ptr %813, align 8, !tbaa !31
-  %.pre15.i106.i = load i64, ptr %810, align 8, !tbaa !28
-  %.pre16.i107.i = add i64 %.pre15.i106.i, 1
-  br label %save.exit108.i
+  %.pre15.i105.i = load i64, ptr %810, align 8, !tbaa !28
+  %.pre16.i106.i = add i64 %.pre15.i105.i, 1
+  br label %save.exit107.i
 
-save.exit108.i:                                   ; preds = %819, %._crit_edge.i103.i
-  %.pre-phi.i105.i = phi i64 [ %812, %._crit_edge.i103.i ], [ %.pre16.i107.i, %819 ]
-  %825 = phi i64 [ %811, %._crit_edge.i103.i ], [ %.pre15.i106.i, %819 ]
-  %826 = phi ptr [ %.pre.i104.i, %._crit_edge.i103.i ], [ %824, %819 ]
-  store i64 %.pre-phi.i105.i, ptr %810, align 8, !tbaa !28
+save.exit107.i:                                   ; preds = %819, %._crit_edge.i102.i
+  %.pre-phi.i104.i = phi i64 [ %812, %._crit_edge.i103.i ], [ %.pre16.i106.i, %819 ]
+  %825 = phi i64 [ %811, %._crit_edge.i103.i ], [ %.pre15.i105.i, %819 ]
+  %826 = phi ptr [ %.pre.i103.i, %._crit_edge.i103.i ], [ %824, %819 ]
+  store i64 %.pre-phi.i104.i, ptr %810, align 8, !tbaa !28
   %827 = getelementptr inbounds nuw i8, ptr %826, i64 %825
   store i8 %309, ptr %827, align 1, !tbaa !13
   %828 = load ptr, ptr %8, align 8, !tbaa !53
@@ -2192,7 +2192,7 @@ save.exit108.i:                                   ; preds = %819, %._crit_edge.i
   %.not63.i = icmp eq i64 %829, 0
   br i1 %.not63.i, label %837, label %831
 
-831:                                              ; preds = %save.exit108.i
+831:                                              ; preds = %save.exit107.i
   %832 = getelementptr inbounds nuw i8, ptr %828, i64 8
   %833 = load ptr, ptr %832, align 8, !tbaa !61
   %834 = getelementptr inbounds nuw i8, ptr %833, i64 1
@@ -2201,7 +2201,7 @@ save.exit108.i:                                   ; preds = %819, %._crit_edge.i
   %836 = zext i8 %835 to i32
   br label %839
 
-837:                                              ; preds = %save.exit108.i
+837:                                              ; preds = %save.exit107.i
   %838 = call i32 @luaZ_fill(ptr noundef nonnull %828) #6
   br label %839
 
@@ -2261,9 +2261,9 @@ save.exit108.i:                                   ; preds = %819, %._crit_edge.i
   br label %read_string.exit
 
 read_string.exit:                                 ; preds = %856, %873
-  %.0.i.i109.i = phi ptr [ %849, %873 ], [ %857, %856 ]
+  %.0.i.i108.i = phi ptr [ %849, %873 ], [ %857, %856 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
-  store ptr %.0.i.i109.i, ptr %1, align 8, !tbaa !13
+  store ptr %.0.i.i108.i, ptr %1, align 8, !tbaa !13
   br label %.loopexit
 
 876:                                              ; preds = %.critedge

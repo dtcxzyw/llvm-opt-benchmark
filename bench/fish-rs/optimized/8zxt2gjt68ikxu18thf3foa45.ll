@@ -26810,9 +26810,9 @@ define internal fastcc void @_ZN4fish10parse_util13IndentVisitor31record_line_co
   %.idx24 = shl nuw nsw i64 %6, 2
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx24
   %14 = icmp ult i64 %11, 2
-  br i1 %14, label %"_ZN56_$LT$char$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h91675bec23efca9bE.exit.thread", label %"_ZN4fish10parse_util13IndentVisitor31record_line_continuations_until28_$u7b$$u7b$closure$u7d$$u7d$17h9a30096dbc84252cE.exit.i.us.i"
+  br i1 %14, label %"_ZN56_$LT$char$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h91675bec23efca9bE.exit.thread", label %"_ZN4fish10parse_util13IndentVisitor31record_line_continuations_until28_$u7b$$u7b$closure$u7d$$u7d$17h9a30096dbc84252cE.exit.i.us.i.preheader"
 
-"_ZN4fish10parse_util13IndentVisitor31record_line_continuations_until28_$u7b$$u7b$closure$u7d$$u7d$17h9a30096dbc84252cE.exit.i.us.i": ; preds = %12, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h5fc121904da62e6fE.exit.us.i"
+"_ZN4fish10parse_util13IndentVisitor31record_line_continuations_until28_$u7b$$u7b$closure$u7d$$u7d$17h9a30096dbc84252cE.exit.i.us.i.preheader": ; preds = %12, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h5fc121904da62e6fE.exit.us.i"
   %15 = phi i64 [ %21, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h5fc121904da62e6fE.exit.us.i" ], [ %11, %12 ]
   %16 = phi ptr [ %20, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h5fc121904da62e6fE.exit.us.i" ], [ %13, %12 ]
   %17 = phi i64 [ %22, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h5fc121904da62e6fE.exit.us.i" ], [ 0, %12 ]
@@ -26821,8 +26821,8 @@ define internal fastcc void @_ZN4fish10parse_util13IndentVisitor31record_line_co
   br i1 %19, label %24, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h5fc121904da62e6fE.exit.us.i"
 
 "_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h5fc121904da62e6fE.exit.us.i": ; preds = %"_ZN4fish10parse_util13IndentVisitor31record_line_continuations_until28_$u7b$$u7b$closure$u7d$$u7d$17h9a30096dbc84252cE.exit.i.us.i"
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %21 = add i64 %15, -1
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %22 = add i64 %15, -1
   %22 = add nuw i64 %17, 1
   %exitcond26.i = icmp eq i64 %21, 1
   br i1 %exitcond26.i, label %"_ZN56_$LT$char$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h91675bec23efca9bE.exit.thread", label %"_ZN4fish10parse_util13IndentVisitor31record_line_continuations_until28_$u7b$$u7b$closure$u7d$$u7d$17h9a30096dbc84252cE.exit.i.us.i"

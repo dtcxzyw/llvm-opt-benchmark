@@ -13943,8 +13943,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %104, label %.preheader.us.preheader, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
-  %.not125 = icmp eq i8 %.054104, 0
-  br i1 %.not125, label %._crit_edge106, label %.lr.ph
+  %.not122 = icmp eq i8 %.054104, 0
+  br i1 %.not122, label %._crit_edge106, label %.lr.ph
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %114 = zext nneg i8 %.054104 to i32
@@ -14109,14 +14109,14 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
-  %.054105126 = phi i8 [ %.054, %.preheader ], [ %.054104, %.preheader.preheader ]
+  %.054105123 = phi i8 [ %.054, %.preheader ], [ %.054104, %.preheader.preheader ]
   store ptr @.str.96, ptr %12, align 8
   store i64 1, ptr %113, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %12)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split
 
 .preheader:                                       ; preds = %.lr.ph
-  %.054 = add i8 %.054105126, -1
+  %.054 = add i8 %.054105123, -1
   %.not = icmp eq i8 %.054, 0
   br i1 %.not, label %._crit_edge106, label %.lr.ph, !llvm.loop !101
 

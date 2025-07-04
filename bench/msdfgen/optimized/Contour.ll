@@ -498,21 +498,21 @@ for.end.loopexit:                                 ; preds = %for.body
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %6 = phi ptr [ %.pre18, %for.end.loopexit ], [ %0, %entry ]
-  %7 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %entry ]
-  %cmp.i.not15 = icmp eq ptr %7, %6
+  %5 = phi ptr [ %.pre18, %for.end.loopexit ], [ %0, %entry ]
+  %6 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %entry ]
+  %cmp.i.not15 = icmp eq ptr %6, %5
   br i1 %cmp.i.not15, label %for.end23, label %for.body18
 
 for.body18:                                       ; preds = %for.end, %for.body18
-  %edge.sroa.0.016 = phi ptr [ %incdec.ptr.i, %for.body18 ], [ %7, %for.end ]
+  %edge.sroa.0.016 = phi ptr [ %incdec.ptr.i, %for.body18 ], [ %6, %for.end ]
   %call20 = tail call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.016)
   %vtable = load ptr, ptr %call20, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
-  %8 = load ptr, ptr %vfn, align 8
+  %7 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %call20)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.016, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %9
+  %8 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %8
   br i1 %cmp.i.not, label %for.end23, label %for.body18, !llvm.loop !11
 
 for.end23:                                        ; preds = %for.body18, %for.end

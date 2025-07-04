@@ -1834,11 +1834,11 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 99, ptr %14, align 8, !tbaa !99
-  br label %111
+  br label %110
 
 15:                                               ; preds = %1
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %111, label %16
+  br i1 %.not, label %110, label %16
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -1965,7 +1965,7 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
   %87 = getelementptr inbounds nuw i64, ptr %65, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !124
   %89 = icmp slt i64 %88, %74
-  br i1 %89, label %.critedge.thread.i, label %101
+  br i1 %89, label %.critedge.thread.i, label %100
 
 .critedge.thread.i:                               ; preds = %78, %85, %.critedge.i
   %.in.i = phi i64 [ %indvars.iv.next.i, %85 ], [ %indvars.iv.next.i, %.critedge.i ], [ %77, %78 ]
@@ -1977,56 +1977,56 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
 .preheader.preheader.i:                           ; preds = %.critedge.thread.i
   %91 = trunc i64 %.in.i to i32
   %sext.i = shl i64 %.in.i, 32
-  %92 = ashr exact i64 %sext.i, 32
+  %91 = ashr exact i64 %sext.i, 32
   %smin.i = tail call i32 @llvm.smin.i32(i32 %91, i32 -1)
   %93 = add i32 %smin.i, -1
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
-  %indvars.iv39.i = phi i64 [ %92, %.preheader.preheader.i ], [ %indvars.iv.next40.i, %.preheader.i ]
-  %.029.i = phi i32 [ %.047, %.preheader.preheader.i ], [ %96, %.preheader.i ]
-  %94 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv39.i
-  %95 = load i64, ptr %94, align 8, !tbaa !124
-  %96 = trunc i64 %95 to i32
-  %97 = sext i32 %.029.i to i64
-  store i64 %97, ptr %94, align 8, !tbaa !124
+  %indvars.iv39.i = phi i64 [ %91, %.preheader.preheader.i ], [ %indvars.iv.next40.i, %.preheader.i ]
+  %.029.i = phi i32 [ %.047, %.preheader.preheader.i ], [ %94, %.preheader.i ]
+  %92 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv39.i
+  %93 = load i64, ptr %92, align 8, !tbaa !124
+  %94 = trunc i64 %93 to i32
+  %95 = sext i32 %.029.i to i64
+  store i64 %95, ptr %92, align 8, !tbaa !124
   %indvars.iv.next40.i = add nsw i64 %indvars.iv39.i, -1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next40.i to i32
   %exitcond.not.i = icmp eq i32 %93, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %98, label %.preheader.i, !llvm.loop !138
 
-98:                                               ; preds = %.preheader.i
-  %99 = add nsw i32 %63, 1
-  store i32 %99, ptr %62, align 4, !tbaa !102
-  br label %101
+97:                                               ; preds = %.preheader.i
+  %98 = add nsw i32 %63, 1
+  store i32 %98, ptr %62, align 4, !tbaa !102
+  br label %100
 
 Insert_Y_Turns.exit:                              ; preds = %.critedge.thread.i
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 98, ptr %100, align 8, !tbaa !99
-  br label %111
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 98, ptr %99, align 8, !tbaa !99
+  br label %110
 
-101:                                              ; preds = %98, %85
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %103 = load ptr, ptr %102, align 8, !tbaa !106
-  %.not55 = icmp eq ptr %103, null
-  br i1 %.not55, label %104, label %105
+100:                                              ; preds = %97, %85
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %102 = load ptr, ptr %101, align 8, !tbaa !106
+  %.not55 = icmp eq ptr %102, null
+  br i1 %.not55, label %103, label %104
 
-104:                                              ; preds = %101
-  store ptr %3, ptr %102, align 8, !tbaa !106
-  br label %105
+103:                                              ; preds = %100
+  store ptr %3, ptr %101, align 8, !tbaa !106
+  br label %104
 
-105:                                              ; preds = %104, %101
-  %106 = phi ptr [ %3, %104 ], [ %103, %101 ]
-  %107 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %106, ptr %107, align 8, !tbaa !121
+104:                                              ; preds = %103, %100
+  %105 = phi ptr [ %3, %104 ], [ %102, %101 ]
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %105, ptr %106, align 8, !tbaa !121
   store ptr %5, ptr %3, align 8, !tbaa !120
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %109 = load i16, ptr %108, align 8, !tbaa !103
-  %110 = add i16 %109, 1
-  store i16 %110, ptr %108, align 8, !tbaa !103
-  br label %111
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %108 = load i16, ptr %107, align 8, !tbaa !103
+  %109 = add i16 %108, 1
+  store i16 %109, ptr %107, align 8, !tbaa !103
+  br label %110
 
-111:                                              ; preds = %Insert_Y_Turns.exit, %15, %105, %13
+110:                                              ; preds = %Insert_Y_Turns.exit, %15, %104, %13
   %.048 = phi i8 [ 1, %13 ], [ 1, %Insert_Y_Turns.exit ], [ 0, %105 ], [ 0, %15 ]
   ret i8 %.048
 }

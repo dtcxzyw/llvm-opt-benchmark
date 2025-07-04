@@ -16560,7 +16560,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3CFF16subr_subsetter_tI21cf
 ._crit_edge:                                      ; preds = %.critedge67
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 1, ptr %14, align 1, !tbaa !581
-  %wide.trip.count88 = zext i32 %6 to i64
+  %wide.trip.count87 = zext i32 %6 to i64
   br label %.lr.ph76
 
 15:                                               ; preds = %.lr.ph73, %.critedge67
@@ -16678,17 +16678,17 @@ _ZNK3CFF15parsed_cs_str_t6at_endEj.exit.thread:   ; preds = %33, %_ZNK3CFF15pars
   %.1 = phi i1 [ %.072, %44 ], [ %.072, %42 ], [ %.072, %31 ], [ %.072, %27 ], [ %.072, %15 ], [ %.072, %20 ], [ true, %.critedge65 ], [ true, %62 ], [ true, %.lr.ph ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
-  %exitcond84.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
-  br i1 %exitcond84.not, label %._crit_edge, label %15, !llvm.loop !588
+  %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !588
 
 64:                                               ; preds = %69
-  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %.critedge, label %.lr.ph76, !llvm.loop !589
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
+  br i1 %exitcond88.not, label %.critedge, label %.lr.ph76, !llvm.loop !589
 
 .lr.ph76:                                         ; preds = %._crit_edge, %64
-  %indvars.iv85 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next86, %64 ]
-  %65 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %8, i64 %indvars.iv85
+  %indvars.iv84 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next85, %64 ]
+  %65 = getelementptr inbounds nuw %"struct.CFF::parsed_cs_op_t", ptr %8, i64 %indvars.iv84
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 8, !tbaa !298
   %68 = icmp eq i32 %67, 11
@@ -16705,8 +16705,8 @@ _ZNK3CFF15parsed_cs_str_t6at_endEj.exit.thread:   ; preds = %33, %_ZNK3CFF15pars
   br label %.critedge
 
 .critedge:                                        ; preds = %64, %.lr.ph76, %._crit_edge.thread, %73
-  %.0.lcssa91 = phi i1 [ false, %._crit_edge.thread ], [ %.1, %73 ], [ %.1, %.lr.ph76 ], [ %.1, %64 ]
-  ret i1 %.0.lcssa91
+  %.0.lcssa90 = phi i1 [ false, %._crit_edge.thread ], [ %.1, %73 ], [ %.1, %.lr.ph76 ], [ %.1, %64 ]
+  ret i1 %.0.lcssa90
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

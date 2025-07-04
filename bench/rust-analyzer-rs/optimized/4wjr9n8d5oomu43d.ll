@@ -40977,7 +40977,7 @@ default.unreachable:                              ; preds = %19, %37, %46
 .body:                                            ; preds = %.body.loopexit.split-lp, %.body.loopexit
   %lpad.phi143 = phi { ptr, i32 } [ %lpad.loopexit141, %.body.loopexit ], [ %lpad.loopexit.split-lp142, %.body.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr128drop_in_place$LT$rowan..utility_types..TokenAtOffset$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h88bc577c644226beE"(ptr noalias noundef align 8 dereferenceable(24) %7) #36
-          to label %66 unwind label %64
+          to label %66 unwind label %65
 
 _ZN4core4iter6traits8iterator8Iterator8find_map17hacb33b7722b84208E.exit: ; preds = %.noexc33
   store ptr %20, ptr %.sink13.i.sroa.gep111, align 8
@@ -41028,8 +41028,8 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hacb33b7722b84208E.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %.split
 
-37:                                               ; preds = %60, %.split
-  %.sroa.9.1 = phi i32 [ %2, %.split ], [ %61, %60 ]
+37:                                               ; preds = %61, %.split
+  %.sroa.9.1 = phi i32 [ %2, %.split ], [ %62, %60 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %38 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h29e88a43d2d1cb5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -41106,7 +41106,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hacb33b7722b84208E.exit: ; pred
 .body77:                                          ; preds = %.body77.loopexit.split-lp, %.body77.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.body77.loopexit ], [ %lpad.loopexit.split-lp, %.body77.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr128drop_in_place$LT$rowan..utility_types..TokenAtOffset$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h88bc577c644226beE"(ptr noalias noundef align 8 dereferenceable(24) %6) #36
-          to label %66 unwind label %64
+          to label %66 unwind label %65
 
 _ZN4core4iter6traits8iterator8Iterator8find_map17hacb33b7722b84208E.exit53: ; preds = %.noexc52
   store ptr %47, ptr %.sink13.i44.sroa.gep114, align 8
@@ -41139,30 +41139,30 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hacb33b7722b84208E.exit53: ; pr
 
 "_ZN4core3ptr128drop_in_place$LT$rowan..utility_types..TokenAtOffset$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h88bc577c644226beE.exit62": ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..tokens..Whitespace$GT$$GT$17h1d6ec4de2fd95189E.exit55", %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0f6b849c6d556ca0E.exit1.sink.split.i58", %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %exitcond196.not = icmp eq i32 %.sroa.9.1, %umin
-  br i1 %exitcond196.not, label %.loopexit, label %60
+  %60 = icmp eq i32 %.sroa.9.1, %umin
+  br i1 %60, label %.loopexit, label %60
 
-60:                                               ; preds = %"_ZN4core3ptr128drop_in_place$LT$rowan..utility_types..TokenAtOffset$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h88bc577c644226beE.exit62"
-  %61 = add i32 %.sroa.9.1, -1
+61:                                               ; preds = %"_ZN4core3ptr128drop_in_place$LT$rowan..utility_types..TokenAtOffset$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h88bc577c644226beE.exit62"
+  %62 = add i32 %.sroa.9.1, -1
   br label %37
 
 .loopexit:                                        ; preds = %"_ZN4core3ptr128drop_in_place$LT$rowan..utility_types..TokenAtOffset$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h88bc577c644226beE.exit62", %"_ZN4core3ptr128drop_in_place$LT$rowan..utility_types..TokenAtOffset$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h88bc577c644226beE.exit67"
   %.sroa.9.1182 = phi i32 [ %.sroa.9.1, %"_ZN4core3ptr128drop_in_place$LT$rowan..utility_types..TokenAtOffset$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h88bc577c644226beE.exit67" ], [ %umin, %"_ZN4core3ptr128drop_in_place$LT$rowan..utility_types..TokenAtOffset$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h88bc577c644226beE.exit62" ]
-  %62 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0195, 0
-  %63 = insertvalue { i32, i32 } %62, i32 %.sroa.9.1182, 1
+  %64 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0195, 0
+  %63 = insertvalue { i32, i32 } %64, i32 %.sroa.9.1182, 1
   ret { i32, i32 } %63
 
 "_ZN4core3ptr128drop_in_place$LT$rowan..utility_types..TokenAtOffset$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h88bc577c644226beE.exit67": ; preds = %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %.loopexit
 
-64:                                               ; preds = %.body77, %.body
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %.body77, %.body
+  %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-66:                                               ; preds = %.body77, %.body
+67:                                               ; preds = %.body77, %.body
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.body77 ], [ %lpad.phi143, %.body ]
   resume { ptr, i32 } %.pn
 }

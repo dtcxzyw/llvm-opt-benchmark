@@ -647,8 +647,8 @@ define dso_local i32 @drm_gem_fb_vmap(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond, label %.loopexit, label %.split, !llvm.loop !26
 
 .loopexit:                                        ; preds = %39, %.split1, %.loopexit8, %3, %46
-  %55 = phi i32 [ 0, %.loopexit8 ], [ %47, %46 ], [ 0, %3 ], [ %47, %.split1 ], [ 0, %39 ]
-  ret i32 %55
+  %57 = phi i32 [ 0, %.loopexit8 ], [ %47, %46 ], [ 0, %3 ], [ %47, %.split1 ], [ 0, %39 ]
+  ret i32 %57
 }
 
 ; Function Attrs: null_pointer_is_valid
