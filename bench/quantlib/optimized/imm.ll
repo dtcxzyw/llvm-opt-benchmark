@@ -165,8 +165,8 @@ invoke.cont3:                                     ; preds = %entry
   store i8 %4, ptr %2, align 8, !tbaa !13
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
   store i64 1, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !8, !alias.scope !14
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 17
-  store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !13
+  %.sroa.gep56 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 17
+  store i8 0, ptr %.sroa.gep56, align 1, !tbaa !13
   %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %str1, ptr noundef nonnull %2, i64 noundef 0, i64 noundef 1) #18
   %5 = load ptr, ptr %ref.tmp1, align 8, !tbaa !17
   %cmp.i.i.i = icmp eq ptr %5, %2
@@ -215,8 +215,9 @@ if.then.i.i.i.i.i26:                              ; preds = %if.end14
 invoke.cont17:                                    ; preds = %if.end14, %if.then.i.i.i.i.i26
   %_M_string_length.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 8
   store i64 %spec.select.i.i.i23, ptr %_M_string_length.i.i.i.i.i24, align 8, !tbaa !8, !alias.scope !18
-  %arrayidx.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %11, i64 %spec.select.i.i.i23
-  store i8 0, ptr %arrayidx.i.i.i.i25, align 1, !tbaa !13
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 17
+  %spec.select.i.i.i23.sroa.sel = select i1 %12, ptr %.sroa.gep, ptr %11
+  store i8 0, ptr %spec.select.i.i.i23.sroa.sel, align 1, !tbaa !13
   %call3.i31 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %str1, ptr noundef nonnull %11, i64 noundef 0, i64 noundef %spec.select.i.i.i23) #18
   %15 = load ptr, ptr %ref.tmp15, align 8, !tbaa !17
   %cmp.i.i.i32 = icmp eq ptr %15, %11
@@ -1512,8 +1513,9 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont34
 invoke.cont38:                                    ; preds = %invoke.cont34, %if.then.i.i.i.i.i
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ms, i64 8
   store i64 %spec.select.i.i.i, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !8, !alias.scope !51
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %35, i64 %spec.select.i.i.i
-  store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !13
+  %.sroa.gep202 = getelementptr inbounds nuw i8, ptr %ms, i64 17
+  %spec.select.i.i.i.sroa.sel = select i1 %36, ptr %.sroa.gep202, ptr %35
+  store i8 0, ptr %spec.select.i.i.i.sroa.sel, align 1, !tbaa !13
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ms, ptr noundef nonnull @.str.8) #18
   %cmp.i49 = icmp eq i32 %call.i, 0
   br i1 %cmp.i49, label %if.end137, label %if.else
@@ -1780,8 +1782,9 @@ if.then.i.i.i.i.i105:                             ; preds = %invoke.cont4.i.i
 invoke.cont140:                                   ; preds = %invoke.cont4.i.i, %if.then.i.i.i.i.i105
   %_M_string_length.i.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %ref.tmp138, i64 8
   store i64 %spec.select.i.i.i102, ptr %_M_string_length.i.i.i.i.i103, align 8, !tbaa !8, !alias.scope !54
-  %arrayidx.i.i.i.i104 = getelementptr inbounds nuw i8, ptr %63, i64 %spec.select.i.i.i102
-  store i8 0, ptr %arrayidx.i.i.i.i104, align 1, !tbaa !13
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp138, i64 17
+  %spec.select.i.i.i102.sroa.sel = select i1 %64, ptr %.sroa.gep, ptr %63
+  store i8 0, ptr %spec.select.i.i.i102.sroa.sel, align 1, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__endptr.i.i) #18
   %call.i.i.i = tail call ptr @__errno_location() #22
   %67 = load i32, ptr %call.i.i.i, align 4, !tbaa !57

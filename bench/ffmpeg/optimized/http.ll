@@ -2556,16 +2556,16 @@ define internal range(i32 -2147483648, 1) i32 @http_proxy_open(ptr noundef initi
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 10076
   %14 = load i32, ptr %13, align 4, !tbaa !59
   %15 = icmp ne i32 %14, 1
-  %spec.select62 = zext i1 %15 to i32
+  %spec.select = zext i1 %15 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %spec.select62, ptr %16, align 8, !tbaa !91
+  store i32 %spec.select, ptr %16, align 8, !tbaa !91
   call void @av_url_split(ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %9, ptr noundef nonnull %7, i32 noundef 1024, ptr noundef %1) #15
   %17 = load i32, ptr %9, align 4, !tbaa !27
   %18 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, i32 noundef %17, ptr noundef null) #15
   %19 = load i8, ptr %7, align 16, !tbaa !44
   %20 = icmp eq i8 %19, 47
-  %spec.select.idx = zext i1 %20 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select.idx
+  %spec.select.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %20 to i64
+  %spec.select.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select.idx.sroa.sel.idx.sroa.sel.idx
   %21 = load i32, ptr %9, align 4, !tbaa !27
   %22 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %8, i32 noundef 100, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %4, i32 noundef %21, ptr noundef null) #15
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -2591,12 +2591,12 @@ define internal range(i32 -2147483648, 1) i32 @http_proxy_open(ptr noundef initi
 
 39:                                               ; preds = %.lr.ph, %64
   %40 = phi i1 [ true, %.lr.ph ], [ false, %64 ]
-  %41 = call ptr @ff_http_auth_create_response(ptr noundef nonnull %31, ptr noundef nonnull %6, ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.221) #15
+  %41 = call ptr @ff_http_auth_create_response(ptr noundef nonnull %31, ptr noundef nonnull %6, ptr noundef nonnull %spec.select.idx.sroa.sel.idx.sroa.sel, ptr noundef nonnull @.str.221) #15
   store ptr %41, ptr %10, align 8, !tbaa !49
   %.not = icmp eq ptr %41, null
   %42 = select i1 %.not, ptr @.str.136, ptr @.str.223
   %43 = select i1 %.not, ptr @.str.136, ptr %41
-  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %32, i64 noundef 8192, ptr noundef nonnull @.str.222, ptr noundef nonnull %spec.select, ptr noundef nonnull %5, ptr noundef nonnull %42, ptr noundef nonnull %43) #15
+  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %32, i64 noundef 8192, ptr noundef nonnull @.str.222, ptr noundef nonnull %spec.select.idx.sroa.sel.idx.sroa.sel, ptr noundef nonnull %5, ptr noundef nonnull %42, ptr noundef nonnull %43) #15
   call void @av_freep(ptr noundef nonnull %10) #15
   %45 = load ptr, ptr %23, align 8, !tbaa !37
   %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #16

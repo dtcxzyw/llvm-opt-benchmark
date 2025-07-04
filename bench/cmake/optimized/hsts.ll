@@ -773,8 +773,8 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr readnone captures(
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
   call void @Curl_dyn_init(ptr noundef nonnull %6, i64 noundef 4095) #9
   %15 = call i32 @Curl_get_line(ptr noundef nonnull %6, ptr noundef nonnull %13) #9
-  %.not2326.i = icmp eq i32 %15, 0
-  br i1 %.not2326.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not2327.i = icmp eq i32 %15, 0
+  br i1 %.not2327.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %.loopexit.i
   %16 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %6) #9
@@ -818,20 +818,20 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr readnone captures(
   %30 = phi i64 [ %28, %27 ], [ 9223372036854775807, %26 ]
   %31 = load i8, ptr %4, align 16, !tbaa !25
   %32 = icmp eq i8 %31, 46
-  %spec.select.idx.i.i = zext i1 %32 to i64
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select.idx.i.i
-  %33 = call ptr @Curl_hsts(ptr noundef %1, ptr noundef nonnull %spec.select.i.i, i1 noundef zeroext %32)
+  %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %32 to i64
+  %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
+  %33 = call ptr @Curl_hsts(ptr noundef %1, ptr noundef nonnull %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i1 noundef zeroext %32)
   %.not27.i.i = icmp eq ptr %33, null
   br i1 %.not27.i.i, label %34, label %53
 
 34:                                               ; preds = %29
   %35 = zext i1 %32 to i8
-  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i.i) #10
+  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel) #10
   %.not.i.i.i = icmp eq i64 %36, 0
   br i1 %.not.i.i.i, label %hsts_add.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr i8, ptr %spec.select.i.i, i64 %36
+  %38 = getelementptr i8, ptr %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %36
   %39 = getelementptr i8, ptr %38, i64 -1
   %40 = load i8, ptr %39, align 1, !tbaa !25
   %41 = icmp eq i8 %40, 46
@@ -850,7 +850,7 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr readnone captures(
   br i1 %.not28.i.i.i, label %hsts_add.exit.i, label %46
 
 46:                                               ; preds = %.thread32.i.i.i
-  %47 = call ptr @Curl_memdup0(ptr noundef nonnull %spec.select.i.i, i64 noundef %.02235.i.i.i) #9
+  %47 = call ptr @Curl_memdup0(ptr noundef nonnull %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 noundef %.02235.i.i.i) #9
   %.not29.i.i.i = icmp eq ptr %47, null
   br i1 %.not29.i.i.i, label %48, label %.critedge.i.i.i
 
@@ -872,7 +872,7 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr readnone captures(
 53:                                               ; preds = %29
   %54 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !10
-  %56 = call i32 @curl_strequal(ptr noundef nonnull %spec.select.i.i, ptr noundef %55) #9
+  %56 = call i32 @curl_strequal(ptr noundef nonnull %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr noundef %55) #9
   %.not28.i.i = icmp eq i32 %56, 0
   br i1 %.not28.i.i, label %hsts_add.exit.i, label %57
 

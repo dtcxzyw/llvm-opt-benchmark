@@ -11413,11 +11413,11 @@ define ptr @dt_action_define(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 10:                                               ; preds = %5
   %11 = tail call ptr @dt_action_define_iop(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  br label %66
+  br label %64
 
 12:                                               ; preds = %5
   %13 = icmp ne ptr %2, null
-  br i1 %13, label %14, label %41
+  br i1 %13, label %14, label %39
 
 14:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #24
@@ -11427,109 +11427,108 @@ define ptr @dt_action_define(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %16, align 16, !tbaa !18
   %.not = icmp eq ptr %1, null
-  %17 = zext i1 %.not to i64
-  %18 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %17
-  %19 = call ptr @dt_action_locate(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 1)
+  %.sroa.sel = select i1 %.not, ptr %15, ptr %6
+  %17 = call ptr @dt_action_locate(ptr noundef nonnull %0, ptr noundef nonnull %.sroa.sel, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
-  %.not47 = icmp eq ptr %19, null
-  br i1 %.not47, label %66, label %20
+  %.not47 = icmp eq ptr %17, null
+  br i1 %.not47, label %64, label %18
 
-20:                                               ; preds = %14
+18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
   store i32 0, ptr %7, align 4, !tbaa !9
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 592
-  %23 = load ptr, ptr %22, align 8, !tbaa !96
-  %24 = call i32 @g_ptr_array_find(ptr noundef %23, ptr noundef %4, ptr noundef nonnull %7) #24
-  %.not48 = icmp eq i32 %24, 0
-  br i1 %.not48, label %28, label %25
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 592
+  %21 = load ptr, ptr %20, align 8, !tbaa !96
+  %22 = call i32 @g_ptr_array_find(ptr noundef %21, ptr noundef %4, ptr noundef nonnull %7) #24
+  %.not48 = icmp eq i32 %22, 0
+  br i1 %.not48, label %26, label %23
 
-25:                                               ; preds = %20
-  %26 = load i32, ptr %7, align 4, !tbaa !9
-  %27 = add i32 %26, 15
-  store i32 %27, ptr %19, align 8, !tbaa !94
-  br label %40
+23:                                               ; preds = %18
+  %24 = load i32, ptr %7, align 4, !tbaa !9
+  %25 = add i32 %24, 15
+  store i32 %25, ptr %17, align 8, !tbaa !94
+  br label %38
 
-28:                                               ; preds = %20
-  %29 = icmp eq ptr %4, @_action_def_dummy
-  br i1 %29, label %30, label %31
+26:                                               ; preds = %18
+  %27 = icmp eq ptr %4, @_action_def_dummy
+  br i1 %27, label %28, label %29
 
-30:                                               ; preds = %28
-  store i32 14, ptr %19, align 8, !tbaa !94
-  br label %40
+28:                                               ; preds = %26
+  store i32 14, ptr %17, align 8, !tbaa !94
+  br label %38
 
-31:                                               ; preds = %28
+29:                                               ; preds = %26
   %.not49 = icmp eq ptr %4, null
-  br i1 %.not49, label %40, label %32
+  br i1 %.not49, label %38, label %30
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 592
-  %35 = load ptr, ptr %34, align 8, !tbaa !96
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !97
-  %38 = add i32 %37, 15
-  store i32 %38, ptr %19, align 8, !tbaa !94
-  call void @g_ptr_array_add(ptr noundef %35, ptr noundef nonnull %4) #24
-  %39 = load i32, ptr %19, align 8, !tbaa !94
-  call void @dt_action_define_fallback(i32 noundef %39, ptr noundef nonnull %4)
-  br label %40
+30:                                               ; preds = %29
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 592
+  %33 = load ptr, ptr %32, align 8, !tbaa !96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load i32, ptr %34, align 8, !tbaa !97
+  %36 = add i32 %35, 15
+  store i32 %36, ptr %17, align 8, !tbaa !94
+  call void @g_ptr_array_add(ptr noundef %33, ptr noundef nonnull %4) #24
+  %37 = load i32, ptr %17, align 8, !tbaa !94
+  call void @dt_action_define_fallback(i32 noundef %37, ptr noundef nonnull %4)
+  br label %38
 
-40:                                               ; preds = %30, %32, %31, %25
+38:                                               ; preds = %28, %30, %29, %23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
-  br label %41
+  br label %39
 
-41:                                               ; preds = %12, %40
-  %.05457 = phi ptr [ %19, %40 ], [ %0, %12 ]
-  %42 = icmp ne ptr %4, null
-  br i1 %42, label %43, label %48
+39:                                               ; preds = %12, %38
+  %.05558 = phi ptr [ %17, %38 ], [ %0, %12 ]
+  %40 = icmp ne ptr %4, null
+  br i1 %40, label %41, label %46
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %45 = load i32, ptr %44, align 8, !tbaa !242
-  %.not50 = icmp eq i32 %45, 0
-  br i1 %.not50, label %48, label %46
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %43 = load i32, ptr %42, align 8, !tbaa !242
+  %.not50 = icmp eq i32 %43, 0
+  br i1 %.not50, label %46, label %44
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %.05457, i64 24
-  store ptr %3, ptr %47, align 8, !tbaa !95
-  br label %66
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %.05558, i64 24
+  store ptr %3, ptr %45, align 8, !tbaa !95
+  br label %64
 
-48:                                               ; preds = %43, %41
-  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
-  %50 = load i32, ptr %49, align 8, !tbaa !264
-  %51 = icmp eq i32 %50, 0
-  %52 = icmp ne ptr %3, null
-  %or.cond = and i1 %52, %51
-  br i1 %or.cond, label %53, label %66
+46:                                               ; preds = %41, %39
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
+  %48 = load i32, ptr %47, align 8, !tbaa !264
+  %49 = icmp eq i32 %48, 0
+  %50 = icmp ne ptr %3, null
+  %or.cond = and i1 %50, %49
+  br i1 %or.cond, label %51, label %64
 
-53:                                               ; preds = %48
-  %or.cond3 = and i1 %13, %42
-  br i1 %or.cond3, label %54, label %58
+51:                                               ; preds = %46
+  %or.cond3 = and i1 %13, %40
+  br i1 %or.cond3, label %52, label %56
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %.05457, i64 24
-  %56 = load ptr, ptr %55, align 8, !tbaa !95
-  %.not51 = icmp eq ptr %56, null
-  br i1 %.not51, label %57, label %58
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds nuw i8, ptr %.05558, i64 24
+  %54 = load ptr, ptr %53, align 8, !tbaa !95
+  %.not51 = icmp eq ptr %54, null
+  br i1 %.not51, label %55, label %56
 
-57:                                               ; preds = %54
-  store ptr %3, ptr %55, align 8, !tbaa !95
-  br label %58
+55:                                               ; preds = %52
+  store ptr %3, ptr %53, align 8, !tbaa !95
+  br label %56
 
-58:                                               ; preds = %57, %54, %53
-  %59 = getelementptr inbounds nuw i8, ptr %49, i64 552
-  %60 = load ptr, ptr %59, align 8, !tbaa !56
-  %61 = call i32 @g_hash_table_insert(ptr noundef %60, ptr noundef nonnull %3, ptr noundef nonnull %.05457) #24
+56:                                               ; preds = %55, %52, %51
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 552
+  %58 = load ptr, ptr %57, align 8, !tbaa !56
+  %59 = call i32 @g_hash_table_insert(ptr noundef %58, ptr noundef nonnull %3, ptr noundef nonnull %.05558) #24
   call void @gtk_widget_set_has_tooltip(ptr noundef nonnull %3, i32 noundef 1) #24
+  %60 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %3, i64 noundef 80) #24
+  %61 = call i64 @g_signal_connect_data(ptr noundef %60, ptr noundef nonnull @.str.159, ptr noundef nonnull @_reset_element_on_leave, ptr noundef null, ptr noundef null, i32 noundef 0) #24
   %62 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %3, i64 noundef 80) #24
-  %63 = call i64 @g_signal_connect_data(ptr noundef %62, ptr noundef nonnull @.str.159, ptr noundef nonnull @_reset_element_on_leave, ptr noundef null, ptr noundef null, i32 noundef 0) #24
-  %64 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %3, i64 noundef 80) #24
-  %65 = call i64 @g_signal_connect_data(ptr noundef %64, ptr noundef nonnull @.str.160, ptr noundef nonnull @_remove_widget_from_hashtable, ptr noundef null, ptr noundef null, i32 noundef 0) #24
-  br label %66
+  %63 = call i64 @g_signal_connect_data(ptr noundef %62, ptr noundef nonnull @.str.160, ptr noundef nonnull @_remove_widget_from_hashtable, ptr noundef null, ptr noundef null, i32 noundef 0) #24
+  br label %64
 
-66:                                               ; preds = %14, %48, %58, %46, %10
-  %.043 = phi ptr [ %11, %10 ], [ %.05457, %46 ], [ %.05457, %58 ], [ %.05457, %48 ], [ null, %14 ]
+64:                                               ; preds = %14, %46, %56, %44, %10
+  %.043 = phi ptr [ %11, %10 ], [ %.05558, %44 ], [ %.05558, %56 ], [ %.05558, %46 ], [ null, %14 ]
   ret ptr %.043
 }
 

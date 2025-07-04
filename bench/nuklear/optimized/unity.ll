@@ -63419,18 +63419,18 @@ nk_strlen.exit105:                                ; preds = %.lr.ph.i101.prehead
   %74 = fmul float %73, 5.000000e-01
   %75 = insertelement <2 x float> poison, float %74, i64 0
   %.sroa.729.8.vec.insert.i = shufflevector <2 x float> %75, <2 x float> poison, <2 x i32> zeroinitializer
-  %.sroa.0521.0.vec.extract.i = extractelement <2 x float> %69, i64 0
+  %.sroa.0522.0.vec.extract.i = extractelement <2 x float> %69, i64 0
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 3472
   %77 = load float, ptr %76, align 8, !tbaa !784
-  %78 = fadd float %.sroa.0521.0.vec.extract.i, %77
+  %78 = fadd float %.sroa.0522.0.vec.extract.i, %77
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 3480
   %80 = load float, ptr %79, align 8, !tbaa !1202
   %81 = fadd float %78, %80
   %.sroa.025.0.vec.insert.i = insertelement <2 x float> poison, float %81, i64 0
-  %.sroa.0521.4.vec.extract529.i = extractelement <2 x float> %69, i64 1
-  %82 = fadd float %.sroa.0521.4.vec.extract529.i, %77
-  %.sroa.8530.12.vec.extract536.i = extractelement <2 x float> %71, i64 1
-  %83 = fmul float %.sroa.8530.12.vec.extract536.i, 5.000000e-01
+  %.sroa.0522.4.vec.extract530.i = extractelement <2 x float> %69, i64 1
+  %82 = fadd float %.sroa.0522.4.vec.extract530.i, %77
+  %.sroa.8531.12.vec.extract537.i = extractelement <2 x float> %71, i64 1
+  %83 = fmul float %.sroa.8531.12.vec.extract537.i, 5.000000e-01
   %84 = fadd float %83, %82
   %85 = fmul float %74, 5.000000e-01
   %86 = fsub float %84, %85
@@ -63459,13 +63459,13 @@ nk_strlen.exit.i:                                 ; preds = %.lr.ph.i.preheader.
   %96 = fadd float %94, %95
   %97 = tail call float @llvm.fmuladd.f32(float %95, float 2.000000e+00, float %93)
   %98 = load float, ptr %76, align 8, !tbaa !784
-  %99 = fadd float %.sroa.0521.4.vec.extract529.i, %98
+  %99 = fadd float %.sroa.0522.4.vec.extract530.i, %98
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 3484
   %101 = load float, ptr %100, align 4, !tbaa !1203
   %102 = fadd float %99, %101
   %103 = fmul float %101, 2.000000e+00
   %104 = tail call float @llvm.fmuladd.f32(float %98, float 2.000000e+00, float %103)
-  %105 = fsub float %.sroa.8530.12.vec.extract536.i, %104
+  %105 = fsub float %.sroa.8531.12.vec.extract537.i, %104
   %106 = fadd <2 x float> %69, %71
   %107 = extractelement <2 x float> %106, i64 0
   %108 = fadd float %74, %95
@@ -63540,15 +63540,16 @@ nk_itoa.exit.thread.i:                            ; preds = %124
   store i8 0, ptr %142, align 1, !tbaa !9
   %143 = load i8, ptr %7, align 16, !tbaa !9
   %144 = icmp eq i8 %143, 45
-  %spec.select.idx.i.i = zext i1 %144 to i64
-  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select.idx.i.i
-  %145 = load i8, ptr %spec.select.i.i, align 1, !tbaa !9
+  %.sroa.gep.i = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %spec.select.idx.i.sroa.sel.i = select i1 %144, ptr %.sroa.gep.i, ptr %7
+  %145 = load i8, ptr %spec.select.idx.i.sroa.sel.i, align 1, !tbaa !9
   %.not4.i15.i.i.i = icmp eq i8 %145, 0
   br i1 %.not4.i15.i.i.i, label %nk_itoa.exit.i, label %nk_strlen.exit.i.i.i
 
 nk_strlen.exit.i.i.i:                             ; preds = %141
-  %scevgep.i.i.i = getelementptr i8, ptr %spec.select.i.i, i64 1
-  %strlen.i.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %scevgep.i.i.i)
+  %.sroa.gep.sroa.gep.i = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %spec.select.idx.i.sroa.sel.sroa.sel.i = select i1 %144, ptr %.sroa.gep.sroa.gep.i, ptr %.sroa.gep.i
+  %strlen.i.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %spec.select.idx.i.sroa.sel.sroa.sel.i)
   %146 = trunc i64 %strlen.i.i.i to i32
   %147 = add i32 %146, 1
   %.not.i.i.i = icmp ult i32 %147, 2
@@ -63558,12 +63559,12 @@ nk_strlen.exit.i.i.i:                             ; preds = %141
   %148 = lshr i32 %147, 1
   %149 = sext i32 %147 to i64
   %wide.trip.count.i.i.i = zext nneg i32 %148 to i64
-  %150 = getelementptr i8, ptr %spec.select.i.i, i64 %149
+  %150 = getelementptr i8, ptr %spec.select.idx.i.sroa.sel.i, i64 %149
   br label %.lr.ph19.i.i.i
 
 .lr.ph19.i.i.i:                                   ; preds = %.lr.ph19.i.i.i, %.lr.ph19.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph19.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph19.i.i.i ]
-  %151 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 %indvars.iv.i.i.i
+  %151 = getelementptr inbounds nuw i8, ptr %spec.select.idx.i.sroa.sel.i, i64 %indvars.iv.i.i.i
   %152 = load i8, ptr %151, align 1, !tbaa !9
   %153 = xor i64 %indvars.iv.i.i.i, -1
   %154 = getelementptr i8, ptr %150, i64 %153
@@ -63580,13 +63581,13 @@ nk_itoa.exit.loopexit.i:                          ; preds = %.lr.ph19.i.i.i
 
 nk_itoa.exit.i:                                   ; preds = %nk_itoa.exit.loopexit.i, %nk_strlen.exit.i.i.i, %141
   %156 = phi i8 [ %.pre.i, %nk_itoa.exit.loopexit.i ], [ %143, %141 ], [ %143, %nk_strlen.exit.i.i.i ]
-  %.not4.i430574.i = icmp eq i8 %156, 0
-  br i1 %.not4.i430574.i, label %.sink.split.i, label %.lr.ph.i427.preheader.i
+  %.not4.i430575.i = icmp eq i8 %156, 0
+  br i1 %.not4.i430575.i, label %.sink.split.i, label %.lr.ph.i427.preheader.i
 
 .lr.ph.i427.preheader.i:                          ; preds = %nk_itoa.exit.i, %nk_itoa.exit.thread.i
-  %scevgep609.i = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %strlen610.i = call i64 @strlen(ptr nonnull dereferenceable(1) %scevgep609.i)
-  %157 = trunc i64 %strlen610.i to i32
+  %scevgep610.i = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %strlen611.i = call i64 @strlen(ptr nonnull dereferenceable(1) %scevgep610.i)
+  %157 = trunc i64 %strlen611.i to i32
   %158 = add i32 %157, 1
   br label %.sink.split.i
 
@@ -63701,9 +63702,9 @@ nk_string_float_limit.exit440.i:                  ; preds = %180, %184
   %204 = fsub float %109, %203
   %.sroa.03.0.vec.insert.i = insertelement <2 x float> poison, float %204, i64 0
   %205 = load float, ptr %76, align 8, !tbaa !784
-  %206 = fadd float %.sroa.0521.4.vec.extract529.i, %205
+  %206 = fadd float %.sroa.0522.4.vec.extract530.i, %205
   %.sroa.03.4.vec.insert.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i, float %206, i64 1
-  %207 = call float @llvm.fmuladd.f32(float %205, float -2.000000e+00, float %.sroa.8530.12.vec.extract536.i)
+  %207 = call float @llvm.fmuladd.f32(float %205, float -2.000000e+00, float %.sroa.8531.12.vec.extract537.i)
   %.sroa.7.12.vec.insert.i = insertelement <2 x float> %.sroa.7.8.vec.insert13.i, float %207, i64 1
   %208 = fsub float %204, %200
   %209 = load i32, ptr %.088, align 4, !tbaa !7
@@ -63775,8 +63776,8 @@ nk_input_is_mouse_click_down_in_rect.exit.thread.i.i: ; preds = %nk_input_is_mou
 nk_input_has_mouse_click_in_rect.exit.i.i35.i.i:  ; preds = %nk_input_is_mouse_click_down_in_rect.exit.thread.i.i
   %234 = getelementptr i8, ptr %62, i64 272
   %235 = load float, ptr %234, align 4, !tbaa !737
-  %236 = fcmp ugt float %.sroa.0521.4.vec.extract529.i, %235
-  %237 = fadd float %.sroa.0521.4.vec.extract529.i, %.sroa.8530.12.vec.extract536.i
+  %236 = fcmp ugt float %.sroa.0522.4.vec.extract530.i, %235
+  %237 = fadd float %.sroa.0522.4.vec.extract530.i, %.sroa.8531.12.vec.extract537.i
   %238 = fcmp uge float %235, %237
   %or.cond16.i.not.i.i38.i.i = select i1 %236, i1 true, i1 %238
   br i1 %or.cond16.i.not.i.i38.i.i, label %244, label %nk_input_has_mouse_click_down_in_rect.exit.i39.i.i
@@ -63811,7 +63812,7 @@ nk_input_is_mouse_click_down_in_rect.exit41.i.i:  ; preds = %nk_input_has_mouse_
   %248 = getelementptr inbounds nuw i8, ptr %62, i64 260
   %249 = load i32, ptr %248, align 4, !tbaa !735
   %250 = icmp ne i32 %249, 0
-  %251 = fcmp ole float %.sroa.0521.0.vec.extract.i, %247
+  %251 = fcmp ole float %.sroa.0522.0.vec.extract.i, %247
   %252 = fcmp olt float %247, %107
   %or.cond.i.i.i45.i.i = select i1 %251, i1 %252, i1 false
   br i1 %or.cond.i.i.i45.i.i, label %nk_input_has_mouse_click_in_rect.exit.i.i46.i.i, label %259
@@ -63819,8 +63820,8 @@ nk_input_is_mouse_click_down_in_rect.exit41.i.i:  ; preds = %nk_input_has_mouse_
 nk_input_has_mouse_click_in_rect.exit.i.i46.i.i:  ; preds = %.thread54.i.i
   %253 = getelementptr i8, ptr %62, i64 272
   %254 = load float, ptr %253, align 4, !tbaa !737
-  %255 = fcmp ole float %.sroa.0521.4.vec.extract529.i, %254
-  %256 = fadd float %.sroa.0521.4.vec.extract529.i, %.sroa.8530.12.vec.extract536.i
+  %255 = fcmp ole float %.sroa.0522.4.vec.extract530.i, %254
+  %256 = fadd float %.sroa.0522.4.vec.extract530.i, %.sroa.8531.12.vec.extract537.i
   %257 = fcmp olt float %254, %256
   %or.cond16.i.not.i.not.i.i.i = select i1 %255, i1 %257, i1 false
   %258 = icmp eq i32 %249, 1
@@ -63835,7 +63836,7 @@ nk_input_has_mouse_click_in_rect.exit.i.i46.i.i:  ; preds = %.thread54.i.i
   store i32 %..i.i.i, ptr %63, align 4, !tbaa !7
   %262 = getelementptr inbounds nuw i8, ptr %62, i64 324
   %263 = load float, ptr %262, align 4, !tbaa !722
-  %264 = fcmp ole float %.sroa.0521.0.vec.extract.i, %263
+  %264 = fcmp ole float %.sroa.0522.0.vec.extract.i, %263
   %265 = fcmp olt float %263, %107
   %or.cond.i.i.i.i = select i1 %264, i1 %265, i1 false
   br i1 %or.cond.i.i.i.i, label %266, label %nk_input_is_mouse_hovering_rect.exit.thread.i.i.i
@@ -63843,8 +63844,8 @@ nk_input_has_mouse_click_in_rect.exit.i.i46.i.i:  ; preds = %.thread54.i.i
 266:                                              ; preds = %259
   %267 = getelementptr inbounds nuw i8, ptr %62, i64 328
   %268 = load float, ptr %267, align 4, !tbaa !724
-  %269 = fcmp ugt float %.sroa.0521.4.vec.extract529.i, %268
-  %270 = fadd float %.sroa.0521.4.vec.extract529.i, %.sroa.8530.12.vec.extract536.i
+  %269 = fcmp ugt float %.sroa.0522.4.vec.extract530.i, %268
+  %270 = fadd float %.sroa.0522.4.vec.extract530.i, %.sroa.8531.12.vec.extract537.i
   %271 = fcmp uge float %268, %270
   %or.cond129.i.i.i = select i1 %269, i1 true, i1 %271
   br i1 %or.cond129.i.i.i, label %nk_input_is_mouse_hovering_rect.exit.thread.i.i.i, label %272
@@ -63932,7 +63933,7 @@ nk_input_is_mouse_hovering_rect.exit.thread.i.i.i: ; preds = %272, %266, %259
 314:                                              ; preds = %311
   %315 = getelementptr inbounds nuw i8, ptr %62, i64 332
   %316 = load float, ptr %315, align 4, !tbaa !723
-  %317 = fcmp ole float %.sroa.0521.0.vec.extract.i, %316
+  %317 = fcmp ole float %.sroa.0522.0.vec.extract.i, %316
   %318 = fcmp olt float %316, %107
   %or.cond.i100.i.i.i = select i1 %317, i1 %318, i1 false
   br i1 %or.cond.i100.i.i.i, label %319, label %nk_input_is_mouse_prev_hovering_rect.exit.thread.i.i.i
@@ -63940,8 +63941,8 @@ nk_input_is_mouse_hovering_rect.exit.thread.i.i.i: ; preds = %272, %266, %259
 319:                                              ; preds = %314
   %320 = getelementptr inbounds nuw i8, ptr %62, i64 336
   %321 = load float, ptr %320, align 4, !tbaa !725
-  %322 = fcmp ugt float %.sroa.0521.4.vec.extract529.i, %321
-  %323 = fadd float %.sroa.0521.4.vec.extract529.i, %.sroa.8530.12.vec.extract536.i
+  %322 = fcmp ugt float %.sroa.0522.4.vec.extract530.i, %321
+  %323 = fadd float %.sroa.0522.4.vec.extract530.i, %.sroa.8531.12.vec.extract537.i
   %324 = fcmp uge float %321, %323
   %or.cond131.i.i.i = select i1 %322, i1 true, i1 %324
   br i1 %or.cond131.i.i.i, label %nk_input_is_mouse_prev_hovering_rect.exit.thread.i.i.i, label %.thread120.i.i.i
@@ -63953,7 +63954,7 @@ nk_input_is_mouse_prev_hovering_rect.exit.thread.i.i.i: ; preds = %319, %314
 .thread120.i.i.i:                                 ; preds = %319, %..thread120_crit_edge.i.i.i
   %326 = phi i32 [ %313, %..thread120_crit_edge.i.i.i ], [ %273, %319 ]
   %327 = phi float [ %.pre.i.i.i, %..thread120_crit_edge.i.i.i ], [ %316, %319 ]
-  %328 = fcmp ole float %.sroa.0521.0.vec.extract.i, %327
+  %328 = fcmp ole float %.sroa.0522.0.vec.extract.i, %327
   %329 = fcmp olt float %327, %107
   %or.cond.i107.i.i.i = select i1 %328, i1 %329, i1 false
   br i1 %or.cond.i107.i.i.i, label %330, label %nk_drag_behavior.exit.i.i
@@ -63961,8 +63962,8 @@ nk_input_is_mouse_prev_hovering_rect.exit.thread.i.i.i: ; preds = %319, %314
 330:                                              ; preds = %.thread120.i.i.i
   %331 = getelementptr inbounds nuw i8, ptr %62, i64 336
   %332 = load float, ptr %331, align 4, !tbaa !725
-  %333 = fcmp ugt float %.sroa.0521.4.vec.extract529.i, %332
-  %334 = fadd float %.sroa.0521.4.vec.extract529.i, %.sroa.8530.12.vec.extract536.i
+  %333 = fcmp ugt float %.sroa.0522.4.vec.extract530.i, %332
+  %334 = fadd float %.sroa.0522.4.vec.extract530.i, %.sroa.8531.12.vec.extract537.i
   %335 = fcmp uge float %332, %334
   %or.cond133.i.i.i = select i1 %333, i1 true, i1 %335
   br i1 %or.cond133.i.i.i, label %nk_drag_behavior.exit.i.i, label %336
@@ -64322,8 +64323,8 @@ nk_draw_property.exit.i:                          ; preds = %nk_widget_text.exit
   %.406.i = call i32 @llvm.smin.i32(i32 %510, i32 %512)
   %513 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %514 = load i32, ptr %513, align 8, !tbaa !9
-  %spec.select539.i = call i32 @llvm.smax.i32(i32 %.406.i, i32 %514)
-  store i32 %spec.select539.i, ptr %506, align 8, !tbaa !9
+  %spec.select540.i = call i32 @llvm.smax.i32(i32 %.406.i, i32 %514)
+  store i32 %spec.select540.i, ptr %506, align 8, !tbaa !9
   br label %541
 
 515:                                              ; preds = %503
@@ -64361,8 +64362,8 @@ nk_draw_property.exit.i:                          ; preds = %nk_widget_text.exit
   br label %541
 
 541:                                              ; preds = %528, %515, %505, %503, %498
-  %.pre612.i = load i32, ptr %.088, align 4, !tbaa !7
-  %542 = icmp eq i32 %.pre612.i, 1
+  %.pre613.i = load i32, ptr %.088, align 4, !tbaa !7
+  %542 = icmp eq i32 %.pre613.i, 1
   %or.cond.i = select i1 %210, i1 %542, i1 false
   br i1 %or.cond.i, label %543, label %550
 
@@ -64425,8 +64426,8 @@ nk_draw_property.exit.i:                          ; preds = %nk_widget_text.exit
   store i32 %573, ptr %574, align 8, !tbaa !1164
   %575 = load i32, ptr %.084, align 4, !tbaa !7
   %.412.i = call i32 @llvm.smin.i32(i32 %575, i32 %573)
-  %spec.select540.i = call i32 @llvm.smax.i32(i32 %.412.i, i32 0)
-  store i32 %spec.select540.i, ptr %562, align 8, !tbaa !1167
+  %spec.select541.i = call i32 @llvm.smax.i32(i32 %.412.i, i32 0)
+  store i32 %spec.select541.i, ptr %562, align 8, !tbaa !1167
   %576 = load i32, ptr %.083, align 4, !tbaa !7
   %577 = load i32, ptr %.1.i, align 4, !tbaa !7
   %.414.i = call i32 @llvm.smin.i32(i32 %576, i32 %577)
@@ -64484,13 +64485,13 @@ nk_draw_property.exit.i:                          ; preds = %nk_widget_text.exit
 
 nk_input_is_key_pressed.exit.thread.i:            ; preds = %552
   %.not398.i = icmp ne i32 %.0328.i, 0
-  %or.cond644.i = and i1 %.not398.i, %.not396.i
-  br i1 %or.cond644.i, label %.thread.i, label %nk_do_property.exit
+  %or.cond645.i = and i1 %.not398.i, %.not396.i
+  br i1 %or.cond645.i, label %.thread.i, label %nk_do_property.exit
 
 nk_input_is_key_pressed.exit.thread.thread.i:     ; preds = %604, %603
   store i8 0, ptr %572, align 1, !tbaa !1192
-  %.not398614.i = icmp eq i32 %.0328.i, 0
-  br i1 %.not398614.i, label %nk_do_property.exit.thread, label %.thread.i
+  %.not398615.i = icmp eq i32 %.0328.i, 0
+  br i1 %.not398615.i, label %nk_do_property.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %nk_input_is_key_pressed.exit.thread.thread.i, %nk_input_is_key_pressed.exit.thread.i
   store i32 0, ptr %.088, align 4, !tbaa !7
@@ -64502,7 +64503,7 @@ nk_input_is_key_pressed.exit.thread.thread.i:     ; preds = %604, %603
   switch i32 %609, label %nk_do_property.exit [
     i32 0, label %.preheader.i.i
     i32 1, label %.preheader.i
-    i32 2, label %.preheader544.i
+    i32 2, label %.preheader545.i
   ]
 
 .preheader.i.i:                                   ; preds = %.thread.i, %611
@@ -64553,8 +64554,8 @@ nk_strtoi.exit.i:                                 ; preds = %.lr.ph.i450.i, %.lo
   %.418.i = call i32 @llvm.smin.i32(i32 %624, i32 %627)
   %628 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %629 = load i32, ptr %628, align 8, !tbaa !9
-  %spec.select541.i = call i32 @llvm.smax.i32(i32 %.418.i, i32 %629)
-  store i32 %spec.select541.i, ptr %625, align 8, !tbaa !9
+  %spec.select542.i = call i32 @llvm.smax.i32(i32 %.418.i, i32 %629)
+  store i32 %spec.select542.i, ptr %625, align 8, !tbaa !9
   br label %nk_do_property.exit
 
 .preheader.i:                                     ; preds = %.thread.i, %.backedge.i453.i
@@ -64713,7 +64714,7 @@ nk_strtod.exit506.i:                              ; preds = %._crit_edge.i493.i,
   store float %687, ptr %680, align 8, !tbaa !9
   br label %nk_do_property.exit
 
-.preheader544.i:                                  ; preds = %.thread.i, %.backedge.i461.i
+.preheader545.i:                                  ; preds = %.thread.i, %.backedge.i461.i
   %.011.i459.i = phi i32 [ %.011.be.i462.i, %.backedge.i461.i ], [ 0, %.thread.i ]
   %.0.i460.i = phi ptr [ %.0.be.i463.i, %.backedge.i461.i ], [ %.086, %.thread.i ]
   %688 = load i8, ptr %.0.i460.i, align 1, !tbaa !9
@@ -64722,12 +64723,12 @@ nk_strtod.exit506.i:                              ; preds = %._crit_edge.i493.i,
     i8 46, label %.backedge.i461.i
   ]
 
-.backedge.i461.i:                                 ; preds = %692, %.preheader544.i
-  %.011.be.i462.i = phi i32 [ %spec.select.i465.i, %692 ], [ 1, %.preheader544.i ]
+.backedge.i461.i:                                 ; preds = %692, %.preheader545.i
+  %.011.be.i462.i = phi i32 [ %spec.select.i465.i, %692 ], [ 1, %.preheader545.i ]
   %.0.be.i463.i = getelementptr inbounds nuw i8, ptr %.0.i460.i, i64 1
-  br label %.preheader544.i, !llvm.loop !1209
+  br label %.preheader545.i, !llvm.loop !1209
 
-689:                                              ; preds = %.preheader544.i
+689:                                              ; preds = %.preheader545.i
   %690 = icmp eq i32 %.011.i459.i, 3
   br i1 %690, label %691, label %692
 
@@ -64735,7 +64736,7 @@ nk_strtod.exit506.i:                              ; preds = %._crit_edge.i493.i,
   store i8 0, ptr %.0.i460.i, align 1, !tbaa !9
   br label %.preheader77.i.i.preheader
 
-.preheader77.i.i.preheader:                       ; preds = %.preheader544.i, %691
+.preheader77.i.i.preheader:                       ; preds = %.preheader545.i, %691
   br label %.preheader77.i.i
 
 692:                                              ; preds = %689

@@ -18357,7 +18357,7 @@ cf2_hintmask_setAll.exit.thread:                  ; preds = %cf2_hintmask_setAll
   br label %88
 
 88:                                               ; preds = %.lr.ph, %251
-  %.0207 = phi ptr [ %58, %.lr.ph ], [ %.1, %251 ]
+  %.0207 = phi ptr [ %58, %.lr.ph ], [ %.1.idx.sroa.sel.idx.sroa.sel, %251 ]
   %.097206 = phi i32 [ 128, %.lr.ph ], [ %.198, %251 ]
   %.0101203 = phi i64 [ 0, %.lr.ph ], [ %256, %251 ]
   %89 = load i8, ptr %.0207, align 1, !tbaa !37
@@ -18438,7 +18438,7 @@ cf2_arrstack_getPointer.exit.i:                   ; preds = %99, %97, %95, %92
   br label %cf2_hint_init.exit
 
 120:                                              ; preds = %112, %109
-  %.val123237 = phi i32 [ %.sink.i, %112 ], [ 0, %109 ]
+  %.val123240 = phi i32 [ %.sink.i, %112 ], [ 0, %109 ]
   %121 = phi i32 [ %114, %112 ], [ %4, %109 ]
   %122 = sext i32 %121 to i64
   %123 = sext i32 %93 to i64
@@ -18454,7 +18454,7 @@ cf2_arrstack_getPointer.exit.i:                   ; preds = %99, %97, %95, %92
 cf2_hint_init.exit:                               ; preds = %116, %120
   %130 = phi i32 [ %118, %116 ], [ %129, %120 ]
   %131 = phi i32 [ %114, %116 ], [ %121, %120 ]
-  %.val123 = phi i32 [ %119, %116 ], [ %.val123237, %120 ]
+  %.val123 = phi i32 [ %119, %116 ], [ %.val123240, %120 ]
   %132 = load i32, ptr %70, align 4, !tbaa !588
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   br i1 %.not.i.i, label %cf2_arrstack_getPointer.exit.i132, label %133
@@ -18523,7 +18523,7 @@ cf2_arrstack_getPointer.exit.i132:                ; preds = %137, %135, %133, %c
   br label %cf2_hint_init.exit136
 
 158:                                              ; preds = %.thread75.i, %145
-  %.val124239 = phi i32 [ 0, %145 ], [ %.sink86.i, %.thread75.i ]
+  %.val124242 = phi i32 [ 0, %145 ], [ %.sink86.i, %.thread75.i ]
   %159 = phi i32 [ %4, %145 ], [ %152, %.thread75.i ]
   %160 = sext i32 %159 to i64
   %161 = sext i32 %132 to i64
@@ -18539,7 +18539,7 @@ cf2_arrstack_getPointer.exit.i132:                ; preds = %137, %135, %133, %c
 cf2_hint_init.exit136:                            ; preds = %154, %158
   %168 = phi i32 [ %156, %154 ], [ %167, %158 ]
   %169 = phi i32 [ %152, %154 ], [ %159, %158 ]
-  %.val124 = phi i32 [ %157, %154 ], [ %.val124239, %158 ]
+  %.val124 = phi i32 [ %157, %154 ], [ %.val124242, %158 ]
   %170 = and i32 %.val123, 16
   %.not115 = icmp eq i32 %170, 0
   %171 = and i32 %.val124, 16
@@ -18760,8 +18760,8 @@ cf2_blues_capture.exit.thread:                    ; preds = %.thread.i, %.thread
   %254 = lshr i32 %.097206, 1
   %255 = and i32 %254, 127
   %.198 = select i1 %253, i32 128, i32 %255
-  %.1.idx = zext i1 %253 to i64
-  %.1 = getelementptr inbounds nuw i8, ptr %.0207, i64 %.1.idx
+  %.1.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %253 to i64
+  %.1.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.0207, i64 %.1.idx.sroa.sel.idx.sroa.sel.idx
   %256 = add nuw i64 %.0101203, 1
   %exitcond.not = icmp eq i64 %256, %.val120
   br i1 %exitcond.not, label %._crit_edge, label %88, !llvm.loop !727
@@ -18824,7 +18824,7 @@ cf2_blues_capture.exit.thread:                    ; preds = %.thread.i, %.thread
   br label %.loopexit183
 
 287:                                              ; preds = %.lr.ph213, %365
-  %.2212 = phi ptr [ %58, %.lr.ph213 ], [ %.3, %365 ]
+  %.2212 = phi ptr [ %58, %.lr.ph213 ], [ %.3.idx.sroa.sel.idx.sroa.sel, %365 ]
   %.299211 = phi i32 [ 128, %.lr.ph213 ], [ %.3100, %365 ]
   %.1102208 = phi i64 [ 0, %.lr.ph213 ], [ %370, %365 ]
   %288 = load i8, ptr %.2212, align 1, !tbaa !37
@@ -19010,8 +19010,8 @@ cf2_hint_init.exit158:                            ; preds = %351, %355
   %368 = lshr i32 %.299211, 1
   %369 = and i32 %368, 127
   %.3100 = select i1 %367, i32 128, i32 %369
-  %.3.idx = zext i1 %367 to i64
-  %.3 = getelementptr inbounds nuw i8, ptr %.2212, i64 %.3.idx
+  %.3.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %367 to i64
+  %.3.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.2212, i64 %.3.idx.sroa.sel.idx.sroa.sel.idx
   %370 = add nuw i64 %.1102208, 1
   %exitcond234.not = icmp eq i64 %370, %.val120
   br i1 %exitcond234.not, label %.loopexit183, label %287, !llvm.loop !728
@@ -19031,8 +19031,8 @@ cf2_hint_init.exit158:                            ; preds = %351, %355
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 32
   store i64 0, ptr %377, align 8, !tbaa !661
   %378 = load i32, ptr %56, align 8, !tbaa !715
-  %.not177.i245 = icmp eq i32 %378, 0
-  br i1 %.not177.i245, label %.loopexit, label %.lr.ph.i159
+  %.not177.i248 = icmp eq i32 %378, 0
+  br i1 %.not177.i248, label %.loopexit, label %.lr.ph.i159
 
 .lr.ph.i159:                                      ; preds = %.loopexit183.thread, %.loopexit183
   %379 = phi i32 [ %378, %.loopexit183.thread ], [ %374, %.loopexit183 ]
@@ -19266,8 +19266,8 @@ cf2_arrstack_getPointer.exit.i165:                ; preds = %504, %cf2_arrstack_
 
 cf2_hintmap_adjustHints.exit:                     ; preds = %504, %._crit_edge.i161
   %.not218 = icmp eq i32 %476, 0
-  %or.cond261 = or i1 %.not, %.not218
-  br i1 %or.cond261, label %.loopexit, label %.lr.ph215
+  %or.cond264 = or i1 %.not, %.not218
+  br i1 %or.cond264, label %.loopexit, label %.lr.ph215
 
 .lr.ph215:                                        ; preds = %cf2_hintmap_adjustHints.exit
   %505 = getelementptr inbounds nuw i8, ptr %0, i64 40

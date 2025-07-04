@@ -5831,10 +5831,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %102 = icmp eq i32 %.sroa.2336.0.copyload, %101
   tail call void @llvm.assume(i1 %102)
   %.not = icmp samesign ult i32 %16, 2
-  br i1 %.not, label %._crit_edge348, label %.preheader342.lr.ph
+  br i1 %.not, label %._crit_edge349, label %.preheader343.lr.ph
 
-.preheader342.lr.ph:                              ; preds = %1
-  %.not349 = icmp samesign ult i32 %14, 2
+.preheader343.lr.ph:                              ; preds = %1
+  %.not350 = icmp samesign ult i32 %14, 2
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -5843,9 +5843,9 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br i1 %.not349, label %._crit_edge348, label %.preheader342.us.preheader
+  br i1 %.not350, label %._crit_edge349, label %.preheader343.us.preheader
 
-.preheader342.us.preheader:                       ; preds = %.preheader342.lr.ph
+.preheader343.us.preheader:                       ; preds = %.preheader343.lr.ph
   %110 = ptrtoint ptr %5 to i64
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %112 = zext nneg i32 %14 to i64
@@ -5869,66 +5869,66 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %129 = zext nneg i32 %.sroa.6340.0.copyload to i64
   %130 = zext nneg i32 %.sroa.4338.0.copyload to i64
   %131 = zext nneg i32 %.sroa.2336.0.copyload to i64
-  %wide.trip.count361 = zext nneg i32 %30 to i64
+  %wide.trip.count362 = zext nneg i32 %30 to i64
   %wide.trip.count = zext nneg i32 %umax to i64
   %132 = ptrtoint ptr %111 to i64
   %133 = xor i64 %110, -1
   %134 = add i64 %132, %133
   %135 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %134
-  br label %.preheader342.us
+  br label %.preheader343.us
 
-.preheader342.us:                                 ; preds = %.preheader342.us.preheader, %._crit_edge.us
-  %indvars.iv358 = phi i64 [ 0, %.preheader342.us.preheader ], [ %indvars.iv.next359, %._crit_edge.us ]
-  %136 = icmp samesign ult i64 %indvars.iv358, %120
+.preheader343.us:                                 ; preds = %.preheader343.us.preheader, %._crit_edge.us
+  %indvars.iv359 = phi i64 [ 0, %.preheader343.us.preheader ], [ %indvars.iv.next360, %._crit_edge.us ]
+  %136 = icmp samesign ult i64 %indvars.iv359, %120
   call void @llvm.assume(i1 %136)
-  %137 = mul nuw nsw i64 %indvars.iv358, %121
+  %137 = mul nuw nsw i64 %indvars.iv359, %121
   %138 = add nuw nsw i64 %137, %116
   %139 = icmp samesign ule i64 %138, %122
   call void @llvm.assume(i1 %139)
   %140 = getelementptr inbounds nuw i16, ptr %.sroa.0294.0.copyload, i64 %137
-  %141 = icmp samesign ult i64 %indvars.iv358, %123
+  %141 = icmp samesign ult i64 %indvars.iv359, %123
   call void @llvm.assume(i1 %141)
-  %142 = mul nuw nsw i64 %indvars.iv358, %124
+  %142 = mul nuw nsw i64 %indvars.iv359, %124
   %143 = add nuw nsw i64 %142, %117
   %144 = icmp samesign ule i64 %143, %125
   call void @llvm.assume(i1 %144)
   %145 = getelementptr inbounds nuw i16, ptr %.sroa.0307.0.copyload, i64 %142
-  %146 = icmp samesign ult i64 %indvars.iv358, %126
+  %146 = icmp samesign ult i64 %indvars.iv359, %126
   call void @llvm.assume(i1 %146)
-  %147 = mul nuw nsw i64 %indvars.iv358, %127
+  %147 = mul nuw nsw i64 %indvars.iv359, %127
   %148 = add nuw nsw i64 %147, %118
   %149 = icmp samesign ule i64 %148, %128
   call void @llvm.assume(i1 %149)
   %150 = getelementptr inbounds nuw i16, ptr %.sroa.0321.0.copyload, i64 %147
-  %151 = icmp samesign ult i64 %indvars.iv358, %129
+  %151 = icmp samesign ult i64 %indvars.iv359, %129
   call void @llvm.assume(i1 %151)
-  %152 = mul nuw nsw i64 %indvars.iv358, %130
+  %152 = mul nuw nsw i64 %indvars.iv359, %130
   %153 = add nuw nsw i64 %152, %119
   %154 = icmp samesign ule i64 %153, %131
   call void @llvm.assume(i1 %154)
   %155 = getelementptr inbounds nuw i16, ptr %.sroa.0335.0.copyload, i64 %152
-  %156 = shl nuw nsw i64 %indvars.iv358, 1
+  %156 = shl nuw nsw i64 %indvars.iv359, 1
   br label %157
 
-157:                                              ; preds = %.preheader342.us, %202
-  %indvars.iv355 = phi i64 [ 0, %.preheader342.us ], [ %indvars.iv.next356, %202 ]
-  %158 = icmp samesign ult i64 %indvars.iv355, %116
+157:                                              ; preds = %.preheader343.us, %202
+  %indvars.iv356 = phi i64 [ 0, %.preheader343.us ], [ %indvars.iv.next357, %202 ]
+  %158 = icmp samesign ult i64 %indvars.iv356, %116
   call void @llvm.assume(i1 %158)
-  %159 = getelementptr inbounds nuw i16, ptr %140, i64 %indvars.iv355
+  %159 = getelementptr inbounds nuw i16, ptr %140, i64 %indvars.iv356
   %160 = load i16, ptr %159, align 2, !tbaa !41
   %161 = sext i16 %160 to i32
-  %162 = icmp samesign ult i64 %indvars.iv355, %117
+  %162 = icmp samesign ult i64 %indvars.iv356, %117
   call void @llvm.assume(i1 %162)
-  %163 = getelementptr inbounds nuw i16, ptr %145, i64 %indvars.iv355
+  %163 = getelementptr inbounds nuw i16, ptr %145, i64 %indvars.iv356
   %164 = load i16, ptr %163, align 2, !tbaa !41
   %165 = sext i16 %164 to i32
-  %166 = icmp samesign ult i64 %indvars.iv355, %118
+  %166 = icmp samesign ult i64 %indvars.iv356, %118
   call void @llvm.assume(i1 %166)
-  %167 = getelementptr inbounds nuw i16, ptr %150, i64 %indvars.iv355
+  %167 = getelementptr inbounds nuw i16, ptr %150, i64 %indvars.iv356
   %168 = load i16, ptr %167, align 2, !tbaa !41
-  %169 = icmp samesign ult i64 %indvars.iv355, %119
+  %169 = icmp samesign ult i64 %indvars.iv356, %119
   call void @llvm.assume(i1 %169)
-  %170 = getelementptr inbounds nuw i16, ptr %155, i64 %indvars.iv355
+  %170 = getelementptr inbounds nuw i16, ptr %155, i64 %indvars.iv356
   %171 = sext i16 %168 to i32
   %172 = load i16, ptr %170, align 2, !tbaa !41
   %173 = sext i16 %172 to i32
@@ -5948,8 +5948,8 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   br label %182
 
 182:                                              ; preds = %182, %157
-  %.048.idx343.us = phi i64 [ 0, %157 ], [ %.048.add.us, %182 ]
-  %.048.ptr.us = getelementptr inbounds nuw i8, ptr %6, i64 %.048.idx343.us
+  %.048.idx344.us = phi i64 [ 0, %157 ], [ %.048.add.us, %182 ]
+  %.048.ptr.us = getelementptr inbounds nuw i8, ptr %6, i64 %.048.idx344.us
   %183 = load i32, ptr %.048.ptr.us, align 4, !tbaa !35
   %.sroa.speculate.load.false.sroa.speculated.i.i.us = call i32 @llvm.smax.i32(i32 %183, i32 0)
   %184 = call i32 @llvm.umin.i32(i32 %.sroa.speculate.load.false.sroa.speculated.i.i.us, i32 4095)
@@ -5957,7 +5957,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %186 = getelementptr inbounds nuw i32, ptr %107, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !35
   store i32 %187, ptr %.048.ptr.us, align 4, !tbaa !35
-  %.048.add.us = add nuw nsw i64 %.048.idx343.us, 4
+  %.048.add.us = add nuw nsw i64 %.048.idx344.us, 4
   %.not.us = icmp eq i64 %.048.add.us, 16
   br i1 %.not.us, label %188, label %182
 
@@ -6005,7 +6005,7 @@ _ZSt7find_ifIPKN8rawspeed8CFAColorEZNS0_21applyStablePhaseShiftIiEESt5arrayIT_Lm
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   store i64 %.fca.0.load.pre.i.us, ptr %6, align 8
   store i64 %.fca.1.load.pre.i.us, ptr %104, align 8, !tbaa !42
-  %199 = shl nuw nsw i64 %indvars.iv355, 1
+  %199 = shl nuw nsw i64 %indvars.iv356, 1
   %200 = or disjoint i64 %199, 1
   %201 = icmp samesign ult i64 %200, %112
   call void @llvm.assume(i1 %201)
@@ -6013,16 +6013,16 @@ _ZSt7find_ifIPKN8rawspeed8CFAColorEZNS0_21applyStablePhaseShiftIiEESt5arrayIT_Lm
 
 202:                                              ; preds = %.preheader.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
-  %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count
+  %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next357, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %157, !llvm.loop !351
 
 .preheader.us:                                    ; preds = %.preheader.us, %_ZSt7find_ifIPKN8rawspeed8CFAColorEZNS0_21applyStablePhaseShiftIiEESt5arrayIT_Lm4EES7_NS0_10BayerPhaseES8_EUlRS2_E_ES6_S6_S6_T0_.exit.thread.i.us
   %203 = phi i1 [ false, %.preheader.us ], [ true, %_ZSt7find_ifIPKN8rawspeed8CFAColorEZNS0_21applyStablePhaseShiftIiEESt5arrayIT_Lm4EES7_NS0_10BayerPhaseES8_EUlRS2_E_ES6_S6_S6_T0_.exit.thread.i.us ]
-  %indvars.iv352 = phi i64 [ 1, %.preheader.us ], [ 0, %_ZSt7find_ifIPKN8rawspeed8CFAColorEZNS0_21applyStablePhaseShiftIiEESt5arrayIT_Lm4EES7_NS0_10BayerPhaseES8_EUlRS2_E_ES6_S6_S6_T0_.exit.thread.i.us ]
-  %.idx = shl nuw nsw i64 %indvars.iv352, 3
+  %indvars.iv353 = phi i64 [ 1, %.preheader.us ], [ 0, %_ZSt7find_ifIPKN8rawspeed8CFAColorEZNS0_21applyStablePhaseShiftIiEESt5arrayIT_Lm4EES7_NS0_10BayerPhaseES8_EUlRS2_E_ES6_S6_S6_T0_.exit.thread.i.us ]
+  %.idx = shl nuw nsw i64 %indvars.iv353, 3
   %204 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
-  %205 = or disjoint i64 %indvars.iv352, %156
+  %205 = or disjoint i64 %indvars.iv353, %156
   %206 = icmp samesign ult i64 %205, %113
   call void @llvm.assume(i1 %206)
   %207 = mul nuw nsw i64 %205, %114
@@ -6042,11 +6042,11 @@ _ZSt7find_ifIPKN8rawspeed8CFAColorEZNS0_21applyStablePhaseShiftIiEESt5arrayIT_Lm
   br i1 %203, label %.preheader.us, label %202, !llvm.loop !352
 
 ._crit_edge.us:                                   ; preds = %202
-  %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
-  %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
-  br i1 %exitcond362.not, label %._crit_edge348, label %.preheader342.us, !llvm.loop !353
+  %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
+  %exitcond363.not = icmp eq i64 %indvars.iv.next360, %wide.trip.count362
+  br i1 %exitcond363.not, label %._crit_edge349, label %.preheader343.us, !llvm.loop !353
 
-._crit_edge348:                                   ; preds = %._crit_edge.us, %.preheader342.lr.ph, %1
+._crit_edge349:                                   ; preds = %._crit_edge.us, %.preheader343.lr.ph, %1
   ret void
 }
 

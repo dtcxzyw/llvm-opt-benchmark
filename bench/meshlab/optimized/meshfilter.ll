@@ -194023,10 +194023,12 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg16coplanar_tri_triIfEEbNS_6Point3
   %20 = fcmp ogt float %15, %17
   %. = select i1 %20, i64 2, i64 1
   %21 = zext i1 %20 to i64
-  %.phi.trans.insert = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %21
-  %.pre = load float, ptr %.phi.trans.insert, align 4
-  %.phi.trans.insert605 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %21
-  %.pre606 = load float, ptr %.phi.trans.insert605, align 4
+  %.sroa.sel.idx = select i1 %20, i64 4, i64 0
+  %.sroa.sel = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.sel.idx
+  %.pre = load float, ptr %.sroa.sel, align 4
+  %.sroa.sel612.idx = select i1 %20, i64 4, i64 0
+  %.sroa.sel612 = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.sel612.idx
+  %.pre606 = load float, ptr %.sroa.sel612, align 4
   br label %26
 
 22:                                               ; preds = %11

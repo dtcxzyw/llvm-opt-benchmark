@@ -3262,21 +3262,21 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
 44:                                               ; preds = %33
   %45 = and i64 %36, 7
   %46 = icmp eq i64 %45, 0
-  %spec.select.idx = zext i1 %46 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %9, i64 %spec.select.idx
+  %spec.select.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %46 to i64
+  %spec.select.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %9, i64 %spec.select.idx.sroa.sel.idx.sroa.sel.idx
   %spec.select88 = select i1 %46, i64 %19, i64 %14
   %47 = add nuw nsw i64 %31, 2
   %48 = icmp samesign ult i64 %spec.select88, %47
   br i1 %48, label %.critedge87, label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %spec.select88
+  %50 = getelementptr inbounds nuw i8, ptr %spec.select.idx.sroa.sel.idx.sroa.sel, i64 %spec.select88
   %51 = sub nsw i64 0, %31
   %52 = getelementptr inbounds i8, ptr %50, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 -1
   %54 = xor i64 %31, -1
   %55 = add nsw i64 %spec.select88, %54
-  %56 = call fastcc i32 @mgf_mask(ptr noundef nonnull %spec.select, i64 noundef %55, ptr noundef nonnull %53, i64 noundef %31, i32 noundef %4)
+  %56 = call fastcc i32 @mgf_mask(ptr noundef nonnull %spec.select.idx.sroa.sel.idx.sroa.sel, i64 noundef %55, ptr noundef nonnull %53, i64 noundef %31, i32 noundef %4)
   %.not80 = icmp eq i32 %56, 0
   br i1 %.not80, label %57, label %.critedge87
 
@@ -3295,7 +3295,7 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
   br i1 %67, label %.lr.ph, label %.critedgethread-pre-split
 
 .lr.ph:                                           ; preds = %57, %70
-  %.16794 = phi ptr [ %71, %70 ], [ %spec.select, %57 ]
+  %.16794 = phi ptr [ %71, %70 ], [ %spec.select.idx.sroa.sel.idx.sroa.sel, %57 ]
   %68 = load i8, ptr %.16794, align 1, !tbaa !23
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %70, label %.critedge
@@ -3306,7 +3306,7 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
   br i1 %72, label %.lr.ph, label %.critedgethread-pre-split, !llvm.loop !34
 
 .critedgethread-pre-split:                        ; preds = %70, %57
-  %.167.lcssa = phi ptr [ %spec.select, %57 ], [ %71, %70 ]
+  %.167.lcssa = phi ptr [ %spec.select.idx.sroa.sel.idx.sroa.sel, %57 ], [ %71, %70 ]
   %.pr = load i8, ptr %.167.lcssa, align 1, !tbaa !23
   br label %.critedge
 

@@ -56,7 +56,7 @@ define internal range(i32 -12, 1) i32 @pjs_read_header(ptr noundef %0) #1 {
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = tail call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #6
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %48, label %8
+  br i1 %.not, label %45, label %8
 
 8:                                                ; preds = %1
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %7, i32 noundef 64, i32 noundef 1, i32 noundef 10) #6
@@ -68,8 +68,8 @@ define internal range(i32 -12, 1) i32 @pjs_read_header(ptr noundef %0) #1 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !37
   %14 = tail call i32 @avio_feof(ptr noundef %13) #6
-  %.not2745 = icmp eq i32 %14, 0
-  br i1 %.not2745, label %.lr.ph, label %.loopexit
+  %.not2747 = icmp eq i32 %14, 0
+  br i1 %.not2747, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %8, %.critedge
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #6
@@ -78,9 +78,9 @@ define internal range(i32 -12, 1) i32 @pjs_read_header(ptr noundef %0) #1 {
   %17 = load ptr, ptr %12, align 8, !tbaa !37
   %18 = call i32 @ff_get_line(ptr noundef %17, ptr noundef nonnull %4, i32 noundef 4096) #6
   %.not28 = icmp eq i32 %18, 0
-  br i1 %.not28, label %.critedge.thread42, label %19
+  br i1 %.not28, label %.critedge.thread43, label %19
 
-.critedge.thread42:                               ; preds = %.lr.ph
+.critedge.thread43:                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #6
   br label %.loopexit
 
@@ -98,64 +98,64 @@ define internal range(i32 -12, 1) i32 @pjs_read_header(ptr noundef %0) #1 {
   %25 = call i64 @strcspn(ptr noundef nonnull %4, ptr noundef nonnull @.str.3) #7
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !38
-  %28 = icmp ne i8 %27, 0
-  %29 = zext i1 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
-  %31 = load i64, ptr %3, align 8, !tbaa !39
-  %32 = load i64, ptr %2, align 8, !tbaa !39
-  %33 = icmp slt i64 %31, %32
-  br i1 %33, label %read_ts.exit.thread, label %34
+  %.not46.not.not = icmp ne i8 %27, 0
+  %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %.not46.not.not to i64
+  %.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %26, i64 %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
+  %28 = load i64, ptr %3, align 8, !tbaa !39
+  %29 = load i64, ptr %2, align 8, !tbaa !39
+  %30 = icmp slt i64 %28, %29
+  br i1 %30, label %read_ts.exit.thread, label %31
 
-34:                                               ; preds = %24
-  %35 = sub i64 %31, %32
-  %36 = icmp ugt i64 %35, 2147483647
-  br i1 %36, label %read_ts.exit.thread, label %read_ts.exit
+31:                                               ; preds = %24
+  %32 = sub i64 %28, %29
+  %33 = icmp ugt i64 %32, 2147483647
+  br i1 %33, label %read_ts.exit.thread, label %read_ts.exit
 
-read_ts.exit.thread:                              ; preds = %34, %24, %19
+read_ts.exit.thread:                              ; preds = %31, %24, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   br label %.critedge
 
-read_ts.exit:                                     ; preds = %34
+read_ts.exit:                                     ; preds = %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  %.not29 = icmp eq i64 %32, -9223372036854775808
-  br i1 %.not29, label %.critedge, label %37
+  %.not29 = icmp eq i64 %29, -9223372036854775808
+  br i1 %.not29, label %.critedge, label %34
 
-37:                                               ; preds = %read_ts.exit
-  %38 = call i64 @strcspn(ptr noundef nonnull %30, ptr noundef nonnull @.str.3) #7
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %38
-  store i8 0, ptr %39, align 1, !tbaa !38
-  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #7
-  %41 = call ptr @ff_subtitles_queue_insert(ptr noundef %6, ptr noundef nonnull %30, i64 noundef %40, i32 noundef 0) #6
-  %.not30.not = icmp eq ptr %41, null
-  br i1 %.not30.not, label %.critedge.thread, label %42
+34:                                               ; preds = %read_ts.exit
+  %35 = call i64 @strcspn(ptr noundef nonnull %.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr noundef nonnull @.str.3) #7
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %35
+  store i8 0, ptr %36, align 1, !tbaa !38
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.sel.idx.sroa.sel.idx.sroa.sel) #7
+  %38 = call ptr @ff_subtitles_queue_insert(ptr noundef %6, ptr noundef nonnull %.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 noundef %37, i32 noundef 0) #6
+  %.not30.not = icmp eq ptr %38, null
+  br i1 %.not30.not, label %.critedge.thread, label %39
 
-.critedge.thread:                                 ; preds = %37
+.critedge.thread:                                 ; preds = %34
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #6
-  br label %48
+  br label %45
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 72
-  store i64 %16, ptr %43, align 8, !tbaa !40
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 %32, ptr %44, align 8, !tbaa !41
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 64
-  store i64 %35, ptr %45, align 8, !tbaa !42
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 72
+  store i64 %16, ptr %40, align 8, !tbaa !40
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i64 %29, ptr %41, align 8, !tbaa !41
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  store i64 %32, ptr %42, align 8, !tbaa !42
   br label %.critedge
 
-.critedge:                                        ; preds = %read_ts.exit.thread, %read_ts.exit, %42
+.critedge:                                        ; preds = %read_ts.exit.thread, %read_ts.exit, %39
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #6
-  %46 = load ptr, ptr %12, align 8, !tbaa !37
-  %47 = call i32 @avio_feof(ptr noundef %46) #6
-  %.not27 = icmp eq i32 %47, 0
+  %43 = load ptr, ptr %12, align 8, !tbaa !37
+  %44 = call i32 @avio_feof(ptr noundef %43) #6
+  %.not27 = icmp eq i32 %44, 0
   br i1 %.not27, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge, %8, %.critedge.thread42
+.loopexit:                                        ; preds = %.critedge, %8, %.critedge.thread43
   call void @ff_subtitles_queue_finalize(ptr noundef nonnull %0, ptr noundef %6) #6
-  br label %48
+  br label %45
 
-48:                                               ; preds = %.critedge.thread, %1, %.loopexit
+45:                                               ; preds = %.critedge.thread, %1, %.loopexit
   %.0 = phi i32 [ 0, %.loopexit ], [ -12, %1 ], [ -12, %.critedge.thread ]
   ret i32 %.0
 }

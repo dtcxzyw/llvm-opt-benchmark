@@ -2993,12 +2993,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 546:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i892, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i893
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %122) #22
-  %not. = xor i1 %10, true
-  %547 = zext i1 %not. to i64
-  %548 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %98, i64 %547
-  %.sroa.sel.v.sroa.sel.v = select i1 %10, i64 160, i64 128
-  %.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %548, i64 %.sroa.sel.v.sroa.sel.v
-  invoke void @_Z10xvgrLegendP8_IO_FILEN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK16gmx_output_env_t(ptr noundef %521, ptr nonnull %548, ptr nonnull %.sroa.sel.v.sroa.sel, ptr noundef %34)
+  %547 = select i1 %10, i64 5, i64 4
+  %.sroa.sel = select i1 %10, ptr %98, ptr %189
+  %548 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.sel, i64 %547
+  invoke void @_Z10xvgrLegendP8_IO_FILEN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK16gmx_output_env_t(ptr noundef %521, ptr nonnull %.sroa.sel, ptr nonnull %548, ptr noundef %34)
           to label %568 unwind label %566
 
 549:                                              ; preds = %514

@@ -6752,7 +6752,7 @@ define internal fastcc noundef ptr @_ZN9Stockfish12_GLOBAL__N_16TBFile3mapEPPvPm
 
 13:                                               ; preds = %8
   store ptr null, ptr %1, align 8
-  br label %46
+  br label %44
 
 14:                                               ; preds = %8
   %15 = call i32 @fstat(i32 noundef %11, ptr noundef nonnull %5) #24
@@ -6787,29 +6787,28 @@ define internal fastcc noundef ptr @_ZN9Stockfish12_GLOBAL__N_16TBFile3mapEPPvPm
   unreachable
 
 33:                                               ; preds = %23
-  %34 = xor i32 %3, 1
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw [2 x [4 x i8]], ptr @__const._ZN9Stockfish12_GLOBAL__N_16TBFile3mapEPPvPmNS0_6TBTypeE.Magics, i64 0, i64 %35
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %27, ptr noundef nonnull dereferenceable(4) %36, i64 4)
-  %.not19 = icmp eq i32 %bcmp, 0
-  br i1 %.not19, label %44, label %37
+  %34 = icmp eq i32 %3, 0
+  %.sroa.sel.sroa.sel = select i1 %34, ptr getelementptr inbounds nuw (i8, ptr @__const._ZN9Stockfish12_GLOBAL__N_16TBFile3mapEPPvPmNS0_6TBTypeE.Magics, i64 4), ptr @__const._ZN9Stockfish12_GLOBAL__N_16TBFile3mapEPPvPmNS0_6TBTypeE.Magics
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %27, ptr noundef nonnull dereferenceable(4) %.sroa.sel.sroa.sel, i64 4)
+  %.not20 = icmp eq i32 %bcmp, 0
+  br i1 %.not20, label %42, label %35
 
-37:                                               ; preds = %33
-  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.18) #24
-  %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(32) %9) #24
-  %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_) #24
-  %41 = load ptr, ptr %1, align 8
-  %42 = load i64, ptr %2, align 8
-  %43 = tail call i32 @munmap(ptr noundef %41, i64 noundef %42) #24
+35:                                               ; preds = %33
+  %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.18) #24
+  %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(32) %9) #24
+  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_) #24
+  %39 = load ptr, ptr %1, align 8
+  %40 = load i64, ptr %2, align 8
+  %41 = tail call i32 @munmap(ptr noundef %39, i64 noundef %40) #24
   store ptr null, ptr %1, align 8
-  br label %46
+  br label %44
 
-44:                                               ; preds = %33
-  %45 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  br label %46
+42:                                               ; preds = %33
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  br label %44
 
-46:                                               ; preds = %44, %37, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %37 ], [ %45, %44 ]
+44:                                               ; preds = %42, %35, %13
+  %.0 = phi ptr [ null, %13 ], [ null, %35 ], [ %43, %42 ]
   ret ptr %.0
 }
 

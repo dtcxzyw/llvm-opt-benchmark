@@ -1117,326 +1117,314 @@ _ZNSt5dequeIcSaIcEE9push_backEOc.exit:            ; preds = %51, %54
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4YAML6Stream13StreamInUtf16Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #0 align 2 {
-  %2 = alloca [2 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #16
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !44
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %6 = load i64, ptr %5, align 8, !tbaa !83
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %8 = load i64, ptr %7, align 8, !tbaa !84
-  %.not.i = icmp ult i64 %6, %8
-  br i1 %.not.i, label %_ZNK4YAML6Stream11GetNextByteEv.exit, label %9
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %3 = load i32, ptr %2, align 4, !tbaa !44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %5 = load i64, ptr %4, align 8, !tbaa !83
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %7 = load i64, ptr %6, align 8, !tbaa !84
+  %.not.i = icmp ult i64 %5, %7
+  br i1 %.not.i, label %_ZNK4YAML6Stream11GetNextByteEv.exit, label %8
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %0, align 8, !tbaa !57
-  %11 = load ptr, ptr %10, align 8, !tbaa !22
-  %12 = getelementptr i8, ptr %11, i64 -24
-  %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 232
-  %16 = load ptr, ptr %15, align 8, !tbaa !85
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %18 = load ptr, ptr %17, align 8, !tbaa !8
-  %19 = load ptr, ptr %16, align 8, !tbaa !22
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef %18, i64 noundef 2048)
-  store i64 %22, ptr %7, align 8, !tbaa !84
-  store i64 0, ptr %5, align 8, !tbaa !83
-  %.not4.i = icmp eq i64 %22, 0
-  br i1 %.not4.i, label %23, label %_ZNK4YAML6Stream11GetNextByteEv.exit
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %0, align 8, !tbaa !57
+  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  %11 = getelementptr i8, ptr %10, i64 -24
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %9, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 232
+  %15 = load ptr, ptr %14, align 8, !tbaa !85
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %17 = load ptr, ptr %16, align 8, !tbaa !8
+  %18 = load ptr, ptr %15, align 8, !tbaa !22
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %17, i64 noundef 2048)
+  store i64 %21, ptr %6, align 8, !tbaa !84
+  store i64 0, ptr %4, align 8, !tbaa !83
+  %.not4.i = icmp eq i64 %21, 0
+  br i1 %.not4.i, label %22, label %_ZNK4YAML6Stream11GetNextByteEv.exit
 
-23:                                               ; preds = %9
-  %24 = load ptr, ptr %0, align 8, !tbaa !57
-  %25 = load ptr, ptr %24, align 8, !tbaa !22
-  %26 = getelementptr i8, ptr %25, i64 -24
-  %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %30 = load i32, ptr %29, align 8, !tbaa !24
-  %31 = or i32 %30, 2
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %28, i32 noundef %31)
-  %.pre.i = load i64, ptr %7, align 8, !tbaa !84
-  %32 = icmp eq i64 %.pre.i, 0
-  %.pre = load i64, ptr %5, align 8, !tbaa !83
-  br i1 %32, label %_ZNK4YAML6Stream11GetNextByteEv.exit.thread, label %_ZNK4YAML6Stream11GetNextByteEv.exit
+22:                                               ; preds = %8
+  %23 = load ptr, ptr %0, align 8, !tbaa !57
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
+  %25 = getelementptr i8, ptr %24, i64 -24
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %23, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %29 = load i32, ptr %28, align 8, !tbaa !24
+  %30 = or i32 %29, 2
+  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %27, i32 noundef %30)
+  %.pre.i = load i64, ptr %6, align 8, !tbaa !84
+  %31 = icmp eq i64 %.pre.i, 0
+  %.pre = load i64, ptr %4, align 8, !tbaa !83
+  br i1 %31, label %_ZNK4YAML6Stream11GetNextByteEv.exit.thread, label %_ZNK4YAML6Stream11GetNextByteEv.exit
 
-_ZNK4YAML6Stream11GetNextByteEv.exit.thread:      ; preds = %23
-  store i8 0, ptr %2, align 1, !tbaa !36
-  br label %40
+_ZNK4YAML6Stream11GetNextByteEv.exit:             ; preds = %1, %22, %8
+  %32 = phi i64 [ %7, %1 ], [ %21, %8 ], [ %.pre.i, %22 ]
+  %33 = phi i64 [ %5, %1 ], [ 0, %8 ], [ %.pre, %22 ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %35 = load ptr, ptr %34, align 8, !tbaa !8
+  %36 = add i64 %33, 1
+  store i64 %36, ptr %4, align 8, !tbaa !83
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %33
+  %38 = load i8, ptr %37, align 1, !tbaa !36
+  %.not.i32 = icmp ult i64 %36, %32
+  br i1 %.not.i32, label %._crit_edge.i34, label %_ZNK4YAML6Stream11GetNextByteEv.exit.thread
 
-_ZNK4YAML6Stream11GetNextByteEv.exit:             ; preds = %1, %23, %9
-  %33 = phi i64 [ %8, %1 ], [ %22, %9 ], [ %.pre.i, %23 ]
-  %34 = phi i64 [ %6, %1 ], [ 0, %9 ], [ %.pre, %23 ]
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %36 = load ptr, ptr %35, align 8, !tbaa !8
-  %37 = add i64 %34, 1
-  store i64 %37, ptr %5, align 8, !tbaa !83
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %34
-  %39 = load i8, ptr %38, align 1, !tbaa !36
-  store i8 %39, ptr %2, align 1, !tbaa !36
-  %.not.i32 = icmp ult i64 %37, %33
-  br i1 %.not.i32, label %._crit_edge.i34, label %40
+_ZNK4YAML6Stream11GetNextByteEv.exit.thread:      ; preds = %22, %_ZNK4YAML6Stream11GetNextByteEv.exit
+  %.1.i98 = phi i8 [ %38, %_ZNK4YAML6Stream11GetNextByteEv.exit ], [ 0, %22 ]
+  %39 = load ptr, ptr %0, align 8, !tbaa !57
+  %40 = load ptr, ptr %39, align 8, !tbaa !22
+  %41 = getelementptr i8, ptr %40, i64 -24
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %39, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 232
+  %45 = load ptr, ptr %44, align 8, !tbaa !85
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %47 = load ptr, ptr %46, align 8, !tbaa !8
+  %48 = load ptr, ptr %45, align 8, !tbaa !22
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef i64 %50(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef %47, i64 noundef 2048)
+  store i64 %51, ptr %6, align 8, !tbaa !84
+  store i64 0, ptr %4, align 8, !tbaa !83
+  %.not4.i33 = icmp eq i64 %51, 0
+  br i1 %.not4.i33, label %52, label %._crit_edge.i34
 
-40:                                               ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit.thread, %_ZNK4YAML6Stream11GetNextByteEv.exit
-  %41 = load ptr, ptr %0, align 8, !tbaa !57
-  %42 = load ptr, ptr %41, align 8, !tbaa !22
-  %43 = getelementptr i8, ptr %42, i64 -24
-  %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 232
-  %47 = load ptr, ptr %46, align 8, !tbaa !85
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %49 = load ptr, ptr %48, align 8, !tbaa !8
-  %50 = load ptr, ptr %47, align 8, !tbaa !22
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef i64 %52(ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef %49, i64 noundef 2048)
-  store i64 %53, ptr %7, align 8, !tbaa !84
-  store i64 0, ptr %5, align 8, !tbaa !83
-  %.not4.i33 = icmp eq i64 %53, 0
-  br i1 %.not4.i33, label %54, label %._crit_edge.i34
+52:                                               ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit.thread
+  %53 = load ptr, ptr %0, align 8, !tbaa !57
+  %54 = load ptr, ptr %53, align 8, !tbaa !22
+  %55 = getelementptr i8, ptr %54, i64 -24
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %53, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %59 = load i32, ptr %58, align 8, !tbaa !24
+  %60 = or i32 %59, 2
+  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %57, i32 noundef %60)
+  %.pre.i37 = load i64, ptr %6, align 8, !tbaa !84
+  %61 = icmp eq i64 %.pre.i37, 0
+  br i1 %61, label %_ZNK4YAML6Stream11GetNextByteEv.exit38, label %.._crit_edge.i34_crit_edge
 
-54:                                               ; preds = %40
-  %55 = load ptr, ptr %0, align 8, !tbaa !57
-  %56 = load ptr, ptr %55, align 8, !tbaa !22
-  %57 = getelementptr i8, ptr %56, i64 -24
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %55, i64 %58
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %61 = load i32, ptr %60, align 8, !tbaa !24
-  %62 = or i32 %61, 2
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %59, i32 noundef %62)
-  %.pre.i37 = load i64, ptr %7, align 8, !tbaa !84
-  %63 = icmp eq i64 %.pre.i37, 0
-  br i1 %63, label %_ZNK4YAML6Stream11GetNextByteEv.exit38, label %.._crit_edge.i34_crit_edge
-
-.._crit_edge.i34_crit_edge:                       ; preds = %54
-  %.pre6.i35.pre = load i64, ptr %5, align 8, !tbaa !83
+.._crit_edge.i34_crit_edge:                       ; preds = %52
+  %.pre6.i35.pre = load i64, ptr %4, align 8, !tbaa !83
   br label %._crit_edge.i34
 
-._crit_edge.i34:                                  ; preds = %40, %.._crit_edge.i34_crit_edge, %_ZNK4YAML6Stream11GetNextByteEv.exit
-  %64 = phi i64 [ %37, %_ZNK4YAML6Stream11GetNextByteEv.exit ], [ %.pre6.i35.pre, %.._crit_edge.i34_crit_edge ], [ 0, %40 ]
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %66 = load ptr, ptr %65, align 8, !tbaa !8
-  %67 = add i64 %64, 1
-  store i64 %67, ptr %5, align 8, !tbaa !83
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 %64
-  %69 = load i8, ptr %68, align 1, !tbaa !36
+._crit_edge.i34:                                  ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit.thread, %.._crit_edge.i34_crit_edge, %_ZNK4YAML6Stream11GetNextByteEv.exit
+  %.1.i97 = phi i8 [ %38, %_ZNK4YAML6Stream11GetNextByteEv.exit ], [ %.1.i98, %.._crit_edge.i34_crit_edge ], [ %.1.i98, %_ZNK4YAML6Stream11GetNextByteEv.exit.thread ]
+  %62 = phi i64 [ %36, %_ZNK4YAML6Stream11GetNextByteEv.exit ], [ %.pre6.i35.pre, %.._crit_edge.i34_crit_edge ], [ 0, %_ZNK4YAML6Stream11GetNextByteEv.exit.thread ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %64 = load ptr, ptr %63, align 8, !tbaa !8
+  %65 = add i64 %62, 1
+  store i64 %65, ptr %4, align 8, !tbaa !83
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %62
+  %67 = load i8, ptr %66, align 1, !tbaa !36
   br label %_ZNK4YAML6Stream11GetNextByteEv.exit38
 
-_ZNK4YAML6Stream11GetNextByteEv.exit38:           ; preds = %54, %._crit_edge.i34
-  %.1.i36 = phi i8 [ %69, %._crit_edge.i34 ], [ 0, %54 ]
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %.1.i36, ptr %70, align 1, !tbaa !36
-  %71 = load ptr, ptr %0, align 8, !tbaa !57
-  %72 = load ptr, ptr %71, align 8, !tbaa !22
-  %73 = getelementptr i8, ptr %72, i64 -24
-  %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %71, i64 %74
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %77 = load i32, ptr %76, align 8, !tbaa !24
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %183
+_ZNK4YAML6Stream11GetNextByteEv.exit38:           ; preds = %52, %._crit_edge.i34
+  %.1.i96 = phi i8 [ %.1.i97, %._crit_edge.i34 ], [ %.1.i98, %52 ]
+  %.1.i36 = phi i8 [ %67, %._crit_edge.i34 ], [ 0, %52 ]
+  %68 = load ptr, ptr %0, align 8, !tbaa !57
+  %69 = load ptr, ptr %68, align 8, !tbaa !22
+  %70 = getelementptr i8, ptr %69, i64 -24
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %68, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %74 = load i32, ptr %73, align 8, !tbaa !24
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %170
 
-79:                                               ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit38
-  %80 = icmp ne i32 %4, 2
-  %81 = zext i1 %80 to i64
-  %82 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 0, i64 %81
-  %83 = load i8, ptr %82, align 1, !tbaa !36
-  %84 = xor i1 %80, true
-  %85 = zext i1 %84 to i64
-  %86 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 0, i64 %85
-  %87 = and i8 %83, -4
-  %or.cond = icmp eq i8 %87, -36
-  br i1 %or.cond, label %88, label %90
+76:                                               ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit38
+  %.not = icmp eq i32 %3, 2
+  %.sroa.speculated62 = select i1 %.not, i8 %.1.i96, i8 %.1.i36
+  %77 = and i8 %.sroa.speculated62, -4
+  %or.cond = icmp eq i8 %77, -36
+  br i1 %or.cond, label %78, label %80
 
-88:                                               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %89, i64 noundef 65533)
-  br label %183
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %79, i64 noundef 65533)
+  br label %170
 
-90:                                               ; preds = %79
-  %91 = zext i8 %83 to i64
-  %92 = shl nuw nsw i64 %91, 8
-  %93 = load i8, ptr %86, align 1, !tbaa !36
-  %94 = zext i8 %93 to i64
-  %95 = or disjoint i64 %92, %94
-  %or.cond3 = icmp eq i8 %87, -40
-  br i1 %or.cond3, label %.preheader, label %181
+80:                                               ; preds = %76
+  %81 = zext i8 %.sroa.speculated62 to i64
+  %82 = shl nuw nsw i64 %81, 8
+  %.sroa.speculated = select i1 %.not, i8 %.1.i36, i8 %.1.i96
+  %83 = zext i8 %.sroa.speculated to i64
+  %84 = or disjoint i64 %82, %83
+  %or.cond3 = icmp eq i8 %77, -40
+  br i1 %or.cond3, label %.preheader, label %168
 
-.preheader:                                       ; preds = %90
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %98
+.preheader:                                       ; preds = %80
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %87
 
-98:                                               ; preds = %.preheader, %175
-  %.1 = phi i64 [ %173, %175 ], [ %95, %.preheader ]
-  %99 = load i64, ptr %5, align 8, !tbaa !83
-  %100 = load i64, ptr %7, align 8, !tbaa !84
-  %.not.i39 = icmp ult i64 %99, %100
-  %.pre69 = load ptr, ptr %96, align 8, !tbaa !8
-  br i1 %.not.i39, label %_ZNK4YAML6Stream11GetNextByteEv.exit45, label %101
+87:                                               ; preds = %.preheader, %162
+  %.1 = phi i64 [ %160, %162 ], [ %84, %.preheader ]
+  %88 = load i64, ptr %4, align 8, !tbaa !83
+  %89 = load i64, ptr %6, align 8, !tbaa !84
+  %.not.i39 = icmp ult i64 %88, %89
+  %.pre88 = load ptr, ptr %85, align 8, !tbaa !8
+  br i1 %.not.i39, label %_ZNK4YAML6Stream11GetNextByteEv.exit45, label %90
 
-101:                                              ; preds = %98
-  %102 = load ptr, ptr %0, align 8, !tbaa !57
-  %103 = load ptr, ptr %102, align 8, !tbaa !22
-  %104 = getelementptr i8, ptr %103, i64 -24
-  %105 = load i64, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %102, i64 %105
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 232
-  %108 = load ptr, ptr %107, align 8, !tbaa !85
-  %109 = load ptr, ptr %108, align 8, !tbaa !22
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 64
-  %111 = load ptr, ptr %110, align 8
-  %112 = tail call noundef i64 %111(ptr noundef nonnull align 8 dereferenceable(64) %108, ptr noundef %.pre69, i64 noundef 2048)
-  store i64 %112, ptr %7, align 8, !tbaa !84
-  store i64 0, ptr %5, align 8, !tbaa !83
-  %.not4.i40 = icmp eq i64 %112, 0
-  br i1 %.not4.i40, label %113, label %._crit_edge.i41
+90:                                               ; preds = %87
+  %91 = load ptr, ptr %0, align 8, !tbaa !57
+  %92 = load ptr, ptr %91, align 8, !tbaa !22
+  %93 = getelementptr i8, ptr %92, i64 -24
+  %94 = load i64, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %91, i64 %94
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 232
+  %97 = load ptr, ptr %96, align 8, !tbaa !85
+  %98 = load ptr, ptr %97, align 8, !tbaa !22
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 64
+  %100 = load ptr, ptr %99, align 8
+  %101 = tail call noundef i64 %100(ptr noundef nonnull align 8 dereferenceable(64) %97, ptr noundef %.pre88, i64 noundef 2048)
+  store i64 %101, ptr %6, align 8, !tbaa !84
+  store i64 0, ptr %4, align 8, !tbaa !83
+  %.not4.i40 = icmp eq i64 %101, 0
+  br i1 %.not4.i40, label %102, label %._crit_edge.i41
 
-113:                                              ; preds = %101
-  %114 = load ptr, ptr %0, align 8, !tbaa !57
-  %115 = load ptr, ptr %114, align 8, !tbaa !22
-  %116 = getelementptr i8, ptr %115, i64 -24
-  %117 = load i64, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %114, i64 %117
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %120 = load i32, ptr %119, align 8, !tbaa !24
-  %121 = or i32 %120, 2
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %118, i32 noundef %121)
-  %.pre.i44 = load i64, ptr %7, align 8, !tbaa !84
-  %122 = icmp eq i64 %.pre.i44, 0
-  %.pre70 = load i64, ptr %5, align 8, !tbaa !83
-  br i1 %122, label %_ZNK4YAML6Stream11GetNextByteEv.exit45.thread, label %._crit_edge.i41
+102:                                              ; preds = %90
+  %103 = load ptr, ptr %0, align 8, !tbaa !57
+  %104 = load ptr, ptr %103, align 8, !tbaa !22
+  %105 = getelementptr i8, ptr %104, i64 -24
+  %106 = load i64, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %103, i64 %106
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
+  %109 = load i32, ptr %108, align 8, !tbaa !24
+  %110 = or i32 %109, 2
+  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %107, i32 noundef %110)
+  %.pre.i44 = load i64, ptr %6, align 8, !tbaa !84
+  %111 = icmp eq i64 %.pre.i44, 0
+  %.pre89 = load i64, ptr %4, align 8, !tbaa !83
+  br i1 %111, label %_ZNK4YAML6Stream11GetNextByteEv.exit45.thread, label %._crit_edge.i41
 
-_ZNK4YAML6Stream11GetNextByteEv.exit45.thread:    ; preds = %113
-  %.pre73.pre = load ptr, ptr %96, align 8, !tbaa !8
-  store i8 0, ptr %2, align 1, !tbaa !36
-  br label %130
+_ZNK4YAML6Stream11GetNextByteEv.exit45.thread:    ; preds = %102
+  %.pre92.pre = load ptr, ptr %85, align 8, !tbaa !8
+  br label %119
 
-._crit_edge.i41:                                  ; preds = %113, %101
-  %123 = phi i64 [ %112, %101 ], [ %.pre.i44, %113 ]
-  %.pre6.i42 = phi i64 [ 0, %101 ], [ %.pre70, %113 ]
-  %.pre68 = load ptr, ptr %96, align 8, !tbaa !8
+._crit_edge.i41:                                  ; preds = %102, %90
+  %112 = phi i64 [ %101, %90 ], [ %.pre.i44, %102 ]
+  %.pre6.i42 = phi i64 [ 0, %90 ], [ %.pre89, %102 ]
+  %.pre87 = load ptr, ptr %85, align 8, !tbaa !8
   br label %_ZNK4YAML6Stream11GetNextByteEv.exit45
 
-_ZNK4YAML6Stream11GetNextByteEv.exit45:           ; preds = %98, %._crit_edge.i41
-  %124 = phi i64 [ %123, %._crit_edge.i41 ], [ %100, %98 ]
-  %125 = phi ptr [ %.pre68, %._crit_edge.i41 ], [ %.pre69, %98 ]
-  %126 = phi i64 [ %.pre6.i42, %._crit_edge.i41 ], [ %99, %98 ]
-  %127 = add i64 %126, 1
-  store i64 %127, ptr %5, align 8, !tbaa !83
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 %126
-  %129 = load i8, ptr %128, align 1, !tbaa !36
-  store i8 %129, ptr %2, align 1, !tbaa !36
-  %.not.i46 = icmp ult i64 %127, %124
-  br i1 %.not.i46, label %152, label %130
+_ZNK4YAML6Stream11GetNextByteEv.exit45:           ; preds = %87, %._crit_edge.i41
+  %113 = phi i64 [ %112, %._crit_edge.i41 ], [ %89, %87 ]
+  %114 = phi ptr [ %.pre87, %._crit_edge.i41 ], [ %.pre88, %87 ]
+  %115 = phi i64 [ %.pre6.i42, %._crit_edge.i41 ], [ %88, %87 ]
+  %116 = add i64 %115, 1
+  store i64 %116, ptr %4, align 8, !tbaa !83
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 %115
+  %118 = load i8, ptr %117, align 1, !tbaa !36
+  %.not.i46 = icmp ult i64 %116, %113
+  br i1 %.not.i46, label %141, label %119
 
-130:                                              ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit45.thread, %_ZNK4YAML6Stream11GetNextByteEv.exit45
-  %.pre7380 = phi ptr [ %.pre73.pre, %_ZNK4YAML6Stream11GetNextByteEv.exit45.thread ], [ %125, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
-  %131 = load ptr, ptr %0, align 8, !tbaa !57
-  %132 = load ptr, ptr %131, align 8, !tbaa !22
-  %133 = getelementptr i8, ptr %132, i64 -24
-  %134 = load i64, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %131, i64 %134
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 232
-  %137 = load ptr, ptr %136, align 8, !tbaa !85
-  %138 = load ptr, ptr %137, align 8, !tbaa !22
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 64
-  %140 = load ptr, ptr %139, align 8
-  %141 = tail call noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(64) %137, ptr noundef %.pre7380, i64 noundef 2048)
-  store i64 %141, ptr %7, align 8, !tbaa !84
-  store i64 0, ptr %5, align 8, !tbaa !83
-  %.not4.i47 = icmp eq i64 %141, 0
-  br i1 %.not4.i47, label %142, label %._crit_edge.i48
+119:                                              ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit45.thread, %_ZNK4YAML6Stream11GetNextByteEv.exit45
+  %.1.i43105 = phi i8 [ 0, %_ZNK4YAML6Stream11GetNextByteEv.exit45.thread ], [ %118, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
+  %.pre92102 = phi ptr [ %.pre92.pre, %_ZNK4YAML6Stream11GetNextByteEv.exit45.thread ], [ %114, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
+  %120 = load ptr, ptr %0, align 8, !tbaa !57
+  %121 = load ptr, ptr %120, align 8, !tbaa !22
+  %122 = getelementptr i8, ptr %121, i64 -24
+  %123 = load i64, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %120, i64 %123
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 232
+  %126 = load ptr, ptr %125, align 8, !tbaa !85
+  %127 = load ptr, ptr %126, align 8, !tbaa !22
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 64
+  %129 = load ptr, ptr %128, align 8
+  %130 = tail call noundef i64 %129(ptr noundef nonnull align 8 dereferenceable(64) %126, ptr noundef %.pre92102, i64 noundef 2048)
+  store i64 %130, ptr %6, align 8, !tbaa !84
+  store i64 0, ptr %4, align 8, !tbaa !83
+  %.not4.i47 = icmp eq i64 %130, 0
+  br i1 %.not4.i47, label %131, label %._crit_edge.i48
 
-142:                                              ; preds = %130
-  %143 = load ptr, ptr %0, align 8, !tbaa !57
-  %144 = load ptr, ptr %143, align 8, !tbaa !22
-  %145 = getelementptr i8, ptr %144, i64 -24
-  %146 = load i64, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %143, i64 %146
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 32
-  %149 = load i32, ptr %148, align 8, !tbaa !24
-  %150 = or i32 %149, 2
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %147, i32 noundef %150)
-  %.pre.i51 = load i64, ptr %7, align 8, !tbaa !84
-  %151 = icmp eq i64 %.pre.i51, 0
-  br i1 %151, label %_ZNK4YAML6Stream11GetNextByteEv.exit52, label %.._crit_edge.i48_crit_edge
+131:                                              ; preds = %119
+  %132 = load ptr, ptr %0, align 8, !tbaa !57
+  %133 = load ptr, ptr %132, align 8, !tbaa !22
+  %134 = getelementptr i8, ptr %133, i64 -24
+  %135 = load i64, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %132, i64 %135
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 32
+  %138 = load i32, ptr %137, align 8, !tbaa !24
+  %139 = or i32 %138, 2
+  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %136, i32 noundef %139)
+  %.pre.i51 = load i64, ptr %6, align 8, !tbaa !84
+  %140 = icmp eq i64 %.pre.i51, 0
+  br i1 %140, label %_ZNK4YAML6Stream11GetNextByteEv.exit52, label %.._crit_edge.i48_crit_edge
 
-.._crit_edge.i48_crit_edge:                       ; preds = %142
-  %.pre6.i49.pre = load i64, ptr %5, align 8, !tbaa !83
+.._crit_edge.i48_crit_edge:                       ; preds = %131
+  %.pre6.i49.pre = load i64, ptr %4, align 8, !tbaa !83
   br label %._crit_edge.i48
 
-._crit_edge.i48:                                  ; preds = %.._crit_edge.i48_crit_edge, %130
-  %.pre6.i49 = phi i64 [ %.pre6.i49.pre, %.._crit_edge.i48_crit_edge ], [ 0, %130 ]
-  %.pre72 = load ptr, ptr %96, align 8, !tbaa !8
-  br label %152
+._crit_edge.i48:                                  ; preds = %.._crit_edge.i48_crit_edge, %119
+  %.pre6.i49 = phi i64 [ %.pre6.i49.pre, %.._crit_edge.i48_crit_edge ], [ 0, %119 ]
+  %.pre91 = load ptr, ptr %85, align 8, !tbaa !8
+  br label %141
 
-152:                                              ; preds = %._crit_edge.i48, %_ZNK4YAML6Stream11GetNextByteEv.exit45
-  %153 = phi ptr [ %.pre72, %._crit_edge.i48 ], [ %125, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
-  %154 = phi i64 [ %.pre6.i49, %._crit_edge.i48 ], [ %127, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
-  %155 = add i64 %154, 1
-  store i64 %155, ptr %5, align 8, !tbaa !83
-  %156 = getelementptr inbounds nuw i8, ptr %153, i64 %154
-  %157 = load i8, ptr %156, align 1, !tbaa !36
+141:                                              ; preds = %._crit_edge.i48, %_ZNK4YAML6Stream11GetNextByteEv.exit45
+  %.1.i43104 = phi i8 [ %.1.i43105, %._crit_edge.i48 ], [ %118, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
+  %142 = phi ptr [ %.pre91, %._crit_edge.i48 ], [ %114, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
+  %143 = phi i64 [ %.pre6.i49, %._crit_edge.i48 ], [ %116, %_ZNK4YAML6Stream11GetNextByteEv.exit45 ]
+  %144 = add i64 %143, 1
+  store i64 %144, ptr %4, align 8, !tbaa !83
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %143
+  %146 = load i8, ptr %145, align 1, !tbaa !36
   br label %_ZNK4YAML6Stream11GetNextByteEv.exit52
 
-_ZNK4YAML6Stream11GetNextByteEv.exit52:           ; preds = %142, %152
-  %.1.i50 = phi i8 [ %157, %152 ], [ 0, %142 ]
-  store i8 %.1.i50, ptr %70, align 1, !tbaa !36
-  %158 = load ptr, ptr %0, align 8, !tbaa !57
-  %159 = load ptr, ptr %158, align 8, !tbaa !22
-  %160 = getelementptr i8, ptr %159, i64 -24
-  %161 = load i64, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %158, i64 %161
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 32
-  %164 = load i32, ptr %163, align 8, !tbaa !24
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %167, label %166
+_ZNK4YAML6Stream11GetNextByteEv.exit52:           ; preds = %131, %141
+  %.1.i43103 = phi i8 [ %.1.i43104, %141 ], [ %.1.i43105, %131 ]
+  %.1.i50 = phi i8 [ %146, %141 ], [ 0, %131 ]
+  %147 = load ptr, ptr %0, align 8, !tbaa !57
+  %148 = load ptr, ptr %147, align 8, !tbaa !22
+  %149 = getelementptr i8, ptr %148, i64 -24
+  %150 = load i64, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %147, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 32
+  %153 = load i32, ptr %152, align 8, !tbaa !24
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %156, label %155
 
-166:                                              ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit52
-  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %97, i64 noundef 65533)
-  br label %183
+155:                                              ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit52
+  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %86, i64 noundef 65533)
+  br label %170
 
-167:                                              ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit52
-  %168 = load i8, ptr %82, align 1, !tbaa !36
-  %169 = zext i8 %168 to i64
-  %170 = shl nuw nsw i64 %169, 8
-  %171 = load i8, ptr %86, align 1, !tbaa !36
-  %172 = zext i8 %171 to i64
-  %173 = or disjoint i64 %170, %172
-  %174 = add i8 %168, 32
-  %or.cond5 = icmp ult i8 %174, -4
-  br i1 %or.cond5, label %175, label %.thread55
+156:                                              ; preds = %_ZNK4YAML6Stream11GetNextByteEv.exit52
+  %.sroa.speculated65 = select i1 %.not, i8 %.1.i43103, i8 %.1.i50
+  %157 = zext i8 %.sroa.speculated65 to i64
+  %158 = shl nuw nsw i64 %157, 8
+  %.sroa.speculated59 = select i1 %.not, i8 %.1.i50, i8 %.1.i43103
+  %159 = zext i8 %.sroa.speculated59 to i64
+  %160 = or disjoint i64 %158, %159
+  %161 = add i8 %.sroa.speculated65, 32
+  %or.cond5 = icmp ult i8 %161, -4
+  br i1 %or.cond5, label %162, label %.thread74
 
-175:                                              ; preds = %167
-  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %97, i64 noundef 65533)
-  %or.cond7 = icmp ult i8 %174, -8
-  br i1 %or.cond7, label %.thread, label %98, !llvm.loop !92
+162:                                              ; preds = %156
+  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %86, i64 noundef 65533)
+  %or.cond7 = icmp ult i8 %161, -8
+  br i1 %or.cond7, label %.thread, label %87, !llvm.loop !92
 
-.thread:                                          ; preds = %175
-  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %97, i64 noundef %.1)
-  br label %183
+.thread:                                          ; preds = %162
+  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %86, i64 noundef %.1)
+  br label %170
 
-.thread55:                                        ; preds = %167
-  %176 = shl nuw nsw i64 %.1, 10
-  %177 = and i64 %176, 1047552
-  %178 = and i64 %173, 1023
-  %179 = add nuw nsw i64 %177, 65536
-  %180 = or disjoint i64 %179, %178
-  br label %181
+.thread74:                                        ; preds = %156
+  %163 = shl nuw nsw i64 %.1, 10
+  %164 = and i64 %163, 1047552
+  %165 = and i64 %160, 1023
+  %166 = add nuw nsw i64 %164, 65536
+  %167 = or disjoint i64 %166, %165
+  br label %168
 
-181:                                              ; preds = %.thread55, %90
-  %.0 = phi i64 [ %95, %90 ], [ %180, %.thread55 ]
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %182, i64 noundef %.0)
-  br label %183
+168:                                              ; preds = %.thread74, %80
+  %.0 = phi i64 [ %84, %80 ], [ %167, %.thread74 ]
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %169, i64 noundef %.0)
+  br label %170
 
-183:                                              ; preds = %.thread, %_ZNK4YAML6Stream11GetNextByteEv.exit38, %181, %166, %88
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #16
+170:                                              ; preds = %.thread, %_ZNK4YAML6Stream11GetNextByteEv.exit38, %168, %155, %78
   ret void
 }
 

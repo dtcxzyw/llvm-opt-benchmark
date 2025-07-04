@@ -536,10 +536,10 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.3.lcssa = phi ptr [ %103, %101 ], [ %106, %105 ], [ %.3210, %.lr.ph211 ]
   %108 = load i8, ptr %.3.lcssa, align 1, !tbaa !67
   %109 = icmp eq i8 %108, 47
-  %spec.select.idx = zext i1 %109 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 %spec.select.idx
-  %.not189 = icmp ugt ptr %spec.select, %15
-  %.5 = select i1 %.not189, ptr %spec.select, ptr %15
+  %spec.select.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %109 to i64
+  %spec.select.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 %spec.select.idx.sroa.sel.idx.sroa.sel.idx
+  %.not189 = icmp ugt ptr %spec.select.idx.sroa.sel.idx.sroa.sel, %15
+  %.5 = select i1 %.not189, ptr %spec.select.idx.sroa.sel.idx.sroa.sel, ptr %15
   %110 = call i64 @g_strlcpy(ptr noundef nonnull %18, ptr noundef nonnull %.5, i64 noundef 4096) #16
   %111 = call i64 @g_strlcpy(ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef 4096) #16
   %112 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #19

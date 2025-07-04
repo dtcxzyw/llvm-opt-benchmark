@@ -14331,23 +14331,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #29
   %125 = tail call noundef zeroext i8 @_ZNK11llama_vocab4impl13token_to_byteEi(ptr noundef nonnull align 8 dereferenceable(360) %0, i32 noundef %1)
   store i8 %125, ptr %8, align 1, !tbaa !14
-  %126 = icmp sgt i32 %4, 0
-  %127 = icmp eq i8 %125, 32
-  %or.cond131 = and i1 %126, %127
-  %not.or.cond131 = xor i1 %or.cond131, true
-  %128 = zext i1 %not.or.cond131 to i32
+  %126 = icmp slt i32 %4, 1
+  %127 = icmp ne i8 %125, 32
+  %or.cond131.not = or i1 %126, %127
+  %128 = zext i1 %or.cond131.not to i32
   %129 = icmp slt i32 %3, %128
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %.critedge.i70
-  %.neg = sext i1 %not.or.cond131 to i32
+  %.neg = sext i1 %or.cond131.not to i32
   br label %"_ZZNK11llama_vocab4impl14token_to_pieceEiPciibENK3$_0clEPKcm.exit79"
 
 131:                                              ; preds = %.critedge.i70
-  %spec.select137 = zext i1 %not.or.cond131 to i64
-  %spec.select.idx = zext i1 %or.cond131 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %8, i64 %spec.select.idx
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %spec.select, i64 %spec.select137, i1 false)
+  %spec.select137 = zext i1 %or.cond131.not to i64
+  %not.or.cond131.not = xor i1 %or.cond131.not, true
+  %spec.select.idx.sroa.sel.idx = zext i1 %not.or.cond131.not to i64
+  %spec.select.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %8, i64 %spec.select.idx.sroa.sel.idx
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %spec.select.idx.sroa.sel, i64 %spec.select137, i1 false)
   br label %"_ZZNK11llama_vocab4impl14token_to_pieceEiPciibENK3$_0clEPKcm.exit79"
 
 "_ZZNK11llama_vocab4impl14token_to_pieceEiPciibENK3$_0clEPKcm.exit79": ; preds = %130, %131

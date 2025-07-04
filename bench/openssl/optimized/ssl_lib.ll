@@ -16445,226 +16445,226 @@ define range(i32 0, 2) i32 @SSL_bytes_to_cipher_list(ptr noundef %0, ptr noundef
 define range(i32 0, 2) i32 @ossl_bytes_to_cipher_list(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %7) #20
-  %8 = icmp ne i32 %4, 0
-  %9 = getelementptr i8, ptr %1, i64 8
-  %.val62 = load i64, ptr %9, align 8, !tbaa !497
-  %10 = icmp eq i64 %.val62, 0
-  br i1 %10, label %11, label %14
+  %.not74.not = icmp ne i32 %4, 0
+  %8 = getelementptr i8, ptr %1, i64 8
+  %.val62 = load i64, ptr %8, align 8, !tbaa !497
+  %9 = icmp eq i64 %.val62, 0
+  br i1 %9, label %10, label %13
 
-11:                                               ; preds = %6
+10:                                               ; preds = %6
   %.not60 = icmp eq i32 %5, 0
   tail call void @ERR_new() #20
-  br i1 %.not60, label %13, label %12
+  br i1 %.not60, label %12, label %11
 
-12:                                               ; preds = %11
+11:                                               ; preds = %10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7114, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #20
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 47, i32 noundef 183, ptr noundef null) #20
-  br label %66
+  br label %64
 
-13:                                               ; preds = %11
+12:                                               ; preds = %10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7116, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #20
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 183, ptr noundef null) #20
-  br label %66
+  br label %64
 
-14:                                               ; preds = %6
-  %15 = select i1 %8, i64 3, i64 2
-  %16 = urem i64 %.val62, %15
-  %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %20, label %17
+13:                                               ; preds = %6
+  %14 = select i1 %.not74.not, i64 3, i64 2
+  %15 = urem i64 %.val62, %14
+  %.not = icmp eq i64 %15, 0
+  br i1 %.not, label %19, label %16
 
-17:                                               ; preds = %14
+16:                                               ; preds = %13
   %.not59 = icmp eq i32 %5, 0
   tail call void @ERR_new() #20
-  br i1 %.not59, label %19, label %18
+  br i1 %.not59, label %18, label %17
 
-18:                                               ; preds = %17
+17:                                               ; preds = %16
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7123, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #20
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef 151, ptr noundef null) #20
-  br label %66
+  br label %64
 
-19:                                               ; preds = %17
+18:                                               ; preds = %16
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7125, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #20
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 151, ptr noundef null) #20
-  br label %66
+  br label %64
 
-20:                                               ; preds = %14
+19:                                               ; preds = %13
+  %20 = tail call ptr @OPENSSL_sk_new_null() #20
   %21 = tail call ptr @OPENSSL_sk_new_null() #20
-  %22 = tail call ptr @OPENSSL_sk_new_null() #20
+  %22 = icmp eq ptr %20, null
   %23 = icmp eq ptr %21, null
-  %24 = icmp eq ptr %22, null
-  %or.cond = select i1 %23, i1 true, i1 %24
-  br i1 %or.cond, label %38, label %.preheader
+  %or.cond = select i1 %22, i1 true, i1 %23
+  br i1 %or.cond, label %36, label %.preheader
 
-.preheader:                                       ; preds = %20
-  %.val.i.i66 = load i64, ptr %9, align 8, !tbaa !497
-  %25 = icmp ult i64 %.val.i.i66, %15
-  br i1 %25, label %._crit_edge, label %.lr.ph
+.preheader:                                       ; preds = %19
+  %.val.i.i67 = load i64, ptr %8, align 8, !tbaa !497
+  %24 = icmp ult i64 %.val.i.i67, %14
+  br i1 %24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %.idx = zext i1 %8 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  br i1 %8, label %.lr.ph.split, label %.lr.ph.split.us
+  %.idx.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %.not74.not to i64
+  %.idx.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
+  br i1 %.not74.not, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
-  %.val.i.i67.us = phi i64 [ %.val.i.i.us, %.backedge.us ], [ %.val.i.i66, %.lr.ph ]
-  %27 = load ptr, ptr %1, align 8, !tbaa !496
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2) %7, ptr noundef nonnull align 1 dereferenceable(2) %27, i64 range(i64 2, 4) %15, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %15
-  store ptr %28, ptr %1, align 8, !tbaa !496
-  %29 = sub nuw i64 %.val.i.i67.us, %15
-  store i64 %29, ptr %9, align 8, !tbaa !497
-  %30 = call ptr @ssl_get_cipher_by_char(ptr noundef %0, ptr noundef nonnull %26, i32 noundef 1) #20
-  %.not52.us = icmp eq ptr %30, null
-  br i1 %.not52.us, label %.backedge.us, label %31
+  %.val.i.i68.us = phi i64 [ %.val.i.i.us, %.backedge.us ], [ %.val.i.i67, %.lr.ph ]
+  %25 = load ptr, ptr %1, align 8, !tbaa !496
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2) %7, ptr noundef nonnull align 1 dereferenceable(2) %25, i64 range(i64 2, 4) %14, i1 false)
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %14
+  store ptr %26, ptr %1, align 8, !tbaa !496
+  %27 = sub nuw i64 %.val.i.i68.us, %14
+  store i64 %27, ptr %8, align 8, !tbaa !497
+  %28 = call ptr @ssl_get_cipher_by_char(ptr noundef %0, ptr noundef nonnull %.idx.sroa.sel.idx.sroa.sel.idx.sroa.sel, i32 noundef 1) #20
+  %.not52.us = icmp eq ptr %28, null
+  br i1 %.not52.us, label %.backedge.us, label %29
 
-31:                                               ; preds = %.lr.ph.split.us
-  %32 = load i32, ptr %30, align 8, !tbaa !521
-  %.not53.us = icmp eq i32 %32, 0
-  br i1 %.not53.us, label %.thread.us, label %33
+29:                                               ; preds = %.lr.ph.split.us
+  %30 = load i32, ptr %28, align 8, !tbaa !521
+  %.not53.us = icmp eq i32 %30, 0
+  br i1 %.not53.us, label %.thread.us, label %31
+
+31:                                               ; preds = %29
+  %32 = call i32 @OPENSSL_sk_push(ptr noundef %20, ptr noundef nonnull %28) #20
+  %.not54.us = icmp eq i32 %32, 0
+  br i1 %.not54.us, label %.split.us, label %33
 
 33:                                               ; preds = %31
-  %34 = call i32 @OPENSSL_sk_push(ptr noundef %21, ptr noundef nonnull %30) #20
-  %.not54.us = icmp eq i32 %34, 0
-  br i1 %.not54.us, label %.split.us, label %35
-
-35:                                               ; preds = %33
-  %.pr.us = load i32, ptr %30, align 8, !tbaa !521
+  %.pr.us = load i32, ptr %28, align 8, !tbaa !521
   %.not55.us = icmp eq i32 %.pr.us, 0
   br i1 %.not55.us, label %.thread.us, label %.backedge.us
 
-.thread.us:                                       ; preds = %35, %31
-  %36 = call i32 @OPENSSL_sk_push(ptr noundef %22, ptr noundef nonnull %30) #20
-  %.not56.us = icmp eq i32 %36, 0
+.thread.us:                                       ; preds = %33, %29
+  %34 = call i32 @OPENSSL_sk_push(ptr noundef %21, ptr noundef nonnull %28) #20
+  %.not56.us = icmp eq i32 %34, 0
   br i1 %.not56.us, label %.split.us, label %.backedge.us
 
-.backedge.us:                                     ; preds = %.thread.us, %35, %.lr.ph.split.us
-  %.val.i.i.us = load i64, ptr %9, align 8, !tbaa !497
-  %37 = icmp ult i64 %.val.i.i.us, %15
-  br i1 %37, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !522
+.backedge.us:                                     ; preds = %.thread.us, %33, %.lr.ph.split.us
+  %.val.i.i.us = load i64, ptr %8, align 8, !tbaa !497
+  %35 = icmp ult i64 %.val.i.i.us, %14
+  br i1 %35, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !522
 
-38:                                               ; preds = %20
+36:                                               ; preds = %19
   %.not58 = icmp eq i32 %5, 0
   tail call void @ERR_new() #20
-  br i1 %.not58, label %40, label %39
+  br i1 %.not58, label %38, label %37
 
-39:                                               ; preds = %38
+37:                                               ; preds = %36
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7133, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #20
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 524303, ptr noundef null) #20
-  br label %65
+  br label %63
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7135, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #20
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #20
-  br label %65
+  br label %63
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
-  %.val.i.i67 = phi i64 [ %.val.i.i, %.backedge ], [ %.val.i.i66, %.lr.ph ]
-  %41 = load ptr, ptr %1, align 8, !tbaa !496
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2) %7, ptr noundef nonnull align 1 dereferenceable(2) %41, i64 range(i64 2, 4) %15, i1 false)
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %15
-  store ptr %42, ptr %1, align 8, !tbaa !496
-  %43 = sub nuw i64 %.val.i.i67, %15
-  store i64 %43, ptr %9, align 8, !tbaa !497
-  %44 = load i8, ptr %7, align 1
-  %.not68 = icmp eq i8 %44, 0
-  br i1 %.not68, label %45, label %.backedge
+  %.val.i.i68 = phi i64 [ %.val.i.i, %.backedge ], [ %.val.i.i67, %.lr.ph ]
+  %39 = load ptr, ptr %1, align 8, !tbaa !496
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2) %7, ptr noundef nonnull align 1 dereferenceable(2) %39, i64 range(i64 2, 4) %14, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %14
+  store ptr %40, ptr %1, align 8, !tbaa !496
+  %41 = sub nuw i64 %.val.i.i68, %14
+  store i64 %41, ptr %8, align 8, !tbaa !497
+  %42 = load i8, ptr %7, align 1
+  %.not69 = icmp eq i8 %42, 0
+  br i1 %.not69, label %43, label %.backedge
 
-45:                                               ; preds = %.lr.ph.split
-  %46 = call ptr @ssl_get_cipher_by_char(ptr noundef %0, ptr noundef nonnull %26, i32 noundef 1) #20
-  %.not52 = icmp eq ptr %46, null
-  br i1 %.not52, label %.backedge, label %47
+43:                                               ; preds = %.lr.ph.split
+  %44 = call ptr @ssl_get_cipher_by_char(ptr noundef %0, ptr noundef nonnull %.idx.sroa.sel.idx.sroa.sel.idx.sroa.sel, i32 noundef 1) #20
+  %.not52 = icmp eq ptr %44, null
+  br i1 %.not52, label %.backedge, label %45
+
+45:                                               ; preds = %43
+  %46 = load i32, ptr %44, align 8, !tbaa !521
+  %.not53 = icmp eq i32 %46, 0
+  br i1 %.not53, label %.thread, label %47
 
 47:                                               ; preds = %45
-  %48 = load i32, ptr %46, align 8, !tbaa !521
-  %.not53 = icmp eq i32 %48, 0
-  br i1 %.not53, label %.thread, label %49
+  %48 = call i32 @OPENSSL_sk_push(ptr noundef %20, ptr noundef nonnull %44) #20
+  %.not54 = icmp eq i32 %48, 0
+  br i1 %.not54, label %.split.us, label %49
 
 49:                                               ; preds = %47
-  %50 = call i32 @OPENSSL_sk_push(ptr noundef %21, ptr noundef nonnull %46) #20
-  %.not54 = icmp eq i32 %50, 0
-  br i1 %.not54, label %.split.us, label %51
-
-51:                                               ; preds = %49
-  %.pr = load i32, ptr %46, align 8, !tbaa !521
+  %.pr = load i32, ptr %44, align 8, !tbaa !521
   %.not55 = icmp eq i32 %.pr, 0
   br i1 %.not55, label %.thread, label %.backedge
 
-.thread:                                          ; preds = %47, %51
-  %52 = call i32 @OPENSSL_sk_push(ptr noundef %22, ptr noundef nonnull %46) #20
-  %.not56 = icmp eq i32 %52, 0
+.thread:                                          ; preds = %45, %49
+  %50 = call i32 @OPENSSL_sk_push(ptr noundef %21, ptr noundef nonnull %44) #20
+  %.not56 = icmp eq i32 %50, 0
   br i1 %.not56, label %.split.us, label %.backedge
 
-.split.us:                                        ; preds = %33, %.thread.us, %49, %.thread
+.split.us:                                        ; preds = %31, %.thread.us, %47, %.thread
   %.not57 = icmp eq i32 %5, 0
   call void @ERR_new() #20
-  br i1 %.not57, label %54, label %53
+  br i1 %.not57, label %52, label %51
 
-53:                                               ; preds = %.split.us
+51:                                               ; preds = %.split.us
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7154, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #20
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 524303, ptr noundef null) #20
-  br label %65
+  br label %63
 
-54:                                               ; preds = %.split.us
+52:                                               ; preds = %.split.us
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7156, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #20
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #20
-  br label %65
+  br label %63
 
-.backedge:                                        ; preds = %45, %.thread, %51, %.lr.ph.split
-  %.val.i.i = load i64, ptr %9, align 8, !tbaa !497
-  %55 = icmp ult i64 %.val.i.i, %15
-  br i1 %55, label %._crit_edge, label %.lr.ph.split, !llvm.loop !522
+.backedge:                                        ; preds = %43, %.thread, %49, %.lr.ph.split
+  %.val.i.i = load i64, ptr %8, align 8, !tbaa !497
+  %53 = icmp ult i64 %.val.i.i, %14
+  br i1 %53, label %._crit_edge, label %.lr.ph.split, !llvm.loop !522
 
 ._crit_edge:                                      ; preds = %.backedge.us, %.backedge, %.preheader
-  %.val = phi i64 [ %.val.i.i66, %.preheader ], [ %.val.i.i, %.backedge ], [ %.val.i.i.us, %.backedge.us ]
+  %.val = phi i64 [ %.val.i.i67, %.preheader ], [ %.val.i.i, %.backedge ], [ %.val.i.i.us, %.backedge.us ]
   %.not48 = icmp eq i64 %.val, 0
-  br i1 %.not48, label %59, label %56
+  br i1 %.not48, label %57, label %54
 
-56:                                               ; preds = %._crit_edge
+54:                                               ; preds = %._crit_edge
   %.not51 = icmp eq i32 %5, 0
   call void @ERR_new() #20
-  br i1 %.not51, label %58, label %57
+  br i1 %.not51, label %56, label %55
 
-57:                                               ; preds = %56
+55:                                               ; preds = %54
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7163, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #20
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef 271, ptr noundef null) #20
-  br label %65
+  br label %63
 
-58:                                               ; preds = %56
+56:                                               ; preds = %54
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 7165, ptr noundef nonnull @__func__.ossl_bytes_to_cipher_list) #20
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 271, ptr noundef null) #20
-  br label %65
+  br label %63
 
-59:                                               ; preds = %._crit_edge
+57:                                               ; preds = %._crit_edge
   %.not49 = icmp eq ptr %2, null
-  br i1 %.not49, label %61, label %60
+  br i1 %.not49, label %59, label %58
 
-60:                                               ; preds = %59
-  store ptr %21, ptr %2, align 8, !tbaa !523
-  br label %62
+58:                                               ; preds = %57
+  store ptr %20, ptr %2, align 8, !tbaa !523
+  br label %60
 
-61:                                               ; preds = %59
-  call void @OPENSSL_sk_free(ptr noundef %21) #20
-  br label %62
+59:                                               ; preds = %57
+  call void @OPENSSL_sk_free(ptr noundef %20) #20
+  br label %60
 
-62:                                               ; preds = %61, %60
+60:                                               ; preds = %59, %58
   %.not50 = icmp eq ptr %3, null
-  br i1 %.not50, label %64, label %63
+  br i1 %.not50, label %62, label %61
 
-63:                                               ; preds = %62
-  store ptr %22, ptr %3, align 8, !tbaa !523
-  br label %66
+61:                                               ; preds = %60
+  store ptr %21, ptr %3, align 8, !tbaa !523
+  br label %64
 
-64:                                               ; preds = %62
-  call void @OPENSSL_sk_free(ptr noundef %22) #20
-  br label %66
-
-65:                                               ; preds = %57, %58, %53, %54, %39, %40
+62:                                               ; preds = %60
   call void @OPENSSL_sk_free(ptr noundef %21) #20
-  call void @OPENSSL_sk_free(ptr noundef %22) #20
-  br label %66
+  br label %64
 
-66:                                               ; preds = %63, %64, %18, %19, %12, %13, %65
-  %.0 = phi i32 [ 0, %65 ], [ 0, %13 ], [ 0, %12 ], [ 0, %19 ], [ 0, %18 ], [ 1, %64 ], [ 1, %63 ]
+63:                                               ; preds = %55, %56, %51, %52, %37, %38
+  call void @OPENSSL_sk_free(ptr noundef %20) #20
+  call void @OPENSSL_sk_free(ptr noundef %21) #20
+  br label %64
+
+64:                                               ; preds = %61, %62, %17, %18, %11, %12, %63
+  %.0 = phi i32 [ 0, %63 ], [ 0, %12 ], [ 0, %11 ], [ 0, %18 ], [ 0, %17 ], [ 1, %62 ], [ 1, %61 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %7) #20
   ret i32 %.0
 }

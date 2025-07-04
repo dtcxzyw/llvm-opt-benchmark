@@ -37,9 +37,16 @@ define hidden void @builtin_SHA1(ptr noundef writeonly captures(none) %0, ptr no
   call fastcc void @SHA1Update(ptr noundef %6, ptr noundef %14, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !3
 
-._crit_edge:                                      ; preds = %.lr.ph, %3
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %.sroa.gep.val.pre = load i32, ptr %12, align 4
+  %.val.pre = load i32, ptr %11, align 4
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
+  %.val = phi i32 [ %.val.pre, %._crit_edge.loopexit ], [ 0, %3 ]
+  %.sroa.gep.val = phi i32 [ %.sroa.gep.val.pre, %._crit_edge.loopexit ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
   br label %15
@@ -47,60 +54,58 @@ define hidden void @builtin_SHA1(ptr noundef writeonly captures(none) %0, ptr no
 15:                                               ; preds = %15, %._crit_edge
   %indvars.iv.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i, %15 ]
   %16 = icmp samesign ult i64 %indvars.iv.i, 4
-  %17 = zext i1 %16 to i64
-  %18 = getelementptr inbounds nuw [2 x i32], ptr %11, i64 0, i64 %17
-  %19 = load i32, ptr %18, align 4
+  %17 = select i1 %16, i32 %.sroa.gep.val, i32 %.val
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
-  %20 = shl i32 %indvars.iv.tr.i, 3
-  %21 = and i32 %20, 24
-  %22 = xor i32 %21, 24
-  %23 = lshr i32 %19, %22
-  %24 = trunc i32 %23 to i8
-  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %indvars.iv.i
-  store i8 %24, ptr %25, align 1
+  %18 = shl i32 %indvars.iv.tr.i, 3
+  %19 = and i32 %18, 24
+  %20 = xor i32 %19, 24
+  %21 = lshr i32 %17, %20
+  %22 = trunc i32 %21 to i8
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  store i8 %22, ptr %23, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %26, label %15, !llvm.loop !5
+  br i1 %exitcond.not.i, label %24, label %15, !llvm.loop !5
 
-26:                                               ; preds = %15
+24:                                               ; preds = %15
   store i8 -128, ptr %5, align 1
+  call fastcc void @SHA1Update(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 1)
+  %25 = load i32, ptr %11, align 4
+  %26 = and i32 %25, 504
+  %.not18.i = icmp eq i32 %26, 448
+  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %24, %.lr.ph.i
+  store i8 0, ptr %5, align 1
   call fastcc void @SHA1Update(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 1)
   %27 = load i32, ptr %11, align 4
   %28 = and i32 %27, 504
-  %.not18.i = icmp eq i32 %28, 448
-  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %26, %.lr.ph.i
-  store i8 0, ptr %5, align 1
-  call fastcc void @SHA1Update(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 1)
-  %29 = load i32, ptr %11, align 4
-  %30 = and i32 %29, 504
-  %.not.i = icmp eq i32 %30, 448
+  %.not.i = icmp eq i32 %28, 448
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %26
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %24
   call fastcc void @SHA1Update(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef 8)
-  br label %31
+  br label %29
 
-31:                                               ; preds = %31, %._crit_edge.i
-  %indvars.iv21.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next22.i, %31 ]
-  %32 = lshr i64 %indvars.iv21.i, 2
-  %33 = and i64 %32, 1073741823
-  %34 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %33
-  %35 = load i32, ptr %34, align 4
+29:                                               ; preds = %29, %._crit_edge.i
+  %indvars.iv21.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next22.i, %29 ]
+  %30 = lshr i64 %indvars.iv21.i, 2
+  %31 = and i64 %30, 1073741823
+  %32 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %31
+  %33 = load i32, ptr %32, align 4
   %indvars.iv21.tr.i = trunc i64 %indvars.iv21.i to i32
-  %36 = shl i32 %indvars.iv21.tr.i, 3
-  %37 = and i32 %36, 24
-  %38 = xor i32 %37, 24
-  %39 = lshr i32 %35, %38
-  %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv21.i
-  store i8 %40, ptr %41, align 1
+  %34 = shl i32 %indvars.iv21.tr.i, 3
+  %35 = and i32 %34, 24
+  %36 = xor i32 %35, 24
+  %37 = lshr i32 %33, %36
+  %38 = trunc i32 %37 to i8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv21.i
+  store i8 %38, ptr %39, align 1
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next22.i, 20
-  br i1 %exitcond24.not.i, label %SHA1Final.exit, label %31, !llvm.loop !7
+  br i1 %exitcond24.not.i, label %SHA1Final.exit, label %29, !llvm.loop !7
 
-SHA1Final.exit:                                   ; preds = %31
+SHA1Final.exit:                                   ; preds = %29
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %6) #5

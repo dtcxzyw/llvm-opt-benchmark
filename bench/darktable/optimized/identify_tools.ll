@@ -19,77 +19,78 @@ define noundef signext range(i16 18761, 19790) i16 @_ZN6LibRaw16guess_byte_order
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %3, i64 noundef 2, i64 noundef 2)
-  %.not21 = icmp eq i32 %1, 2
-  br i1 %.not21, label %._crit_edge, label %.lr.ph.preheader
+  %.not25 = icmp eq i32 %1, 2
+  br i1 %.not25, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %10 = add nsw i32 %1, -3
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
-  %11 = phi i32 [ %48, %45 ], [ %10, %.lr.ph.preheader ]
-  %.01822 = phi i32 [ %47, %45 ], [ 2, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %11 = phi i32 [ %46, %43 ], [ %10, %.lr.ph.preheader ]
+  %.02226 = phi i32 [ %45, %43 ], [ 2, %.lr.ph.preheader ]
   %12 = load ptr, ptr %4, align 8, !tbaa !6
-  %13 = zext nneg i32 %.01822 to i64
+  %13 = zext nneg i32 %.02226 to i64
   %14 = getelementptr inbounds nuw [4 x [2 x i8]], ptr %3, i64 0, i64 %13
   %15 = load ptr, ptr %12, align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %14, i64 noundef 2, i64 noundef 1)
-  %19 = xor i32 %.01822, 2
+  %19 = xor i32 %.02226, 2
   %20 = zext nneg i32 %19 to i64
-  br label %21
+  %21 = getelementptr inbounds nuw [4 x [2 x i8]], ptr %3, i64 0, i64 %20
+  br label %22
 
-21:                                               ; preds = %.lr.ph, %21
-  %22 = phi i1 [ true, %.lr.ph ], [ false, %21 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %.lr.ph ], [ %.sroa.5, %21 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %21 ]
-  %23 = getelementptr inbounds nuw [4 x [2 x i8]], ptr %3, i64 0, i64 %20, i64 %indvars.iv
-  %24 = load i8, ptr %23, align 1, !tbaa !73
-  %25 = zext i8 %24 to i32
-  %26 = shl nuw nsw i32 %25, 8
-  %27 = xor i64 %indvars.iv, 1
-  %28 = getelementptr inbounds nuw [4 x [2 x i8]], ptr %3, i64 0, i64 %20, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !73
-  %30 = zext i8 %29 to i32
-  %31 = or disjoint i32 %26, %30
-  %32 = getelementptr inbounds nuw [4 x [2 x i8]], ptr %3, i64 0, i64 %13, i64 %indvars.iv
-  %33 = load i8, ptr %32, align 1, !tbaa !73
-  %34 = zext i8 %33 to i32
-  %35 = shl nuw nsw i32 %34, 8
-  %36 = getelementptr inbounds nuw [4 x [2 x i8]], ptr %3, i64 0, i64 %13, i64 %27
-  %37 = load i8, ptr %36, align 1, !tbaa !73
-  %38 = zext i8 %37 to i32
-  %39 = or disjoint i32 %35, %38
-  %40 = sub nsw i32 %31, %39
-  %41 = sitofp i32 %40 to double
-  %42 = fmul reassoc nsz arcp contract afn double %41, %41
-  %43 = load double, ptr %indvars.iv.sroa.phi, align 8, !tbaa !74
-  %44 = fadd reassoc nsz arcp contract afn double %42, %43
-  store double %44, ptr %indvars.iv.sroa.phi, align 8, !tbaa !74
-  br i1 %22, label %21, label %45, !llvm.loop !75
+22:                                               ; preds = %.lr.ph, %22
+  %23 = phi i1 [ true, %.lr.ph ], [ false, %22 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %.lr.ph ], [ %.sroa.5, %22 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %22 ]
+  %24 = getelementptr inbounds nuw [4 x [2 x i8]], ptr %3, i64 0, i64 %20, i64 %indvars.iv
+  %25 = load i8, ptr %24, align 1, !tbaa !73
+  %26 = zext i8 %25 to i32
+  %27 = shl nuw nsw i32 %26, 8
+  %.sroa.sel.idx = xor i64 %indvars.iv, 1
+  %.sroa.sel = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.sel.idx
+  %28 = load i8, ptr %.sroa.sel, align 1, !tbaa !73
+  %29 = zext i8 %28 to i32
+  %30 = or disjoint i32 %27, %29
+  %31 = getelementptr inbounds nuw [4 x [2 x i8]], ptr %3, i64 0, i64 %13, i64 %indvars.iv
+  %32 = load i8, ptr %31, align 1, !tbaa !73
+  %33 = zext i8 %32 to i32
+  %34 = shl nuw nsw i32 %33, 8
+  %.sroa.sel17 = getelementptr inbounds nuw i8, ptr %14, i64 %.sroa.sel.idx
+  %35 = load i8, ptr %.sroa.sel17, align 1, !tbaa !73
+  %36 = zext i8 %35 to i32
+  %37 = or disjoint i32 %34, %36
+  %38 = sub nsw i32 %30, %37
+  %39 = sitofp i32 %38 to double
+  %40 = fmul reassoc nsz arcp contract afn double %39, %39
+  %41 = load double, ptr %indvars.iv.sroa.phi, align 8, !tbaa !74
+  %42 = fadd reassoc nsz arcp contract afn double %40, %41
+  store double %42, ptr %indvars.iv.sroa.phi, align 8, !tbaa !74
+  br i1 %23, label %22, label %43, !llvm.loop !75
 
-45:                                               ; preds = %21
-  %46 = add nuw nsw i32 %.01822, 1
-  %47 = and i32 %46, 3
-  %48 = add nsw i32 %11, -1
+43:                                               ; preds = %22
+  %44 = add nuw nsw i32 %.02226, 1
+  %45 = and i32 %44, 3
+  %46 = add nsw i32 %11, -1
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !77
 
-._crit_edge.loopexit:                             ; preds = %45
+._crit_edge.loopexit:                             ; preds = %43
   %.sroa.0.0..sroa.0.0..pre = load double, ptr %.sroa.0, align 16, !tbaa !74
-  %.sroa.5.0..sroa.5.8..pre24 = load double, ptr %.sroa.5, align 8, !tbaa !74
+  %.sroa.5.0..sroa.5.8..pre28 = load double, ptr %.sroa.5, align 8, !tbaa !74
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %49 = phi double [ %.sroa.5.0..sroa.5.8..pre24, %._crit_edge.loopexit ], [ 0.000000e+00, %2 ]
-  %50 = phi double [ %.sroa.0.0..sroa.0.0..pre, %._crit_edge.loopexit ], [ 0.000000e+00, %2 ]
-  %51 = fcmp reassoc nsz arcp contract afn olt double %50, %49
-  %52 = select i1 %51, i16 19789, i16 18761
+  %47 = phi double [ %.sroa.5.0..sroa.5.8..pre28, %._crit_edge.loopexit ], [ 0.000000e+00, %2 ]
+  %48 = phi double [ %.sroa.0.0..sroa.0.0..pre, %._crit_edge.loopexit ], [ 0.000000e+00, %2 ]
+  %49 = fcmp reassoc nsz arcp contract afn olt double %48, %47
+  %50 = select i1 %49, i16 19789, i16 18761
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  ret i16 %52
+  ret i16 %50
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

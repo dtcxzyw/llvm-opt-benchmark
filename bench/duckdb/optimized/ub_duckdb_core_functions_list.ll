@@ -5530,11 +5530,11 @@ define internal void @_ZN6duckdbL17ListRangeFunctionINS_16NumericRangeInfoELb0EE
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !175
   %7 = load ptr, ptr %0, align 8, !tbaa !176
-  %.not125 = icmp eq ptr %6, %7
-  br i1 %.not125, label %.loopexit92, label %.lr.ph
+  %.not127 = icmp eq ptr %6, %7
+  br i1 %.not127, label %.loopexit94, label %.lr.ph
 
 8:                                                ; preds = %18
-  %9 = add nuw i64 %.05794, 1
+  %9 = add nuw i64 %.05796, 1
   %10 = load ptr, ptr %5, align 8, !tbaa !175
   %11 = load ptr, ptr %0, align 8, !tbaa !176
   %12 = ptrtoint ptr %10 to i64
@@ -5542,11 +5542,11 @@ define internal void @_ZN6duckdbL17ListRangeFunctionINS_16NumericRangeInfoELb0EE
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 104
   %16 = icmp ult i64 %9, %15
-  br i1 %16, label %.lr.ph, label %.loopexit92, !llvm.loop !177
+  br i1 %16, label %.lr.ph, label %.loopexit94, !llvm.loop !177
 
 .lr.ph:                                           ; preds = %3, %8
-  %.05794 = phi i64 [ %9, %8 ], [ 0, %3 ]
-  %17 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.05794)
+  %.05796 = phi i64 [ %9, %8 ], [ 0, %3 ]
+  %17 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.05796)
           to label %18 unwind label %23
 
 18:                                               ; preds = %.lr.ph
@@ -5557,14 +5557,14 @@ define internal void @_ZN6duckdbL17ListRangeFunctionINS_16NumericRangeInfoELb0EE
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i64, ptr %21, align 8, !tbaa !43
-  br label %.loopexit92
+  br label %.loopexit94
 
 23:                                               ; preds = %.lr.ph
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %248
 
-.loopexit92:                                      ; preds = %8, %3, %20
+.loopexit94:                                      ; preds = %8, %3, %20
   %.054 = phi i8 [ 0, %20 ], [ 2, %3 ], [ 2, %8 ]
   %.053 = phi i64 [ %22, %20 ], [ 1, %3 ], [ 1, %8 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -5572,44 +5572,46 @@ define internal void @_ZN6duckdbL17ListRangeFunctionINS_16NumericRangeInfoELb0EE
   invoke void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
           to label %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit unwind label %33
 
-_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit: ; preds = %.loopexit92
+_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit: ; preds = %.loopexit94
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.not126 = icmp eq i64 %.053, 0
-  br i1 %.not126, label %._crit_edge, label %.lr.ph99
+  %.not128 = icmp eq i64 %.053, 0
+  br i1 %.not128, label %._crit_edge, label %.lr.ph101
 
-.lr.ph99:                                         ; preds = %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit
+.lr.ph101:                                        ; preds = %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  %.sroa.gep140 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %.sroa.gep142 = getelementptr inbounds nuw i8, ptr %4, i64 88
   br label %35
 
-._crit_edge:                                      ; preds = %119, %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit
-  %.059.lcssa = phi i64 [ 0, %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit ], [ %.160, %119 ]
+._crit_edge:                                      ; preds = %115, %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit
+  %.059.lcssa = phi i64 [ 0, %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit ], [ %.160, %115 ]
   invoke void @_ZN6duckdb10ListVector7ReserveERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %.059.lcssa)
-          to label %121 unwind label %171
+          to label %117 unwind label %167
 
-33:                                               ; preds = %.loopexit92
+33:                                               ; preds = %.loopexit94
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %248
 
-35:                                               ; preds = %.lr.ph99, %119
-  %.05896 = phi i64 [ 0, %.lr.ph99 ], [ %120, %119 ]
-  %.05995 = phi i64 [ 0, %.lr.ph99 ], [ %.160, %119 ]
+35:                                               ; preds = %.lr.ph101, %115
+  %.05898 = phi i64 [ 0, %.lr.ph101 ], [ %116, %115 ]
+  %.05997 = phi i64 [ 0, %.lr.ph101 ], [ %.160, %115 ]
   %36 = load ptr, ptr %4, align 8, !tbaa !179
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !175
   %39 = load ptr, ptr %36, align 8, !tbaa !176
   %40 = icmp eq ptr %38, %39
   %.pre = ptrtoint ptr %38 to i64
-  %.pre138 = ptrtoint ptr %39 to i64
-  %.pre140 = sub i64 %.pre, %.pre138
+  %.pre143 = ptrtoint ptr %39 to i64
+  %.pre145 = sub i64 %.pre, %.pre143
   br i1 %40, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35
-  %41 = sdiv exact i64 %.pre140, 104
+  %41 = sdiv exact i64 %.pre145, 104
   br label %42
 
 42:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, %.lr.ph.i
@@ -5621,13 +5623,13 @@ _ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit: ; preds = %.loopexit92
   br i1 %.not.i.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %.05896
+  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %.05898
   %48 = load i32, ptr %47, align 4, !tbaa !68
   %49 = zext i32 %48 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i:  ; preds = %46, %42
-  %50 = phi i64 [ %49, %46 ], [ %.05896, %42 ]
+  %50 = phi i64 [ %49, %46 ], [ %.05898, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !70
   %.not.i12.i = icmp eq ptr %52, null
@@ -5664,29 +5666,29 @@ _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE10RowIsValidEm.exit: ; pr
 
 63:                                               ; preds = %.noexc, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE10RowIsValidEm.exit
   %64 = phi ptr [ %.pre.i, %.noexc ], [ %60, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE10RowIsValidEm.exit ]
-  %65 = lshr i64 %.05896, 6
-  %66 = and i64 %.05896, 63
+  %65 = lshr i64 %.05898, 6
+  %66 = and i64 %.05898, 63
   %67 = shl nuw i64 1, %66
   %68 = xor i64 %67, -1
   %69 = getelementptr inbounds nuw i64, ptr %64, i64 %65
   %70 = load i64, ptr %69, align 8, !tbaa !71
   %71 = and i64 %70, %68
   store i64 %71, ptr %69, align 8, !tbaa !71
-  %72 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.05896
-  store i64 %.05995, ptr %72, align 8, !tbaa !75
+  %72 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.05898
+  store i64 %.05997, ptr %72, align 8, !tbaa !75
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i64 0, ptr %73, align 8, !tbaa !77
-  br label %119
+  br label %115
 
 74:                                               ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE13GetListValuesEmRlS3_S3_.exit.i, %61
   %75 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %248
 
 .loopexit:                                        ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, %35
-  %76 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.05896
-  store i64 %.05995, ptr %76, align 8, !tbaa !75
-  %77 = icmp eq i64 %.pre140, 104
+  %76 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.05898
+  store i64 %.05997, ptr %76, align 8, !tbaa !75
+  %77 = icmp eq i64 %.pre145, 104
   br i1 %77, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.i.i, label %78
 
 78:                                               ; preds = %.loopexit
@@ -5697,387 +5699,387 @@ _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE10RowIsValidEm.exit: ; pr
   br i1 %.not.i.i.i.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i, label %82
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %.05896
+  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %.05898
   %84 = load i32, ptr %83, align 4, !tbaa !68
   %85 = zext i32 %84 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i: ; preds = %82, %78
-  %86 = phi i64 [ %85, %82 ], [ %.05896, %78 ]
+  %86 = phi i64 [ %85, %82 ], [ %.05898, %78 ]
   %87 = getelementptr inbounds nuw i64, ptr %79, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !71
   br label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.i.i
 
 _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.i.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i, %.loopexit
   %.0.i.i.i = phi i64 [ %88, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i ], [ 0, %.loopexit ]
-  %89 = icmp ne i64 %.pre140, 104
-  %90 = zext i1 %89 to i64
-  %91 = getelementptr inbounds nuw [3 x %"struct.duckdb::UnifiedVectorFormat"], ptr %28, i64 0, i64 %90
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !74
-  %94 = load ptr, ptr %91, align 8, !tbaa !58
-  %95 = load ptr, ptr %94, align 8, !tbaa !67
-  %.not.i.i6.i.i = icmp eq ptr %95, null
-  br i1 %.not.i.i6.i.i, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE12EndListValueEm.exit.i.i, label %96
+  %.val = load ptr, ptr %30, align 8
+  %.sroa.gep142.val = load ptr, ptr %.sroa.gep142, align 8
+  %89 = select i1 %77, ptr %.val, ptr %.sroa.gep142.val
+  %.val147 = load ptr, ptr %28, align 8
+  %.sroa.gep140.val = load ptr, ptr %.sroa.gep140, align 8
+  %90 = select i1 %77, ptr %.val147, ptr %.sroa.gep140.val
+  %91 = load ptr, ptr %90, align 8, !tbaa !67
+  %.not.i.i6.i.i = icmp eq ptr %91, null
+  br i1 %.not.i.i6.i.i, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE12EndListValueEm.exit.i.i, label %92
 
-96:                                               ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.i.i
-  %97 = getelementptr inbounds nuw i32, ptr %95, i64 %.05896
-  %98 = load i32, ptr %97, align 4, !tbaa !68
-  %99 = zext i32 %98 to i64
+92:                                               ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.i.i
+  %93 = getelementptr inbounds nuw i32, ptr %91, i64 %.05898
+  %94 = load i32, ptr %93, align 4, !tbaa !68
+  %95 = zext i32 %94 to i64
   br label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE12EndListValueEm.exit.i.i
 
-_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE12EndListValueEm.exit.i.i: ; preds = %96, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.i.i
-  %100 = phi i64 [ %99, %96 ], [ %.05896, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.i.i ]
-  %101 = getelementptr inbounds nuw i64, ptr %93, i64 %100
-  %102 = load i64, ptr %101, align 8, !tbaa !71
-  %103 = sdiv exact i64 %.pre140, 104
-  %104 = icmp ult i64 %103, 3
-  br i1 %104, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE13GetListValuesEmRlS3_S3_.exit.i, label %105
+_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE12EndListValueEm.exit.i.i: ; preds = %92, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.i.i
+  %96 = phi i64 [ %95, %92 ], [ %.05898, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.i.i ]
+  %97 = getelementptr inbounds nuw i64, ptr %89, i64 %96
+  %98 = load i64, ptr %97, align 8, !tbaa !71
+  %99 = sdiv exact i64 %.pre145, 104
+  %100 = icmp ult i64 %99, 3
+  br i1 %100, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE13GetListValuesEmRlS3_S3_.exit.i, label %101
 
-105:                                              ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE12EndListValueEm.exit.i.i
-  %106 = load ptr, ptr %32, align 8, !tbaa !74
-  %107 = load ptr, ptr %31, align 8, !tbaa !58
-  %108 = load ptr, ptr %107, align 8, !tbaa !67
-  %.not.i.i8.i.i = icmp eq ptr %108, null
-  br i1 %.not.i.i8.i.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i, label %109
+101:                                              ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE12EndListValueEm.exit.i.i
+  %102 = load ptr, ptr %32, align 8, !tbaa !74
+  %103 = load ptr, ptr %31, align 8, !tbaa !58
+  %104 = load ptr, ptr %103, align 8, !tbaa !67
+  %.not.i.i8.i.i = icmp eq ptr %104, null
+  br i1 %.not.i.i8.i.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i, label %105
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds nuw i32, ptr %108, i64 %.05896
-  %111 = load i32, ptr %110, align 4, !tbaa !68
-  %112 = zext i32 %111 to i64
+105:                                              ; preds = %101
+  %106 = getelementptr inbounds nuw i32, ptr %104, i64 %.05898
+  %107 = load i32, ptr %106, align 4, !tbaa !68
+  %108 = zext i32 %107 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i
 
-_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i: ; preds = %109, %105
-  %113 = phi i64 [ %112, %109 ], [ %.05896, %105 ]
-  %114 = getelementptr inbounds nuw i64, ptr %106, i64 %113
-  %115 = load i64, ptr %114, align 8, !tbaa !71
+_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i: ; preds = %105, %101
+  %109 = phi i64 [ %108, %105 ], [ %.05898, %101 ]
+  %110 = getelementptr inbounds nuw i64, ptr %102, i64 %109
+  %111 = load i64, ptr %110, align 8, !tbaa !71
   br label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE13GetListValuesEmRlS3_S3_.exit.i
 
 _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE13GetListValuesEmRlS3_S3_.exit.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE12EndListValueEm.exit.i.i
-  %.0.i10.i.i = phi i64 [ %115, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i ], [ 1, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE12EndListValueEm.exit.i.i ]
-  %116 = invoke noundef i64 @_ZN6duckdb16NumericRangeInfo10ListLengthElllb(i64 noundef %.0.i.i.i, i64 noundef %102, i64 noundef %.0.i10.i.i, i1 noundef zeroext false)
+  %.0.i10.i.i = phi i64 [ %111, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i ], [ 1, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE12EndListValueEm.exit.i.i ]
+  %112 = invoke noundef i64 @_ZN6duckdb16NumericRangeInfo10ListLengthElllb(i64 noundef %.0.i.i.i, i64 noundef %98, i64 noundef %.0.i10.i.i, i1 noundef zeroext false)
           to label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE10ListLengthEm.exit unwind label %74
 
 _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE10ListLengthEm.exit: ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE13GetListValuesEmRlS3_S3_.exit.i
-  %117 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i64 %116, ptr %117, align 8, !tbaa !77
-  %118 = add i64 %116, %.05995
-  br label %119
+  %113 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store i64 %112, ptr %113, align 8, !tbaa !77
+  %114 = add i64 %112, %.05997
+  br label %115
 
-119:                                              ; preds = %63, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE10ListLengthEm.exit
-  %.160 = phi i64 [ %118, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE10ListLengthEm.exit ], [ %.05995, %63 ]
-  %120 = add nuw i64 %.05896, 1
-  %exitcond.not = icmp eq i64 %120, %.053
+115:                                              ; preds = %63, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE10ListLengthEm.exit
+  %.160 = phi i64 [ %114, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE10ListLengthEm.exit ], [ %.05997, %63 ]
+  %116 = add nuw i64 %.05898, 1
+  %exitcond.not = icmp eq i64 %116, %.053
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !183
 
-121:                                              ; preds = %._crit_edge
-  %122 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb10ListVector8GetEntryERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-          to label %123 unwind label %173
+117:                                              ; preds = %._crit_edge
+  %118 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb10ListVector8GetEntryERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
+          to label %119 unwind label %169
 
-123:                                              ; preds = %121
-  %124 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  %125 = load ptr, ptr %124, align 8, !tbaa !18
-  br i1 %.not126, label %._crit_edge111, label %.lr.ph110
+119:                                              ; preds = %117
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %121 = load ptr, ptr %120, align 8, !tbaa !18
+  br i1 %.not128, label %._crit_edge113, label %.lr.ph112
 
-.lr.ph110:                                        ; preds = %123
-  %126 = load ptr, ptr %4, align 8, !tbaa !179
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !175
-  %129 = load ptr, ptr %126, align 8, !tbaa !176
-  %130 = ptrtoint ptr %128 to i64
-  %131 = ptrtoint ptr %129 to i64
-  %132 = sub i64 %130, %131
-  %133 = icmp eq i64 %132, 104
-  %134 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  %137 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  %138 = load ptr, ptr %137, align 8
-  %139 = load ptr, ptr %136, align 8
-  br i1 %133, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us, label %.lr.ph110.split
+.lr.ph112:                                        ; preds = %119
+  %122 = load ptr, ptr %4, align 8, !tbaa !179
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load ptr, ptr %123, align 8, !tbaa !175
+  %125 = load ptr, ptr %122, align 8, !tbaa !176
+  %126 = ptrtoint ptr %124 to i64
+  %127 = ptrtoint ptr %125 to i64
+  %128 = sub i64 %126, %127
+  %129 = icmp eq i64 %128, 104
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  %134 = load ptr, ptr %133, align 8
+  %135 = load ptr, ptr %132, align 8
+  br i1 %129, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us, label %.lr.ph112.split
 
-_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us: ; preds = %.lr.ph110, %._crit_edge104.us
-  %.055107.us = phi i64 [ %142, %._crit_edge104.us ], [ 0, %.lr.ph110 ]
-  %.056106.us = phi i64 [ %.1.lcssa.us, %._crit_edge104.us ], [ 0, %.lr.ph110 ]
-  %140 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.055107.us, i32 1
-  %141 = load i64, ptr %140, align 8, !tbaa !77
-  %.not130 = icmp eq i64 %141, 0
-  br i1 %.not130, label %._crit_edge104.us, label %.lr.ph103.us
+_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us: ; preds = %.lr.ph112, %._crit_edge106.us
+  %.055109.us = phi i64 [ %138, %._crit_edge106.us ], [ 0, %.lr.ph112 ]
+  %.056108.us = phi i64 [ %.1.lcssa.us, %._crit_edge106.us ], [ 0, %.lr.ph112 ]
+  %136 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.055109.us, i32 1
+  %137 = load i64, ptr %136, align 8, !tbaa !77
+  %.not132 = icmp eq i64 %137, 0
+  br i1 %.not132, label %._crit_edge106.us, label %.lr.ph105.us
 
-._crit_edge104.us:                                ; preds = %.lr.ph103.us, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us
-  %.1.lcssa.us = phi i64 [ %.056106.us, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us ], [ %144, %.lr.ph103.us ]
-  %142 = add nuw i64 %.055107.us, 1
-  %exitcond137.not = icmp eq i64 %142, %.053
-  br i1 %exitcond137.not, label %._crit_edge111, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us, !llvm.loop !184
+._crit_edge106.us:                                ; preds = %.lr.ph105.us, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us
+  %.1.lcssa.us = phi i64 [ %.056108.us, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us ], [ %140, %.lr.ph105.us ]
+  %138 = add nuw i64 %.055109.us, 1
+  %exitcond139.not = icmp eq i64 %138, %.053
+  br i1 %exitcond139.not, label %._crit_edge113, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us, !llvm.loop !184
 
-.lr.ph103.us:                                     ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us, %.lr.ph103.us
-  %.0102.us = phi i64 [ %146, %.lr.ph103.us ], [ 0, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us ]
-  %.1101.us = phi i64 [ %144, %.lr.ph103.us ], [ %.056106.us, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us ]
-  %.087100.us = phi i64 [ %spec.select.us, %.lr.ph103.us ], [ 0, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us ]
-  %.not73.us = icmp ne i64 %.0102.us, 0
-  %143 = zext i1 %.not73.us to i64
-  %spec.select.us = add nuw nsw i64 %.087100.us, %143
-  %144 = add i64 %.1101.us, 1
-  %145 = getelementptr inbounds nuw i64, ptr %125, i64 %.1101.us
-  store i64 %spec.select.us, ptr %145, align 8, !tbaa !71
-  %146 = add nuw i64 %.0102.us, 1
-  %147 = load i64, ptr %140, align 8, !tbaa !77
-  %148 = icmp ult i64 %146, %147
-  br i1 %148, label %.lr.ph103.us, label %._crit_edge104.us, !llvm.loop !185
+.lr.ph105.us:                                     ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us, %.lr.ph105.us
+  %.0104.us = phi i64 [ %142, %.lr.ph105.us ], [ 0, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us ]
+  %.1103.us = phi i64 [ %140, %.lr.ph105.us ], [ %.056108.us, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us ]
+  %.088102.us = phi i64 [ %spec.select.us, %.lr.ph105.us ], [ 0, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE18ListIncrementValueEm.exit.us ]
+  %.not73.us = icmp ne i64 %.0104.us, 0
+  %139 = zext i1 %.not73.us to i64
+  %spec.select.us = add nuw nsw i64 %.088102.us, %139
+  %140 = add i64 %.1103.us, 1
+  %141 = getelementptr inbounds nuw i64, ptr %121, i64 %.1103.us
+  store i64 %spec.select.us, ptr %141, align 8, !tbaa !71
+  %142 = add nuw i64 %.0104.us, 1
+  %143 = load i64, ptr %136, align 8, !tbaa !77
+  %144 = icmp ult i64 %142, %143
+  br i1 %144, label %.lr.ph105.us, label %._crit_edge106.us, !llvm.loop !185
 
-.lr.ph110.split:                                  ; preds = %.lr.ph110
-  %149 = sdiv exact i64 %132, 104
-  %150 = icmp ult i64 %149, 3
-  %151 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %152 = load ptr, ptr %151, align 8
-  %153 = load ptr, ptr %152, align 8, !tbaa !67
-  %.not.i.i81 = icmp eq ptr %153, null
-  br i1 %150, label %.lr.ph110.split.split.us, label %.lr.ph110.split.split
+.lr.ph112.split:                                  ; preds = %.lr.ph112
+  %145 = sdiv exact i64 %128, 104
+  %146 = icmp ult i64 %145, 3
+  %147 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %149 = load ptr, ptr %148, align 8, !tbaa !67
+  %.not.i.i81 = icmp eq ptr %149, null
+  br i1 %146, label %.lr.ph112.split.split.us, label %.lr.ph112.split.split
 
-.lr.ph110.split.split.us:                         ; preds = %.lr.ph110.split, %._crit_edge104.us123
-  %.055107.us112 = phi i64 [ %163, %._crit_edge104.us123 ], [ 0, %.lr.ph110.split ]
-  %.056106.us113 = phi i64 [ %.1.lcssa.us116, %._crit_edge104.us123 ], [ 0, %.lr.ph110.split ]
-  br i1 %.not.i.i81, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.us, label %154
+.lr.ph112.split.split.us:                         ; preds = %.lr.ph112.split, %._crit_edge106.us125
+  %.055109.us114 = phi i64 [ %159, %._crit_edge106.us125 ], [ 0, %.lr.ph112.split ]
+  %.056108.us115 = phi i64 [ %.1.lcssa.us118, %._crit_edge106.us125 ], [ 0, %.lr.ph112.split ]
+  br i1 %.not.i.i81, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.us, label %150
 
-154:                                              ; preds = %.lr.ph110.split.split.us
-  %155 = getelementptr inbounds nuw i32, ptr %153, i64 %.055107.us112
-  %156 = load i32, ptr %155, align 4, !tbaa !68
-  %157 = zext i32 %156 to i64
+150:                                              ; preds = %.lr.ph112.split.split.us
+  %151 = getelementptr inbounds nuw i32, ptr %149, i64 %.055109.us114
+  %152 = load i32, ptr %151, align 4, !tbaa !68
+  %153 = zext i32 %152 to i64
   br label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.us
 
-_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.us: ; preds = %154, %.lr.ph110.split.split.us
-  %158 = phi i64 [ %157, %154 ], [ %.055107.us112, %.lr.ph110.split.split.us ]
-  %159 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.055107.us112, i32 1
-  %160 = load i64, ptr %159, align 8, !tbaa !77
-  %.not129 = icmp eq i64 %160, 0
-  br i1 %.not129, label %._crit_edge104.us123, label %.lr.ph103.us122.preheader
+_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.us: ; preds = %150, %.lr.ph112.split.split.us
+  %154 = phi i64 [ %153, %150 ], [ %.055109.us114, %.lr.ph112.split.split.us ]
+  %155 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.055109.us114, i32 1
+  %156 = load i64, ptr %155, align 8, !tbaa !77
+  %.not131 = icmp eq i64 %156, 0
+  br i1 %.not131, label %._crit_edge106.us125, label %.lr.ph105.us124.preheader
 
-.lr.ph103.us122.preheader:                        ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.us
-  %161 = getelementptr inbounds nuw i64, ptr %135, i64 %158
-  %162 = load i64, ptr %161, align 8, !tbaa !71
-  br label %.lr.ph103.us122
+.lr.ph105.us124.preheader:                        ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.us
+  %157 = getelementptr inbounds nuw i64, ptr %131, i64 %154
+  %158 = load i64, ptr %157, align 8, !tbaa !71
+  br label %.lr.ph105.us124
 
-._crit_edge104.us123:                             ; preds = %.lr.ph103.us122, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.us
-  %.1.lcssa.us116 = phi i64 [ %.056106.us113, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.us ], [ %165, %.lr.ph103.us122 ]
-  %163 = add nuw i64 %.055107.us112, 1
-  %exitcond136.not = icmp eq i64 %163, %.053
-  br i1 %exitcond136.not, label %._crit_edge111, label %.lr.ph110.split.split.us, !llvm.loop !184
+._crit_edge106.us125:                             ; preds = %.lr.ph105.us124, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.us
+  %.1.lcssa.us118 = phi i64 [ %.056108.us115, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit.us ], [ %161, %.lr.ph105.us124 ]
+  %159 = add nuw i64 %.055109.us114, 1
+  %exitcond138.not = icmp eq i64 %159, %.053
+  br i1 %exitcond138.not, label %._crit_edge113, label %.lr.ph112.split.split.us, !llvm.loop !184
 
-.lr.ph103.us122:                                  ; preds = %.lr.ph103.us122.preheader, %.lr.ph103.us122
-  %.0102.us117 = phi i64 [ %167, %.lr.ph103.us122 ], [ 0, %.lr.ph103.us122.preheader ]
-  %.1101.us118 = phi i64 [ %165, %.lr.ph103.us122 ], [ %.056106.us113, %.lr.ph103.us122.preheader ]
-  %.087100.us119 = phi i64 [ %spec.select.us121, %.lr.ph103.us122 ], [ %162, %.lr.ph103.us122.preheader ]
-  %.not73.us120 = icmp ne i64 %.0102.us117, 0
-  %164 = zext i1 %.not73.us120 to i64
-  %spec.select.us121 = add nsw i64 %.087100.us119, %164
-  %165 = add i64 %.1101.us118, 1
-  %166 = getelementptr inbounds nuw i64, ptr %125, i64 %.1101.us118
-  store i64 %spec.select.us121, ptr %166, align 8, !tbaa !71
-  %167 = add nuw i64 %.0102.us117, 1
-  %168 = load i64, ptr %159, align 8, !tbaa !77
-  %169 = icmp ult i64 %167, %168
-  br i1 %169, label %.lr.ph103.us122, label %._crit_edge104.us123, !llvm.loop !185
+.lr.ph105.us124:                                  ; preds = %.lr.ph105.us124.preheader, %.lr.ph105.us124
+  %.0104.us119 = phi i64 [ %163, %.lr.ph105.us124 ], [ 0, %.lr.ph105.us124.preheader ]
+  %.1103.us120 = phi i64 [ %161, %.lr.ph105.us124 ], [ %.056108.us115, %.lr.ph105.us124.preheader ]
+  %.088102.us121 = phi i64 [ %spec.select.us123, %.lr.ph105.us124 ], [ %158, %.lr.ph105.us124.preheader ]
+  %.not73.us122 = icmp ne i64 %.0104.us119, 0
+  %160 = zext i1 %.not73.us122 to i64
+  %spec.select.us123 = add nsw i64 %.088102.us121, %160
+  %161 = add i64 %.1103.us120, 1
+  %162 = getelementptr inbounds nuw i64, ptr %121, i64 %.1103.us120
+  store i64 %spec.select.us123, ptr %162, align 8, !tbaa !71
+  %163 = add nuw i64 %.0104.us119, 1
+  %164 = load i64, ptr %155, align 8, !tbaa !77
+  %165 = icmp ult i64 %163, %164
+  br i1 %165, label %.lr.ph105.us124, label %._crit_edge106.us125, !llvm.loop !185
 
-.lr.ph110.split.split:                            ; preds = %.lr.ph110.split
-  %170 = load ptr, ptr %139, align 8, !tbaa !67
-  %.not.i.i83 = icmp eq ptr %170, null
-  br label %175
+.lr.ph112.split.split:                            ; preds = %.lr.ph112.split
+  %166 = load ptr, ptr %135, align 8, !tbaa !67
+  %.not.i.i83 = icmp eq ptr %166, null
+  br label %171
 
-._crit_edge111:                                   ; preds = %._crit_edge104, %._crit_edge104.us123, %._crit_edge104.us, %123
+._crit_edge113:                                   ; preds = %._crit_edge106, %._crit_edge106.us125, %._crit_edge106.us, %119
   invoke void @_ZN6duckdb10ListVector11SetListSizeERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %.059.lcssa)
-          to label %199 unwind label %250
+          to label %195 unwind label %246
 
-171:                                              ; preds = %._crit_edge
-  %172 = landingpad { ptr, i32 }
+167:                                              ; preds = %._crit_edge
+  %168 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %248
 
-173:                                              ; preds = %121
-  %174 = landingpad { ptr, i32 }
+169:                                              ; preds = %117
+  %170 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %248
 
-175:                                              ; preds = %.lr.ph110.split.split, %._crit_edge104
-  %.055107 = phi i64 [ 0, %.lr.ph110.split.split ], [ %192, %._crit_edge104 ]
-  %.056106 = phi i64 [ 0, %.lr.ph110.split.split ], [ %.1.lcssa, %._crit_edge104 ]
-  br i1 %.not.i.i81, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit, label %176
+171:                                              ; preds = %.lr.ph112.split.split, %._crit_edge106
+  %.055109 = phi i64 [ 0, %.lr.ph112.split.split ], [ %188, %._crit_edge106 ]
+  %.056108 = phi i64 [ 0, %.lr.ph112.split.split ], [ %.1.lcssa, %._crit_edge106 ]
+  br i1 %.not.i.i81, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit, label %172
 
-176:                                              ; preds = %175
-  %177 = getelementptr inbounds nuw i32, ptr %153, i64 %.055107
-  %178 = load i32, ptr %177, align 4, !tbaa !68
-  %179 = zext i32 %178 to i64
+172:                                              ; preds = %171
+  %173 = getelementptr inbounds nuw i32, ptr %149, i64 %.055109
+  %174 = load i32, ptr %173, align 4, !tbaa !68
+  %175 = zext i32 %174 to i64
   br label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit
 
-_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit: ; preds = %175, %176
-  %180 = phi i64 [ %179, %176 ], [ %.055107, %175 ]
-  %181 = getelementptr inbounds nuw i64, ptr %135, i64 %180
-  %182 = load i64, ptr %181, align 8, !tbaa !71
-  br i1 %.not.i.i83, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84, label %183
+_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit: ; preds = %171, %172
+  %176 = phi i64 [ %175, %172 ], [ %.055109, %171 ]
+  %177 = getelementptr inbounds nuw i64, ptr %131, i64 %176
+  %178 = load i64, ptr %177, align 8, !tbaa !71
+  br i1 %.not.i.i83, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84, label %179
 
-183:                                              ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit
-  %184 = getelementptr inbounds nuw i32, ptr %170, i64 %.055107
-  %185 = load i32, ptr %184, align 4, !tbaa !68
-  %186 = zext i32 %185 to i64
+179:                                              ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit
+  %180 = getelementptr inbounds nuw i32, ptr %166, i64 %.055109
+  %181 = load i32, ptr %180, align 4, !tbaa !68
+  %182 = zext i32 %181 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84
 
-_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84: ; preds = %183, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit
-  %187 = phi i64 [ %186, %183 ], [ %.055107, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit ]
-  %188 = getelementptr inbounds nuw i64, ptr %138, i64 %187
-  %189 = load i64, ptr %188, align 8, !tbaa !71
-  %190 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.055107, i32 1
-  %191 = load i64, ptr %190, align 8, !tbaa !77
-  %.not128 = icmp eq i64 %191, 0
-  br i1 %.not128, label %._crit_edge104, label %.lr.ph103
+_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84: ; preds = %179, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit
+  %183 = phi i64 [ %182, %179 ], [ %.055109, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EE14StartListValueEm.exit ]
+  %184 = getelementptr inbounds nuw i64, ptr %134, i64 %183
+  %185 = load i64, ptr %184, align 8, !tbaa !71
+  %186 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.055109, i32 1
+  %187 = load i64, ptr %186, align 8, !tbaa !77
+  %.not130 = icmp eq i64 %187, 0
+  br i1 %.not130, label %._crit_edge106, label %.lr.ph105
 
-._crit_edge104:                                   ; preds = %.lr.ph103, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84
-  %.1.lcssa = phi i64 [ %.056106, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84 ], [ %194, %.lr.ph103 ]
-  %192 = add nuw i64 %.055107, 1
-  %exitcond135.not = icmp eq i64 %192, %.053
-  br i1 %exitcond135.not, label %._crit_edge111, label %175, !llvm.loop !184
+._crit_edge106:                                   ; preds = %.lr.ph105, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84
+  %.1.lcssa = phi i64 [ %.056108, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84 ], [ %190, %.lr.ph105 ]
+  %188 = add nuw i64 %.055109, 1
+  %exitcond137.not = icmp eq i64 %188, %.053
+  br i1 %exitcond137.not, label %._crit_edge113, label %171, !llvm.loop !184
 
-.lr.ph103:                                        ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84, %.lr.ph103
-  %.0102 = phi i64 [ %196, %.lr.ph103 ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84 ]
-  %.1101 = phi i64 [ %194, %.lr.ph103 ], [ %.056106, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84 ]
-  %.087100 = phi i64 [ %spec.select, %.lr.ph103 ], [ %182, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84 ]
-  %.not73 = icmp eq i64 %.0102, 0
-  %193 = select i1 %.not73, i64 0, i64 %189
-  %spec.select = add nsw i64 %193, %.087100
-  %194 = add i64 %.1101, 1
-  %195 = getelementptr inbounds nuw i64, ptr %125, i64 %.1101
-  store i64 %spec.select, ptr %195, align 8, !tbaa !71
-  %196 = add nuw i64 %.0102, 1
-  %197 = load i64, ptr %190, align 8, !tbaa !77
-  %198 = icmp ult i64 %196, %197
-  br i1 %198, label %.lr.ph103, label %._crit_edge104, !llvm.loop !185
+.lr.ph105:                                        ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84, %.lr.ph105
+  %.0104 = phi i64 [ %192, %.lr.ph105 ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84 ]
+  %.1103 = phi i64 [ %190, %.lr.ph105 ], [ %.056108, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84 ]
+  %.088102 = phi i64 [ %spec.select, %.lr.ph105 ], [ %178, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i84 ]
+  %.not73 = icmp eq i64 %.0104, 0
+  %189 = select i1 %.not73, i64 0, i64 %185
+  %spec.select = add nsw i64 %189, %.088102
+  %190 = add i64 %.1103, 1
+  %191 = getelementptr inbounds nuw i64, ptr %121, i64 %.1103
+  store i64 %spec.select, ptr %191, align 8, !tbaa !71
+  %192 = add nuw i64 %.0104, 1
+  %193 = load i64, ptr %186, align 8, !tbaa !77
+  %194 = icmp ult i64 %192, %193
+  br i1 %194, label %.lr.ph105, label %._crit_edge106, !llvm.loop !185
 
-199:                                              ; preds = %._crit_edge111
+195:                                              ; preds = %._crit_edge113
   invoke void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext %.054)
-          to label %200 unwind label %250
+          to label %196 unwind label %246
 
-200:                                              ; preds = %199
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %202 = load i64, ptr %201, align 8, !tbaa !43
-  invoke void @_ZN6duckdb6Vector6VerifyEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %202)
-          to label %.preheader unwind label %250
+196:                                              ; preds = %195
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %198 = load i64, ptr %197, align 8, !tbaa !43
+  invoke void @_ZN6duckdb6Vector6VerifyEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %198)
+          to label %.preheader unwind label %246
 
-.preheader:                                       ; preds = %200, %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i
-  %.idx.i = phi i64 [ %.add.i, %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i ], [ 224, %200 ]
+.preheader:                                       ; preds = %196, %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i
+  %.idx.i = phi i64 [ %.add.i, %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i ], [ 224, %196 ]
   %.add.i = add nsw i64 %.idx.i, -72
   %.ptr1.i = getelementptr inbounds i8, ptr %4, i64 %.add.i
-  %203 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 64
-  %204 = load ptr, ptr %203, align 8, !tbaa !83
-  %.not.i.i.i.i.i.i = icmp eq ptr %204, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i, label %205
+  %199 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 64
+  %200 = load ptr, ptr %199, align 8, !tbaa !83
+  %.not.i.i.i.i.i.i = icmp eq ptr %200, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i, label %201
 
-205:                                              ; preds = %.preheader
-  %206 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  %207 = load atomic i64, ptr %206 acquire, align 8
-  %208 = icmp eq i64 %207, 4294967297
-  %209 = trunc i64 %207 to i32
-  br i1 %208, label %210, label %218
+201:                                              ; preds = %.preheader
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  %203 = load atomic i64, ptr %202 acquire, align 8
+  %204 = icmp eq i64 %203, 4294967297
+  %205 = trunc i64 %203 to i32
+  br i1 %204, label %206, label %214
 
-210:                                              ; preds = %205
-  store i32 0, ptr %206, align 8, !tbaa !84
-  %211 = getelementptr inbounds nuw i8, ptr %204, i64 12
-  store i32 0, ptr %211, align 4, !tbaa !86
-  %212 = load ptr, ptr %204, align 8, !tbaa !87
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  %214 = load ptr, ptr %213, align 8
-  call void %214(ptr noundef nonnull align 8 dereferenceable(16) %204) #27
-  %215 = load ptr, ptr %204, align 8, !tbaa !87
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
-  %217 = load ptr, ptr %216, align 8
-  call void %217(ptr noundef nonnull align 8 dereferenceable(16) %204) #27
+206:                                              ; preds = %201
+  store i32 0, ptr %202, align 8, !tbaa !84
+  %207 = getelementptr inbounds nuw i8, ptr %200, i64 12
+  store i32 0, ptr %207, align 4, !tbaa !86
+  %208 = load ptr, ptr %200, align 8, !tbaa !87
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
+  %210 = load ptr, ptr %209, align 8
+  call void %210(ptr noundef nonnull align 8 dereferenceable(16) %200) #27
+  %211 = load ptr, ptr %200, align 8, !tbaa !87
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 24
+  %213 = load ptr, ptr %212, align 8
+  call void %213(ptr noundef nonnull align 8 dereferenceable(16) %200) #27
   br label %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i
 
-218:                                              ; preds = %205
-  %219 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %219, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %222, label %220
+214:                                              ; preds = %201
+  %215 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %215, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %218, label %216
 
-220:                                              ; preds = %218
-  %221 = add nsw i32 %209, -1
-  store i32 %221, ptr %206, align 4, !tbaa !68
+216:                                              ; preds = %214
+  %217 = add nsw i32 %205, -1
+  store i32 %217, ptr %202, align 4, !tbaa !68
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
-222:                                              ; preds = %218
-  %223 = atomicrmw volatile add ptr %206, i32 -1 acq_rel, align 4
+218:                                              ; preds = %214
+  %219 = atomicrmw volatile add ptr %202, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %222, %220
-  %.0.i.i.i.i.i.i.i.i = phi i32 [ %209, %220 ], [ %223, %222 ]
-  %224 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %224, label %225, label %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %218, %216
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %205, %216 ], [ %219, %218 ]
+  %220 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
+  br i1 %220, label %221, label %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i, !prof !90
 
-225:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %204) #27
+221:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %200) #27
   br label %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i
 
-_ZN6duckdb15SelectionVectorD2Ev.exit.i.i:         ; preds = %225, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %210, %.preheader
-  %226 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 32
-  %227 = load ptr, ptr %226, align 8, !tbaa !83
-  %.not.i.i.i.i1.i.i = icmp eq ptr %227, null
-  br i1 %.not.i.i.i.i1.i.i, label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i, label %228
+_ZN6duckdb15SelectionVectorD2Ev.exit.i.i:         ; preds = %221, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %206, %.preheader
+  %222 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 32
+  %223 = load ptr, ptr %222, align 8, !tbaa !83
+  %.not.i.i.i.i1.i.i = icmp eq ptr %223, null
+  br i1 %.not.i.i.i.i1.i.i, label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i, label %224
 
-228:                                              ; preds = %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i
-  %229 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  %230 = load atomic i64, ptr %229 acquire, align 8
-  %231 = icmp eq i64 %230, 4294967297
-  %232 = trunc i64 %230 to i32
-  br i1 %231, label %233, label %241
+224:                                              ; preds = %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i
+  %225 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  %226 = load atomic i64, ptr %225 acquire, align 8
+  %227 = icmp eq i64 %226, 4294967297
+  %228 = trunc i64 %226 to i32
+  br i1 %227, label %229, label %237
 
-233:                                              ; preds = %228
-  store i32 0, ptr %229, align 8, !tbaa !84
-  %234 = getelementptr inbounds nuw i8, ptr %227, i64 12
-  store i32 0, ptr %234, align 4, !tbaa !86
-  %235 = load ptr, ptr %227, align 8, !tbaa !87
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  %237 = load ptr, ptr %236, align 8
-  call void %237(ptr noundef nonnull align 8 dereferenceable(16) %227) #27
-  %238 = load ptr, ptr %227, align 8, !tbaa !87
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 24
-  %240 = load ptr, ptr %239, align 8
-  call void %240(ptr noundef nonnull align 8 dereferenceable(16) %227) #27
+229:                                              ; preds = %224
+  store i32 0, ptr %225, align 8, !tbaa !84
+  %230 = getelementptr inbounds nuw i8, ptr %223, i64 12
+  store i32 0, ptr %230, align 4, !tbaa !86
+  %231 = load ptr, ptr %223, align 8, !tbaa !87
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
+  %233 = load ptr, ptr %232, align 8
+  call void %233(ptr noundef nonnull align 8 dereferenceable(16) %223) #27
+  %234 = load ptr, ptr %223, align 8, !tbaa !87
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 24
+  %236 = load ptr, ptr %235, align 8
+  call void %236(ptr noundef nonnull align 8 dereferenceable(16) %223) #27
   br label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i
 
-241:                                              ; preds = %228
-  %242 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i2.i.i = icmp eq i8 %242, 0
-  br i1 %.not.i.i.i.i.i2.i.i, label %245, label %243
+237:                                              ; preds = %224
+  %238 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
+  %.not.i.i.i.i.i2.i.i = icmp eq i8 %238, 0
+  br i1 %.not.i.i.i.i.i2.i.i, label %241, label %239
 
-243:                                              ; preds = %241
-  %244 = add nsw i32 %232, -1
-  store i32 %244, ptr %229, align 4, !tbaa !68
+239:                                              ; preds = %237
+  %240 = add nsw i32 %228, -1
+  store i32 %240, ptr %225, align 4, !tbaa !68
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i
 
-245:                                              ; preds = %241
-  %246 = atomicrmw volatile add ptr %229, i32 -1 acq_rel, align 4
+241:                                              ; preds = %237
+  %242 = atomicrmw volatile add ptr %225, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i: ; preds = %245, %243
-  %.0.i.i.i.i.i.i4.i.i = phi i32 [ %232, %243 ], [ %246, %245 ]
-  %247 = icmp eq i32 %.0.i.i.i.i.i.i4.i.i, 1
-  br i1 %247, label %248, label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i: ; preds = %241, %239
+  %.0.i.i.i.i.i.i4.i.i = phi i32 [ %228, %239 ], [ %242, %241 ]
+  %243 = icmp eq i32 %.0.i.i.i.i.i.i4.i.i, 1
+  br i1 %243, label %244, label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i, !prof !90
 
-248:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %227) #27
+244:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %223) #27
   br label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i
 
-_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i:       ; preds = %248, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i, %233, %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i
-  %249 = icmp eq i64 %.add.i, 8
-  br i1 %249, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EED2Ev.exit, label %.preheader
+_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i:       ; preds = %244, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i, %229, %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i
+  %245 = icmp eq i64 %.add.i, 8
+  br i1 %245, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EED2Ev.exit, label %.preheader
 
 _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EED2Ev.exit: ; preds = %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #27
   ret void
 
-250:                                              ; preds = %200, %199, %._crit_edge111
-  %251 = landingpad { ptr, i32 }
+246:                                              ; preds = %196, %195, %._crit_edge113
+  %247 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %248
 
-252:                                              ; preds = %74, %171, %250, %173, %33, %23
-  %.pn74.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %34, %33 ], [ %75, %74 ], [ %172, %171 ], [ %174, %173 ], [ %251, %250 ]
+248:                                              ; preds = %74, %167, %246, %169, %33, %23
+  %.pn74.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %34, %33 ], [ %75, %74 ], [ %168, %167 ], [ %170, %169 ], [ %247, %246 ]
   call void @_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %4) #27
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #27
   resume { ptr, i32 } %.pn74.pn.pn.pn
@@ -8197,11 +8199,11 @@ define internal void @_ZN6duckdbL17ListRangeFunctionINS_16NumericRangeInfoELb1EE
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !175
   %7 = load ptr, ptr %0, align 8, !tbaa !176
-  %.not121 = icmp eq ptr %6, %7
-  br i1 %.not121, label %.loopexit88, label %.lr.ph
+  %.not123 = icmp eq ptr %6, %7
+  br i1 %.not123, label %.loopexit90, label %.lr.ph
 
 8:                                                ; preds = %18
-  %9 = add nuw i64 %.05790, 1
+  %9 = add nuw i64 %.05792, 1
   %10 = load ptr, ptr %5, align 8, !tbaa !175
   %11 = load ptr, ptr %0, align 8, !tbaa !176
   %12 = ptrtoint ptr %10 to i64
@@ -8209,11 +8211,11 @@ define internal void @_ZN6duckdbL17ListRangeFunctionINS_16NumericRangeInfoELb1EE
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 104
   %16 = icmp ult i64 %9, %15
-  br i1 %16, label %.lr.ph, label %.loopexit88, !llvm.loop !198
+  br i1 %16, label %.lr.ph, label %.loopexit90, !llvm.loop !198
 
 .lr.ph:                                           ; preds = %3, %8
-  %.05790 = phi i64 [ %9, %8 ], [ 0, %3 ]
-  %17 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.05790)
+  %.05792 = phi i64 [ %9, %8 ], [ 0, %3 ]
+  %17 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.05792)
           to label %18 unwind label %23
 
 18:                                               ; preds = %.lr.ph
@@ -8224,14 +8226,14 @@ define internal void @_ZN6duckdbL17ListRangeFunctionINS_16NumericRangeInfoELb1EE
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i64, ptr %21, align 8, !tbaa !43
-  br label %.loopexit88
+  br label %.loopexit90
 
 23:                                               ; preds = %.lr.ph
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %248
 
-.loopexit88:                                      ; preds = %8, %3, %20
+.loopexit90:                                      ; preds = %8, %3, %20
   %.054 = phi i8 [ 0, %20 ], [ 2, %3 ], [ 2, %8 ]
   %.053 = phi i64 [ %22, %20 ], [ 1, %3 ], [ 1, %8 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -8239,44 +8241,46 @@ define internal void @_ZN6duckdbL17ListRangeFunctionINS_16NumericRangeInfoELb1EE
   invoke void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
           to label %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit unwind label %33
 
-_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit: ; preds = %.loopexit88
+_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit: ; preds = %.loopexit90
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.not122 = icmp eq i64 %.053, 0
-  br i1 %.not122, label %._crit_edge, label %.lr.ph95
+  %.not124 = icmp eq i64 %.053, 0
+  br i1 %.not124, label %._crit_edge, label %.lr.ph97
 
-.lr.ph95:                                         ; preds = %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit
+.lr.ph97:                                         ; preds = %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  %.sroa.gep136 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %.sroa.gep138 = getelementptr inbounds nuw i8, ptr %4, i64 88
   br label %35
 
-._crit_edge:                                      ; preds = %119, %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit
-  %.059.lcssa = phi i64 [ 0, %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit ], [ %.160, %119 ]
+._crit_edge:                                      ; preds = %115, %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit
+  %.059.lcssa = phi i64 [ 0, %_ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit ], [ %.160, %115 ]
   invoke void @_ZN6duckdb10ListVector7ReserveERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %.059.lcssa)
-          to label %121 unwind label %171
+          to label %117 unwind label %167
 
-33:                                               ; preds = %.loopexit88
+33:                                               ; preds = %.loopexit90
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %248
 
-35:                                               ; preds = %.lr.ph95, %119
-  %.05892 = phi i64 [ 0, %.lr.ph95 ], [ %120, %119 ]
-  %.05991 = phi i64 [ 0, %.lr.ph95 ], [ %.160, %119 ]
+35:                                               ; preds = %.lr.ph97, %115
+  %.05894 = phi i64 [ 0, %.lr.ph97 ], [ %116, %115 ]
+  %.05993 = phi i64 [ 0, %.lr.ph97 ], [ %.160, %115 ]
   %36 = load ptr, ptr %4, align 8, !tbaa !199
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !175
   %39 = load ptr, ptr %36, align 8, !tbaa !176
   %40 = icmp eq ptr %38, %39
   %.pre = ptrtoint ptr %38 to i64
-  %.pre134 = ptrtoint ptr %39 to i64
-  %.pre136 = sub i64 %.pre, %.pre134
+  %.pre139 = ptrtoint ptr %39 to i64
+  %.pre141 = sub i64 %.pre, %.pre139
   br i1 %40, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35
-  %41 = sdiv exact i64 %.pre136, 104
+  %41 = sdiv exact i64 %.pre141, 104
   br label %42
 
 42:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, %.lr.ph.i
@@ -8288,13 +8292,13 @@ _ZN6duckdb10FlatVector8ValidityERNS_6VectorE.exit: ; preds = %.loopexit88
   br i1 %.not.i.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %.05892
+  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %.05894
   %48 = load i32, ptr %47, align 4, !tbaa !68
   %49 = zext i32 %48 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i:  ; preds = %46, %42
-  %50 = phi i64 [ %49, %46 ], [ %.05892, %42 ]
+  %50 = phi i64 [ %49, %46 ], [ %.05894, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !70
   %.not.i12.i = icmp eq ptr %52, null
@@ -8331,29 +8335,29 @@ _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE10RowIsValidEm.exit: ; pr
 
 63:                                               ; preds = %.noexc, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE10RowIsValidEm.exit
   %64 = phi ptr [ %.pre.i, %.noexc ], [ %60, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE10RowIsValidEm.exit ]
-  %65 = lshr i64 %.05892, 6
-  %66 = and i64 %.05892, 63
+  %65 = lshr i64 %.05894, 6
+  %66 = and i64 %.05894, 63
   %67 = shl nuw i64 1, %66
   %68 = xor i64 %67, -1
   %69 = getelementptr inbounds nuw i64, ptr %64, i64 %65
   %70 = load i64, ptr %69, align 8, !tbaa !71
   %71 = and i64 %70, %68
   store i64 %71, ptr %69, align 8, !tbaa !71
-  %72 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.05892
-  store i64 %.05991, ptr %72, align 8, !tbaa !75
+  %72 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.05894
+  store i64 %.05993, ptr %72, align 8, !tbaa !75
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i64 0, ptr %73, align 8, !tbaa !77
-  br label %119
+  br label %115
 
 74:                                               ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE13GetListValuesEmRlS3_S3_.exit.i, %61
   %75 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %248
 
 .loopexit:                                        ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, %35
-  %76 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.05892
-  store i64 %.05991, ptr %76, align 8, !tbaa !75
-  %77 = icmp eq i64 %.pre136, 104
+  %76 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.05894
+  store i64 %.05993, ptr %76, align 8, !tbaa !75
+  %77 = icmp eq i64 %.pre141, 104
   br i1 %77, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.i.i, label %78
 
 78:                                               ; preds = %.loopexit
@@ -8364,387 +8368,387 @@ _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE10RowIsValidEm.exit: ; pr
   br i1 %.not.i.i.i.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i, label %82
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %.05892
+  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %.05894
   %84 = load i32, ptr %83, align 4, !tbaa !68
   %85 = zext i32 %84 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i: ; preds = %82, %78
-  %86 = phi i64 [ %85, %82 ], [ %.05892, %78 ]
+  %86 = phi i64 [ %85, %82 ], [ %.05894, %78 ]
   %87 = getelementptr inbounds nuw i64, ptr %79, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !71
   br label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.i.i
 
 _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.i.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i, %.loopexit
   %.0.i.i.i = phi i64 [ %88, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i.i ], [ 0, %.loopexit ]
-  %89 = icmp ne i64 %.pre136, 104
-  %90 = zext i1 %89 to i64
-  %91 = getelementptr inbounds nuw [3 x %"struct.duckdb::UnifiedVectorFormat"], ptr %28, i64 0, i64 %90
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !74
-  %94 = load ptr, ptr %91, align 8, !tbaa !58
-  %95 = load ptr, ptr %94, align 8, !tbaa !67
-  %.not.i.i6.i.i = icmp eq ptr %95, null
-  br i1 %.not.i.i6.i.i, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE12EndListValueEm.exit.i.i, label %96
+  %.val = load ptr, ptr %30, align 8
+  %.sroa.gep138.val = load ptr, ptr %.sroa.gep138, align 8
+  %89 = select i1 %77, ptr %.val, ptr %.sroa.gep138.val
+  %.val143 = load ptr, ptr %28, align 8
+  %.sroa.gep136.val = load ptr, ptr %.sroa.gep136, align 8
+  %90 = select i1 %77, ptr %.val143, ptr %.sroa.gep136.val
+  %91 = load ptr, ptr %90, align 8, !tbaa !67
+  %.not.i.i6.i.i = icmp eq ptr %91, null
+  br i1 %.not.i.i6.i.i, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE12EndListValueEm.exit.i.i, label %92
 
-96:                                               ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.i.i
-  %97 = getelementptr inbounds nuw i32, ptr %95, i64 %.05892
-  %98 = load i32, ptr %97, align 4, !tbaa !68
-  %99 = zext i32 %98 to i64
+92:                                               ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.i.i
+  %93 = getelementptr inbounds nuw i32, ptr %91, i64 %.05894
+  %94 = load i32, ptr %93, align 4, !tbaa !68
+  %95 = zext i32 %94 to i64
   br label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE12EndListValueEm.exit.i.i
 
-_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE12EndListValueEm.exit.i.i: ; preds = %96, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.i.i
-  %100 = phi i64 [ %99, %96 ], [ %.05892, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.i.i ]
-  %101 = getelementptr inbounds nuw i64, ptr %93, i64 %100
-  %102 = load i64, ptr %101, align 8, !tbaa !71
-  %103 = sdiv exact i64 %.pre136, 104
-  %104 = icmp ult i64 %103, 3
-  br i1 %104, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE13GetListValuesEmRlS3_S3_.exit.i, label %105
+_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE12EndListValueEm.exit.i.i: ; preds = %92, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.i.i
+  %96 = phi i64 [ %95, %92 ], [ %.05894, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.i.i ]
+  %97 = getelementptr inbounds nuw i64, ptr %89, i64 %96
+  %98 = load i64, ptr %97, align 8, !tbaa !71
+  %99 = sdiv exact i64 %.pre141, 104
+  %100 = icmp ult i64 %99, 3
+  br i1 %100, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE13GetListValuesEmRlS3_S3_.exit.i, label %101
 
-105:                                              ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE12EndListValueEm.exit.i.i
-  %106 = load ptr, ptr %32, align 8, !tbaa !74
-  %107 = load ptr, ptr %31, align 8, !tbaa !58
-  %108 = load ptr, ptr %107, align 8, !tbaa !67
-  %.not.i.i8.i.i = icmp eq ptr %108, null
-  br i1 %.not.i.i8.i.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i, label %109
+101:                                              ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE12EndListValueEm.exit.i.i
+  %102 = load ptr, ptr %32, align 8, !tbaa !74
+  %103 = load ptr, ptr %31, align 8, !tbaa !58
+  %104 = load ptr, ptr %103, align 8, !tbaa !67
+  %.not.i.i8.i.i = icmp eq ptr %104, null
+  br i1 %.not.i.i8.i.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i, label %105
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds nuw i32, ptr %108, i64 %.05892
-  %111 = load i32, ptr %110, align 4, !tbaa !68
-  %112 = zext i32 %111 to i64
+105:                                              ; preds = %101
+  %106 = getelementptr inbounds nuw i32, ptr %104, i64 %.05894
+  %107 = load i32, ptr %106, align 4, !tbaa !68
+  %108 = zext i32 %107 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i
 
-_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i: ; preds = %109, %105
-  %113 = phi i64 [ %112, %109 ], [ %.05892, %105 ]
-  %114 = getelementptr inbounds nuw i64, ptr %106, i64 %113
-  %115 = load i64, ptr %114, align 8, !tbaa !71
+_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i: ; preds = %105, %101
+  %109 = phi i64 [ %108, %105 ], [ %.05894, %101 ]
+  %110 = getelementptr inbounds nuw i64, ptr %102, i64 %109
+  %111 = load i64, ptr %110, align 8, !tbaa !71
   br label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE13GetListValuesEmRlS3_S3_.exit.i
 
 _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE13GetListValuesEmRlS3_S3_.exit.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE12EndListValueEm.exit.i.i
-  %.0.i10.i.i = phi i64 [ %115, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i ], [ 1, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE12EndListValueEm.exit.i.i ]
-  %116 = invoke noundef i64 @_ZN6duckdb16NumericRangeInfo10ListLengthElllb(i64 noundef %.0.i.i.i, i64 noundef %102, i64 noundef %.0.i10.i.i, i1 noundef zeroext true)
+  %.0.i10.i.i = phi i64 [ %111, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i9.i.i ], [ 1, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE12EndListValueEm.exit.i.i ]
+  %112 = invoke noundef i64 @_ZN6duckdb16NumericRangeInfo10ListLengthElllb(i64 noundef %.0.i.i.i, i64 noundef %98, i64 noundef %.0.i10.i.i, i1 noundef zeroext true)
           to label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE10ListLengthEm.exit unwind label %74
 
 _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE10ListLengthEm.exit: ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE13GetListValuesEmRlS3_S3_.exit.i
-  %117 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i64 %116, ptr %117, align 8, !tbaa !77
-  %118 = add i64 %116, %.05991
-  br label %119
+  %113 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store i64 %112, ptr %113, align 8, !tbaa !77
+  %114 = add i64 %112, %.05993
+  br label %115
 
-119:                                              ; preds = %63, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE10ListLengthEm.exit
-  %.160 = phi i64 [ %118, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE10ListLengthEm.exit ], [ %.05991, %63 ]
-  %120 = add nuw i64 %.05892, 1
-  %exitcond.not = icmp eq i64 %120, %.053
+115:                                              ; preds = %63, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE10ListLengthEm.exit
+  %.160 = phi i64 [ %114, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE10ListLengthEm.exit ], [ %.05993, %63 ]
+  %116 = add nuw i64 %.05894, 1
+  %exitcond.not = icmp eq i64 %116, %.053
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !202
 
-121:                                              ; preds = %._crit_edge
-  %122 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb10ListVector8GetEntryERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-          to label %123 unwind label %173
+117:                                              ; preds = %._crit_edge
+  %118 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb10ListVector8GetEntryERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
+          to label %119 unwind label %169
 
-123:                                              ; preds = %121
-  %124 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  %125 = load ptr, ptr %124, align 8, !tbaa !18
-  br i1 %.not122, label %._crit_edge107, label %.lr.ph106
+119:                                              ; preds = %117
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %121 = load ptr, ptr %120, align 8, !tbaa !18
+  br i1 %.not124, label %._crit_edge109, label %.lr.ph108
 
-.lr.ph106:                                        ; preds = %123
-  %126 = load ptr, ptr %4, align 8, !tbaa !199
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !175
-  %129 = load ptr, ptr %126, align 8, !tbaa !176
-  %130 = ptrtoint ptr %128 to i64
-  %131 = ptrtoint ptr %129 to i64
-  %132 = sub i64 %130, %131
-  %133 = icmp eq i64 %132, 104
-  %134 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  %137 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  %138 = load ptr, ptr %137, align 8
-  %139 = load ptr, ptr %136, align 8
-  br i1 %133, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us, label %.lr.ph106.split
+.lr.ph108:                                        ; preds = %119
+  %122 = load ptr, ptr %4, align 8, !tbaa !199
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load ptr, ptr %123, align 8, !tbaa !175
+  %125 = load ptr, ptr %122, align 8, !tbaa !176
+  %126 = ptrtoint ptr %124 to i64
+  %127 = ptrtoint ptr %125 to i64
+  %128 = sub i64 %126, %127
+  %129 = icmp eq i64 %128, 104
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  %134 = load ptr, ptr %133, align 8
+  %135 = load ptr, ptr %132, align 8
+  br i1 %129, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us, label %.lr.ph108.split
 
-_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us: ; preds = %.lr.ph106, %._crit_edge100.us
-  %.055103.us = phi i64 [ %142, %._crit_edge100.us ], [ 0, %.lr.ph106 ]
-  %.056102.us = phi i64 [ %.1.lcssa.us, %._crit_edge100.us ], [ 0, %.lr.ph106 ]
-  %140 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.055103.us, i32 1
-  %141 = load i64, ptr %140, align 8, !tbaa !77
-  %.not126 = icmp eq i64 %141, 0
-  br i1 %.not126, label %._crit_edge100.us, label %.lr.ph99.us
+_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us: ; preds = %.lr.ph108, %._crit_edge102.us
+  %.055105.us = phi i64 [ %138, %._crit_edge102.us ], [ 0, %.lr.ph108 ]
+  %.056104.us = phi i64 [ %.1.lcssa.us, %._crit_edge102.us ], [ 0, %.lr.ph108 ]
+  %136 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.055105.us, i32 1
+  %137 = load i64, ptr %136, align 8, !tbaa !77
+  %.not128 = icmp eq i64 %137, 0
+  br i1 %.not128, label %._crit_edge102.us, label %.lr.ph101.us
 
-._crit_edge100.us:                                ; preds = %.lr.ph99.us, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us
-  %.1.lcssa.us = phi i64 [ %.056102.us, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us ], [ %144, %.lr.ph99.us ]
-  %142 = add nuw i64 %.055103.us, 1
-  %exitcond133.not = icmp eq i64 %142, %.053
-  br i1 %exitcond133.not, label %._crit_edge107, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us, !llvm.loop !203
+._crit_edge102.us:                                ; preds = %.lr.ph101.us, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us
+  %.1.lcssa.us = phi i64 [ %.056104.us, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us ], [ %140, %.lr.ph101.us ]
+  %138 = add nuw i64 %.055105.us, 1
+  %exitcond135.not = icmp eq i64 %138, %.053
+  br i1 %exitcond135.not, label %._crit_edge109, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us, !llvm.loop !203
 
-.lr.ph99.us:                                      ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us, %.lr.ph99.us
-  %.098.us = phi i64 [ %146, %.lr.ph99.us ], [ 0, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us ]
-  %.197.us = phi i64 [ %144, %.lr.ph99.us ], [ %.056102.us, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us ]
-  %.08396.us = phi i64 [ %spec.select.us, %.lr.ph99.us ], [ 0, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us ]
-  %.not69.us = icmp ne i64 %.098.us, 0
-  %143 = zext i1 %.not69.us to i64
-  %spec.select.us = add nuw nsw i64 %.08396.us, %143
-  %144 = add i64 %.197.us, 1
-  %145 = getelementptr inbounds nuw i64, ptr %125, i64 %.197.us
-  store i64 %spec.select.us, ptr %145, align 8, !tbaa !71
-  %146 = add nuw i64 %.098.us, 1
-  %147 = load i64, ptr %140, align 8, !tbaa !77
-  %148 = icmp ult i64 %146, %147
-  br i1 %148, label %.lr.ph99.us, label %._crit_edge100.us, !llvm.loop !204
+.lr.ph101.us:                                     ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us, %.lr.ph101.us
+  %.0100.us = phi i64 [ %142, %.lr.ph101.us ], [ 0, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us ]
+  %.199.us = phi i64 [ %140, %.lr.ph101.us ], [ %.056104.us, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us ]
+  %.08498.us = phi i64 [ %spec.select.us, %.lr.ph101.us ], [ 0, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE18ListIncrementValueEm.exit.us ]
+  %.not69.us = icmp ne i64 %.0100.us, 0
+  %139 = zext i1 %.not69.us to i64
+  %spec.select.us = add nuw nsw i64 %.08498.us, %139
+  %140 = add i64 %.199.us, 1
+  %141 = getelementptr inbounds nuw i64, ptr %121, i64 %.199.us
+  store i64 %spec.select.us, ptr %141, align 8, !tbaa !71
+  %142 = add nuw i64 %.0100.us, 1
+  %143 = load i64, ptr %136, align 8, !tbaa !77
+  %144 = icmp ult i64 %142, %143
+  br i1 %144, label %.lr.ph101.us, label %._crit_edge102.us, !llvm.loop !204
 
-.lr.ph106.split:                                  ; preds = %.lr.ph106
-  %149 = sdiv exact i64 %132, 104
-  %150 = icmp ult i64 %149, 3
-  %151 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %152 = load ptr, ptr %151, align 8
-  %153 = load ptr, ptr %152, align 8, !tbaa !67
-  %.not.i.i77 = icmp eq ptr %153, null
-  br i1 %150, label %.lr.ph106.split.split.us, label %.lr.ph106.split.split
+.lr.ph108.split:                                  ; preds = %.lr.ph108
+  %145 = sdiv exact i64 %128, 104
+  %146 = icmp ult i64 %145, 3
+  %147 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %149 = load ptr, ptr %148, align 8, !tbaa !67
+  %.not.i.i77 = icmp eq ptr %149, null
+  br i1 %146, label %.lr.ph108.split.split.us, label %.lr.ph108.split.split
 
-.lr.ph106.split.split.us:                         ; preds = %.lr.ph106.split, %._crit_edge100.us119
-  %.055103.us108 = phi i64 [ %163, %._crit_edge100.us119 ], [ 0, %.lr.ph106.split ]
-  %.056102.us109 = phi i64 [ %.1.lcssa.us112, %._crit_edge100.us119 ], [ 0, %.lr.ph106.split ]
-  br i1 %.not.i.i77, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.us, label %154
+.lr.ph108.split.split.us:                         ; preds = %.lr.ph108.split, %._crit_edge102.us121
+  %.055105.us110 = phi i64 [ %159, %._crit_edge102.us121 ], [ 0, %.lr.ph108.split ]
+  %.056104.us111 = phi i64 [ %.1.lcssa.us114, %._crit_edge102.us121 ], [ 0, %.lr.ph108.split ]
+  br i1 %.not.i.i77, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.us, label %150
 
-154:                                              ; preds = %.lr.ph106.split.split.us
-  %155 = getelementptr inbounds nuw i32, ptr %153, i64 %.055103.us108
-  %156 = load i32, ptr %155, align 4, !tbaa !68
-  %157 = zext i32 %156 to i64
+150:                                              ; preds = %.lr.ph108.split.split.us
+  %151 = getelementptr inbounds nuw i32, ptr %149, i64 %.055105.us110
+  %152 = load i32, ptr %151, align 4, !tbaa !68
+  %153 = zext i32 %152 to i64
   br label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.us
 
-_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.us: ; preds = %154, %.lr.ph106.split.split.us
-  %158 = phi i64 [ %157, %154 ], [ %.055103.us108, %.lr.ph106.split.split.us ]
-  %159 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.055103.us108, i32 1
-  %160 = load i64, ptr %159, align 8, !tbaa !77
-  %.not125 = icmp eq i64 %160, 0
-  br i1 %.not125, label %._crit_edge100.us119, label %.lr.ph99.us118.preheader
+_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.us: ; preds = %150, %.lr.ph108.split.split.us
+  %154 = phi i64 [ %153, %150 ], [ %.055105.us110, %.lr.ph108.split.split.us ]
+  %155 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.055105.us110, i32 1
+  %156 = load i64, ptr %155, align 8, !tbaa !77
+  %.not127 = icmp eq i64 %156, 0
+  br i1 %.not127, label %._crit_edge102.us121, label %.lr.ph101.us120.preheader
 
-.lr.ph99.us118.preheader:                         ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.us
-  %161 = getelementptr inbounds nuw i64, ptr %135, i64 %158
-  %162 = load i64, ptr %161, align 8, !tbaa !71
-  br label %.lr.ph99.us118
+.lr.ph101.us120.preheader:                        ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.us
+  %157 = getelementptr inbounds nuw i64, ptr %131, i64 %154
+  %158 = load i64, ptr %157, align 8, !tbaa !71
+  br label %.lr.ph101.us120
 
-._crit_edge100.us119:                             ; preds = %.lr.ph99.us118, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.us
-  %.1.lcssa.us112 = phi i64 [ %.056102.us109, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.us ], [ %165, %.lr.ph99.us118 ]
-  %163 = add nuw i64 %.055103.us108, 1
-  %exitcond132.not = icmp eq i64 %163, %.053
-  br i1 %exitcond132.not, label %._crit_edge107, label %.lr.ph106.split.split.us, !llvm.loop !203
+._crit_edge102.us121:                             ; preds = %.lr.ph101.us120, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.us
+  %.1.lcssa.us114 = phi i64 [ %.056104.us111, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit.us ], [ %161, %.lr.ph101.us120 ]
+  %159 = add nuw i64 %.055105.us110, 1
+  %exitcond134.not = icmp eq i64 %159, %.053
+  br i1 %exitcond134.not, label %._crit_edge109, label %.lr.ph108.split.split.us, !llvm.loop !203
 
-.lr.ph99.us118:                                   ; preds = %.lr.ph99.us118.preheader, %.lr.ph99.us118
-  %.098.us113 = phi i64 [ %167, %.lr.ph99.us118 ], [ 0, %.lr.ph99.us118.preheader ]
-  %.197.us114 = phi i64 [ %165, %.lr.ph99.us118 ], [ %.056102.us109, %.lr.ph99.us118.preheader ]
-  %.08396.us115 = phi i64 [ %spec.select.us117, %.lr.ph99.us118 ], [ %162, %.lr.ph99.us118.preheader ]
-  %.not69.us116 = icmp ne i64 %.098.us113, 0
-  %164 = zext i1 %.not69.us116 to i64
-  %spec.select.us117 = add nsw i64 %.08396.us115, %164
-  %165 = add i64 %.197.us114, 1
-  %166 = getelementptr inbounds nuw i64, ptr %125, i64 %.197.us114
-  store i64 %spec.select.us117, ptr %166, align 8, !tbaa !71
-  %167 = add nuw i64 %.098.us113, 1
-  %168 = load i64, ptr %159, align 8, !tbaa !77
-  %169 = icmp ult i64 %167, %168
-  br i1 %169, label %.lr.ph99.us118, label %._crit_edge100.us119, !llvm.loop !204
+.lr.ph101.us120:                                  ; preds = %.lr.ph101.us120.preheader, %.lr.ph101.us120
+  %.0100.us115 = phi i64 [ %163, %.lr.ph101.us120 ], [ 0, %.lr.ph101.us120.preheader ]
+  %.199.us116 = phi i64 [ %161, %.lr.ph101.us120 ], [ %.056104.us111, %.lr.ph101.us120.preheader ]
+  %.08498.us117 = phi i64 [ %spec.select.us119, %.lr.ph101.us120 ], [ %158, %.lr.ph101.us120.preheader ]
+  %.not69.us118 = icmp ne i64 %.0100.us115, 0
+  %160 = zext i1 %.not69.us118 to i64
+  %spec.select.us119 = add nsw i64 %.08498.us117, %160
+  %161 = add i64 %.199.us116, 1
+  %162 = getelementptr inbounds nuw i64, ptr %121, i64 %.199.us116
+  store i64 %spec.select.us119, ptr %162, align 8, !tbaa !71
+  %163 = add nuw i64 %.0100.us115, 1
+  %164 = load i64, ptr %155, align 8, !tbaa !77
+  %165 = icmp ult i64 %163, %164
+  br i1 %165, label %.lr.ph101.us120, label %._crit_edge102.us121, !llvm.loop !204
 
-.lr.ph106.split.split:                            ; preds = %.lr.ph106.split
-  %170 = load ptr, ptr %139, align 8, !tbaa !67
-  %.not.i.i79 = icmp eq ptr %170, null
-  br label %175
+.lr.ph108.split.split:                            ; preds = %.lr.ph108.split
+  %166 = load ptr, ptr %135, align 8, !tbaa !67
+  %.not.i.i79 = icmp eq ptr %166, null
+  br label %171
 
-._crit_edge107:                                   ; preds = %._crit_edge100, %._crit_edge100.us119, %._crit_edge100.us, %123
+._crit_edge109:                                   ; preds = %._crit_edge102, %._crit_edge102.us121, %._crit_edge102.us, %119
   invoke void @_ZN6duckdb10ListVector11SetListSizeERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %.059.lcssa)
-          to label %199 unwind label %250
+          to label %195 unwind label %246
 
-171:                                              ; preds = %._crit_edge
-  %172 = landingpad { ptr, i32 }
+167:                                              ; preds = %._crit_edge
+  %168 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %248
 
-173:                                              ; preds = %121
-  %174 = landingpad { ptr, i32 }
+169:                                              ; preds = %117
+  %170 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %248
 
-175:                                              ; preds = %.lr.ph106.split.split, %._crit_edge100
-  %.055103 = phi i64 [ 0, %.lr.ph106.split.split ], [ %192, %._crit_edge100 ]
-  %.056102 = phi i64 [ 0, %.lr.ph106.split.split ], [ %.1.lcssa, %._crit_edge100 ]
-  br i1 %.not.i.i77, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit, label %176
+171:                                              ; preds = %.lr.ph108.split.split, %._crit_edge102
+  %.055105 = phi i64 [ 0, %.lr.ph108.split.split ], [ %188, %._crit_edge102 ]
+  %.056104 = phi i64 [ 0, %.lr.ph108.split.split ], [ %.1.lcssa, %._crit_edge102 ]
+  br i1 %.not.i.i77, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit, label %172
 
-176:                                              ; preds = %175
-  %177 = getelementptr inbounds nuw i32, ptr %153, i64 %.055103
-  %178 = load i32, ptr %177, align 4, !tbaa !68
-  %179 = zext i32 %178 to i64
+172:                                              ; preds = %171
+  %173 = getelementptr inbounds nuw i32, ptr %149, i64 %.055105
+  %174 = load i32, ptr %173, align 4, !tbaa !68
+  %175 = zext i32 %174 to i64
   br label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit
 
-_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit: ; preds = %175, %176
-  %180 = phi i64 [ %179, %176 ], [ %.055103, %175 ]
-  %181 = getelementptr inbounds nuw i64, ptr %135, i64 %180
-  %182 = load i64, ptr %181, align 8, !tbaa !71
-  br i1 %.not.i.i79, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80, label %183
+_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit: ; preds = %171, %172
+  %176 = phi i64 [ %175, %172 ], [ %.055105, %171 ]
+  %177 = getelementptr inbounds nuw i64, ptr %131, i64 %176
+  %178 = load i64, ptr %177, align 8, !tbaa !71
+  br i1 %.not.i.i79, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80, label %179
 
-183:                                              ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit
-  %184 = getelementptr inbounds nuw i32, ptr %170, i64 %.055103
-  %185 = load i32, ptr %184, align 4, !tbaa !68
-  %186 = zext i32 %185 to i64
+179:                                              ; preds = %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit
+  %180 = getelementptr inbounds nuw i32, ptr %166, i64 %.055105
+  %181 = load i32, ptr %180, align 4, !tbaa !68
+  %182 = zext i32 %181 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80
 
-_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80: ; preds = %183, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit
-  %187 = phi i64 [ %186, %183 ], [ %.055103, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit ]
-  %188 = getelementptr inbounds nuw i64, ptr %138, i64 %187
-  %189 = load i64, ptr %188, align 8, !tbaa !71
-  %190 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.055103, i32 1
-  %191 = load i64, ptr %190, align 8, !tbaa !77
-  %.not124 = icmp eq i64 %191, 0
-  br i1 %.not124, label %._crit_edge100, label %.lr.ph99
+_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80: ; preds = %179, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit
+  %183 = phi i64 [ %182, %179 ], [ %.055105, %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EE14StartListValueEm.exit ]
+  %184 = getelementptr inbounds nuw i64, ptr %134, i64 %183
+  %185 = load i64, ptr %184, align 8, !tbaa !71
+  %186 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %26, i64 %.055105, i32 1
+  %187 = load i64, ptr %186, align 8, !tbaa !77
+  %.not126 = icmp eq i64 %187, 0
+  br i1 %.not126, label %._crit_edge102, label %.lr.ph101
 
-._crit_edge100:                                   ; preds = %.lr.ph99, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80
-  %.1.lcssa = phi i64 [ %.056102, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80 ], [ %194, %.lr.ph99 ]
-  %192 = add nuw i64 %.055103, 1
-  %exitcond131.not = icmp eq i64 %192, %.053
-  br i1 %exitcond131.not, label %._crit_edge107, label %175, !llvm.loop !203
+._crit_edge102:                                   ; preds = %.lr.ph101, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80
+  %.1.lcssa = phi i64 [ %.056104, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80 ], [ %190, %.lr.ph101 ]
+  %188 = add nuw i64 %.055105, 1
+  %exitcond133.not = icmp eq i64 %188, %.053
+  br i1 %exitcond133.not, label %._crit_edge109, label %171, !llvm.loop !203
 
-.lr.ph99:                                         ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80, %.lr.ph99
-  %.098 = phi i64 [ %196, %.lr.ph99 ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80 ]
-  %.197 = phi i64 [ %194, %.lr.ph99 ], [ %.056102, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80 ]
-  %.08396 = phi i64 [ %spec.select, %.lr.ph99 ], [ %182, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80 ]
-  %.not69 = icmp eq i64 %.098, 0
-  %193 = select i1 %.not69, i64 0, i64 %189
-  %spec.select = add nsw i64 %193, %.08396
-  %194 = add i64 %.197, 1
-  %195 = getelementptr inbounds nuw i64, ptr %125, i64 %.197
-  store i64 %spec.select, ptr %195, align 8, !tbaa !71
-  %196 = add nuw i64 %.098, 1
-  %197 = load i64, ptr %190, align 8, !tbaa !77
-  %198 = icmp ult i64 %196, %197
-  br i1 %198, label %.lr.ph99, label %._crit_edge100, !llvm.loop !204
+.lr.ph101:                                        ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80, %.lr.ph101
+  %.0100 = phi i64 [ %192, %.lr.ph101 ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80 ]
+  %.199 = phi i64 [ %190, %.lr.ph101 ], [ %.056104, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80 ]
+  %.08498 = phi i64 [ %spec.select, %.lr.ph101 ], [ %178, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i80 ]
+  %.not69 = icmp eq i64 %.0100, 0
+  %189 = select i1 %.not69, i64 0, i64 %185
+  %spec.select = add nsw i64 %189, %.08498
+  %190 = add i64 %.199, 1
+  %191 = getelementptr inbounds nuw i64, ptr %121, i64 %.199
+  store i64 %spec.select, ptr %191, align 8, !tbaa !71
+  %192 = add nuw i64 %.0100, 1
+  %193 = load i64, ptr %186, align 8, !tbaa !77
+  %194 = icmp ult i64 %192, %193
+  br i1 %194, label %.lr.ph101, label %._crit_edge102, !llvm.loop !204
 
-199:                                              ; preds = %._crit_edge107
+195:                                              ; preds = %._crit_edge109
   invoke void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext %.054)
-          to label %200 unwind label %250
+          to label %196 unwind label %246
 
-200:                                              ; preds = %199
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %202 = load i64, ptr %201, align 8, !tbaa !43
-  invoke void @_ZN6duckdb6Vector6VerifyEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %202)
-          to label %.preheader unwind label %250
+196:                                              ; preds = %195
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %198 = load i64, ptr %197, align 8, !tbaa !43
+  invoke void @_ZN6duckdb6Vector6VerifyEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %198)
+          to label %.preheader unwind label %246
 
-.preheader:                                       ; preds = %200, %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i
-  %.idx.i = phi i64 [ %.add.i, %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i ], [ 224, %200 ]
+.preheader:                                       ; preds = %196, %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i
+  %.idx.i = phi i64 [ %.add.i, %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i ], [ 224, %196 ]
   %.add.i = add nsw i64 %.idx.i, -72
   %.ptr1.i = getelementptr inbounds i8, ptr %4, i64 %.add.i
-  %203 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 64
-  %204 = load ptr, ptr %203, align 8, !tbaa !83
-  %.not.i.i.i.i.i.i = icmp eq ptr %204, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i, label %205
+  %199 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 64
+  %200 = load ptr, ptr %199, align 8, !tbaa !83
+  %.not.i.i.i.i.i.i = icmp eq ptr %200, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i, label %201
 
-205:                                              ; preds = %.preheader
-  %206 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  %207 = load atomic i64, ptr %206 acquire, align 8
-  %208 = icmp eq i64 %207, 4294967297
-  %209 = trunc i64 %207 to i32
-  br i1 %208, label %210, label %218
+201:                                              ; preds = %.preheader
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  %203 = load atomic i64, ptr %202 acquire, align 8
+  %204 = icmp eq i64 %203, 4294967297
+  %205 = trunc i64 %203 to i32
+  br i1 %204, label %206, label %214
 
-210:                                              ; preds = %205
-  store i32 0, ptr %206, align 8, !tbaa !84
-  %211 = getelementptr inbounds nuw i8, ptr %204, i64 12
-  store i32 0, ptr %211, align 4, !tbaa !86
-  %212 = load ptr, ptr %204, align 8, !tbaa !87
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  %214 = load ptr, ptr %213, align 8
-  call void %214(ptr noundef nonnull align 8 dereferenceable(16) %204) #27
-  %215 = load ptr, ptr %204, align 8, !tbaa !87
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
-  %217 = load ptr, ptr %216, align 8
-  call void %217(ptr noundef nonnull align 8 dereferenceable(16) %204) #27
+206:                                              ; preds = %201
+  store i32 0, ptr %202, align 8, !tbaa !84
+  %207 = getelementptr inbounds nuw i8, ptr %200, i64 12
+  store i32 0, ptr %207, align 4, !tbaa !86
+  %208 = load ptr, ptr %200, align 8, !tbaa !87
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
+  %210 = load ptr, ptr %209, align 8
+  call void %210(ptr noundef nonnull align 8 dereferenceable(16) %200) #27
+  %211 = load ptr, ptr %200, align 8, !tbaa !87
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 24
+  %213 = load ptr, ptr %212, align 8
+  call void %213(ptr noundef nonnull align 8 dereferenceable(16) %200) #27
   br label %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i
 
-218:                                              ; preds = %205
-  %219 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %219, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %222, label %220
+214:                                              ; preds = %201
+  %215 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %215, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %218, label %216
 
-220:                                              ; preds = %218
-  %221 = add nsw i32 %209, -1
-  store i32 %221, ptr %206, align 4, !tbaa !68
+216:                                              ; preds = %214
+  %217 = add nsw i32 %205, -1
+  store i32 %217, ptr %202, align 4, !tbaa !68
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
-222:                                              ; preds = %218
-  %223 = atomicrmw volatile add ptr %206, i32 -1 acq_rel, align 4
+218:                                              ; preds = %214
+  %219 = atomicrmw volatile add ptr %202, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %222, %220
-  %.0.i.i.i.i.i.i.i.i = phi i32 [ %209, %220 ], [ %223, %222 ]
-  %224 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %224, label %225, label %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %218, %216
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %205, %216 ], [ %219, %218 ]
+  %220 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
+  br i1 %220, label %221, label %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i, !prof !90
 
-225:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %204) #27
+221:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %200) #27
   br label %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i
 
-_ZN6duckdb15SelectionVectorD2Ev.exit.i.i:         ; preds = %225, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %210, %.preheader
-  %226 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 32
-  %227 = load ptr, ptr %226, align 8, !tbaa !83
-  %.not.i.i.i.i1.i.i = icmp eq ptr %227, null
-  br i1 %.not.i.i.i.i1.i.i, label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i, label %228
+_ZN6duckdb15SelectionVectorD2Ev.exit.i.i:         ; preds = %221, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %206, %.preheader
+  %222 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 32
+  %223 = load ptr, ptr %222, align 8, !tbaa !83
+  %.not.i.i.i.i1.i.i = icmp eq ptr %223, null
+  br i1 %.not.i.i.i.i1.i.i, label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i, label %224
 
-228:                                              ; preds = %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i
-  %229 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  %230 = load atomic i64, ptr %229 acquire, align 8
-  %231 = icmp eq i64 %230, 4294967297
-  %232 = trunc i64 %230 to i32
-  br i1 %231, label %233, label %241
+224:                                              ; preds = %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i
+  %225 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  %226 = load atomic i64, ptr %225 acquire, align 8
+  %227 = icmp eq i64 %226, 4294967297
+  %228 = trunc i64 %226 to i32
+  br i1 %227, label %229, label %237
 
-233:                                              ; preds = %228
-  store i32 0, ptr %229, align 8, !tbaa !84
-  %234 = getelementptr inbounds nuw i8, ptr %227, i64 12
-  store i32 0, ptr %234, align 4, !tbaa !86
-  %235 = load ptr, ptr %227, align 8, !tbaa !87
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  %237 = load ptr, ptr %236, align 8
-  call void %237(ptr noundef nonnull align 8 dereferenceable(16) %227) #27
-  %238 = load ptr, ptr %227, align 8, !tbaa !87
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 24
-  %240 = load ptr, ptr %239, align 8
-  call void %240(ptr noundef nonnull align 8 dereferenceable(16) %227) #27
+229:                                              ; preds = %224
+  store i32 0, ptr %225, align 8, !tbaa !84
+  %230 = getelementptr inbounds nuw i8, ptr %223, i64 12
+  store i32 0, ptr %230, align 4, !tbaa !86
+  %231 = load ptr, ptr %223, align 8, !tbaa !87
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
+  %233 = load ptr, ptr %232, align 8
+  call void %233(ptr noundef nonnull align 8 dereferenceable(16) %223) #27
+  %234 = load ptr, ptr %223, align 8, !tbaa !87
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 24
+  %236 = load ptr, ptr %235, align 8
+  call void %236(ptr noundef nonnull align 8 dereferenceable(16) %223) #27
   br label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i
 
-241:                                              ; preds = %228
-  %242 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
-  %.not.i.i.i.i.i2.i.i = icmp eq i8 %242, 0
-  br i1 %.not.i.i.i.i.i2.i.i, label %245, label %243
+237:                                              ; preds = %224
+  %238 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
+  %.not.i.i.i.i.i2.i.i = icmp eq i8 %238, 0
+  br i1 %.not.i.i.i.i.i2.i.i, label %241, label %239
 
-243:                                              ; preds = %241
-  %244 = add nsw i32 %232, -1
-  store i32 %244, ptr %229, align 4, !tbaa !68
+239:                                              ; preds = %237
+  %240 = add nsw i32 %228, -1
+  store i32 %240, ptr %225, align 4, !tbaa !68
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i
 
-245:                                              ; preds = %241
-  %246 = atomicrmw volatile add ptr %229, i32 -1 acq_rel, align 4
+241:                                              ; preds = %237
+  %242 = atomicrmw volatile add ptr %225, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i: ; preds = %245, %243
-  %.0.i.i.i.i.i.i4.i.i = phi i32 [ %232, %243 ], [ %246, %245 ]
-  %247 = icmp eq i32 %.0.i.i.i.i.i.i4.i.i, 1
-  br i1 %247, label %248, label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i, !prof !90
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i: ; preds = %241, %239
+  %.0.i.i.i.i.i.i4.i.i = phi i32 [ %228, %239 ], [ %242, %241 ]
+  %243 = icmp eq i32 %.0.i.i.i.i.i.i4.i.i, 1
+  br i1 %243, label %244, label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i, !prof !90
 
-248:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %227) #27
+244:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %223) #27
   br label %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i
 
-_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i:       ; preds = %248, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i, %233, %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i
-  %249 = icmp eq i64 %.add.i, 8
-  br i1 %249, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EED2Ev.exit, label %.preheader
+_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i:       ; preds = %244, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i.i, %229, %_ZN6duckdb15SelectionVectorD2Ev.exit.i.i
+  %245 = icmp eq i64 %.add.i, 8
+  br i1 %245, label %_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EED2Ev.exit, label %.preheader
 
 _ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EED2Ev.exit: ; preds = %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #27
   ret void
 
-250:                                              ; preds = %200, %199, %._crit_edge107
-  %251 = landingpad { ptr, i32 }
+246:                                              ; preds = %196, %195, %._crit_edge109
+  %247 = landingpad { ptr, i32 }
           cleanup
-  br label %252
+  br label %248
 
-252:                                              ; preds = %74, %171, %250, %173, %33, %23
-  %.pn70.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %34, %33 ], [ %75, %74 ], [ %172, %171 ], [ %251, %250 ], [ %174, %173 ]
+248:                                              ; preds = %74, %167, %246, %169, %33, %23
+  %.pn70.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %34, %33 ], [ %75, %74 ], [ %168, %167 ], [ %247, %246 ], [ %170, %169 ]
   call void @_ZN6duckdb15RangeInfoStructINS_16NumericRangeInfoELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %4) #27
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #27
   resume { ptr, i32 } %.pn70.pn.pn.pn

@@ -3083,7 +3083,7 @@ define internal fastcc i64 @GetCombinedEntropy(ptr noundef %0, ptr noundef %1, i
   %12 = zext i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 13
   %14 = add nuw nsw i64 %13, 401814323
-  br label %98
+  br label %95
 
 15:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
@@ -3097,12 +3097,12 @@ define internal fastcc i64 @GetCombinedEntropy(ptr noundef %0, ptr noundef %1, i
 17:                                               ; preds = %16
   %18 = load ptr, ptr @VP8LGetCombinedEntropyUnrefined, align 8, !tbaa !29
   call void %18(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #10
-  br label %30
+  br label %27
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @VP8LGetEntropyUnrefined, align 8, !tbaa !29
   call void %20(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #10
-  br label %30
+  br label %27
 
 21:                                               ; preds = %15
   br i1 %.not15, label %24, label %22
@@ -3110,127 +3110,126 @@ define internal fastcc i64 @GetCombinedEntropy(ptr noundef %0, ptr noundef %1, i
 22:                                               ; preds = %21
   %23 = load ptr, ptr @VP8LGetEntropyUnrefined, align 8, !tbaa !29
   call void %23(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #10
-  br label %30
+  br label %27
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %25, i8 0, i64 20, i1 false)
   store i32 1, ptr %7, align 4, !tbaa !17
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %27 = icmp sgt i32 %2, 3
-  %28 = zext i1 %27 to i64
-  %29 = getelementptr inbounds nuw [2 x i32], ptr %26, i64 0, i64 %28
-  store i32 %2, ptr %29, align 4, !tbaa !17
+  %26 = icmp sgt i32 %2, 3
+  %.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %26, i64 12, i64 8
+  %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i32 %2, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !17
   call void @VP8LBitEntropyInit(ptr noundef nonnull %8) #10
-  br label %30
+  br label %27
 
-30:                                               ; preds = %22, %24, %17, %19
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %32 = load i32, ptr %31, align 4, !tbaa !33
-  %33 = icmp slt i32 %32, 5
-  br i1 %33, label %34, label %51
+27:                                               ; preds = %22, %24, %17, %19
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %29 = load i32, ptr %28, align 4, !tbaa !33
+  %30 = icmp slt i32 %29, 5
+  br i1 %30, label %31, label %48
 
-34:                                               ; preds = %30
-  %35 = icmp slt i32 %32, 2
-  br i1 %35, label %BitsEntropyRefine.exit, label %36
+31:                                               ; preds = %27
+  %32 = icmp slt i32 %29, 2
+  br i1 %32, label %BitsEntropyRefine.exit, label %33
 
-36:                                               ; preds = %34
-  switch i32 %32, label %50 [
-    i32 2, label %37
-    i32 3, label %51
+33:                                               ; preds = %31
+  switch i32 %29, label %47 [
+    i32 2, label %34
+    i32 3, label %48
   ]
 
-37:                                               ; preds = %36
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !35
-  %40 = zext i32 %39 to i64
-  %41 = mul nuw nsw i64 %40, 830472192
-  %42 = load i64, ptr %8, align 8, !tbaa !36
-  %43 = add i64 %41, %42
-  %44 = icmp sgt i64 %43, -1
-  br i1 %44, label %45, label %48
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %36 = load i32, ptr %35, align 8, !tbaa !35
+  %37 = zext i32 %36 to i64
+  %38 = mul nuw nsw i64 %37, 830472192
+  %39 = load i64, ptr %8, align 8, !tbaa !36
+  %40 = add i64 %38, %39
+  %41 = icmp sgt i64 %40, -1
+  br i1 %41, label %42, label %45
 
-45:                                               ; preds = %37
-  %46 = add nuw nsw i64 %43, 50
-  %47 = udiv i64 %46, 100
+42:                                               ; preds = %34
+  %43 = add nuw nsw i64 %40, 50
+  %44 = udiv i64 %43, 100
   br label %BitsEntropyRefine.exit
 
-48:                                               ; preds = %37
-  %.neg8.i.i = sub i64 50, %43
-  %49 = udiv i64 %.neg8.i.i, 100
-  %.neg.i.i = sub nsw i64 0, %49
+45:                                               ; preds = %34
+  %.neg8.i.i = sub i64 50, %40
+  %46 = udiv i64 %.neg8.i.i, 100
+  %.neg.i.i = sub nsw i64 0, %46
   br label %BitsEntropyRefine.exit
 
-50:                                               ; preds = %36
-  br label %51
+47:                                               ; preds = %33
+  br label %48
 
-51:                                               ; preds = %50, %36, %30
-  %.0.i = phi i64 [ 700, %50 ], [ 950, %36 ], [ 627, %30 ]
-  %52 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %53 = load i32, ptr %52, align 8, !tbaa !35
-  %54 = shl i32 %53, 1
-  %55 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %56 = load i32, ptr %55, align 8, !tbaa !37
-  %57 = sub i32 %54, %56
-  %58 = zext i32 %57 to i64
-  %59 = shl nuw nsw i64 %.0.i, 23
+48:                                               ; preds = %47, %33, %27
+  %.0.i = phi i64 [ 700, %47 ], [ 950, %33 ], [ 627, %27 ]
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %50 = load i32, ptr %49, align 8, !tbaa !35
+  %51 = shl i32 %50, 1
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %53 = load i32, ptr %52, align 8, !tbaa !37
+  %54 = sub i32 %51, %53
+  %55 = zext i32 %54 to i64
+  %56 = shl nuw nsw i64 %.0.i, 23
+  %57 = mul i64 %56, %55
+  %58 = sub nuw nsw i64 1000, %.0.i
+  %59 = load i64, ptr %8, align 8, !tbaa !36
   %60 = mul i64 %59, %58
-  %61 = sub nuw nsw i64 1000, %.0.i
-  %62 = load i64, ptr %8, align 8, !tbaa !36
-  %63 = mul i64 %62, %61
-  %64 = add i64 %60, %63
-  %65 = icmp sgt i64 %64, -1
-  br i1 %65, label %66, label %69
+  %61 = add i64 %57, %60
+  %62 = icmp sgt i64 %61, -1
+  br i1 %62, label %63, label %66
 
-66:                                               ; preds = %51
-  %67 = add nuw nsw i64 %64, 500
-  %68 = udiv i64 %67, 1000
+63:                                               ; preds = %48
+  %64 = add nuw nsw i64 %61, 500
+  %65 = udiv i64 %64, 1000
   br label %DivRound.exit22.i
 
-69:                                               ; preds = %51
-  %.neg8.i20.i = sub i64 500, %64
-  %70 = udiv i64 %.neg8.i20.i, 1000
-  %.neg.i21.i = sub nsw i64 0, %70
+66:                                               ; preds = %48
+  %.neg8.i20.i = sub i64 500, %61
+  %67 = udiv i64 %.neg8.i20.i, 1000
+  %.neg.i21.i = sub nsw i64 0, %67
   br label %DivRound.exit22.i
 
-DivRound.exit22.i:                                ; preds = %69, %66
-  %71 = phi i64 [ %68, %66 ], [ %.neg.i21.i, %69 ]
-  %..i = call i64 @llvm.umax.i64(i64 %62, i64 %71)
+DivRound.exit22.i:                                ; preds = %66, %63
+  %68 = phi i64 [ %65, %63 ], [ %.neg.i21.i, %66 ]
+  %..i = call i64 @llvm.umax.i64(i64 %59, i64 %68)
   br label %BitsEntropyRefine.exit
 
-BitsEntropyRefine.exit:                           ; preds = %34, %45, %48, %DivRound.exit22.i
-  %.016.i = phi i64 [ %..i, %DivRound.exit22.i ], [ 0, %34 ], [ %47, %45 ], [ %.neg.i.i, %48 ]
-  %72 = load i32, ptr %7, align 4, !tbaa !17
-  %73 = mul nsw i32 %72, 1600
-  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %75 = getelementptr inbounds nuw i8, ptr %7, i64 12
+BitsEntropyRefine.exit:                           ; preds = %31, %42, %45, %DivRound.exit22.i
+  %.016.i = phi i64 [ %..i, %DivRound.exit22.i ], [ 0, %31 ], [ %44, %42 ], [ %.neg.i.i, %45 ]
+  %69 = load i32, ptr %7, align 4, !tbaa !17
+  %70 = mul nsw i32 %69, 1600
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %73 = load i32, ptr %72, align 4, !tbaa !17
+  %74 = mul nsw i32 %73, 240
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !17
-  %77 = mul nsw i32 %76, 240
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !17
-  %80 = mul nsw i32 %79, 2640
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %82 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %83 = load i32, ptr %82, align 4, !tbaa !17
-  %84 = mul nsw i32 %83, 720
-  %85 = load i32, ptr %74, align 4, !tbaa !17
-  %86 = mul nsw i32 %85, 1840
-  %87 = load i32, ptr %81, align 4, !tbaa !17
-  %88 = mul nsw i32 %87, 3360
-  %89 = add i32 %77, %73
-  %90 = add i32 %89, %80
-  %91 = add i32 %90, %84
-  %92 = add i32 %91, %86
-  %93 = add i32 %92, %88
-  %94 = zext i32 %93 to i64
-  %95 = shl nuw nsw i64 %94, 13
-  %96 = add i64 %.016.i, 401814323
-  %97 = add i64 %96, %95
+  %77 = mul nsw i32 %76, 2640
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %80 = load i32, ptr %79, align 4, !tbaa !17
+  %81 = mul nsw i32 %80, 720
+  %82 = load i32, ptr %71, align 4, !tbaa !17
+  %83 = mul nsw i32 %82, 1840
+  %84 = load i32, ptr %78, align 4, !tbaa !17
+  %85 = mul nsw i32 %84, 3360
+  %86 = add i32 %74, %70
+  %87 = add i32 %86, %77
+  %88 = add i32 %87, %81
+  %89 = add i32 %88, %83
+  %90 = add i32 %89, %85
+  %91 = zext i32 %90 to i64
+  %92 = shl nuw nsw i64 %91, 13
+  %93 = add i64 %.016.i, 401814323
+  %94 = add i64 %93, %92
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
-  br label %98
+  br label %95
 
-98:                                               ; preds = %BitsEntropyRefine.exit, %9
-  %.0 = phi i64 [ %14, %9 ], [ %97, %BitsEntropyRefine.exit ]
+95:                                               ; preds = %BitsEntropyRefine.exit, %9
+  %.0 = phi i64 [ %14, %9 ], [ %94, %BitsEntropyRefine.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
   ret i64 %.0
 }

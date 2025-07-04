@@ -730,62 +730,61 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 81:                                               ; preds = %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit62
   %82 = tail call noundef float @llvm.fabs.f32(float %14)
   %83 = tail call noundef float @llvm.fabs.f32(float %13)
-  %84 = fcmp olt float %82, %83
-  %85 = zext i1 %84 to i64
-  %86 = getelementptr inbounds nuw [2 x %"class.cv::Vec"], ptr %5, i64 0, i64 %85
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  %88 = load float, ptr %87, align 4, !tbaa !44
-  %89 = load float, ptr %86, align 8, !tbaa !44
-  %90 = fdiv float %88, %89
-  %91 = tail call noundef float @atanf(float noundef %90) #21, !tbaa !31
-  br label %92
+  %84 = fcmp uge float %82, %83
+  %.sroa.sel = select i1 %84, ptr %5, ptr %15
+  %.sroa.gep.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %.sroa.gep.sroa.gep.val = load float, ptr %.sroa.gep.sroa.gep, align 4
+  %indvars.iv.i.i.sroa.gep83.val = load float, ptr %indvars.iv.i.i.sroa.gep83, align 4
+  %85 = select i1 %84, float %indvars.iv.i.i.sroa.gep83.val, float %.sroa.gep.sroa.gep.val
+  %86 = load float, ptr %.sroa.sel, align 8, !tbaa !44
+  %87 = fdiv float %85, %86
+  %88 = tail call noundef float @atanf(float noundef %87) #21, !tbaa !31
+  br label %89
 
-92:                                               ; preds = %92, %81
-  %93 = phi i1 [ true, %81 ], [ false, %92 ]
-  %indvars.iv.i.i63 = phi i64 [ 0, %81 ], [ 1, %92 ]
-  %.010.i.i64 = phi double [ 0.000000e+00, %81 ], [ %97, %92 ]
-  %94 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv.i.i63
-  %95 = load float, ptr %94, align 4, !tbaa !44
-  %96 = fpext float %95 to double
-  %97 = tail call double @llvm.fmuladd.f64(double %96, double %96, double %.010.i.i64)
-  br i1 %93, label %92, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65, !llvm.loop !54
+89:                                               ; preds = %89, %81
+  %90 = phi i1 [ true, %81 ], [ false, %89 ]
+  %indvars.iv.i.i63 = phi i64 [ 0, %81 ], [ 1, %89 ]
+  %.010.i.i64 = phi double [ 0.000000e+00, %81 ], [ %94, %89 ]
+  %91 = getelementptr inbounds nuw float, ptr %.sroa.sel, i64 %indvars.iv.i.i63
+  %92 = load float, ptr %91, align 4, !tbaa !44
+  %93 = fpext float %92 to double
+  %94 = tail call double @llvm.fmuladd.f64(double %93, double %93, double %.010.i.i64)
+  br i1 %90, label %89, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65, !llvm.loop !54
 
-_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65: ; preds = %92
-  %98 = xor i1 %84, true
-  %99 = tail call noundef double @sqrt(double noundef %97) #21, !tbaa !31
-  %100 = zext i1 %98 to i64
-  %101 = getelementptr inbounds nuw [2 x %"class.cv::Vec"], ptr %5, i64 0, i64 %100
-  br label %102
+_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65: ; preds = %89
+  %95 = tail call noundef double @sqrt(double noundef %94) #21, !tbaa !31
+  %.sroa.sel103 = select i1 %84, ptr %15, ptr %5
+  br label %96
 
-102:                                              ; preds = %102, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65
-  %103 = phi i1 [ true, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65 ], [ false, %102 ]
-  %indvars.iv.i.i66 = phi i64 [ 0, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65 ], [ 1, %102 ]
-  %.010.i.i67 = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65 ], [ %107, %102 ]
-  %104 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv.i.i66
-  %105 = load float, ptr %104, align 4, !tbaa !44
-  %106 = fpext float %105 to double
-  %107 = tail call double @llvm.fmuladd.f64(double %106, double %106, double %.010.i.i67)
-  br i1 %103, label %102, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit68, !llvm.loop !54
+96:                                               ; preds = %96, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65
+  %97 = phi i1 [ true, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65 ], [ false, %96 ]
+  %indvars.iv.i.i66 = phi i64 [ 0, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65 ], [ 1, %96 ]
+  %.010.i.i67 = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65 ], [ %101, %96 ]
+  %98 = getelementptr inbounds nuw float, ptr %.sroa.sel103, i64 %indvars.iv.i.i66
+  %99 = load float, ptr %98, align 4, !tbaa !44
+  %100 = fpext float %99 to double
+  %101 = tail call double @llvm.fmuladd.f64(double %100, double %100, double %.010.i.i67)
+  br i1 %97, label %96, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit68, !llvm.loop !54
 
-_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit68: ; preds = %102
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %110 = fptrunc double %99 to float
-  %111 = fmul float %91, 1.800000e+02
-  %112 = fdiv float %111, 0x400921FB60000000
-  %113 = fadd float %.val38, %.val40
-  %114 = fmul float %113, 5.000000e-01
-  %.sroa.0.0.vec.insert.i44 = insertelement <2 x float> poison, float %114, i64 0
-  %115 = fadd float %.val39, %.val41
-  %116 = fmul float %115, 5.000000e-01
-  %.sroa.0.4.vec.insert.i45 = insertelement <2 x float> %.sroa.0.0.vec.insert.i44, float %116, i64 1
-  %117 = tail call noundef double @sqrt(double noundef %107) #21, !tbaa !31
-  %118 = fptrunc double %117 to float
+_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit68: ; preds = %96
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %104 = fptrunc double %95 to float
+  %105 = fmul float %88, 1.800000e+02
+  %106 = fdiv float %105, 0x400921FB60000000
+  %107 = fadd float %.val38, %.val40
+  %108 = fmul float %107, 5.000000e-01
+  %.sroa.0.0.vec.insert.i44 = insertelement <2 x float> poison, float %108, i64 0
+  %109 = fadd float %.val39, %.val41
+  %110 = fmul float %109, 5.000000e-01
+  %.sroa.0.4.vec.insert.i45 = insertelement <2 x float> %.sroa.0.0.vec.insert.i44, float %110, i64 1
+  %111 = tail call noundef double @sqrt(double noundef %101) #21, !tbaa !31
+  %112 = fptrunc double %111 to float
   store <2 x float> %.sroa.0.4.vec.insert.i45, ptr %0, align 4
-  store float %110, ptr %109, align 4
-  store float %118, ptr %108, align 4
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %112, ptr %119, align 4, !tbaa !56
+  store float %104, ptr %103, align 4
+  store float %112, ptr %102, align 4
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %106, ptr %113, align 4, !tbaa !56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
   ret void
 }

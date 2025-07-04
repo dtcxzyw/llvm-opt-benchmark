@@ -9155,42 +9155,42 @@ define range(i32 -192, 1) i32 @wc_GetDateInfo(ptr noundef %0, i32 noundef %1, pt
   %13 = load i8, ptr %12, align 1, !tbaa !34
   %.not20.i = icmp eq i8 %13, 0
   %.not21.i = icmp eq ptr %3, null
-  br i1 %.not21.i, label %18, label %14
+  br i1 %.not21.i, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = zext i1 %.not20.i to i64
-  %16 = getelementptr inbounds nuw [2 x %struct.ASNGetData], ptr %6, i64 0, i64 %15, i32 4
-  %17 = load i8, ptr %16, align 1, !tbaa !34
-  store i8 %17, ptr %3, align 1, !tbaa !3
-  br label %18
+  %.sroa.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 73
+  %.sroa.gep.val.i = load i8, ptr %.sroa.gep.i, align 1
+  %15 = select i1 %.not20.i, i8 %.sroa.gep.val.i, i8 %13
+  store i8 %15, ptr %3, align 1, !tbaa !3
+  br label %16
 
-18:                                               ; preds = %14, %11
+16:                                               ; preds = %14, %11
   %.not22.i = icmp eq ptr %2, null
-  br i1 %.not22.i, label %23, label %19
+  br i1 %.not22.i, label %19, label %17
 
-19:                                               ; preds = %18
-  %20 = zext i1 %.not20.i to i64
-  %21 = getelementptr inbounds nuw [2 x %struct.ASNGetData], ptr %6, i64 0, i64 %20, i32 2
-  %22 = load ptr, ptr %21, align 8, !tbaa !3
-  store ptr %22, ptr %2, align 8, !tbaa !49
-  br label %23
+17:                                               ; preds = %16
+  %.sroa.sel27.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not20.i, i64 48, i64 8
+  %.sroa.sel27.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.sel27.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %18 = load ptr, ptr %.sroa.sel27.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !3
+  store ptr %18, ptr %2, align 8, !tbaa !49
+  br label %19
 
-23:                                               ; preds = %19, %18
+19:                                               ; preds = %17, %16
   %.not23.i = icmp eq ptr %4, null
-  br i1 %.not23.i, label %GetDateInfo.exit, label %24
+  br i1 %.not23.i, label %GetDateInfo.exit, label %20
 
-24:                                               ; preds = %23
-  %25 = zext i1 %.not20.i to i64
-  %26 = getelementptr inbounds nuw [2 x %struct.ASNGetData], ptr %6, i64 0, i64 %25, i32 2, i32 0, i32 1
-  %27 = load i32, ptr %26, align 8, !tbaa !3
-  store i32 %27, ptr %4, align 4, !tbaa !22
+20:                                               ; preds = %19
+  %.sroa.sel30.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not20.i, i64 56, i64 16
+  %.sroa.sel30.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.sel30.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %21 = load i32, ptr %.sroa.sel30.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !3
+  store i32 %21, ptr %4, align 4, !tbaa !22
   br label %GetDateInfo.exit
 
-GetDateInfo.exit:                                 ; preds = %5, %8, %23, %24
-  %.025.i = phi i32 [ 0, %23 ], [ 0, %24 ], [ %9, %8 ], [ -173, %5 ]
+GetDateInfo.exit:                                 ; preds = %5, %8, %19, %20
+  %.036.i = phi i32 [ 0, %19 ], [ 0, %20 ], [ %9, %8 ], [ -173, %5 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #23
-  ret i32 %.025.i
+  ret i32 %.036.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

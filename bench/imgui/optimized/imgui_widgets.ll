@@ -38887,141 +38887,130 @@ declare void @_ZN5ImGui21NavMoveRequestForwardE8ImGuiDirS0_ii(i32 noundef, i32 n
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5ImGui20BeginViewportSideBarEPKcP13ImGuiViewport8ImGuiDirfi(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, float noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = alloca %struct.ImRect, align 4
+  %6 = alloca %struct.ImVec2, align 8
   %7 = alloca %struct.ImVec2, align 8
-  %8 = alloca %struct.ImVec2, align 8
+  %8 = alloca %struct.ImVec2, align 4
   %9 = alloca %struct.ImVec2, align 4
-  %10 = alloca %struct.ImVec2, align 4
-  %11 = tail call noundef ptr @_ZN5ImGui16FindWindowByNameEPKc(ptr noundef %0)
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %17, label %13
+  %10 = tail call noundef ptr @_ZN5ImGui16FindWindowByNameEPKc(ptr noundef %0)
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %16, label %12
 
-13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  %15 = load i16, ptr %14, align 8, !tbaa !527
-  %16 = icmp eq i16 %15, 0
-  br i1 %16, label %17, label %70
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 216
+  %14 = load i16, ptr %13, align 8, !tbaa !527
+  %15 = icmp eq i16 %14, 0
+  br i1 %15, label %16, label %63
 
-17:                                               ; preds = %13, %5
+16:                                               ; preds = %12, %5
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %18, label %20
+  br i1 %.not, label %17, label %19
 
-18:                                               ; preds = %17
-  %19 = tail call noundef ptr @_ZN5ImGui15GetMainViewportEv()
-  br label %20
+17:                                               ; preds = %16
+  %18 = tail call noundef ptr @_ZN5ImGui15GetMainViewportEv()
+  br label %19
 
-20:                                               ; preds = %17, %18
-  %21 = phi ptr [ %19, %18 ], [ %1, %17 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #44
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 192
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %24 = load float, ptr %23, align 8, !tbaa !710
-  %25 = load float, ptr %22, align 4, !tbaa !159
-  %26 = fadd float %24, %25
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %28 = load float, ptr %27, align 4, !tbaa !712
-  %29 = getelementptr inbounds nuw i8, ptr %21, i64 196
-  %30 = load float, ptr %29, align 4, !tbaa !160
-  %31 = fadd float %28, %30
-  %32 = getelementptr inbounds nuw i8, ptr %21, i64 200
-  %33 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %34 = load float, ptr %33, align 8, !tbaa !713
-  %35 = fsub float %34, %25
-  %36 = load float, ptr %32, align 4, !tbaa !159
-  %37 = fsub float %35, %36
-  %38 = fcmp ole float %37, 0.000000e+00
-  %39 = select i1 %38, float 0.000000e+00, float %37
-  %40 = getelementptr inbounds nuw i8, ptr %21, i64 20
-  %41 = load float, ptr %40, align 4, !tbaa !714
-  %42 = fsub float %41, %30
-  %43 = getelementptr inbounds nuw i8, ptr %21, i64 204
-  %44 = load float, ptr %43, align 4, !tbaa !160
-  %45 = fsub float %42, %44
-  %46 = fcmp ole float %45, 0.000000e+00
-  %47 = select i1 %46, float 0.000000e+00, float %45
-  %48 = fadd float %26, %39
-  %49 = fadd float %31, %47
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %26, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %31, i64 1
-  %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %48, i64 0
-  %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %49, i64 1
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %50, align 4
-  %51 = and i32 %2, -2
-  %52 = icmp eq i32 %51, 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #44
-  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %7, align 8
+19:                                               ; preds = %16, %17
+  %20 = phi ptr [ %18, %17 ], [ %1, %16 ]
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %23 = load float, ptr %22, align 8, !tbaa !710
+  %24 = load float, ptr %21, align 4, !tbaa !159
+  %25 = fadd float %23, %24
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %27 = load float, ptr %26, align 4, !tbaa !712
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 196
+  %29 = load float, ptr %28, align 4, !tbaa !160
+  %30 = fadd float %27, %29
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 200
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %33 = load float, ptr %32, align 8, !tbaa !713
+  %34 = fsub float %33, %24
+  %35 = load float, ptr %31, align 4, !tbaa !159
+  %36 = fsub float %34, %35
+  %37 = fcmp ole float %36, 0.000000e+00
+  %38 = select i1 %37, float 0.000000e+00, float %36
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  %40 = load float, ptr %39, align 4, !tbaa !714
+  %41 = fsub float %40, %29
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 204
+  %43 = load float, ptr %42, align 4, !tbaa !160
+  %44 = fsub float %41, %43
+  %45 = fcmp ole float %44, 0.000000e+00
+  %46 = select i1 %45, float 0.000000e+00, float %44
+  %47 = fadd float %25, %38
+  %48 = fadd float %30, %46
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %25, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %30, i64 1
+  %49 = and i32 %2, -2
+  %50 = icmp eq i32 %49, 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #44
+  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %6, align 8
   switch i32 %2, label %._crit_edge [
-    i32 3, label %53
-    i32 1, label %53
+    i32 3, label %51
+    i32 1, label %51
   ]
 
-._crit_edge:                                      ; preds = %20
-  %.pre = zext i1 %52 to i64
-  br label %59
+51:                                               ; preds = %19, %19
+  %.sroa.speculated = select i1 %50, float %48, float %47
+  %52 = fsub float %.sroa.speculated, %3
+  %.sroa.sel39.idx.sroa.sel.idx.sroa.sel.idx = select i1 %50, i64 4, i64 0
+  %.sroa.sel39.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.sel39.idx.sroa.sel.idx.sroa.sel.idx
+  store float %52, ptr %.sroa.sel39.idx.sroa.sel.idx.sroa.sel, align 4, !tbaa !191
+  br label %._crit_edge
 
-53:                                               ; preds = %20, %20
-  %54 = zext i1 %52 to i64
-  %55 = getelementptr inbounds nuw float, ptr %50, i64 %54
-  %56 = load float, ptr %55, align 4, !tbaa !191
-  %57 = fsub float %56, %3
-  %58 = getelementptr inbounds nuw float, ptr %7, i64 %54
-  store float %57, ptr %58, align 4, !tbaa !191
-  br label %59
-
-59:                                               ; preds = %._crit_edge, %53
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %54, %53 ]
+._crit_edge:                                      ; preds = %19, %51
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #44
+  %53 = fsub float %47, %25
+  %54 = fsub float %48, %30
+  %.sroa.0.0.vec.insert.i34 = insertelement <2 x float> poison, float %53, i64 0
+  %.sroa.0.4.vec.insert.i35 = insertelement <2 x float> %.sroa.0.0.vec.insert.i34, float %54, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i35, ptr %7, align 8
+  %55 = zext i1 %50 to i64
+  %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %50, i64 4, i64 0
+  %.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
+  store float %3, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 4, !tbaa !191
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #44
-  %60 = fsub float %48, %26
-  %61 = fsub float %49, %31
-  %.sroa.0.0.vec.insert.i34 = insertelement <2 x float> poison, float %60, i64 0
-  %.sroa.0.4.vec.insert.i35 = insertelement <2 x float> %.sroa.0.0.vec.insert.i34, float %61, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i35, ptr %8, align 8
-  %62 = getelementptr inbounds nuw float, ptr %8, i64 %.pre-phi
-  store float %3, ptr %62, align 4, !tbaa !191
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #44
-  store float 0.000000e+00, ptr %9, align 4, !tbaa !159
-  %63 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store float 0.000000e+00, ptr %63, align 4, !tbaa !160
-  call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %7, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #44
-  call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %8, i32 noundef 0)
-  %64 = and i32 %2, -3
-  %or.cond3 = icmp eq i32 %64, 0
-  br i1 %or.cond3, label %.sink.split, label %65
+  store float 0.000000e+00, ptr %8, align 4, !tbaa !159
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store float 0.000000e+00, ptr %56, align 4, !tbaa !160
+  call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #44
+  call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %7, i32 noundef 0)
+  %57 = and i32 %2, -3
+  %or.cond3 = icmp eq i32 %57, 0
+  br i1 %or.cond3, label %.sink.split, label %58
 
-65:                                               ; preds = %59
-  switch i32 %2, label %69 [
+58:                                               ; preds = %._crit_edge
+  switch i32 %2, label %62 [
     i32 3, label %.sink.split
     i32 1, label %.sink.split
   ]
 
-.sink.split:                                      ; preds = %65, %65, %59
-  %.sink40 = phi ptr [ %22, %59 ], [ %32, %65 ], [ %32, %65 ]
-  %66 = getelementptr inbounds nuw float, ptr %.sink40, i64 %.pre-phi
-  %67 = load float, ptr %66, align 4, !tbaa !191
-  %68 = fadd float %3, %67
-  store float %68, ptr %66, align 4, !tbaa !191
-  br label %69
+.sink.split:                                      ; preds = %58, %58, %._crit_edge
+  %.sink53 = phi ptr [ %21, %._crit_edge ], [ %31, %58 ], [ %31, %58 ]
+  %59 = getelementptr inbounds nuw float, ptr %.sink53, i64 %55
+  %60 = load float, ptr %59, align 4, !tbaa !191
+  %61 = fadd float %3, %60
+  store float %61, ptr %59, align 4, !tbaa !191
+  br label %62
 
-69:                                               ; preds = %.sink.split, %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #44
+62:                                               ; preds = %.sink.split, %58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #44
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #44
-  br label %70
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #44
+  br label %63
 
-70:                                               ; preds = %69, %13
-  %71 = or i32 %4, 7
+63:                                               ; preds = %62, %12
+  %64 = or i32 %4, 7
   call void @_ZN5ImGui12PushStyleVarEif(i32 noundef 3, float noundef 0.000000e+00)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #44
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !159
-  %72 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store float 0.000000e+00, ptr %72, align 4, !tbaa !160
-  call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #44
-  %73 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef %0, ptr noundef null, i32 noundef %71)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #44
+  store float 0.000000e+00, ptr %9, align 4, !tbaa !159
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store float 0.000000e+00, ptr %65, align 4, !tbaa !160
+  call void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #44
+  %66 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef %0, ptr noundef null, i32 noundef %64)
   call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 2)
-  ret i1 %73
+  ret i1 %66
 }
 
 declare noundef ptr @_ZN5ImGui15GetMainViewportEv() local_unnamed_addr #3

@@ -51653,14 +51653,8 @@ _ZN4core4hash4Hash10hash_slice17hb2ae2567ae4221edE.exit.i: ; preds = %.lr.ph, %_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i8 0, 3) i8 @_ZN5typst4util3Get3get17h244755002697790aE(i8 noundef %0, i8 noundef %1, i1 noundef zeroext %2) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %4 = alloca { i8, i8 }, align 1
-  store i8 %0, ptr %4, align 1
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %1, ptr %5, align 1
-  %.0.idx.i = zext i1 %2 to i64
-  %.0.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.idx.i
-  %6 = load i8, ptr %.0.i, align 1, !range !716, !noundef !4
-  ret i8 %6
+  %.sroa.speculated = select i1 %2, i8 %1, i8 %0
+  ret i8 %.sroa.speculated
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

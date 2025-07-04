@@ -845,10 +845,10 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 63:                                               ; preds = %61
   %64 = load i8, ptr %10, align 16, !tbaa !124
   %65 = icmp eq i8 %64, 39
-  %spec.select87.idx = zext i1 %65 to i64
-  %spec.select87 = getelementptr inbounds nuw i8, ptr %10, i64 %spec.select87.idx
-  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select87) #17
-  %67 = getelementptr i8, ptr %spec.select87, i64 %66
+  %spec.select87.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %65 to i64
+  %spec.select87.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %10, i64 %spec.select87.idx.sroa.sel.idx.sroa.sel.idx
+  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select87.idx.sroa.sel.idx.sroa.sel) #17
+  %67 = getelementptr i8, ptr %spec.select87.idx.sroa.sel.idx.sroa.sel, i64 %66
   %68 = getelementptr i8, ptr %67, i64 -1
   %69 = load i8, ptr %68, align 1, !tbaa !124
   %70 = icmp eq i8 %69, 39
@@ -859,7 +859,7 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %72
 
 72:                                               ; preds = %71, %63
-  %73 = call i32 @cupsAddOption(ptr noundef nonnull %9, ptr noundef nonnull %spec.select87, i32 noundef %.1, ptr noundef nonnull %5) #16
+  %73 = call i32 @cupsAddOption(ptr noundef nonnull %9, ptr noundef nonnull %spec.select87.idx.sroa.sel.idx.sroa.sel, i32 noundef %.1, ptr noundef nonnull %5) #16
   br label %74
 
 74:                                               ; preds = %61, %72
@@ -1005,7 +1005,7 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 .lr.ph101.preheader:                              ; preds = %145
   %wide.trip.count = zext nneg i32 %.8 to i64
-  %.pre107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !99
+  %.pre108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !99
   br label %.lr.ph101
 
 ._crit_edge102:                                   ; preds = %.lr.ph101._crit_edge, %145
@@ -1020,11 +1020,11 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %162
 
 .lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101._crit_edge
-  %152 = phi i32 [ %.pre107, %.lr.ph101.preheader ], [ %161, %.lr.ph101._crit_edge ]
-  %indvars.iv104 = phi i64 [ 0, %.lr.ph101.preheader ], [ %.pre108, %.lr.ph101._crit_edge ]
+  %152 = phi i32 [ %.pre108, %.lr.ph101.preheader ], [ %161, %.lr.ph101._crit_edge ]
+  %indvars.iv104 = phi i64 [ 0, %.lr.ph101.preheader ], [ %.pre109, %.lr.ph101._crit_edge ]
   %153 = and i32 %152, 32768
   %.not86 = icmp eq i32 %153, 0
-  %.pre108 = add nuw nsw i64 %indvars.iv104, 1
+  %.pre109 = add nuw nsw i64 %indvars.iv104, 1
   br i1 %.not86, label %.lr.ph101._crit_edge, label %154
 
 154:                                              ; preds = %.lr.ph101
@@ -1033,14 +1033,14 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %157 = load ptr, ptr %156, align 8, !tbaa !126
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !128
-  %160 = trunc nuw nsw i64 %.pre108 to i32
+  %160 = trunc nuw nsw i64 %.pre109 to i32
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.47, i32 noundef %160, ptr noundef %157, ptr noundef %159) #16
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !99
   br label %.lr.ph101._crit_edge
 
 .lr.ph101._crit_edge:                             ; preds = %.lr.ph101, %154
   %161 = phi i32 [ %.pre, %154 ], [ %152, %.lr.ph101 ]
-  %exitcond.not = icmp eq i64 %.pre108, %wide.trip.count
+  %exitcond.not = icmp eq i64 %.pre109, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge102, label %.lr.ph101
 
 162:                                              ; preds = %.thread95, %.thread92, %._crit_edge102

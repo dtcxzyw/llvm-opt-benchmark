@@ -1044,10 +1044,11 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductIS1_S1_Li0EEEEERKNS_9EigenB
 308:                                              ; preds = %280
   %309 = fcmp ogt double %287, %288
   %.0.i.i.i = zext i1 %309 to i64
-  %310 = getelementptr double, ptr %4, i64 %.0.i.i.i
-  %.idx.i.i.i.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %309, i64 24, i64 0
-  %.idx.i.i.i.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr i8, ptr %310, i64 %.idx.i.i.i.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
-  %311 = load double, ptr %.idx.i.i.i.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 8, !tbaa !10
+  %.0.i.i.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %309, i64 8, i64 0
+  %.0.i.i.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i.i.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
+  %.idx.i.i.i.i = select i1 %309, i64 24, i64 0
+  %310 = getelementptr i8, ptr %.0.i.i.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %.idx.i.i.i.i
+  %311 = load double, ptr %310, align 8, !tbaa !10
   %312 = fcmp ogt double %286, %311
   %.1.i.i.i = select i1 %312, i64 2, i64 %.0.i.i.i
   %313 = add nuw nsw i64 %.1.i.i.i, 1

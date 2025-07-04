@@ -179,23 +179,23 @@ define hidden noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr nou
   %3 = alloca [1000 x i8], align 16
   %4 = alloca [1000 x i8], align 16
   %5 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 1000, ptr noundef nonnull @.str, ptr noundef %0) #11
-  %char043 = load i8, ptr %3, align 16
-  %.not44 = icmp eq i8 %char043, 0
-  br i1 %.not44, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.lr.ph
+  %char045 = load i8, ptr %3, align 16
+  %.not46 = icmp eq i8 %char045, 0
+  br i1 %.not46, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread31
-  %char047 = phi i8 [ %char0, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread31 ], [ %char043, %2 ]
-  %.02046 = phi ptr [ %35, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread31 ], [ %1, %2 ]
-  %.02145 = phi ptr [ %39, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread31 ], [ %3, %2 ]
-  %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02145, i32 42)
+.lr.ph:                                           ; preds = %2, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32
+  %char049 = phi i8 [ %char0, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32 ], [ %char045, %2 ]
+  %.02048 = phi ptr [ %35, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32 ], [ %1, %2 ]
+  %.02147 = phi ptr [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32 ], [ %3, %2 ]
+  %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02147, i32 42)
   %.not25 = icmp eq ptr %strchr, null
   br i1 %.not25, label %.preheader26.i, label %6
 
 6:                                                ; preds = %.lr.ph
   %7 = ptrtoint ptr %strchr to i64
-  %8 = ptrtoint ptr %.02145 to i64
+  %8 = ptrtoint ptr %.02147 to i64
   %9 = sub i64 %7, %8
-  %10 = call ptr @strncpy(ptr noundef nonnull %4, ptr noundef nonnull %.02145, i64 noundef %9) #11
+  %10 = call ptr @strncpy(ptr noundef nonnull %4, ptr noundef nonnull %.02147, i64 noundef %9) #11
   %11 = getelementptr inbounds [1000 x i8], ptr %4, i64 0, i64 %9
   store i8 0, ptr %11, align 1
   %.pr = load i8, ptr %4, align 16
@@ -203,23 +203,23 @@ define hidden noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr nou
   br i1 %12, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit, label %.preheader26.i
 
 .preheader26.i:                                   ; preds = %.lr.ph, %6
-  %.02227 = phi ptr [ %4, %6 ], [ %.02145, %.lr.ph ]
-  %13 = phi i8 [ %.pr, %6 ], [ %char047, %.lr.ph ]
-  %14 = load i8, ptr %.02046, align 1
+  %.02228 = phi ptr [ %4, %6 ], [ %.02147, %.lr.ph ]
+  %13 = phi i8 [ %.pr, %6 ], [ %char049, %.lr.ph ]
+  %14 = load i8, ptr %.02048, align 1
   %.not33.i = icmp eq i8 %14, 0
   br i1 %.not33.i, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader26.i, %29
   %.02034.i = phi i64 [ %30, %29 ], [ 0, %.preheader26.i ]
-  %15 = getelementptr inbounds i8, ptr %.02046, i64 %.02034.i
+  %15 = getelementptr inbounds i8, ptr %.02048, i64 %.02034.i
   br label %20
 
 16:                                               ; preds = %24
   %17 = add i64 %.029.i, 1
-  %18 = getelementptr inbounds i8, ptr %.02227, i64 %17
+  %18 = getelementptr inbounds i8, ptr %.02228, i64 %17
   %19 = load i8, ptr %18, align 1
   %.not24.i = icmp eq i8 %19, 0
-  br i1 %.not24.i, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread31, label %20, !llvm.loop !10
+  br i1 %.not24.i, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32, label %20, !llvm.loop !10
 
 20:                                               ; preds = %16, %.preheader.i
   %.in.i = phi i8 [ %13, %.preheader.i ], [ %19, %16 ]
@@ -239,31 +239,31 @@ define hidden noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr nou
 
 29:                                               ; preds = %24
   %30 = add i64 %.02034.i, 1
-  %31 = getelementptr inbounds i8, ptr %.02046, i64 %30
+  %31 = getelementptr inbounds i8, ptr %.02048, i64 %30
   %32 = load i8, ptr %31, align 1
   %.not.i = icmp eq i8 %32, 0
   br i1 %.not.i, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.preheader.i, !llvm.loop !11
 
 _ZN11StringUtils13strstr_nocaseEPKcS1_.exit:      ; preds = %6
-  %33 = icmp eq ptr %.02046, null
-  br i1 %33, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread31
+  %33 = icmp eq ptr %.02048, null
+  br i1 %33, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32
 
-_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread31: ; preds = %16, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit
-  %.021.i35 = phi ptr [ %.02046, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit ], [ %15, %16 ]
-  %.0222834 = phi ptr [ %4, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit ], [ %.02227, %16 ]
-  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0222834) #10
-  %35 = getelementptr inbounds i8, ptr %.021.i35, i64 %34
-  %36 = icmp ne ptr %strchr, null
-  %37 = zext i1 %36 to i64
-  %38 = getelementptr i8, ptr %.02145, i64 %34
-  %39 = getelementptr i8, ptr %38, i64 %37
-  %char0 = load i8, ptr %39, align 1
+_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32: ; preds = %16, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit
+  %.021.i36 = phi ptr [ %.02048, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit ], [ %15, %16 ]
+  %.0222935 = phi ptr [ %4, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit ], [ %.02228, %16 ]
+  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0222935) #10
+  %35 = getelementptr inbounds i8, ptr %.021.i36, i64 %34
+  %.not37.not.not = icmp ne ptr %strchr, null
+  %36 = getelementptr i8, ptr %.02147, i64 %34
+  %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %.not37.not.not to i64
+  %.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr i8, ptr %36, i64 %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
+  %char0 = load i8, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 1
   %.not = icmp eq i8 %char0, 0
   br i1 %.not, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.lr.ph, !llvm.loop !12
 
-_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread: ; preds = %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread31, %.preheader26.i, %29, %20, %2
-  %.not42 = phi i1 [ true, %2 ], [ false, %20 ], [ false, %29 ], [ false, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit ], [ true, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread31 ], [ false, %.preheader26.i ]
-  ret i1 %.not42
+_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread: ; preds = %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32, %.preheader26.i, %29, %20, %2
+  %.not44 = phi i1 [ true, %2 ], [ false, %20 ], [ false, %29 ], [ false, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit ], [ true, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32 ], [ false, %.preheader26.i ]
+  ret i1 %.not44
 }
 
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #7

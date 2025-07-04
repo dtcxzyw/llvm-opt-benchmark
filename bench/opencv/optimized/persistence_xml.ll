@@ -911,7 +911,7 @@ define linkonce_odr hidden void @_ZN2cv10XMLEmitter5writeEPKcS2_b(ptr noundef no
   %9 = alloca %"class.std::allocator.13", align 1
   call void @llvm.lifetime.start.p0(i64 24592, ptr nonnull %5) #19
   %.not = icmp eq ptr %2, null
-  %.sroa.gep121 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %.sroa.sel.idx.sroa.gep122 = getelementptr inbounds nuw i8, ptr %5, i64 1
   br i1 %.not, label %10, label %23
 
 10:                                               ; preds = %4
@@ -1038,9 +1038,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
 
 52:                                               ; preds = %.lr.ph, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
-  %.1117 = phi ptr [ %.sroa.gep121, %.lr.ph ], [ %.1, %85 ]
-  %.pn104116 = phi ptr [ %5, %.lr.ph ], [ %.1.pn, %85 ]
-  %.085115 = phi i1 [ %or.cond, %.lr.ph ], [ %.186, %85 ]
+  %.1118 = phi ptr [ %.sroa.sel.idx.sroa.gep122, %.lr.ph ], [ %.1, %85 ]
+  %.pn104117 = phi ptr [ %5, %.lr.ph ], [ %.1.pn, %85 ]
+  %.085116 = phi i1 [ %or.cond, %.lr.ph ], [ %.186, %85 ]
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1, !tbaa !41
   %55 = zext i8 %54 to i32
@@ -1050,7 +1050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   br i1 %or.cond4, label %58, label %59
 
 58:                                               ; preds = %52
-  store i8 %54, ptr %.1117, align 1, !tbaa !41
+  store i8 %54, ptr %.1118, align 1, !tbaa !41
   br label %85
 
 59:                                               ; preds = %52
@@ -1067,8 +1067,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   br i1 %or.cond19, label %68, label %84
 
 68:                                               ; preds = %59
-  %69 = getelementptr inbounds nuw i8, ptr %.pn104116, i64 2
-  store i8 38, ptr %.1117, align 1, !tbaa !41
+  %69 = getelementptr inbounds nuw i8, ptr %.pn104117, i64 2
+  store i8 38, ptr %.1118, align 1, !tbaa !41
   br i1 %61, label %70, label %71
 
 70:                                               ; preds = %68
@@ -1111,17 +1111,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
 
 82:                                               ; preds = %72, %75, %78, %77, %74, %70
   %.sink = phi i64 [ 4, %72 ], [ 6, %75 ], [ 6, %78 ], [ 6, %77 ], [ 5, %74 ], [ 4, %70 ]
-  %83 = getelementptr inbounds nuw i8, ptr %.pn104116, i64 %.sink
+  %83 = getelementptr inbounds nuw i8, ptr %.pn104117, i64 %.sink
   store i8 59, ptr %83, align 1, !tbaa !41
   br label %85
 
 84:                                               ; preds = %59
-  store i8 %54, ptr %.1117, align 1, !tbaa !41
+  store i8 %54, ptr %.1118, align 1, !tbaa !41
   br label %85
 
 85:                                               ; preds = %82, %84, %58
-  %.186 = phi i1 [ true, %58 ], [ true, %82 ], [ %.085115, %84 ]
-  %.1.pn = phi ptr [ %.1117, %58 ], [ %83, %82 ], [ %.1117, %84 ]
+  %.186 = phi i1 [ true, %58 ], [ true, %82 ], [ %.085116, %84 ]
+  %.1.pn = phi ptr [ %.1118, %58 ], [ %83, %82 ], [ %.1118, %84 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.1 = getelementptr inbounds nuw i8, ptr %.1.pn, i64 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1130,7 +1130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
 ._crit_edge:                                      ; preds = %85, %49
   %.085.lcssa = phi i1 [ %or.cond, %49 ], [ %.186, %85 ]
   %.pn104.lcssa = phi ptr [ %5, %49 ], [ %.1.pn, %85 ]
-  %.1.lcssa = phi ptr [ %.sroa.gep121, %49 ], [ %.1, %85 ]
+  %.1.lcssa = phi ptr [ %.sroa.sel.idx.sroa.gep122, %49 ], [ %.1, %85 ]
   br i1 %.085.lcssa, label %91, label %86
 
 86:                                               ; preds = %._crit_edge
@@ -1152,17 +1152,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   br label %93
 
 93:                                               ; preds = %90, %91
-  %.sroa.phi = phi ptr [ %5, %91 ], [ %.sroa.gep121, %90 ]
+  %.sroa.sel.idx.sroa.phi = phi ptr [ %5, %91 ], [ %.sroa.sel.idx.sroa.gep122, %90 ]
   %.4 = phi ptr [ %92, %91 ], [ %.1.lcssa, %90 ]
   store i8 0, ptr %.4, align 1, !tbaa !41
   br label %94
 
 94:                                               ; preds = %93, %44
-  %.0 = phi ptr [ %.sroa.phi, %93 ], [ %2, %44 ]
+  %.0 = phi ptr [ %.sroa.sel.idx.sroa.phi, %93 ], [ %2, %44 ]
   %95 = load ptr, ptr %0, align 8, !tbaa !14
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 64
   %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull %.0)
+  call void %97(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %.0)
   call void @llvm.lifetime.end.p0(i64 24592, ptr nonnull %5) #19
   ret void
 

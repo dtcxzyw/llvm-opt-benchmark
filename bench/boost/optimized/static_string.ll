@@ -64139,8 +64139,8 @@ _ZN5boost14static_strings5testRINS0_19basic_static_stringILm400EcSt11char_traits
   %2340 = call noundef nonnull align 2 dereferenceable(403) ptr @_ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7replaceIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueERS4_E4typeES7_S7_S9_S9_(ptr noundef nonnull align 2 dereferenceable(403) %114, ptr noundef nonnull %2339, ptr noundef nonnull %2338, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.106)
   %2341 = load i16, ptr %114, align 2, !tbaa !54
   %or.cond.not.i.i559 = icmp eq i16 %2341, 1
-  %lhsc2722 = load i8, ptr %2337, align 2
-  %2342 = icmp eq i8 %lhsc2722, 97
+  %lhsc2723 = load i8, ptr %2337, align 2
+  %2342 = icmp eq i8 %lhsc2723, 97
   %.0.i.i.i.i560 = select i1 %or.cond.not.i.i559, i1 %2342, i1 false
   %2343 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.4091, ptr noundef nonnull @.str.13, i32 noundef 6262, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings11testReplaceEv, i1 noundef zeroext %.0.i.i.i.i560)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(403) %115, i8 0, i64 403, i1 false)
@@ -64551,9 +64551,9 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
   %2505 = call noundef nonnull align 2 dereferenceable(403) ptr @_ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7replaceIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueERS4_E4typeES7_S7_S9_S9_(ptr noundef nonnull align 2 dereferenceable(403) %145, ptr noundef nonnull %2504, ptr noundef nonnull %2503, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.106)
   %2506 = load i16, ptr %145, align 2, !tbaa !54
   %or.cond.not.i.i655 = icmp eq i16 %2506, 2
-  %lhsv2726 = load i16, ptr %2502, align 2
-  %.not2728 = icmp eq i16 %lhsv2726, 25185
-  %.0.i.i.i.i656 = select i1 %or.cond.not.i.i655, i1 %.not2728, i1 false
+  %lhsv2727 = load i16, ptr %2502, align 2
+  %.not2729 = icmp eq i16 %lhsv2727, 25185
+  %.0.i.i.i.i656 = select i1 %or.cond.not.i.i655, i1 %.not2729, i1 false
   %2507 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.4122, ptr noundef nonnull @.str.13, i32 noundef 6278, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings11testReplaceEv, i1 noundef zeroext %.0.i.i.i.i656)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(403) %146, i8 0, i64 403, i1 false)
   store i16 5, ptr %146, align 2, !tbaa !54
@@ -65259,8 +65259,8 @@ _ZN5boost14static_strings5testRINS0_19basic_static_stringILm400EcSt11char_traits
   %2773 = call noundef nonnull align 2 dereferenceable(403) ptr @_ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7replaceIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueERS4_E4typeES7_S7_S9_S9_(ptr noundef nonnull align 2 dereferenceable(403) %200, ptr noundef nonnull %2770, ptr noundef nonnull %2772, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.106)
   %2774 = load i16, ptr %200, align 2, !tbaa !54
   %or.cond.not.i.i823 = icmp eq i16 %2774, 1
-  %lhsc2729 = load i8, ptr %2770, align 2
-  %2775 = icmp eq i8 %lhsc2729, 106
+  %lhsc2730 = load i8, ptr %2770, align 2
+  %2775 = icmp eq i8 %lhsc2730, 106
   %.0.i.i.i.i824 = select i1 %or.cond.not.i.i823, i1 %2775, i1 false
   %2776 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.4175, ptr noundef nonnull @.str.13, i32 noundef 6306, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings11testReplaceEv, i1 noundef zeroext %.0.i.i.i.i824)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(403) %201, i8 0, i64 403, i1 false)

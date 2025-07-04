@@ -447,10 +447,10 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.179.lcssa = phi ptr [ %76, %68 ], [ %.17989, %.lr.ph90 ], [ %79, %78 ]
   %81 = load i8, ptr %.179.lcssa, align 1, !tbaa !67
   %82 = icmp eq i8 %81, 47
-  %spec.select.idx = zext i1 %82 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %.179.lcssa, i64 %spec.select.idx
-  %.not85 = icmp ugt ptr %spec.select, %15
-  %.3 = select i1 %.not85, ptr %spec.select, ptr %15
+  %spec.select.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %82 to i64
+  %spec.select.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.179.lcssa, i64 %spec.select.idx.sroa.sel.idx.sroa.sel.idx
+  %.not85 = icmp ugt ptr %spec.select.idx.sroa.sel.idx.sroa.sel, %15
+  %.3 = select i1 %.not85, ptr %spec.select.idx.sroa.sel.idx.sroa.sel, ptr %15
   %83 = call i64 @g_strlcpy(ptr noundef nonnull %17, ptr noundef nonnull %.3, i64 noundef 4096) #16
   %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %74, i64 noundef 4096, ptr noundef nonnull @.str.18, ptr noundef nonnull %17) #16
   %85 = getelementptr inbounds nuw i8, ptr %74, i64 4096

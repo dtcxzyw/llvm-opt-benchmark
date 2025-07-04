@@ -2828,8 +2828,8 @@ define hidden void @av1_superres_upscale(ptr noundef %0, ptr noundef %1) local_u
   %.val55 = load i32, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 472
   %.val56 = load i32, ptr %7, align 8
-  %.not57 = icmp eq i32 %.val55, %.val56
-  br i1 %.not57, label %119, label %8
+  %.not61 = icmp eq i32 %.val55, %.val56
+  br i1 %.not61, label %115, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1056
@@ -2972,39 +2972,39 @@ define hidden void @av1_superres_upscale(ptr noundef %0, ptr noundef %1) local_u
   %.not.i.i = icmp eq i8 %.val.i, 0
   %98 = select i1 %.not.i.i, i32 3, i32 1
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %100 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %101 = getelementptr inbounds nuw i8, ptr %12, i64 1352
-  %102 = getelementptr inbounds nuw i8, ptr %12, i64 1344
-  %103 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %12, i64 1352
+  %101 = getelementptr inbounds nuw i8, ptr %12, i64 1344
   %wide.trip.count.i = zext nneg i32 %98 to i64
-  br label %104
+  br label %102
 
-104:                                              ; preds = %104, %97
-  %indvars.iv.i = phi i64 [ 0, %97 ], [ %indvars.iv.next.i, %104 ]
-  %105 = icmp ne i64 %indvars.iv.i, 0
-  %106 = getelementptr inbounds nuw [3 x ptr], ptr %99, i64 0, i64 %indvars.iv.i
-  %107 = load ptr, ptr %106, align 8
-  %108 = zext i1 %105 to i64
-  %109 = getelementptr inbounds nuw [2 x i32], ptr %100, i64 0, i64 %108
-  %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds nuw [3 x ptr], ptr %101, i64 0, i64 %indvars.iv.i
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds nuw [2 x i32], ptr %102, i64 0, i64 %108
-  %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds nuw [2 x i32], ptr %103, i64 0, i64 %108
-  %116 = load i32, ptr %115, align 4
-  %117 = trunc nuw nsw i64 %indvars.iv.i to i32
-  call void @av1_upscale_normative_rows(ptr noundef nonnull %0, ptr noundef %107, i32 noundef %110, ptr noundef %112, i32 noundef %114, i32 noundef %117, i32 noundef %116)
+102:                                              ; preds = %102, %97
+  %indvars.iv.i = phi i64 [ 0, %97 ], [ %indvars.iv.next.i, %102 ]
+  %103 = icmp ne i64 %indvars.iv.i, 0
+  %104 = getelementptr inbounds nuw [3 x ptr], ptr %99, i64 0, i64 %indvars.iv.i
+  %105 = load ptr, ptr %104, align 8
+  %106 = zext i1 %103 to i64
+  %.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %103, i64 36, i64 32
+  %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %107 = load i32, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %108 = getelementptr inbounds nuw [3 x ptr], ptr %100, i64 0, i64 %indvars.iv.i
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw [2 x i32], ptr %101, i64 0, i64 %106
+  %111 = load i32, ptr %110, align 4
+  %.sroa.sel60.v.sroa.sel.v.sroa.sel.v = select i1 %103, i64 28, i64 24
+  %.sroa.sel60.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.sel60.v.sroa.sel.v.sroa.sel.v
+  %112 = load i32, ptr %.sroa.sel60.v.sroa.sel.v.sroa.sel, align 4
+  %113 = trunc nuw nsw i64 %indvars.iv.i to i32
+  call void @av1_upscale_normative_rows(ptr noundef nonnull %0, ptr noundef %105, i32 noundef %107, ptr noundef %109, i32 noundef %111, i32 noundef %113, i32 noundef %112)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %av1_upscale_normative_and_extend_frame.exit, label %104, !llvm.loop !75
+  br i1 %exitcond.not.i, label %av1_upscale_normative_and_extend_frame.exit, label %102, !llvm.loop !75
 
-av1_upscale_normative_and_extend_frame.exit:      ; preds = %104
+av1_upscale_normative_and_extend_frame.exit:      ; preds = %102
   call void @aom_extend_frame_borders_c(ptr noundef nonnull %13, i32 noundef %98) #11
-  %118 = call i32 @aom_free_frame_buffer(ptr noundef nonnull %3) #11
-  br label %119
+  %114 = call i32 @aom_free_frame_buffer(ptr noundef nonnull %3) #11
+  br label %115
 
-119:                                              ; preds = %2, %av1_upscale_normative_and_extend_frame.exit
+115:                                              ; preds = %2, %av1_upscale_normative_and_extend_frame.exit
   ret void
 }
 

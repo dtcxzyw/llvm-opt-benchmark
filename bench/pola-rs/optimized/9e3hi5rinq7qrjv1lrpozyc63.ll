@@ -38053,58 +38053,65 @@ define i24 @_ZN9polars_io3csv4read6parser10CountLines3new17h5b26624c40d016e9E(i1
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define void @_ZN9polars_io3csv4read6parser10CountLines13analyze_chunk17h5d6be7674bddb7beE(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, i64 noundef %3) unnamed_addr #18 {
-  %5 = alloca [48 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.not = icmp eq i64 %3, 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %5, i8 0, i64 17, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %6, i8 0, i64 17, i1 false)
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.cont15.lr.ph
 
-.lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %8 = load i8, ptr %7, align 1, !noundef !7
-  %9 = load i8, ptr %1, align 1, !range !312, !noundef !7
-  %10 = trunc nuw i8 %9 to i1
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %12 = load i8, ptr %11, align 1, !noundef !7
-  br label %16
+.cont15.lr.ph:                                    ; preds = %4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %6 = load i8, ptr %5, align 1, !noundef !7
+  %7 = load i8, ptr %1, align 1, !range !312, !noundef !7
+  %8 = trunc nuw i8 %7 to i1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %10 = load i8, ptr %9, align 1, !noundef !7
+  br label %.cont15
 
-._crit_edge:                                      ; preds = %16, %4
-  %.sroa.012.0.lcssa = phi i1 [ false, %4 ], [ %21, %16 ]
-  %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %13 = zext i1 %.sroa.012.0.lcssa to i8
-  store i8 %13, ptr %.sroa.4.0..sroa_idx, align 8
-  %14 = xor i1 %.sroa.012.0.lcssa, true
-  %15 = zext i1 %14 to i8
-  store i8 %15, ptr %.sroa.4.0..sroa_idx4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+._crit_edge:                                      ; preds = %.cont15, %4
+  %.sroa.031.0.lcssa = phi i1 [ false, %4 ], [ %18, %.cont15 ]
+  %.sroa.0.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.0.1, %.cont15 ]
+  %.sroa.5.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.5.1, %.cont15 ]
+  %.sroa.811.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.811.1, %.cont15 ]
+  %.sroa.10.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.10.1, %.cont15 ]
+  %11 = zext i1 %.sroa.031.0.lcssa to i8
+  %12 = xor i1 %.sroa.031.0.lcssa, true
+  %13 = zext i1 %12 to i8
+  store i64 %.sroa.0.0.lcssa, ptr %0, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.5.0.lcssa, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %11, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.811.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.811.0.lcssa, ptr %.sroa.811.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %.sroa.10.0.lcssa, ptr %.sroa.10.0..sroa_idx, align 8
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 %13, ptr %.sroa.12.0..sroa_idx, align 8
   ret void
 
-16:                                               ; preds = %.lr.ph, %16
-  %.sroa.012.017 = phi i1 [ false, %.lr.ph ], [ %21, %16 ]
-  %.sroa.07.016 = phi i64 [ 0, %.lr.ph ], [ %31, %16 ]
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.07.016
-  %18 = load i8, ptr %17, align 1, !noundef !7
-  %19 = icmp eq i8 %18, %8
-  %20 = and i1 %19, %10
-  %21 = xor i1 %.sroa.012.017, %20
-  %22 = zext i1 %21 to i64
-  %23 = getelementptr inbounds nuw { i64, i64, i8, [7 x i8] }, ptr %5, i64 %22
-  %24 = icmp eq i8 %18, %12
-  %25 = zext i1 %24 to i64
-  %26 = load i64, ptr %23, align 8, !noundef !7
-  %27 = add i64 %26, %25
-  store i64 %27, ptr %23, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %29 = load i64, ptr %28, align 8, !noundef !7
-  %30 = select i1 %24, i64 %.sroa.07.016, i64 %29, !unpredictable !7
-  store i64 %30, ptr %28, align 8
-  %31 = add nuw i64 %.sroa.07.016, 1
-  %exitcond.not = icmp eq i64 %31, %3
-  br i1 %exitcond.not, label %._crit_edge, label %16
+.cont15:                                          ; preds = %.cont15.lr.ph, %.cont15
+  %.sroa.10.040 = phi i64 [ 0, %.cont15.lr.ph ], [ %.sroa.10.1, %.cont15 ]
+  %.sroa.811.039 = phi i64 [ 0, %.cont15.lr.ph ], [ %.sroa.811.1, %.cont15 ]
+  %.sroa.5.038 = phi i64 [ 0, %.cont15.lr.ph ], [ %.sroa.5.1, %.cont15 ]
+  %.sroa.0.037 = phi i64 [ 0, %.cont15.lr.ph ], [ %.sroa.0.1, %.cont15 ]
+  %.sroa.031.036 = phi i1 [ false, %.cont15.lr.ph ], [ %18, %.cont15 ]
+  %.sroa.026.035 = phi i64 [ 0, %.cont15.lr.ph ], [ %23, %.cont15 ]
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.026.035
+  %15 = load i8, ptr %14, align 1, !noundef !7
+  %16 = icmp eq i8 %15, %6
+  %17 = and i1 %16, %8
+  %18 = xor i1 %.sroa.031.036, %17
+  %19 = icmp eq i8 %15, %10
+  %20 = zext i1 %19 to i64
+  %.sroa.speculated14 = select i1 %18, i64 %.sroa.811.039, i64 %.sroa.0.037
+  %21 = add i64 %.sroa.speculated14, %20
+  %.sroa.speculated = select i1 %18, i64 %.sroa.10.040, i64 %.sroa.5.038
+  %.sroa.0.1 = select i1 %18, i64 %.sroa.0.037, i64 %21
+  %.sroa.811.1 = select i1 %18, i64 %21, i64 %.sroa.811.039
+  %22 = select i1 %19, i64 %.sroa.026.035, i64 %.sroa.speculated, !unpredictable !7
+  %.sroa.5.1 = select i1 %18, i64 %.sroa.5.038, i64 %22
+  %.sroa.10.1 = select i1 %18, i64 %22, i64 %.sroa.10.040
+  %23 = add nuw i64 %.sroa.026.035, 1
+  %exitcond.not = icmp eq i64 %23, %3
+  br i1 %exitcond.not, label %._crit_edge, label %.cont15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable

@@ -1117,6 +1117,7 @@ _ZNSt13unordered_setIcSt4hashIcESt8equal_toIcESaIcEE5clearEv.exit: ; preds = %wh
 land.rhs.lr.ph:                                   ; preds = %_ZNSt13unordered_setIcSt4hashIcESt8equal_toIcESaIcEE5clearEv.exit
   %9 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
   %_M_string_length.i.i.i.i.i.c = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 17
   br label %land.rhs
 
 land.rhs:                                         ; preds = %while.body, %land.rhs.lr.ph
@@ -1144,8 +1145,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont4.i.i
   %13 = load i8, ptr %add.ptr.i.i42, align 1, !tbaa !12
   store i8 %13, ptr %9, align 8, !tbaa !12
   store i64 %spec.select.i.i.i, ptr %_M_string_length.i.i.i.i.i.c, align 8, !tbaa !11, !alias.scope !63
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %spec.select.i.i.i
-  store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !12
+  store i8 0, ptr %.sroa.gep, align 1, !tbaa !12
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.then.i.i.i.i.i

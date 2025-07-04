@@ -1093,12 +1093,12 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
   %28 = zext i32 %5 to i64
   br label %29
 
-29:                                               ; preds = %10, %95
-  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %95 ]
+29:                                               ; preds = %10, %91
+  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %91 ]
   %30 = getelementptr inbounds [5 x i32], ptr %7, i64 %20, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %.not = icmp eq i32 %31, %3
-  br i1 %.not, label %32, label %95
+  br i1 %.not, label %32, label %91
 
 32:                                               ; preds = %29
   %.not79 = icmp eq i64 %indvars.iv, %28
@@ -1122,44 +1122,44 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
   br label %45
 
 45:                                               ; preds = %41, %64
-  %.07184 = phi i32 [ 0, %41 ], [ %.1, %64 ]
-  %.07283 = phi i32 [ 0, %41 ], [ %.173, %64 ]
-  %.07482 = phi i32 [ %2, %41 ], [ %65, %64 ]
-  %46 = srem i32 %.07482, 4
+  %.07190 = phi i32 [ 0, %41 ], [ %.1, %64 ]
+  %.07289 = phi i32 [ 0, %41 ], [ %.173, %64 ]
+  %.07488 = phi i32 [ %2, %41 ], [ %65, %64 ]
+  %46 = srem i32 %.07488, 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i32, ptr %44, i64 %47
   %49 = load i32, ptr %48, align 4
-  %50 = srem i32 %.07482, 2
+  %50 = srem i32 %.07488, 2
   %51 = icmp eq i32 %50, %1
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %45
   %53 = icmp eq i32 %24, %49
-  %spec.select = select i1 %53, i32 1, i32 %.07184
+  %spec.select = select i1 %53, i32 1, i32 %.07190
   br label %64
 
 54:                                               ; preds = %45
-  %55 = add nsw i32 %.07184, %24
+  %55 = add nsw i32 %.07190, %24
   %56 = sub i32 %55, %49
   %.not81 = icmp eq i32 %56, %3
   br i1 %.not81, label %57, label %64
 
 57:                                               ; preds = %54
-  %58 = sext i32 %.07283 to i64
+  %58 = sext i32 %.07289 to i64
   %59 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 %58
   store i32 %46, ptr %59, align 4
-  %60 = mul nuw nsw i32 %.07184, 5
+  %60 = mul nuw nsw i32 %.07190, 5
   %61 = add nsw i32 %60, %4
   %62 = getelementptr inbounds [2 x i32], ptr %13, i64 0, i64 %58
   store i32 %61, ptr %62, align 4
-  %63 = add nsw i32 %.07283, 1
+  %63 = add nsw i32 %.07289, 1
   br label %64
 
 64:                                               ; preds = %52, %57, %54
-  %.173 = phi i32 [ %.07283, %54 ], [ %63, %57 ], [ %.07283, %52 ]
-  %.1 = phi i32 [ %.07184, %54 ], [ %.07184, %57 ], [ %spec.select, %52 ]
-  %65 = add i32 %.07482, 1
-  %exitcond.not = icmp eq i32 %.07482, %smax
+  %.173 = phi i32 [ %.07289, %54 ], [ %63, %57 ], [ %.07289, %52 ]
+  %.1 = phi i32 [ %.07190, %54 ], [ %.07190, %57 ], [ %spec.select, %52 ]
+  %65 = add i32 %.07488, 1
+  %exitcond.not = icmp eq i32 %.07488, %smax
   br i1 %exitcond.not, label %66, label %45, !llvm.loop !20
 
 66:                                               ; preds = %64
@@ -1188,35 +1188,34 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
   br label %.sink.split
 
 81:                                               ; preds = %74
-  %82 = icmp sge i32 %67, %75
-  %83 = load i32, ptr %9, align 4
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [10 x i8], ptr %8, i64 %84
-  %86 = zext i1 %82 to i64
-  %87 = getelementptr inbounds nuw [2 x i32], ptr %13, i64 0, i64 %86
-  %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %86
-  %90 = load i32, ptr %89, align 4
-  call void @_Z17sacrifice_as_textB5cxx11iii(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, i32 noundef %88, i32 noundef %90, i32 noundef %3)
+  %.not86 = icmp slt i32 %67, %75
+  %82 = load i32, ptr %9, align 4
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds [10 x i8], ptr %8, i64 %83
+  %85 = call i32 @llvm.smin.i32(i32 %67, i32 %75)
+  %.sroa.sel85.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not86, i64 0, i64 4
+  %.sroa.sel85.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.sel85.idx.sroa.sel.idx.sroa.sel.idx
+  %86 = load i32, ptr %.sroa.sel85.idx.sroa.sel.idx.sroa.sel, align 4
+  call void @_Z17sacrifice_as_textB5cxx11iii(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, i32 noundef %85, i32 noundef %86, i32 noundef %3)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %33, %69, %77, %81
-  %.sink91 = phi ptr [ %16, %81 ], [ %15, %77 ], [ %14, %69 ], [ %11, %33 ]
-  %.sink89 = phi ptr [ %85, %81 ], [ %80, %77 ], [ %72, %69 ], [ %39, %33 ]
-  %91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink91) #18
-  %92 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.sink89, ptr noundef nonnull dereferenceable(1) %91) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink91) #18
-  %93 = load i32, ptr %9, align 4
-  %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %9, align 4
-  br label %95
+  %.sink98 = phi ptr [ %16, %81 ], [ %15, %77 ], [ %14, %69 ], [ %11, %33 ]
+  %.sink96 = phi ptr [ %84, %81 ], [ %80, %77 ], [ %72, %69 ], [ %39, %33 ]
+  %87 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink98) #18
+  %88 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.sink96, ptr noundef nonnull dereferenceable(1) %87) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink98) #18
+  %89 = load i32, ptr %9, align 4
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %9, align 4
+  br label %91
 
-95:                                               ; preds = %.sink.split, %29
+91:                                               ; preds = %.sink.split, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond87.not, label %96, label %29, !llvm.loop !21
+  %exitcond93.not = icmp eq i64 %indvars.iv.next, 5
+  br i1 %exitcond93.not, label %92, label %29, !llvm.loop !21
 
-96:                                               ; preds = %95
+92:                                               ; preds = %91
   ret void
 }
 
