@@ -10866,7 +10866,7 @@ define hidden noundef zeroext i1 @_Z30_mi_bitmap_try_find_from_claimPSt6atomicIm
 
 _ZL15mi_bitmap_mask_mm.exit.i.us:                 ; preds = %.lr.ph.split.us
   %13 = xor i64 %11, -1
-  %14 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %13, i1 false)
+  %14 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %13, i1 true)
   %.not.not44.i.us = icmp ugt i64 %14, %8
   br i1 %.not.not44.i.us, label %.loopexit.us, label %.lr.ph.i.us
 
@@ -10926,7 +10926,7 @@ _ZSt39atomic_compare_exchange_strong_explicitImEbPSt6atomicIT_EPNSt15__type_iden
 
 _ZL15mi_bitmap_mask_mm.exit.i.us41:               ; preds = %.lr.ph.split.split.us
   %33 = xor i64 %31, -1
-  %34 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %33, i1 false)
+  %34 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %33, i1 true)
   %.not.not44.i.us43 = icmp ugt i64 %34, %8
   br i1 %.not.not44.i.us43, label %.loopexit20.us, label %.lr.ph.i.us44
 
@@ -10988,7 +10988,7 @@ _ZSt39atomic_compare_exchange_strong_explicitImEbPSt6atomicIT_EPNSt15__type_iden
 
 _ZL15mi_bitmap_mask_mm.exit.i.us55:               ; preds = %.lr.ph.split.split.split.us
   %55 = xor i64 %53, -1
-  %56 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %55, i1 false)
+  %56 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %55, i1 true)
   %.not.not44.i.us57 = icmp ugt i64 %56, %8
   br i1 %.not.not44.i.us57, label %.loopexit20.us72, label %.lr.ph.split.i.us59.preheader
 
@@ -11023,7 +11023,7 @@ _ZSt39atomic_compare_exchange_strong_explicitImEbPSt6atomicIT_EPNSt15__type_iden
 
 _ZL15mi_bitmap_mask_mm.exit.i:                    ; preds = %.lr.ph.split.split.split
   %69 = xor i64 %67, -1
-  %70 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %69, i1 false)
+  %70 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %69, i1 true)
   %.not.not44.i = icmp ugt i64 %70, %8
   br i1 %.not.not44.i, label %.loopexit20, label %.lr.ph.i
 
@@ -11110,7 +11110,7 @@ define hidden noundef zeroext i1 @_Z35_mi_bitmap_try_find_from_claim_predPSt6ato
 
 _ZL15mi_bitmap_mask_mm.exit.i.us:                 ; preds = %.lr.ph.split.us
   %17 = xor i64 %15, -1
-  %18 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %17, i1 false)
+  %18 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %17, i1 true)
   %.not.not44.i.us = icmp ugt i64 %18, %10
   br i1 %.not.not44.i.us, label %_Z31_mi_bitmap_try_find_claim_fieldPSt6atomicImEmmPm.exit.thread.us, label %.lr.ph.i.us
 
@@ -11199,7 +11199,7 @@ _Z31_mi_bitmap_try_find_claim_fieldPSt6atomicImEmmPm.exit.thread.us: ; preds = %
 
 _ZL15mi_bitmap_mask_mm.exit.i.us50.us:            ; preds = %.lr.ph.split.split.us.split.us
   %48 = xor i64 %46, -1
-  %49 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %48, i1 false)
+  %49 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %48, i1 true)
   %.not.not44.i.us52.us = icmp ugt i64 %49, %10
   br i1 %.not.not44.i.us52.us, label %_Z31_mi_bitmap_try_find_claim_fieldPSt6atomicImEmmPm.exit.thread.us54.us, label %.lr.ph.i.us53.us
 
@@ -11258,7 +11258,7 @@ _Z31_mi_bitmap_try_find_claim_fieldPSt6atomicImEmmPm.exit.thread.us54.us: ; pred
 
 _ZL15mi_bitmap_mask_mm.exit.i.us50:               ; preds = %.lr.ph.split.split.us.split
   %70 = xor i64 %68, -1
-  %71 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %70, i1 false)
+  %71 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %70, i1 true)
   %.not.not44.i.us52 = icmp ugt i64 %71, %10
   br i1 %.not.not44.i.us52, label %_Z31_mi_bitmap_try_find_claim_fieldPSt6atomicImEmmPm.exit.thread.us54, label %.lr.ph.i.us53
 
@@ -11325,7 +11325,7 @@ _Z31_mi_bitmap_try_find_claim_fieldPSt6atomicImEmmPm.exit.thread.us54: ; preds =
 
 _ZL15mi_bitmap_mask_mm.exit.i:                    ; preds = %.lr.ph.split.split
   %94 = xor i64 %92, -1
-  %95 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %94, i1 false)
+  %95 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %94, i1 true)
   %.not.not44.i = icmp ugt i64 %95, %10
   br i1 %.not.not44.i, label %_Z31_mi_bitmap_try_find_claim_fieldPSt6atomicImEmmPm.exit.thread, label %.lr.ph.i
 
@@ -11546,7 +11546,7 @@ tailrecurse.i:                                    ; preds = %_ZSt39atomic_compar
 
 _ZL15mi_bitmap_mask_mm.exit.i.i:                  ; preds = %26
   %29 = xor i64 %27, -1
-  %30 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %29, i1 false)
+  %30 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %29, i1 true)
   %.not.not44.i.i = icmp samesign ugt i64 %30, %8
   br i1 %.not.not44.i.i, label %.loopexit, label %.lr.ph.i.i
 

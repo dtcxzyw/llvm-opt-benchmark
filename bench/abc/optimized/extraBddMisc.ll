@@ -3179,7 +3179,7 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
   br label %190
 
 122:                                              ; preds = %107
-  tail call void @Cudd_Ref(ptr noundef %119) #19
+  tail call void @Cudd_Ref(ptr noundef nonnull %119) #19
   %123 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %.0253, ptr noundef %.0255) #19
   %124 = icmp eq ptr %123, null
   br i1 %124, label %125, label %126
@@ -3189,27 +3189,27 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %90) #19
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %97) #19
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %104) #19
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %119) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %119) #19
   br label %190
 
 126:                                              ; preds = %122
   tail call void @Cudd_Ref(ptr noundef nonnull %123) #19
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %97) #19
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %104) #19
-  %127 = call fastcc ptr @extraBddCountCubes(ptr noundef nonnull %0, ptr noundef %119, ptr noundef nonnull %123, ptr noundef %3, ptr noundef %9, i32 noundef %5)
+  %127 = call fastcc ptr @extraBddCountCubes(ptr noundef nonnull %0, ptr noundef nonnull %119, ptr noundef nonnull %123, ptr noundef %3, ptr noundef %9, i32 noundef %5)
   %128 = icmp eq ptr %127, null
   br i1 %128, label %129, label %130
 
 129:                                              ; preds = %126
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %86) #19
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %90) #19
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %119) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %119) #19
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %123) #19
   br label %190
 
 130:                                              ; preds = %126
   tail call void @Cudd_Ref(ptr noundef nonnull %127) #19
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %119) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %119) #19
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %123) #19
   %131 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef %12, ptr noundef %15) #19
   %132 = icmp eq ptr %131, null
@@ -3277,7 +3277,7 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
   br label %190
 
 160:                                              ; preds = %145
-  tail call void @Cudd_Ref(ptr noundef %157) #19
+  tail call void @Cudd_Ref(ptr noundef nonnull %157) #19
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %138) #19
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %142) #19
   %161 = xor i64 %156, 1
@@ -3296,14 +3296,14 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
 
 173:                                              ; preds = %160
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %127) #19
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %157) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %157) #19
   br label %190
 
 174:                                              ; preds = %160
-  tail call void @Cudd_Ref(ptr noundef %171) #19
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %157) #19
+  tail call void @Cudd_Ref(ptr noundef nonnull %171) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %157) #19
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %127) #19
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddBddIsop, ptr noundef %1, ptr noundef %2, ptr noundef %171) #19
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddBddIsop, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %171) #19
   %175 = load i32, ptr %7, align 4, !tbaa !31
   %176 = load i32, ptr %8, align 4, !tbaa !31
   %177 = add nsw i32 %176, %175
@@ -3312,12 +3312,12 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
   store i32 %179, ptr %4, align 4, !tbaa !31
   %180 = sext i32 %179 to i64
   %181 = inttoptr i64 %180 to ptr
-  %182 = tail call i32 @st__add_direct(ptr noundef %3, ptr noundef %171, ptr noundef %181) #19
+  %182 = tail call i32 @st__add_direct(ptr noundef %3, ptr noundef nonnull %171, ptr noundef %181) #19
   %183 = icmp eq i32 %182, -10000
   br i1 %183, label %184, label %185
 
 184:                                              ; preds = %174
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %171) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %171) #19
   br label %190
 
 185:                                              ; preds = %174
@@ -3326,11 +3326,11 @@ define internal fastcc ptr @extraBddCountCubes(ptr noundef %0, ptr noundef %1, p
   br i1 %187, label %188, label %189
 
 188:                                              ; preds = %185
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %171) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %171) #19
   br label %190
 
 189:                                              ; preds = %185
-  tail call void @Cudd_Deref(ptr noundef %171) #19
+  tail call void @Cudd_Deref(ptr noundef nonnull %171) #19
   br label %190
 
 190:                                              ; preds = %72, %189, %188, %184, %173, %159, %144, %140, %133, %129, %125, %121, %106, %99, %92, %88, %84, %27, %20, %17

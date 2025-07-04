@@ -403,7 +403,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br label %192
 
 178:                                              ; preds = %163
-  tail call void @Cudd_Ref(ptr noundef %175) #5
+  tail call void @Cudd_Ref(ptr noundef nonnull %175) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %166) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %134) #5
   %.not348 = icmp eq ptr %97, %14
@@ -420,7 +420,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %97) #5
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %102) #5
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %138) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %175) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %175) #5
   br label %192
 
 185:                                              ; preds = %178, %179
@@ -439,7 +439,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %97) #5
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %102) #5
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %138) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %175) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %175) #5
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.0313) #5
   br label %192
 
@@ -450,9 +450,9 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %102) #5
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %138) #5
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.0313) #5
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddBddIsop, ptr noundef %1, ptr noundef %2, ptr noundef %175) #5
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddBddIsop, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %175) #5
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddIsop, ptr noundef %1, ptr noundef %2, ptr noundef %.0314) #5
-  tail call void @Cudd_Deref(ptr noundef %175) #5
+  tail call void @Cudd_Deref(ptr noundef nonnull %175) #5
   tail call void @Cudd_Deref(ptr noundef %.0314) #5
   store ptr %.0314, ptr %3, align 8, !tbaa !29
   br label %192
@@ -668,7 +668,7 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %161
 
 108:                                              ; preds = %93
-  tail call void @Cudd_Ref(ptr noundef %105) #5
+  tail call void @Cudd_Ref(ptr noundef nonnull %105) #5
   %109 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %.0232, ptr noundef %.0234) #5
   %110 = icmp eq ptr %109, null
   br i1 %110, label %111, label %112
@@ -678,27 +678,27 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %76) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %83) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %90) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %105) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %105) #5
   br label %161
 
 112:                                              ; preds = %108
   tail call void @Cudd_Ref(ptr noundef nonnull %109) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %83) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %90) #5
-  %113 = tail call ptr @cuddBddIsop(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %109)
+  %113 = tail call ptr @cuddBddIsop(ptr noundef nonnull %0, ptr noundef nonnull %105, ptr noundef nonnull %109)
   %114 = icmp eq ptr %113, null
   br i1 %114, label %115, label %116
 
 115:                                              ; preds = %112
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %72) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %76) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %105) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %105) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %109) #5
   br label %161
 
 116:                                              ; preds = %112
   tail call void @Cudd_Ref(ptr noundef nonnull %113) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %105) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %105) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %109) #5
   %117 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef %5, ptr noundef %8) #5
   %118 = icmp eq ptr %117, null
@@ -766,7 +766,7 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %161
 
 146:                                              ; preds = %131
-  tail call void @Cudd_Ref(ptr noundef %143) #5
+  tail call void @Cudd_Ref(ptr noundef nonnull %143) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %124) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %128) #5
   %147 = xor i64 %142, 1
@@ -783,17 +783,17 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 157:                                              ; preds = %146
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %113) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %143) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %143) #5
   br label %161
 
 158:                                              ; preds = %146
   %159 = xor i64 %155, %153
   %160 = inttoptr i64 %159 to ptr
-  tail call void @Cudd_Ref(ptr noundef %160) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %143) #5
+  tail call void @Cudd_Ref(ptr noundef nonnull %160) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %143) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %113) #5
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddBddIsop, ptr noundef %1, ptr noundef %2, ptr noundef %160) #5
-  tail call void @Cudd_Deref(ptr noundef %160) #5
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddBddIsop, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %160) #5
+  tail call void @Cudd_Deref(ptr noundef nonnull %160) #5
   br label %161
 
 161:                                              ; preds = %58, %12, %10, %3, %158, %157, %145, %130, %126, %119, %115, %111, %107, %92, %85, %78, %74, %70

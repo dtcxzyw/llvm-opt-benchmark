@@ -7839,7 +7839,7 @@ define ptr @computeCofactor(ptr noundef %0, ptr noundef readonly captures(none) 
 95:                                               ; preds = %94
   %96 = inttoptr i64 %92 to ptr
   %97 = load ptr, ptr %30, align 8, !tbaa !113
-  %98 = tail call ptr @Abc_AigAnd(ptr noundef %97, ptr noundef %68, ptr noundef %96) #12
+  %98 = tail call ptr @Abc_AigAnd(ptr noundef %97, ptr noundef %68, ptr noundef nonnull %96) #12
   br label %.thread311.sink.split
 
 .thread311.sink.split:                            ; preds = %91, %90, %84, %83, %80, %88, %95
