@@ -10122,7 +10122,7 @@ spin_acquire_lock.exit:                           ; preds = %11, %5, %8
 
 46:                                               ; preds = %42
   %47 = icmp eq i64 %34, 0
-  br i1 %47, label %48, label %89
+  br i1 %47, label %48, label %90
 
 48:                                               ; preds = %46
   store i64 %32, ptr %3, align 8, !tbaa !36
@@ -10154,14 +10154,14 @@ spin_acquire_lock.exit:                           ; preds = %11, %5, %8
   %.not46.i.i = icmp eq i32 %4, 0
   br i1 %.not46.i.i, label %65, label %internal_shrink.exit
 
-65:                                               ; preds = %56
-  %66 = sub i64 0, %57
-  %67 = getelementptr inbounds i8, ptr %.ptr.i, i64 %66
+83:                                               ; preds = %56
+  %84 = sub i64 0, %57
+  %67 = getelementptr inbounds i8, ptr %.ptr.i, i64 %84
   %68 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef nonnull %67, i64 noundef %59, i64 noundef %64, i32 noundef 0) #17
   %.not47.i.i = icmp eq ptr %68, null
   br i1 %.not47.i.i, label %69, label %70
 
-69:                                               ; preds = %65
+89:                                               ; preds = %83
   tail call void @abort() #18
   unreachable
 
@@ -10198,63 +10198,63 @@ spin_acquire_lock.exit:                           ; preds = %11, %5, %8
   store i64 %85, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 864), align 8, !tbaa !50
   br label %internal_shrink.exit
 
-89:                                               ; preds = %46
-  %90 = sub i64 %32, %44
-  %91 = icmp ult i64 %90, 32
-  br i1 %91, label %internal_shrink.exit, label %92
+90:                                               ; preds = %46
+  %91 = sub i64 %32, %44
+  %92 = icmp ult i64 %91, 32
+  br i1 %92, label %internal_shrink.exit, label %93
 
-92:                                               ; preds = %89
+93:                                               ; preds = %90
   %.not70.i = icmp eq i32 %4, 0
-  br i1 %.not70.i, label %109, label %93
+  br i1 %.not70.i, label %110, label %94
 
-93:                                               ; preds = %92
-  %94 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 %44
-  %95 = and i64 %31, 1
-  %96 = or disjoint i64 %44, %95
-  %97 = or disjoint i64 %96, 2
-  store i64 %97, ptr %18, align 8, !tbaa !23
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %99 = or disjoint i64 %90, 3
-  store i64 %99, ptr %98, align 8, !tbaa !23
-  %100 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 %32
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %102 = load i64, ptr %101, align 8, !tbaa !23
-  %103 = or i64 %102, 1
-  store i64 %103, ptr %101, align 8, !tbaa !23
-  %104 = load i64, ptr @s_allocated_memory, align 8, !tbaa !36
-  %105 = sub i64 %104, %90
-  store i64 %105, ptr @s_allocated_memory, align 8, !tbaa !36
-  %106 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  tail call fastcc void @mspace_free_lockless(ptr noundef nonnull %106)
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 %44
+  %96 = and i64 %31, 1
+  %97 = or disjoint i64 %44, %96
+  %98 = or disjoint i64 %97, 2
+  store i64 %98, ptr %18, align 8, !tbaa !23
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %100 = or disjoint i64 %91, 3
+  store i64 %100, ptr %99, align 8, !tbaa !23
+  %101 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 %32
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load i64, ptr %102, align 8, !tbaa !23
+  %104 = or i64 %103, 1
+  store i64 %104, ptr %102, align 8, !tbaa !23
+  %105 = load i64, ptr @s_allocated_memory, align 8, !tbaa !36
+  %106 = sub i64 %105, %91
+  store i64 %106, ptr @s_allocated_memory, align 8, !tbaa !36
+  %107 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  tail call fastcc void @mspace_free_lockless(ptr noundef nonnull %107)
   %.pre.i = load i64, ptr %18, align 8, !tbaa !23
   %.pre5.i = and i64 %.pre.i, 3
-  %107 = icmp eq i64 %.pre5.i, 0
-  %108 = select i1 %107, i64 -16, i64 -8
-  br label %109
+  %108 = icmp eq i64 %.pre5.i, 0
+  %109 = select i1 %108, i64 -16, i64 -8
+  br label %110
 
-109:                                              ; preds = %93, %92
-  %.pre-phi.i = phi i64 [ %108, %93 ], [ -8, %92 ]
-  %110 = add i64 %.pre-phi.i, %44
-  store i64 %110, ptr %3, align 8, !tbaa !36
+110:                                              ; preds = %94, %93
+  %.pre-phi.i = phi i64 [ %109, %93 ], [ -8, %92 ]
+  %111 = add i64 %.pre-phi.i, %44
+  store i64 %111, ptr %3, align 8, !tbaa !36
   br label %internal_shrink.exit
 
 .critedge.i15:                                    ; preds = %37, %30
   tail call void @abort() #18
   unreachable
 
-internal_shrink.exit:                             ; preds = %26, %28, %42, %48, %52, %56, %82, %88, %89, %109
-  %111 = phi i32 [ 0, %26 ], [ 0, %28 ], [ 0, %89 ], [ 0, %42 ], [ 1, %56 ], [ 1, %88 ], [ 1, %82 ], [ 0, %52 ], [ 0, %48 ], [ 1, %109 ]
-  %112 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
-  %113 = and i32 %112, 2
-  %.not13 = icmp eq i32 %113, 0
-  br i1 %.not13, label %115, label %114
+internal_shrink.exit:                             ; preds = %26, %28, %42, %48, %52, %56, %82, %88, %90, %110
+  %112 = phi i32 [ 0, %26 ], [ 0, %28 ], [ 0, %89 ], [ 0, %42 ], [ 1, %56 ], [ 1, %88 ], [ 1, %82 ], [ 0, %52 ], [ 0, %48 ], [ 1, %109 ]
+  %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
+  %114 = and i32 %113, 2
+  %.not13 = icmp eq i32 %114, 0
+  br i1 %.not13, label %116, label %115
 
-114:                                              ; preds = %internal_shrink.exit
+115:                                              ; preds = %internal_shrink.exit
   store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 884) release, align 4
-  br label %115
+  br label %116
 
-115:                                              ; preds = %internal_shrink.exit, %114
-  ret i32 %111
+116:                                              ; preds = %internal_shrink.exit, %115
+  ret i32 %112
 }
 
 ; Function Attrs: nounwind uwtable

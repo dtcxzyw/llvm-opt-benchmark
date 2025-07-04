@@ -5960,73 +5960,73 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_nack(ptr nound
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %21 = load i32, ptr @hf_rtcp_ssrc_media_source, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
-  %.not16 = icmp ult i16 %6, 3
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  %23 = icmp ult i16 %6, 3
+  br i1 %23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %.not38.i = icmp eq ptr %5, null
-  br label %23
+  br label %24
 
-23:                                               ; preds = %.lr.ph, %dissect_rtcp_rtpfb_nack_fci.exit
-  %.017 = phi i32 [ 12, %.lr.ph ], [ %48, %dissect_rtcp_rtpfb_nack_fci.exit ]
-  %24 = load i32, ptr @hf_rtcp_rtpfb_nack_pid, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef range(i32 -2147483648, 262144) %.017, i32 noundef 2, i32 noundef 0)
-  %26 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 -2147483648, 262144) %.017)
-  %27 = or disjoint i32 %.017, 2
-  %28 = load i32, ptr @hf_rtcp_rtpfb_nack_blp, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef 0)
-  %30 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %27)
-  %31 = zext i16 %30 to i32
-  %32 = load i32, ptr @ett_rtcp_nack_blp, align 4
-  %33 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %32)
-  %.not.i = icmp eq i16 %30, 0
-  br i1 %.not.i, label %.loopexit, label %34
+24:                                               ; preds = %.lr.ph, %dissect_rtcp_rtpfb_nack_fci.exit
+  %.016 = phi i32 [ 12, %.lr.ph ], [ %49, %dissect_rtcp_rtpfb_nack_fci.exit ]
+  %25 = load i32, ptr @hf_rtcp_rtpfb_nack_pid, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef range(i32 -2147483648, 262144) %.016, i32 noundef 2, i32 noundef 0)
+  %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 -2147483648, 262144) %.016)
+  %28 = or disjoint i32 %.016, 2
+  %29 = load i32, ptr @hf_rtcp_rtpfb_nack_blp, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0)
+  %31 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %28)
+  %32 = zext i16 %31 to i32
+  %33 = load i32, ptr @ett_rtcp_nack_blp, align 4
+  %34 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %33)
+  %.not.i = icmp eq i16 %31, 0
+  br i1 %.not.i, label %.loopexit, label %35
 
-34:                                               ; preds = %23
-  %35 = zext i16 %26 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.1023)
-  %36 = add nuw nsw i32 %35, 1
-  br label %37
+35:                                               ; preds = %24
+  %36 = zext i16 %27 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.1023)
+  %37 = add nuw nsw i32 %36, 1
+  br label %38
 
-37:                                               ; preds = %45, %34
-  %.041.i = phi i32 [ 0, %34 ], [ %46, %45 ]
+38:                                               ; preds = %46, %35
+  %.041.i = phi i32 [ 0, %34 ], [ %47, %45 ]
   %.03540.i = phi i32 [ 1, %34 ], [ %.1.i, %45 ]
-  %38 = shl nuw nsw i32 1, %.041.i
-  %39 = and i32 %38, %31
-  %.not39.i = icmp eq i32 %39, 0
-  br i1 %.not39.i, label %45, label %40
+  %39 = shl nuw nsw i32 1, %.041.i
+  %40 = and i32 %39, %32
+  %.not39.i = icmp eq i32 %40, 0
+  br i1 %.not39.i, label %46, label %41
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr @hf_rtcp_rtpfb_nack_pid, align 4
-  %42 = add nuw nsw i32 %36, %.041.i
-  %43 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %33, i32 noundef %41, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef %42, ptr noundef nonnull @.str.1024, i32 noundef %42)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.1025, i32 noundef %42)
-  %44 = add i32 %.03540.i, 1
-  br label %45
+41:                                               ; preds = %38
+  %42 = load i32, ptr @hf_rtcp_rtpfb_nack_pid, align 4
+  %43 = add nuw nsw i32 %37, %.041.i
+  %44 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %34, i32 noundef %42, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef %43, ptr noundef nonnull @.str.1024, i32 noundef %43)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.1025, i32 noundef %43)
+  %45 = add i32 %.03540.i, 1
+  br label %46
 
-45:                                               ; preds = %40, %37
-  %.1.i = phi i32 [ %44, %40 ], [ %.03540.i, %37 ]
-  %46 = add nuw nsw i32 %.041.i, 1
-  %exitcond.not.i = icmp eq i32 %46, 16
-  br i1 %exitcond.not.i, label %.loopexit, label %37, !llvm.loop !37
+46:                                               ; preds = %41, %38
+  %.1.i = phi i32 [ %45, %40 ], [ %.03540.i, %37 ]
+  %47 = add nuw nsw i32 %.041.i, 1
+  %exitcond.not.i = icmp eq i32 %47, 16
+  br i1 %exitcond.not.i, label %.loopexit, label %38, !llvm.loop !37
 
-.loopexit:                                        ; preds = %45, %23
+.loopexit:                                        ; preds = %46, %24
   %.str.1027.sink.i = phi ptr [ @.str.1027, %23 ], [ @.str.1026, %45 ]
   %.2.i = phi i32 [ 1, %23 ], [ %.1.i, %45 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull %.str.1027.sink.i)
-  br i1 %.not38.i, label %dissect_rtcp_rtpfb_nack_fci.exit, label %47
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull %.str.1027.sink.i)
+  br i1 %.not38.i, label %dissect_rtcp_rtpfb_nack_fci.exit, label %48
 
-47:                                               ; preds = %.loopexit
+48:                                               ; preds = %.loopexit
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %5, ptr noundef nonnull @.str.1028, i32 noundef %.2.i)
   br label %dissect_rtcp_rtpfb_nack_fci.exit
 
-dissect_rtcp_rtpfb_nack_fci.exit:                 ; preds = %.loopexit, %47
-  %48 = add nuw nsw i32 %.017, 4
-  %.not.not = icmp samesign ult i32 %.017, %8
-  br i1 %.not.not, label %23, label %._crit_edge, !llvm.loop !38
+dissect_rtcp_rtpfb_nack_fci.exit:                 ; preds = %.loopexit, %48
+  %49 = add nuw nsw i32 %.016, 4
+  %50 = icmp samesign ult i32 %.016, %8
+  br i1 %50, label %24, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %dissect_rtcp_rtpfb_nack_fci.exit, %4
-  %.0.lcssa = phi i32 [ 12, %4 ], [ %48, %dissect_rtcp_rtpfb_nack_fci.exit ]
+  %.0.lcssa = phi i32 [ 12, %4 ], [ %49, %dissect_rtcp_rtpfb_nack_fci.exit ]
   ret i32 %.0.lcssa
 }
 

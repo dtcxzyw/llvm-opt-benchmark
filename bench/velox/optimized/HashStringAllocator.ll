@@ -2568,9 +2568,9 @@ for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i44.i = getelementptr inbounds nuw i64, ptr %freeNonEmpty_, i64 %idxprom.i43.i
   %15 = load i64, ptr %arrayidx.i44.i, align 8
   %tobool4.not.i46.i = icmp eq i64 %15, 0
-  br i1 %tobool4.not.i46.i, label %for.cond.i, label %if.end10
+  br i1 %tobool4.not.i46.i, label %for.cond.i, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i
 
-if.end10:                                         ; preds = %for.body.i
+_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i: ; preds = %for.body.i
   %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 true)
   %cast.i51.i = trunc nuw nsw i64 %16 to i32
   %17 = xor i32 %cast.i51.i, -1
@@ -2578,9 +2578,9 @@ if.end10:                                         ; preds = %for.body.i
   %cmp11 = icmp eq i32 %sub.i52.i, -1
   br i1 %cmp11, label %return, label %if.end13
 
-if.end13:                                         ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i, %if.end10
-  %available.034 = phi i32 [ %sub.i52.i, %if.end10 ], [ %add.i59.i.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread ], [ %sub.i41.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i ]
-  %call16 = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator20allocateFromFreeListEibbi(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %.sroa.speculated, i1 noundef zeroext %mustHaveSize, i1 noundef zeroext %isFinalSize, i32 noundef %available.034)
+if.end13:                                         ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i
+  %available.0 = phi i32 [ %sub.i52.i, %if.end10 ], [ %add.i59.i.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread ], [ %sub.i41.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i ]
+  %call16 = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator20allocateFromFreeListEibbi(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %.sroa.speculated, i1 noundef zeroext %mustHaveSize, i1 noundef zeroext %isFinalSize, i32 noundef %available.0)
   %cmp17.not = icmp eq ptr %call16, null
   br i1 %cmp17.not, label %if.then18, label %return
 
