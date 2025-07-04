@@ -4936,8 +4936,8 @@ define hidden void @"_ZN8language7outline16Outline$LT$T$GT$3new17h2e616817b1c494
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !4
-  %.idx = mul nsw i64 %26, 368
-  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx
+  %.idx94 = mul nsw i64 %26, 368
+  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx94
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %._crit_edge, label %.lr.ph
 

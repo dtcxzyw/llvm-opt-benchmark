@@ -6328,9 +6328,9 @@ define noundef i64 @_ZN21uv_distribution_types10resolution10Resolution3len17h713
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1068, !noundef !11
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf19b89e6356190cE.exit", label %.preheader
+  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf19b89e6356190cE.exit", label %7
 
-.preheader:                                       ; preds = %1, %.preheader
+7:                                                ; preds = %1, %7
   %.sroa.07.0.i = phi i64 [ %spec.select.i.i, %.preheader ], [ 0, %1 ]
   %.sroa.09.0.i = phi i64 [ %12, %.preheader ], [ 0, %1 ]
   %7 = getelementptr inbounds { { i64, [6 x i64] }, [2 x i32] }, ptr %3, i64 %.sroa.09.0.i
@@ -6341,11 +6341,11 @@ define noundef i64 @_ZN21uv_distribution_types10resolution10Resolution3len17h713
   %11 = zext nneg i8 %10 to i64
   %or.cond.i.i.i = select i1 %.not.i.i, i64 0, i64 %11
   %spec.select.i.i = add i64 %or.cond.i.i.i, %.sroa.07.0.i
-  %12 = add nuw i64 %.sroa.09.0.i, 1
-  %13 = icmp eq i64 %12, %5
-  br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf19b89e6356190cE.exit", label %.preheader
+  %14 = add nuw i64 %.sroa.09.0.i, 1
+  %15 = icmp eq i64 %14, %5
+  br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf19b89e6356190cE.exit", label %7
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf19b89e6356190cE.exit": ; preds = %.preheader, %1
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf19b89e6356190cE.exit": ; preds = %7, %1
   %.sroa.04.0.i = phi i64 [ 0, %1 ], [ %spec.select.i.i, %.preheader ]
   ret i64 %.sroa.04.0.i
 }

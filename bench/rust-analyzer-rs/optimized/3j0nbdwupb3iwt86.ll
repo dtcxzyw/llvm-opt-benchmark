@@ -4528,10 +4528,10 @@ define hidden noundef i64 @"_ZN2tt16Subtree$LT$S$GT$5count17h9fe5a6b0ad8d6c97E"(
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !30
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc6903c50ea5a3226E.llvm.1819014470976533947.exit", label %.preheader
+  br i1 %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc6903c50ea5a3226E.llvm.1819014470976533947.exit", label %6
 
-.preheader:                                       ; preds = %1, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d6611801156c678E.exit"
-  %.017.i = phi i64 [ %12, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d6611801156c678E.exit" ], [ 0, %1 ]
+6:                                                ; preds = %1, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d6611801156c678E.exit"
+  %.017.i = phi i64 [ %14, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d6611801156c678E.exit" ], [ 0, %1 ]
   %.016.i = phi i64 [ %13, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d6611801156c678E.exit" ], [ 0, %1 ]
   %6 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %2, i64 %.016.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -4539,21 +4539,21 @@ define hidden noundef i64 @"_ZN2tt16Subtree$LT$S$GT$5count17h9fe5a6b0ad8d6c97E"(
   %9 = icmp eq i8 %8, 4
   br i1 %9, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d6611801156c678E.exit", label %10
 
-10:                                               ; preds = %.preheader
-  %11 = tail call noundef i64 @"_ZN2tt16Subtree$LT$S$GT$5count17h9fe5a6b0ad8d6c97E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %6)
+12:                                               ; preds = %6
+  %13 = tail call noundef i64 @"_ZN2tt16Subtree$LT$S$GT$5count17h9fe5a6b0ad8d6c97E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %6)
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d6611801156c678E.exit"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d6611801156c678E.exit": ; preds = %.preheader, %10
-  %.0.i.i = phi i64 [ %11, %10 ], [ 0, %.preheader ]
-  %12 = add i64 %.0.i.i, %.017.i
-  %13 = add nuw i64 %.016.i, 1
-  %14 = icmp eq i64 %13, %4
-  br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc6903c50ea5a3226E.llvm.1819014470976533947.exit", label %.preheader
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d6611801156c678E.exit": ; preds = %6, %12
+  %.0.i.i = phi i64 [ %13, %10 ], [ 0, %.preheader ]
+  %14 = add i64 %.0.i.i, %.017.i
+  %15 = add nuw i64 %.016.i, 1
+  %16 = icmp eq i64 %15, %4
+  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc6903c50ea5a3226E.llvm.1819014470976533947.exit", label %6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc6903c50ea5a3226E.llvm.1819014470976533947.exit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d6611801156c678E.exit", %1
-  %.0.i = phi i64 [ 0, %1 ], [ %12, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d6611801156c678E.exit" ]
-  %15 = add i64 %.0.i, %4
-  ret i64 %15
+  %.0.i = phi i64 [ 0, %1 ], [ %14, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d6611801156c678E.exit" ]
+  %17 = add i64 %.0.i, %4
+  ret i64 %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

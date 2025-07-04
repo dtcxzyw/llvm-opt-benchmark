@@ -37252,8 +37252,8 @@ select.unfold.i.i:                                ; preds = %451, %._crit_edge.i
   %.sroa.5301.0.copyload = phi i64 [ 0, %409 ], [ %.sroa.5301.0.copyload.pre, %519 ]
   %.sroa.4300.0.copyload = phi ptr [ %395, %409 ], [ %.sroa.4300.0.copyload.pre, %519 ]
   %.sroa.0299.0.copyload = load i64, ptr %2, align 8
-  %.idx = shl nsw i64 %.sroa.5301.0.copyload, 4
-  %523 = getelementptr inbounds i8, ptr %.sroa.4300.0.copyload, i64 %.idx
+  %.idx358 = shl nsw i64 %.sroa.5301.0.copyload, 4
+  %523 = getelementptr inbounds i8, ptr %.sroa.4300.0.copyload, i64 %.idx358
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45)
   store ptr %.sroa.4300.0.copyload, ptr %45, align 8
   %.sroa.4296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -37277,7 +37277,7 @@ select.unfold.i.i:                                ; preds = %451, %._crit_edge.i
   %.sroa.0313.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sroa.0313.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
   %.sroa.4314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %.sroa.5385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %.sroa.5386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.sroa.0313.sroa.7.sroa.4.0..sroa.0313.sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdee5e1b8afb3b44E.exit"
 
@@ -37658,7 +37658,7 @@ select.unfold.i.i:                                ; preds = %451, %._crit_edge.i
 
 657:                                              ; preds = %.noexc183
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5385.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5386.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i)
   store i64 %.sroa.3.0.copyload.i, ptr %43, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !7075)

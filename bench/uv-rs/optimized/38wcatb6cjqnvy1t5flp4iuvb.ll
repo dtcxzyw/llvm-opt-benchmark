@@ -11815,8 +11815,8 @@ define hidden void @_ZN11uv_resolver9graph_ops19marker_reachability17h2aa5715ed8
   %30 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !3
-  %.idx = shl nsw i64 %32, 2
-  %33 = getelementptr inbounds i8, ptr %30, i64 %.idx
+  %.idx113 = shl nsw i64 %32, 2
+  %33 = getelementptr inbounds i8, ptr %30, i64 %.idx113
   %34 = icmp eq i64 %32, 0
   br i1 %34, label %.noexc37, label %.lr.ph
 
@@ -12176,11 +12176,11 @@ select.unfold:                                    ; preds = %65, %._crit_edge.i.
           to label %.sink.split unwind label %.loopexit.split-lp.loopexit
 
 .sink.split:                                      ; preds = %175, %179, %184, %207
-  %.sink131 = phi i64 [ %204, %207 ], [ %204, %184 ], [ %176, %179 ], [ %176, %175 ]
+  %.sink132 = phi i64 [ %204, %207 ], [ %204, %184 ], [ %176, %179 ], [ %176, %175 ]
   %180 = load ptr, ptr %29, align 8, !noalias !3, !nonnull !3, !noundef !3
-  %181 = getelementptr inbounds i32, ptr %180, i64 %.sink131
+  %181 = getelementptr inbounds i32, ptr %180, i64 %.sink132
   store i32 %.sroa.3.0.copyload, ptr %181, align 4
-  %182 = add i64 %.sink131, 1
+  %182 = add i64 %.sink132, 1
   store i64 %182, ptr %31, align 8, !noalias !3
   br label %183
 
