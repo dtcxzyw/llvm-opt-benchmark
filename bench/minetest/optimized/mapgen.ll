@@ -3878,6 +3878,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph.spli
   %8 = load i16, ptr %Y9.i, align 2, !tbaa !88
   %conv10.i = sext i16 %8 to i32
   %sub11.i = sub nsw i32 %conv7.i, %conv10.i
+  %smin52 = tail call i32 @llvm.smin.i32(i32 %conv47, i32 %conv)
   br i1 %propagate_shadow, label %for.body.preheader.split.us, label %for.body.preheader.split
 
 for.body.preheader.split.us:                      ; preds = %for.body.preheader
@@ -3935,8 +3936,8 @@ if.end57.us22.us.us:                              ; preds = %for.body50.us12.us.
   %param158.us23.us.us = getelementptr inbounds nuw i8, ptr %arrayidx54.us17.us.us, i64 2
   store i8 15, ptr %param158.us23.us.us, align 2, !tbaa !170
   %dec.us24.us.us = add nsw i32 %y.0102.us14.us.us, -1
-  %cmp48.not.not.us25.us.us = icmp sgt i32 %y.0102.us14.us.us, %conv47
-  br i1 %cmp48.not.not.us25.us.us, label %for.body50.us12.us.us, label %cleanup60.us26.us.us, !llvm.loop !182
+  %exitcond53.not = icmp eq i32 %y.0102.us14.us.us, %smin52
+  br i1 %exitcond53.not, label %cleanup60.us26.us.us, label %for.body50.us12.us.us, !llvm.loop !182
 
 cleanup60.us26.us.us:                             ; preds = %for.body50.us12.us.us, %if.end57.us22.us.us, %if.else.us10.us.us
   %inc.us27.us.us = add nsw i32 %x.0105.us2.us.us, 1
@@ -3997,8 +3998,8 @@ if.end57.us22:                                    ; preds = %for.body50.us12
   %param158.us23 = getelementptr inbounds nuw i8, ptr %arrayidx54.us17, i64 2
   store i8 15, ptr %param158.us23, align 2, !tbaa !170
   %dec.us24 = add nsw i32 %y.0102.us14, -1
-  %cmp48.not.not.us25 = icmp sgt i32 %y.0102.us14, %conv47
-  br i1 %cmp48.not.not.us25, label %for.body50.us12, label %cleanup60.us26, !llvm.loop !182
+  %exitcond51.not = icmp eq i32 %y.0102.us14, %smin52
+  br i1 %exitcond51.not, label %cleanup60.us26, label %for.body50.us12, !llvm.loop !182
 
 cleanup60.us26:                                   ; preds = %for.body50.us12, %if.end57.us22, %for.body16.us1, %if.else.us10
   %inc.us27 = add nsw i32 %x.0105.us2, 1
@@ -4051,8 +4052,8 @@ if.end57.us.us.us:                                ; preds = %for.body50.us.us.us
   %param158.us.us.us = getelementptr inbounds nuw i8, ptr %arrayidx54.us.us.us, i64 2
   store i8 15, ptr %param158.us.us.us, align 2, !tbaa !170
   %dec.us.us.us = add nsw i32 %y.0102.us.us.us, -1
-  %cmp48.not.not.us.us.us = icmp sgt i32 %y.0102.us.us.us, %conv47
-  br i1 %cmp48.not.not.us.us.us, label %for.body50.us.us.us, label %cleanup60.loopexit.us.us.us, !llvm.loop !182
+  %exitcond49.not = icmp eq i32 %y.0102.us.us.us, %smin52
+  br i1 %exitcond49.not, label %cleanup60.loopexit.us.us.us, label %for.body50.us.us.us, !llvm.loop !182
 
 cleanup60.loopexit.us.us.us:                      ; preds = %if.end57.us.us.us, %for.body50.us.us.us
   %inc.us.us.us = add nsw i32 %x.0105.us.us.us, 1
@@ -4109,8 +4110,8 @@ if.end57.us:                                      ; preds = %for.body50.us
   %param158.us = getelementptr inbounds nuw i8, ptr %arrayidx54.us, i64 2
   store i8 15, ptr %param158.us, align 2, !tbaa !170
   %dec.us = add nsw i32 %y.0102.us, -1
-  %cmp48.not.not.us = icmp sgt i32 %y.0102.us, %conv47
-  br i1 %cmp48.not.not.us, label %for.body50.us, label %cleanup60.us, !llvm.loop !182
+  %exitcond.not = icmp eq i32 %y.0102.us, %smin52
+  br i1 %exitcond.not, label %cleanup60.us, label %for.body50.us, !llvm.loop !182
 
 cleanup60.us:                                     ; preds = %for.body50.us, %if.end57.us, %for.body16.us
   %inc.us = add nsw i32 %x.0105.us, 1

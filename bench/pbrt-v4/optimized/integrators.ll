@@ -38518,10 +38518,10 @@ define dso_local noundef float @_ZN4pbrt9MISWeightERKNS_10IntegratorENS_6CameraE
   %.sroa.15393.0.copyload = load float, ptr %.sroa.15393.0..sroa_idx, align 8
   %.sroa.16396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 332
   %.sroa.16396.0.copyload = load i32, ptr %.sroa.16396.0..sroa_idx, align 4
-  %.sroa.7402.4..sroa_idx556 = getelementptr inbounds nuw i8, ptr %.sroa.7402, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7402.4..sroa_idx556, i8 0, i64 16, i1 false), !tbaa !198
-  %.sroa.7402.24..sroa_idx557 = getelementptr inbounds nuw i8, ptr %.sroa.7402, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7402.24..sroa_idx557, i8 0, i64 88, i1 false)
+  %.sroa.7402.4..sroa_idx559 = getelementptr inbounds nuw i8, ptr %.sroa.7402, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7402.4..sroa_idx559, i8 0, i64 16, i1 false), !tbaa !198
+  %.sroa.7402.24..sroa_idx560 = getelementptr inbounds nuw i8, ptr %.sroa.7402, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7402.24..sroa_idx560, i8 0, i64 88, i1 false)
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit, label %31
 
@@ -38639,10 +38639,10 @@ _ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit: ; preds = %30, %31
   %.sroa.15.0.copyload = load float, ptr %.sroa.15.0..sroa_idx, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 332
   %.sroa.16.0.copyload = load i32, ptr %.sroa.16.0..sroa_idx, align 4
-  %.sroa.7297.4..sroa_idx554 = getelementptr inbounds nuw i8, ptr %.sroa.7297, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7297.4..sroa_idx554, i8 0, i64 16, i1 false), !tbaa !198
-  %.sroa.7297.24..sroa_idx555 = getelementptr inbounds nuw i8, ptr %.sroa.7297, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7297.24..sroa_idx555, i8 0, i64 88, i1 false)
+  %.sroa.7297.4..sroa_idx557 = getelementptr inbounds nuw i8, ptr %.sroa.7297, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.7297.4..sroa_idx557, i8 0, i64 16, i1 false), !tbaa !198
+  %.sroa.7297.24..sroa_idx558 = getelementptr inbounds nuw i8, ptr %.sroa.7297, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7297.24..sroa_idx558, i8 0, i64 88, i1 false)
   %.not.i146 = icmp eq ptr %21, null
   br i1 %.not.i146, label %_ZN4pbrt16ScopedAssignmentINS_6VertexEED2Ev.exit149, label %35
 
@@ -38939,11 +38939,12 @@ _ZN4pbrt16ScopedAssignmentIfED2Ev.exit183:        ; preds = %71
 
 113:                                              ; preds = %109, %.lr.ph
   %.1102 = phi float [ %.0101521, %.lr.ph ], [ %spec.select142, %109 ]
-  %114 = icmp samesign ugt i64 %indvars.iv, 2
-  br i1 %114, label %.lr.ph, label %.preheader, !llvm.loop !976
+  %114 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %114, 1
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !976
 
 ._crit_edge:                                      ; preds = %_ZNK4pbrt6Vertex12IsDeltaLightEv.exit, %_ZNK4pbrt6Vertex12IsDeltaLightEv.exit.thread, %.preheader
-  %.2103.lcssa = phi float [ %.0101.lcssa, %.preheader ], [ %spec.select144541, %_ZNK4pbrt6Vertex12IsDeltaLightEv.exit.thread ], [ %spec.select144, %_ZNK4pbrt6Vertex12IsDeltaLightEv.exit ]
+  %.2103.lcssa = phi float [ %.0101.lcssa, %.preheader ], [ %spec.select144543, %_ZNK4pbrt6Vertex12IsDeltaLightEv.exit.thread ], [ %spec.select144, %_ZNK4pbrt6Vertex12IsDeltaLightEv.exit ]
   %115 = icmp eq i32 %6, 1
   %116 = fdiv float %.2103.lcssa, %91
   %spec.select143 = select i1 %115, float %116, float %.2103.lcssa
@@ -39082,9 +39083,9 @@ _ZNK4pbrt6Vertex12IsDeltaLightEv.exit.thread:     ; preds = %144, %141, %138
   %148 = getelementptr inbounds nuw i8, ptr %127, i64 320
   %149 = load i8, ptr %148, align 8, !tbaa !947, !range !116, !noundef !117
   %150 = trunc nuw i8 %149 to i1
-  %or.cond540 = select i1 %150, i1 true, i1 %.ph
+  %or.cond542 = select i1 %150, i1 true, i1 %.ph
   %151 = fadd float %.2103528, %137
-  %spec.select144541 = select i1 %or.cond540, float %.2103528, float %151
+  %spec.select144543 = select i1 %or.cond542, float %.2103528, float %151
   br label %._crit_edge
 
 _ZNK4pbrt6Vertex12IsDeltaLightEv.exit:            ; preds = %126
@@ -39096,8 +39097,9 @@ _ZNK4pbrt6Vertex12IsDeltaLightEv.exit:            ; preds = %126
   %or.cond.not = icmp eq i8 %155, 0
   %156 = fadd float %.2103528, %137
   %spec.select144 = select i1 %or.cond.not, float %156, float %.2103528
-  %157 = icmp sgt i64 %indvars.iv535, 1
-  br i1 %157, label %126, label %._crit_edge, !llvm.loop !977
+  %157 = and i64 %indvars.iv.next536, 4294967295
+  %exitcond539.not = icmp eq i64 %157, 0
+  br i1 %exitcond539.not, label %._crit_edge, label %126, !llvm.loop !977
 
 158:                                              ; preds = %_ZN4pbrt16ScopedAssignmentIfED2Ev.exit183
   store float %.sroa.7214.0, ptr %.sroa.0212.0, align 4, !tbaa !198
@@ -62249,8 +62251,9 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt13ZSobolSampler5Get1DEv(ptr
   %36 = zext i8 %35 to i64
   %37 = shl i64 %36, %18
   %38 = or i64 %37, %.023.i
-  %.not.not20.i = icmp samesign ugt i64 %indvars.iv.next.i, %14
-  br i1 %.not.not20.i, label %15, label %._crit_edge.i, !llvm.loop !1539
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
+  %exitcond.not.i = icmp eq i32 %4, %lftr.wideiv.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !1539
 
 39:                                               ; preds = %._crit_edge.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -65575,8 +65578,9 @@ define linkonce_odr dso_local <2 x float> @_ZN4pbrt13ZSobolSampler5Get2DEv(ptr n
   %36 = zext i8 %35 to i64
   %37 = shl i64 %36, %18
   %38 = or i64 %37, %.023.i
-  %.not.not20.i = icmp samesign ugt i64 %indvars.iv.next.i, %14
-  br i1 %.not.not20.i, label %15, label %._crit_edge.i, !llvm.loop !1539
+  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
+  %exitcond.not.i = icmp eq i32 %4, %lftr.wideiv.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !1539
 
 39:                                               ; preds = %._crit_edge.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16

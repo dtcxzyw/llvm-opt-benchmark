@@ -3962,31 +3962,29 @@ define void @init_acc_pos(i32 noundef %0, ptr noundef readonly captures(none) %1
 
 .lr.ph26.preheader:                               ; preds = %6
   %13 = add nsw i32 %0, -2
-  %14 = zext i32 %13 to i64
-  %15 = shl nuw nsw i64 %14, 3
-  %16 = getelementptr i8, ptr %2, i64 %15
-  %scevgep = getelementptr i8, ptr %16, i64 8
-  %load_initial = load i64, ptr %scevgep, align 8
-  %invariant.gep = getelementptr i8, ptr %1, i64 8
+  %14 = zext nneg i32 %13 to i64
   br label %.lr.ph26
 
 .preheader:                                       ; preds = %.lr.ph26, %6
-  %17 = zext i32 %0 to i64
-  %18 = shl nuw nsw i64 %17, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %18, i1 false), !tbaa !7
+  %15 = zext i32 %0 to i64
+  %16 = shl nuw nsw i64 %15, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %16, i1 false), !tbaa !7
   br label %.loopexit
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %.lr.ph26
-  %store_forwarded = phi i64 [ %load_initial, %.lr.ph26.preheader ], [ %20, %.lr.ph26 ]
   %indvars.iv = phi i64 [ %14, %.lr.ph26.preheader ], [ %indvars.iv.next, %.lr.ph26 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
-  %19 = load i64, ptr %gep, align 8, !tbaa !7
-  %20 = mul i64 %19, %store_forwarded
-  %21 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
-  store i64 %20, ptr %21, align 8, !tbaa !7
+  %17 = add nuw nsw i64 %indvars.iv, 1
+  %18 = getelementptr inbounds nuw i64, ptr %2, i64 %17
+  %19 = load i64, ptr %18, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw i64, ptr %1, i64 %17
+  %21 = load i64, ptr %20, align 8, !tbaa !7
+  %22 = mul i64 %21, %19
+  %23 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  store i64 %22, ptr %23, align 8, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %.preheader, label %.lr.ph26, !llvm.loop !63
+  %24 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %24, 4294967295
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph26, !llvm.loop !63
 
 .loopexit:                                        ; preds = %5, %.preheader
   ret void

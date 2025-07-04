@@ -4159,7 +4159,7 @@ declare double @llvm.floor.f64(double) #20
 define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [10 x i8], align 1
   %6 = icmp ugt i64 %2, 12
-  br i1 %6, label %7, label %40
+  br i1 %6, label %7, label %41
 
 7:                                                ; preds = %4
   %8 = icmp slt i32 %3, 0
@@ -4224,60 +4224,69 @@ define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly 
   %25 = load i8, ptr %24, align 1, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %.154, i64 1
   store i8 %25, ptr %.154, align 1, !tbaa !27
-  %.wide = icmp ugt i64 %23, 5
-  br i1 %.wide, label %.lr.ph55, label %._crit_edge56, !llvm.loop !151
+  %27 = and i64 %23, 4294967295
+  %exitcond.not = icmp eq i64 %27, 5
+  br i1 %exitcond.not, label %._crit_edge56.thread, label %.lr.ph55, !llvm.loop !151
 
-._crit_edge56:                                    ; preds = %.lr.ph55, %.preheader47
-  %.139.lcssa = phi i32 [ %16, %.preheader47 ], [ 5, %.lr.ph55 ]
-  %.1.lcssa = phi ptr [ %.03579, %.preheader47 ], [ %26, %.lr.ph55 ]
-  %27 = icmp ult i32 %spec.select, 6
-  br i1 %27, label %28, label %.loopexit
+._crit_edge56:                                    ; preds = %.preheader47
+  %28 = icmp ult i32 %spec.select, 6
+  br i1 %28, label %30, label %.loopexit
 
-28:                                               ; preds = %._crit_edge56
-  store i8 46, ptr %.1.lcssa, align 1, !tbaa !27
-  %.259 = getelementptr i8, ptr %.1.lcssa, i64 1
-  %29 = icmp samesign ult i32 %.139.lcssa, 5
-  br i1 %29, label %.lr.ph63.preheader, label %.preheader
+._crit_edge56.thread:                             ; preds = %.lr.ph55
+  %29 = icmp ult i32 %spec.select, 6
+  br i1 %29, label %.thread90, label %.loopexit
 
-.lr.ph63.preheader:                               ; preds = %28
-  %30 = sub nuw nsw i32 4, %.139.lcssa
-  %31 = zext nneg i32 %30 to i64
-  %32 = add nuw nsw i64 %31, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.259, i8 48, i64 %32, i1 false), !tbaa !27
-  %33 = getelementptr i8, ptr %.1.lcssa, i64 %31
-  %scevgep = getelementptr i8, ptr %33, i64 2
+.thread90:                                        ; preds = %._crit_edge56.thread
+  store i8 46, ptr %26, align 1, !tbaa !27
+  %.25993 = getelementptr i8, ptr %.154, i64 2
   br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph63.preheader, %28
-  %.2.lcssa = phi ptr [ %.259, %28 ], [ %scevgep, %.lr.ph63.preheader ]
-  %.not4665 = icmp samesign ult i32 %.139.lcssa, %spec.select
+30:                                               ; preds = %._crit_edge56
+  store i8 46, ptr %.03579, align 1, !tbaa !27
+  %.259 = getelementptr i8, ptr %.03579, i64 1
+  %.not97 = icmp eq i32 %16, 5
+  br i1 %.not97, label %.preheader, label %.lr.ph63.preheader
+
+.lr.ph63.preheader:                               ; preds = %30
+  %31 = sub i32 3, %.03850
+  %32 = zext nneg i32 %31 to i64
+  %33 = add nuw nsw i64 %32, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.259, i8 48, i64 %33, i1 false), !tbaa !27
+  %34 = getelementptr i8, ptr %.03579, i64 %32
+  %scevgep = getelementptr i8, ptr %34, i64 2
+  br label %.preheader
+
+.preheader:                                       ; preds = %.thread90, %.lr.ph63.preheader, %30
+  %.139.lcssa8894 = phi i32 [ 5, %30 ], [ %16, %.lr.ph63.preheader ], [ 5, %.thread90 ]
+  %.2.lcssa = phi ptr [ %.259, %30 ], [ %scevgep, %.lr.ph63.preheader ], [ %.25993, %.thread90 ]
+  %.not4665 = icmp samesign ult i32 %.139.lcssa8894, %spec.select
   br i1 %.not4665, label %.loopexit, label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %.preheader, %.lr.ph68
-  %.367 = phi ptr [ %38, %.lr.ph68 ], [ %.2.lcssa, %.preheader ]
-  %.24066 = phi i32 [ %34, %.lr.ph68 ], [ %.139.lcssa, %.preheader ]
-  %34 = add i32 %.24066, -1
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !27
-  %38 = getelementptr inbounds nuw i8, ptr %.367, i64 1
-  store i8 %37, ptr %.367, align 1, !tbaa !27
-  %.not46 = icmp ult i32 %34, %spec.select
+  %.367 = phi ptr [ %39, %.lr.ph68 ], [ %.2.lcssa, %.preheader ]
+  %.24066 = phi i32 [ %35, %.lr.ph68 ], [ %.139.lcssa8894, %.preheader ]
+  %35 = add i32 %.24066, -1
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %36
+  %38 = load i8, ptr %37, align 1, !tbaa !27
+  %39 = getelementptr inbounds nuw i8, ptr %.367, i64 1
+  store i8 %38, ptr %.367, align 1, !tbaa !27
+  %.not46 = icmp ult i32 %35, %spec.select
   br i1 %.not46, label %.loopexit, label %.lr.ph68, !llvm.loop !152
 
 ._crit_edge.thread:                               ; preds = %11, %._crit_edge
   %.0358085 = phi ptr [ %.03579, %._crit_edge ], [ %1, %11 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.0358085, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.0358085, i64 1
   store i8 48, ptr %.0358085, align 1, !tbaa !27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph68, %.preheader, %._crit_edge56, %._crit_edge.thread
-  %.4 = phi ptr [ %.1.lcssa, %._crit_edge56 ], [ %39, %._crit_edge.thread ], [ %.2.lcssa, %.preheader ], [ %38, %.lr.ph68 ]
+.loopexit:                                        ; preds = %.lr.ph68, %._crit_edge56.thread, %.preheader, %._crit_edge56, %._crit_edge.thread
+  %.4 = phi ptr [ %.03579, %._crit_edge56 ], [ %40, %._crit_edge.thread ], [ %.2.lcssa, %.preheader ], [ %26, %._crit_edge56.thread ], [ %39, %.lr.ph68 ]
   store i8 0, ptr %.4, align 1, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #30
   ret void
 
-40:                                               ; preds = %4
+41:                                               ; preds = %4
   tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.55) #28
   unreachable
 }

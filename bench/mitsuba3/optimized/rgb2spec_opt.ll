@@ -293,7 +293,7 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr noundef readonly captures(none) %0
 
 .preheader.._crit_edge49_crit_edge:               ; preds = %.preheader
   %.phi.trans.insert = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.next61
-  %.pre66 = load double, ptr %.phi.trans.insert, align 8
+  %.pre67 = load double, ptr %.phi.trans.insert, align 8
   br label %._crit_edge49
 
 .lr.ph48:                                         ; preds = %.preheader
@@ -319,7 +319,7 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr noundef readonly captures(none) %0
   br i1 %38, label %28, label %._crit_edge49, !llvm.loop !14
 
 ._crit_edge49:                                    ; preds = %28, %.preheader.._crit_edge49_crit_edge
-  %39 = phi double [ %.pre66, %.preheader.._crit_edge49_crit_edge ], [ %36, %28 ]
+  %39 = phi double [ %.pre67, %.preheader.._crit_edge49_crit_edge ], [ %36, %28 ]
   %40 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.next61
   %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next61
   %42 = load ptr, ptr %41, align 8
@@ -327,8 +327,9 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr noundef readonly captures(none) %0
   %44 = load double, ptr %43, align 8
   %45 = fdiv contract double %39, %44
   store double %45, ptr %40, align 8
-  %46 = icmp samesign ugt i64 %indvars.iv60, 1
-  br i1 %46, label %.preheader, label %._crit_edge53, !llvm.loop !15
+  %46 = and i64 %indvars.iv.next61, 4294967295
+  %exitcond66.not = icmp eq i64 %46, 0
+  br i1 %exitcond66.not, label %._crit_edge53, label %.preheader, !llvm.loop !15
 
 ._crit_edge53:                                    ; preds = %._crit_edge49, %5
   ret void
@@ -952,7 +953,7 @@ define hidden noundef double @_Z12gauss_newtonPKdPdi(ptr noundef readonly captur
   br label %18
 
 18:                                               ; preds = %.loopexit, %.lr.ph
-  %.03654 = phi i32 [ 0, %.lr.ph ], [ %183, %.loopexit ]
+  %.03654 = phi i32 [ 0, %.lr.ph ], [ %182, %.loopexit ]
   store ptr %5, ptr %8, align 16
   store ptr %6, ptr %13, align 8
   store ptr %7, ptr %14, align 16
@@ -1216,7 +1217,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
 
 .preheader.._crit_edge49_crit_edge.i:             ; preds = %.preheader.i45
   %.phi.trans.insert.i = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next61.i
-  %.pre66.i = load double, ptr %.phi.trans.insert.i, align 8
+  %.pre67.i = load double, ptr %.phi.trans.insert.i, align 8
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next61.i
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge49.i
@@ -1244,68 +1245,68 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
 
 ._crit_edge49.i:                                  ; preds = %144, %.preheader.._crit_edge49_crit_edge.i
   %152 = phi ptr [ %.pre, %.preheader.._crit_edge49_crit_edge.i ], [ %143, %144 ]
-  %153 = phi double [ %.pre66.i, %.preheader.._crit_edge49_crit_edge.i ], [ %151, %144 ]
+  %153 = phi double [ %.pre67.i, %.preheader.._crit_edge49_crit_edge.i ], [ %151, %144 ]
   %154 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next61.i
   %155 = getelementptr inbounds nuw double, ptr %152, i64 %indvars.iv.next61.i
   %156 = load double, ptr %155, align 8
   %157 = fdiv contract double %153, %156
   store double %157, ptr %154, align 8
-  %158 = icmp samesign ugt i64 %indvars.iv60.i, 1
-  br i1 %158, label %.preheader.i45, label %_Z8LUPSolvePPdPiS_iS_.exit, !llvm.loop !15
+  %exitcond59 = icmp eq i64 %indvars.iv.next61.i, 0
+  br i1 %exitcond59, label %_Z8LUPSolvePPdPiS_iS_.exit, label %.preheader.i45, !llvm.loop !15
 
 _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_Z8LUPSolvePPdPiS_iS_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_Z8LUPSolvePPdPiS_iS_.exit ], [ 0, %._crit_edge49.i ]
-  %.252 = phi double [ %167, %_Z8LUPSolvePPdPiS_iS_.exit ], [ 0.000000e+00, %._crit_edge49.i ]
-  %159 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %indvars.iv
-  %160 = load double, ptr %159, align 8
-  %161 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %162 = load double, ptr %161, align 8
-  %163 = fsub contract double %162, %160
-  store double %163, ptr %161, align 8
-  %164 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %indvars.iv
-  %165 = load double, ptr %164, align 8
-  %166 = fmul contract double %165, %165
-  %167 = fadd contract double %.252, %166
+  %.252 = phi double [ %166, %_Z8LUPSolvePPdPiS_iS_.exit ], [ 0.000000e+00, %._crit_edge49.i ]
+  %158 = getelementptr inbounds nuw [3 x double], ptr %11, i64 0, i64 %indvars.iv
+  %159 = load double, ptr %158, align 8
+  %160 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %161 = load double, ptr %160, align 8
+  %162 = fsub contract double %161, %159
+  store double %162, ptr %160, align 8
+  %163 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %indvars.iv
+  %164 = load double, ptr %163, align 8
+  %165 = fmul contract double %164, %164
+  %166 = fadd contract double %.252, %165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond60.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond60.not, label %168, label %_Z8LUPSolvePPdPiS_iS_.exit, !llvm.loop !27
+  %exitcond61.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond61.not, label %167, label %_Z8LUPSolvePPdPiS_iS_.exit, !llvm.loop !27
 
-168:                                              ; preds = %_Z8LUPSolvePPdPiS_iS_.exit
-  %169 = load double, ptr %1, align 8
-  %170 = load double, ptr %16, align 8
-  %171 = fcmp contract olt double %169, %170
-  %172 = select i1 %171, double %170, double %169
-  %173 = load double, ptr %17, align 8
-  %174 = fcmp contract olt double %172, %173
-  %175 = select i1 %174, double %173, double %172
-  %176 = fcmp contract ogt double %175, 2.000000e+02
-  br i1 %176, label %.preheader, label %.loopexit
+167:                                              ; preds = %_Z8LUPSolvePPdPiS_iS_.exit
+  %168 = load double, ptr %1, align 8
+  %169 = load double, ptr %16, align 8
+  %170 = fcmp contract olt double %168, %169
+  %171 = select i1 %170, double %169, double %168
+  %172 = load double, ptr %17, align 8
+  %173 = fcmp contract olt double %171, %172
+  %174 = select i1 %173, double %172, double %171
+  %175 = fcmp contract ogt double %174, 2.000000e+02
+  br i1 %175, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %168
-  %177 = fdiv contract double 2.000000e+02, %175
-  br label %178
+.preheader:                                       ; preds = %167
+  %176 = fdiv contract double 2.000000e+02, %174
+  br label %177
 
-178:                                              ; preds = %.preheader, %178
-  %indvars.iv61 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next62, %178 ]
-  %179 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv61
-  %180 = load double, ptr %179, align 8
-  %181 = fmul contract double %177, %180
-  store double %181, ptr %179, align 8
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next62, 3
-  br i1 %exitcond64.not, label %.loopexit, label %178, !llvm.loop !28
+177:                                              ; preds = %.preheader, %177
+  %indvars.iv62 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next63, %177 ]
+  %178 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv62
+  %179 = load double, ptr %178, align 8
+  %180 = fmul contract double %176, %179
+  store double %180, ptr %178, align 8
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %exitcond65.not = icmp eq i64 %indvars.iv.next63, 3
+  br i1 %exitcond65.not, label %.loopexit, label %177, !llvm.loop !28
 
-.loopexit:                                        ; preds = %178, %168
-  %182 = fcmp contract olt double %167, 0x3EB0C6F7A0B5ED8D
-  %183 = add nuw nsw i32 %.03654, 1
-  %exitcond65.not = icmp eq i32 %183, %2
-  %or.cond = select i1 %182, i1 true, i1 %exitcond65.not
+.loopexit:                                        ; preds = %177, %167
+  %181 = fcmp contract olt double %166, 0x3EB0C6F7A0B5ED8D
+  %182 = add nuw nsw i32 %.03654, 1
+  %exitcond66.not = icmp eq i32 %182, %2
+  %or.cond = select i1 %181, i1 true, i1 %exitcond66.not
   br i1 %or.cond, label %._crit_edge, label %18, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
-  %.1 = phi double [ 0.000000e+00, %3 ], [ %167, %.loopexit ]
-  %184 = call contract double @llvm.sqrt.f64(double %.1)
-  ret double %184
+  %.1 = phi double [ 0.000000e+00, %3 ], [ %166, %.loopexit ]
+  %183 = call contract double @llvm.sqrt.f64(double %.1)
+  ret double %183
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #9
@@ -2001,8 +2002,9 @@ define internal void @main.omp_outlined(ptr noalias noundef readonly captures(no
   %149 = getelementptr i8, ptr %148, i64 8
   store float %146, ptr %149, align 4, !llvm.access.group !31
   %indvars.iv.next118 = add nsw i64 %indvars.iv117, -1
-  %150 = icmp sgt i64 %indvars.iv117, 0
-  br i1 %150, label %.lr.ph103, label %._crit_edge104.loopexit, !llvm.loop !33
+  %150 = and i64 %indvars.iv.next118, 4294967295
+  %exitcond.not = icmp eq i64 %150, 4294967295
+  br i1 %exitcond.not, label %._crit_edge104.loopexit, label %.lr.ph103, !llvm.loop !33
 
 ._crit_edge104.loopexit:                          ; preds = %114
   %.pre120 = load i32, ptr %2, align 4, !llvm.access.group !31

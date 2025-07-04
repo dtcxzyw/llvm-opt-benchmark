@@ -48,14 +48,14 @@ define dso_local { i64, i32 } @LZ4HC_searchExtDict(ptr noundef %0, i32 noundef %
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 131072
   br label %40
 
-40:                                               ; preds = %.lr.ph108, %125
-  %41 = phi i32 [ %28, %.lr.ph108 ], [ %133, %125 ]
-  %.0106 = phi i32 [ %6, %.lr.ph108 ], [ %.1, %125 ]
-  %.050105 = phi i32 [ %7, %.lr.ph108 ], [ %42, %125 ]
-  %.051104 = phi i32 [ %24, %.lr.ph108 ], [ %131, %125 ]
-  %.053103 = phi i32 [ %27, %.lr.ph108 ], [ %132, %125 ]
-  %.054102 = phi i32 [ 0, %.lr.ph108 ], [ %.155, %125 ]
-  %.057101 = phi i32 [ 0, %.lr.ph108 ], [ %.158, %125 ]
+40:                                               ; preds = %.lr.ph108, %124
+  %41 = phi i32 [ %28, %.lr.ph108 ], [ %132, %124 ]
+  %.0106 = phi i32 [ %6, %.lr.ph108 ], [ %.1, %124 ]
+  %.050105 = phi i32 [ %7, %.lr.ph108 ], [ %42, %124 ]
+  %.051104 = phi i32 [ %24, %.lr.ph108 ], [ %130, %124 ]
+  %.053103 = phi i32 [ %27, %.lr.ph108 ], [ %131, %124 ]
+  %.054102 = phi i32 [ 0, %.lr.ph108 ], [ %.155, %124 ]
+  %.057101 = phi i32 [ 0, %.lr.ph108 ], [ %.158, %124 ]
   %42 = add nsw i32 %.050105, -1
   %.not = icmp eq i32 %.050105, 0
   br i1 %.not, label %.critedge.loopexit, label %43
@@ -65,7 +65,7 @@ define dso_local { i64, i32 } @LZ4HC_searchExtDict(ptr noundef %0, i32 noundef %
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 %44
   %.val70 = load i32, ptr %45, align 1, !tbaa !15
   %46 = icmp eq i32 %.val70, %.val72
-  br i1 %46, label %47, label %125
+  br i1 %46, label %47, label %124
 
 47:                                               ; preds = %43
   %48 = sub i64 %19, %44
@@ -192,11 +192,11 @@ LZ4_count.exit:                                   ; preds = %.thread80, %56, %95
   %101 = trunc i64 %..i to i32
   %invariant.gep95 = getelementptr i8, ptr %45, i64 -4
   %102 = icmp slt i32 %101, -3
-  %sext128 = shl i64 %..i, 32
-  %103 = ashr exact i64 %sext128, 32
   br i1 %102, label %.lr.ph99.preheader, label %.preheader
 
 .lr.ph99.preheader:                               ; preds = %100
+  %sext = shl i64 %..i, 32
+  %103 = ashr exact i64 %sext, 32
   %invariant.op = add nsw i64 %103, 3
   br label %.lr.ph99
 
@@ -204,10 +204,11 @@ LZ4_count.exit:                                   ; preds = %.thread80, %56, %95
   %104 = trunc nsw i64 %indvars.iv.next to i32
   br label %.preheader
 
-.preheader:                                       ; preds = %100, %.preheader.loopexit
-  %.028.i.lcssa = phi i32 [ %104, %.preheader.loopexit ], [ 0, %100 ]
+.preheader:                                       ; preds = %.preheader.loopexit, %100
+  %.028.i.lcssa = phi i32 [ 0, %100 ], [ %104, %.preheader.loopexit ]
   %105 = sext i32 %.028.i.lcssa to i64
   %smin = tail call i32 @llvm.smin.i32(i32 %.028.i.lcssa, i32 %101)
+  %wide.trip.count = sext i32 %smin to i64
   br label %113
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %111
@@ -232,57 +233,57 @@ LZ4_count.exit:                                   ; preds = %.thread80, %56, %95
   %112 = icmp sgt i64 %indvars.iv.next, %invariant.op
   br i1 %112, label %.lr.ph99, label %.preheader.loopexit
 
-113:                                              ; preds = %.preheader, %115
-  %indvars.iv125 = phi i64 [ %105, %.preheader ], [ %indvars.iv.next126, %115 ]
-  %114 = icmp sgt i64 %indvars.iv125, %103
-  br i1 %114, label %115, label %LZ4HC_countBack.exit
+113:                                              ; preds = %.preheader, %114
+  %indvars.iv125 = phi i64 [ %105, %.preheader ], [ %indvars.iv.next126, %114 ]
+  %exitcond.not = icmp eq i64 %indvars.iv125, %wide.trip.count
+  br i1 %exitcond.not, label %LZ4HC_countBack.exit, label %114
 
-115:                                              ; preds = %113
+114:                                              ; preds = %113
   %indvars.iv.next126 = add nsw i64 %indvars.iv125, -1
-  %116 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next126
-  %117 = load i8, ptr %116, align 1, !tbaa !26
-  %118 = getelementptr inbounds i8, ptr %45, i64 %indvars.iv.next126
-  %119 = load i8, ptr %118, align 1, !tbaa !26
-  %120 = icmp eq i8 %117, %119
-  br i1 %120, label %113, label %LZ4HC_countBack.exit.loopexit.split.loop.exit136, !llvm.loop !27
+  %115 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next126
+  %116 = load i8, ptr %115, align 1, !tbaa !26
+  %117 = getelementptr inbounds i8, ptr %45, i64 %indvars.iv.next126
+  %118 = load i8, ptr %117, align 1, !tbaa !26
+  %119 = icmp eq i8 %116, %118
+  br i1 %119, label %113, label %LZ4HC_countBack.exit.loopexit.split.loop.exit135, !llvm.loop !27
 
-LZ4HC_countBack.exit.loopexit.split.loop.exit136: ; preds = %115
-  %121 = trunc nsw i64 %indvars.iv125 to i32
+LZ4HC_countBack.exit.loopexit.split.loop.exit135: ; preds = %114
+  %120 = trunc nsw i64 %indvars.iv125 to i32
   br label %LZ4HC_countBack.exit
 
-LZ4HC_countBack.exit:                             ; preds = %113, %LZ4HC_countBack.exit.loopexit.split.loop.exit136, %.thread84, %LZ4_count.exit
-  %122 = phi i32 [ 0, %LZ4_count.exit ], [ %110, %.thread84 ], [ %121, %LZ4HC_countBack.exit.loopexit.split.loop.exit136 ], [ %smin, %113 ]
-  %123 = sub i32 %99, %122
-  %124 = icmp sgt i32 %123, %.0106
-  %.259 = select i1 %124, i32 %41, i32 %.057101
-  %.256 = select i1 %124, i32 %122, i32 %.054102
-  %.2 = tail call i32 @llvm.smax.i32(i32 %123, i32 %.0106)
-  br label %125
+LZ4HC_countBack.exit:                             ; preds = %113, %LZ4HC_countBack.exit.loopexit.split.loop.exit135, %.thread84, %LZ4_count.exit
+  %121 = phi i32 [ 0, %LZ4_count.exit ], [ %110, %.thread84 ], [ %120, %LZ4HC_countBack.exit.loopexit.split.loop.exit135 ], [ %smin, %113 ]
+  %122 = sub i32 %99, %121
+  %123 = icmp sgt i32 %122, %.0106
+  %.259 = select i1 %123, i32 %41, i32 %.057101
+  %.256 = select i1 %123, i32 %121, i32 %.054102
+  %.2 = tail call i32 @llvm.smax.i32(i32 %122, i32 %.0106)
+  br label %124
 
-125:                                              ; preds = %LZ4HC_countBack.exit, %43
+124:                                              ; preds = %LZ4HC_countBack.exit, %43
   %.158 = phi i32 [ %.259, %LZ4HC_countBack.exit ], [ %.057101, %43 ]
   %.155 = phi i32 [ %.256, %LZ4HC_countBack.exit ], [ %.054102, %43 ]
   %.1 = phi i32 [ %.2, %LZ4HC_countBack.exit ], [ %.0106, %43 ]
-  %126 = and i32 %.051104, 65535
-  %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw [65536 x i16], ptr %39, i64 0, i64 %127
-  %129 = load i16, ptr %128, align 2, !tbaa !29
-  %130 = zext i16 %129 to i32
-  %131 = sub i32 %.051104, %130
-  %132 = sub i32 %.053103, %130
-  %133 = sub i32 %1, %132
-  %134 = icmp ult i32 %133, 65536
-  br i1 %134, label %40, label %.critedge.loopexit, !llvm.loop !30
+  %125 = and i32 %.051104, 65535
+  %126 = zext nneg i32 %125 to i64
+  %127 = getelementptr inbounds nuw [65536 x i16], ptr %39, i64 0, i64 %126
+  %128 = load i16, ptr %127, align 2, !tbaa !29
+  %129 = zext i16 %128 to i32
+  %130 = sub i32 %.051104, %129
+  %131 = sub i32 %.053103, %129
+  %132 = sub i32 %1, %131
+  %133 = icmp ult i32 %132, 65536
+  br i1 %133, label %40, label %.critedge.loopexit, !llvm.loop !30
 
-.critedge.loopexit:                               ; preds = %125, %40
-  %.057.lcssa.ph = phi i32 [ %.057101, %40 ], [ %.158, %125 ]
-  %.054.lcssa.ph = phi i32 [ %.054102, %40 ], [ %.155, %125 ]
-  %.0.lcssa.ph = phi i32 [ %.0106, %40 ], [ %.1, %125 ]
-  %135 = zext nneg i32 %.057.lcssa.ph to i64
+.critedge.loopexit:                               ; preds = %124, %40
+  %.057.lcssa.ph = phi i32 [ %.057101, %40 ], [ %.158, %124 ]
+  %.054.lcssa.ph = phi i32 [ %.054102, %40 ], [ %.155, %124 ]
+  %.0.lcssa.ph = phi i32 [ %.0106, %40 ], [ %.1, %124 ]
+  %134 = zext nneg i32 %.057.lcssa.ph to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %8
-  %.057.lcssa = phi i64 [ 0, %8 ], [ %135, %.critedge.loopexit ]
+  %.057.lcssa = phi i64 [ 0, %8 ], [ %134, %.critedge.loopexit ]
   %.054.lcssa = phi i32 [ 0, %8 ], [ %.054.lcssa.ph, %.critedge.loopexit ]
   %.0.lcssa = phi i32 [ %6, %8 ], [ %.0.lcssa.ph, %.critedge.loopexit ]
   %.sroa.249.0.insert.ext = zext i32 %.0.lcssa to i64

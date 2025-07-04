@@ -1769,8 +1769,9 @@ define internal fastcc i32 @setup_decode_folder(ptr noundef %0, ptr noundef read
 
 .loopexit.us.i:                                   ; preds = %38
   %indvars.iv.next27.i = add nsw i64 %indvars.iv26.i, -1
-  %42 = icmp sgt i64 %indvars.iv26.i, 0
-  br i1 %42, label %.preheader.us.i, label %folder_uncompressed_size.exit
+  %42 = and i64 %indvars.iv.next27.i, 4294967295
+  %exitcond29.not.i = icmp eq i64 %42, 4294967295
+  br i1 %exitcond29.not.i, label %folder_uncompressed_size.exit, label %.preheader.us.i
 
 .thread18.loopexit.i:                             ; preds = %37
   %43 = trunc nuw nsw i64 %indvars.iv26.i to i32
@@ -6942,8 +6943,9 @@ parse_7zip_uint64.exit167.i:                      ; preds = %769, %._crit_edge23
 
 .loopexit.us.i.i:                                 ; preds = %805
   %indvars.iv.next27.i.i = add nsw i64 %indvars.iv26.i.i, -1
-  %809 = icmp sgt i64 %indvars.iv26.i.i, 0
-  br i1 %809, label %.preheader.us.i.i100, label %folder_uncompressed_size.exit.i
+  %809 = and i64 %indvars.iv.next27.i.i, 4294967295
+  %exitcond29.not.i.i = icmp eq i64 %809, 4294967295
+  br i1 %exitcond29.not.i.i, label %folder_uncompressed_size.exit.i, label %.preheader.us.i.i100
 
 .thread18.loopexit.i.i:                           ; preds = %804
   %810 = trunc nuw nsw i64 %indvars.iv26.i.i to i32
@@ -7431,8 +7433,9 @@ define internal fastcc i64 @folder_uncompressed_size(ptr noundef readonly captur
 
 .loopexit.us:                                     ; preds = %14
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, -1
-  %18 = icmp sgt i64 %indvars.iv26, 0
-  br i1 %18, label %.preheader.us, label %.loopexit20
+  %18 = and i64 %indvars.iv.next27, 4294967295
+  %exitcond29.not = icmp eq i64 %18, 4294967295
+  br i1 %exitcond29.not, label %.loopexit20, label %.preheader.us
 
 .thread18.loopexit:                               ; preds = %13
   %19 = trunc nuw nsw i64 %indvars.iv26 to i32

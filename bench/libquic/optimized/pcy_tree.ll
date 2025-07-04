@@ -206,8 +206,9 @@ define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly capt
 43:                                               ; preds = %33, %31
   %.393.i = phi i32 [ %.191142.i, %31 ], [ %spec.select132.i, %33 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %44 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %44, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !57
+  %44 = and i64 %indvars.iv.next.i, 4294967295
+  %exitcond.not.i = icmp eq i64 %44, 4294967295
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !57
 
 ._crit_edge.i:                                    ; preds = %43
   %.not110.i = icmp eq i32 %.198.i, 1
@@ -220,7 +221,7 @@ define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly capt
   br i1 %or.cond.i, label %tree_init.exit, label %tree_init.exit.thread57
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %13
-  %.191.lcssa157.i = phi i32 [ %.393.i, %._crit_edge.i ], [ %.090.i, %13 ]
+  %.191.lcssa159.i = phi i32 [ %.393.i, %._crit_edge.i ], [ %.090.i, %13 ]
   %48 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
   %.not111.i = icmp eq ptr %48, null
   br i1 %.not111.i, label %tree_init.exit.thread, label %49
@@ -350,11 +351,12 @@ define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr noundef writeonly capt
 110:                                              ; preds = %99, %95
   %.3.i = phi i32 [ 0, %95 ], [ %spec.select134.i, %99 ]
   %indvars.iv.next152.i = add nsw i64 %indvars.iv151.i, -1
-  %111 = icmp sgt i64 %indvars.iv151.i, 0
-  br i1 %111, label %.lr.ph148.i, label %._crit_edge149.i, !llvm.loop !63
+  %111 = and i64 %indvars.iv.next152.i, 4294967295
+  %exitcond155.not.i = icmp eq i64 %111, 4294967295
+  br i1 %exitcond155.not.i, label %._crit_edge149.i, label %.lr.ph148.i, !llvm.loop !63
 
 ._crit_edge149.i:                                 ; preds = %110, %.preheader.i
-  %.not115.i = icmp eq i32 %.191.lcssa157.i, 0
+  %.not115.i = icmp eq i32 %.191.lcssa159.i, 0
   br i1 %.not115.i, label %114, label %.thread72
 
 112:                                              ; preds = %58, %55
@@ -649,8 +651,9 @@ tree_link_any.exit.i:                             ; preds = %223, %._crit_edge.i
 
 246:                                              ; preds = %239, %.lr.ph.i29.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %247 = icmp sgt i64 %indvars.iv.i.i, 0
-  br i1 %247, label %.lr.ph.i29.i, label %.loopexit.i27.i.preheader, !llvm.loop !73
+  %247 = and i64 %indvars.iv.next.i.i, 4294967295
+  %exitcond.not.i.i = icmp eq i64 %247, 4294967295
+  br i1 %exitcond.not.i.i, label %.loopexit.i27.i.preheader, label %.lr.ph.i29.i, !llvm.loop !73
 
 .loopexit.i27.i.preheader:                        ; preds = %246, %230, %tree_link_any.exit.i
   br label %.loopexit.i27.i
@@ -691,8 +694,9 @@ tree_link_any.exit.i:                             ; preds = %223, %._crit_edge.i
 
 266:                                              ; preds = %259, %.lr.ph47.i.i
   %indvars.iv.next50.i.i = add nsw i64 %indvars.iv49.i.i, -1
-  %267 = icmp sgt i64 %indvars.iv49.i.i, 0
-  br i1 %267, label %.lr.ph47.i.i, label %._crit_edge.i28.i, !llvm.loop !74
+  %267 = and i64 %indvars.iv.next50.i.i, 4294967295
+  %exitcond53.not.i.i = icmp eq i64 %267, 4294967295
+  br i1 %exitcond53.not.i.i, label %._crit_edge.i28.i, label %.lr.ph47.i.i, !llvm.loop !74
 
 ._crit_edge.i28.i:                                ; preds = %266, %.loopexit.i27.i
   %268 = getelementptr inbounds i8, ptr %.033.i.i, i64 -16

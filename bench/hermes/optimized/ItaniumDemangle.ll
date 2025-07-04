@@ -17145,11 +17145,16 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp ugt i64 %sub.ptr.sub, 8
-  br i1 %cmp, label %for.body, label %if.end
+  br i1 %cmp, label %for.body.preheader, label %if.end
 
-for.body:                                         ; preds = %entry, %for.body
-  %t.0.idx18 = phi i64 [ %incdec.ptr.add, %for.body ], [ 0, %entry ]
-  %e.017 = phi ptr [ %incdec.ptr25, %for.body ], [ %0, %entry ]
+for.body.preheader:                               ; preds = %entry
+  %scevgep = getelementptr i8, ptr %0, i64 -2
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %indvars.iv = phi ptr [ %scevgep, %for.body.preheader ], [ %scevgep19, %for.body ]
+  %t.0.idx18 = phi i64 [ 0, %for.body.preheader ], [ %incdec.ptr.add, %for.body ]
+  %e.017 = phi ptr [ %0, %for.body.preheader ], [ %incdec.ptr25, %for.body ]
   %t.0.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %t.0.idx18
   %3 = load i8, ptr %t.0.ptr, align 1
   %conv = sext i8 %3 to i32
@@ -17170,6 +17175,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr.add = add nuw nsw i64 %t.0.idx18, 2
   %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %e.017, i64 1
   %cmp5.not = icmp eq i64 %incdec.ptr.add, 8
+  %scevgep19 = getelementptr i8, ptr %indvars.iv, i64 1
   br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !33
 
 for.end:                                          ; preds = %for.body
@@ -17178,15 +17184,14 @@ for.end:                                          ; preds = %for.body
 
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
   %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %e.017, %for.end ]
-  %__first.addr.010.i.i.idx = phi i64 [ %__first.addr.010.i.i.add, %while.body.i.i ], [ 0, %for.end ]
-  %__first.addr.010.i.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %__first.addr.010.i.i.idx
-  %5 = load i8, ptr %__first.addr.010.i.i.ptr, align 1
+  %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %0, %for.end ]
+  %5 = load i8, ptr %__first.addr.010.i.i, align 1
   %6 = load i8, ptr %__last.addr.011.i.i, align 1
-  store i8 %6, ptr %__first.addr.010.i.i.ptr, align 1
+  store i8 %6, ptr %__first.addr.010.i.i, align 1
   store i8 %5, ptr %__last.addr.011.i.i, align 1
-  %__first.addr.010.i.i.add = add nuw nsw i64 %__first.addr.010.i.i.idx, 1
+  %incdec.ptr2.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.010.i.i, i64 1
   %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -1
-  %exitcond.not = icmp eq i64 %__first.addr.010.i.i.add, 2
+  %exitcond.not = icmp eq ptr %__last.addr.0.i.i, %indvars.iv
   br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %while.body.i.i, !llvm.loop !34
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %for.end
@@ -17272,11 +17277,16 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp ugt i64 %sub.ptr.sub, 16
-  br i1 %cmp, label %for.body, label %if.end
+  br i1 %cmp, label %for.body.preheader, label %if.end
 
-for.body:                                         ; preds = %entry, %for.body
-  %t.0.idx18 = phi i64 [ %incdec.ptr.add, %for.body ], [ 0, %entry ]
-  %e.017 = phi ptr [ %incdec.ptr25, %for.body ], [ %0, %entry ]
+for.body.preheader:                               ; preds = %entry
+  %scevgep = getelementptr i8, ptr %0, i64 -4
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %indvars.iv = phi ptr [ %scevgep, %for.body.preheader ], [ %scevgep19, %for.body ]
+  %t.0.idx18 = phi i64 [ 0, %for.body.preheader ], [ %incdec.ptr.add, %for.body ]
+  %e.017 = phi ptr [ %0, %for.body.preheader ], [ %incdec.ptr25, %for.body ]
   %t.0.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %t.0.idx18
   %3 = load i8, ptr %t.0.ptr, align 1
   %conv = sext i8 %3 to i32
@@ -17297,6 +17307,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr.add = add nuw nsw i64 %t.0.idx18, 2
   %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %e.017, i64 1
   %cmp5.not = icmp eq i64 %incdec.ptr.add, 16
+  %scevgep19 = getelementptr i8, ptr %indvars.iv, i64 1
   br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %for.body
@@ -17305,15 +17316,14 @@ for.end:                                          ; preds = %for.body
 
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
   %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %e.017, %for.end ]
-  %__first.addr.010.i.i.idx = phi i64 [ %__first.addr.010.i.i.add, %while.body.i.i ], [ 0, %for.end ]
-  %__first.addr.010.i.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %__first.addr.010.i.i.idx
-  %5 = load i8, ptr %__first.addr.010.i.i.ptr, align 1
+  %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %0, %for.end ]
+  %5 = load i8, ptr %__first.addr.010.i.i, align 1
   %6 = load i8, ptr %__last.addr.011.i.i, align 1
-  store i8 %6, ptr %__first.addr.010.i.i.ptr, align 1
+  store i8 %6, ptr %__first.addr.010.i.i, align 1
   store i8 %5, ptr %__last.addr.011.i.i, align 1
-  %__first.addr.010.i.i.add = add nuw nsw i64 %__first.addr.010.i.i.idx, 1
+  %incdec.ptr2.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.010.i.i, i64 1
   %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -1
-  %exitcond.not = icmp eq i64 %__first.addr.010.i.i.add, 4
+  %exitcond.not = icmp eq ptr %__last.addr.0.i.i, %indvars.iv
   br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %while.body.i.i, !llvm.loop !34
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %for.end
@@ -17392,11 +17402,16 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp ugt i64 %sub.ptr.sub, 20
-  br i1 %cmp, label %for.body, label %if.end
+  br i1 %cmp, label %for.body.preheader, label %if.end
 
-for.body:                                         ; preds = %entry, %for.body
-  %t.0.idx18 = phi i64 [ %incdec.ptr.add, %for.body ], [ 0, %entry ]
-  %e.017 = phi ptr [ %incdec.ptr25, %for.body ], [ %0, %entry ]
+for.body.preheader:                               ; preds = %entry
+  %scevgep = getelementptr i8, ptr %0, i64 -5
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %indvars.iv = phi ptr [ %scevgep, %for.body.preheader ], [ %scevgep19, %for.body ]
+  %t.0.idx18 = phi i64 [ 0, %for.body.preheader ], [ %incdec.ptr.add, %for.body ]
+  %e.017 = phi ptr [ %0, %for.body.preheader ], [ %incdec.ptr25, %for.body ]
   %t.0.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %t.0.idx18
   %3 = load i8, ptr %t.0.ptr, align 1
   %conv = sext i8 %3 to i32
@@ -17417,6 +17432,7 @@ for.body:                                         ; preds = %entry, %for.body
   %incdec.ptr.add = add nuw nsw i64 %t.0.idx18, 2
   %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %e.017, i64 1
   %cmp5.not = icmp eq i64 %incdec.ptr.add, 20
+  %scevgep19 = getelementptr i8, ptr %indvars.iv, i64 1
   br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !36
 
 for.end:                                          ; preds = %for.body
@@ -17425,15 +17441,14 @@ for.end:                                          ; preds = %for.body
 
 while.body.i.i:                                   ; preds = %for.end, %while.body.i.i
   %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %e.017, %for.end ]
-  %__first.addr.010.i.i.idx = phi i64 [ %__first.addr.010.i.i.add, %while.body.i.i ], [ 0, %for.end ]
-  %__first.addr.010.i.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %__first.addr.010.i.i.idx
-  %5 = load i8, ptr %__first.addr.010.i.i.ptr, align 1
+  %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %0, %for.end ]
+  %5 = load i8, ptr %__first.addr.010.i.i, align 1
   %6 = load i8, ptr %__last.addr.011.i.i, align 1
-  store i8 %6, ptr %__first.addr.010.i.i.ptr, align 1
+  store i8 %6, ptr %__first.addr.010.i.i, align 1
   store i8 %5, ptr %__last.addr.011.i.i, align 1
-  %__first.addr.010.i.i.add = add nuw nsw i64 %__first.addr.010.i.i.idx, 1
+  %incdec.ptr2.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.010.i.i, i64 1
   %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -1
-  %exitcond.not = icmp eq i64 %__first.addr.010.i.i.add, 5
+  %exitcond.not = icmp eq ptr %__last.addr.0.i.i, %indvars.iv
   br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %while.body.i.i, !llvm.loop !34
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %for.end
@@ -25414,8 +25429,8 @@ if.end8.i.i.i.i:                                  ; preds = %if.end4.i.i.i.i
 if.end12.i.i.i.i:                                 ; preds = %if.end8.i.i.i.i
   %incdec.ptr13.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i, i64 32
   %dec.i.i.i.i = add nsw i64 %__trip_count.050.i.i.i.i, -1
-  %cmp.i.i.i.i = icmp sgt i64 %__trip_count.050.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !38
+  %exitcond.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
+  br i1 %exitcond.not.i.i.i.i, label %for.end.loopexit.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !38
 
 for.end.loopexit.i.i.i.i:                         ; preds = %if.end12.i.i.i.i
   %9 = and i64 %Data_.coerce1, 3
@@ -25526,8 +25541,8 @@ if.end8.i.i.i.i41:                                ; preds = %if.end4.i.i.i.i37
 if.end12.i.i.i.i45:                               ; preds = %if.end8.i.i.i.i41
   %incdec.ptr13.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i31, i64 32
   %dec.i.i.i.i47 = add nsw i64 %__trip_count.050.i.i.i.i30, -1
-  %cmp.i.i.i.i48 = icmp sgt i64 %__trip_count.050.i.i.i.i30, 1
-  br i1 %cmp.i.i.i.i48, label %for.body.i.i.i.i29, label %for.end.loopexit.i.i.i.i49, !llvm.loop !39
+  %exitcond.not.i.i.i.i48 = icmp eq i64 %dec.i.i.i.i47, 0
+  br i1 %exitcond.not.i.i.i.i48, label %for.end.loopexit.i.i.i.i49, label %for.body.i.i.i.i29, !llvm.loop !39
 
 for.end.loopexit.i.i.i.i49:                       ; preds = %if.end12.i.i.i.i45
   %25 = and i64 %Data_.coerce1, 3
@@ -25638,8 +25653,8 @@ if.end8.i.i.i.i92:                                ; preds = %if.end4.i.i.i.i88
 if.end12.i.i.i.i96:                               ; preds = %if.end8.i.i.i.i92
   %incdec.ptr13.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i.i82, i64 32
   %dec.i.i.i.i98 = add nsw i64 %__trip_count.050.i.i.i.i81, -1
-  %cmp.i.i.i.i99 = icmp sgt i64 %__trip_count.050.i.i.i.i81, 1
-  br i1 %cmp.i.i.i.i99, label %for.body.i.i.i.i80, label %for.end.loopexit.i.i.i.i100, !llvm.loop !40
+  %exitcond.not.i.i.i.i99 = icmp eq i64 %dec.i.i.i.i98, 0
+  br i1 %exitcond.not.i.i.i.i99, label %for.end.loopexit.i.i.i.i100, label %for.body.i.i.i.i80, !llvm.loop !40
 
 for.end.loopexit.i.i.i.i100:                      ; preds = %if.end12.i.i.i.i96
   %41 = and i64 %Data_.coerce1, 3

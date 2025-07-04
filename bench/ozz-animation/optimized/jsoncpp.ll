@@ -22275,110 +22275,115 @@ define dso_local void @_ZN4Json13valueToStringB5cxx11Ex(ptr dead_on_unwind noali
   %4 = alloca [25 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %4) #44
   %5 = icmp eq i64 %1, -9223372036854775808
-  br i1 %5, label %6, label %14
+  br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i8 0, ptr %7, align 8, !tbaa !17
-  br label %8
+  %.ptr20 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i8 0, ptr %.ptr20, align 8, !tbaa !17
+  br label %7
 
-8:                                                ; preds = %8, %6
-  %.1 = phi ptr [ %7, %6 ], [ %12, %8 ]
-  %.0.i = phi i64 [ -9223372036854775808, %6 ], [ %13, %8 ]
-  %9 = urem i64 %.0.i, 10
-  %10 = trunc nuw nsw i64 %9 to i8
-  %11 = or disjoint i8 %10, 48
-  %12 = getelementptr inbounds i8, ptr %.1, i64 -1
-  store i8 %11, ptr %12, align 1, !tbaa !17
-  %13 = udiv i64 %.0.i, 10
-  %.not.i = icmp ult i64 %.0.i, 10
-  br i1 %.not.i, label %.loopexit.sink.split, label %8, !llvm.loop !348
+7:                                                ; preds = %7, %6
+  %.1.idx = phi i64 [ 24, %6 ], [ %.1.add, %7 ]
+  %.0.i = phi i64 [ -9223372036854775808, %6 ], [ %11, %7 ]
+  %8 = urem i64 %.0.i, 10
+  %9 = trunc nuw nsw i64 %8 to i8
+  %10 = or disjoint i8 %9, 48
+  %.1.add = add nsw i64 %.1.idx, -1
+  %.ptr = getelementptr inbounds i8, ptr %4, i64 %.1.add
+  store i8 %10, ptr %.ptr, align 1, !tbaa !17
+  %11 = udiv i64 %.0.i, 10
+  %exitcond = icmp eq i64 %.1.add, 5
+  br i1 %exitcond, label %_ZN4JsonL12uintToStringEyRPc.exit, label %7, !llvm.loop !348
 
-14:                                               ; preds = %2
-  %15 = icmp slt i64 %1, 0
-  br i1 %15, label %16, label %25
+_ZN4JsonL12uintToStringEyRPc.exit:                ; preds = %7
+  %.1.ptr = getelementptr inbounds i8, ptr %4, i64 %.1.idx
+  br label %.loopexit.sink.split
 
-16:                                               ; preds = %14
-  %17 = sub nsw i64 0, %1
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i8 0, ptr %18, align 8, !tbaa !17
-  br label %19
+12:                                               ; preds = %2
+  %13 = icmp slt i64 %1, 0
+  br i1 %13, label %14, label %23
 
-19:                                               ; preds = %19, %16
-  %.2 = phi ptr [ %18, %16 ], [ %23, %19 ]
-  %.0.i5 = phi i64 [ %17, %16 ], [ %24, %19 ]
-  %20 = urem i64 %.0.i5, 10
-  %21 = trunc nuw nsw i64 %20 to i8
-  %22 = or disjoint i8 %21, 48
-  %23 = getelementptr inbounds i8, ptr %.2, i64 -1
-  store i8 %22, ptr %23, align 1, !tbaa !17
-  %24 = udiv i64 %.0.i5, 10
+14:                                               ; preds = %12
+  %15 = sub nsw i64 0, %1
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i8 0, ptr %16, align 8, !tbaa !17
+  br label %17
+
+17:                                               ; preds = %17, %14
+  %.2 = phi ptr [ %16, %14 ], [ %21, %17 ]
+  %.0.i5 = phi i64 [ %15, %14 ], [ %22, %17 ]
+  %18 = urem i64 %.0.i5, 10
+  %19 = trunc nuw nsw i64 %18 to i8
+  %20 = or disjoint i8 %19, 48
+  %21 = getelementptr inbounds i8, ptr %.2, i64 -1
+  store i8 %20, ptr %21, align 1, !tbaa !17
+  %22 = udiv i64 %.0.i5, 10
   %.not.i6 = icmp samesign ult i64 %.0.i5, 10
-  br i1 %.not.i6, label %.loopexit.sink.split, label %19, !llvm.loop !348
+  br i1 %.not.i6, label %.loopexit.sink.split, label %17, !llvm.loop !348
 
-25:                                               ; preds = %14
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i8 0, ptr %26, align 8, !tbaa !17
-  br label %27
+23:                                               ; preds = %12
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i8 0, ptr %24, align 8, !tbaa !17
+  br label %25
 
-27:                                               ; preds = %27, %25
-  %.3 = phi ptr [ %26, %25 ], [ %31, %27 ]
-  %.0.i8 = phi i64 [ %1, %25 ], [ %32, %27 ]
-  %28 = urem i64 %.0.i8, 10
-  %29 = trunc nuw nsw i64 %28 to i8
-  %30 = or disjoint i8 %29, 48
-  %31 = getelementptr inbounds i8, ptr %.3, i64 -1
-  store i8 %30, ptr %31, align 1, !tbaa !17
-  %32 = udiv i64 %.0.i8, 10
+25:                                               ; preds = %25, %23
+  %.3 = phi ptr [ %24, %23 ], [ %29, %25 ]
+  %.0.i8 = phi i64 [ %1, %23 ], [ %30, %25 ]
+  %26 = urem i64 %.0.i8, 10
+  %27 = trunc nuw nsw i64 %26 to i8
+  %28 = or disjoint i8 %27, 48
+  %29 = getelementptr inbounds i8, ptr %.3, i64 -1
+  store i8 %28, ptr %29, align 1, !tbaa !17
+  %30 = udiv i64 %.0.i8, 10
   %.not.i9 = icmp ult i64 %.0.i8, 10
-  br i1 %.not.i9, label %.loopexit, label %27, !llvm.loop !348
+  br i1 %.not.i9, label %.loopexit, label %25, !llvm.loop !348
 
-.loopexit.sink.split:                             ; preds = %19, %8
-  %.1.lcssa.sink = phi ptr [ %.1, %8 ], [ %.2, %19 ]
-  %33 = getelementptr inbounds i8, ptr %.1.lcssa.sink, i64 -2
-  store i8 45, ptr %33, align 1, !tbaa !17
+.loopexit.sink.split:                             ; preds = %17, %_ZN4JsonL12uintToStringEyRPc.exit
+  %.1.ptr.sink = phi ptr [ %.1.ptr, %_ZN4JsonL12uintToStringEyRPc.exit ], [ %.2, %17 ]
+  %31 = getelementptr inbounds i8, ptr %.1.ptr.sink, i64 -2
+  store i8 45, ptr %31, align 1, !tbaa !17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %.loopexit.sink.split
-  %.0 = phi ptr [ %33, %.loopexit.sink.split ], [ %31, %27 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %34, ptr %0, align 8, !tbaa !10
-  %35 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #44
+.loopexit:                                        ; preds = %25, %.loopexit.sink.split
+  %.0 = phi ptr [ %31, %.loopexit.sink.split ], [ %29, %25 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %32, ptr %0, align 8, !tbaa !10
+  %33 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #44
-  store i64 %35, ptr %3, align 8, !tbaa !90
-  %36 = icmp ugt i64 %35, 15
-  br i1 %36, label %.noexc.i, label %._crit_edge.i.i
+  store i64 %33, ptr %3, align 8, !tbaa !90
+  %34 = icmp ugt i64 %33, 15
+  br i1 %34, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %.loopexit
-  %37 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %37, ptr %0, align 8, !tbaa !45
-  %38 = load i64, ptr %3, align 8, !tbaa !90
-  store i64 %38, ptr %34, align 8, !tbaa !17
+  %35 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %35, ptr %0, align 8, !tbaa !45
+  %36 = load i64, ptr %3, align 8, !tbaa !90
+  store i64 %36, ptr %32, align 8, !tbaa !17
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %.loopexit
-  %39 = phi ptr [ %37, %.noexc.i ], [ %34, %.loopexit ]
-  switch i64 %35, label %42 [
-    i64 1, label %40
-    i64 0, label %43
+  %37 = phi ptr [ %35, %.noexc.i ], [ %32, %.loopexit ]
+  switch i64 %33, label %40 [
+    i64 1, label %38
+    i64 0, label %41
   ]
 
+38:                                               ; preds = %._crit_edge.i.i
+  %39 = load i8, ptr %.0, align 1, !tbaa !17
+  store i8 %39, ptr %37, align 1, !tbaa !17
+  br label %41
+
 40:                                               ; preds = %._crit_edge.i.i
-  %41 = load i8, ptr %.0, align 1, !tbaa !17
-  store i8 %41, ptr %39, align 1, !tbaa !17
-  br label %43
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr nonnull align 1 %.0, i64 %33, i1 false)
+  br label %41
 
-42:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr nonnull align 1 %.0, i64 %35, i1 false)
-  br label %43
-
-43:                                               ; preds = %42, %40, %._crit_edge.i.i
-  %44 = load i64, ptr %3, align 8, !tbaa !90
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %44, ptr %45, align 8, !tbaa !14
-  %46 = load ptr, ptr %0, align 8, !tbaa !45
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %44
-  store i8 0, ptr %47, align 1, !tbaa !17
+41:                                               ; preds = %40, %38, %._crit_edge.i.i
+  %42 = load i64, ptr %3, align 8, !tbaa !90
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %42, ptr %43, align 8, !tbaa !14
+  %44 = load ptr, ptr %0, align 8, !tbaa !45
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %42
+  store i8 0, ptr %45, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #44
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #44
   ret void

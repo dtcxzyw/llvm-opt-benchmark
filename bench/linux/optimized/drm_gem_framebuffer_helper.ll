@@ -643,13 +643,12 @@ define dso_local i32 @drm_gem_fb_vmap(ptr noundef readonly captures(none) %0, pt
   br label %.split1
 
 .split1:                                          ; preds = %52, %.split
-  %55 = and i64 %49, 4294967295
-  %56 = icmp eq i64 %55, 0
-  br i1 %56, label %.loopexit, label %.split, !llvm.loop !26
+  %exitcond = icmp eq i64 %49, 0
+  br i1 %exitcond, label %.loopexit, label %.split, !llvm.loop !26
 
 .loopexit:                                        ; preds = %39, %.split1, %.loopexit8, %3, %46
-  %57 = phi i32 [ 0, %.loopexit8 ], [ %47, %46 ], [ 0, %3 ], [ %47, %.split1 ], [ 0, %39 ]
-  ret i32 %57
+  %55 = phi i32 [ 0, %.loopexit8 ], [ %47, %46 ], [ 0, %3 ], [ %47, %.split1 ], [ 0, %39 ]
+  ret i32 %55
 }
 
 ; Function Attrs: null_pointer_is_valid

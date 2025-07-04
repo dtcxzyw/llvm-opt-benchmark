@@ -9916,7 +9916,7 @@ _ZNK6vectorIN2lp14stacked_vectorIjE9log_entryELb1EjE4sizeEv.exit: ; preds = %_ZN
 _ZNK6vectorIjLb1EjE4sizeEv.exit.preheader:        ; preds = %.lr.ph
   %109 = add i32 %103, -1
   %110 = zext i32 %109 to i64
-  %111 = zext i32 %85 to i64
+  %111 = add i32 %85, -1
   br label %_ZNK6vectorIjLb1EjE4sizeEv.exit
 
 _ZNK6vectorIN2lp14stacked_vectorIjE9log_entryELb1EjE4sizeEv.exit.i.i: ; preds = %_ZN2lp14stacked_vectorIjE8pop_tailIjEEvR7svectorIT_jEj.exit43
@@ -10003,8 +10003,9 @@ _ZNK6vectorIjLb1EjE4sizeEv.exit:                  ; preds = %_ZNK6vectorIjLb1EjE
 
 _ZNK6vectorIjLb1EjE4sizeEv.exit.thread:           ; preds = %132, %_ZNK6vectorIjLb1EjE4sizeEv.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %140 = icmp ugt i64 %indvars.iv, %111
-  br i1 %140, label %_ZNK6vectorIjLb1EjE4sizeEv.exit, label %_ZNK6vectorIN2lp14stacked_vectorIjE9log_entryELb1EjE4sizeEv.exit.thread.i.i, !llvm.loop !439
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %111, %lftr.wideiv
+  br i1 %exitcond.not, label %_ZNK6vectorIN2lp14stacked_vectorIjE9log_entryELb1EjE4sizeEv.exit.thread.i.i, label %_ZNK6vectorIjLb1EjE4sizeEv.exit, !llvm.loop !439
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -51813,7 +51814,7 @@ _ZNK6vectorIN2lp14stacked_vectorINS0_12numeric_pairI8rationalEEE9log_entryELb1Ej
 .lr.ph.split.preheader:                           ; preds = %_ZNK6vectorIN2lp14stacked_vectorINS0_12numeric_pairI8rationalEEE9log_entryELb1EjE4sizeEv.exit
   %112 = add i32 %108, -1
   %113 = zext i32 %112 to i64
-  %114 = zext i32 %90 to i64
+  %114 = add i32 %90, -1
   br label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %_ZNK6vectorIN2lp12numeric_pairI8rationalEELb1EjE4sizeEv.exit.thread
@@ -51909,8 +51910,9 @@ _ZNK6vectorIN2lp12numeric_pairI8rationalEELb1EjE4sizeEv.exit: ; preds = %.lr.ph.
 
 _ZNK6vectorIN2lp12numeric_pairI8rationalEELb1EjE4sizeEv.exit.thread: ; preds = %.lr.ph.split, %144, %_ZNK6vectorIN2lp12numeric_pairI8rationalEELb1EjE4sizeEv.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %153 = icmp ugt i64 %indvars.iv, %114
-  br i1 %153, label %.lr.ph.split, label %._crit_edge, !llvm.loop !775
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %114, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !775
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -52194,7 +52196,7 @@ _ZNK6vectorIN2lp14stacked_vectorINS0_11column_typeEE9log_entryELb1EjE4sizeEv.exi
 _ZNK6vectorIN2lp11column_typeELb1EjE4sizeEv.exit.preheader: ; preds = %.lr.ph
   %109 = add i32 %103, -1
   %110 = zext i32 %109 to i64
-  %111 = zext i32 %85 to i64
+  %111 = add i32 %85, -1
   br label %_ZNK6vectorIN2lp11column_typeELb1EjE4sizeEv.exit
 
 _ZNK6vectorIN2lp14stacked_vectorINS0_11column_typeEE9log_entryELb1EjE4sizeEv.exit.i.i: ; preds = %_ZN2lp14stacked_vectorINS_11column_typeEE8pop_tailIjEEvR7svectorIT_jEj.exit43
@@ -52281,8 +52283,9 @@ _ZNK6vectorIN2lp11column_typeELb1EjE4sizeEv.exit: ; preds = %_ZNK6vectorIN2lp11c
 
 _ZNK6vectorIN2lp11column_typeELb1EjE4sizeEv.exit.thread: ; preds = %132, %_ZNK6vectorIN2lp11column_typeELb1EjE4sizeEv.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %140 = icmp ugt i64 %indvars.iv, %111
-  br i1 %140, label %_ZNK6vectorIN2lp11column_typeELb1EjE4sizeEv.exit, label %_ZNK6vectorIN2lp14stacked_vectorINS0_11column_typeEE9log_entryELb1EjE4sizeEv.exit.thread.i.i, !llvm.loop !783
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %111, %lftr.wideiv
+  br i1 %exitcond.not, label %_ZNK6vectorIN2lp14stacked_vectorINS0_11column_typeEE9log_entryELb1EjE4sizeEv.exit.thread.i.i, label %_ZNK6vectorIN2lp11column_typeELb1EjE4sizeEv.exit, !llvm.loop !783
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -283,11 +283,11 @@ _ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_S
   %101 = sub i64 %99, %100
   %102 = ashr exact i64 %101, 4
   %.not.i.i = icmp eq ptr %97, %98
-  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i62.i
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i63.i
 
-.lr.ph.i62.i:                                     ; preds = %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i.i, %.lr.ph.i62.i
-  %.029.i.i = phi float [ %118, %.lr.ph.i62.i ], [ 0.000000e+00, %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i.i ]
-  %.02328.i.i = phi i64 [ %119, %.lr.ph.i62.i ], [ 0, %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i.i ]
+.lr.ph.i63.i:                                     ; preds = %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i.i, %.lr.ph.i63.i
+  %.029.i.i = phi float [ %118, %.lr.ph.i63.i ], [ 0.000000e+00, %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i.i ]
+  %.02328.i.i = phi i64 [ %119, %.lr.ph.i63.i ], [ 0, %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i.i ]
   %103 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %98, i64 %.02328.i.i
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = load float, ptr %104, align 4, !tbaa !37
@@ -305,11 +305,11 @@ _ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_S
   %117 = fcmp olt float %116, %.029.i.i
   %118 = select i1 %117, float %.029.i.i, float %116
   %119 = add nuw i64 %.02328.i.i, 1
-  %exitcond.not.i63.i = icmp eq i64 %119, %102
-  br i1 %exitcond.not.i63.i, label %.loopexit.i.i, label %.lr.ph.i62.i, !llvm.loop !42
+  %exitcond.not.i64.i = icmp eq i64 %119, %102
+  br i1 %exitcond.not.i64.i, label %.loopexit.i.i, label %.lr.ph.i63.i, !llvm.loop !42
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i62.i, %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i.i
-  %.1.i.i = phi float [ 1.000000e+00, %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i.i ], [ %118, %.lr.ph.i62.i ]
+.loopexit.i.i:                                    ; preds = %.lr.ph.i63.i, %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i.i
+  %.1.i.i = phi float [ 1.000000e+00, %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i.i ], [ %118, %.lr.ph.i63.i ]
   %120 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store float %.1.i.i, ptr %120, align 4, !tbaa !43
   %.not25.i.i = icmp eq i16 %.val.val.i.i.i, -1
@@ -387,24 +387,24 @@ _ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_S
   br i1 %145, label %_ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder21ComputeLengthBackwardEii.exit.i, label %146
 
 146:                                              ; preds = %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i39.i
-  %sext68.i = shl i64 %indvars.iv.next.i33.i, 32
-  %147 = ashr exact i64 %sext68.i, 32
+  %sext69.i = shl i64 %indvars.iv.next.i33.i, 32
+  %147 = ashr exact i64 %sext69.i, 32
   %148 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %88, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8, !tbaa !57
   %151 = load ptr, ptr %148, align 8, !tbaa !60
-  %.not.i64.i = icmp eq ptr %150, %151
-  br i1 %.not.i64.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
+  %.not.i65.i = icmp eq ptr %150, %151
+  br i1 %.not.i65.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %146
   %152 = ptrtoint ptr %150 to i64
   %153 = ptrtoint ptr %151 to i64
   %154 = sub i64 %152, %153
   %155 = ashr exact i64 %154, 4
-  br label %.lr.ph.i65.i
+  br label %.lr.ph.i66.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i65.i, %146
-  %.0.lcssa.i.i = phi float [ 0.000000e+00, %146 ], [ %183, %.lr.ph.i65.i ]
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i66.i, %146
+  %.0.lcssa.i.i = phi float [ 0.000000e+00, %146 ], [ %183, %.lr.ph.i66.i ]
   %156 = call noundef float @sqrtf(float noundef %.0.lcssa.i.i) #16, !tbaa !45
   %157 = getelementptr inbounds nuw %"struct.ozz::animation::offline::(anonymous namespace)::HierarchyBuilder::Spec", ptr %.sroa.0249.0, i64 %147
   %158 = sext i16 %.val.val.i.i34.i to i64
@@ -426,9 +426,9 @@ _ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_S
   store float %172, ptr %167, align 4, !tbaa !50
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder21ComputeLengthBackwardEii.exit.i
 
-.lr.ph.i65.i:                                     ; preds = %.lr.ph.i65.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi float [ %183, %.lr.ph.i65.i ], [ 0.000000e+00, %.lr.ph.preheader.i.i ]
-  %.01922.i.i = phi i64 [ %184, %.lr.ph.i65.i ], [ 0, %.lr.ph.preheader.i.i ]
+.lr.ph.i66.i:                                     ; preds = %.lr.ph.i66.i, %.lr.ph.preheader.i.i
+  %.023.i.i = phi float [ %183, %.lr.ph.i66.i ], [ 0.000000e+00, %.lr.ph.preheader.i.i ]
+  %.01922.i.i = phi i64 [ %184, %.lr.ph.i66.i ], [ 0, %.lr.ph.preheader.i.i ]
   %173 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %151, i64 %.01922.i.i, i32 1
   %174 = load float, ptr %173, align 4, !tbaa !37
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 4
@@ -441,12 +441,13 @@ _ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_S
   %182 = fcmp olt float %181, %.023.i.i
   %183 = select i1 %182, float %.023.i.i, float %181
   %184 = add nuw i64 %.01922.i.i, 1
-  %exitcond.not.i66.i = icmp eq i64 %184, %155
-  br i1 %exitcond.not.i66.i, label %._crit_edge.i.i, label %.lr.ph.i65.i, !llvm.loop !61
+  %exitcond.not.i67.i = icmp eq i64 %184, %155
+  br i1 %exitcond.not.i67.i, label %._crit_edge.i.i, label %.lr.ph.i66.i, !llvm.loop !61
 
 _ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder21ComputeLengthBackwardEii.exit.i: ; preds = %._crit_edge.i.i, %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i39.i
-  %185 = icmp samesign ugt i64 %indvars.iv.i32.i, 1
-  br i1 %185, label %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i39.i, label %_ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderC2EPKNS1_12RawAnimationEPKNS0_8SkeletonEPKNS1_18AnimationOptimizerE.exit, !llvm.loop !62
+  %185 = and i64 %indvars.iv.next.i33.i, 4294967295
+  %exitcond.not.i40.i = icmp eq i64 %185, 0
+  br i1 %exitcond.not.i40.i, label %_ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderC2EPKNS1_12RawAnimationEPKNS0_8SkeletonEPKNS1_18AnimationOptimizerE.exit, label %_ZNSt5_BindIFMN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderEFviiEPS4_St12_PlaceholderILi1EES8_ILi2EEEEclIJRiRKsEvEET0_DpOT_.exit.i39.i, !llvm.loop !62
 
 _ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderC2EPKNS1_12RawAnimationEPKNS0_8SkeletonEPKNS1_18AnimationOptimizerE.exit: ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder21ComputeLengthBackwardEii.exit.i, %_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder4SpecENS0_12StdAllocatorIS5_EEEC2EmRKS7_.exit.thread.i.i
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 32

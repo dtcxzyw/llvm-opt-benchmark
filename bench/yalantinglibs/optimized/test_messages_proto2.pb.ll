@@ -8720,92 +8720,93 @@ if.then.i35:                                      ; preds = %for.body.i
   br i1 %call2.i37, label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit38, label %return
 
 _ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit38: ; preds = %for.body.i, %if.then.i35
-  %cmp.i = icmp samesign ult i64 %indvars.iv, 2
-  br i1 %cmp.i, label %if.end4, label %for.body.i, !llvm.loop !30
+  %7 = and i64 %indvars.iv.next, 4294967295
+  %exitcond = icmp eq i64 %7, 0
+  br i1 %exitcond, label %if.end4, label %for.body.i, !llvm.loop !30
 
 if.end4:                                          ; preds = %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit38, %if.end
   %map_string_nested_message_ = getelementptr inbounds nuw i8, ptr %this, i64 1880
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %it.i)
   %vtable.i = load ptr, ptr %map_string_nested_message_, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 152
-  %7 = load ptr, ptr %vfn.i, align 8
-  %call.i1 = tail call noundef nonnull align 8 dereferenceable(24) ptr %7(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_)
+  %8 = load ptr, ptr %vfn.i, align 8
+  %call.i1 = tail call noundef nonnull align 8 dereferenceable(24) ptr %8(ptr noundef nonnull align 8 dereferenceable(96) %map_string_nested_message_)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %elements_.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 16
-  %8 = load ptr, ptr %elements_.i, align 8, !noalias !31
-  %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %9 = load i64, ptr %index_of_first_non_null_.i.i.i, align 8, !noalias !34
-  %num_buckets_14.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i64, ptr %num_buckets_14.i.i.i.i, align 8, !noalias !34
-  %cmp153.i.i.i.i = icmp ult i64 %9, %10
+  %9 = load ptr, ptr %elements_.i, align 8, !noalias !31
+  %index_of_first_non_null_.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %10 = load i64, ptr %index_of_first_non_null_.i.i.i, align 8, !noalias !34
+  %num_buckets_14.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i64, ptr %num_buckets_14.i.i.i.i, align 8, !noalias !34
+  %cmp153.i.i.i.i = icmp ult i64 %10, %11
   br i1 %cmp153.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %if.end7
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.end4
-  %table_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %11 = load ptr, ptr %table_.i.i.i.i.i, align 8, !noalias !34
+  %table_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %12 = load ptr, ptr %table_.i.i.i.i.i, align 8, !noalias !34
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %ref.tmp2.sroa.4.0.i = phi i64 [ %9, %for.body.lr.ph.i.i.i.i ], [ %inc.i.i.i.i, %for.inc.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %ref.tmp2.sroa.4.0.i
-  %12 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !34
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %12, null
+  %ref.tmp2.sroa.4.0.i = phi i64 [ %10, %for.body.lr.ph.i.i.i.i ], [ %inc.i.i.i.i, %for.inc.i.i.i.i ]
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %12, i64 %ref.tmp2.sroa.4.0.i
+  %13 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !34
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i.i.i, label %for.inc.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i
   %xor.i.i.i.i.i.i = xor i64 %ref.tmp2.sroa.4.0.i, 1
-  %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %xor.i.i.i.i.i.i
-  %13 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !34
-  %cmp3.i.i.not.i.i.i.i = icmp eq ptr %12, %13
+  %arrayidx2.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %12, i64 %xor.i.i.i.i.i.i
+  %14 = load ptr, ptr %arrayidx2.i.i.i.i.i.i, align 8, !noalias !34
+  %cmp3.i.i.not.i.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp3.i.i.not.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread69
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread69: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
-  store ptr %12, ptr %it.i, align 8, !alias.scope !37
+  store ptr %13, ptr %it.i, align 8, !alias.scope !37
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i72 = getelementptr inbounds nuw i8, ptr %it.i, i64 8
-  store ptr %8, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i72, align 8, !alias.scope !37
+  store ptr %9, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i72, align 8, !alias.scope !37
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i73 = getelementptr inbounds nuw i8, ptr %it.i, i64 16
   store i64 %ref.tmp2.sroa.4.0.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i73, align 8, !alias.scope !37
   br label %for.body.i4.preheader
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add i64 %ref.tmp2.sroa.4.0.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i.i.i, %10
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i.i.i, %11
   br i1 %exitcond.not.i.i, label %if.end7, label %for.body.i.i.i.i, !llvm.loop !40
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %14 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !34
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %15 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !noalias !34
-  store ptr %15, ptr %it.i, align 8, !alias.scope !37
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %15 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8, !noalias !34
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %16 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !noalias !34
+  store ptr %16, ptr %it.i, align 8, !alias.scope !37
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %it.i, i64 8
-  store ptr %8, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !37
+  store ptr %9, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !37
   %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %it.i, i64 16
   store i64 %ref.tmp2.sroa.4.0.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !37
-  %cmp.i.i.i50.not60 = icmp eq ptr %15, null
+  %cmp.i.i.i50.not60 = icmp eq ptr %16, null
   br i1 %cmp.i.i.i50.not60, label %if.end7, label %for.body.i4.preheader
 
 for.body.i4.preheader:                            ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread69, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit
-  %.ph = phi ptr [ %15, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit ], [ %12, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread69 ]
+  %.ph = phi ptr [ %16, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit ], [ %13, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit.thread69 ]
   br label %for.body.i4
 
 for.body.i4:                                      ; preds = %for.body.i4.preheader, %for.inc.i
-  %16 = phi ptr [ %.pr, %for.inc.i ], [ %.ph, %for.body.i4.preheader ]
-  %v_.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %17 = load ptr, ptr %v_.i.i.i, align 8
-  %_has_bits_.i.i39 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %18 = load i32, ptr %_has_bits_.i.i39, align 4
-  %and.i.i40 = and i32 %18, 1
+  %17 = phi ptr [ %.pr, %for.inc.i ], [ %.ph, %for.body.i4.preheader ]
+  %v_.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %18 = load ptr, ptr %v_.i.i.i, align 8
+  %_has_bits_.i.i39 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %19 = load i32, ptr %_has_bits_.i.i39, align 4
+  %and.i.i40 = and i32 %19, 1
   %cmp.i.i41.not = icmp eq i32 %and.i.i40, 0
-  %corecursive_10.i.i42 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %19 = load ptr, ptr %corecursive_10.i.i42, align 8
-  %cmp11.i.i43 = icmp ne ptr %19, null
-  %20 = select i1 %cmp.i.i41.not, i1 true, i1 %cmp11.i.i43
-  call void @llvm.assume(i1 %20)
+  %corecursive_10.i.i42 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %20 = load ptr, ptr %corecursive_10.i.i42, align 8
+  %cmp11.i.i43 = icmp ne ptr %20, null
+  %21 = select i1 %cmp.i.i41.not, i1 true, i1 %cmp11.i.i43
+  call void @llvm.assume(i1 %21)
   br i1 %cmp.i.i41.not, label %for.inc.i, label %if.then.i47
 
 if.then.i47:                                      ; preds = %for.body.i4
-  %call2.i = call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %19)
+  %call2.i = call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %20)
   br i1 %call2.i, label %for.inc.i, label %_ZN6google8protobuf8internal17AllAreInitializedIN22protobuf_test_messages6proto255TestAllTypesProto2_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto2_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEEbRKNS1_8MapFieldIT_T0_T1_XT2_EXT3_EXT4_EEE.exit
 
 for.inc.i:                                        ; preds = %for.body.i4, %if.then.i47
@@ -8821,30 +8822,30 @@ _ZN6google8protobuf8internal17AllAreInitializedIN22protobuf_test_messages6proto2
 if.end7:                                          ; preds = %for.inc.i.i.i.i, %for.inc.i, %if.end4, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEE5beginEv.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i)
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %21 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %21, 64
+  %22 = load i32, ptr %_has_bits_.i, align 8
+  %and.i = and i32 %22, 64
   %cmp.i6.not = icmp eq i32 %and.i, 0
   %optional_nested_message_10.i = getelementptr inbounds nuw i8, ptr %this, i64 2872
-  %22 = load ptr, ptr %optional_nested_message_10.i, align 8
-  %cmp11.i = icmp ne ptr %22, null
-  %23 = select i1 %cmp.i6.not, i1 true, i1 %cmp11.i
-  call void @llvm.assume(i1 %23)
+  %23 = load ptr, ptr %optional_nested_message_10.i, align 8
+  %cmp11.i = icmp ne ptr %23, null
+  %24 = select i1 %cmp.i6.not, i1 true, i1 %cmp11.i
+  call void @llvm.assume(i1 %24)
   br i1 %cmp.i6.not, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %_has_bits_.i.i = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load i32, ptr %_has_bits_.i.i, align 4
-  %and.i.i = and i32 %24, 1
+  %_has_bits_.i.i = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load i32, ptr %_has_bits_.i.i, align 4
+  %and.i.i = and i32 %25, 1
   %cmp.i.i.not = icmp eq i32 %and.i.i, 0
-  %corecursive_10.i.i = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %25 = load ptr, ptr %corecursive_10.i.i, align 8
-  %cmp11.i.i = icmp ne ptr %25, null
-  %26 = select i1 %cmp.i.i.not, i1 true, i1 %cmp11.i.i
-  call void @llvm.assume(i1 %26)
+  %corecursive_10.i.i = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %26 = load ptr, ptr %corecursive_10.i.i, align 8
+  %cmp11.i.i = icmp ne ptr %26, null
+  %27 = select i1 %cmp.i.i.not, i1 true, i1 %cmp11.i.i
+  call void @llvm.assume(i1 %27)
   br i1 %cmp.i.i.not, label %if.end13, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then9
-  %call2.i8 = call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %25)
+  %call2.i8 = call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %26)
   br i1 %call2.i8, label %if.then.i.if.end13_crit_edge, label %return
 
 if.then.i.if.end13_crit_edge:                     ; preds = %if.then.i
@@ -8852,42 +8853,42 @@ if.then.i.if.end13_crit_edge:                     ; preds = %if.then.i
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then.i.if.end13_crit_edge, %if.then9, %if.end7
-  %27 = phi i32 [ %.pre, %if.then.i.if.end13_crit_edge ], [ %21, %if.then9 ], [ %21, %if.end7 ]
-  %and.i10 = and i32 %27, 256
+  %28 = phi i32 [ %.pre, %if.then.i.if.end13_crit_edge ], [ %22, %if.then9 ], [ %22, %if.end7 ]
+  %and.i10 = and i32 %28, 256
   %cmp.i11.not = icmp eq i32 %and.i10, 0
   %recursive_message_10.i = getelementptr inbounds nuw i8, ptr %this, i64 2888
-  %28 = load ptr, ptr %recursive_message_10.i, align 8
-  %cmp11.i12 = icmp ne ptr %28, null
-  %29 = select i1 %cmp.i11.not, i1 true, i1 %cmp11.i12
-  call void @llvm.assume(i1 %29)
+  %29 = load ptr, ptr %recursive_message_10.i, align 8
+  %cmp11.i12 = icmp ne ptr %29, null
+  %30 = select i1 %cmp.i11.not, i1 true, i1 %cmp11.i12
+  call void @llvm.assume(i1 %30)
   br i1 %cmp.i11.not, label %if.end19, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
-  %call16 = call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %28)
+  %call16 = call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %29)
   br i1 %call16, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.then15, %if.end13
   %_oneof_case_.i = getelementptr inbounds nuw i8, ptr %this, i64 3144
-  %30 = load i32, ptr %_oneof_case_.i, align 8
-  %cond = icmp eq i32 %30, 112
+  %31 = load i32, ptr %_oneof_case_.i, align 8
+  %cond = icmp eq i32 %31, 112
   br i1 %cond, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.end19
   %oneof_field_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 3136
-  %31 = load ptr, ptr %oneof_field_.i.i, align 8
-  %_has_bits_.i.i15 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %32 = load i32, ptr %_has_bits_.i.i15, align 4
-  %and.i.i16 = and i32 %32, 1
+  %32 = load ptr, ptr %oneof_field_.i.i, align 8
+  %_has_bits_.i.i15 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %33 = load i32, ptr %_has_bits_.i.i15, align 4
+  %and.i.i16 = and i32 %33, 1
   %cmp.i.i17.not = icmp eq i32 %and.i.i16, 0
-  %corecursive_10.i.i18 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load ptr, ptr %corecursive_10.i.i18, align 8
-  %cmp11.i.i19 = icmp ne ptr %33, null
-  %34 = select i1 %cmp.i.i17.not, i1 true, i1 %cmp11.i.i19
-  call void @llvm.assume(i1 %34)
+  %corecursive_10.i.i18 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %34 = load ptr, ptr %corecursive_10.i.i18, align 8
+  %cmp11.i.i19 = icmp ne ptr %34, null
+  %35 = select i1 %cmp.i.i17.not, i1 true, i1 %cmp11.i.i19
+  call void @llvm.assume(i1 %35)
   br i1 %cmp.i.i17.not, label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit26.thread, label %if.then.i23
 
 if.then.i23:                                      ; preds = %if.then23
-  %call2.i25 = call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %33)
+  %call2.i25 = call noundef zeroext i1 @_ZNK22protobuf_test_messages6proto218TestAllTypesProto213IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(3152) %34)
   br i1 %call2.i25, label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit26.thread, label %return
 
 _ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit26.thread: ; preds = %if.then23, %if.then.i23

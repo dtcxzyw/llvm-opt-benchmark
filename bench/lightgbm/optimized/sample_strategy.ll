@@ -2724,8 +2724,8 @@ define linkonce_odr noundef i32 @_ZN8LightGBM9ArrayArgsIfE9ArgMaxAtKEPSt6vectorI
 
 .lr.ph103.preheader.i:                            ; preds = %._crit_edge.i
   %55 = sext i32 %54 to i64
-  %56 = sext i32 %.075.i.ph to i64
-  %57 = sext i32 %indvars.iv127.i to i64
+  %56 = sext i32 %indvars.iv127.i to i64
+  %57 = add i32 %.075.i.ph, -1
   br label %.lr.ph103.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -2744,7 +2744,7 @@ define linkonce_odr noundef i32 @_ZN8LightGBM9ArrayArgsIfE9ArgMaxAtKEPSt6vectorI
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !185
 
 .lr.ph103.i:                                      ; preds = %.lr.ph103.i, %.lr.ph103.preheader.i
-  %indvars.iv129.i = phi i64 [ %57, %.lr.ph103.preheader.i ], [ %indvars.iv.next130.i, %.lr.ph103.i ]
+  %indvars.iv129.i = phi i64 [ %56, %.lr.ph103.preheader.i ], [ %indvars.iv.next130.i, %.lr.ph103.i ]
   %indvars.iv125.i = phi i64 [ %55, %.lr.ph103.preheader.i ], [ %indvars.iv.next126.i, %.lr.ph103.i ]
   %62 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv129.i
   %63 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv125.i
@@ -2754,8 +2754,9 @@ define linkonce_odr noundef i32 @_ZN8LightGBM9ArrayArgsIfE9ArgMaxAtKEPSt6vectorI
   store float %64, ptr %63, align 4, !tbaa !174
   %indvars.iv.next126.i = add nsw i64 %indvars.iv125.i, -1
   %indvars.iv.next130.i = add nsw i64 %indvars.iv129.i, 1
-  %.not87.not.i = icmp sgt i64 %indvars.iv125.i, %56
-  br i1 %.not87.not.i, label %.lr.ph103.i, label %.loopexit.loopexit.i, !llvm.loop !186
+  %lftr.wideiv135.i = trunc i64 %indvars.iv.next126.i to i32
+  %exitcond136.not.i = icmp eq i32 %57, %lftr.wideiv135.i
+  br i1 %exitcond136.not.i, label %.loopexit.loopexit.i, label %.lr.ph103.i, !llvm.loop !186
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph103.i
   %66 = trunc nsw i64 %indvars.iv.next130.i to i32

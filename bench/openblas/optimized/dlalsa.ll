@@ -247,7 +247,7 @@ define void @dlalsa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not33.i360 = icmp eq i64 %160, 0
   %161 = select i1 %.not33.i360, i32 1, i32 2
   %.not3134.i361 = icmp eq i64 %159, 1
-  br i1 %.not3134.i361, label %.loopexit459, label %.lr.ph.i362
+  br i1 %.not3134.i361, label %.loopexit461, label %.lr.ph.i362
 
 .lr.ph.i362:                                      ; preds = %158, %.lr.ph.i362
   %spec.select37.i363 = phi i32 [ %spec.select.i367, %.lr.ph.i362 ], [ %161, %158 ]
@@ -260,24 +260,24 @@ define void @dlalsa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %165 = select i1 %.not.i366, i32 1, i32 %163
   %spec.select.i367 = mul nuw nsw i32 %165, %spec.select37.i363
   %.not31.i368 = icmp samesign ult i64 %.036.i364, 4
-  br i1 %.not31.i368, label %.loopexit459, label %.lr.ph.i362
+  br i1 %.not31.i368, label %.loopexit461, label %.lr.ph.i362
 
-.loopexit459:                                     ; preds = %.lr.ph.i362, %158
+.loopexit461:                                     ; preds = %.lr.ph.i362, %158
   %.1.i359 = phi i32 [ %161, %158 ], [ %spec.select.i367, %.lr.ph.i362 ]
   %166 = shl i32 %.1.i359, 1
   %167 = add nsw i32 %166, -1
   %.not353391.not = icmp slt i32 %.1.i359, %166
   br i1 %.not353391.not, label %.lr.ph395, label %._crit_edge396
 
-.lr.ph395:                                        ; preds = %154, %.loopexit459
-  %168 = phi i32 [ %167, %.loopexit459 ], [ 1, %154 ]
-  %.0336451 = phi i32 [ %.1.i359, %.loopexit459 ], [ 1, %154 ]
+.lr.ph395:                                        ; preds = %154, %.loopexit461
+  %168 = phi i32 [ %167, %.loopexit461 ], [ 1, %154 ]
+  %.0336453 = phi i32 [ %.1.i359, %.loopexit461 ], [ 1, %154 ]
   %169 = mul nsw i64 %indvars.iv430, %152
   %170 = mul nsw i32 %156, %52
   %171 = mul nsw i32 %156, %41
   %172 = mul nsw i64 %indvars.iv430, %153
   %173 = sext i32 %.0338397 to i64
-  %174 = sext i32 %.0336451 to i64
+  %174 = sext i32 %.0336453 to i64
   %175 = getelementptr i32, ptr %54, i64 %169
   %176 = sext i32 %168 to i64
   br label %177
@@ -332,11 +332,12 @@ define void @dlalsa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %213 = trunc nsw i64 %indvars.iv.next424 to i32
   br label %._crit_edge396
 
-._crit_edge396:                                   ; preds = %._crit_edge396.loopexit, %.loopexit459
-  %.1339.lcssa = phi i32 [ %.0338397, %.loopexit459 ], [ %213, %._crit_edge396.loopexit ]
+._crit_edge396:                                   ; preds = %._crit_edge396.loopexit, %.loopexit461
+  %.1339.lcssa = phi i32 [ %.0338397, %.loopexit461 ], [ %213, %._crit_edge396.loopexit ]
   %indvars.iv.next431 = add nsw i64 %indvars.iv430, -1
-  %214 = icmp sgt i64 %indvars.iv430, 1
-  br i1 %214, label %154, label %.loopexit, !llvm.loop !11
+  %214 = and i64 %indvars.iv.next431, 4294967295
+  %exitcond.not = icmp eq i64 %214, 0
+  br i1 %exitcond.not, label %.loopexit, label %154, !llvm.loop !11
 
 215:                                              ; preds = %82
   %216 = load i32, ptr %28, align 4, !tbaa !3
@@ -351,18 +352,18 @@ define void @dlalsa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %220
 
 220:                                              ; preds = %.lr.ph411, %._crit_edge405
-  %indvars.iv440 = phi i64 [ 1, %.lr.ph411 ], [ %indvars.iv.next441, %._crit_edge405 ]
+  %indvars.iv442 = phi i64 [ 1, %.lr.ph411 ], [ %indvars.iv.next443, %._crit_edge405 ]
   %.2408 = phi i32 [ 0, %.lr.ph411 ], [ %.3.lcssa, %._crit_edge405 ]
-  %221 = icmp eq i64 %indvars.iv440, 1
+  %221 = icmp eq i64 %indvars.iv442, 1
   br i1 %221, label %.lr.ph404, label %222
 
 222:                                              ; preds = %220
-  %223 = add nsw i64 %indvars.iv440, -1
+  %223 = add nsw i64 %indvars.iv442, -1
   %224 = and i64 %223, 1
   %.not33.i372 = icmp eq i64 %224, 0
   %225 = select i1 %.not33.i372, i32 1, i32 2
   %.not3134.i373 = icmp eq i64 %223, 1
-  br i1 %.not3134.i373, label %.loopexit458, label %.lr.ph.i374
+  br i1 %.not3134.i373, label %.loopexit460, label %.lr.ph.i374
 
 .lr.ph.i374:                                      ; preds = %222, %.lr.ph.i374
   %spec.select37.i375 = phi i32 [ %spec.select.i379, %.lr.ph.i374 ], [ %225, %222 ]
@@ -375,28 +376,28 @@ define void @dlalsa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %229 = select i1 %.not.i378, i32 1, i32 %227
   %spec.select.i379 = mul nuw nsw i32 %229, %spec.select37.i375
   %.not31.i380 = icmp samesign ult i64 %.036.i376, 4
-  br i1 %.not31.i380, label %.loopexit458, label %.lr.ph.i374
+  br i1 %.not31.i380, label %.loopexit460, label %.lr.ph.i374
 
-.loopexit458:                                     ; preds = %.lr.ph.i374, %222
+.loopexit460:                                     ; preds = %.lr.ph.i374, %222
   %.1.i371 = phi i32 [ %225, %222 ], [ %spec.select.i379, %.lr.ph.i374 ]
   %230 = shl i32 %.1.i371, 1
   %231 = add nsw i32 %230, -1
   %.not356400.not = icmp sgt i32 %230, %.1.i371
   br i1 %.not356400.not, label %.lr.ph404, label %._crit_edge405
 
-.lr.ph404:                                        ; preds = %220, %.loopexit458
-  %.1335457 = phi i32 [ %231, %.loopexit458 ], [ 1, %220 ]
-  %.1337456 = phi i32 [ %.1.i371, %.loopexit458 ], [ 1, %220 ]
-  %232 = mul nsw i64 %indvars.iv440, %217
-  %indvars.iv440.tr = trunc nuw i64 %indvars.iv440 to i32
-  %233 = shl i32 %indvars.iv440.tr, 1
+.lr.ph404:                                        ; preds = %220, %.loopexit460
+  %.1335459 = phi i32 [ %231, %.loopexit460 ], [ 1, %220 ]
+  %.1337458 = phi i32 [ %.1.i371, %.loopexit460 ], [ 1, %220 ]
+  %232 = mul nsw i64 %indvars.iv442, %217
+  %indvars.iv442.tr = trunc nuw i64 %indvars.iv442 to i32
+  %233 = shl i32 %indvars.iv442.tr, 1
   %234 = add i32 %233, -1
   %235 = mul nsw i32 %234, %52
   %236 = mul nsw i32 %234, %41
-  %237 = mul nsw i64 %indvars.iv440, %218
+  %237 = mul nsw i64 %indvars.iv442, %218
   %238 = sext i32 %.2408 to i64
-  %239 = sext i32 %.1335457 to i64
-  %240 = sext i32 %.1337456 to i64
+  %239 = sext i32 %.1335459 to i64
+  %240 = add i32 %.1337458, -1
   %241 = getelementptr i32, ptr %54, i64 %232
   br label %242
 
@@ -446,17 +447,18 @@ define void @dlalsa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %276 = getelementptr double, ptr %21, i64 %indvars.iv433
   %277 = getelementptr double, ptr %22, i64 %indvars.iv433
   call void @dlals0_(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %29, ptr noundef nonnull %3, ptr noundef %257, ptr noundef nonnull %5, ptr noundef %260, ptr noundef nonnull %7, ptr noundef %262, ptr noundef nonnull %263, ptr noundef %266, ptr noundef nonnull %18, ptr noundef %269, ptr noundef nonnull %9, ptr noundef %270, ptr noundef %272, ptr noundef %273, ptr noundef %274, ptr noundef nonnull %275, ptr noundef nonnull %276, ptr noundef nonnull %277, ptr noundef %23, ptr noundef nonnull %25) #3
-  %.not356.not = icmp sgt i64 %indvars.iv435, %240
-  br i1 %.not356.not, label %242, label %._crit_edge405.loopexit, !llvm.loop !12
+  %lftr.wideiv440 = trunc i64 %indvars.iv.next436 to i32
+  %exitcond441.not = icmp eq i32 %240, %lftr.wideiv440
+  br i1 %exitcond441.not, label %._crit_edge405.loopexit, label %242, !llvm.loop !12
 
 ._crit_edge405.loopexit:                          ; preds = %242
   %278 = trunc nsw i64 %indvars.iv.next434 to i32
   br label %._crit_edge405
 
-._crit_edge405:                                   ; preds = %._crit_edge405.loopexit, %.loopexit458
-  %.3.lcssa = phi i32 [ %.2408, %.loopexit458 ], [ %278, %._crit_edge405.loopexit ]
-  %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
-  %.not354.not = icmp samesign ult i64 %indvars.iv440, %219
+._crit_edge405:                                   ; preds = %._crit_edge405.loopexit, %.loopexit460
+  %.3.lcssa = phi i32 [ %.2408, %.loopexit460 ], [ %278, %._crit_edge405.loopexit ]
+  %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442, 1
+  %.not354.not = icmp samesign ult i64 %indvars.iv442, %219
   br i1 %.not354.not, label %220, label %._crit_edge412, !llvm.loop !13
 
 ._crit_edge412:                                   ; preds = %._crit_edge405, %215
@@ -473,10 +475,10 @@ define void @dlalsa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %285
 
 285:                                              ; preds = %.lr.ph416, %285
-  %indvars.iv443 = phi i64 [ %283, %.lr.ph416 ], [ %indvars.iv.next444, %285 ]
-  %286 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv443
+  %indvars.iv445 = phi i64 [ %283, %.lr.ph416 ], [ %indvars.iv.next446, %285 ]
+  %286 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv445
   %287 = load i32, ptr %286, align 4, !tbaa !3
-  %288 = trunc nsw i64 %indvars.iv443 to i32
+  %288 = trunc nsw i64 %indvars.iv445 to i32
   %289 = add i32 %64, %288
   %290 = sext i32 %289 to i64
   %291 = getelementptr inbounds i32, ptr %58, i64 %290
@@ -516,8 +518,8 @@ define void @dlalsa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %319 = sext i32 %318 to i64
   %320 = getelementptr inbounds double, ptr %40, i64 %319
   call void @dgemm_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %34, ptr noundef nonnull %3, ptr noundef nonnull %34, ptr noundef nonnull @c_b7, ptr noundef %314, ptr noundef nonnull %9, ptr noundef %317, ptr noundef nonnull %5, ptr noundef nonnull @c_b8, ptr noundef %320, ptr noundef nonnull %7) #3
-  %indvars.iv.next444 = add nsw i64 %indvars.iv443, 1
-  %.not355.not = icmp slt i64 %indvars.iv443, %284
+  %indvars.iv.next446 = add nsw i64 %indvars.iv445, 1
+  %.not355.not = icmp slt i64 %indvars.iv445, %284
   br i1 %.not355.not, label %285, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge396, %285, %._crit_edge390, %._crit_edge412, %.thread

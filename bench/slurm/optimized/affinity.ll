@@ -86,8 +86,8 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
 
 ._crit_edge:                                      ; preds = %28
   %33 = urem i32 %2, %spec.select
-  %.not152 = icmp eq i32 %33, 0
-  br i1 %.not152, label %._crit_edge129, label %.lr.ph128
+  %.not153 = icmp eq i32 %33, 0
+  br i1 %.not153, label %._crit_edge129, label %.lr.ph128
 
 .lr.ph128:                                        ; preds = %._crit_edge, %.lr.ph128
   %34 = phi i8 [ %38, %.lr.ph128 ], [ %23, %._crit_edge ]
@@ -206,11 +206,16 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
   %.383.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %.383.idx.sroa.sel.idx.sroa.sel.idx
   %.073132 = getelementptr inbounds i8, ptr %81, i64 -1
   %.not107133 = icmp ult ptr %.073132, %.383.idx.sroa.sel.idx.sroa.sel
-  br i1 %.not107133, label %.thread117, label %.lr.ph137
+  br i1 %.not107133, label %.thread117, label %.lr.ph137.preheader
 
-.lr.ph137:                                        ; preds = %77, %101
-  %.073135 = phi ptr [ %.073, %101 ], [ %.073132, %77 ]
-  %.071134 = phi i32 [ %102, %101 ], [ 0, %77 ]
+.lr.ph137.preheader:                              ; preds = %77
+  %.sroa.sel.v = select i1 %or.cond, i64 1, i64 -1
+  %.sroa.sel = getelementptr i8, ptr %4, i64 %.sroa.sel.v
+  br label %.lr.ph137
+
+.lr.ph137:                                        ; preds = %.lr.ph137.preheader, %101
+  %.073135 = phi ptr [ %.073, %101 ], [ %.073132, %.lr.ph137.preheader ]
+  %.071134 = phi i32 [ %102, %101 ], [ 0, %.lr.ph137.preheader ]
   %83 = load i8, ptr %.073135, align 1
   %84 = sext i8 %83 to i32
   %85 = call i32 @slurm_char_to_hex(i32 noundef %84) #7
@@ -260,8 +265,8 @@ define dso_local range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128
 101:                                              ; preds = %97, %99
   %102 = add i32 %.071134, 4
   %.073 = getelementptr inbounds i8, ptr %.073135, i64 -1
-  %.not107 = icmp ult ptr %.073, %.383.idx.sroa.sel.idx.sroa.sel
-  br i1 %.not107, label %.thread117, label %.lr.ph137, !llvm.loop !13
+  %exitcond144 = icmp eq ptr %.073, %.sroa.sel
+  br i1 %exitcond144, label %.thread117, label %.lr.ph137, !llvm.loop !13
 
 103:                                              ; preds = %75
   %104 = and i32 %15, 1024

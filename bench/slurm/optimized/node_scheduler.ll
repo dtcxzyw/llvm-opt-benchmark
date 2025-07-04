@@ -3964,7 +3964,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   br i1 %or.cond5, label %411, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %410
-  %.pre500 = load ptr, ptr %151, align 8
+  %.pre503 = load ptr, ptr %151, align 8
   br label %431
 
 411:                                              ; preds = %410
@@ -3983,11 +3983,11 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 200
   %420 = load ptr, ptr %419, align 8
   %421 = call fastcc i32 @_match_feature(ptr noundef %420, ptr noundef %151)
-  %.pre499 = load ptr, ptr %151, align 8
+  %.pre502 = load ptr, ptr %151, align 8
   br label %422
 
 422:                                              ; preds = %417, %414
-  %423 = phi ptr [ %.pre499, %417 ], [ %416, %414 ]
+  %423 = phi ptr [ %.pre502, %417 ], [ %416, %414 ]
   %.not370 = icmp eq ptr %423, null
   br i1 %.not370, label %431, label %424
 
@@ -3996,11 +3996,11 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   %426 = load ptr, ptr %425, align 8
   %427 = call i32 @bit_overlap_any(ptr noundef %426, ptr noundef nonnull %423) #14
   %.not371 = icmp eq i32 %427, 0
-  %.pre501 = load ptr, ptr %151, align 8
+  %.pre504 = load ptr, ptr %151, align 8
   br i1 %.not371, label %428, label %431
 
 428:                                              ; preds = %424
-  %.not372 = icmp eq ptr %.pre501, null
+  %.not372 = icmp eq ptr %.pre504, null
   br i1 %.not372, label %430, label %429
 
 429:                                              ; preds = %428
@@ -4012,7 +4012,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   br label %431
 
 431:                                              ; preds = %._crit_edge, %422, %424, %430
-  %432 = phi ptr [ %.pre500, %._crit_edge ], [ null, %422 ], [ %.pre501, %424 ], [ null, %430 ]
+  %432 = phi ptr [ %.pre503, %._crit_edge ], [ null, %422 ], [ %.pre504, %424 ], [ null, %430 ]
   %433 = load ptr, ptr %150, align 8
   %434 = icmp ne ptr %433, null
   %435 = icmp ne ptr %432, null
@@ -4470,8 +4470,9 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   %658 = phi ptr [ %612, %.lr.ph462 ], [ %612, %624 ], [ %630, %626 ]
   %659 = phi ptr [ %613, %.lr.ph462 ], [ %612, %624 ], [ %630, %626 ]
   %.8 = phi i32 [ %.6460, %.lr.ph462 ], [ %.6460, %624 ], [ %654, %626 ]
-  %660 = icmp samesign ugt i64 %indvars.iv493, 1
-  br i1 %660, label %.lr.ph462, label %.loopexit423, !llvm.loop !31
+  %660 = and i64 %indvars.iv.next494, 4294967295
+  %exitcond496.not = icmp eq i64 %660, 0
+  br i1 %exitcond496.not, label %.loopexit423, label %.lr.ph462, !llvm.loop !31
 
 .loopexit423:                                     ; preds = %657, %609, %655
   %661 = phi ptr [ %630, %655 ], [ %573, %609 ], [ %658, %657 ]
@@ -4545,9 +4546,9 @@ _find_grp_node_bitmap.exit.thread:                ; preds = %.loopexit423
 682:                                              ; preds = %677
   %683 = load ptr, ptr %7, align 8
   %.not21.i = icmp eq ptr %683, null
-  br i1 %.not21.i, label %684, label %_find_grp_node_bitmap.exit.thread502
+  br i1 %.not21.i, label %684, label %_find_grp_node_bitmap.exit.thread505
 
-_find_grp_node_bitmap.exit.thread502:             ; preds = %682
+_find_grp_node_bitmap.exit.thread505:             ; preds = %682
   call void @bit_or(ptr noundef nonnull %683, ptr noundef nonnull %676) #14
   call void @assoc_mgr_unlock(ptr noundef nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %13) #14
@@ -4588,8 +4589,8 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
   %.not398 = icmp eq ptr %689, null
   br i1 %.not398, label %754, label %.preheader
 
-.preheader:                                       ; preds = %_find_grp_node_bitmap.exit.thread502, %_find_grp_node_bitmap.exit
-  %690 = phi ptr [ %683, %_find_grp_node_bitmap.exit.thread502 ], [ %689, %_find_grp_node_bitmap.exit ]
+.preheader:                                       ; preds = %_find_grp_node_bitmap.exit.thread505, %_find_grp_node_bitmap.exit
+  %690 = phi ptr [ %683, %_find_grp_node_bitmap.exit.thread505 ], [ %689, %_find_grp_node_bitmap.exit ]
   %691 = icmp sgt i32 %.7, 0
   br i1 %691, label %.lr.ph467.preheader, label %.loopexit.thread
 
@@ -4600,10 +4601,10 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
 .lr.ph467:                                        ; preds = %.lr.ph467.preheader, %747
   %693 = phi ptr [ %690, %.lr.ph467.preheader ], [ %748, %747 ]
   %694 = phi ptr [ %661, %.lr.ph467.preheader ], [ %749, %747 ]
-  %indvars.iv496 = phi i64 [ %692, %.lr.ph467.preheader ], [ %indvars.iv.next497, %747 ]
+  %indvars.iv497 = phi i64 [ %692, %.lr.ph467.preheader ], [ %indvars.iv.next498, %747 ]
   %.9465 = phi i32 [ %.7, %.lr.ph467.preheader ], [ %.10, %747 ]
-  %indvars.iv.next497 = add nsw i64 %indvars.iv496, -1
-  %695 = getelementptr inbounds nuw %struct.node_set, ptr %694, i64 %indvars.iv.next497, i32 4
+  %indvars.iv.next498 = add nsw i64 %indvars.iv497, -1
+  %695 = getelementptr inbounds nuw %struct.node_set, ptr %694, i64 %indvars.iv.next498, i32 4
   %696 = load ptr, ptr %695, align 8
   %697 = call i32 @bit_overlap(ptr noundef %696, ptr noundef %693) #14
   %698 = icmp eq i32 %697, 0
@@ -4619,7 +4620,7 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
   br label %747
 
 705:                                              ; preds = %.lr.ph467
-  %706 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next497
+  %706 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next498
   %707 = getelementptr inbounds nuw i8, ptr %706, i64 40
   %708 = load i32, ptr %707, align 8
   %709 = icmp eq i32 %697, %708
@@ -4630,44 +4631,44 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
   %712 = sext i32 %.9465 to i64
   %713 = getelementptr inbounds %struct.node_set, ptr %699, i64 %712
   store i16 %711, ptr %713, align 8
-  %714 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next497, i32 7
+  %714 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next498, i32 7
   %715 = load i64, ptr %714, align 8
   %716 = getelementptr inbounds %struct.node_set, ptr %699, i64 %712, i32 7
   store i64 %715, ptr %716, align 8
   %717 = getelementptr inbounds %struct.node_set, ptr %699, i64 %712, i32 5
   store i32 %697, ptr %717, align 8
-  %718 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next497, i32 5
+  %718 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next498, i32 5
   %719 = load i32, ptr %718, align 8
   %720 = sub i32 %719, %697
   store i32 %720, ptr %718, align 8
-  %721 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next497, i32 6
+  %721 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next498, i32 6
   %722 = load i32, ptr %721, align 4
   %723 = getelementptr inbounds %struct.node_set, ptr %699, i64 %712, i32 6
   store i32 %722, ptr %723, align 4
   %724 = add i32 %722, 1
   store i32 %724, ptr %721, align 4
-  %725 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next497, i32 3
+  %725 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next498, i32 3
   %726 = load i32, ptr %725, align 8
   %727 = getelementptr inbounds %struct.node_set, ptr %699, i64 %712, i32 3
   store i32 %726, ptr %727, align 8
-  %728 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next497, i32 1
+  %728 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next498, i32 1
   %729 = load ptr, ptr %728, align 8
   %730 = call ptr @xstrdup(ptr noundef %729) #14
   %731 = getelementptr inbounds %struct.node_set, ptr %699, i64 %712, i32 1
   store ptr %730, ptr %731, align 8
-  %732 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next497, i32 2
+  %732 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next498, i32 2
   %733 = load ptr, ptr %732, align 8
   %734 = call ptr @bit_copy(ptr noundef %733) #14
   %735 = getelementptr inbounds %struct.node_set, ptr %699, i64 %712, i32 2
   store ptr %734, ptr %735, align 8
-  %736 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next497, i32 4
+  %736 = getelementptr inbounds nuw %struct.node_set, ptr %699, i64 %indvars.iv.next498, i32 4
   %737 = load ptr, ptr %736, align 8
   %738 = call ptr @bit_copy(ptr noundef %737) #14
   %739 = getelementptr inbounds %struct.node_set, ptr %699, i64 %712, i32 4
   store ptr %738, ptr %739, align 8
   call void @bit_and(ptr noundef %738, ptr noundef %693) #14
   %740 = load ptr, ptr %18, align 8
-  %741 = getelementptr inbounds nuw %struct.node_set, ptr %740, i64 %indvars.iv.next497, i32 4
+  %741 = getelementptr inbounds nuw %struct.node_set, ptr %740, i64 %indvars.iv.next498, i32 4
   %742 = load ptr, ptr %741, align 8
   %743 = load ptr, ptr %20, align 8
   call void @bit_and_not(ptr noundef %742, ptr noundef %743) #14
@@ -4683,8 +4684,9 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
   %748 = phi ptr [ %693, %700 ], [ %693, %705 ], [ %743, %710 ]
   %749 = phi ptr [ %699, %700 ], [ %699, %705 ], [ %740, %710 ]
   %.10 = phi i32 [ %.9465, %700 ], [ %.9465, %705 ], [ %744, %710 ]
-  %750 = icmp samesign ugt i64 %indvars.iv496, 1
-  br i1 %750, label %.lr.ph467, label %.loopexit, !llvm.loop !33
+  %750 = and i64 %indvars.iv.next498, 4294967295
+  %exitcond501.not = icmp eq i64 %750, 0
+  br i1 %exitcond501.not, label %.loopexit, label %.lr.ph467, !llvm.loop !33
 
 .loopexit:                                        ; preds = %747, %745
   %751 = phi ptr [ %740, %745 ], [ %749, %747 ]
@@ -4694,14 +4696,14 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
   br i1 %.not400, label %.sink.split, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit
-  %.11506 = phi i32 [ %.11, %.loopexit ], [ %.7, %.preheader ]
+  %.11509 = phi i32 [ %.11, %.loopexit ], [ %.7, %.preheader ]
   %753 = phi ptr [ %751, %.loopexit ], [ %661, %.preheader ]
   call void @slurm_bit_free(ptr noundef nonnull %20) #14
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.loopexit, %.loopexit.thread, %_find_grp_node_bitmap.exit.thread
   %.ph = phi ptr [ %661, %_find_grp_node_bitmap.exit.thread ], [ %753, %.loopexit.thread ], [ %751, %.loopexit ]
-  %.12.ph = phi i32 [ %.7, %_find_grp_node_bitmap.exit.thread ], [ %.11506, %.loopexit.thread ], [ %.11, %.loopexit ]
+  %.12.ph = phi i32 [ %.7, %_find_grp_node_bitmap.exit.thread ], [ %.11509, %.loopexit.thread ], [ %.11, %.loopexit ]
   store ptr null, ptr %20, align 8
   br label %754
 

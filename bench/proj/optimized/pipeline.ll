@@ -818,7 +818,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
   br label %.lr.ph404
 
 .lr.ph406.preheader:                              ; preds = %320
-  %wide.trip.count452 = zext nneg i32 %93 to i64
+  %wide.trip.count453 = zext nneg i32 %93 to i64
   br label %.lr.ph406
 
 .lr.ph404:                                        ; preds = %.lr.ph404.preheader, %320
@@ -855,19 +855,20 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
 
 320:                                              ; preds = %317, %310, %307, %.lr.ph404
   %indvars.iv.next447 = add nsw i64 %indvars.iv446, -1
-  %321 = icmp sgt i64 %indvars.iv446, 0
-  br i1 %321, label %.lr.ph404, label %.lr.ph406.preheader, !llvm.loop !121
+  %321 = and i64 %indvars.iv.next447, 4294967295
+  %exitcond449.not = icmp eq i64 %321, 4294967295
+  br i1 %exitcond449.not, label %.lr.ph406.preheader, label %.lr.ph404, !llvm.loop !121
 
 .preheader:                                       ; preds = %340, %.loopexit
   %smax = tail call i32 @llvm.smax.i32(i32 %93, i32 1)
   %322 = add nsw i32 %smax, -1
-  %wide.trip.count457 = zext nneg i32 %322 to i64
+  %wide.trip.count458 = zext nneg i32 %322 to i64
   br label %341
 
 .lr.ph406:                                        ; preds = %.lr.ph406.preheader, %340
-  %indvars.iv449 = phi i64 [ 1, %.lr.ph406.preheader ], [ %indvars.iv.next450, %340 ]
+  %indvars.iv450 = phi i64 [ 1, %.lr.ph406.preheader ], [ %indvars.iv.next451, %340 ]
   %.val296 = load ptr, ptr %255, align 8, !tbaa !113
-  %323 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Step", ptr %.val296, i64 %indvars.iv449
+  %323 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Step", ptr %.val296, i64 %indvars.iv450
   %324 = load ptr, ptr %323, align 8, !tbaa !109
   %325 = tail call noundef i32 @_Z7pj_leftP8PJconsts(ptr noundef %324)
   %326 = icmp eq i32 %325, 0
@@ -880,7 +881,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
 
 330:                                              ; preds = %327
   %.val297 = load ptr, ptr %255, align 8, !tbaa !113
-  %331 = getelementptr %"struct.(anonymous namespace)::Step", ptr %.val297, i64 %indvars.iv449
+  %331 = getelementptr %"struct.(anonymous namespace)::Step", ptr %.val297, i64 %indvars.iv450
   %332 = getelementptr i8, ptr %331, i64 -16
   %333 = load ptr, ptr %332, align 8, !tbaa !109
   %334 = tail call noundef i32 @_Z7pj_leftP8PJconsts(ptr noundef %333)
@@ -897,23 +898,23 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
   br label %340
 
 340:                                              ; preds = %337, %330, %327, %.lr.ph406
-  %indvars.iv.next450 = add nuw nsw i64 %indvars.iv449, 1
-  %exitcond453.not = icmp eq i64 %indvars.iv.next450, %wide.trip.count452
-  br i1 %exitcond453.not, label %.preheader, label %.lr.ph406, !llvm.loop !122
+  %indvars.iv.next451 = add nuw nsw i64 %indvars.iv450, 1
+  %exitcond454.not = icmp eq i64 %indvars.iv.next451, %wide.trip.count453
+  br i1 %exitcond454.not, label %.preheader, label %.lr.ph406, !llvm.loop !122
 
 341:                                              ; preds = %.preheader, %342
-  %indvars.iv454 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next455, %342 ]
-  %exitcond458.not = icmp eq i64 %indvars.iv454, %wide.trip.count457
-  br i1 %exitcond458.not, label %356, label %342
+  %indvars.iv455 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next456, %342 ]
+  %exitcond459.not = icmp eq i64 %indvars.iv455, %wide.trip.count458
+  br i1 %exitcond459.not, label %356, label %342
 
 342:                                              ; preds = %341
-  %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
+  %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
   %.val298 = load ptr, ptr %255, align 8, !tbaa !113
-  %343 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Step", ptr %.val298, i64 %indvars.iv454
+  %343 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Step", ptr %.val298, i64 %indvars.iv455
   %344 = load ptr, ptr %343, align 8, !tbaa !109
   %345 = tail call noundef i32 @_Z8pj_rightP8PJconsts(ptr noundef %344)
   %.val299 = load ptr, ptr %255, align 8, !tbaa !113
-  %346 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Step", ptr %.val299, i64 %indvars.iv.next455
+  %346 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Step", ptr %.val299, i64 %indvars.iv.next456
   %347 = load ptr, ptr %346, align 8, !tbaa !109
   %348 = tail call noundef i32 @_Z7pj_leftP8PJconsts(ptr noundef %347)
   %349 = icmp eq i32 %345, 0
@@ -924,8 +925,8 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
   br i1 %or.cond, label %341, label %351, !llvm.loop !123
 
 351:                                              ; preds = %342
-  %352 = trunc nuw nsw i64 %indvars.iv454 to i32
-  %353 = trunc nuw nsw i64 %indvars.iv.next455 to i32
+  %352 = trunc nuw nsw i64 %indvars.iv455 to i32
+  %353 = trunc nuw nsw i64 %indvars.iv.next456 to i32
   %354 = add nuw nsw i32 %352, 2
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i32 noundef %353, i32 noundef %354)
   %355 = tail call noundef ptr @_ZL10destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1025)

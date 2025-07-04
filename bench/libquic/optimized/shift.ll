@@ -53,7 +53,7 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %32 = zext nneg i32 %10 to i64
   %33 = zext nneg i32 %10 to i64
   %invariant.gep = getelementptr i64, ptr %22, i64 %32
-  %invariant.gep58 = getelementptr i64, ptr %22, i64 %33
+  %invariant.gep60 = getelementptr i64, ptr %22, i64 %33
   %34 = add nuw nsw i64 %32, %31
   %35 = shl nuw nsw i64 %34, 3
   %scevgep = getelementptr i8, ptr %22, i64 %35
@@ -66,7 +66,7 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
 .lr.ph51.preheader:                               ; preds = %.preheader
   %36 = zext nneg i32 %23 to i64
   %37 = zext nneg i32 %10 to i64
-  %invariant.gep60 = getelementptr i64, ptr %22, i64 %37
+  %invariant.gep62 = getelementptr i64, ptr %22, i64 %37
   br label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
@@ -74,10 +74,11 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, -1
   %38 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.next55
   %39 = load i64, ptr %38, align 8, !tbaa !15
-  %gep61 = getelementptr i64, ptr %invariant.gep60, i64 %indvars.iv.next55
-  store i64 %39, ptr %gep61, align 8, !tbaa !15
-  %40 = icmp samesign ugt i64 %indvars.iv54, 1
-  br i1 %40, label %.lr.ph51, label %.loopexit, !llvm.loop !17
+  %gep63 = getelementptr i64, ptr %invariant.gep62, i64 %indvars.iv.next55
+  store i64 %39, ptr %gep63, align 8, !tbaa !15
+  %40 = and i64 %indvars.iv.next55, 4294967295
+  %exitcond58.not = icmp eq i64 %40, 0
+  br i1 %exitcond58.not, label %.loopexit, label %.lr.ph51, !llvm.loop !17
 
 41:                                               ; preds = %.lr.ph, %41
   %store_forwarded = phi i64 [ %load_initial, %.lr.ph ], [ %46, %41 ]
@@ -90,10 +91,11 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %45 = or i64 %store_forwarded, %44
   store i64 %45, ptr %gep, align 8, !tbaa !15
   %46 = shl i64 %43, %30
-  %gep59 = getelementptr i64, ptr %invariant.gep58, i64 %indvars.iv.next
-  store i64 %46, ptr %gep59, align 8, !tbaa !15
-  %47 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %47, label %41, label %.loopexit, !llvm.loop !19
+  %gep61 = getelementptr i64, ptr %invariant.gep60, i64 %indvars.iv.next
+  store i64 %46, ptr %gep61, align 8, !tbaa !15
+  %47 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %47, 0
+  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !19
 
 .loopexit:                                        ; preds = %41, %.lr.ph51, %.preheader47, %.preheader
   %48 = shl nuw nsw i32 %10, 3
@@ -388,8 +390,9 @@ define hidden range(i32 0, 2) i32 @BN_rshift1(ptr noundef %0, ptr noundef %1) lo
   %37 = tail call i64 @llvm.fshl.i64(i64 %.032.in40, i64 %36, i64 63)
   %38 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.next
   store i64 %37, ptr %38, align 8, !tbaa !15
-  %39 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  %39 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %39, 0
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8

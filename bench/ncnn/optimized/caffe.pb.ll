@@ -15538,8 +15538,9 @@ define dso_local noundef zeroext i1 @_ZNK5caffe12NetParameter13IsInitializedEv(p
   br i1 %.not.i.i.i, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe14LayerParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
 _ZNK5caffe14LayerParameter13IsInitializedEv.exit.i: ; preds = %19, %9
-  %23 = icmp samesign ult i64 %indvars.iv.i, 2
-  br i1 %23, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe14LayerParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %9, !llvm.loop !552
+  %23 = and i64 %indvars.iv.next.i, 4294967295
+  %exitcond.i = icmp eq i64 %23, 0
+  br i1 %exitcond.i, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe14LayerParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %9, !llvm.loop !552
 
 _ZN6google8protobuf8internal17AllAreInitializedIN5caffe14LayerParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %19, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i, %1
   %.lcssa.i = phi i1 [ true, %1 ], [ true, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i ], [ false, %19 ]
@@ -23584,12 +23585,14 @@ define dso_local noundef zeroext i1 @_ZNK5caffe15SolverParameter13IsInitializedE
   br i1 %.not.i.i.i.i.i, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
 _ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i: ; preds = %29, %19
-  %33 = icmp samesign ult i64 %indvars.iv.i.i.i, 2
-  br i1 %33, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.i, label %19, !llvm.loop !552
+  %33 = and i64 %indvars.iv.next.i.i.i, 4294967295
+  %exitcond.i.i.i = icmp eq i64 %33, 0
+  br i1 %exitcond.i.i.i, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.i, label %19, !llvm.loop !552
 
 _ZNK5caffe12NetParameter13IsInitializedEv.exit.i: ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i.i, %9
-  %34 = icmp slt i64 %indvars.iv.i, 2
-  br i1 %34, label %.loopexit, label %9, !llvm.loop !598
+  %34 = and i64 %indvars.iv.next.i, 4294967295
+  %exitcond.i = icmp eq i64 %34, 0
+  br i1 %exitcond.i, label %.loopexit, label %9, !llvm.loop !598
 
 .loopexit:                                        ; preds = %_ZNK5caffe12NetParameter13IsInitializedEv.exit.i, %1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -23640,18 +23643,19 @@ _ZNK5caffe12NetParameter13IsInitializedEv.exit.i: ; preds = %_ZNK5caffe14LayerPa
   br i1 %.not.i.i.i.i2, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
 _ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i: ; preds = %60, %50
-  %64 = icmp samesign ult i64 %indvars.iv.i.i, 2
-  br i1 %64, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread, label %50, !llvm.loop !552
+  %64 = and i64 %indvars.iv.next.i.i, 4294967295
+  %exitcond.i.i = icmp eq i64 %64, 0
+  br i1 %exitcond.i.i, label %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread, label %50, !llvm.loop !552
 
 _ZNK5caffe12NetParameter13IsInitializedEv.exit.thread: ; preds = %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i, %42, %.loopexit
   %65 = and i32 %36, 128
-  %.not14 = icmp eq i32 %65, 0
+  %.not15 = icmp eq i32 %65, 0
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %67 = load ptr, ptr %66, align 8
   %68 = icmp ne ptr %67, null
-  %69 = select i1 %.not14, i1 true, i1 %68
+  %69 = select i1 %.not15, i1 true, i1 %68
   tail call void @llvm.assume(i1 %69)
-  br i1 %.not14, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %70
+  br i1 %.not15, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %70
 
 70:                                               ; preds = %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 120
@@ -23690,8 +23694,9 @@ _ZNK5caffe12NetParameter13IsInitializedEv.exit.thread: ; preds = %_ZNK5caffe14La
   br i1 %.not.i.i.i.i8, label %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
 _ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10: ; preds = %88, %78
-  %92 = icmp samesign ult i64 %indvars.iv.i.i5, 2
-  br i1 %92, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %78, !llvm.loop !552
+  %92 = and i64 %indvars.iv.next.i.i6, 4294967295
+  %exitcond.i.i11 = icmp eq i64 %92, 0
+  br i1 %exitcond.i.i11, label %_ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %78, !llvm.loop !552
 
 _ZN6google8protobuf8internal17AllAreInitializedIN5caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %29, %60, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10, %88, %70, %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread
   %.0 = phi i1 [ true, %_ZNK5caffe12NetParameter13IsInitializedEv.exit.thread ], [ true, %70 ], [ true, %_ZNK5caffe14LayerParameter13IsInitializedEv.exit.i.i10 ], [ false, %88 ], [ false, %60 ], [ false, %29 ]

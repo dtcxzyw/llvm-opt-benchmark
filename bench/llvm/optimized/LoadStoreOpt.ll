@@ -3297,8 +3297,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm12LoadStoreOpt21processMergeCandida
 "_ZZN4llvm12LoadStoreOpt21processMergeCandidateERNS0_19StoreMergeCandidateEENK3$_0clEjRNS_6GStoreE.exit": ; preds = %36, %46, %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %52 = icmp sgt i64 %indvars.iv, 0
-  br i1 %52, label %26, label %._crit_edge, !llvm.loop !423
+  %52 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %52, 4294967295
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !423
 
 53:                                               ; preds = %._crit_edge
   %54 = call noundef zeroext i1 @_ZN4llvm12LoadStoreOpt11mergeStoresERNS_15SmallVectorImplIPNS_6GStoreEEE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -3359,7 +3360,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12LoadStoreOpt29operationAliasesWit
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !268
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %51, label %6
+  br i1 %.not.i, label %50, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3412,83 +3413,83 @@ define dso_local noundef zeroext i1 @_ZN4llvm12LoadStoreOpt29operationAliasesWit
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i.i.i.i, i64 32
   %27 = add nsw i64 %.065.i.i.i.i.i.i, -1
-  %28 = icmp sgt i64 %.065.i.i.i.i.i.i, 1
-  br i1 %28, label %14, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !424
+  %exitcond.not.i.i.i.i.i.i = icmp eq i64 %27, 0
+  br i1 %exitcond.not.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, label %14, !llvm.loop !424
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %25
   %.pre.i.i.i.i.i.i = ptrtoint ptr %26 to i64
   %.pre70.i.i.i.i.i.i = sub i64 %10, %.pre.i.i.i.i.i.i
-  %29 = ashr exact i64 %.pre70.i.i.i.i.i.i, 3
+  %28 = ashr exact i64 %.pre70.i.i.i.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %6
-  %.pre-phi71.i.i.i.i.i.i = phi i64 [ %29, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %8, %6 ]
+  %.pre-phi71.i.i.i.i.i.i = phi i64 [ %28, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %8, %6 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %26, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val, %6 ]
-  switch i64 %.pre-phi71.i.i.i.i.i.i, label %46 [
-    i64 3, label %30
-    i64 2, label %36
-    i64 1, label %42
+  switch i64 %.pre-phi71.i.i.i.i.i.i, label %45 [
+    i64 3, label %29
+    i64 2, label %35
+    i64 1, label %41
   ]
 
-30:                                               ; preds = %._crit_edge.i.i.i.i.i.i
+29:                                               ; preds = %._crit_edge.i.i.i.i.i.i
   %.029.val42.i.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i.i, align 8, !tbaa !266
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.val41.val.i.i.i.i.i.i = load ptr, ptr %31, align 8, !tbaa !181
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.val41.val49.i.i.i.i.i.i = load ptr, ptr %32, align 8, !tbaa !188
-  %33 = tail call noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %.029.val42.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(504) %.val41.val.i.i.i.i.i.i, ptr noundef %.val41.val49.i.i.i.i.i.i)
-  br i1 %33, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit", label %34
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.val41.val.i.i.i.i.i.i = load ptr, ptr %30, align 8, !tbaa !181
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.val41.val49.i.i.i.i.i.i = load ptr, ptr %31, align 8, !tbaa !188
+  %32 = tail call noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %.029.val42.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(504) %.val41.val.i.i.i.i.i.i, ptr noundef %.val41.val49.i.i.i.i.i.i)
+  br i1 %32, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit", label %33
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
-  br label %36
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
+  br label %35
 
-36:                                               ; preds = %34, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %35, %34 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
+35:                                               ; preds = %33, %._crit_edge.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = phi ptr [ %34, %33 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8, !tbaa !266
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.val44.val.i.i.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !181
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.val44.val48.i.i.i.i.i.i = load ptr, ptr %38, align 8, !tbaa !188
-  %39 = tail call noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %.1.val.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(504) %.val44.val.i.i.i.i.i.i, ptr noundef %.val44.val48.i.i.i.i.i.i)
-  br i1 %39, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit", label %40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.val44.val.i.i.i.i.i.i = load ptr, ptr %36, align 8, !tbaa !181
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.val44.val48.i.i.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !188
+  %38 = tail call noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %.1.val.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(504) %.val44.val.i.i.i.i.i.i, ptr noundef %.val44.val48.i.i.i.i.i.i)
+  br i1 %38, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit", label %39
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
-  br label %42
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
+  br label %41
 
-42:                                               ; preds = %40, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %41, %40 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
+41:                                               ; preds = %39, %._crit_edge.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i = phi ptr [ %40, %39 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !266
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.val46.val.i.i.i.i.i.i = load ptr, ptr %43, align 8, !tbaa !181
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.val46.val47.i.i.i.i.i.i = load ptr, ptr %44, align 8, !tbaa !188
-  %45 = tail call noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %.2.val.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(504) %.val46.val.i.i.i.i.i.i, ptr noundef %.val46.val47.i.i.i.i.i.i)
-  br i1 %45, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit", label %46
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.val46.val.i.i.i.i.i.i = load ptr, ptr %42, align 8, !tbaa !181
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.val46.val47.i.i.i.i.i.i = load ptr, ptr %43, align 8, !tbaa !188
+  %44 = tail call noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %.2.val.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(504) %.val46.val.i.i.i.i.i.i, ptr noundef %.val46.val47.i.i.i.i.i.i)
+  br i1 %44, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit", label %45
 
-46:                                               ; preds = %42, %._crit_edge.i.i.i.i.i.i
+45:                                               ; preds = %41, %._crit_edge.i.i.i.i.i.i
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %16
-  %47 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i.i.i.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19": ; preds = %19
-  %48 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i.i.i.i, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21": ; preds = %22
-  %49 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i.i.i.i, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %.02964.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit": ; preds = %14, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21", %30, %36, %42, %46
-  %.028.i.i.i.i.i.i = phi ptr [ %9, %46 ], [ %.029.lcssa.i.i.i.i.i.i, %30 ], [ %.1.i.i.i.i.i.i, %36 ], [ %.2.i.i.i.i.i.i, %42 ], [ %47, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %48, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19" ], [ %49, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21" ], [ %.02964.i.i.i.i.i.i, %14 ]
-  %50 = icmp ne ptr %9, %.028.i.i.i.i.i.i
-  br label %51
+"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit": ; preds = %14, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19", %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21", %29, %35, %41, %45
+  %.028.i.i.i.i.i.i = phi ptr [ %9, %45 ], [ %.029.lcssa.i.i.i.i.i.i, %29 ], [ %.1.i.i.i.i.i.i, %35 ], [ %.2.i.i.i.i.i.i, %41 ], [ %46, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %47, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit19" ], [ %48, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21" ], [ %.02964.i.i.i.i.i.i, %14 ]
+  %49 = icmp ne ptr %9, %.028.i.i.i.i.i.i
+  br label %50
 
-51:                                               ; preds = %3, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit"
-  %.0 = phi i1 [ %50, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit" ], [ false, %3 ]
+50:                                               ; preds = %3, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit"
+  %.0 = phi i1 [ %49, %"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6GStoreELj6EEEZNS_12LoadStoreOpt29operationAliasesWithCandidateERNS_12MachineInstrERNS6_19StoreMergeCandidateEE3$_0EEbOT_T0_.exit" ], [ false, %3 ]
   ret i1 %.0
 }
 

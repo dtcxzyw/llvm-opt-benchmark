@@ -6251,13 +6251,13 @@ define void @_ZN3vcg8PullPushER6QImagej(ptr noundef nonnull align 8 dereferencea
   invoke void @_ZN3vcg11PullPushMipER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef %1)
           to label %32 unwind label %.loopexit.split-lp
 
-.loopexit.loopexit:                               ; preds = %45
-  %lpad.loopexit46 = landingpad { ptr, i32 }
+.loopexit.loopexit:                               ; preds = %.lr.ph57
+  %lpad.loopexit48 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.loopexit.loopexit.split-lp:                      ; preds = %48
-  %lpad.loopexit.split-lp47 = landingpad { ptr, i32 }
+.loopexit.loopexit.split-lp:                      ; preds = %.lr.ph._crit_edge
+  %lpad.loopexit.split-lp49 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
@@ -6267,7 +6267,7 @@ define void @_ZN3vcg8PullPushER6QImagej(ptr noundef nonnull align 8 dereferencea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit46, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp47, %.loopexit.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit48, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp49, %.loopexit.loopexit.split-lp ]
   call void @_ZNSt6vectorI6QImageSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #33
   resume { ptr, i32 } %lpad.phi
 
@@ -6279,9 +6279,6 @@ define void @_ZN3vcg8PullPushER6QImagej(ptr noundef nonnull align 8 dereferencea
 35:                                               ; preds = %32
   %36 = icmp slt i32 %34, 5
   br i1 %36, label %.lr.ph.preheader, label %37
-
-.lr.ph.preheader:                                 ; preds = %41, %35
-  br label %.lr.ph
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %2, align 8
@@ -6297,54 +6294,54 @@ define void @_ZN3vcg8PullPushER6QImagej(ptr noundef nonnull align 8 dereferencea
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %12, !llvm.loop !66
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %49 ], [ %indvars.iv, %.lr.ph.preheader ]
-  %.not35 = icmp eq i64 %indvars.iv42, 0
+.lr.ph.preheader:                                 ; preds = %41, %35
+  %.not3555 = icmp eq i64 %indvars.iv, 0
   %44 = load ptr, ptr %2, align 8
-  br i1 %.not35, label %48, label %45
+  br i1 %.not3555, label %.lr.ph._crit_edge, label %.lr.ph57
 
-45:                                               ; preds = %.lr.ph
-  %46 = getelementptr %class.QImage, ptr %44, i64 %indvars.iv42
+.lr.ph57:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %45 = phi ptr [ %48, %.lr.ph ], [ %44, %.lr.ph.preheader ]
+  %indvars.iv4256 = phi i64 [ %indvars.iv.next43, %.lr.ph ], [ %indvars.iv, %.lr.ph.preheader ]
+  %46 = getelementptr %class.QImage, ptr %45, i64 %indvars.iv4256
   %47 = getelementptr i8, ptr %46, i64 -32
   invoke void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef %1)
-          to label %49 unwind label %.loopexit.loopexit
+          to label %.lr.ph unwind label %.loopexit.loopexit
 
-48:                                               ; preds = %.lr.ph
-  invoke void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef %1)
+.lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
+  %.lcssa = phi ptr [ %44, %.lr.ph.preheader ], [ %48, %.lr.ph ]
+  invoke void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.lcssa, i32 noundef %1)
           to label %._crit_edge unwind label %.loopexit.loopexit.split-lp
 
-49:                                               ; preds = %45
-  %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
-  %50 = icmp sgt i64 %indvars.iv42, 0
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !67
+.lr.ph:                                           ; preds = %.lr.ph57
+  %indvars.iv.next43 = add nsw i64 %indvars.iv4256, -1
+  %.not35 = icmp eq i64 %indvars.iv.next43, 0
+  %48 = load ptr, ptr %2, align 8
+  br i1 %.not35, label %.lr.ph._crit_edge, label %.lr.ph57, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %49, %48
-  %.not4.i.i.i.i = icmp eq ptr %44, %9
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
+._crit_edge:                                      ; preds = %.lr.ph._crit_edge
+  %.not4.i.i.i.i = icmp eq ptr %.lcssa, %9
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i.thread, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i ], [ %44, %._crit_edge ]
-  %51 = load ptr, ptr %.05.i.i.i.i, align 8
-  %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #33
-  %53 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
+  %.05.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i ], [ %.lcssa, %._crit_edge ]
+  %49 = load ptr, ptr %.05.i.i.i.i, align 8
+  %50 = load ptr, ptr %49, align 8
+  call void %50(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #33
+  %51 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %.05.i.i.i.i, %.08.i.i.i.i.i
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !68
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !68
 
-_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
+_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i:  ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %2, align 8
-  br label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i
+  %.not.i.i.i = icmp eq ptr %.pr.i, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i.thread
 
-_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i:  ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %54 = phi ptr [ %.pr.i, %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i ], [ %44, %._crit_edge ]
-  %.not.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit, label %55
-
-55:                                               ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %54) #32
+_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i.thread: ; preds = %._crit_edge, %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i
+  %52 = phi ptr [ %.pr.i, %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i ], [ %.lcssa, %._crit_edge ]
+  call void @_ZdlPv(ptr noundef nonnull %52) #32
   br label %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit
 
-_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, %55
+_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i.thread
   ret void
 }
 

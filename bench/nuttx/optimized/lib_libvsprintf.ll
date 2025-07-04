@@ -347,7 +347,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br i1 %.not569, label %179, label %152
 
 152:                                              ; preds = %150
-  %.neg176 = select i1 %.not572, i32 -3, i32 -4
+  %.neg177 = select i1 %.not572, i32 -3, i32 -4
   %153 = select i1 %.not572, i32 3, i32 4
   %154 = icmp sgt i32 %.0484, %153
   br i1 %154, label %155, label %.loopexit55
@@ -367,7 +367,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br i1 %.not584, label %.loopexit55.loopexit, label %.preheader54, !llvm.loop !8
 
 .loopexit55.loopexit:                             ; preds = %.preheader54
-  %161 = add i32 %.neg176, %.1452.ph
+  %161 = add i32 %.neg177, %.1452.ph
   %162 = add i32 %161, %.0484
   br label %.loopexit55
 
@@ -478,8 +478,8 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %207 = add nsw i32 %.4480.fr, 1
   %208 = lshr i32 %203, 4
   %209 = and i32 %208, 1
-  %spec.select226 = select i1 %.not573, i32 %209, i32 %207
-  %.2438 = add i32 %.1437, %spec.select226
+  %spec.select227 = select i1 %.not573, i32 %209, i32 %207
+  %.2438 = add i32 %.1437, %spec.select227
   %210 = icmp sgt i32 %.0484, %.2438
   %211 = sub nsw i32 %.0484, %.2438
   %212 = select i1 %210, i32 %211, i32 0
@@ -540,7 +540,8 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 
 .preheader48:                                     ; preds = %.loopexit50
   %230 = zext i8 %.2432 to i32
-  %231 = sub nsw i32 0, %.4480.fr
+  %231 = sub i32 0, %.4480.fr
+  %smin = call i32 @llvm.smin.i32(i32 %204, i32 %231)
   br label %232
 
 232:                                              ; preds = %.preheader48, %247
@@ -571,9 +572,9 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 
 245:                                              ; preds = %237, %241
   %.0426 = phi i8 [ %244, %241 ], [ 48, %237 ]
-  %246 = add nsw i32 %.3439, -1
-  %.not581 = icmp sgt i32 %.3439, %231
-  br i1 %.not581, label %247, label %251
+  %246 = add i32 %.3439, -1
+  %exitcond.not = icmp eq i32 %.3439, %smin
+  br i1 %exitcond.not, label %251, label %247
 
 247:                                              ; preds = %245
   %248 = add nsw i32 %.13464, 1
@@ -612,7 +613,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   call void %264(ptr noundef %0, i32 noundef %265) #5
   %266 = and i32 %203, 16
   %267 = icmp ne i32 %266, 0
-  %268 = icmp eq i32 %.3439, 0
+  %268 = icmp eq i32 %smin, 0
   %or.cond15 = and i1 %267, %268
   br i1 %or.cond15, label %269, label %.loopexit44
 
@@ -837,18 +838,18 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br i1 %377, label %.lr.ph, label %.loopexit57.loopexit, !llvm.loop !13
 
 .loopexit57.loopexit:                             ; preds = %.lr.ph
-  %sext175 = shl i64 %indvars.iv.next, 32
-  %.pre171 = ashr exact i64 %sext175, 32
+  %sext176 = shl i64 %indvars.iv.next, 32
+  %.pre172 = ashr exact i64 %sext176, 32
   br label %.loopexit57
 
 .loopexit57:                                      ; preds = %.loopexit57.loopexit, %370
-  %.pre-phi172 = phi i64 [ %.pre171, %.loopexit57.loopexit ], [ %373, %370 ]
+  %.pre-phi173 = phi i64 [ %.pre172, %.loopexit57.loopexit ], [ %373, %370 ]
   %.18 = phi i32 [ %375, %.loopexit57.loopexit ], [ %.1452.ph, %370 ]
   %378 = trunc i64 %.0474 to i32
   %379 = add i32 %.18, %378
   %380 = load ptr, ptr %10, align 8
   %381 = call i32 %380(ptr noundef %0, ptr noundef nonnull %.0475, i32 noundef %378) #5
-  %382 = call i64 @llvm.usub.sat.i64(i64 %.pre-phi172, i64 %.0474)
+  %382 = call i64 @llvm.usub.sat.i64(i64 %.pre-phi173, i64 %.0474)
   %383 = trunc i64 %382 to i32
   br label %.loopexit44
 
@@ -964,9 +965,9 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %or.cond23 = select i1 %443, i1 %444, i1 false
   %445 = icmp eq i64 %.0423, 0
   %or.cond25 = and i1 %445, %or.cond23
-  br i1 %or.cond25, label %.thread195, label %447
+  br i1 %or.cond25, label %.thread196, label %447
 
-.thread195:                                       ; preds = %438
+.thread196:                                       ; preds = %438
   %446 = and i16 %.0441, -4114
   br label %560
 
@@ -1215,20 +1216,20 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %spec.select607 = select i1 %or.cond604, i16 %559, i16 %553
   br label %560
 
-560:                                              ; preds = %.thread195, %556, %552, %551
-  %.6194 = phi ptr [ %.6, %552 ], [ %.6, %551 ], [ %.6, %556 ], [ %.3, %.thread195 ]
-  %.5418191 = phi i8 [ %.5418, %552 ], [ %.5418, %551 ], [ %.5418, %556 ], [ 0, %.thread195 ]
-  %.2486102835188 = phi i32 [ %.2486102835, %552 ], [ %.2486102835, %551 ], [ %.2486102835, %556 ], [ %.0484, %.thread195 ]
-  %.2478112737186 = phi i32 [ %.2478112737, %552 ], [ %.2478112737, %551 ], [ %.2478112737, %556 ], [ 0, %.thread195 ]
-  %.0469 = phi i8 [ %.5418, %552 ], [ %.5418, %551 ], [ %557, %556 ], [ 0, %.thread195 ]
-  %.16 = phi i16 [ %553, %552 ], [ %.11, %551 ], [ %spec.select607, %556 ], [ %446, %.thread195 ]
+560:                                              ; preds = %.thread196, %556, %552, %551
+  %.6195 = phi ptr [ %.6, %552 ], [ %.6, %551 ], [ %.6, %556 ], [ %.3, %.thread196 ]
+  %.5418192 = phi i8 [ %.5418, %552 ], [ %.5418, %551 ], [ %.5418, %556 ], [ 0, %.thread196 ]
+  %.2486102835189 = phi i32 [ %.2486102835, %552 ], [ %.2486102835, %551 ], [ %.2486102835, %556 ], [ %.0484, %.thread196 ]
+  %.2478112737187 = phi i32 [ %.2478112737, %552 ], [ %.2478112737, %551 ], [ %.2478112737, %556 ], [ 0, %.thread196 ]
+  %.0469 = phi i8 [ %.5418, %552 ], [ %.5418, %551 ], [ %557, %556 ], [ 0, %.thread196 ]
+  %.16 = phi i16 [ %553, %552 ], [ %.11, %551 ], [ %spec.select607, %556 ], [ %446, %.thread196 ]
   %561 = zext i16 %.16 to i32
   %562 = and i32 %561, 16
   %.not555 = icmp eq i32 %562, 0
   br i1 %.not555, label %573, label %563
 
 563:                                              ; preds = %560
-  %564 = zext i8 %.5418191 to i64
+  %564 = zext i8 %.5418192 to i64
   %565 = add nsw i64 %564, -1
   %566 = getelementptr inbounds [22 x i8], ptr %4, i64 0, i64 %565
   %567 = load i8, ptr %566, align 1
@@ -1237,7 +1238,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 
 569:                                              ; preds = %563
   %570 = and i16 %.16, -24593
-  %.pre169 = zext i16 %570 to i32
+  %.pre170 = zext i16 %570 to i32
   br label %576
 
 571:                                              ; preds = %563
@@ -1255,38 +1256,38 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   br label %576
 
 576:                                              ; preds = %573, %571, %569
-  %.pre-phi170 = phi i32 [ %561, %573 ], [ %561, %571 ], [ %.pre169, %569 ]
+  %.pre-phi171 = phi i32 [ %561, %573 ], [ %561, %571 ], [ %.pre170, %569 ]
   %.1470 = phi i8 [ %spec.select606, %573 ], [ %spec.select605, %571 ], [ %.0469, %569 ]
-  %577 = and i32 %.pre-phi170, 8
+  %577 = and i32 %.pre-phi171, 8
   %578 = icmp eq i32 %577, 0
   br i1 %578, label %579, label %..loopexit45_crit_edge
 
 ..loopexit45_crit_edge:                           ; preds = %576
-  %.pre173 = zext i8 %.1470 to i32
+  %.pre174 = zext i8 %.1470 to i32
   br label %.loopexit45
 
 579:                                              ; preds = %576
-  %580 = and i32 %.pre-phi170, 1
+  %580 = and i32 %.pre-phi171, 1
   %.not558 = icmp eq i32 %580, 0
   br i1 %.not558, label %589, label %581
 
 581:                                              ; preds = %579
-  %582 = zext i8 %.5418191 to i32
+  %582 = zext i8 %.5418192 to i32
   %583 = zext i8 %.1470 to i32
-  %584 = icmp sgt i32 %.2486102835188, %583
+  %584 = icmp sgt i32 %.2486102835189, %583
   br i1 %584, label %585, label %589
 
 585:                                              ; preds = %581
-  %586 = add nuw i32 %.2486102835188, %582
+  %586 = add nuw i32 %.2486102835189, %582
   %587 = sub i32 %586, %583
-  %588 = trunc i32 %.2486102835188 to i8
+  %588 = trunc i32 %.2486102835189 to i8
   br label %589
 
 589:                                              ; preds = %581, %585, %579
-  %.6482 = phi i32 [ %587, %585 ], [ %582, %581 ], [ %.2478112737186, %579 ]
+  %.6482 = phi i32 [ %587, %585 ], [ %582, %581 ], [ %.2478112737187, %579 ]
   %.3472 = phi i8 [ %588, %585 ], [ %.1470, %581 ], [ %.1470, %579 ]
   %590 = zext i8 %.3472 to i32
-  %591 = icmp sgt i32 %.2486102835188, %590
+  %591 = icmp sgt i32 %.2486102835189, %590
   br i1 %591, label %.lr.ph104, label %.loopexit45
 
 .lr.ph104:                                        ; preds = %589, %.lr.ph104
@@ -1297,17 +1298,17 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   call void %593(ptr noundef %0, i32 noundef 32) #5
   %594 = add i8 %.4473102, 1
   %595 = zext i8 %594 to i32
-  %596 = icmp samesign ugt i32 %.2486102835188, %595
+  %596 = icmp samesign ugt i32 %.2486102835189, %595
   br i1 %596, label %.lr.ph104, label %.loopexit45, !llvm.loop !14
 
 .loopexit45:                                      ; preds = %.lr.ph104, %..loopexit45_crit_edge, %589
-  %.pre-phi174 = phi i32 [ %.pre173, %..loopexit45_crit_edge ], [ %590, %589 ], [ %595, %.lr.ph104 ]
-  %.5481 = phi i32 [ %.2478112737186, %..loopexit45_crit_edge ], [ %.6482, %589 ], [ %.6482, %.lr.ph104 ]
+  %.pre-phi175 = phi i32 [ %.pre174, %..loopexit45_crit_edge ], [ %590, %589 ], [ %595, %.lr.ph104 ]
+  %.5481 = phi i32 [ %.2478112737187, %..loopexit45_crit_edge ], [ %.6482, %589 ], [ %.6482, %.lr.ph104 ]
   %.20 = phi i32 [ %.1452.ph, %..loopexit45_crit_edge ], [ %.1452.ph, %589 ], [ %592, %.lr.ph104 ]
-  %597 = icmp sgt i32 %.2486102835188, %.pre-phi174
-  %598 = sub nsw i32 %.2486102835188, %.pre-phi174
+  %597 = icmp sgt i32 %.2486102835189, %.pre-phi175
+  %598 = sub nsw i32 %.2486102835189, %.pre-phi175
   %599 = select i1 %597, i32 %598, i32 0
-  %600 = and i32 %.pre-phi170, 16
+  %600 = and i32 %.pre-phi171, 16
   %.not559 = icmp eq i32 %600, 0
   br i1 %.not559, label %610, label %601
 
@@ -1315,28 +1316,28 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %602 = add nsw i32 %.20, 1
   %603 = load ptr, ptr %6, align 8
   call void %603(ptr noundef %0, i32 noundef 48) #5
-  %604 = and i32 %.pre-phi170, 16384
+  %604 = and i32 %.pre-phi171, 16384
   %.not563 = icmp eq i32 %604, 0
   br i1 %.not563, label %619, label %605
 
 605:                                              ; preds = %601
   %606 = add nsw i32 %.20, 2
   %607 = load ptr, ptr %6, align 8
-  %608 = and i32 %.pre-phi170, 8192
+  %608 = and i32 %.pre-phi171, 8192
   %.not564 = icmp eq i32 %608, 0
   %609 = select i1 %.not564, i32 120, i32 88
   call void %607(ptr noundef nonnull %0, i32 noundef %609) #5
   br label %619
 
 610:                                              ; preds = %.loopexit45
-  %611 = and i32 %.pre-phi170, 4102
+  %611 = and i32 %.pre-phi171, 4102
   %.not560 = icmp eq i32 %611, 0
   br i1 %.not560, label %619, label %612
 
 612:                                              ; preds = %610
-  %613 = and i32 %.pre-phi170, 2
+  %613 = and i32 %.pre-phi171, 2
   %.not561 = icmp eq i32 %613, 0
-  %614 = and i32 %.pre-phi170, 4096
+  %614 = and i32 %.pre-phi171, 4096
   %.not562 = icmp eq i32 %614, 0
   %615 = add nsw i32 %.20, 1
   %616 = load ptr, ptr %6, align 8
@@ -1347,7 +1348,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 
 619:                                              ; preds = %610, %612, %601, %605
   %.22 = phi i32 [ %606, %605 ], [ %602, %601 ], [ %615, %612 ], [ %.20, %610 ]
-  %620 = zext i8 %.5418191 to i32
+  %620 = zext i8 %.5418192 to i32
   %621 = icmp sgt i32 %.5481, %620
   br i1 %621, label %.lr.ph109, label %.preheader
 
@@ -1358,47 +1359,47 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
 
 .preheader:                                       ; preds = %.preheader.loopexit, %619
   %.23.lcssa = phi i32 [ %.22, %619 ], [ %623, %.preheader.loopexit ]
-  %.not565111 = icmp eq i8 %.5418191, 0
+  %.not565111 = icmp eq i8 %.5418192, 0
   br i1 %.not565111, label %.loopexit44, label %.lr.ph114.preheader
 
 .lr.ph114.preheader:                              ; preds = %.preheader
-  %624 = zext i8 %.5418191 to i64
+  %624 = zext i8 %.5418192 to i64
   br label %.lr.ph114
 
 .lr.ph109:                                        ; preds = %619, %.lr.ph109
   %.7483107 = phi i32 [ %626, %.lr.ph109 ], [ %.5481, %619 ]
   %625 = load ptr, ptr %6, align 8
   call void %625(ptr noundef %0, i32 noundef 48) #5
-  %626 = add nsw i32 %.7483107, -1
-  %627 = icmp samesign ugt i32 %626, %620
-  br i1 %627, label %.lr.ph109, label %.preheader.loopexit, !llvm.loop !15
+  %626 = add i32 %.7483107, -1
+  %exitcond165.not = icmp eq i32 %626, %620
+  br i1 %exitcond165.not, label %.preheader.loopexit, label %.lr.ph109, !llvm.loop !15
 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
-  %indvars.iv165 = phi i64 [ %624, %.lr.ph114.preheader ], [ %630, %.lr.ph114 ]
-  %.24112 = phi i32 [ %.23.lcssa, %.lr.ph114.preheader ], [ %628, %.lr.ph114 ]
-  %628 = add nsw i32 %.24112, 1
-  %629 = load ptr, ptr %6, align 8
-  %630 = add nsw i64 %indvars.iv165, -1
-  %631 = getelementptr inbounds nuw [22 x i8], ptr %4, i64 0, i64 %630
-  %632 = load i8, ptr %631, align 1
-  %633 = sext i8 %632 to i32
-  call void %629(ptr noundef %0, i32 noundef %633) #5
-  %.not565.wide = icmp eq i64 %630, 0
+  %indvars.iv166 = phi i64 [ %624, %.lr.ph114.preheader ], [ %629, %.lr.ph114 ]
+  %.24112 = phi i32 [ %.23.lcssa, %.lr.ph114.preheader ], [ %627, %.lr.ph114 ]
+  %627 = add nsw i32 %.24112, 1
+  %628 = load ptr, ptr %6, align 8
+  %629 = add nsw i64 %indvars.iv166, -1
+  %630 = getelementptr inbounds nuw [22 x i8], ptr %4, i64 0, i64 %629
+  %631 = load i8, ptr %630, align 1
+  %632 = sext i8 %631 to i32
+  call void %628(ptr noundef %0, i32 noundef %632) #5
+  %.not565.wide = icmp eq i64 %629, 0
   br i1 %.not565.wide, label %.loopexit44, label %.lr.ph114, !llvm.loop !16
 
 .loopexit44:                                      ; preds = %171, %.lr.ph100, %.lr.ph114, %166, %324, %.preheader, %269, %262, %.loopexit57
   %.5489 = phi i32 [ %.8492, %269 ], [ %.8492, %262 ], [ %383, %.loopexit57 ], [ %599, %.preheader ], [ %.8492, %324 ], [ %.4488, %166 ], [ %599, %.lr.ph114 ], [ %.8492, %.lr.ph100 ], [ %.4488, %171 ]
-  %.6457 = phi i32 [ %270, %269 ], [ %263, %262 ], [ %379, %.loopexit57 ], [ %.23.lcssa, %.preheader ], [ %.16467, %324 ], [ %.4455, %166 ], [ %628, %.lr.ph114 ], [ %327, %.lr.ph100 ], [ %174, %171 ]
-  %.5 = phi ptr [ %.3, %269 ], [ %.3, %262 ], [ %.3, %.loopexit57 ], [ %.6194, %.preheader ], [ %.3, %324 ], [ %.3, %166 ], [ %.6194, %.lr.ph114 ], [ %.3, %.lr.ph100 ], [ %.3, %171 ]
+  %.6457 = phi i32 [ %270, %269 ], [ %263, %262 ], [ %379, %.loopexit57 ], [ %.23.lcssa, %.preheader ], [ %.16467, %324 ], [ %.4455, %166 ], [ %627, %.lr.ph114 ], [ %327, %.lr.ph100 ], [ %174, %171 ]
+  %.5 = phi ptr [ %.3, %269 ], [ %.3, %262 ], [ %.3, %.loopexit57 ], [ %.6195, %.preheader ], [ %.3, %324 ], [ %.3, %166 ], [ %.6195, %.lr.ph114 ], [ %.3, %.lr.ph100 ], [ %.3, %171 ]
   %.not588116 = icmp eq i32 %.5489, 0
   br i1 %.not588116, label %.backedge.outer.backedge, label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %.loopexit44, %.lr.ph119
-  %.12496117 = phi i32 [ %635, %.lr.ph119 ], [ %.5489, %.loopexit44 ]
-  %634 = load ptr, ptr %6, align 8
-  call void %634(ptr noundef %0, i32 noundef 32) #5
-  %635 = add nsw i32 %.12496117, -1
-  %.not588 = icmp eq i32 %635, 0
+  %.12496117 = phi i32 [ %634, %.lr.ph119 ], [ %.5489, %.loopexit44 ]
+  %633 = load ptr, ptr %6, align 8
+  call void %633(ptr noundef %0, i32 noundef 32) #5
+  %634 = add nsw i32 %.12496117, -1
+  %.not588 = icmp eq i32 %634, 0
   br i1 %.not588, label %.backedge.loopexit, label %.lr.ph119, !llvm.loop !17
 
 .loopexit59:                                      ; preds = %.backedge, %81
@@ -1447,6 +1448,9 @@ declare i8 @llvm.umin.i8(i8, i8) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

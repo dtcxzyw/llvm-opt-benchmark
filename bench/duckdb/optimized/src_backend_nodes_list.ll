@@ -172,21 +172,25 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery13list_nth_cellEPKNS_6PGListEi(
   %4 = load i32, ptr %3, align 4, !tbaa !13
   %5 = add nsw i32 %4, -1
   %6 = icmp eq i32 %1, %5
-  br i1 %6, label %7, label %.preheader
+  br i1 %6, label %7, label %.preheader.preheader
+
+.preheader.preheader:                             ; preds = %2
+  %smin = tail call i32 @llvm.smin.i32(i32 %1, i32 0)
+  br label %.preheader
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   br label %.loopexit
 
-.preheader:                                       ; preds = %2, %.preheader
-  %.07 = phi i32 [ %11, %.preheader ], [ %1, %2 ]
-  %.pn = phi ptr [ %.0, %.preheader ], [ %0, %2 ]
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %.07 = phi i32 [ %10, %.preheader ], [ %1, %.preheader.preheader ]
+  %.pn = phi ptr [ %.0, %.preheader ], [ %0, %.preheader.preheader ]
   %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !17
-  %10 = icmp sgt i32 %.07, 0
-  %11 = add nsw i32 %.07, -1
-  br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !20
+  %10 = add i32 %.07, -1
+  %exitcond.not = icmp eq i32 %.07, %smin
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %7
   %.08 = phi ptr [ %9, %7 ], [ %.0, %.preheader ]
@@ -199,26 +203,30 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery8list_nthEPKNS_6PGListEi(ptr no
   %4 = load i32, ptr %3, align 4, !tbaa !13
   %5 = add nsw i32 %4, -1
   %6 = icmp eq i32 %1, %5
-  br i1 %6, label %7, label %.preheader.i
+  br i1 %6, label %7, label %.preheader.preheader.i
+
+.preheader.preheader.i:                           ; preds = %2
+  %smin.i = tail call i32 @llvm.smin.i32(i32 %1, i32 0)
+  br label %.preheader.i
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   br label %_ZN17duckdb_libpgquery13list_nth_cellEPKNS_6PGListEi.exit
 
-.preheader.i:                                     ; preds = %2, %.preheader.i
-  %.07.i = phi i32 [ %11, %.preheader.i ], [ %1, %2 ]
-  %.pn.i = phi ptr [ %.0.i, %.preheader.i ], [ %0, %2 ]
+.preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
+  %.07.i = phi i32 [ %10, %.preheader.i ], [ %1, %.preheader.preheader.i ]
+  %.pn.i = phi ptr [ %.0.i, %.preheader.i ], [ %0, %.preheader.preheader.i ]
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !17
-  %10 = icmp sgt i32 %.07.i, 0
-  %11 = add nsw i32 %.07.i, -1
-  br i1 %10, label %.preheader.i, label %_ZN17duckdb_libpgquery13list_nth_cellEPKNS_6PGListEi.exit, !llvm.loop !20
+  %10 = add i32 %.07.i, -1
+  %exitcond.not.i = icmp eq i32 %.07.i, %smin.i
+  br i1 %exitcond.not.i, label %_ZN17duckdb_libpgquery13list_nth_cellEPKNS_6PGListEi.exit, label %.preheader.i, !llvm.loop !20
 
 _ZN17duckdb_libpgquery13list_nth_cellEPKNS_6PGListEi.exit: ; preds = %.preheader.i, %7
   %.08.i = phi ptr [ %9, %7 ], [ %.0.i, %.preheader.i ]
-  %12 = load ptr, ptr %.08.i, align 8, !tbaa !16
-  ret ptr %12
+  %11 = load ptr, ptr %.08.i, align 8, !tbaa !16
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -390,9 +398,9 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery14list_copy_tailEPKNS_6PGListEi
   %.pn = phi ptr [ %0, %7 ], [ %.026, %17 ]
   %.026.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.026 = load ptr, ptr %.026.in, align 8, !tbaa !17
-  %.not36 = icmp eq i32 %.028, 0
   %18 = add nsw i32 %.028, -1
-  br i1 %.not36, label %19, label %17, !llvm.loop !23
+  %exitcond.not = icmp eq i32 %.028, 0
+  br i1 %exitcond.not, label %19, label %17, !llvm.loop !23
 
 19:                                               ; preds = %17
   %20 = load i64, ptr %.026, align 8, !tbaa !16
@@ -430,6 +438,9 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery14list_copy_tailEPKNS_6PGListEi
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

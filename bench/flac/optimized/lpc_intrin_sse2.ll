@@ -41,8 +41,9 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_8(ptr noun
   %22 = fmul reassoc nsz arcp <2 x double> %11, %12
   %23 = fadd reassoc nsz arcp <2 x double> %22, %.03644
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  %24 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %24, 4294967295
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.039.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %17, %.lr.ph ]
@@ -50,12 +51,12 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_8(ptr noun
   %.037.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %21, %.lr.ph ]
   %.036.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %23, %.lr.ph ]
   store <2 x double> %.039.lcssa, ptr %3, align 1, !tbaa !9
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store <2 x double> %.038.lcssa, ptr %24, align 1, !tbaa !9
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store <2 x double> %.037.lcssa, ptr %25, align 1, !tbaa !9
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store <2 x double> %.036.lcssa, ptr %26, align 1, !tbaa !9
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store <2 x double> %.038.lcssa, ptr %25, align 1, !tbaa !9
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store <2 x double> %.037.lcssa, ptr %26, align 1, !tbaa !9
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store <2 x double> %.036.lcssa, ptr %27, align 1, !tbaa !9
   ret void
 }
 
@@ -102,8 +103,9 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_10(ptr nou
   %25 = fmul reassoc nsz arcp <2 x double> %11, %12
   %26 = fadd reassoc nsz arcp <2 x double> %25, %.03959
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  %27 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %27, 4294967295
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.048.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %18, %.lr.ph ]
@@ -112,14 +114,14 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_10(ptr nou
   %.045.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %24, %.lr.ph ]
   %.039.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %26, %.lr.ph ]
   store <2 x double> %.048.lcssa, ptr %3, align 1, !tbaa !9
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store <2 x double> %.047.lcssa, ptr %27, align 1, !tbaa !9
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store <2 x double> %.046.lcssa, ptr %28, align 1, !tbaa !9
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store <2 x double> %.045.lcssa, ptr %29, align 1, !tbaa !9
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store <2 x double> %.039.lcssa, ptr %30, align 1, !tbaa !9
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store <2 x double> %.047.lcssa, ptr %28, align 1, !tbaa !9
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store <2 x double> %.046.lcssa, ptr %29, align 1, !tbaa !9
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store <2 x double> %.045.lcssa, ptr %30, align 1, !tbaa !9
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store <2 x double> %.039.lcssa, ptr %31, align 1, !tbaa !9
   ret void
 }
 
@@ -176,8 +178,9 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_14(ptr nou
   %31 = fmul reassoc nsz arcp <2 x double> %11, %12
   %32 = fadd reassoc nsz arcp <2 x double> %31, %.05381
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  %33 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %33, 4294967295
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.066.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %20, %.lr.ph ]
@@ -188,18 +191,18 @@ define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_14(ptr nou
   %.054.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %30, %.lr.ph ]
   %.053.lcssa = phi <2 x double> [ zeroinitializer, %4 ], [ %32, %.lr.ph ]
   store <2 x double> %.066.lcssa, ptr %3, align 1, !tbaa !9
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store <2 x double> %.065.lcssa, ptr %33, align 1, !tbaa !9
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store <2 x double> %.064.lcssa, ptr %34, align 1, !tbaa !9
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store <2 x double> %.063.lcssa, ptr %35, align 1, !tbaa !9
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store <2 x double> %.057.lcssa, ptr %36, align 1, !tbaa !9
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store <2 x double> %.054.lcssa, ptr %37, align 1, !tbaa !9
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store <2 x double> %.053.lcssa, ptr %38, align 1, !tbaa !9
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store <2 x double> %.065.lcssa, ptr %34, align 1, !tbaa !9
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store <2 x double> %.064.lcssa, ptr %35, align 1, !tbaa !9
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store <2 x double> %.063.lcssa, ptr %36, align 1, !tbaa !9
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store <2 x double> %.057.lcssa, ptr %37, align 1, !tbaa !9
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store <2 x double> %.054.lcssa, ptr %38, align 1, !tbaa !9
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store <2 x double> %.053.lcssa, ptr %39, align 1, !tbaa !9
   ret void
 }
 

@@ -13943,8 +13943,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %104, label %.preheader.us.preheader, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
-  %.not122 = icmp eq i8 %.054104, 0
-  br i1 %.not122, label %._crit_edge106, label %.lr.ph
+  %.not125 = icmp eq i8 %.054104, 0
+  br i1 %.not125, label %._crit_edge106, label %.lr.ph
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %114 = zext nneg i8 %.054104 to i32
@@ -13984,8 +13984,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 125:                                              ; preds = %124
   %indvars.iv.next = add nsw i32 %indvars.iv, -1
-  %126 = icmp sgt i32 %indvars.iv, 0
-  br i1 %126, label %.preheader.us, label %._crit_edge106, !llvm.loop !101
+  %126 = and i32 %indvars.iv.next, 255
+  %exitcond117.not = icmp eq i32 %126, 255
+  br i1 %exitcond117.not, label %._crit_edge106, label %.preheader.us, !llvm.loop !101
 
 127:                                              ; preds = %.preheader.us, %155
   %.055103.us = phi i32 [ 0, %.preheader.us ], [ %.257.us, %155 ]
@@ -14108,14 +14109,14 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
-  %.054105123 = phi i8 [ %.054, %.preheader ], [ %.054104, %.preheader.preheader ]
+  %.054105126 = phi i8 [ %.054, %.preheader ], [ %.054104, %.preheader.preheader ]
   store ptr @.str.96, ptr %12, align 8
   store i64 1, ptr %113, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %12)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split
 
 .preheader:                                       ; preds = %.lr.ph
-  %.054 = add nsw i8 %.054105123, -1
+  %.054 = add i8 %.054105126, -1
   %.not = icmp eq i8 %.054, 0
   br i1 %.not, label %._crit_edge106, label %.lr.ph, !llvm.loop !101
 

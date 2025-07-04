@@ -3788,10 +3788,10 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData21initializeFromForward
 
 ._crit_edge224:                                   ; preds = %.critedge2
   %20 = icmp eq i64 %10, 1
-  br i1 %20, label %95, label %._crit_edge224.thread
+  br i1 %20, label %94, label %._crit_edge224.thread
 
 21:                                               ; preds = %.lr.ph223, %.critedge2
-  %.0221 = phi i64 [ 0, %.lr.ph223 ], [ %94, %.critedge2 ]
+  %.0221 = phi i64 [ 0, %.lr.ph223 ], [ %93, %.critedge2 ]
   %22 = add i64 %.0221, %13
   %23 = add i64 %.0221, 46080
   %.0172 = select i1 %.not190, i64 %22, i64 %23
@@ -3964,60 +3964,59 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData21initializeFromForward
   %79 = load float, ptr %gep228, align 4, !tbaa !13
   br label %80
 
-80:                                               ; preds = %82, %.critedge6
-  %.0169 = phi i64 [ 64511, %.critedge6 ], [ %83, %82 ]
-  %81 = icmp ugt i64 %.0169, 32768
-  br i1 %81, label %82, label %.critedge8
+80:                                               ; preds = %81, %.critedge6
+  %.0169 = phi i64 [ 64511, %.critedge6 ], [ %82, %81 ]
+  %exitcond234.not = icmp eq i64 %.0169, 32768
+  br i1 %exitcond234.not, label %.critedge8, label %81
 
-82:                                               ; preds = %80
-  %83 = add nsw i64 %.0169, -1
-  %.idx194 = mul nuw nsw i64 %83, 12
+81:                                               ; preds = %80
+  %82 = add nsw i64 %.0169, -1
+  %.idx194 = mul nuw nsw i64 %82, 12
   %gep214 = getelementptr i8, ptr %24, i64 %.idx194
-  %84 = load float, ptr %gep214, align 4, !tbaa !13
-  %85 = fcmp oeq float %84, %79
-  br i1 %85, label %80, label %.critedge8, !llvm.loop !152
+  %83 = load float, ptr %gep214, align 4, !tbaa !13
+  %84 = fcmp oeq float %83, %79
+  br i1 %84, label %80, label %.critedge8, !llvm.loop !152
 
-.critedge8:                                       ; preds = %80, %82
-  %.0169.lcssa = phi i64 [ 32768, %80 ], [ %.0169, %82 ]
+.critedge8:                                       ; preds = %80, %81
   %gep230 = getelementptr float, ptr %invariant.gep229, i64 %.0221
-  %86 = load float, ptr %gep230, align 4, !tbaa !13
-  br label %87
+  %85 = load float, ptr %gep230, align 4, !tbaa !13
+  br label %86
 
-87:                                               ; preds = %88, %.critedge8
-  %.0168 = phi i64 [ 32768, %.critedge8 ], [ %89, %88 ]
+86:                                               ; preds = %87, %.critedge8
+  %.0168 = phi i64 [ 32768, %.critedge8 ], [ %88, %87 ]
   %exitcond235.not = icmp eq i64 %.0168, %.0169
-  br i1 %exitcond235.not, label %.critedge2, label %88
+  br i1 %exitcond235.not, label %.critedge2, label %87
 
-88:                                               ; preds = %87
-  %89 = add nuw nsw i64 %.0168, 1
-  %.idx195 = mul nuw nsw i64 %89, 12
+87:                                               ; preds = %86
+  %88 = add nuw nsw i64 %.0168, 1
+  %.idx195 = mul nuw nsw i64 %88, 12
   %gep216 = getelementptr i8, ptr %24, i64 %.idx195
-  %90 = load float, ptr %gep216, align 4, !tbaa !13
-  %91 = fcmp oeq float %90, %86
-  br i1 %91, label %87, label %.critedge2, !llvm.loop !153
+  %89 = load float, ptr %gep216, align 4, !tbaa !13
+  %90 = fcmp oeq float %89, %85
+  br i1 %90, label %86, label %.critedge2, !llvm.loop !153
 
-.critedge2:                                       ; preds = %88, %87, %60, %59
-  %.sink242 = phi i64 [ 8, %59 ], [ 8, %60 ], [ 24, %87 ], [ 24, %88 ]
-  %.0168.lcssa.sink = phi i64 [ %.0174, %60 ], [ %.0176, %59 ], [ %.0168, %88 ], [ %.0169, %87 ]
-  %.sink241 = phi i64 [ 16, %59 ], [ 16, %60 ], [ 32, %87 ], [ 32, %88 ]
-  %.0169.lcssa.sink = phi i64 [ %.0176, %59 ], [ %.0176, %60 ], [ %.0169.lcssa, %87 ], [ %.0169.lcssa, %88 ]
-  %92 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink242
-  store i64 %.0168.lcssa.sink, ptr %92, align 8, !tbaa !154
-  %93 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink241
-  store i64 %.0169.lcssa.sink, ptr %93, align 8, !tbaa !154
-  %94 = add nuw i64 %.0221, 1
-  %exitcond238.not = icmp eq i64 %94, %10
+.critedge2:                                       ; preds = %87, %86, %60, %59
+  %.sink241 = phi i64 [ 8, %59 ], [ 8, %60 ], [ 24, %86 ], [ 24, %87 ]
+  %.0168.lcssa.sink = phi i64 [ %.0174, %60 ], [ %.0176, %59 ], [ %.0168, %87 ], [ %.0169, %86 ]
+  %.sink240 = phi i64 [ 16, %59 ], [ 16, %60 ], [ 32, %86 ], [ 32, %87 ]
+  %.0169.lcssa.sink = phi i64 [ %.0176, %59 ], [ %.0176, %60 ], [ %.0169, %86 ], [ %.0169, %87 ]
+  %91 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink241
+  store i64 %.0168.lcssa.sink, ptr %91, align 8, !tbaa !154
+  %92 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink240
+  store i64 %.0169.lcssa.sink, ptr %92, align 8, !tbaa !154
+  %93 = add nuw i64 %.0221, 1
+  %exitcond238.not = icmp eq i64 %93, %10
   br i1 %exitcond238.not, label %._crit_edge224, label %21, !llvm.loop !155
 
-95:                                               ; preds = %._crit_edge224
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %97, ptr noundef nonnull align 8 dereferenceable(40) %96, i64 40, i1 false), !tbaa.struct !156
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %98, ptr noundef nonnull align 8 dereferenceable(40) %96, i64 40, i1 false)
+94:                                               ; preds = %._crit_edge224
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %96, ptr noundef nonnull align 8 dereferenceable(40) %95, i64 40, i1 false), !tbaa.struct !156
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %97, ptr noundef nonnull align 8 dereferenceable(40) %95, i64 40, i1 false)
   br label %._crit_edge224.thread
 
-._crit_edge224.thread:                            ; preds = %1, %95, %._crit_edge224
+._crit_edge224.thread:                            ; preds = %1, %94, %._crit_edge224
   ret void
 }
 

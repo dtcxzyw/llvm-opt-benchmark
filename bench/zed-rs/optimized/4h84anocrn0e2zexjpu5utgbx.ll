@@ -10588,31 +10588,28 @@ define hidden void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h7a5b49ddd64
 
 _ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit: ; preds = %19, %23, %.lr.ph
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit.preheader", label %.lr.ph
+  br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit", label %.lr.ph
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit.preheader": ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit
-  %26 = add i64 %1, -1
-  %27 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %26
-  %.sroa.0.0.copyload.i.i25 = load i64, ptr %0, align 8, !alias.scope !1790
-  %28 = load i64, ptr %27, align 8, !alias.scope !1790
-  store i64 %28, ptr %0, align 8, !alias.scope !1790
-  store i64 %.sroa.0.0.copyload.i.i25, ptr %27, align 8, !alias.scope !1790
-  %.not1.i1126 = icmp ugt i64 %26, 1
-  br i1 %.not1.i1126, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20.thread
-
-_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20.thread: ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit.preheader"
+26:                                               ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20
   ret void
 
-.lr.ph.i12.preheader:                             ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit.preheader", %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20
-  %29 = phi i64 [ %47, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20 ], [ %26, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit.preheader" ]
-  br label %.lr.ph.i12
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit": ; preds = %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20
+  %.sroa.46.023 = phi i64 [ %27, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20 ], [ %1, %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit ]
+  %27 = add i64 %.sroa.46.023, -1
+  %28 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %27
+  %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8, !alias.scope !1790
+  %29 = load i64, ptr %28, align 8, !alias.scope !1790
+  store i64 %29, ptr %0, align 8, !alias.scope !1790
+  store i64 %.sroa.0.0.copyload.i.i, ptr %28, align 8, !alias.scope !1790
+  %.not1.i11 = icmp ugt i64 %27, 1
+  br i1 %.not1.i11, label %.lr.ph.i12, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20
 
-.lr.ph.i12:                                       ; preds = %.lr.ph.i12.preheader, %44
-  %30 = phi i64 [ %46, %44 ], [ 1, %.lr.ph.i12.preheader ]
-  %31 = phi i64 [ %45, %44 ], [ 0, %.lr.ph.i12.preheader ]
-  %.sroa.0.02.i13 = phi i64 [ %.sroa.04.0.i14, %44 ], [ 0, %.lr.ph.i12.preheader ]
+.lr.ph.i12:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit", %44
+  %30 = phi i64 [ %46, %44 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit" ]
+  %31 = phi i64 [ %45, %44 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit" ]
+  %.sroa.0.02.i13 = phi i64 [ %.sroa.04.0.i14, %44 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit" ]
   %32 = add nuw i64 %31, 2
-  %33 = icmp ult i64 %32, %29
+  %33 = icmp ult i64 %32, %27
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %.lr.ph.i12
@@ -10639,18 +10636,12 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20.threa
   store i64 %.val.i15, ptr %42, align 8, !alias.scope !1802
   %45 = shl i64 %.sroa.04.0.i14, 1
   %46 = or disjoint i64 %45, 1
-  %.not.i17 = icmp ult i64 %46, %29
+  %.not.i17 = icmp ult i64 %46, %27
   br i1 %.not.i17, label %.lr.ph.i12, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20
 
-_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20: ; preds = %40, %44
-  %47 = add i64 %29, -1
-  %48 = getelementptr inbounds [0 x i64], ptr %0, i64 0, i64 %47
-  %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8, !alias.scope !1790
-  %49 = load i64, ptr %48, align 8, !alias.scope !1790
-  store i64 %49, ptr %0, align 8, !alias.scope !1790
-  store i64 %.sroa.0.0.copyload.i.i, ptr %48, align 8, !alias.scope !1790
-  %.not1.i11 = icmp ugt i64 %47, 1
-  br i1 %.not1.i11, label %.lr.ph.i12.preheader, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20.thread
+_ZN4core5slice4sort8unstable8heapsort9sift_down17h43bb4db940c3c020E.exit20: ; preds = %40, %44, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit"
+  %exitcond.not = icmp eq i64 %27, 1
+  br i1 %exitcond.not, label %26, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha99a00d83310a069E.exit"
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable

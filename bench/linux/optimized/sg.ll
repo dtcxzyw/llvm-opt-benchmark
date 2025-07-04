@@ -4518,10 +4518,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sg_build_indirect(ptr noun
   %31 = icmp ne i32 %.16.val.64.val, 0
   %32 = and i1 %31, %30
   %33 = zext nneg i32 %.16.val.64.val to i64
-  br i1 %32, label %.preheader, label %.loopexit1
+  br i1 %32, label %.preheader.preheader, label %.loopexit1
 
-.preheader:                                       ; preds = %24, %.loopexit
-  %34 = phi i32 [ %82, %.loopexit ], [ %29, %24 ]
+.preheader.preheader:                             ; preds = %24
+  %smin = tail call i32 @llvm.smin.i32(i32 %28, i32 -1)
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %.loopexit
+  %34 = phi i32 [ %82, %.loopexit ], [ %29, %.preheader.preheader ]
   %35 = add i32 %34, 12
   %36 = shl nuw i32 1, %35
   %.pre = load i32, ptr @scatter_elem_sz_prev, align 4
@@ -4600,12 +4604,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sg_build_indirect(ptr noun
 
 .loopexit:                                        ; preds = %75, %48
   %82 = add i32 %34, -1
-  %83 = icmp sgt i32 %82, -1
-  br i1 %83, label %.preheader, label %.thread
+  %exitcond.not = icmp eq i32 %82, %smin
+  br i1 %exitcond.not, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %.loopexit, %4, %.loopexit1, %12, %2
-  %84 = phi i32 [ -14, %2 ], [ %.16.val.64.val, %12 ], [ %74, %.loopexit1 ], [ -12, %4 ], [ -12, %.loopexit ]
-  ret i32 %84
+  %83 = phi i32 [ -14, %2 ], [ %.16.val.64.val, %12 ], [ %74, %.loopexit1 ], [ -12, %4 ], [ -12, %.loopexit ]
+  ret i32 %83
 }
 
 ; Function Attrs: null_pointer_is_valid

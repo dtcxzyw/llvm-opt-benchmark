@@ -17070,7 +17070,7 @@ GC_next_exclusion.exit:                           ; preds = %._crit_edge.i.threa
 
 27:                                               ; preds = %25
   store ptr %0, ptr %20, align 8, !tbaa !235
-  br label %44
+  br label %43
 
 GC_next_exclusion.exit.thread:                    ; preds = %._crit_edge.i
   %28 = icmp ugt i64 %3, 511
@@ -17099,20 +17099,20 @@ GC_next_exclusion.exit.thread:                    ; preds = %._crit_edge.i
   %38 = add nsw i64 %.040, -1
   %39 = getelementptr inbounds nuw [512 x %struct.exclusion], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 158224), i64 0, i64 %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !236
-  %40 = icmp ugt i64 %38, %35
-  br i1 %40, label %.lr.ph, label %GC_next_exclusion.exit.thread.thread, !llvm.loop !237
+  %exitcond.not = icmp eq i64 %38, %35
+  br i1 %exitcond.not, label %GC_next_exclusion.exit.thread.thread, label %.lr.ph, !llvm.loop !237
 
 GC_next_exclusion.exit.thread.thread:             ; preds = %.lr.ph, %32, %._crit_edge.i.thread, %2, %GC_next_exclusion.exit.thread
   %.019 = phi i64 [ %3, %GC_next_exclusion.exit.thread ], [ 0, %2 ], [ 1, %._crit_edge.i.thread ], [ %35, %32 ], [ %35, %.lr.ph ]
-  %41 = getelementptr inbounds nuw [512 x %struct.exclusion], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 158224), i64 0, i64 %.019
-  store ptr %0, ptr %41, align 8, !tbaa !235
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %1, ptr %42, align 8, !tbaa !232
-  %43 = add nuw nsw i64 %3, 1
-  store i64 %43, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 424), align 8, !tbaa !231
-  br label %44
+  %40 = getelementptr inbounds nuw [512 x %struct.exclusion], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 158224), i64 0, i64 %.019
+  store ptr %0, ptr %40, align 8, !tbaa !235
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store ptr %1, ptr %41, align 8, !tbaa !232
+  %42 = add nuw nsw i64 %3, 1
+  store i64 %42, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 424), align 8, !tbaa !231
+  br label %43
 
-44:                                               ; preds = %GC_next_exclusion.exit.thread.thread, %27
+43:                                               ; preds = %GC_next_exclusion.exit.thread.thread, %27
   ret void
 }
 
@@ -37455,8 +37455,9 @@ define internal range(i32 0, 2) i32 @GC_register_dynlib_callback(ptr noundef rea
   br label %.loopexit
 
 86:                                               ; preds = %83
-  %87 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %87, label %.lr.ph65, label %.loopexit, !llvm.loop !488
+  %87 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %87, 0
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph65, !llvm.loop !488
 
 .loopexit:                                        ; preds = %86, %.thread, %54, %80, %78, %.lr.ph69
   %88 = add nuw nsw i32 %.167, 1

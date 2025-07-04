@@ -135,29 +135,30 @@ define dso_local noundef i32 @onig_set_parse_depth_limit(i32 noundef %0) local_u
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 -255, 256) i32 @onig_strncmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
+  %smin = tail call i32 @llvm.smin.i32(i32 %2, i32 0)
   br label %4
 
-4:                                                ; preds = %6, %3
-  %.07 = phi ptr [ %0, %3 ], [ %11, %6 ]
-  %.06 = phi ptr [ %1, %3 ], [ %8, %6 ]
-  %.05 = phi i32 [ %2, %3 ], [ %7, %6 ]
-  %5 = icmp sgt i32 %.05, 0
-  br i1 %5, label %6, label %15
+4:                                                ; preds = %5, %3
+  %.07 = phi ptr [ %0, %3 ], [ %10, %5 ]
+  %.06 = phi ptr [ %1, %3 ], [ %7, %5 ]
+  %.05 = phi i32 [ %2, %3 ], [ %6, %5 ]
+  %exitcond.not = icmp eq i32 %.05, %smin
+  br i1 %exitcond.not, label %14, label %5
 
-6:                                                ; preds = %4
-  %7 = add nsw i32 %.05, -1
-  %8 = getelementptr inbounds nuw i8, ptr %.06, i64 1
-  %9 = load i8, ptr %.06, align 1, !tbaa !10
-  %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds nuw i8, ptr %.07, i64 1
-  %12 = load i8, ptr %.07, align 1, !tbaa !10
-  %13 = zext i8 %12 to i32
-  %14 = sub nsw i32 %10, %13
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %4, label %15, !llvm.loop !11
+5:                                                ; preds = %4
+  %6 = add i32 %.05, -1
+  %7 = getelementptr inbounds nuw i8, ptr %.06, i64 1
+  %8 = load i8, ptr %.06, align 1, !tbaa !10
+  %9 = zext i8 %8 to i32
+  %10 = getelementptr inbounds nuw i8, ptr %.07, i64 1
+  %11 = load i8, ptr %.07, align 1, !tbaa !10
+  %12 = zext i8 %11 to i32
+  %13 = sub nsw i32 %9, %12
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %4, label %14, !llvm.loop !11
 
-15:                                               ; preds = %4, %6
-  %.0 = phi i32 [ %14, %6 ], [ 0, %4 ]
+14:                                               ; preds = %4, %5
+  %.0 = phi i32 [ %13, %5 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -719,31 +720,31 @@ onig_name_to_group_numbers.exit.thread25..loopexit_crit_edge: ; preds = %onig_na
   %21 = zext nneg i32 %14 to i64
   br label %22
 
-22:                                               ; preds = %.preheader, %24
-  %indvars.iv = phi i64 [ %21, %.preheader ], [ %indvars.iv.next, %24 ]
-  %23 = icmp sgt i64 %indvars.iv, 0
-  br i1 %23, label %24, label %.loopexit
+22:                                               ; preds = %.preheader, %23
+  %indvars.iv = phi i64 [ %21, %.preheader ], [ %indvars.iv.next, %23 ]
+  %exitcond.not = icmp eq i64 %indvars.iv, 0
+  br i1 %exitcond.not, label %.loopexit, label %23
 
-24:                                               ; preds = %22
+23:                                               ; preds = %22
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %25 = load ptr, ptr %20, align 8, !tbaa !52
-  %26 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.next
-  %27 = load i32, ptr %26, align 4, !tbaa !8
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %25, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !8
-  %.not18 = icmp eq i32 %30, -1
+  %24 = load ptr, ptr %20, align 8, !tbaa !52
+  %25 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.next
+  %26 = load i32, ptr %25, align 4, !tbaa !8
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i32, ptr %24, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !8
+  %.not18 = icmp eq i32 %29, -1
   br i1 %.not18, label %22, label %onig_name_to_group_numbers.exit.thread, !llvm.loop !55
 
 .loopexit:                                        ; preds = %22, %onig_name_to_group_numbers.exit.thread25..loopexit_crit_edge
   %.pre-phi = phi i64 [ %.pre, %onig_name_to_group_numbers.exit.thread25..loopexit_crit_edge ], [ %21, %22 ]
-  %31 = getelementptr i32, ptr %18, i64 %.pre-phi
-  %32 = getelementptr i8, ptr %31, i64 -4
-  %33 = load i32, ptr %32, align 4, !tbaa !8
+  %30 = getelementptr i32, ptr %18, i64 %.pre-phi
+  %31 = getelementptr i8, ptr %30, i64 -4
+  %32 = load i32, ptr %31, align 4, !tbaa !8
   br label %onig_name_to_group_numbers.exit.thread
 
-onig_name_to_group_numbers.exit.thread:           ; preds = %24, %12, %name_find.exit.thread.i, %name_find.exit.i, %onig_name_to_group_numbers.exit, %.loopexit, %onig_name_to_group_numbers.exit.thread25.thread32
-  %.0 = phi i32 [ %16, %onig_name_to_group_numbers.exit.thread25.thread32 ], [ %33, %.loopexit ], [ %14, %onig_name_to_group_numbers.exit ], [ -217, %name_find.exit.i ], [ -217, %name_find.exit.thread.i ], [ -11, %12 ], [ %27, %24 ]
+onig_name_to_group_numbers.exit.thread:           ; preds = %23, %12, %name_find.exit.thread.i, %name_find.exit.i, %onig_name_to_group_numbers.exit, %.loopexit, %onig_name_to_group_numbers.exit.thread25.thread32
+  %.0 = phi i32 [ %16, %onig_name_to_group_numbers.exit.thread25.thread32 ], [ %32, %.loopexit ], [ %14, %onig_name_to_group_numbers.exit ], [ -217, %name_find.exit.i ], [ -217, %name_find.exit.thread.i ], [ -11, %12 ], [ %26, %23 ]
   ret i32 %.0
 }
 
@@ -17926,11 +17927,11 @@ declare i32 @llvm.umin.i32(i32, i32) #23
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #23
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #24
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #23
+
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #24
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

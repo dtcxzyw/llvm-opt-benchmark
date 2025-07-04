@@ -220,7 +220,7 @@ define hidden void @WebPMultARGBRows(ptr noundef %0, i32 noundef %1, i32 noundef
   %.09 = phi i32 [ 0, %.lr.ph ], [ %11, %8 ]
   %.078 = phi ptr [ %0, %.lr.ph ], [ %10, %8 ]
   %9 = load ptr, ptr @WebPMultARGBRow, align 8, !tbaa !11
-  tail call void %9(ptr noundef %.078, i32 noundef %2, i32 noundef %4) #5
+  tail call void %9(ptr noundef %.078, i32 noundef %2, i32 noundef %4) #6
   %10 = getelementptr inbounds i8, ptr %.078, i64 %7
   %11 = add nuw nsw i32 %.09, 1
   %exitcond.not = icmp eq i32 %11, %3
@@ -245,7 +245,7 @@ define hidden void @WebPMultRows(ptr noalias noundef %0, i32 noundef %1, ptr noa
   %.01013 = phi ptr [ %0, %.lr.ph ], [ %13, %11 ]
   %.01112 = phi ptr [ %2, %.lr.ph ], [ %14, %11 ]
   %12 = load ptr, ptr @WebPMultRow, align 8, !tbaa !11
-  tail call void %12(ptr noundef %.01013, ptr noundef %.01112, i32 noundef %4, i32 noundef %6) #5
+  tail call void %12(ptr noundef %.01013, ptr noundef %.01112, i32 noundef %4, i32 noundef %6) #6
   %13 = getelementptr inbounds i8, ptr %.01013, i64 %9
   %14 = getelementptr inbounds i8, ptr %.01112, i64 %10
   %15 = add nuw nsw i32 %.014, 1
@@ -258,7 +258,7 @@ define hidden void @WebPMultRows(ptr noalias noundef %0, i32 noundef %1, ptr noa
 
 ; Function Attrs: nounwind uwtable
 define hidden void @WebPInitAlphaProcessing() local_unnamed_addr #1 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #5
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #6
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %14
 
@@ -285,25 +285,25 @@ define hidden void @WebPInitAlphaProcessing() local_unnamed_addr #1 {
   br i1 %.not.i, label %WebPInitAlphaProcessing_body.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 %4(i32 noundef 0) #5
+  %7 = tail call i32 %4(i32 noundef 0) #6
   %.not1.i = icmp eq i32 %7, 0
   br i1 %.not1.i, label %WebPInitAlphaProcessing_body.exit, label %8
 
 8:                                                ; preds = %6
-  tail call void @WebPInitAlphaProcessingSSE2() #5
+  tail call void @WebPInitAlphaProcessingSSE2() #6
   %9 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !11
-  %10 = tail call i32 %9(i32 noundef 3) #5
+  %10 = tail call i32 %9(i32 noundef 3) #6
   %.not2.i = icmp eq i32 %10, 0
   br i1 %.not2.i, label %WebPInitAlphaProcessing_body.exit, label %11
 
 11:                                               ; preds = %8
-  tail call void @WebPInitAlphaProcessingSSE41() #5
+  tail call void @WebPInitAlphaProcessingSSE41() #6
   br label %WebPInitAlphaProcessing_body.exit
 
 WebPInitAlphaProcessing_body.exit:                ; preds = %11, %8, %6, %5, %2
   %12 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !11
   store volatile ptr %12, ptr @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_last_cpuinfo_used, align 8, !tbaa !11
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #5
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #6
   br label %14
 
 14:                                               ; preds = %0, %WebPInitAlphaProcessing_body.exit
@@ -379,8 +379,8 @@ define internal void @ApplyAlphaMultiply_16b_C(ptr noundef captures(none) %0, i3
 ._crit_edge.us.i:                                 ; preds = %8
   %41 = add nsw i32 %.in.i, -1
   %42 = getelementptr inbounds i8, ptr %.032.us.i, i64 %7
-  %43 = icmp samesign ugt i32 %.in.i, 1
-  br i1 %43, label %.preheader.us.i, label %ApplyAlphaMultiply4444_C.exit, !llvm.loop !16
+  %exitcond36.not.i = icmp eq i32 %41, 0
+  br i1 %exitcond36.not.i, label %ApplyAlphaMultiply4444_C.exit, label %.preheader.us.i, !llvm.loop !16
 
 ApplyAlphaMultiply4444_C.exit:                    ; preds = %._crit_edge.us.i, %4, %.preheader.lr.ph.i
   ret void
@@ -490,8 +490,8 @@ define internal void @ApplyAlphaMultiply_C(ptr noundef captures(none) %0, i32 no
 
 ._crit_edge.us:                                   ; preds = %39
   %40 = getelementptr inbounds i8, ptr %.033.us, i64 %10
-  %41 = icmp sgt i32 %.in, 1
-  br i1 %41, label %.lr.ph.us, label %._crit_edge36, !llvm.loop !19
+  %exitcond39.not = icmp eq i32 %11, 0
+  br i1 %exitcond39.not, label %._crit_edge36, label %.lr.ph.us, !llvm.loop !19
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.lr.ph35, %5
   ret void
@@ -673,23 +673,24 @@ define internal void @ExtractGreen_C(ptr noalias noundef readonly captures(none)
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @HasAlpha8b_C(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 {
+  %smin = tail call i32 @llvm.smin.i32(i32 %1, i32 0)
   br label %3
 
-3:                                                ; preds = %5, %2
-  %.02 = phi ptr [ %0, %2 ], [ %7, %5 ]
-  %.0 = phi i32 [ %1, %2 ], [ %6, %5 ]
-  %4 = icmp sgt i32 %.0, 0
-  br i1 %4, label %5, label %9
+3:                                                ; preds = %4, %2
+  %.02 = phi ptr [ %0, %2 ], [ %6, %4 ]
+  %.0 = phi i32 [ %1, %2 ], [ %5, %4 ]
+  %exitcond.not = icmp eq i32 %.0, %smin
+  br i1 %exitcond.not, label %8, label %4
 
-5:                                                ; preds = %3
-  %6 = add nsw i32 %.0, -1
-  %7 = getelementptr inbounds nuw i8, ptr %.02, i64 1
-  %8 = load i8, ptr %.02, align 1, !tbaa !9
-  %.not = icmp eq i8 %8, -1
-  br i1 %.not, label %3, label %9, !llvm.loop !27
+4:                                                ; preds = %3
+  %5 = add i32 %.0, -1
+  %6 = getelementptr inbounds nuw i8, ptr %.02, i64 1
+  %7 = load i8, ptr %.02, align 1, !tbaa !9
+  %.not = icmp eq i8 %7, -1
+  br i1 %.not, label %3, label %8, !llvm.loop !27
 
-9:                                                ; preds = %3, %5
-  %.03 = phi i32 [ 1, %5 ], [ 0, %3 ]
+8:                                                ; preds = %3, %4
+  %.03 = phi i32 [ 1, %4 ], [ 0, %3 ]
   ret i32 %.03
 }
 
@@ -700,16 +701,16 @@ define internal range(i32 0, 2) i32 @HasAlpha32b_C(ptr noundef readonly captures
 
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %5 = add nsw i32 %.in, -1
-  %6 = icmp sgt i32 %.in, 1
-  br i1 %6, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  %5 = add i32 %.in, -1
+  %exitcond.not = icmp eq i32 %5, 0
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %2, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %2 ]
   %.in = phi i32 [ %5, %4 ], [ %1, %2 ]
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %8 = load i8, ptr %7, align 1, !tbaa !9
-  %.not = icmp eq i8 %8, -1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %7 = load i8, ptr %6, align 1, !tbaa !9
+  %.not = icmp eq i8 %7, -1
   br i1 %.not, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4, %2
@@ -750,12 +751,16 @@ declare void @WebPInitAlphaProcessingSSE2() local_unnamed_addr #4
 
 declare void @WebPInitAlphaProcessingSSE41() local_unnamed_addr #4
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #5
+
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

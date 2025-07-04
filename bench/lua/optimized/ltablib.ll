@@ -140,7 +140,7 @@ define internal i32 @tinsert(ptr noundef %0) #0 {
   %2 = tail call i64 @luaL_len(ptr noundef %0, i32 noundef 1) #3
   %3 = add i64 %2, 1
   %4 = tail call i32 @lua_gettop(ptr noundef %0) #3
-  switch i32 %4, label %16 [
+  switch i32 %4, label %15 [
     i32 2, label %.loopexit
     i32 3, label %5
   ]
@@ -164,20 +164,20 @@ define internal i32 @tinsert(ptr noundef %0) #0 {
   %13 = add nsw i64 %.023, -1
   %14 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %13) #3
   tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %.023) #3
-  %15 = icmp sgt i64 %13, %6
-  br i1 %15, label %.lr.ph, label %.loopexit
+  %exitcond.not = icmp eq i64 %13, %6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
-16:                                               ; preds = %1
-  %17 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.15) #3
-  br label %18
+15:                                               ; preds = %1
+  %16 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.15) #3
+  br label %17
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %1
   %.020 = phi i64 [ %3, %1 ], [ %6, %11 ], [ %6, %.lr.ph ]
   tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %.020) #3
-  br label %18
+  br label %17
 
-18:                                               ; preds = %.loopexit, %16
-  %.021 = phi i32 [ %17, %16 ], [ 0, %.loopexit ]
+17:                                               ; preds = %.loopexit, %15
+  %.021 = phi i32 [ %16, %15 ], [ 0, %.loopexit ]
   ret i32 %.021
 }
 
@@ -197,8 +197,9 @@ define internal noundef i32 @tpack(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ %4, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %indvars.iv) #3
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %5 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %5, label %.lr.ph, label %._crit_edge
+  %5 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %5, 0
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %6 = sext i32 %2 to i64
@@ -408,8 +409,8 @@ checktab.exit55:                                  ; preds = %checktab.exit, %22,
   %46 = add nsw i64 %.059, %4
   tail call void @lua_seti(ptr noundef %0, i32 noundef %7, i64 noundef %46) #3
   %47 = add nuw i64 %.059, 1
-  %exitcond.not = icmp eq i64 %47, %43
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph60
+  %exitcond62.not = icmp eq i64 %47, %43
+  br i1 %exitcond62.not, label %.loopexit, label %.lr.ph60
 
 48:                                               ; preds = %39, %38
   %49 = icmp sgt i64 %32, -1
@@ -421,9 +422,9 @@ checktab.exit55:                                  ; preds = %checktab.exit, %22,
   %51 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %50) #3
   %52 = add nsw i64 %.157, %4
   tail call void @lua_seti(ptr noundef %0, i32 noundef %7, i64 noundef %52) #3
-  %53 = add nsw i64 %.157, -1
-  %.not63 = icmp eq i64 %.157, 0
-  br i1 %.not63, label %.loopexit, label %.lr.ph
+  %53 = add i64 %.157, -1
+  %exitcond.not = icmp eq i64 %.157, 0
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph60, %48, %41, %checktab.exit55
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef %7) #3

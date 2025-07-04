@@ -915,8 +915,9 @@ define range(i32 -1, 1) i32 @H5C__flush_single_entry(ptr noundef %0, ptr noundef
   br i1 %445, label %448, label %446
 
 446:                                              ; preds = %443, %432
-  %447 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %447, label %432, label %.sink.split, !llvm.loop !109
+  %447 = and i64 %indvars.iv.next.i, 4294967295
+  %exitcond.not.i = icmp eq i64 %447, 0
+  br i1 %exitcond.not.i, label %.sink.split, label %432, !llvm.loop !109
 
 448:                                              ; preds = %443
   %449 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !59
@@ -1699,8 +1700,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
   br i1 %357, label %360, label %358
 
 358:                                              ; preds = %355, %344
-  %359 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %359, label %344, label %H5C__mark_flush_dep_serialized.exit.thread, !llvm.loop !126
+  %359 = and i64 %indvars.iv.next.i, 4294967295
+  %exitcond.not.i = icmp eq i64 %359, 0
+  br i1 %exitcond.not.i, label %H5C__mark_flush_dep_serialized.exit.thread, label %344, !llvm.loop !126
 
 360:                                              ; preds = %355
   %361 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !59
@@ -2979,8 +2981,9 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_clean(ptr noundef %0) local_unnamed_
   br i1 %127, label %130, label %128
 
 128:                                              ; preds = %125, %114
-  %129 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %129, label %114, label %H5C__mark_flush_dep_clean.exit.thread, !llvm.loop !109
+  %129 = and i64 %indvars.iv.next.i, 4294967295
+  %exitcond.not.i = icmp eq i64 %129, 0
+  br i1 %exitcond.not.i, label %H5C__mark_flush_dep_clean.exit.thread, label %114, !llvm.loop !109
 
 130:                                              ; preds = %125
   %131 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !59
@@ -3179,8 +3182,9 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_serialized(ptr noundef captures(none
   br i1 %45, label %48, label %46
 
 46:                                               ; preds = %43, %32
-  %47 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %47, label %32, label %H5C__mark_flush_dep_serialized.exit.thread, !llvm.loop !126
+  %47 = and i64 %indvars.iv.next.i, 4294967295
+  %exitcond.not.i = icmp eq i64 %47, 0
+  br i1 %exitcond.not.i, label %H5C__mark_flush_dep_serialized.exit.thread, label %32, !llvm.loop !126
 
 48:                                               ; preds = %43
   %49 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !59
@@ -4536,8 +4540,9 @@ H5C__deserialize_prefetched_entry.exit.thread314: ; preds = %72
   %98 = load ptr, ptr %85, align 8, !tbaa !158
   %99 = getelementptr inbounds nuw i64, ptr %98, i64 %indvars.iv.next.i
   store i64 -1, ptr %99, align 8, !tbaa !59
-  %100 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %100, label %87, label %._crit_edge.i, !llvm.loop !159
+  %100 = and i64 %indvars.iv.next.i, 4294967295
+  %exitcond.not.i = icmp eq i64 %100, 0
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %87, !llvm.loop !159
 
 ._crit_edge.i:                                    ; preds = %97, %79
   %101 = getelementptr inbounds nuw i8, ptr %storemerge.lcssa349391, i64 184
@@ -6954,8 +6959,9 @@ H5C__mark_flush_dep_unserialized.exit:            ; preds = %129, %.thread234, %
   br i1 %224, label %227, label %225
 
 225:                                              ; preds = %222, %211
-  %226 = icmp samesign ugt i64 %indvars.iv.i224, 1
-  br i1 %226, label %211, label %H5C__mark_flush_dep_clean.exit.thread, !llvm.loop !109
+  %226 = and i64 %indvars.iv.next.i225, 4294967295
+  %exitcond.not.i = icmp eq i64 %226, 0
+  br i1 %exitcond.not.i, label %H5C__mark_flush_dep_clean.exit.thread, label %211, !llvm.loop !109
 
 227:                                              ; preds = %222
   %228 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !59

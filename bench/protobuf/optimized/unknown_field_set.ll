@@ -146,12 +146,17 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %2 = shl i64 %sub.ptr.sub.i, 28
-  %3 = ashr i64 %2, 32
+  %sub.ptr.div.i = lshr i64 %sub.ptr.sub.i, 4
+  %conv = trunc i64 %sub.ptr.div.i to i32
+  %sext = shl i64 %sub.ptr.div.i, 32
+  %2 = ashr exact i64 %sext, 32
+  %smin = tail call i32 @llvm.smin.i32(i32 %conv, i32 1)
+  %3 = add i32 %smin, -1
+  %wide.trip.count = sext i32 %3 to i64
   br label %do.body
 
 do.body:                                          ; preds = %_ZN6google8protobuf12UnknownField6DeleteEv.exit, %entry
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6google8protobuf12UnknownField6DeleteEv.exit ], [ %3, %entry ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6google8protobuf12UnknownField6DeleteEv.exit ], [ %2, %entry ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %4 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds %"class.google::protobuf::UnknownField", ptr %4, i64 %indvars.iv.next
@@ -205,8 +210,8 @@ _ZN6google8protobuf12UnknownField6DeleteEv.exit.sink.split: ; preds = %if.then.i
   br label %_ZN6google8protobuf12UnknownField6DeleteEv.exit
 
 _ZN6google8protobuf12UnknownField6DeleteEv.exit:  ; preds = %_ZN6google8protobuf12UnknownField6DeleteEv.exit.sink.split, %do.body, %sw.bb.i, %sw.bb2.i
-  %cmp = icmp sgt i64 %indvars.iv, 1
-  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !5
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %do.end, label %do.body, !llvm.loop !5
 
 do.end:                                           ; preds = %_ZN6google8protobuf12UnknownField6DeleteEv.exit
   %11 = load ptr, ptr %this, align 8
@@ -3052,6 +3057,9 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

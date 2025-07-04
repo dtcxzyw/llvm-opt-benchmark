@@ -261,8 +261,9 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK1
   %30 = load ptr, ptr %16, align 8
   %31 = getelementptr inbounds nuw %struct.dtTileCacheObstacle, ptr %30, i64 %indvars.iv.next
   store ptr %31, ptr %21, align 8
-  %32 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  %32 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %32, 0
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -322,11 +323,11 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK1
 
 .lr.ph24.preheader:                               ; preds = %60
   %72 = zext nneg i32 %70 to i64
-  %.pre30 = load ptr, ptr %53, align 8
+  %.pre32 = load ptr, ptr %53, align 8
   br label %.lr.ph24
 
 .lr.ph24:                                         ; preds = %.lr.ph24.preheader, %.lr.ph24
-  %73 = phi ptr [ %.pre30, %.lr.ph24.preheader ], [ %78, %.lr.ph24 ]
+  %73 = phi ptr [ %.pre32, %.lr.ph24.preheader ], [ %78, %.lr.ph24 ]
   %indvars.iv27 = phi i64 [ %72, %.lr.ph24.preheader ], [ %indvars.iv.next28, %.lr.ph24 ]
   %indvars.iv.next28 = add nsw i64 %indvars.iv27, -1
   %74 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %73, i64 %indvars.iv.next28
@@ -338,15 +339,16 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK1
   %78 = load ptr, ptr %53, align 8
   %79 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %78, i64 %indvars.iv.next28
   store ptr %79, ptr %69, align 8
-  %80 = icmp samesign ugt i64 %indvars.iv27, 1
-  br i1 %80, label %.lr.ph24, label %._crit_edge25.loopexit, !llvm.loop !7
+  %80 = and i64 %indvars.iv.next28, 4294967295
+  %exitcond31.not = icmp eq i64 %80, 0
+  br i1 %exitcond31.not, label %._crit_edge25.loopexit, label %.lr.ph24, !llvm.loop !7
 
 ._crit_edge25.loopexit:                           ; preds = %.lr.ph24
-  %.pre31 = load i32, ptr %33, align 4
+  %.pre33 = load i32, ptr %33, align 4
   br label %._crit_edge25
 
 ._crit_edge25:                                    ; preds = %._crit_edge25.loopexit, %60
-  %81 = phi i32 [ %.pre31, %._crit_edge25.loopexit ], [ %70, %60 ]
+  %81 = phi i32 [ %.pre33, %._crit_edge25.loopexit ], [ %70, %60 ]
   %82 = add i32 %81, -1
   %83 = lshr i32 %82, 1
   %84 = or i32 %83, %82

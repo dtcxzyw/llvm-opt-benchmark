@@ -6329,23 +6329,26 @@ for.cond.preheader.i:                             ; preds = %for.end.i, %if.end.
   %C.addr.038.i = phi i32 [ %C, %if.end.i ], [ %div9.i, %for.end.i ]
   %sext.i = shl i64 %Pos.039.i, 32
   %60 = ashr exact i64 %sext.i, 32
+  %61 = trunc i64 %Pos.039.i to i32
+  %62 = add i32 %61, -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ %60, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %cmp2.i = phi i1 [ true, %for.cond.preheader.i ], [ false, %for.body.i ]
   %C.addr.135.i = phi i32 [ %C.addr.038.i, %for.cond.preheader.i ], [ %div9.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %arrayidx.i = getelementptr inbounds [17 x i8], ptr %TempBuffer.i, i64 0, i64 %indvars.iv.i
-  %61 = trunc i32 %C.addr.135.i to i8
-  %conv.i = and i8 %61, 15
+  %63 = trunc i32 %C.addr.135.i to i8
+  %conv.i = and i8 %63, 15
   %cmp.i.i253 = icmp samesign ult i8 %conv.i, 10
   %add.i.i254 = or disjoint i8 %conv.i, 48
   %sub.i.i = add nuw nsw i8 %conv.i, 55
   %cond.i.i = select i1 %cmp.i.i253, i8 %add.i.i254, i8 %sub.i.i
   store i8 %cond.i.i, ptr %arrayidx.i, align 1
   %div9.i = lshr i32 %C.addr.135.i, 4
-  br i1 %cmp2.i, label %for.body.i, label %for.end.i, !llvm.loop !16
+  %lftr.wideiv = trunc i64 %indvars.iv.next.i to i32
+  %exitcond.not = icmp eq i32 %62, %lftr.wideiv
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !16
 
 for.end.i:                                        ; preds = %for.body.i
   %sext41.i = shl i64 %indvars.iv.next.i, 32
@@ -6369,16 +6372,16 @@ while.end.i:                                      ; preds = %for.end.i
 
 if.end.i.i17.i:                                   ; preds = %while.end.i
   %CurrentPosition.i.i.i18.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
-  %62 = load i64, ptr %CurrentPosition.i.i.i18.i, align 8
-  %add.i.i.i19.i = add i64 %62, %call.i11.i
+  %64 = load i64, ptr %CurrentPosition.i.i.i18.i, align 8
+  %add.i.i.i19.i = add i64 %64, %call.i11.i
   %BufferCapacity.i.i.i20.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
-  %63 = load i64, ptr %BufferCapacity.i.i.i20.i, align 8
-  %cmp.not.i.i.i21.i = icmp ult i64 %add.i.i.i19.i, %63
+  %65 = load i64, ptr %BufferCapacity.i.i.i20.i, align 8
+  %cmp.not.i.i.i21.i = icmp ult i64 %add.i.i.i19.i, %65
   %.pre.i.i22.i = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i21.i, label %_ZN12OutputStream4growEm.exit.i.i30.i, label %if.then.i.i.i23.i
 
 if.then.i.i.i23.i:                                ; preds = %if.end.i.i17.i
-  %mul.i.i.i24.i = shl i64 %63, 1
+  %mul.i.i.i24.i = shl i64 %65, 1
   %spec.store.select.i.i.i25.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i24.i, i64 %add.i.i.i19.i)
   store i64 %spec.store.select.i.i.i25.i, ptr %BufferCapacity.i.i.i20.i, align 8
   %call.i.i.i26.i = tail call ptr @realloc(ptr noundef %.pre.i.i22.i, i64 noundef %spec.store.select.i.i.i25.i) #26
@@ -6395,12 +6398,12 @@ if.then15.i.i.i33.i:                              ; preds = %if.then.i.i.i23.i
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i30.i:            ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i28.i, %if.end.i.i17.i
-  %64 = phi i64 [ %62, %if.end.i.i17.i ], [ %.pre5.i.i29.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i28.i ]
-  %65 = phi ptr [ %.pre.i.i22.i, %if.end.i.i17.i ], [ %call.i.i.i26.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i28.i ]
-  %add.ptr.i.i31.i = getelementptr inbounds i8, ptr %65, i64 %64
+  %66 = phi i64 [ %64, %if.end.i.i17.i ], [ %.pre5.i.i29.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i28.i ]
+  %67 = phi ptr [ %.pre.i.i22.i, %if.end.i.i17.i ], [ %call.i.i.i26.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i28.i ]
+  %add.ptr.i.i31.i = getelementptr inbounds i8, ptr %67, i64 %66
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i31.i, ptr nonnull align 1 %arrayidx8.i.le, i64 %call.i11.i, i1 false)
-  %66 = load i64, ptr %CurrentPosition.i.i.i18.i, align 8
-  %add.i.i32.i = add i64 %66, %call.i11.i
+  %68 = load i64, ptr %CurrentPosition.i.i.i18.i, align 8
+  %add.i.i32.i = add i64 %68, %call.i11.i
   store i64 %add.i.i32.i, ptr %CurrentPosition.i.i.i18.i, align 8
   br label %_ZL9outputHexR12OutputStreamj.exit
 

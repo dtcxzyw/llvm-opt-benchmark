@@ -1894,7 +1894,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 224:                                              ; preds = %.preheader361.i
   %225 = icmp ult i64 %spec.select.i, 2
   %226 = add i64 %spec.select.i, -1
-  br i1 %225, label %234, label %._crit_edge458.i
+  br i1 %225, label %234, label %._crit_edge459.i
 
 .preheader361.i:                                  ; preds = %.preheader361.i.preheader, %.preheader361.i
   %.0294380.i = phi i64 [ %233, %.preheader361.i ], [ 0, %.preheader361.i.preheader ]
@@ -1919,14 +1919,14 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
 
 238:                                              ; preds = %.critedge.i, %234
   store i64 %236, ptr %80, align 8, !tbaa !110
-  br label %._crit_edge458.i
+  br label %._crit_edge459.i
 
 .critedge.i:                                      ; preds = %234
   %239 = load i64, ptr %80, align 8, !tbaa !110
   store i64 %239, ptr %6, align 16, !tbaa !110
   br label %238
 
-._crit_edge458.i:                                 ; preds = %238, %224
+._crit_edge459.i:                                 ; preds = %238, %224
   %240 = icmp ult i64 %226, 2
   br i1 %240, label %.lr.ph384.preheader.i, label %._crit_edge418.i
 
@@ -1934,14 +1934,14 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %241 = icmp eq i64 %.0291413.i, 0
   br i1 %241, label %.lr.ph384.preheader.i, label %._crit_edge418.i, !llvm.loop !127
 
-._crit_edge418.i:                                 ; preds = %.loopexit357.i, %._crit_edge458.i
-  %.2261.lcssa.i = phi i64 [ %.1260.i, %._crit_edge458.i ], [ %.4263.i, %.loopexit357.i ]
+._crit_edge418.i:                                 ; preds = %.loopexit357.i, %._crit_edge459.i
+  %.2261.lcssa.i = phi i64 [ %.1260.i, %._crit_edge459.i ], [ %.4263.i, %.loopexit357.i ]
   %.not.i = icmp eq i64 %.0251.i, 0
   br i1 %.not.i, label %.thread336.i, label %.preheader360.i
 
-.lr.ph384.preheader.i:                            ; preds = %._crit_edge458.i, %.loopexit357.i
-  %.2261415.i = phi i64 [ %.4263.i, %.loopexit357.i ], [ %.1260.i, %._crit_edge458.i ]
-  %.0291413.i = phi i64 [ 1, %.loopexit357.i ], [ %226, %._crit_edge458.i ]
+.lr.ph384.preheader.i:                            ; preds = %._crit_edge459.i, %.loopexit357.i
+  %.2261415.i = phi i64 [ %.4263.i, %.loopexit357.i ], [ %.1260.i, %._crit_edge459.i ]
+  %.0291413.i = phi i64 [ 1, %.loopexit357.i ], [ %226, %._crit_edge459.i ]
   %242 = add nuw nsw i64 %.0291413.i, 1
   %243 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %.0291413.i
   %244 = load i64, ptr %243, align 8, !tbaa !110
@@ -2144,8 +2144,8 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %341 = getelementptr inbounds nuw [4 x double], ptr %12, i64 0, i64 %.0252426.i
   store double %.sink.i, ptr %341, align 8, !tbaa !118
   %342 = add nsw i64 %.0252426.i, -1
-  %.not459.i = icmp eq i64 %.0252426.i, 0
-  br i1 %.not459.i, label %.preheader354.i, label %.preheader360.i, !llvm.loop !134
+  %exitcond454.not.i = icmp eq i64 %.0252426.i, 0
+  br i1 %exitcond454.not.i, label %.preheader354.i, label %.preheader360.i, !llvm.loop !134
 
 343:                                              ; preds = %.preheader354.i
   %344 = mul nuw nsw i64 %.0290428.i, 3
@@ -2167,8 +2167,8 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %354 = getelementptr inbounds nuw [4 x double], ptr %15, i64 0, i64 %353
   store double %351, ptr %354, align 8, !tbaa !118
   %355 = add nuw nsw i64 %.0247432.i, 1
-  %exitcond455.not.i = icmp eq i64 %355, 3
-  br i1 %exitcond455.not.i, label %343, label %.preheader354.i, !llvm.loop !135
+  %exitcond456.not.i = icmp eq i64 %355, 3
+  br i1 %exitcond456.not.i, label %343, label %.preheader354.i, !llvm.loop !135
 
 356:                                              ; preds = %356, %343
   %.0245434.i = phi i64 [ 1, %343 ], [ %372, %356 ]
@@ -2190,14 +2190,14 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   store float %368, ptr %370, align 4, !tbaa !99
   %371 = add nsw i64 %.0246433.i, -1
   %372 = add nuw nsw i64 %.0245434.i, 1
-  %exitcond456.not.i = icmp eq i64 %372, 3
-  br i1 %exitcond456.not.i, label %.preheader.i.preheader, label %356, !llvm.loop !136
+  %exitcond457.not.i = icmp eq i64 %372, 3
+  br i1 %exitcond457.not.i, label %.preheader.i.preheader, label %356, !llvm.loop !136
 
 .thread336.i:                                     ; preds = %._crit_edge423.i, %320, %._crit_edge418.i
   %.8.ph.i = phi i64 [ %.0255431.i, %._crit_edge418.i ], [ 1, %320 ], [ 1, %._crit_edge423.i ]
   %373 = add nuw nsw i64 %.0290428.i, 1
-  %exitcond454.not.i = icmp eq i64 %373, 8
-  br i1 %exitcond454.not.i, label %.thread347.i, label %.preheader365.i, !llvm.loop !137
+  %exitcond455.not.i = icmp eq i64 %373, 8
+  br i1 %exitcond455.not.i, label %.thread347.i, label %.preheader365.i, !llvm.loop !137
 
 .thread347.i:                                     ; preds = %.thread336.i
   %374 = icmp eq i64 %.8.ph.i, 0
@@ -2216,8 +2216,8 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %380 = fadd float %379, %377
   store float %380, ptr %378, align 4, !tbaa !99
   %381 = add nuw nsw i64 %.0435.i, 1
-  %exitcond457.not.i = icmp eq i64 %381, 3
-  br i1 %exitcond457.not.i, label %.thread, label %.preheader.i, !llvm.loop !138
+  %exitcond458.not.i = icmp eq i64 %381, 3
+  br i1 %exitcond458.not.i, label %.thread, label %.preheader.i, !llvm.loop !138
 
 .thread:                                          ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #28
@@ -3329,7 +3329,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #28
   %437 = add nuw i64 %.059160.us.i, 1
   %exitcond202.not.i = icmp eq i64 %437, %433
-  br i1 %exitcond202.not.i, label %._crit_edge162.thread207.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.us.i, !llvm.loop !188
+  br i1 %exitcond202.not.i, label %._crit_edge162.thread208.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.us.i, !llvm.loop !188
 
 438:                                              ; preds = %438, %.lr.ph158.i
   %439 = phi i64 [ %383, %.lr.ph158.i ], [ %450, %438 ]
@@ -3349,7 +3349,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm
   %451 = icmp ult i64 %449, %450
   br i1 %451, label %438, label %._crit_edge159.i, !llvm.loop !189
 
-._crit_edge162.thread207.i:                       ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.loopexit.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.us.i
+._crit_edge162.thread208.i:                       ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.loopexit.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm.exit.us.i
   %452 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %433, i1 true)
   %453 = shl nuw nsw i64 %452, 1
   %454 = xor i64 %453, 126
@@ -3357,7 +3357,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm
   %455 = icmp sgt i64 %432, 512
   br i1 %455, label %.lr.ph.i.i.i.i.i, label %.preheader.i21.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge162.thread207.i
+.lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge162.thread208.i
   %456 = getelementptr i8, ptr %.val72.i, i64 24
   %scevgep.i.i.i.i = getelementptr i8, ptr %.val72.i, i64 32
   br label %457
@@ -3445,7 +3445,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v
   %.not.i15.i.i.i.i = icmp eq ptr %471, %.val73.i
   br i1 %.not.i15.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.i, label %.lr.ph.i10.i.i.i.i, !llvm.loop !193
 
-.preheader.i21.i.i.i.i:                           ; preds = %._crit_edge162.thread207.i
+.preheader.i21.i.i.i.i:                           ; preds = %._crit_edge162.thread208.i
   %.sroa.0.016.i22.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val72.i, i64 32
   %.not17.i23.i.i.i.i = icmp eq ptr %.sroa.0.016.i22.i.i.i.i, %.val73.i
   br i1 %.not17.i23.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit.i, label %.lr.ph.i24.i.i.i.i
@@ -3593,7 +3593,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10indsToHashEm
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #28
   %521 = add nuw i64 %.059160.i, 1
   %exitcond200.not.i = icmp eq i64 %521, %433
-  br i1 %exitcond200.not.i, label %._crit_edge162.thread207.i, label %.lr.ph26.i.i, !llvm.loop !188
+  br i1 %exitcond200.not.i, label %._crit_edge162.thread208.i, label %.lr.ph26.i.i, !llvm.loop !188
 
 _ZNSt6vectorImSaImEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc80.i
   %.0.i.i.i.i.i.i = phi ptr [ %492, %.noexc80.i ], [ %496, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ]
@@ -3608,9 +3608,9 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPmmmET_
 ._crit_edge165.i:                                 ; preds = %._crit_edge165.i.loopexit, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.exit.i
   %522 = phi i64 [ %.pre37, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.exit.i ], [ %.pre36, %._crit_edge165.i.loopexit ]
   %523 = phi i64 [ %.pre35, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.exit.i ], [ %.pre, %._crit_edge165.i.loopexit ]
-  %.0.i.i.i.i.i213.i = phi ptr [ null, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.exit.i ], [ %.0.i.i.i.i.i.i, %._crit_edge165.i.loopexit ]
-  %.sroa.22.3212.i = phi ptr [ null, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.exit.i ], [ %491, %._crit_edge165.i.loopexit ]
-  %.sroa.0113.3211.i = phi ptr [ null, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.exit.i ], [ %490, %._crit_edge165.i.loopexit ]
+  %.0.i.i.i.i.i214.i = phi ptr [ null, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.exit.i ], [ %.0.i.i.i.i.i.i, %._crit_edge165.i.loopexit ]
+  %.sroa.22.3213.i = phi ptr [ null, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.exit.i ], [ %491, %._crit_edge165.i.loopexit ]
+  %.sroa.0113.3212.i = phi ptr [ null, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree8initIndsEv.exit.i ], [ %490, %._crit_edge165.i.loopexit ]
   %524 = add i64 %523, -1
   %.val60.i.i = load ptr, ptr %248, align 8, !tbaa !106
   %525 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val60.i.i, i64 %524
@@ -3865,8 +3865,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i:         ; preds = %560, %558, %556, %.
   br label %.lr.ph175.i
 
 ._crit_edge176.i:                                 ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i, %.loopexit135.i
-  %.sroa.0113.0.lcssa.i = phi ptr [ %.sroa.0113.3211.i, %.loopexit135.i ], [ %.sroa.0113.4.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
-  %.sroa.22.0.lcssa.i = phi ptr [ %.sroa.22.3212.i, %.loopexit135.i ], [ %.sroa.22.4.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
+  %.sroa.0113.0.lcssa.i = phi ptr [ %.sroa.0113.3212.i, %.loopexit135.i ], [ %.sroa.0113.4.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
+  %.sroa.22.0.lcssa.i = phi ptr [ %.sroa.22.3213.i, %.loopexit135.i ], [ %.sroa.22.4.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
   %.not.i.i.i90.i = icmp eq ptr %.sroa.0113.0.lcssa.i, null
   br i1 %.not.i.i.i90.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10initializeEPfm.exit, label %641
 
@@ -3884,9 +3884,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit65.i.i:         ; preds = %560, %558, %556, %.
 
 .lr.ph175.i:                                      ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i, %.lr.ph175.preheader.i
   %indvars.iv.i = phi i64 [ %640, %.lr.ph175.preheader.i ], [ %indvars.iv.next.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
-  %.sroa.22.0172.i = phi ptr [ %.sroa.22.3212.i, %.lr.ph175.preheader.i ], [ %.sroa.22.4.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
-  %.sroa.15.0171.i = phi ptr [ %.0.i.i.i.i.i213.i, %.lr.ph175.preheader.i ], [ %.sroa.15.1.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
-  %.sroa.0113.0170.i = phi ptr [ %.sroa.0113.3211.i, %.lr.ph175.preheader.i ], [ %.sroa.0113.4.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
+  %.sroa.22.0172.i = phi ptr [ %.sroa.22.3213.i, %.lr.ph175.preheader.i ], [ %.sroa.22.4.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
+  %.sroa.15.0171.i = phi ptr [ %.0.i.i.i.i.i214.i, %.lr.ph175.preheader.i ], [ %.sroa.15.1.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
+  %.sroa.0113.0170.i = phi ptr [ %.sroa.0113.3212.i, %.lr.ph175.preheader.i ], [ %.sroa.0113.4.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i ]
   %.val47.i.i = load ptr, ptr %248, align 8, !tbaa !106
   %647 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val47.i.i, i64 %indvars.iv.i
   %648 = load i64, ptr %647, align 8, !tbaa !174
@@ -4385,8 +4385,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit79.i.i:         ; preds = %808, %806, %804, %8
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRangesEm.exit.i: ; preds = %._crit_edge.split.us.us.i.i, %..preheader_crit_edge.us.us.i.i, %.lr.ph87.split.i.i, %.lr.ph87.split.us.i.i, %_ZNSt6vectorIfSaIfEE6resizeEm.exit79.i.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %883 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %883, label %.lr.ph175.i, label %._crit_edge176.i, !llvm.loop !209
+  %883 = and i64 %indvars.iv.next.i, 4294967295
+  %exitcond207.not.i = icmp eq i64 %883, 4294967295
+  br i1 %exitcond207.not.i, label %._crit_edge176.i, label %.lr.ph175.i, !llvm.loop !209
 
 .loopexit134.i:                                   ; preds = %802, %786, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
   %.sroa.0113.2.ph.i = phi ptr [ %.sroa.0113.0170.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0113.4.i, %786 ], [ %.sroa.0113.4.i, %802 ]
@@ -4401,8 +4402,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree12updateRanges
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit.split-lp.i, %.loopexit134.i, %761, %645, %578
-  %.sroa.0113.1.i = phi ptr [ %.sroa.0113.0170.i, %761 ], [ %.sroa.0113.3211.i, %578 ], [ %.sroa.0113.3211.i, %645 ], [ %.sroa.0113.2.ph.i, %.loopexit134.i ], [ %.sroa.0113.0170.i, %.loopexit.split-lp.i ]
-  %.sroa.22.1.i = phi ptr [ %.sroa.22.0172.i, %761 ], [ %.sroa.22.3212.i, %578 ], [ %.sroa.22.3212.i, %645 ], [ %.sroa.22.2.ph.i, %.loopexit134.i ], [ %.sroa.22.0172.i, %.loopexit.split-lp.i ]
+  %.sroa.0113.1.i = phi ptr [ %.sroa.0113.0170.i, %761 ], [ %.sroa.0113.3212.i, %578 ], [ %.sroa.0113.3212.i, %645 ], [ %.sroa.0113.2.ph.i, %.loopexit134.i ], [ %.sroa.0113.0170.i, %.loopexit.split-lp.i ]
+  %.sroa.22.1.i = phi ptr [ %.sroa.22.0172.i, %761 ], [ %.sroa.22.3213.i, %578 ], [ %.sroa.22.3213.i, %645 ], [ %.sroa.22.2.ph.i, %.loopexit134.i ], [ %.sroa.22.0172.i, %.loopexit.split-lp.i ]
   %.pn.pn.i = phi { ptr, i32 } [ %762, %761 ], [ %579, %578 ], [ %646, %645 ], [ %lpad.loopexit.i, %.loopexit134.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %.not.i.i.i108.i = icmp eq ptr %.sroa.0113.1.i, null
   br i1 %.not.i.i.i108.i, label %common.resume, label %884

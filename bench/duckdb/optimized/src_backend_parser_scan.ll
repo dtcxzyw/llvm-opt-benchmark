@@ -265,18 +265,18 @@ _ZN17duckdb_libpgqueryL26core_yyensure_buffer_stackEPv.exit: ; preds = %24, %.cr
   %110 = sext i16 %109 to i32
   %111 = getelementptr inbounds nuw i8, ptr %.1782, i64 1
   %.not825 = icmp eq i16 %109, 308
-  br i1 %.not825, label %.backedge.sink.split2371, label %73, !llvm.loop !40
+  br i1 %.not825, label %.backedge.sink.split2373, label %73, !llvm.loop !40
 
-.backedge.sink.split2371:                         ; preds = %._crit_edge, %.backedge.sink.split2371.backedge
-  %.1788.ph = phi ptr [ %.1788.ph.be, %.backedge.sink.split2371.backedge ], [ %.0787, %._crit_edge ]
+.backedge.sink.split2373:                         ; preds = %._crit_edge, %.backedge.sink.split2373.backedge
+  %.1788.ph = phi ptr [ %.1788.ph.be, %.backedge.sink.split2373.backedge ], [ %.0787, %._crit_edge ]
   %112 = load ptr, ptr %62, align 8, !tbaa !37
   %113 = load i32, ptr %61, align 8, !tbaa !36
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split2371
-  %.1788 = phi ptr [ %.1788.ph, %.backedge.sink.split2371 ], [ %1764, %.backedge.backedge ]
-  %.2783 = phi ptr [ %112, %.backedge.sink.split2371 ], [ %1767, %.backedge.backedge ]
-  %.3780 = phi i32 [ %113, %.backedge.sink.split2371 ], [ %.3780.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split2373
+  %.1788 = phi ptr [ %.1788.ph, %.backedge.sink.split2373 ], [ %1764, %.backedge.backedge ]
+  %.2783 = phi ptr [ %112, %.backedge.sink.split2373 ], [ %1767, %.backedge.backedge ]
+  %.3780 = phi i32 [ %113, %.backedge.sink.split2373 ], [ %.3780.be, %.backedge.backedge ]
   %114 = sext i32 %.3780 to i64
   %115 = getelementptr inbounds [309 x i16], ptr @_ZN17duckdb_libpgqueryL9yy_acceptE, i64 0, i64 %114
   %116 = load i16, ptr %115, align 2, !tbaa !34
@@ -399,7 +399,7 @@ _ZN17duckdb_libpgqueryL26core_yyensure_buffer_stackEPv.exit: ; preds = %24, %.cr
 123:                                              ; preds = %122
   %124 = load i8, ptr %59, align 8, !tbaa !33
   store i8 %124, ptr %.2783, align 1, !tbaa !32
-  br label %.backedge.sink.split2371.backedge
+  br label %.backedge.sink.split2373.backedge
 
 125:                                              ; preds = %122
   %126 = load ptr, ptr %63, align 8, !tbaa !30
@@ -791,11 +791,11 @@ _ZN17duckdb_libpgqueryL10addlitcharEhPv.exit868:  ; preds = %._crit_edge.i865, %
   %344 = load i32, ptr %343, align 4, !tbaa !48
   %345 = tail call noundef i32 @_ZN17duckdb_libpgquery19scanner_errpositionEiPv(i32 noundef %344, ptr noundef nonnull %2)
   %346 = tail call noundef i32 (i32, ...) @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef 3, i32 noundef %345)
-  %.pre1830 = load ptr, ptr %2, align 8, !tbaa !43
+  %.pre1832 = load ptr, ptr %2, align 8, !tbaa !43
   br label %347
 
 347:                                              ; preds = %339, %327
-  %348 = phi ptr [ %.pre1830, %339 ], [ %329, %327 ]
+  %348 = phi ptr [ %.pre1832, %339 ], [ %329, %327 ]
   store i32 21, ptr %60, align 4, !tbaa !18
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 48
   store i32 0, ptr %349, align 8, !tbaa !50
@@ -825,11 +825,11 @@ _ZN17duckdb_libpgqueryL10addlitcharEhPv.exit868:  ; preds = %._crit_edge.i865, %
   %361 = getelementptr inbounds nuw i8, ptr %354, i64 48
   %362 = load i32, ptr %361, align 8, !tbaa !50
   %363 = tail call noundef zeroext i1 @_ZN17duckdb_libpgquery14pg_verifymbstrEPKcib(ptr noundef %360, i32 noundef %362, i1 noundef zeroext false)
-  %.pre1829 = load ptr, ptr %2, align 8, !tbaa !43
+  %.pre1831 = load ptr, ptr %2, align 8, !tbaa !43
   br label %364
 
 364:                                              ; preds = %358, %350
-  %365 = phi ptr [ %.pre1829, %358 ], [ %354, %350 ]
+  %365 = phi ptr [ %.pre1831, %358 ], [ %354, %350 ]
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 48
   %367 = load i32, ptr %366, align 8, !tbaa !50
   %368 = add nsw i32 %367, 1
@@ -905,13 +905,13 @@ _ZN17duckdb_libpgqueryL17check_uescapecharEh.exit: ; preds = %switch.early.test.
   br i1 %398, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge, label %410
 
 _ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge: ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit
-  %.pre1827 = load ptr, ptr %63, align 8, !tbaa !30
-  %.pre1828 = load i64, ptr %64, align 8, !tbaa !41
+  %.pre1829 = load ptr, ptr %63, align 8, !tbaa !30
+  %.pre1830 = load i64, ptr %64, align 8, !tbaa !41
   br label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread
 
 _ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread: ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge, %386, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
-  %399 = phi i64 [ %.pre1828, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge ], [ %388, %386 ], [ %388, %switch.early.test.i ], [ %388, %switch.early.test.i ], [ %388, %switch.early.test.i ]
-  %400 = phi ptr [ %.pre1827, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge ], [ %387, %386 ], [ %387, %switch.early.test.i ], [ %387, %switch.early.test.i ], [ %387, %switch.early.test.i ]
+  %399 = phi i64 [ %.pre1830, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge ], [ %388, %386 ], [ %388, %switch.early.test.i ], [ %388, %switch.early.test.i ], [ %388, %switch.early.test.i ]
+  %400 = phi ptr [ %.pre1829, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit.thread_crit_edge ], [ %387, %386 ], [ %387, %switch.early.test.i ], [ %387, %switch.early.test.i ], [ %387, %switch.early.test.i ]
   %401 = load ptr, ptr %2, align 8, !tbaa !43
   %402 = load ptr, ptr %401, align 8, !tbaa !44
   %403 = ptrtoint ptr %400 to i64
@@ -1837,13 +1837,13 @@ _ZN17duckdb_libpgqueryL10addlitcharEhPv.exit959:  ; preds = %._crit_edge.i956, %
 
 914:                                              ; preds = %909
   tail call void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef nonnull @.str.13, ptr noundef nonnull %2)
-  %.pre1824 = load ptr, ptr %2, align 8, !tbaa !43
-  %.phi.trans.insert1825 = getelementptr inbounds nuw i8, ptr %.pre1824, i64 48
-  %.pre1826 = load i32, ptr %.phi.trans.insert1825, align 8, !tbaa !50
+  %.pre1826 = load ptr, ptr %2, align 8, !tbaa !43
+  %.phi.trans.insert1827 = getelementptr inbounds nuw i8, ptr %.pre1826, i64 48
+  %.pre1828 = load i32, ptr %.phi.trans.insert1827, align 8, !tbaa !50
   br label %915
 
 915:                                              ; preds = %914, %909
-  %916 = phi i32 [ %.pre1826, %914 ], [ %912, %909 ]
+  %916 = phi i32 [ %.pre1828, %914 ], [ %912, %909 ]
   %917 = add nsw i32 %916, 1
   %918 = sext i32 %917 to i64
   %919 = tail call noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %918)
@@ -1939,13 +1939,13 @@ _ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965: ; preds = %switch.early.te
   br i1 %959, label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge, label %971
 
 _ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge: ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965
-  %.pre1822 = load ptr, ptr %63, align 8, !tbaa !30
-  %.pre1823 = load i64, ptr %64, align 8, !tbaa !41
+  %.pre1824 = load ptr, ptr %63, align 8, !tbaa !30
+  %.pre1825 = load i64, ptr %64, align 8, !tbaa !41
   br label %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread
 
 _ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread: ; preds = %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge, %947, %switch.early.test.i963, %switch.early.test.i963, %switch.early.test.i963
-  %960 = phi i64 [ %.pre1823, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge ], [ %949, %947 ], [ %949, %switch.early.test.i963 ], [ %949, %switch.early.test.i963 ], [ %949, %switch.early.test.i963 ]
-  %961 = phi ptr [ %.pre1822, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge ], [ %948, %947 ], [ %948, %switch.early.test.i963 ], [ %948, %switch.early.test.i963 ], [ %948, %switch.early.test.i963 ]
+  %960 = phi i64 [ %.pre1825, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge ], [ %949, %947 ], [ %949, %switch.early.test.i963 ], [ %949, %switch.early.test.i963 ], [ %949, %switch.early.test.i963 ]
+  %961 = phi ptr [ %.pre1824, %_ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965._ZN17duckdb_libpgqueryL17check_uescapecharEh.exit965.thread_crit_edge ], [ %948, %947 ], [ %948, %switch.early.test.i963 ], [ %948, %switch.early.test.i963 ], [ %948, %switch.early.test.i963 ]
   %962 = load ptr, ptr %2, align 8, !tbaa !43
   %963 = load ptr, ptr %962, align 8, !tbaa !44
   %964 = ptrtoint ptr %961 to i64
@@ -2286,7 +2286,7 @@ _ZN17duckdb_libpgqueryL6addlitEPciPv.exit981:     ; preds = %._crit_edge.i978, %
   %indvars.iv = phi i64 [ %1181, %.lr.ph1595.preheader ], [ %indvars.iv.next, %._crit_edge1592 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv1815
   %1183 = load i8, ptr %gep, align 1, !tbaa !32
-  switch i8 %1183, label %.critedge.loopexit1853.split.loop.exit [
+  switch i8 %1183, label %.critedge.loopexit1855.split.loop.exit [
     i8 43, label %.lr.ph1591.preheader
     i8 45, label %.lr.ph1591.preheader
   ]
@@ -2296,8 +2296,9 @@ _ZN17duckdb_libpgqueryL6addlitEPciPv.exit981:     ; preds = %._crit_edge.i978, %
 
 1184:                                             ; preds = %.lr.ph1591
   %indvars.iv.next1813 = add nsw i64 %indvars.iv1812, -1
-  %1185 = icmp sgt i64 %indvars.iv1812, 0
-  br i1 %1185, label %.lr.ph1591, label %._crit_edge1592, !llvm.loop !69
+  %1185 = and i64 %indvars.iv.next1813, 4294967295
+  %exitcond.not = icmp eq i64 %1185, 4294967295
+  br i1 %exitcond.not, label %._crit_edge1592, label %.lr.ph1591, !llvm.loop !69
 
 .lr.ph1591:                                       ; preds = %.lr.ph1591.preheader, %1184
   %indvars.iv1812 = phi i64 [ %indvars.iv.next1813, %1184 ], [ %indvars.iv, %.lr.ph1591.preheader ]
@@ -2310,20 +2311,21 @@ _ZN17duckdb_libpgqueryL6addlitEPciPv.exit981:     ; preds = %._crit_edge.i978, %
 
 ._crit_edge1592:                                  ; preds = %1184
   %indvars.iv.next1816 = add nsw i64 %indvars.iv1815, -1
-  %1189 = icmp sgt i64 %indvars.iv1815, 2
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  br i1 %1189, label %.lr.ph1595, label %.critedge
+  %1189 = and i64 %indvars.iv.next1816, 4294967295
+  %exitcond1819.not = icmp eq i64 %1189, 1
+  br i1 %exitcond1819.not, label %.critedge, label %.lr.ph1595
 
 .critedge.loopexit:                               ; preds = %.lr.ph1591
   %1190 = trunc nuw nsw i64 %indvars.iv1815 to i32
   br label %.critedge
 
-.critedge.loopexit1853.split.loop.exit:           ; preds = %.lr.ph1595
+.critedge.loopexit1855.split.loop.exit:           ; preds = %.lr.ph1595
   %1191 = trunc nuw nsw i64 %indvars.iv1815 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge1592, %.critedge.loopexit1853.split.loop.exit, %.critedge.loopexit, %1167
-  %.17991069 = phi i32 [ %.0798, %1167 ], [ %1190, %.critedge.loopexit ], [ %1191, %.critedge.loopexit1853.split.loop.exit ], [ 1, %._crit_edge1592 ]
+.critedge:                                        ; preds = %._crit_edge1592, %.critedge.loopexit1855.split.loop.exit, %.critedge.loopexit, %1167
+  %.17991069 = phi i32 [ %.0798, %1167 ], [ %1190, %.critedge.loopexit ], [ %1191, %.critedge.loopexit1855.split.loop.exit ], [ 1, %._crit_edge1592 ]
   %1192 = load i8, ptr %1169, align 1, !tbaa !32
   %1193 = icmp eq i8 %1192, 63
   br i1 %1193, label %sub_1, label %1212
@@ -2660,11 +2662,11 @@ sub_11061:                                        ; preds = %sub_11056, %.tail10
 1384:                                             ; preds = %1368
   %1385 = getelementptr inbounds nuw i8, ptr %1370, i64 %1380
   store i8 0, ptr %1385, align 1, !tbaa !32
-  %.pre1821 = load ptr, ptr %2, align 8, !tbaa !43
+  %.pre1823 = load ptr, ptr %2, align 8, !tbaa !43
   br label %1386
 
 1386:                                             ; preds = %1384, %1368
-  %1387 = phi ptr [ %.pre1821, %1384 ], [ %1372, %1368 ]
+  %1387 = phi ptr [ %.pre1823, %1384 ], [ %1372, %1368 ]
   %1388 = getelementptr inbounds nuw i8, ptr %1387, i64 16
   %1389 = load ptr, ptr %1388, align 8, !tbaa !54
   %1390 = getelementptr inbounds nuw i8, ptr %1387, i64 24
@@ -2754,9 +2756,9 @@ sub_11061:                                        ; preds = %sub_11056, %.tail10
   %1443 = getelementptr inbounds nuw i8, ptr %1442, i64 64
   %1444 = load i32, ptr %1443, align 8, !tbaa !70
   %1445 = icmp eq i32 %1444, 0
-  br i1 %1445, label %1446, label %._crit_edge1818
+  br i1 %1445, label %1446, label %._crit_edge1820
 
-._crit_edge1818:                                  ; preds = %1436
+._crit_edge1820:                                  ; preds = %1436
   %.pre = load i64, ptr %67, align 8, !tbaa !27
   br label %1450
 
@@ -2769,9 +2771,9 @@ sub_11061:                                        ; preds = %sub_11056, %.tail10
   store i32 1, ptr %1443, align 8, !tbaa !70
   br label %1450
 
-1450:                                             ; preds = %._crit_edge1818, %1446
-  %1451 = phi i32 [ %1444, %._crit_edge1818 ], [ 1, %1446 ]
-  %1452 = phi i64 [ %.pre, %._crit_edge1818 ], [ %1448, %1446 ]
+1450:                                             ; preds = %._crit_edge1820, %1446
+  %1451 = phi i32 [ %1444, %._crit_edge1820 ], [ 1, %1446 ]
+  %1452 = phi i64 [ %.pre, %._crit_edge1820 ], [ %1448, %1446 ]
   %1453 = load ptr, ptr %58, align 8, !tbaa !29
   %1454 = getelementptr inbounds nuw i8, ptr %1442, i64 8
   %1455 = load ptr, ptr %1454, align 8, !tbaa !71
@@ -2786,8 +2788,8 @@ sub_11061:                                        ; preds = %sub_11056, %.tail10
   %1461 = trunc i64 %1460 to i32
   %1462 = load ptr, ptr %63, align 8, !tbaa !30
   %1463 = shl i64 %1460, 32
-  %sext2123 = add i64 %1463, -4294967296
-  %1464 = ashr exact i64 %sext2123, 32
+  %sext2125 = add i64 %1463, -4294967296
+  %1464 = ashr exact i64 %sext2125, 32
   %1465 = getelementptr inbounds i8, ptr %1462, i64 %1464
   store ptr %1465, ptr %58, align 8, !tbaa !29
   %1466 = load i32, ptr %60, align 4, !tbaa !18
@@ -2911,13 +2913,13 @@ _ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit: ; preds = %.lr.ph.i985, %151
   %1531 = getelementptr inbounds [1290 x i16], ptr @_ZN17duckdb_libpgqueryL6yy_nxtE, i64 0, i64 %.lcssa.i987
   %1532 = load i16, ptr %1531, align 2, !tbaa !34
   switch i16 %1532, label %1533 [
-    i16 308, label %.backedge.sink.split2371.backedge
-    i16 0, label %.backedge.sink.split2371.backedge
+    i16 308, label %.backedge.sink.split2373.backedge
+    i16 0, label %.backedge.sink.split2373.backedge
   ]
 
-.backedge.sink.split2371.backedge:                ; preds = %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit, %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit, %123
+.backedge.sink.split2373.backedge:                ; preds = %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit, %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit, %123
   %.1788.ph.be = phi ptr [ %.1788, %123 ], [ %1462, %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit ], [ %1462, %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit ]
-  br label %.backedge.sink.split2371
+  br label %.backedge.sink.split2373
 
 1533:                                             ; preds = %_ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit
   %1534 = sext i16 %1532 to i32
@@ -2979,11 +2981,11 @@ _ZN17duckdb_libpgqueryL16yy_try_NUL_transEiPv.exit: ; preds = %.lr.ph.i985, %151
   %.phi.trans.insert.i996 = getelementptr inbounds nuw ptr, ptr %.pre.i995, i64 %.pre185.i
   %.pre186.i = load ptr, ptr %.phi.trans.insert.i996, align 8, !tbaa !21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre186.i, i64 64
-  %.pre1819 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !70
+  %.pre1821 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !70
   br label %._crit_edge.i988
 
 ._crit_edge.i988:                                 ; preds = %._crit_edge.loopexit.i, %1550
-  %1559 = phi i32 [ %.pre1819, %._crit_edge.loopexit.i ], [ %1451, %1550 ]
+  %1559 = phi i32 [ %.pre1821, %._crit_edge.loopexit.i ], [ %1451, %1550 ]
   %1560 = phi ptr [ %.pre186.i, %._crit_edge.loopexit.i ], [ %1442, %1550 ]
   %1561 = icmp eq i32 %1559, 2
   br i1 %1561, label %.thread160.i, label %1562
@@ -3309,14 +3311,14 @@ _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit: ; preds = %._crit_edge194.i
   %1711 = getelementptr inbounds nuw i8, ptr %1710, i64 8
   %1712 = load ptr, ptr %1711, align 8, !tbaa !71
   store ptr %1712, ptr %63, align 8, !tbaa !30
-  switch i32 %.0135.i, label %default.unreachable1831 [
+  switch i32 %.0135.i, label %default.unreachable1833 [
     i32 1, label %_ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit1011
     i32 0, label %1713
     i32 2, label %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge
   ]
 
 _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge: ; preds = %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit
-  %.pre1820 = load i64, ptr %67, align 8, !tbaa !27
+  %.pre1822 = load i64, ptr %67, align 8, !tbaa !27
   br label %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044
 
 1713:                                             ; preds = %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit
@@ -3325,8 +3327,8 @@ _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_
   %1716 = sub i64 %1714, %1715
   %1717 = trunc i64 %1716 to i32
   %1718 = shl i64 %1716, 32
-  %sext2124 = add i64 %1718, -4294967296
-  %1719 = ashr exact i64 %sext2124, 32
+  %sext2126 = add i64 %1718, -4294967296
+  %1719 = ashr exact i64 %sext2126, 32
   %1720 = getelementptr inbounds i8, ptr %1712, i64 %1719
   store ptr %1720, ptr %58, align 8, !tbaa !29
   %1721 = load i32, ptr %60, align 4, !tbaa !18
@@ -3409,7 +3411,7 @@ _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_
 
 _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044: ; preds = %1547, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge
   %1764 = phi ptr [ %1712, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge ], [ %1537, %1547 ]
-  %1765 = phi i64 [ %.pre1820, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge ], [ %1452, %1547 ]
+  %1765 = phi i64 [ %.pre1822, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge ], [ %1452, %1547 ]
   %1766 = phi ptr [ %1712, %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit._ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044_crit_edge ], [ %1455, %1547 ]
   %1767 = getelementptr inbounds nuw i8, ptr %1766, i64 %1765
   store ptr %1767, ptr %58, align 8, !tbaa !29
@@ -3495,7 +3497,7 @@ _ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit.thread1044: ; preds = %1547,
   %exitcond.not.i1025 = icmp eq ptr %1810, %1767
   br i1 %exitcond.not.i1025, label %.backedge.backedge, label %.lr.ph32.i1013, !llvm.loop !73
 
-default.unreachable1831:                          ; preds = %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit
+default.unreachable1833:                          ; preds = %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit
   unreachable
 
 _ZN17duckdb_libpgqueryL21yy_get_previous_stateEPv.exit1011: ; preds = %_ZN17duckdb_libpgqueryL18yy_get_next_bufferEPv.exit, %1547

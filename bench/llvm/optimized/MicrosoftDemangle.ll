@@ -9366,39 +9366,38 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %204, %._ZN4llvm16i
   %.not15.i = icmp eq i32 %1, 0
   br i1 %.not15.i, label %._crit_edge.i, label %.preheader.i
 
-.loopexit.i:                                      ; preds = %223
+.loopexit.i:                                      ; preds = %225
   %.not.i = icmp ult i32 %.11112.i, 16
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.preheader.i, !llvm.loop !156
+  br i1 %.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !156
 
 .preheader.i:                                     ; preds = %221, %.loopexit.i
   %.0917.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ 15, %221 ]
-  %.01016.i = phi i32 [ %232, %.loopexit.i ], [ %1, %221 ]
+  %.01016.i = phi i32 [ %233, %.loopexit.i ], [ %1, %221 ]
   %sext.i = shl i64 %.0917.i, 32
   %222 = ashr exact i64 %sext.i, 32
-  br label %223
+  %223 = trunc i64 %.0917.i to i32
+  %224 = add i32 %223, -2
+  br label %225
 
-223:                                              ; preds = %223, %.preheader.i
-  %indvars.iv.i = phi i64 [ %222, %.preheader.i ], [ %indvars.iv.next.i, %223 ]
-  %224 = phi i1 [ true, %.preheader.i ], [ false, %223 ]
-  %.11112.i = phi i32 [ %.01016.i, %.preheader.i ], [ %232, %223 ]
+225:                                              ; preds = %225, %.preheader.i
+  %indvars.iv.i = phi i64 [ %222, %.preheader.i ], [ %indvars.iv.next.i, %225 ]
+  %.11112.i = phi i32 [ %.01016.i, %.preheader.i ], [ %233, %225 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %225 = getelementptr inbounds [17 x i8], ptr %3, i64 0, i64 %indvars.iv.i
-  %226 = trunc i32 %.11112.i to i8
-  %227 = and i8 %226, 15
-  %228 = icmp samesign ult i8 %227, 10
-  %229 = or disjoint i8 %227, 48
-  %230 = add nuw nsw i8 %227, 55
-  %231 = select i1 %228, i8 %229, i8 %230
-  store i8 %231, ptr %225, align 1, !tbaa !40
-  %232 = lshr i32 %.11112.i, 4
-  br i1 %224, label %223, label %.loopexit.i, !llvm.loop !157
+  %226 = getelementptr inbounds [17 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+  %227 = trunc i32 %.11112.i to i8
+  %228 = and i8 %227, 15
+  %229 = icmp samesign ult i8 %228, 10
+  %230 = or disjoint i8 %228, 48
+  %231 = add nuw nsw i8 %228, 55
+  %232 = select i1 %229, i8 %230, i8 %231
+  store i8 %232, ptr %226, align 1, !tbaa !40
+  %233 = lshr i32 %.11112.i, 4
+  %lftr.wideiv = trunc i64 %indvars.iv.next.i to i32
+  %exitcond.not = icmp eq i32 %224, %lftr.wideiv
+  br i1 %exitcond.not, label %.loopexit.i, label %225, !llvm.loop !157
 
-._crit_edge.loopexit.i:                           ; preds = %.loopexit.i
-  %233 = trunc nsw i64 %indvars.iv.next.i to i32
-  br label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %221
-  %.09.lcssa.i = phi i32 [ 15, %221 ], [ %233, %._crit_edge.loopexit.i ]
+._crit_edge.i:                                    ; preds = %.loopexit.i, %221
+  %.09.lcssa.i = phi i32 [ 15, %221 ], [ %224, %.loopexit.i ]
   %234 = add nsw i32 %.09.lcssa.i, -1
   %235 = sext i32 %.09.lcssa.i to i64
   %236 = getelementptr inbounds [17 x i8], ptr %3, i64 0, i64 %235

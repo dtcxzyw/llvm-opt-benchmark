@@ -1453,8 +1453,8 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 .preheader.i:                                     ; preds = %20, %24
   %22 = phi ptr [ %26, %24 ], [ %1, %20 ]
   %23 = phi i64 [ %25, %24 ], [ %2, %20 ]
-  %.not.not.not.i.i = icmp ugt i64 %23, 2
-  br i1 %.not.not.not.i.i, label %24, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h15070aa7e1a7be89E.exit.i
+  %exitcond.not = icmp eq i64 %23, 2
+  br i1 %exitcond.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h15070aa7e1a7be89E.exit.i, label %24
 
 24:                                               ; preds = %.preheader.i
   %25 = add i64 %23, -1
@@ -1463,7 +1463,8 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   br i1 %27, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h15070aa7e1a7be89E.exit.i, label %.preheader.i
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h15070aa7e1a7be89E.exit.i: ; preds = %24, %.preheader.i
-  %28 = zext i1 %.not.not.not.i.i to i8
+  %.not.not.not.i.i.le = icmp ugt i64 %23, 2
+  %28 = zext i1 %.not.not.not.i.i.le to i8
   br label %8
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hca5306869399c93eE.exit.i": ; preds = %20

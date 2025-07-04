@@ -4206,14 +4206,14 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder17ComputePatchParamEiiRKNS1
   br i1 %29, label %.lr.ph147.split.us, label %.lr.ph147.split
 
 .lr.ph147.split.us:                               ; preds = %.lr.ph147, %61
-  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %61 ], [ %30, %.lr.ph147 ]
+  %indvars.iv189 = phi i64 [ %indvars.iv.next190, %61 ], [ %30, %.lr.ph147 ]
   %.092145.us = phi i32 [ %.193.us, %61 ], [ 0, %.lr.ph147 ]
   %.094144.us = phi i32 [ %.195.us, %61 ], [ 0, %.lr.ph147 ]
   %.099143.us = phi i32 [ %63, %61 ], [ 1, %.lr.ph147 ]
   %.0102142.us = phi i8 [ %.1103.us, %61 ], [ 0, %.lr.ph147 ]
   %.0105141.us = phi i32 [ %37, %61 ], [ %2, %.lr.ph147 ]
-  %indvars.iv.next189 = add nsw i64 %indvars.iv188, -1
-  %31 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.next189
+  %indvars.iv.next190 = add nsw i64 %indvars.iv189, -1
+  %31 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.next190
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 264
   %34 = sext i32 %.0105141.us to i64
@@ -4251,7 +4251,7 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder17ComputePatchParamEiiRKNS1
   br label %61
 
 53:                                               ; preds = %.lr.ph147.split.us
-  switch i8 %43, label %.unreachabledefault201 [
+  switch i8 %43, label %.unreachabledefault204 [
     i8 3, label %58
     i8 1, label %56
     i8 2, label %54
@@ -4277,20 +4277,21 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder17ComputePatchParamEiiRKNS1
   %.193.us = phi i32 [ %.092145.us, %53 ], [ %59, %58 ], [ %57, %56 ], [ %.092145.us, %54 ], [ %.092145.us, %45 ], [ %51, %50 ], [ %49, %48 ], [ %.092145.us, %46 ]
   %62 = shl nuw nsw i32 %.099143.us, 1
   %63 = and i32 %62, 65534
-  %64 = icmp samesign ugt i64 %indvars.iv188, 1
-  br i1 %64, label %.lr.ph147.split.us, label %._crit_edge.split.us, !llvm.loop !24
+  %64 = and i64 %indvars.iv.next190, 4294967295
+  %exitcond192.not = icmp eq i64 %64, 0
+  br i1 %exitcond192.not, label %._crit_edge.split.us, label %.lr.ph147.split.us, !llvm.loop !24
 
 .unreachabledefault:                              ; preds = %45
   unreachable
 
-.unreachabledefault201:                           ; preds = %53
+.unreachabledefault204:                           ; preds = %53
   unreachable
 
 default.unreachable:                              ; preds = %93
   unreachable
 
 ._crit_edge.split.us:                             ; preds = %61
-  %65 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next189
+  %65 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next190
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = shl nsw i32 %37, 1
@@ -4404,8 +4405,9 @@ default.unreachable:                              ; preds = %93
   %.296 = phi i32 [ %.397, %108 ], [ %.094144, %111 ], [ %.094144, %.loopexit.loopexit.split.loop.exit ], [ %.094144, %126 ]
   %.2 = phi i32 [ %.3, %108 ], [ %.092145, %111 ], [ %.092145, %.loopexit.loopexit.split.loop.exit ], [ %.092145, %126 ]
   %.1 = phi i32 [ %100, %108 ], [ %.090146, %111 ], [ %127, %.loopexit.loopexit.split.loop.exit ], [ %.090146, %126 ]
-  %128 = icmp sgt i64 %indvars.iv185, 1
-  br i1 %128, label %.lr.ph147.split, label %._crit_edge, !llvm.loop !24
+  %128 = and i64 %indvars.iv.next186, 4294967295
+  %exitcond188.not = icmp eq i64 %128, 0
+  br i1 %exitcond188.not, label %._crit_edge, label %.lr.ph147.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit, %._crit_edge.split.us, %7
   %.0105.lcssa = phi i32 [ %2, %7 ], [ %37, %._crit_edge.split.us ], [ %85, %.loopexit ]

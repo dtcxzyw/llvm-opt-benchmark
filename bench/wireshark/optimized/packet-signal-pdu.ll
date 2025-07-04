@@ -5990,8 +5990,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %119
   %166 = zext i8 %.153.us.i.i to i64
   %167 = or i64 %165, %166
   %168 = add nsw i32 %.05664.us.i.i, -1
-  %.not.us.not.i.i = icmp sgt i32 %.05664.us.i.i, %.083131
-  br i1 %.not.us.not.i.i, label %.lr.ph.split.us.i.i, label %dissect_shifted_and_shortened_uint.exit.i, !llvm.loop !32
+  br i1 %160, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !32
 
 .preheader.i.i:                                   ; preds = %149
   br i1 %.not6066.i.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph69.i.i
@@ -6050,8 +6049,8 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %119
 194:                                              ; preds = %184, %.lr.ph.split.i.i
   %.155.i.i = phi i64 [ %193, %184 ], [ %.05465.i.i, %.lr.ph.split.i.i ]
   %195 = add nsw i32 %.05664.i.i, -1
-  %.not.not.i.i = icmp sgt i32 %.05664.i.i, %.083131
-  br i1 %.not.not.i.i, label %.lr.ph.split.i.i, label %dissect_shifted_and_shortened_uint.exit.i, !llvm.loop !32
+  %exitcond79.not.i.i = icmp eq i32 %.05664.i.i, %.083131
+  br i1 %exitcond79.not.i.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph.split.i.i, !llvm.loop !32
 
 .lr.ph69.split.i.i:                               ; preds = %.lr.ph69.split.i.preheader.i, %.lr.ph69.split.i.i
   %.15767.i310.i = phi i32 [ %202, %.lr.ph69.split.i.i ], [ %.083131, %.lr.ph69.split.i.preheader.i ]

@@ -1025,10 +1025,10 @@ _ZL13DecodeFPDeltaPhS_iii.exit:                   ; preds = %.lr.ph77.i, %267
   br label %.lr.ph72.i
 
 .lr.ph72.i:                                       ; preds = %_Z17__DNG_HalfToFloatt.exit.i, %.lr.ph72.preheader.i
-  %indvars.iv80.i = phi i64 [ %299, %.lr.ph72.preheader.i ], [ %indvars.iv.next81.i, %_Z17__DNG_HalfToFloatt.exit.i ]
+  %indvars.iv81.i = phi i64 [ %299, %.lr.ph72.preheader.i ], [ %indvars.iv.next82.i, %_Z17__DNG_HalfToFloatt.exit.i ]
   %.04670.i = phi float [ 0.000000e+00, %.lr.ph72.preheader.i ], [ %.046..i, %_Z17__DNG_HalfToFloatt.exit.i ]
-  %indvars.iv.next81.i = add nsw i64 %indvars.iv80.i, -1
-  %300 = getelementptr inbounds nuw i16, ptr %186, i64 %indvars.iv.next81.i
+  %indvars.iv.next82.i = add nsw i64 %indvars.iv81.i, -1
+  %300 = getelementptr inbounds nuw i16, ptr %186, i64 %indvars.iv.next82.i
   %301 = load i16, ptr %300, align 2, !tbaa !136
   %302 = zext i16 %301 to i32
   %303 = lshr i32 %302, 15
@@ -1079,13 +1079,14 @@ _ZL13DecodeFPDeltaPhS_iii.exit:                   ; preds = %.lr.ph77.i, %267
 
 _Z17__DNG_HalfToFloatt.exit.i:                    ; preds = %319, %316, %314, %312
   %.022.i.i = phi i32 [ %313, %312 ], [ %325, %319 ], [ %318, %316 ], [ 0, %314 ]
-  %326 = getelementptr inbounds nuw i32, ptr %186, i64 %indvars.iv.next81.i
+  %326 = getelementptr inbounds nuw i32, ptr %186, i64 %indvars.iv.next82.i
   store i32 %.022.i.i, ptr %326, align 4, !tbaa !54
   %327 = bitcast i32 %.022.i.i to float
   %328 = fcmp reassoc nsz arcp contract afn ogt float %.04670.i, %327
   %.046..i = select reassoc nsz arcp contract afn i1 %328, float %.04670.i, float %327
-  %329 = icmp samesign ugt i64 %indvars.iv80.i, 1
-  br i1 %329, label %.lr.ph72.i, label %_ZL12expandFloatsPhii.exit, !llvm.loop !137
+  %329 = and i64 %indvars.iv.next82.i, 4294967295
+  %exitcond85.not.i = icmp eq i64 %329, 0
+  br i1 %exitcond85.not.i, label %_ZL12expandFloatsPhii.exit, label %.lr.ph72.i, !llvm.loop !137
 
 .lr.ph67.preheader.i:                             ; preds = %_ZL13DecodeFPDeltaPhS_iii.exit.thread164
   %330 = add nsw i32 %293, -1
@@ -1162,8 +1163,9 @@ _Z17__DNG_FP24ToFloatPKh.exit.i:                  ; preds = %359, %356, %354, %3
   %.2..i = select reassoc nsz arcp contract afn i1 %368, float %.266.i, float %367
   %indvars.iv.next78.i = add nsw i64 %indvars.iv77.i, -1
   %369 = getelementptr inbounds i8, ptr %.04964.i, i64 -3
-  %370 = icmp sgt i64 %indvars.iv77.i, 0
-  br i1 %370, label %.lr.ph67.i, label %_ZL12expandFloatsPhii.exit, !llvm.loop !138
+  %370 = and i64 %indvars.iv.next78.i, 4294967295
+  %exitcond80.not.i = icmp eq i64 %370, 4294967295
+  br i1 %exitcond80.not.i, label %_ZL12expandFloatsPhii.exit, label %.lr.ph67.i, !llvm.loop !138
 
 .lr.ph.i127:                                      ; preds = %.lr.ph.i127, %.lr.ph.preheader.i125
   %indvars.iv.i128 = phi i64 [ 0, %.lr.ph.preheader.i125 ], [ %indvars.iv.next.i129, %.lr.ph.i127 ]
@@ -2096,10 +2098,10 @@ _ZL13libraw_swap32Phi.exit:                       ; preds = %_ZL13libraw_swap24P
   br label %.lr.ph72.i
 
 .lr.ph72.i:                                       ; preds = %_Z17__DNG_HalfToFloatt.exit.i, %.lr.ph72.preheader.i
-  %indvars.iv80.i = phi i64 [ %235, %.lr.ph72.preheader.i ], [ %indvars.iv.next81.i, %_Z17__DNG_HalfToFloatt.exit.i ]
+  %indvars.iv81.i = phi i64 [ %235, %.lr.ph72.preheader.i ], [ %indvars.iv.next82.i, %_Z17__DNG_HalfToFloatt.exit.i ]
   %.04670.i = phi float [ 0.000000e+00, %.lr.ph72.preheader.i ], [ %.046..i, %_Z17__DNG_HalfToFloatt.exit.i ]
-  %indvars.iv.next81.i = add nsw i64 %indvars.iv80.i, -1
-  %236 = getelementptr inbounds nuw i16, ptr %196, i64 %indvars.iv.next81.i
+  %indvars.iv.next82.i = add nsw i64 %indvars.iv81.i, -1
+  %236 = getelementptr inbounds nuw i16, ptr %196, i64 %indvars.iv.next82.i
   %237 = load i16, ptr %236, align 2, !tbaa !136
   %238 = zext i16 %237 to i32
   %239 = lshr i32 %238, 15
@@ -2150,13 +2152,14 @@ _ZL13libraw_swap32Phi.exit:                       ; preds = %_ZL13libraw_swap24P
 
 _Z17__DNG_HalfToFloatt.exit.i:                    ; preds = %255, %252, %250, %248
   %.022.i.i = phi i32 [ %249, %248 ], [ %261, %255 ], [ %254, %252 ], [ 0, %250 ]
-  %262 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv.next81.i
+  %262 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv.next82.i
   store i32 %.022.i.i, ptr %262, align 4, !tbaa !54
   %263 = bitcast i32 %.022.i.i to float
   %264 = fcmp reassoc nsz arcp contract afn ogt float %.04670.i, %263
   %.046..i = select reassoc nsz arcp contract afn i1 %264, float %.04670.i, float %263
-  %265 = icmp samesign ugt i64 %indvars.iv80.i, 1
-  br i1 %265, label %.lr.ph72.i, label %_ZL12expandFloatsPhii.exit, !llvm.loop !137
+  %265 = and i64 %indvars.iv.next82.i, 4294967295
+  %exitcond85.not.i = icmp eq i64 %265, 0
+  br i1 %exitcond85.not.i, label %_ZL12expandFloatsPhii.exit, label %.lr.ph72.i, !llvm.loop !137
 
 266:                                              ; preds = %_ZL13libraw_swap32Phi.exit.thread153, %_ZL13libraw_swap32Phi.exit
   %267 = phi i32 [ %227, %_ZL13libraw_swap32Phi.exit.thread153 ], [ %230, %_ZL13libraw_swap32Phi.exit ]
@@ -2238,8 +2241,9 @@ _Z17__DNG_FP24ToFloatPKh.exit.i:                  ; preds = %298, %295, %293, %2
   %.2..i = select reassoc nsz arcp contract afn i1 %307, float %.266.i, float %306
   %indvars.iv.next78.i = add nsw i64 %indvars.iv77.i, -1
   %308 = getelementptr inbounds i8, ptr %.04964.i, i64 -3
-  %309 = icmp sgt i64 %indvars.iv77.i, 0
-  br i1 %309, label %.lr.ph67.i, label %_ZL12expandFloatsPhii.exit, !llvm.loop !138
+  %309 = and i64 %indvars.iv.next78.i, 4294967295
+  %exitcond80.not.i = icmp eq i64 %309, 4294967295
+  br i1 %exitcond80.not.i, label %_ZL12expandFloatsPhii.exit, label %.lr.ph67.i, !llvm.loop !138
 
 .lr.ph.i133:                                      ; preds = %.lr.ph.i133, %.lr.ph.preheader.i131
   %indvars.iv.i134 = phi i64 [ 0, %.lr.ph.preheader.i131 ], [ %indvars.iv.next.i135, %.lr.ph.i133 ]

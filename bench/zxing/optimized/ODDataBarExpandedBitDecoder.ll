@@ -876,10 +876,10 @@ define linkonce_odr noundef i32 @_ZNK5ZXing12BitArrayView8peakBitsEi(ptr noundef
   %20 = zext i1 %19 to i32
   %21 = shl i32 %.01011, 1
   %22 = or disjoint i32 %21, %20
-  %23 = add nsw i32 %.013, -1
+  %23 = add i32 %.013, -1
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 1
-  %25 = icmp samesign ugt i32 %.013, 1
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  %exitcond.not = icmp eq i32 %23, 0
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 }
 
 ; Function Attrs: mustprogress optsize uwtable

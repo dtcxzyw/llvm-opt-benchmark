@@ -488,8 +488,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %sub9 = sub nsw i64 %sub.ptr.div.i8, %indvars.iv
   %add.ptr.i9 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %3, i64 %sub9
   tail call void @_ZN7msdfgen10EdgeHolder4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i9)
-  %cmp = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !10
+  %5 = and i64 %indvars.iv.next, 4294967295
+  %exitcond.not = icmp eq i64 %5, 0
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !10
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load ptr, ptr %this, align 8
@@ -497,21 +498,21 @@ for.end.loopexit:                                 ; preds = %for.body
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %5 = phi ptr [ %.pre18, %for.end.loopexit ], [ %0, %entry ]
-  %6 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %entry ]
-  %cmp.i.not15 = icmp eq ptr %6, %5
+  %6 = phi ptr [ %.pre18, %for.end.loopexit ], [ %0, %entry ]
+  %7 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %entry ]
+  %cmp.i.not15 = icmp eq ptr %7, %6
   br i1 %cmp.i.not15, label %for.end23, label %for.body18
 
 for.body18:                                       ; preds = %for.end, %for.body18
-  %edge.sroa.0.016 = phi ptr [ %incdec.ptr.i, %for.body18 ], [ %6, %for.end ]
+  %edge.sroa.0.016 = phi ptr [ %incdec.ptr.i, %for.body18 ], [ %7, %for.end ]
   %call20 = tail call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.016)
   %vtable = load ptr, ptr %call20, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
-  %7 = load ptr, ptr %vfn, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %call20)
+  %8 = load ptr, ptr %vfn, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %call20)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %edge.sroa.0.016, i64 8
-  %8 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %8
+  %9 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %9
   br i1 %cmp.i.not, label %for.end23, label %for.body18, !llvm.loop !11
 
 for.end23:                                        ; preds = %for.body18, %for.end

@@ -191,8 +191,8 @@ allocArray.exit:                                  ; preds = %gv_calloc.exit23.i,
   br label %79
 
 79:                                               ; preds = %clear.exit.i, %.lr.ph.i
-  %indvars.iv.i4 = phi i64 [ %78, %.lr.ph.i ], [ %indvars.iv.next.i5, %clear.exit.i ]
-  %80 = getelementptr inbounds nuw %struct.Pxy_t, ptr %42, i64 %indvars.iv.i4
+  %indvars.iv.i3 = phi i64 [ %78, %.lr.ph.i ], [ %indvars.iv.next.i4, %clear.exit.i ]
+  %80 = getelementptr inbounds nuw %struct.Pxy_t, ptr %42, i64 %indvars.iv.i3
   %81 = load double, ptr %52, align 8
   %82 = load double, ptr %57, align 8
   %83 = load double, ptr %50, align 8
@@ -239,11 +239,11 @@ inCone.exit.i:                                    ; preds = %79
   br i1 %116, label %117, label %clear.exit.i
 
 117:                                              ; preds = %inCone.exit.i, %114
-  %118 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i4
+  %118 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i3
   %119 = load i32, ptr %118, align 4, !tbaa !22
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %120
-  %122 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i4
+  %122 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i3
   %123 = load i32, ptr %122, align 4, !tbaa !22
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %124
@@ -419,23 +419,24 @@ intersect.exit.i:                                 ; preds = %inBetween.exit42.i.
   %243 = fmul double %141, %141
   %244 = tail call double @llvm.fmuladd.f64(double %144, double %144, double %243)
   %sqrt.i65.i = tail call double @llvm.sqrt.f64(double %244)
-  %245 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv.i4
+  %245 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv.i3
   store double %sqrt.i65.i, ptr %245, align 8, !tbaa !23
-  %246 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i4
+  %246 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i3
   %247 = load ptr, ptr %246, align 8, !tbaa !14
   %248 = getelementptr inbounds nuw double, ptr %247, i64 %indvars.iv74.i
   store double %sqrt.i65.i, ptr %248, align 8, !tbaa !23
   br label %clear.exit.i
 
 clear.exit.i:                                     ; preds = %intersect.exit.i, %inBetween.exit42.i.i, %213, %209, %206, %inBetween.exit.i.i, %189, %185, %182, %.loopexit.i, %inCone.exit64.i, %156, %inCone.exit.i, %114
-  %indvars.iv.next.i5 = add nsw i64 %indvars.iv.i4, -1
-  %249 = icmp sgt i64 %indvars.iv.i4, 0
-  br i1 %249, label %79, label %._crit_edge.i, !llvm.loop !26
+  %indvars.iv.next.i4 = add nsw i64 %indvars.iv.i3, -1
+  %249 = and i64 %indvars.iv.next.i4, 4294967295
+  %exitcond.not.i5 = icmp eq i64 %249, 4294967295
+  br i1 %exitcond.not.i5, label %._crit_edge.i, label %79, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %clear.exit.i, %47
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
-  %exitcond.not.i3 = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i3, label %compVis.exit, label %47, !llvm.loop !27
+  %exitcond77.not.i = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count.i.i
+  br i1 %exitcond77.not.i, label %compVis.exit, label %47, !llvm.loop !27
 
 compVis.exit:                                     ; preds = %._crit_edge.i, %allocArray.exit
   ret void

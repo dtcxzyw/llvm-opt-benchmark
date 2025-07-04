@@ -1280,7 +1280,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %99
 
 .lr.ph48.preheader.i:                             ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %119 = phi i32 [ %109, %._crit_edge.thread.i ], [ %118, %._crit_edge.i ]
-  %120 = sext i32 %.247.i to i64
+  %120 = add i32 %.247.i, -2
   br label %.lr.ph48.i
 
 ._crit_edge49.i:                                  ; preds = %.lr.ph48.i, %._crit_edge.i
@@ -1296,8 +1296,9 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %99
   store i8 %121, ptr %122, align 1, !tbaa !3
   %123 = lshr i32 %.03645.i, 8
   %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, -1
-  %.not55.i = icmp slt i64 %indvars.iv70.i, %120
-  br i1 %.not55.i, label %._crit_edge49.i, label %.lr.ph48.i, !llvm.loop !43
+  %lftr.wideiv = trunc i64 %indvars.iv.next71.i to i32
+  %exitcond = icmp eq i32 %120, %lftr.wideiv
+  br i1 %exitcond, label %._crit_edge49.i, label %.lr.ph48.i, !llvm.loop !43
 
 124:                                              ; preds = %._crit_edge49.i
   store i32 %.247.i, ptr %3, align 4, !tbaa !40
@@ -1640,7 +1641,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %10
 
 .lr.ph48.preheader.i:                             ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %120 = phi i32 [ %110, %._crit_edge.thread.i ], [ %119, %._crit_edge.i ]
-  %121 = sext i32 %.247.i to i64
+  %121 = add i32 %.247.i, -2
   br label %.lr.ph48.i
 
 ._crit_edge49.i:                                  ; preds = %.lr.ph48.i, %._crit_edge.i
@@ -1656,8 +1657,9 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %10
   store i8 %122, ptr %123, align 1, !tbaa !3
   %124 = lshr i32 %.03645.i, 8
   %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, -1
-  %.not55.i = icmp slt i64 %indvars.iv70.i, %121
-  br i1 %.not55.i, label %._crit_edge49.i, label %.lr.ph48.i, !llvm.loop !48
+  %lftr.wideiv = trunc i64 %indvars.iv.next71.i to i32
+  %exitcond = icmp eq i32 %121, %lftr.wideiv
+  br i1 %exitcond, label %._crit_edge49.i, label %.lr.ph48.i, !llvm.loop !48
 
 125:                                              ; preds = %._crit_edge49.i
   store i32 %.247.i, ptr %3, align 4, !tbaa !40

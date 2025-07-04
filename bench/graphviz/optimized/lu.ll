@@ -283,7 +283,7 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
 
 .preheader40.._crit_edge_crit_edge:               ; preds = %.preheader40
   %.pre = load i32, ptr %6, align 4, !tbaa !16
-  %.pre71 = sext i32 %.pre to i64
+  %.pre72 = sext i32 %.pre to i64
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader40
@@ -314,7 +314,7 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %16, %.preheader40.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre71, %.preheader40.._crit_edge_crit_edge ], [ %9, %16 ]
+  %.pre-phi = phi i64 [ %.pre72, %.preheader40.._crit_edge_crit_edge ], [ %9, %16 ]
   %.0.lcssa = phi double [ 0.000000e+00, %.preheader40.._crit_edge_crit_edge ], [ %21, %16 ]
   %22 = getelementptr inbounds double, ptr %1, i64 %.pre-phi
   %23 = load double, ptr %22, align 8, !tbaa !14
@@ -358,8 +358,9 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
   %43 = load double, ptr %42, align 8, !tbaa !14
   %44 = fdiv double %41, %43
   store double %44, ptr %39, align 8, !tbaa !14
-  %45 = icmp samesign ugt i64 %indvars.iv60, 1
-  br i1 %45, label %.preheader, label %._crit_edge52, !llvm.loop !28
+  %45 = and i64 %indvars.iv.next61, 4294967295
+  %exitcond66.not = icmp eq i64 %45, 0
+  br i1 %exitcond66.not, label %._crit_edge52, label %.preheader, !llvm.loop !28
 
 ._crit_edge52:                                    ; preds = %._crit_edge47, %3
   ret void
