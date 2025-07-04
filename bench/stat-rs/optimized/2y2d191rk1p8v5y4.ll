@@ -2353,7 +2353,6 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit5: ; preds =
 define noundef double @_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E(i64 noundef %0, ptr noalias noundef nonnull readonly align 8 captures(none) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !548)
-  %.idx.i = and i64 %2, 2305843009213693951
   %5 = icmp ugt i64 %0, 170
   tail call void @llvm.experimental.noalias.scope.decl(metadata !551)
   br i1 %5, label %6, label %10
@@ -2402,7 +2401,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds 
   %25 = add i64 %.val.i.i, %.sroa.07.0.i.i
   %26 = fsub double %.sroa.6.0.i.i, %.sroa.02.0.i.i.i.i.i
   %27 = add nuw i64 %.sroa.010.0.i.i, 1
-  %28 = icmp eq i64 %27, %.idx.i
+  %28 = icmp eq i64 %27, %2
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit.i", label %.preheader.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit.i": ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i.i", %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
@@ -2434,7 +2433,6 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds 
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN6statrs8function9factorial19checked_multinomial17hca373caff3ade2e8E(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.idx = and i64 %3, 2305843009213693951
   %5 = icmp ugt i64 %1, 170
   tail call void @llvm.experimental.noalias.scope.decl(metadata !581)
   br i1 %5, label %6, label %10
@@ -2483,7 +2481,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit: ; preds = 
   %25 = add i64 %.val.i, %.sroa.07.0.i
   %26 = fsub double %.sroa.6.0.i, %.sroa.02.0.i.i.i.i
   %27 = add nuw i64 %.sroa.010.0.i, 1
-  %28 = icmp eq i64 %27, %.idx
+  %28 = icmp eq i64 %27, %3
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit", label %.preheader
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a45a8e223eacf06E.llvm.9554138872291501309.exit": ; preds = %"_ZN6statrs8function9factorial19checked_multinomial28_$u7b$$u7b$closure$u7d$$u7d$17h23493b7897b58408E.exit.i", %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit

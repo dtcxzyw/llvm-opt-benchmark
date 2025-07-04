@@ -1312,7 +1312,6 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %19, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4460407f9409af01E.exit.i", label %20
 
 20:                                               ; preds = %13
-  %.idx.i.i = and i64 %18, 1152921504606846975
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %22 = load i8, ptr %21, align 8, !range !498, !alias.scope !499, !noalias !500, !noundef !4
   %23 = load ptr, ptr %2, align 8, !alias.scope !514, !noalias !515, !nonnull !4, !align !124, !noundef !4
@@ -1344,7 +1343,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he43dc545cdbd2928E.exit.i.i.i.i.i.i": ; preds = %31, %.split.i.i.i.i.i.i
   %32 = add nuw i64 %.0.i.i.i.i.i.i, 1
-  %33 = icmp eq i64 %32, %.idx.i.i
+  %33 = icmp eq i64 %32, %18
   br i1 %33, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4460407f9409af01E.exit.i", label %.split.i.i.i.i.i.i, !llvm.loop !528
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4460407f9409af01E.exit.i": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he43dc545cdbd2928E.exit.i.i.i.i.i.i", %20, %13
@@ -2702,7 +2701,6 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %18, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0b904c2c71018a84E.exit.i", label %19
 
 19:                                               ; preds = %12
-  %.idx.i.i = and i64 %17, 1152921504606846975
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %21 = load i8, ptr %20, align 8, !range !498, !alias.scope !1211, !noalias !1212, !noundef !4
   %22 = icmp eq i8 %21, 1
@@ -2721,7 +2719,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @"_ZN14ide_completion11completions7postfix30add_custom_postfix_completions28_$u7b$$u7b$closure$u7d$$u7d$17hcf07938313cb179cE.llvm.1670248674515089813"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4), !noalias !1237
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1231
   %25 = add nuw i64 %.0.us.i.i.i.i.i.i, 1
-  %26 = icmp eq i64 %25, %.idx.i.i
+  %26 = icmp eq i64 %25, %17
   br i1 %26, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0b904c2c71018a84E.exit.i", label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c007e653b3f3aE.exit.us.i.i.i.i.i.i"
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0b904c2c71018a84E.exit.i": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c007e653b3f3aE.exit.us.i.i.i.i.i.i", %19, %12
@@ -26745,7 +26743,6 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %18, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0b904c2c71018a84E.exit", label %19
 
 19:                                               ; preds = %12
-  %.idx.i = and i64 %17, 1152921504606846975
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %21 = load i8, ptr %20, align 8, !range !498, !alias.scope !9583, !noalias !9584, !noundef !4
   %22 = icmp eq i8 %21, 1
@@ -26764,7 +26761,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   call void @"_ZN14ide_completion11completions7postfix30add_custom_postfix_completions28_$u7b$$u7b$closure$u7d$$u7d$17hcf07938313cb179cE.llvm.1670248674515089813"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4), !noalias !9609
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !9603
   %25 = add nuw i64 %.0.us.i.i.i.i.i, 1
-  %26 = icmp eq i64 %25, %.idx.i
+  %26 = icmp eq i64 %25, %17
   br i1 %26, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0b904c2c71018a84E.exit", label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c007e653b3f3aE.exit.us.i.i.i.i.i"
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0b904c2c71018a84E.exit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdc2c007e653b3f3aE.exit.us.i.i.i.i.i", %12, %19
@@ -27413,7 +27410,6 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %19, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4460407f9409af01E.exit", label %20
 
 20:                                               ; preds = %13
-  %.idx.i = and i64 %18, 1152921504606846975
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %22 = load i8, ptr %21, align 8, !range !498, !alias.scope !9886, !noalias !9887, !noundef !4
   %23 = load ptr, ptr %2, align 8, !alias.scope !9901, !noalias !9902, !nonnull !4, !align !124, !noundef !4
@@ -27445,7 +27441,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he43dc545cdbd2928E.exit.i.i.i.i.i": ; preds = %31, %.split.i.i.i.i.i
   %32 = add nuw i64 %.0.i.i.i.i.i, 1
-  %33 = icmp eq i64 %32, %.idx.i
+  %33 = icmp eq i64 %32, %18
   br i1 %33, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4460407f9409af01E.exit", label %.split.i.i.i.i.i, !llvm.loop !528
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4460407f9409af01E.exit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he43dc545cdbd2928E.exit.i.i.i.i.i", %13, %20

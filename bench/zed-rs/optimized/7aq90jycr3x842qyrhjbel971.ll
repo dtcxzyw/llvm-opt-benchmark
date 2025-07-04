@@ -22966,7 +22966,6 @@ define hidden void @_ZN13outline_panel12OutlinePanel23fetch_outdated_outlines17h
   br i1 %52, label %_ZN13outline_panel12OutlinePanel20excerpt_fetch_ranges17h872cfabab9007606E.exit.thread, label %53
 
 53:                                               ; preds = %2
-  %.idx.i = and i64 %51, 144115188075855871
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull readonly align 8 dereferenceable(32) @anon.ee1179cdcd7a6a8830c398d65159c9d6.5.llvm.13117562262406010975, i64 32, i1 false), !noalias !4864
   %54 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -23605,7 +23604,7 @@ common.resume:                                    ; preds = %336, %340, %483, %.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false), !noalias !4870
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33), !noalias !4870
   %315 = add nuw i64 %.sroa.06.0.i.i, 1
-  %316 = icmp eq i64 %315, %.idx.i
+  %316 = icmp eq i64 %315, %51
   br i1 %316, label %_ZN13outline_panel12OutlinePanel20excerpt_fetch_ranges17h872cfabab9007606E.exit, label %72
 
 _ZN13outline_panel12OutlinePanel20excerpt_fetch_ranges17h872cfabab9007606E.exit: ; preds = %"_ZN13outline_panel12OutlinePanel20excerpt_fetch_ranges28_$u7b$$u7b$closure$u7d$$u7d$17h9bf7f73ef3ba21a1E.exit.i.i"

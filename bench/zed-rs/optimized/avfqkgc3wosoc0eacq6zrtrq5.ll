@@ -68836,7 +68836,6 @@ define { ptr, ptr } @"_ZN103_$LT$language_model..provider..ollama..OllamaLanguag
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09e3ba988c9ddb4fE.exit", label %10
 
 10:                                               ; preds = %3
-  %.idx = and i64 %8, 576460752303423487
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %13
@@ -68896,7 +68895,7 @@ define { ptr, ptr } @"_ZN103_$LT$language_model..provider..ollama..OllamaLanguag
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !18724
   %28 = add i64 %.sroa.0.0.i.i.i.i, %.sroa.07.0.i
   %29 = add nuw i64 %.sroa.09.0.i, 1
-  %30 = icmp eq i64 %29, %.idx
+  %30 = icmp eq i64 %29, %8
   br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09e3ba988c9ddb4fE.exit.loopexit", label %13
 
 31:                                               ; preds = %13

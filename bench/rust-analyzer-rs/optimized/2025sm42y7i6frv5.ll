@@ -834,19 +834,22 @@ define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %7, align 8
   %.not61.i = icmp eq ptr %.val, null
-  br i1 %.not61.i, label %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread", label %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit"
+  br i1 %.not61.i, label %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread.preheader", label %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit"
 
 "_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit": ; preds = %6
   %8 = add i64 %4, -1
   %9 = getelementptr inbounds [0 x { { i32, [15 x i32] }, { ptr, ptr, i64, ptr, {}, { {} } }, { ptr, ptr, i64, ptr, {}, { {} } } }], ptr %.val, i64 0, i64 %8
   %10 = load i32, ptr %9, align 8, !range !114, !noundef !5
   %.not = icmp eq i32 %10, 13
-  br i1 %.not, label %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread", label %31
+  br i1 %.not, label %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread.preheader", label %.preheader
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h19822d780ee44431E.exit": ; preds = %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i", %2, %30
-  %.lcssa.sink = phi i64 [ %spec.select.i.i.i.i, %30 ], [ 0, %2 ], [ %60, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ]
-  %.sroa.04.0.i.i.i.lcssa.sink = phi i64 [ %.sroa.07.0.i.i.i, %30 ], [ 1, %2 ], [ %.sroa.04.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ]
-  %.sroa.4.0.i.i.i.lcssa.sink = phi i64 [ %.sroa.5.0.i.i.i, %30 ], [ 0, %2 ], [ %.sroa.4.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ]
+"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread.preheader": ; preds = %6, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit"
+  br label %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread"
+
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h19822d780ee44431E.exit": ; preds = %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i", %2, %29
+  %.lcssa.sink = phi i64 [ %spec.select.i.i.i.i, %29 ], [ 0, %2 ], [ %57, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ]
+  %.sroa.04.0.i.i.i.lcssa.sink = phi i64 [ %.sroa.07.0.i.i.i, %29 ], [ 1, %2 ], [ %.sroa.04.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ]
+  %.sroa.4.0.i.i.i.lcssa.sink = phi i64 [ %.sroa.5.0.i.i.i, %29 ], [ 0, %2 ], [ %.sroa.4.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ]
   store i64 %.lcssa.sink, ptr %0, align 8
   %.sroa.6.0..sroa_idx19.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.04.0.i.i.i.lcssa.sink, ptr %.sroa.6.0..sroa_idx19.i, align 8
@@ -854,120 +857,112 @@ define hidden void @"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct
   store i64 %.sroa.4.0.i.i.i.lcssa.sink, ptr %.sroa.7.0..sroa_idx23.i, align 8
   ret void
 
-"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread": ; preds = %6, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit"
-  %.idx28 = and i64 %4, 144115188075855871
-  br label %11
+"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread": ; preds = %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread.preheader", %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i"
+  %.sroa.015.0.i = phi i64 [ %spec.select.i.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i" ], [ 1, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread.preheader" ]
+  %.sroa.6.0.i = phi i1 [ %.sroa.07.0.i.in.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i" ], [ true, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread.preheader" ]
+  %.sroa.7.0.i = phi i64 [ %.sroa.5.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i" ], [ 1, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread.preheader" ]
+  %.0.i15 = phi i64 [ %27, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread.preheader" ]
+  %11 = getelementptr inbounds { { i32, [15 x i32] }, { ptr, ptr, i64, ptr, {}, { {} } }, { ptr, ptr, i64, ptr, {}, { {} } } }, ptr %.val, i64 %.0.i15
+  %12 = getelementptr i8, ptr %11, i64 72
+  %.val.i = load ptr, ptr %12, align 8, !noalias !115, !nonnull !5, !noundef !5
+  %13 = getelementptr i8, ptr %11, i64 88
+  %.val14.i = load ptr, ptr %13, align 8, !noalias !115, !nonnull !5, !noundef !5
+  %14 = ptrtoint ptr %.val14.i to i64
+  %15 = ptrtoint ptr %.val.i to i64
+  %16 = sub nuw i64 %14, %15
+  %17 = lshr exact i64 %16, 6
+  br i1 %.sroa.6.0.i, label %20, label %18
 
-11:                                               ; preds = %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i", %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread"
-  %.sroa.015.0.i = phi i64 [ 1, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread" ], [ %spec.select.i.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i" ]
-  %.sroa.6.0.i = phi i1 [ true, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread" ], [ %.sroa.07.0.i.in.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i" ]
-  %.sroa.7.0.i = phi i64 [ 1, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread" ], [ %.sroa.5.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i" ]
-  %.0.i15 = phi i64 [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread" ], [ %28, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i" ]
-  %12 = getelementptr inbounds { { i32, [15 x i32] }, { ptr, ptr, i64, ptr, {}, { {} } }, { ptr, ptr, i64, ptr, {}, { {} } } }, ptr %.val, i64 %.0.i15
-  %13 = getelementptr i8, ptr %12, i64 72
-  %.val.i = load ptr, ptr %13, align 8, !noalias !115, !nonnull !5, !noundef !5
-  %14 = getelementptr i8, ptr %12, i64 88
-  %.val14.i = load ptr, ptr %14, align 8, !noalias !115, !nonnull !5, !noundef !5
-  %15 = ptrtoint ptr %.val14.i to i64
-  %16 = ptrtoint ptr %.val.i to i64
-  %17 = sub nuw i64 %15, %16
-  %18 = lshr exact i64 %17, 6
-  br i1 %.sroa.6.0.i, label %21, label %19
-
-19:                                               ; preds = %11
-  %20 = icmp eq ptr %.val14.i, %.val.i
+18:                                               ; preds = %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread"
+  %19 = icmp eq ptr %.val14.i, %.val.i
   br label %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i"
 
-21:                                               ; preds = %11
-  %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.7.0.i, i64 %18)
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
-  %not..i.i.i = xor i1 %23, true
+20:                                               ; preds = %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread"
+  %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.7.0.i, i64 %17)
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  %not..i.i.i = xor i1 %22, true
   br label %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i"
 
-"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i": ; preds = %21, %19
-  %.sroa.07.0.i.in.i.i = phi i1 [ %not..i.i.i, %21 ], [ %20, %19 ]
-  %.sroa.5.0.i.i.i = phi i64 [ %24, %21 ], [ 0, %19 ]
-  %25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.015.0.i, i64 %18)
-  %26 = extractvalue { i64, i1 } %25, 1
-  %27 = extractvalue { i64, i1 } %25, 0
-  %spec.select.i.i.i.i = select i1 %26, i64 -1, i64 %27
-  %28 = add nuw i64 %.0.i15, 1
-  %29 = icmp eq i64 %28, %.idx28
-  br i1 %29, label %30, label %11
+"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i": ; preds = %20, %18
+  %.sroa.07.0.i.in.i.i = phi i1 [ %not..i.i.i, %20 ], [ %19, %18 ]
+  %.sroa.5.0.i.i.i = phi i64 [ %23, %20 ], [ 0, %18 ]
+  %24 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.015.0.i, i64 %17)
+  %25 = extractvalue { i64, i1 } %24, 1
+  %26 = extractvalue { i64, i1 } %24, 0
+  %spec.select.i.i.i.i = select i1 %25, i64 -1, i64 %26
+  %27 = add nuw i64 %.0.i15, 1
+  %28 = icmp eq i64 %27, %4
+  br i1 %28, label %29, label %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit.thread"
 
-30:                                               ; preds = %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i"
+29:                                               ; preds = %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17ha0d9f3478371a31cE.exit.i"
   %.sroa.07.0.i.i.i = zext i1 %.sroa.07.0.i.in.i.i to i64
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h19822d780ee44431E.exit"
 
-31:                                               ; preds = %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit"
-  %.idx = and i64 %4, 144115188075855871
-  br label %32
-
-32:                                               ; preds = %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i", %31
-  %.sroa.014.0.i = phi i64 [ 0, %31 ], [ %60, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ]
-  %.sroa.6.0.i20 = phi i64 [ 1, %31 ], [ %.sroa.04.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ]
-  %.sroa.7.0.i21 = phi i64 [ 0, %31 ], [ %.sroa.4.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ]
-  %.0.i22 = phi i64 [ 0, %31 ], [ %61, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ]
-  %33 = getelementptr inbounds { { i32, [15 x i32] }, { ptr, ptr, i64, ptr, {}, { {} } }, { ptr, ptr, i64, ptr, {}, { {} } } }, ptr %.val, i64 %.0.i22
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
-  %.val2.i.i = load ptr, ptr %34, align 8, !alias.scope !119, !noalias !122, !nonnull !5, !noundef !5
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 88
-  %.val3.i.i = load ptr, ptr %35, align 8, !alias.scope !119, !noalias !122, !nonnull !5, !noundef !5
-  %36 = ptrtoint ptr %.val3.i.i to i64
-  %37 = ptrtoint ptr %.val2.i.i to i64
-  %38 = sub nuw i64 %36, %37
-  %39 = lshr exact i64 %38, 6
-  %40 = getelementptr inbounds nuw i8, ptr %33, i64 104
-  %.val.i.i = load ptr, ptr %40, align 8, !alias.scope !119, !noalias !122, !nonnull !5, !noundef !5
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 120
-  %.val1.i.i = load ptr, ptr %41, align 8, !alias.scope !119, !noalias !122, !nonnull !5, !noundef !5
-  %42 = ptrtoint ptr %.val1.i.i to i64
-  %43 = ptrtoint ptr %.val.i.i to i64
-  %44 = sub nuw i64 %42, %43
-  %45 = lshr exact i64 %44, 6
+.preheader:                                       ; preds = %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit", %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i"
+  %.sroa.014.0.i = phi i64 [ %57, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit" ]
+  %.sroa.6.0.i20 = phi i64 [ %.sroa.04.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ], [ 1, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit" ]
+  %.sroa.7.0.i21 = phi i64 [ %.sroa.4.0.i.i.i, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit" ]
+  %.0.i22 = phi i64 [ %58, %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i" ], [ 0, %"_ZN9itertools8adaptors13multi_product21MultiProduct$LT$I$GT$11in_progress17h865cbeebbe33a777E.exit" ]
+  %30 = getelementptr inbounds { { i32, [15 x i32] }, { ptr, ptr, i64, ptr, {}, { {} } }, { ptr, ptr, i64, ptr, {}, { {} } } }, ptr %.val, i64 %.0.i22
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
+  %.val2.i.i = load ptr, ptr %31, align 8, !alias.scope !119, !noalias !122, !nonnull !5, !noundef !5
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 88
+  %.val3.i.i = load ptr, ptr %32, align 8, !alias.scope !119, !noalias !122, !nonnull !5, !noundef !5
+  %33 = ptrtoint ptr %.val3.i.i to i64
+  %34 = ptrtoint ptr %.val2.i.i to i64
+  %35 = sub nuw i64 %33, %34
+  %36 = lshr exact i64 %35, 6
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 104
+  %.val.i.i = load ptr, ptr %37, align 8, !alias.scope !119, !noalias !122, !nonnull !5, !noundef !5
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 120
+  %.val1.i.i = load ptr, ptr %38, align 8, !alias.scope !119, !noalias !122, !nonnull !5, !noundef !5
+  %39 = ptrtoint ptr %.val1.i.i to i64
+  %40 = ptrtoint ptr %.val.i.i to i64
+  %41 = sub nuw i64 %39, %40
+  %42 = lshr exact i64 %41, 6
   %trunc.i.i.i = trunc nuw i64 %.sroa.6.0.i20 to i1
-  br i1 %trunc.i.i.i, label %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i, label %46
+  br i1 %trunc.i.i.i, label %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i, label %43
 
-46:                                               ; preds = %32
-  %47 = icmp eq ptr %.val1.i.i, %.val.i.i
-  br i1 %47, label %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread.i.i, label %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread12.i.i
+43:                                               ; preds = %.preheader
+  %44 = icmp eq ptr %.val1.i.i, %.val.i.i
+  br i1 %44, label %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread.i.i, label %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread12.i.i
 
-_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread12.i.i: ; preds = %46
-  %48 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.014.0.i, i64 %45)
-  %49 = extractvalue { i64, i1 } %48, 1
-  %50 = extractvalue { i64, i1 } %48, 0
-  %spec.select.i.i15.i.i = select i1 %49, i64 -1, i64 %50
+_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread12.i.i: ; preds = %43
+  %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.014.0.i, i64 %42)
+  %46 = extractvalue { i64, i1 } %45, 1
+  %47 = extractvalue { i64, i1 } %45, 0
+  %spec.select.i.i15.i.i = select i1 %46, i64 -1, i64 %47
   br label %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i"
 
-_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i: ; preds = %32
-  %51 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.7.0.i21, i64 %45)
+_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i: ; preds = %.preheader
+  %48 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.7.0.i21, i64 %42)
+  %49 = extractvalue { i64, i1 } %48, 1
+  %50 = extractvalue { i64, i1 } %48, 0
+  %51 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.014.0.i, i64 %42)
   %52 = extractvalue { i64, i1 } %51, 1
   %53 = extractvalue { i64, i1 } %51, 0
-  %54 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.014.0.i, i64 %45)
+  %spec.select.i.i.i.i23 = select i1 %52, i64 -1, i64 %53
+  br i1 %49, label %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i", label %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread.i.i
+
+_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread.i.i: ; preds = %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i, %43
+  %spec.select.i.i11.i.i = phi i64 [ %spec.select.i.i.i.i23, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i ], [ 0, %43 ]
+  %.sroa.5.0.i9.i.i = phi i64 [ %50, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i ], [ 0, %43 ]
+  %54 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.5.0.i9.i.i, i64 %36)
   %55 = extractvalue { i64, i1 } %54, 1
   %56 = extractvalue { i64, i1 } %54, 0
-  %spec.select.i.i.i.i23 = select i1 %55, i64 -1, i64 %56
-  br i1 %52, label %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i", label %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread.i.i
-
-_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread.i.i: ; preds = %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i, %46
-  %spec.select.i.i11.i.i = phi i64 [ %spec.select.i.i.i.i23, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i ], [ 0, %46 ]
-  %.sroa.5.0.i9.i.i = phi i64 [ %53, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i ], [ 0, %46 ]
-  %57 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.5.0.i9.i.i, i64 %39)
-  %58 = extractvalue { i64, i1 } %57, 1
-  %59 = extractvalue { i64, i1 } %57, 0
-  %not..i5.i.i = xor i1 %58, true
+  %not..i5.i.i = xor i1 %55, true
   %spec.select.i6.i.i = zext i1 %not..i5.i.i to i64
   br label %"_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i"
 
 "_ZN116_$LT$itertools..adaptors..multi_product..MultiProduct$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3cdb761b90a22fe4E.exit.i": ; preds = %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread.i.i, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread12.i.i
   %spec.select.i.i10.i.i = phi i64 [ %spec.select.i.i.i.i23, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i ], [ %spec.select.i.i11.i.i, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread.i.i ], [ %spec.select.i.i15.i.i, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread12.i.i ]
   %.sroa.04.0.i.i.i = phi i64 [ 0, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i ], [ %spec.select.i6.i.i, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread.i.i ], [ 0, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread12.i.i ]
-  %.sroa.4.0.i.i.i = phi i64 [ undef, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i ], [ %59, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread.i.i ], [ undef, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread12.i.i ]
-  %60 = tail call i64 @llvm.uadd.sat.i64(i64 %spec.select.i.i10.i.i, i64 %39)
-  %61 = add nuw i64 %.0.i22, 1
-  %62 = icmp eq i64 %61, %.idx
-  br i1 %62, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h19822d780ee44431E.exit", label %32
+  %.sroa.4.0.i.i.i = phi i64 [ undef, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.i.i ], [ %56, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread.i.i ], [ undef, %_ZN9itertools9size_hint3mul17ha1ca373f8edf89ddE.exit.thread12.i.i ]
+  %57 = tail call i64 @llvm.uadd.sat.i64(i64 %spec.select.i.i10.i.i, i64 %36)
+  %58 = add nuw i64 %.0.i22, 1
+  %59 = icmp eq i64 %58, %4
+  br i1 %59, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h19822d780ee44431E.exit", label %.preheader
 }
 
 ; Function Attrs: nonlazybind uwtable

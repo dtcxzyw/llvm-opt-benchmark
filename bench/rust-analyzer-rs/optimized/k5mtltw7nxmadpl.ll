@@ -36965,7 +36965,6 @@ select.unfold:                                    ; preds = %341, %_ZN13rust_ana
   br i1 %397, label %409, label %398
 
 398:                                              ; preds = %393
-  %.idx = and i64 %396, 1152921504606846975
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.91380dbf7fcc3cee666491d632c78d8e.15.llvm.3663151438746104753, i64 32, i1 false), !noalias !6917
@@ -37229,7 +37228,7 @@ select.unfold.i.i:                                ; preds = %451, %._crit_edge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false), !noalias !6919
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15), !noalias !6919
   %517 = add nuw i64 %.0.i165, 1
-  %518 = icmp eq i64 %517, %.idx
+  %518 = icmp eq i64 %517, %396
   br i1 %518, label %519, label %410
 
 519:                                              ; preds = %"_ZN13rust_analyzer3cli4lsif11LsifManager9add_token28_$u7b$$u7b$closure$u7d$$u7d$17hd194373123bb2cceE.exit.i"
@@ -37253,8 +37252,8 @@ select.unfold.i.i:                                ; preds = %451, %._crit_edge.i
   %.sroa.5301.0.copyload = phi i64 [ 0, %409 ], [ %.sroa.5301.0.copyload.pre, %519 ]
   %.sroa.4300.0.copyload = phi ptr [ %395, %409 ], [ %.sroa.4300.0.copyload.pre, %519 ]
   %.sroa.0299.0.copyload = load i64, ptr %2, align 8
-  %.idx358 = shl nsw i64 %.sroa.5301.0.copyload, 4
-  %523 = getelementptr inbounds i8, ptr %.sroa.4300.0.copyload, i64 %.idx358
+  %.idx = shl nsw i64 %.sroa.5301.0.copyload, 4
+  %523 = getelementptr inbounds i8, ptr %.sroa.4300.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45)
   store ptr %.sroa.4300.0.copyload, ptr %45, align 8
   %.sroa.4296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -37278,7 +37277,7 @@ select.unfold.i.i:                                ; preds = %451, %._crit_edge.i
   %.sroa.0313.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sroa.0313.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
   %.sroa.4314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %.sroa.5386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %.sroa.5385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.sroa.0313.sroa.7.sroa.4.0..sroa.0313.sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdee5e1b8afb3b44E.exit"
 
@@ -37659,7 +37658,7 @@ select.unfold.i.i:                                ; preds = %451, %._crit_edge.i
 
 657:                                              ; preds = %.noexc183
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5386.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5385.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i)
   store i64 %.sroa.3.0.copyload.i, ptr %43, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !7075)
@@ -55658,7 +55657,6 @@ define hidden void @_ZN13rust_analyzer6config11field_props17h3c5dc174f6c9079eE(p
   br i1 %635, label %_ZN13rust_analyzer6config21doc_comment_to_string17h125604ea00d91849E.exit, label %636
 
 636:                                              ; preds = %9
-  %.idx.i = and i64 %6, 1152921504606846975
   %637 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %638 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %639 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -55743,7 +55741,7 @@ common.resume:                                    ; preds = %.body2037, %655
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !10118
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15), !noalias !10118
   %659 = add nuw i64 %.0.i.i, 1
-  %660 = icmp eq i64 %659, %.idx.i
+  %660 = icmp eq i64 %659, %6
   br i1 %660, label %_ZN13rust_analyzer6config21doc_comment_to_string17h125604ea00d91849E.exit, label %645
 
 _ZN13rust_analyzer6config21doc_comment_to_string17h125604ea00d91849E.exit: ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he7702925ab546fc1E.exit.i.i", %9

@@ -532,28 +532,24 @@ define { i64, double } @"_ZN118_$LT$statrs..distribution..categorical..Categoric
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h81ab0c18d69fd862E.exit", label %7
+  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h81ab0c18d69fd862E.exit", label %.preheader
 
-7:                                                ; preds = %1
-  %.idx = and i64 %5, 2305843009213693951
-  br label %8
+.preheader:                                       ; preds = %1, %.preheader
+  %.sroa.0.0.i = phi i64 [ %11, %.preheader ], [ 0, %1 ]
+  %.sroa.07.0.i = phi double [ %10, %.preheader ], [ 0.000000e+00, %1 ]
+  %7 = getelementptr inbounds double, ptr %3, i64 %.sroa.0.0.i
+  %.val.i = load double, ptr %7, align 8, !noundef !4
+  %8 = uitofp i64 %.sroa.0.0.i to double
+  %9 = fmul double %.val.i, %8
+  %10 = fadd double %.sroa.07.0.i, %9
+  %11 = add nuw i64 %.sroa.0.0.i, 1
+  %12 = icmp eq i64 %11, %5
+  br i1 %12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h81ab0c18d69fd862E.exit", label %.preheader
 
-8:                                                ; preds = %8, %7
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ %13, %8 ]
-  %.sroa.07.0.i = phi double [ 0.000000e+00, %7 ], [ %12, %8 ]
-  %9 = getelementptr inbounds double, ptr %3, i64 %.sroa.0.0.i
-  %.val.i = load double, ptr %9, align 8, !noundef !4
-  %10 = uitofp i64 %.sroa.0.0.i to double
-  %11 = fmul double %.val.i, %10
-  %12 = fadd double %.sroa.07.0.i, %11
-  %13 = add nuw i64 %.sroa.0.0.i, 1
-  %14 = icmp eq i64 %13, %.idx
-  br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h81ab0c18d69fd862E.exit", label %8
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h81ab0c18d69fd862E.exit": ; preds = %8, %1
-  %.sroa.04.0.i = phi double [ 0.000000e+00, %1 ], [ %12, %8 ]
-  %15 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.04.0.i, 1
-  ret { i64, double } %15
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h81ab0c18d69fd862E.exit": ; preds = %.preheader, %1
+  %.sroa.04.0.i = phi double [ 0.000000e+00, %1 ], [ %10, %.preheader ]
+  %13 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.04.0.i, 1
+  ret { i64, double } %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -564,46 +560,38 @@ define { i64, double } @"_ZN118_$LT$statrs..distribution..categorical..Categoric
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !54, !noundef !4
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h99a4fa11703a388cE.exit", label %7
+  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h99a4fa11703a388cE.exit", label %.preheader.i
 
-7:                                                ; preds = %1
-  %.idx.i = and i64 %5, 2305843009213693951
-  br label %8
+.preheader.i:                                     ; preds = %1, %.preheader.i
+  %.sroa.0.0.i.i = phi i64 [ %11, %.preheader.i ], [ 0, %1 ]
+  %.sroa.07.0.i.i = phi double [ %10, %.preheader.i ], [ 0.000000e+00, %1 ]
+  %7 = getelementptr inbounds double, ptr %3, i64 %.sroa.0.0.i.i
+  %.val.i.i = load double, ptr %7, align 8, !noalias !54, !noundef !4
+  %8 = uitofp i64 %.sroa.0.0.i.i to double
+  %9 = fmul double %.val.i.i, %8
+  %10 = fadd double %.sroa.07.0.i.i, %9
+  %11 = add nuw i64 %.sroa.0.0.i.i, 1
+  %12 = icmp eq i64 %11, %5
+  br i1 %12, label %.preheader, label %.preheader.i
 
-8:                                                ; preds = %8, %7
-  %.sroa.0.0.i.i = phi i64 [ 0, %7 ], [ %13, %8 ]
-  %.sroa.07.0.i.i = phi double [ 0.000000e+00, %7 ], [ %12, %8 ]
-  %9 = getelementptr inbounds double, ptr %3, i64 %.sroa.0.0.i.i
-  %.val.i.i = load double, ptr %9, align 8, !noalias !54, !noundef !4
-  %10 = uitofp i64 %.sroa.0.0.i.i to double
-  %11 = fmul double %.val.i.i, %10
-  %12 = fadd double %.sroa.07.0.i.i, %11
-  %13 = add nuw i64 %.sroa.0.0.i.i, 1
-  %14 = icmp eq i64 %13, %.idx.i
-  br i1 %14, label %"_ZN118_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17hb453a449ec7c72c3E.exit", label %8
+.preheader:                                       ; preds = %.preheader.i, %.preheader
+  %.sroa.2.0.i = phi i64 [ %19, %.preheader ], [ 0, %.preheader.i ]
+  %.sroa.07.0.i = phi double [ %18, %.preheader ], [ 0.000000e+00, %.preheader.i ]
+  %13 = getelementptr inbounds double, ptr %3, i64 %.sroa.2.0.i
+  %.val.i = load double, ptr %13, align 8, !noalias !57, !noundef !4
+  %14 = uitofp i64 %.sroa.2.0.i to double
+  %15 = fsub double %14, %10
+  %16 = fmul double %15, %15
+  %17 = fmul double %.val.i, %16
+  %18 = fadd double %.sroa.07.0.i, %17
+  %19 = add nuw i64 %.sroa.2.0.i, 1
+  %20 = icmp eq i64 %19, %5
+  br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h99a4fa11703a388cE.exit", label %.preheader
 
-"_ZN118_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17hb453a449ec7c72c3E.exit": ; preds = %8
-  %.idx = and i64 %5, 2305843009213693951
-  br label %15
-
-15:                                               ; preds = %15, %"_ZN118_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17hb453a449ec7c72c3E.exit"
-  %.sroa.2.0.i = phi i64 [ 0, %"_ZN118_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17hb453a449ec7c72c3E.exit" ], [ %22, %15 ]
-  %.sroa.07.0.i = phi double [ 0.000000e+00, %"_ZN118_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17hb453a449ec7c72c3E.exit" ], [ %21, %15 ]
-  %16 = getelementptr inbounds double, ptr %3, i64 %.sroa.2.0.i
-  %.val.i = load double, ptr %16, align 8, !noalias !57, !noundef !4
-  %17 = uitofp i64 %.sroa.2.0.i to double
-  %18 = fsub double %17, %12
-  %19 = fmul double %18, %18
-  %20 = fmul double %.val.i, %19
-  %21 = fadd double %.sroa.07.0.i, %20
-  %22 = add nuw i64 %.sroa.2.0.i, 1
-  %23 = icmp eq i64 %22, %.idx
-  br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h99a4fa11703a388cE.exit", label %15
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h99a4fa11703a388cE.exit": ; preds = %15, %1
-  %.sroa.04.0.i = phi double [ 0.000000e+00, %1 ], [ %21, %15 ]
-  %24 = insertvalue { i64, double } { i64 1, double undef }, double %.sroa.04.0.i, 1
-  ret { i64, double } %24
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h99a4fa11703a388cE.exit": ; preds = %.preheader, %1
+  %.sroa.04.0.i = phi double [ 0.000000e+00, %1 ], [ %18, %.preheader ]
+  %21 = insertvalue { i64, double } { i64 1, double undef }, double %.sroa.04.0.i, 1
+  ret { i64, double } %21
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
@@ -613,37 +601,33 @@ define { i64, double } @"_ZN118_$LT$statrs..distribution..categorical..Categoric
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfb234e092db85261E.exit", label %7
+  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfb234e092db85261E.exit", label %.preheader
 
-7:                                                ; preds = %1
-  %.idx = and i64 %5, 2305843009213693951
-  br label %8
+.preheader:                                       ; preds = %1, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i"
+  %.sroa.07.0.i = phi double [ %.sroa.0.0.i.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i" ], [ 0.000000e+00, %1 ]
+  %.sroa.09.0.i = phi i64 [ %14, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds double, ptr %3, i64 %.sroa.09.0.i
+  %8 = load double, ptr %7, align 8, !alias.scope !60, !noundef !4
+  %9 = fcmp ogt double %8, 0.000000e+00
+  br i1 %9, label %10, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i"
 
-8:                                                ; preds = %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i", %7
-  %.sroa.07.0.i = phi double [ 0.000000e+00, %7 ], [ %.sroa.0.0.i.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i" ]
-  %.sroa.09.0.i = phi i64 [ 0, %7 ], [ %16, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i" ]
-  %9 = getelementptr inbounds double, ptr %3, i64 %.sroa.09.0.i
-  %10 = load double, ptr %9, align 8, !alias.scope !60, !noundef !4
-  %11 = fcmp ogt double %10, 0.000000e+00
-  br i1 %11, label %12, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i"
-
-12:                                               ; preds = %8
-  %13 = tail call noundef double @llvm.log.f64(double %10)
-  %14 = fmul double %10, %13
-  %15 = fadd double %.sroa.07.0.i, %14
+10:                                               ; preds = %.preheader
+  %11 = tail call noundef double @llvm.log.f64(double %8)
+  %12 = fmul double %8, %11
+  %13 = fadd double %.sroa.07.0.i, %12
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i"
 
-"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i": ; preds = %12, %8
-  %.sroa.0.0.i.i = phi double [ %15, %12 ], [ %.sroa.07.0.i, %8 ]
-  %16 = add nuw i64 %.sroa.09.0.i, 1
-  %17 = icmp eq i64 %16, %.idx
-  br i1 %17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfb234e092db85261E.exit", label %8
+"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i": ; preds = %10, %.preheader
+  %.sroa.0.0.i.i = phi double [ %13, %10 ], [ %.sroa.07.0.i, %.preheader ]
+  %14 = add nuw i64 %.sroa.09.0.i, 1
+  %15 = icmp eq i64 %14, %5
+  br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfb234e092db85261E.exit", label %.preheader
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfb234e092db85261E.exit": ; preds = %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i", %1
   %.sroa.04.0.i = phi double [ 0.000000e+00, %1 ], [ %.sroa.0.0.i.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i" ]
-  %18 = fneg double %.sroa.04.0.i
-  %19 = insertvalue { i64, double } { i64 1, double poison }, double %18, 1
-  ret { i64, double } %19
+  %16 = fneg double %.sroa.04.0.i
+  %17 = insertvalue { i64, double } { i64 1, double poison }, double %16, 1
+  ret { i64, double } %17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -760,7 +744,7 @@ define void @_ZN6statrs12distribution11categorical16prob_mass_to_cdf17h5d695172f
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8, !range !38, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br i1 %trunc, label %27, label %10
+  br i1 %trunc, label %25, label %10
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
@@ -772,59 +756,55 @@ define void @_ZN6statrs12distribution11categorical16prob_mass_to_cdf17h5d695172f
   store i64 0, ptr %13, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %14 = icmp eq i64 %2, 0
-  br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5e64970187947f24E.exit", label %15
+  br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5e64970187947f24E.exit", label %.preheader
 
-15:                                               ; preds = %10
-  %.idx = and i64 %2, 2305843009213693951
-  br label %16
+.preheader:                                       ; preds = %10, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i"
+  %15 = phi i64 [ %23, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i" ], [ 0, %10 ]
+  %.sroa.07.0.i = phi double [ %20, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i" ], [ 0.000000e+00, %10 ]
+  %16 = getelementptr inbounds double, ptr %1, i64 %15
+  %.val22.i = load double, ptr %16, align 8, !noalias !73, !noundef !4
+  %17 = load i64, ptr %5, align 8, !alias.scope !76, !noundef !4
+  %18 = icmp eq i64 %15, %17
+  br i1 %18, label %19, label %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i"
 
-16:                                               ; preds = %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i", %15
-  %17 = phi i64 [ 0, %15 ], [ %25, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i" ]
-  %.sroa.07.0.i = phi double [ 0.000000e+00, %15 ], [ %22, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i" ]
-  %18 = getelementptr inbounds double, ptr %1, i64 %17
-  %.val22.i = load double, ptr %18, align 8, !noalias !73, !noundef !4
-  %19 = load i64, ptr %5, align 8, !alias.scope !76, !noundef !4
-  %20 = icmp eq i64 %17, %19
-  br i1 %20, label %21, label %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i"
-
-21:                                               ; preds = %16
+19:                                               ; preds = %.preheader
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h8ae74b42406a7b03E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-          to label %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i" unwind label %29
+          to label %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i" unwind label %27
 
-"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i": ; preds = %21, %16
-  %22 = fadd double %.sroa.07.0.i, %.val22.i
-  %23 = load ptr, ptr %12, align 8, !alias.scope !76, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds double, ptr %23, i64 %17
-  store double %22, ptr %24, align 8
-  %25 = add i64 %17, 1
-  store i64 %25, ptr %13, align 8, !alias.scope !76
-  %26 = icmp eq i64 %25, %.idx
-  br i1 %26, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5e64970187947f24E.exit", label %16
+"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i": ; preds = %19, %.preheader
+  %20 = fadd double %.sroa.07.0.i, %.val22.i
+  %21 = load ptr, ptr %12, align 8, !alias.scope !76, !nonnull !4, !noundef !4
+  %22 = getelementptr inbounds double, ptr %21, i64 %15
+  store double %20, ptr %22, align 8
+  %23 = add nuw i64 %15, 1
+  store i64 %23, ptr %13, align 8, !alias.scope !76
+  %24 = icmp eq i64 %23, %2
+  br i1 %24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5e64970187947f24E.exit", label %.preheader
 
-27:                                               ; preds = %3
-  %28 = load i64, ptr %9, align 8
-  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %8, i64 %28) #19
+25:                                               ; preds = %3
+  %26 = load i64, ptr %9, align 8
+  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %8, i64 %26) #19
   unreachable
 
-29:                                               ; preds = %21
-  %30 = landingpad { ptr, i32 }
+27:                                               ; preds = %19
+  %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f64$GT$$GT$17h6cda13727dc6c8d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #20
-          to label %33 unwind label %31
+          to label %31 unwind label %29
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5e64970187947f24E.exit": ; preds = %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i", %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 
-31:                                               ; preds = %29
-  %32 = landingpad { ptr, i32 }
+29:                                               ; preds = %27
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #21
   unreachable
 
-33:                                               ; preds = %29
-  resume { ptr, i32 } %30
+31:                                               ; preds = %27
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

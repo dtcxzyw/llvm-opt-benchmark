@@ -4936,8 +4936,8 @@ define hidden void @"_ZN8language7outline16Outline$LT$T$GT$3new17h2e616817b1c494
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !4
-  %.idx94 = mul nsw i64 %26, 368
-  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx94
+  %.idx = mul nsw i64 %26, 368
+  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %._crit_edge, label %.lr.ph
 
@@ -5202,7 +5202,6 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %81, %78
           to label %.body unwind label %169, !noalias !1046
 
 123:                                              ; preds = %114
-  %.idx = and i64 %121, 1152921504606846975
   %124 = load ptr, ptr %95, align 8, !alias.scope !1059, !noalias !1061, !nonnull !4, !noundef !4
   %125 = load i64, ptr %97, align 8, !alias.scope !1059, !noalias !1061, !noundef !4
   br label %126
@@ -5298,7 +5297,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %81, %78
   %166 = add i64 %165, %151
   store i64 %166, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1069, !noalias !1072
   %167 = add nuw i64 %.sroa.06.0.i.i.i.i, 1
-  %168 = icmp eq i64 %167, %.idx
+  %168 = icmp eq i64 %167, %121
   br i1 %168, label %.loopexit, label %126
 
 169:                                              ; preds = %.loopexit.i
