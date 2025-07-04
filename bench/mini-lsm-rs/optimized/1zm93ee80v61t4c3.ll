@@ -6848,7 +6848,6 @@ _ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit.thread: ;
   br i1 %377, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5ccd0a8ac6a8904bE.exit", label %378
 
 378:                                              ; preds = %371
-  %.idx = and i64 %376, 2305843009213693951
   br i1 %77, label %select.unfold.invoke, label %.split
 
 .split:                                           ; preds = %378, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9733ec42e008bcE.exit.i.i"
@@ -6967,7 +6966,7 @@ select.unfold.cont:                               ; preds = %select.unfold.invok
   %424 = load i64, ptr %423, align 8, !noalias !1710, !noundef !9
   %425 = add i64 %424, %.018.i.i
   %426 = add nuw i64 %.017.i.i, 1
-  %427 = icmp eq i64 %426, %.idx
+  %427 = icmp eq i64 %426, %376
   br i1 %427, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5ccd0a8ac6a8904bE.exit.loopexit", label %.split
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5ccd0a8ac6a8904bE.exit.loopexit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9733ec42e008bcE.exit.i.i"

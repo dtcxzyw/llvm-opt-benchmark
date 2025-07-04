@@ -50878,96 +50878,92 @@ define hidden noundef double @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$
   call void @llvm.experimental.noalias.scope.decl(metadata !13963)
   call void @llvm.experimental.noalias.scope.decl(metadata !13966)
   %44 = icmp eq i64 %.val8.us.i.i.i, 0
-  br i1 %44, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h478374426bc2639dE.exit", label %45
+  br i1 %44, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h478374426bc2639dE.exit", label %.preheader.i.i.i
 
-45:                                               ; preds = %.lr.ph.split.us.i.i.i
-  %.idx.i.i.us.i.i.i = and i64 %.val8.us.i.i.i, 1152921504606846975
-  br label %46
-
-46:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i", %45
-  %.017.i.i.i.i.us.i.i.i = phi double [ %.0, %45 ], [ %.0.i.i.i.i.i.i.us.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i" ]
-  %.016.i.i.i.i.us.i.i.i = phi i64 [ 0, %45 ], [ %57, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i" ]
-  %47 = getelementptr inbounds { i64, double }, ptr %.val7.us.i.i.i, i64 %.016.i.i.i.i.us.i.i.i
+.preheader.i.i.i:                                 ; preds = %.lr.ph.split.us.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i"
+  %.017.i.i.i.i.us.i.i.i = phi double [ %.0.i.i.i.i.i.i.us.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i" ], [ %.0, %.lr.ph.split.us.i.i.i ]
+  %.016.i.i.i.i.us.i.i.i = phi i64 [ %55, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i" ], [ 0, %.lr.ph.split.us.i.i.i ]
+  %45 = getelementptr inbounds { i64, double }, ptr %.val7.us.i.i.i, i64 %.016.i.i.i.i.us.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !13969)
   call void @llvm.experimental.noalias.scope.decl(metadata !13972)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !13975
-  %48 = load ptr, ptr %8, align 8, !alias.scope !13981, !noalias !13982, !nonnull !4, !align !36, !noundef !4
+  %46 = load ptr, ptr %8, align 8, !alias.scope !13981, !noalias !13982, !nonnull !4, !align !36, !noundef !4
+  %47 = load i64, ptr %46, align 8, !noalias !13983, !noundef !4
+  %48 = load ptr, ptr %9, align 8, !alias.scope !13981, !noalias !13982, !nonnull !4, !align !36, !noundef !4
   %49 = load i64, ptr %48, align 8, !noalias !13983, !noundef !4
-  %50 = load ptr, ptr %9, align 8, !alias.scope !13981, !noalias !13982, !nonnull !4, !align !36, !noundef !4
-  %51 = load i64, ptr %50, align 8, !noalias !13983, !noundef !4
-  %52 = add i64 %51, %49
-  store i64 %49, ptr %6, align 8, !noalias !13975
-  store i64 %52, ptr %40, align 8, !noalias !13975
-  %53 = call noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17he00527ece9ccf594E.llvm.9217674556973953327(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %47), !noalias !13984
+  %50 = add i64 %49, %47
+  store i64 %47, ptr %6, align 8, !noalias !13975
+  store i64 %50, ptr %40, align 8, !noalias !13975
+  %51 = call noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17he00527ece9ccf594E.llvm.9217674556973953327(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %45), !noalias !13984
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !13975
-  br i1 %53, label %54, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i"
+  br i1 %51, label %52, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i"
 
-54:                                               ; preds = %46
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %56 = call noundef double @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4a28884ab2c68194E.llvm.9217674556973953327"(ptr noalias noundef nonnull align 1 %41, double noundef %.017.i.i.i.i.us.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %55), !noalias !13985
+52:                                               ; preds = %.preheader.i.i.i
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %54 = call noundef double @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4a28884ab2c68194E.llvm.9217674556973953327"(ptr noalias noundef nonnull align 1 %41, double noundef %.017.i.i.i.i.us.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %53), !noalias !13985
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i"
 
-"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i": ; preds = %54, %46
-  %.0.i.i.i.i.i.i.us.i.i.i = phi double [ %56, %54 ], [ %.017.i.i.i.i.us.i.i.i, %46 ]
-  %57 = add nuw i64 %.016.i.i.i.i.us.i.i.i, 1
-  %58 = icmp eq i64 %57, %.idx.i.i.us.i.i.i
-  br i1 %58, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h478374426bc2639dE.exit", label %46
+"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i": ; preds = %52, %.preheader.i.i.i
+  %.0.i.i.i.i.i.i.us.i.i.i = phi double [ %54, %52 ], [ %.017.i.i.i.i.us.i.i.i, %.preheader.i.i.i ]
+  %55 = add nuw i64 %.016.i.i.i.i.us.i.i.i, 1
+  %56 = icmp eq i64 %55, %.val8.us.i.i.i
+  br i1 %56, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h478374426bc2639dE.exit", label %.preheader.i.i.i
 
 "_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h478374426bc2639dE.exit": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i", %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17ha717fa6e0030eddbE.exit", %39, %.lr.ph.split.us.i.i.i
   %.0.i = phi double [ %.0, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17ha717fa6e0030eddbE.exit" ], [ %.0, %39 ], [ %.0, %.lr.ph.split.us.i.i.i ], [ %.0.i.i.i.i.i.i.us.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i.i.i.us.i.i.i" ]
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %60 = load ptr, ptr %59, align 8, !noundef !4
-  %.not19 = icmp eq ptr %60, null
-  br i1 %.not19, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17ha717fa6e0030eddbE.exit25", label %61
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %58 = load ptr, ptr %57, align 8, !noundef !4
+  %.not19 = icmp eq ptr %58, null
+  br i1 %.not19, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17ha717fa6e0030eddbE.exit25", label %59
 
-61:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h478374426bc2639dE.exit"
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %63 = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
+59:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h478374426bc2639dE.exit"
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %61 = load ptr, ptr %60, align 8, !nonnull !4, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !13986)
   call void @llvm.experimental.noalias.scope.decl(metadata !13989)
-  %64 = icmp eq ptr %60, %63
-  br i1 %64, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17ha717fa6e0030eddbE.exit25", label %65
+  %62 = icmp eq ptr %58, %61
+  br i1 %62, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17ha717fa6e0030eddbE.exit25", label %63
 
-65:                                               ; preds = %61
-  %66 = ptrtoint ptr %63 to i64
-  %67 = ptrtoint ptr %60 to i64
-  %68 = sub nuw i64 %66, %67
-  %69 = lshr exact i64 %68, 4
-  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  br label %72
+63:                                               ; preds = %59
+  %64 = ptrtoint ptr %61 to i64
+  %65 = ptrtoint ptr %58 to i64
+  %66 = sub nuw i64 %64, %65
+  %67 = lshr exact i64 %66, 4
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  br label %70
 
-72:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22", %65
-  %.017.i.i20 = phi double [ %.0.i, %65 ], [ %.0.i.i.i.i23, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22" ]
-  %.016.i.i21 = phi i64 [ 0, %65 ], [ %83, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22" ]
-  %73 = getelementptr inbounds { i64, double }, ptr %60, i64 %.016.i.i21
+70:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22", %63
+  %.017.i.i20 = phi double [ %.0.i, %63 ], [ %.0.i.i.i.i23, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22" ]
+  %.016.i.i21 = phi i64 [ 0, %63 ], [ %81, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22" ]
+  %71 = getelementptr inbounds { i64, double }, ptr %58, i64 %.016.i.i21
   call void @llvm.experimental.noalias.scope.decl(metadata !13992)
   call void @llvm.experimental.noalias.scope.decl(metadata !13995)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !13998
-  %74 = load ptr, ptr %8, align 8, !alias.scope !14004, !noalias !14005, !nonnull !4, !align !36, !noundef !4
+  %72 = load ptr, ptr %8, align 8, !alias.scope !14004, !noalias !14005, !nonnull !4, !align !36, !noundef !4
+  %73 = load i64, ptr %72, align 8, !noalias !14006, !noundef !4
+  %74 = load ptr, ptr %9, align 8, !alias.scope !14004, !noalias !14005, !nonnull !4, !align !36, !noundef !4
   %75 = load i64, ptr %74, align 8, !noalias !14006, !noundef !4
-  %76 = load ptr, ptr %9, align 8, !alias.scope !14004, !noalias !14005, !nonnull !4, !align !36, !noundef !4
-  %77 = load i64, ptr %76, align 8, !noalias !14006, !noundef !4
-  %78 = add i64 %77, %75
-  store i64 %75, ptr %5, align 8, !noalias !13998
-  store i64 %78, ptr %70, align 8, !noalias !13998
-  %79 = call noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17he00527ece9ccf594E.llvm.9217674556973953327(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %73), !noalias !14007
+  %76 = add i64 %75, %73
+  store i64 %73, ptr %5, align 8, !noalias !13998
+  store i64 %76, ptr %68, align 8, !noalias !13998
+  %77 = call noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17he00527ece9ccf594E.llvm.9217674556973953327(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %71), !noalias !14007
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !13998
-  br i1 %79, label %80, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22"
+  br i1 %77, label %78, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22"
 
-80:                                               ; preds = %72
-  %81 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %82 = call noundef double @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4a28884ab2c68194E.llvm.9217674556973953327"(ptr noalias noundef nonnull align 1 %71, double noundef %.017.i.i20, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %81), !noalias !14008
+78:                                               ; preds = %70
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %80 = call noundef double @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4a28884ab2c68194E.llvm.9217674556973953327"(ptr noalias noundef nonnull align 1 %69, double noundef %.017.i.i20, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %79), !noalias !14008
   br label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22"
 
-"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22": ; preds = %80, %72
-  %.0.i.i.i.i23 = phi double [ %82, %80 ], [ %.017.i.i20, %72 ]
-  %83 = add nuw i64 %.016.i.i21, 1
-  %84 = icmp eq i64 %83, %69
-  br i1 %84, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17ha717fa6e0030eddbE.exit25", label %72
+"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22": ; preds = %78, %70
+  %.0.i.i.i.i23 = phi double [ %80, %78 ], [ %.017.i.i20, %70 ]
+  %81 = add nuw i64 %.016.i.i21, 1
+  %82 = icmp eq i64 %81, %67
+  br i1 %82, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17ha717fa6e0030eddbE.exit25", label %70
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17ha717fa6e0030eddbE.exit25": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22", %61, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h478374426bc2639dE.exit"
-  %.1 = phi double [ %.0.i, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h478374426bc2639dE.exit" ], [ %.0.i, %61 ], [ %.0.i.i.i.i23, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22" ]
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17ha717fa6e0030eddbE.exit25": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22", %59, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h478374426bc2639dE.exit"
+  %.1 = phi double [ %.0.i, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h478374426bc2639dE.exit" ], [ %.0.i, %59 ], [ %.0.i.i.i.i23, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9ddb46a04a96d66eE.exit.i.i22" ]
   ret double %.1
 }
 

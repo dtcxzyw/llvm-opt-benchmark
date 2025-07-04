@@ -11815,13 +11815,12 @@ define hidden void @_ZN11uv_resolver9graph_ops19marker_reachability17h2aa5715ed8
   %30 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !3
-  %.idx113 = shl nsw i64 %32, 2
-  %33 = getelementptr inbounds i8, ptr %30, i64 %.idx113
+  %.idx = shl nsw i64 %32, 2
+  %33 = getelementptr inbounds i8, ptr %30, i64 %.idx
   %34 = icmp eq i64 %32, 0
   br i1 %34, label %.noexc37, label %.lr.ph
 
 35:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hf1a9c6d24a0e869cE.exit"
-  %.idx = and i64 %3, 1152921504606846975
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %37
 
@@ -11848,7 +11847,7 @@ define hidden void @_ZN11uv_resolver9graph_ops19marker_reachability17h2aa5715ed8
   %41 = load i64, ptr %36, align 8, !noundef !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %42 = add nuw i64 %.sroa.010.0.i, 1
-  %43 = icmp eq i64 %42, %.idx
+  %43 = icmp eq i64 %42, %3
   br i1 %43, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he91bd0d32c6e7285E.exit", label %37
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he91bd0d32c6e7285E.exit": ; preds = %.noexc36
@@ -12177,11 +12176,11 @@ select.unfold:                                    ; preds = %65, %._crit_edge.i.
           to label %.sink.split unwind label %.loopexit.split-lp.loopexit
 
 .sink.split:                                      ; preds = %175, %179, %184, %207
-  %.sink132 = phi i64 [ %204, %207 ], [ %204, %184 ], [ %176, %179 ], [ %176, %175 ]
+  %.sink131 = phi i64 [ %204, %207 ], [ %204, %184 ], [ %176, %179 ], [ %176, %175 ]
   %180 = load ptr, ptr %29, align 8, !noalias !3, !nonnull !3, !noundef !3
-  %181 = getelementptr inbounds i32, ptr %180, i64 %.sink132
+  %181 = getelementptr inbounds i32, ptr %180, i64 %.sink131
   store i32 %.sroa.3.0.copyload, ptr %181, align 4
-  %182 = add i64 %.sink132, 1
+  %182 = add i64 %.sink131, 1
   store i64 %182, ptr %31, align 8, !noalias !3
   br label %183
 

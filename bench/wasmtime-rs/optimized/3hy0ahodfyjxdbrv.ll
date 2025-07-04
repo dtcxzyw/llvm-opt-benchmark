@@ -29139,24 +29139,20 @@ define noundef i32 @_ZN17cranelift_codegen2ir8function15FunctionStencil16fixed_s
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %5 = load i64, ptr %4, align 8, !alias.scope !7872, !noundef !9
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h486d4caeb23bf180E.exit", label %7
+  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h486d4caeb23bf180E.exit", label %.preheader
 
-7:                                                ; preds = %1
-  %.idx = and i64 %5, 2305843009213693951
-  br label %8
+.preheader:                                       ; preds = %1, %.preheader
+  %.018.i = phi i32 [ %8, %.preheader ], [ 0, %1 ]
+  %.017.i = phi i64 [ %9, %.preheader ], [ 0, %1 ]
+  %7 = getelementptr inbounds { i32, i8, [3 x i8] }, ptr %3, i64 %.017.i
+  %.val.i = load i32, ptr %7, align 4, !noundef !9
+  %8 = add i32 %.val.i, %.018.i
+  %9 = add nuw i64 %.017.i, 1
+  %10 = icmp eq i64 %9, %5
+  br i1 %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h486d4caeb23bf180E.exit", label %.preheader
 
-8:                                                ; preds = %8, %7
-  %.018.i = phi i32 [ 0, %7 ], [ %10, %8 ]
-  %.017.i = phi i64 [ 0, %7 ], [ %11, %8 ]
-  %9 = getelementptr inbounds { i32, i8, [3 x i8] }, ptr %3, i64 %.017.i
-  %.val.i = load i32, ptr %9, align 4, !noundef !9
-  %10 = add i32 %.val.i, %.018.i
-  %11 = add nuw i64 %.017.i, 1
-  %12 = icmp eq i64 %11, %.idx
-  br i1 %12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h486d4caeb23bf180E.exit", label %8
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h486d4caeb23bf180E.exit": ; preds = %8, %1
-  %.0.i = phi i32 [ 0, %1 ], [ %10, %8 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h486d4caeb23bf180E.exit": ; preds = %.preheader, %1
+  %.0.i = phi i32 [ 0, %1 ], [ %8, %.preheader ]
   ret i32 %.0.i
 }
 

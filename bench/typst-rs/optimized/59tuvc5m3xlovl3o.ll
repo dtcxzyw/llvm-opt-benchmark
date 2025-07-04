@@ -70997,27 +70997,23 @@ define void @_ZN5typst4math8fragment13GlyphFragment3new17ha82d380105918fa6E(ptr 
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %17 = load i64, ptr %16, align 8, !alias.scope !12350, !noundef !4
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit, label %19
+  br i1 %18, label %_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit, label %.preheader.i
 
-19:                                               ; preds = %13
-  %.idx.i = and i64 %17, 288230376151711743
-  br label %20
+.preheader.i:                                     ; preds = %13, %.preheader.i
+  %.018.i.i = phi i16 [ %.0.i.i.i.i, %.preheader.i ], [ %.0, %13 ]
+  %.017.i.i = phi i64 [ %23, %.preheader.i ], [ 0, %13 ]
+  %19 = getelementptr inbounds { i64, [7 x i64] }, ptr %15, i64 %.017.i.i
+  %20 = tail call { i16, i16 } @_ZN5typst4math3ctx15GlyphwiseSubsts9try_apply17hcea8cdff48c2697cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %19, i16 noundef %.018.i.i), !noalias !12350
+  %21 = extractvalue { i16, i16 } %20, 0
+  %switch.i.i.i.i = icmp eq i16 %21, 0
+  %22 = extractvalue { i16, i16 } %20, 1
+  %.0.i.i.i.i = select i1 %switch.i.i.i.i, i16 %.018.i.i, i16 %22
+  %23 = add nuw i64 %.017.i.i, 1
+  %24 = icmp eq i64 %23, %17
+  br i1 %24, label %_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit, label %.preheader.i
 
-20:                                               ; preds = %20, %19
-  %.018.i.i = phi i16 [ %.0, %19 ], [ %.0.i.i.i.i, %20 ]
-  %.017.i.i = phi i64 [ 0, %19 ], [ %25, %20 ]
-  %21 = getelementptr inbounds { i64, [7 x i64] }, ptr %15, i64 %.017.i.i
-  %22 = tail call { i16, i16 } @_ZN5typst4math3ctx15GlyphwiseSubsts9try_apply17hcea8cdff48c2697cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %21, i16 noundef %.018.i.i), !noalias !12350
-  %23 = extractvalue { i16, i16 } %22, 0
-  %switch.i.i.i.i = icmp eq i16 %23, 0
-  %24 = extractvalue { i16, i16 } %22, 1
-  %.0.i.i.i.i = select i1 %switch.i.i.i.i, i16 %.018.i.i, i16 %24
-  %25 = add nuw i64 %.017.i.i, 1
-  %26 = icmp eq i64 %25, %.idx.i
-  br i1 %26, label %_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit, label %20
-
-_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit: ; preds = %20, %5, %13
-  %.0.i = phi i16 [ %.0, %5 ], [ %.0, %13 ], [ %.0.i.i.i.i, %20 ]
+_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit: ; preds = %.preheader.i, %5, %13
+  %.0.i = phi i16 [ %.0, %5 ], [ %.0, %13 ], [ %.0.i.i.i.i, %.preheader.i ]
   tail call void @_ZN5typst4math8fragment13GlyphFragment7with_id17hf2229dd5f8a15adfE(ptr noalias noundef nonnull sret({ { { [6 x i64] }, i64, [1 x i64] }, double, double, double, double, double, double, double, ptr, i64, { i32, [5 x i32] }, { [3 x i8], i8 }, i32, i16, i8, i8, i8, [3 x i8] }) align 16 captures(none) dereferenceable(176) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(544) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i16 noundef %.0.i, i64 noundef %4)
   ret void
 }
@@ -71031,7 +71027,7 @@ define void @_ZN5typst4math8fragment13GlyphFragment7try_new17hffe8a4bc8a89c39fE(
   %10 = extractvalue { i16, i16 } %9, 0
   %switch = icmp eq i16 %10, 0
   %11 = extractvalue { i16, i16 } %9, 1
-  br i1 %switch, label %29, label %12
+  br i1 %switch, label %27, label %12
 
 12:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12353)
@@ -71046,39 +71042,35 @@ define void @_ZN5typst4math8fragment13GlyphFragment7try_new17hffe8a4bc8a89c39fE(
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %19 = load i64, ptr %18, align 8, !alias.scope !12353, !noundef !4
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit, label %21
+  br i1 %20, label %_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit, label %.preheader.i
 
-21:                                               ; preds = %15
-  %.idx.i = and i64 %19, 288230376151711743
-  br label %22
+.preheader.i:                                     ; preds = %15, %.preheader.i
+  %.018.i.i = phi i16 [ %.0.i.i.i.i, %.preheader.i ], [ %11, %15 ]
+  %.017.i.i = phi i64 [ %25, %.preheader.i ], [ 0, %15 ]
+  %21 = getelementptr inbounds { i64, [7 x i64] }, ptr %17, i64 %.017.i.i
+  %22 = tail call { i16, i16 } @_ZN5typst4math3ctx15GlyphwiseSubsts9try_apply17hcea8cdff48c2697cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %21, i16 noundef %.018.i.i), !noalias !12353
+  %23 = extractvalue { i16, i16 } %22, 0
+  %switch.i.i.i.i = icmp eq i16 %23, 0
+  %24 = extractvalue { i16, i16 } %22, 1
+  %.0.i.i.i.i = select i1 %switch.i.i.i.i, i16 %.018.i.i, i16 %24
+  %25 = add nuw i64 %.017.i.i, 1
+  %26 = icmp eq i64 %25, %19
+  br i1 %26, label %_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit, label %.preheader.i
 
-22:                                               ; preds = %22, %21
-  %.018.i.i = phi i16 [ %11, %21 ], [ %.0.i.i.i.i, %22 ]
-  %.017.i.i = phi i64 [ 0, %21 ], [ %27, %22 ]
-  %23 = getelementptr inbounds { i64, [7 x i64] }, ptr %17, i64 %.017.i.i
-  %24 = tail call { i16, i16 } @_ZN5typst4math3ctx15GlyphwiseSubsts9try_apply17hcea8cdff48c2697cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %23, i16 noundef %.018.i.i), !noalias !12353
-  %25 = extractvalue { i16, i16 } %24, 0
-  %switch.i.i.i.i = icmp eq i16 %25, 0
-  %26 = extractvalue { i16, i16 } %24, 1
-  %.0.i.i.i.i = select i1 %switch.i.i.i.i, i16 %.018.i.i, i16 %26
-  %27 = add nuw i64 %.017.i.i, 1
-  %28 = icmp eq i64 %27, %.idx.i
-  br i1 %28, label %_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit, label %22
-
-_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit: ; preds = %22, %12, %15
-  %.0.i = phi i16 [ %11, %12 ], [ %11, %15 ], [ %.0.i.i.i.i, %22 ]
+_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit: ; preds = %.preheader.i, %12, %15
+  %.0.i = phi i16 [ %11, %12 ], [ %11, %15 ], [ %.0.i.i.i.i, %.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6)
   call void @_ZN5typst4math8fragment13GlyphFragment7with_id17hf2229dd5f8a15adfE(ptr noalias noundef nonnull sret({ { { [6 x i64] }, i64, [1 x i64] }, double, double, double, double, double, double, double, ptr, i64, { i32, [5 x i32] }, { [3 x i8], i8 }, i32, i16, i8, i8, i8, [3 x i8] }) align 16 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(544) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i16 noundef %.0.i, i64 noundef %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %0, ptr noundef nonnull align 16 dereferenceable(176) %6, i64 176, i1 false)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6)
-  br label %31
+  br label %29
 
-29:                                               ; preds = %5
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 3, ptr %30, align 8
-  br label %31
+27:                                               ; preds = %5
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 3, ptr %28, align 8
+  br label %29
 
-31:                                               ; preds = %29, %_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit
+29:                                               ; preds = %27, %_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_index17h2a2d06e0c4fcfb66E.llvm.5857379167208991996.exit
   ret void
 }
 
@@ -71507,27 +71499,23 @@ define hidden noundef i16 @_ZN5typst4math8fragment13GlyphFragment18adjust_glyph_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1217e71f08f5b13fE.llvm.5857379167208991996.exit", label %11
+  br i1 %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1217e71f08f5b13fE.llvm.5857379167208991996.exit", label %.preheader
 
-11:                                               ; preds = %5
-  %.idx = and i64 %9, 288230376151711743
-  br label %12
+.preheader:                                       ; preds = %5, %.preheader
+  %.018.i = phi i16 [ %.0.i.i.i, %.preheader ], [ %1, %5 ]
+  %.017.i = phi i64 [ %15, %.preheader ], [ 0, %5 ]
+  %11 = getelementptr inbounds { i64, [7 x i64] }, ptr %7, i64 %.017.i
+  %12 = tail call { i16, i16 } @_ZN5typst4math3ctx15GlyphwiseSubsts9try_apply17hcea8cdff48c2697cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %11, i16 noundef %.018.i)
+  %13 = extractvalue { i16, i16 } %12, 0
+  %switch.i.i.i = icmp eq i16 %13, 0
+  %14 = extractvalue { i16, i16 } %12, 1
+  %.0.i.i.i = select i1 %switch.i.i.i, i16 %.018.i, i16 %14
+  %15 = add nuw i64 %.017.i, 1
+  %16 = icmp eq i64 %15, %9
+  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1217e71f08f5b13fE.llvm.5857379167208991996.exit", label %.preheader
 
-12:                                               ; preds = %12, %11
-  %.018.i = phi i16 [ %1, %11 ], [ %.0.i.i.i, %12 ]
-  %.017.i = phi i64 [ 0, %11 ], [ %17, %12 ]
-  %13 = getelementptr inbounds { i64, [7 x i64] }, ptr %7, i64 %.017.i
-  %14 = tail call { i16, i16 } @_ZN5typst4math3ctx15GlyphwiseSubsts9try_apply17hcea8cdff48c2697cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %13, i16 noundef %.018.i)
-  %15 = extractvalue { i16, i16 } %14, 0
-  %switch.i.i.i = icmp eq i16 %15, 0
-  %16 = extractvalue { i16, i16 } %14, 1
-  %.0.i.i.i = select i1 %switch.i.i.i, i16 %.018.i, i16 %16
-  %17 = add nuw i64 %.017.i, 1
-  %18 = icmp eq i64 %17, %.idx
-  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1217e71f08f5b13fE.llvm.5857379167208991996.exit", label %12
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1217e71f08f5b13fE.llvm.5857379167208991996.exit": ; preds = %12, %5, %2
-  %.0 = phi i16 [ %1, %2 ], [ %1, %5 ], [ %.0.i.i.i, %12 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1217e71f08f5b13fE.llvm.5857379167208991996.exit": ; preds = %.preheader, %5, %2
+  %.0 = phi i16 [ %1, %2 ], [ %1, %5 ], [ %.0.i.i.i, %.preheader ]
   ret i16 %.0
 }
 
