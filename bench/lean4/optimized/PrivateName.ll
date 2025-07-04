@@ -948,7 +948,7 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
   %13 = load ptr, ptr @l_Lean_privateHeader, align 8, !tbaa !4
   %14 = tail call zeroext i8 @lean_name_eq(ptr noundef %.011.i, ptr noundef %13) #3
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %.backedge.i.backedge, label %29
+  br i1 %15, label %.backedge.i.backedge, label %l_Lean_isPrivateName.exit
 
 16:                                               ; preds = %lean_obj_tag.exit.i
   %17 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
@@ -983,27 +983,27 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-29:                                               ; preds = %10
-  %30 = tail call ptr @l___private_Lean_PrivateName_0__Lean_privateToUserNameAux(ptr noundef %0)
+l_Lean_isPrivateName.exit:                        ; preds = %10
+  %29 = tail call ptr @l___private_Lean_PrivateName_0__Lean_privateToUserNameAux(ptr noundef %0)
   tail call void @lean_inc_heartbeat() #3
-  %31 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %lean_alloc_ctor.exit
+  %30 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %lean_alloc_ctor.exit
 
-33:                                               ; preds = %29
+32:                                               ; preds = %l_Lean_isPrivateName.exit
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-lean_alloc_ctor.exit:                             ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 1, ptr %31, align 4, !tbaa !8
-  store i32 16842768, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %30, ptr %35, align 8, !tbaa !4
+lean_alloc_ctor.exit:                             ; preds = %l_Lean_isPrivateName.exit
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  store i32 1, ptr %30, align 4, !tbaa !8
+  store i32 16842768, ptr %33, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %29, ptr %34, align 8, !tbaa !4
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %19, %25, %27, %28, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %31, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %27 ], [ inttoptr (i64 1 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %19 ]
+  %.0 = phi ptr [ %30, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %28 ], [ inttoptr (i64 1 to ptr), %27 ], [ inttoptr (i64 1 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %19 ]
   ret ptr %.0
 }
 
@@ -1042,7 +1042,7 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
   %13 = load ptr, ptr @l_Lean_privateHeader, align 8, !tbaa !4
   %14 = tail call zeroext i8 @lean_name_eq(ptr noundef %.011.i, ptr noundef %13) #3
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %.backedge.i.backedge, label %19
+  br i1 %15, label %.backedge.i.backedge, label %l_Lean_isPrivateName.exit
 
 16:                                               ; preds = %lean_obj_tag.exit.i
   %17 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
@@ -1053,12 +1053,12 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
   %.011.i.be = phi ptr [ %18, %16 ], [ %12, %10 ]
   br label %.backedge.i
 
-19:                                               ; preds = %10
-  %20 = tail call ptr @l___private_Lean_PrivateName_0__Lean_privateToUserNameAux(ptr noundef %0)
+l_Lean_isPrivateName.exit:                        ; preds = %10
+  %19 = tail call ptr @l___private_Lean_PrivateName_0__Lean_privateToUserNameAux(ptr noundef %0)
   br label %l_Lean_isPrivateName.exit.thread
 
-l_Lean_isPrivateName.exit.thread:                 ; preds = %lean_obj_tag.exit.i, %19
-  %.0 = phi ptr [ %20, %19 ], [ %0, %lean_obj_tag.exit.i ]
+l_Lean_isPrivateName.exit.thread:                 ; preds = %lean_obj_tag.exit.i, %l_Lean_isPrivateName.exit
+  %.0 = phi ptr [ %l_Lean_isPrivateName.exit, %19 ], [ %0, %lean_obj_tag.exit.i ]
   ret ptr %.0
 }
 
@@ -1221,7 +1221,7 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
   %13 = load ptr, ptr @l_Lean_privateHeader, align 8, !tbaa !4
   %14 = tail call zeroext i8 @lean_name_eq(ptr noundef %.011.i, ptr noundef %13) #3
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %.backedge.i.backedge, label %.preheader
+  br i1 %15, label %.backedge.i.backedge, label %l_Lean_isPrivateName.exit
 
 16:                                               ; preds = %lean_obj_tag.exit.i
   %17 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
@@ -1256,19 +1256,19 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit9
 
-.preheader:                                       ; preds = %10, %35
+l_Lean_isPrivateName.exit:                        ; preds = %10, %35
   %.0.i = phi ptr [ %37, %35 ], [ %0, %10 ]
   %29 = ptrtoint ptr %.0.i to i64
   %30 = and i64 %29, 1
   %.not.i.i12 = icmp eq i64 %30, 0
   br i1 %.not.i.i12, label %lean_obj_tag.exit.thread.i, label %lean_obj_tag.exit.i13
 
-lean_obj_tag.exit.i13:                            ; preds = %.preheader
+lean_obj_tag.exit.i13:                            ; preds = %l_Lean_isPrivateName.exit
   %31 = and i64 %29, 8589934590
   %32 = icmp eq i64 %31, 2
   br i1 %32, label %35, label %l___private_Lean_PrivateName_0__Lean_privatePrefixAux.exit
 
-lean_obj_tag.exit.thread.i:                       ; preds = %.preheader
+lean_obj_tag.exit.thread.i:                       ; preds = %l_Lean_isPrivateName.exit
   %33 = getelementptr i8, ptr %.0.i, i64 4
   %.val.i.i14 = load i32, ptr %33, align 4
   %.mask.i = and i32 %.val.i.i14, -16777216
@@ -1278,7 +1278,7 @@ lean_obj_tag.exit.thread.i:                       ; preds = %.preheader
 35:                                               ; preds = %lean_obj_tag.exit.thread.i, %lean_obj_tag.exit.i13
   %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !4
-  br label %.preheader
+  br label %l_Lean_isPrivateName.exit
 
 .thread.i:                                        ; preds = %lean_obj_tag.exit.thread.i
   %.val.i5.i = load i32, ptr %.0.i, align 4, !tbaa !8

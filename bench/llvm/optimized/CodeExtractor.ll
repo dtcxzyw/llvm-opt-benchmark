@@ -14918,10 +14918,10 @@ _ZN4llvm15AssumptionCache11assumptionsEv.exit:    ; preds = %3, %9
   %14 = zext i32 %13 to i64
   %.idx = shl nuw nsw i64 %14, 5
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
-  %.not76 = icmp eq i32 %13, 0
-  br i1 %.not76, label %._crit_edge, label %.lr.ph78
+  %.not76.not = icmp eq i32 %13, 0
+  br i1 %.not76.not, label %._crit_edge, label %.lr.ph79
 
-.lr.ph78:                                         ; preds = %_ZN4llvm15AssumptionCache11assumptionsEv.exit
+.lr.ph79:                                         ; preds = %_ZN4llvm15AssumptionCache11assumptionsEv.exit
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -14932,7 +14932,7 @@ _ZN4llvm15AssumptionCache11assumptionsEv.exit:    ; preds = %3, %9
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %24
 
-24:                                               ; preds = %.lr.ph78, %113
+24:                                               ; preds = %.lr.ph79, %113
   %.03477 = phi ptr [ %11, %.lr.ph78 ], [ %114, %113 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
   store i64 4, ptr %4, align 8
@@ -15154,12 +15154,12 @@ _ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60: ; preds = %_ZN4llvm16dyn_cast_
 
 113:                                              ; preds = %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60, %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60
   %114 = getelementptr inbounds nuw i8, ptr %.03477, i64 32
-  %.not = icmp eq ptr %114, %15
-  br i1 %.not, label %._crit_edge.loopexit, label %24
+  %.not.not = icmp eq ptr %114, %15
+  br i1 %.not.not, label %._crit_edge, label %24
 
-._crit_edge.loopexit:                             ; preds = %113, %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60
-  %.035.ph = phi i32 [ %.136, %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60 ], [ 2, %113 ]
-  %115 = trunc i32 %.035.ph to i1
+._crit_edge:                                      ; preds = %113, %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60
+  %.not.lcssa = phi i32 [ %.136, %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60 ], [ 2, %113 ]
+  %115 = trunc i32 %.not.lcssa to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN4llvm15AssumptionCache11assumptionsEv.exit

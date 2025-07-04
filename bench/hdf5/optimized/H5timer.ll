@@ -359,7 +359,7 @@ H5__timer_get_timevals.exit.thread:               ; preds = %1
 
 39:                                               ; preds = %30, %7
   %.0.i.i = phi double [ %38, %30 ], [ 0.000000e+00, %7 ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %.0.i.i, ptr %40, align 8, !tbaa !25
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -373,17 +373,17 @@ H5__timer_get_timevals.exit.thread:               ; preds = %1
   %49 = fsub double %46, %48
   store double %49, ptr %45, align 8, !tbaa !30
   %50 = load double, ptr %4, align 8, !tbaa !32
-  %51 = load double, ptr %0, align 8, !tbaa !33
-  %52 = fsub double %50, %51
+  %53 = load double, ptr %0, align 8, !tbaa !33
+  %52 = fsub double %50, %53
   store double %52, ptr %4, align 8, !tbaa !32
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = load double, ptr %54, align 8, !tbaa !34
   %56 = fadd double %44, %55
   store double %56, ptr %54, align 8, !tbaa !34
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %58 = load double, ptr %57, align 8, !tbaa !35
-  %59 = fadd double %49, %58
+  %59 = fadd double %49, %56
   store double %59, ptr %57, align 8, !tbaa !35
   %60 = load double, ptr %53, align 8, !tbaa !36
   %61 = fadd double %52, %60
@@ -477,15 +477,15 @@ H5__timer_get_timevals.exit:                      ; preds = %8
   %55 = load double, ptr %54, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %55, ptr %56, align 8, !tbaa !25
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %58 = load double, ptr %57, align 8, !tbaa !30
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %58, ptr %59, align 8, !tbaa !19
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %56 = load double, ptr %55, align 8, !tbaa !30
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double %56, ptr %57, align 8, !tbaa !19
   %60 = load double, ptr %53, align 8, !tbaa !32
   store double %60, ptr %1, align 8, !tbaa !24
   br label %61
 
-61:                                               ; preds = %H5__timer_get_timevals.exit, %52, %.thread
+61:; preds = %H5__timer_get_timevals.exit, %52, %.thread
   %.1 = phi i32 [ -1, %H5__timer_get_timevals.exit ], [ 0, %.thread ], [ 0, %52 ]
   ret i32 %.1
 }
@@ -579,15 +579,15 @@ H5__timer_get_timevals.exit:                      ; preds = %8
   %64 = load double, ptr %63, align 8, !tbaa !34
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %64, ptr %65, align 8, !tbaa !25
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %67 = load double, ptr %66, align 8, !tbaa !35
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %67, ptr %68, align 8, !tbaa !19
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %65 = load double, ptr %64, align 8, !tbaa !35
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double %65, ptr %66, align 8, !tbaa !19
   %69 = load double, ptr %62, align 8, !tbaa !36
   store double %69, ptr %1, align 8, !tbaa !24
   br label %70
 
-70:                                               ; preds = %H5__timer_get_timevals.exit, %61, %.thread
+70:; preds = %H5__timer_get_timevals.exit, %61, %.thread
   %.1 = phi i32 [ -1, %H5__timer_get_timevals.exit ], [ 0, %.thread ], [ 0, %61 ]
   ret i32 %.1
 }

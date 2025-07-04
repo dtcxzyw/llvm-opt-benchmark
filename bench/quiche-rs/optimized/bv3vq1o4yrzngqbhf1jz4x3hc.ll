@@ -3352,15 +3352,15 @@ define { i8, i8 } @_ZN11quiche_apps6common26priority_from_query_string17h8c4955c
   %42 = load ptr, ptr %13, align 8, !nonnull !3
   %43 = load i64, ptr %14, align 8
   switch i64 %43, label %46 [
-    i64 0, label %.loopexit.loopexit64
+    i64 0, label %.loopexit
     i64 1, label %44
   ]
 
 44:                                               ; preds = %41
   %45 = load i8, ptr %42, align 1, !alias.scope !222, !noundef !3
   switch i8 %45, label %.lr.ph.i.preheader [
-    i8 43, label %.loopexit.loopexit64
-    i8 45, label %.loopexit.loopexit64
+    i8 43, label %.loopexit
+    i8 45, label %.loopexit
   ]
 
 .lr.ph.i.preheader:                               ; preds = %47, %51, %44
@@ -3444,7 +3444,7 @@ define { i8, i8 } @_ZN11quiche_apps6common26priority_from_query_string17h8c4955c
   %79 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdfc6144e18c3da94E"(ptr noalias noundef nonnull readonly align 1 %.val21, i64 noundef %.val22, ptr noalias noundef nonnull readonly align 1 @anon.496ad3ee9a508f328fb6f26431887050.231, i64 noundef 1)
           to label %"_ZN5alloc6string95_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$str$GT$$u20$for$u20$alloc..borrow..Cow$LT$str$GT$$GT$2eq17ha9f0480a32fd0736E.exit29" unwind label %.loopexit37
 
-.loopexit.loopexit64:                             ; preds = %44, %44, %41
+.loopexit:                                        ; preds = %44, %44, %41
   %.sroa.8.0.i.ph.ph65 = trunc nuw nsw i64 %43 to i8
   br label %.loopexit
 

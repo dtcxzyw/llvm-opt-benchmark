@@ -1450,20 +1450,20 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdSeekEl15__wasi_
   %7 = icmp slt i64 %6, 0
   br i1 %7, label %8, label %14
 
-8:                                                ; preds = %4
-  %9 = tail call ptr @__errno_location() #26
-  %10 = load i32, ptr %9, align 4
-  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #25
-  %12 = zext i16 %11 to i32
-  %13 = shl nuw i32 %12, 16
-  br label %15
+7:                                                ; preds = %4
+  %8 = tail call ptr @__errno_location() #26
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %9) #25
+  %11 = zext i16 %10 to i32
+  %12 = shl nuw i32 %11, 16
+  br label %14
 
-14:                                               ; preds = %4
+13:                                               ; preds = %4
   store i64 %6, ptr %3, align 8
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %8
-  %.sroa.05.0.insert.insert = phi i32 [ %13, %8 ], [ 1, %14 ]
+14:                                               ; preds = %13, %7
+  %.sroa.05.0.insert.insert = phi i32 [ %12, %8 ], [ 1, %14 ]
   ret i32 %.sroa.05.0.insert.insert
 }
 

@@ -484,7 +484,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %_ZNK6vectorISt4pair
   %38 = load i8, ptr %37, align 1, !tbaa !201
   switch i8 %38, label %57 [
     i8 1, label %41
-    i8 -1, label %.loopexit.loopexit
+    i8 -1, label %.loopexit
     i8 0, label %56
   ]
 
@@ -528,7 +528,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %43, %.noexc
 
 56:                                               ; preds = %30
   %.not52 = icmp eq i32 %.sroa.044.056, -2
-  br i1 %.not52, label %57, label %.loopexit.loopexit
+  br i1 %.not52, label %57, label %.loopexit
 
 57:                                               ; preds = %56, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit, %30
   %58 = phi ptr [ %31, %30 ], [ %50, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ], [ %31, %56 ]
@@ -646,7 +646,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %100, %104
   %108 = invoke noundef zeroext i1 @_ZN3smt10theory_seq13propagate_litEPN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyEjPKN3sat7literalESA_(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef %102, i32 noundef %.0.i, ptr noundef %58, i32 %107)
           to label %.loopexit unwind label %89
 
-.loopexit.loopexit:                               ; preds = %30, %56
+.loopexit:                                        ; preds = %30, %56
   %.4.ph = trunc nsw i8 %38 to i1
   br label %.loopexit
 

@@ -3368,88 +3368,88 @@ Gia_ManFormulaEndToken.exit63:                    ; preds = %36, %42
   %46 = load i8, ptr %.010.i62, align 1, !tbaa !32
   switch i8 %46, label %47 [
     i8 38, label %.sink.split
-    i8 124, label %.sink.split
-    i8 94, label %.sink.split
-    i8 63, label %.sink.split
+    i8 124, label %47
+    i8 94, label %47
+    i8 63, label %47
   ]
 
-.sink.split:                                      ; preds = %Gia_ManFormulaEndToken.exit63, %Gia_ManFormulaEndToken.exit63, %Gia_ManFormulaEndToken.exit63, %Gia_ManFormulaEndToken.exit63
+47:                                               ; preds = %Gia_ManFormulaEndToken.exit63, %Gia_ManFormulaEndToken.exit63, %Gia_ManFormulaEndToken.exit63, %Gia_ManFormulaEndToken.exit63
   %.sink = zext i8 %46 to i32
   %putchar45 = tail call i32 @putchar(i32 %.sink)
-  br label %47
+  br label %50
 
-47:                                               ; preds = %.sink.split, %Gia_ManFormulaEndToken.exit63
-  %48 = getelementptr inbounds nuw i8, ptr %.010.i62, i64 1
-  br label %49
+50:                                               ; preds = %.sink.split, %Gia_ManFormulaEndToken.exit63
+  %51 = getelementptr inbounds nuw i8, ptr %.010.i62, i64 1
+  br label %52
 
-49:                                               ; preds = %55, %47
+52:                                               ; preds = %58, %50
   %.09.i64 = phi i32 [ 0, %47 ], [ %.1.i66, %55 ]
-  %.0.i65 = phi ptr [ %48, %47 ], [ %57, %55 ]
-  %50 = load i8, ptr %.0.i65, align 1, !tbaa !32
-  switch i8 %50, label %55 [
+  %.0.i65 = phi ptr [ %51, %47 ], [ %60, %55 ]
+  %53 = load i8, ptr %.0.i65, align 1, !tbaa !32
+  switch i8 %53, label %55 [
     i8 0, label %Gia_ManFormulaEndToken.exit68
-    i8 40, label %51
-    i8 41, label %53
+    i8 40, label %54
+    i8 41, label %56
   ]
 
-51:                                               ; preds = %49
-  %52 = add nsw i32 %.09.i64, 1
-  br label %55
+54:                                               ; preds = %52
+  %55 = add nsw i32 %.09.i64, 1
+  br label %58
 
-53:                                               ; preds = %49
-  %54 = add nsw i32 %.09.i64, -1
-  br label %55
+56:                                               ; preds = %52
+  %57 = add nsw i32 %.09.i64, -1
+  br label %58
 
-55:                                               ; preds = %53, %51, %49
-  %.1.i66 = phi i32 [ %52, %51 ], [ %54, %53 ], [ %.09.i64, %49 ]
-  %56 = icmp eq i32 %.1.i66, 0
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 1
-  br i1 %56, label %Gia_ManFormulaEndToken.exit68, label %49, !llvm.loop !90
+58:                                               ; preds = %56, %54, %52
+  %.1.i66 = phi i32 [ %55, %51 ], [ %57, %53 ], [ %.09.i64, %49 ]
+  %59 = icmp eq i32 %.1.i66, 0
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 1
+  br i1 %59, label %Gia_ManFormulaEndToken.exit68, label %52, !llvm.loop !90
 
-Gia_ManFormulaEndToken.exit68:                    ; preds = %49, %55
-  %.010.i67 = phi ptr [ %57, %55 ], [ null, %49 ]
+Gia_ManFormulaEndToken.exit68:                    ; preds = %52, %58
+  %.010.i67 = phi ptr [ %60, %55 ], [ null, %49 ]
   %putchar47 = tail call i32 @putchar(i32 40)
-  tail call void @Gia_ManPrintFormula_rec(ptr noundef nonnull %48, ptr noundef %.010.i67)
+  tail call void @Gia_ManPrintFormula_rec(ptr noundef nonnull %51, ptr noundef %.010.i67)
   %putchar48 = tail call i32 @putchar(i32 41)
-  %58 = icmp eq i8 %46, 63
-  br i1 %58, label %59, label %common.ret113
+  %61 = icmp eq i8 %46, 63
+  br i1 %61, label %62, label %common.ret113
 
-59:                                               ; preds = %Gia_ManFormulaEndToken.exit68
+62:                                               ; preds = %Gia_ManFormulaEndToken.exit68
   %putchar49 = tail call i32 @putchar(i32 58)
-  %60 = getelementptr inbounds nuw i8, ptr %.010.i67, i64 1
-  br label %61
+  %63 = getelementptr inbounds nuw i8, ptr %.010.i67, i64 1
+  br label %64
 
-61:                                               ; preds = %67, %59
+64:                                               ; preds = %70, %62
   %.09.i69 = phi i32 [ 0, %59 ], [ %.1.i71, %67 ]
-  %.0.i70 = phi ptr [ %60, %59 ], [ %69, %67 ]
-  %62 = load i8, ptr %.0.i70, align 1, !tbaa !32
-  switch i8 %62, label %67 [
+  %.0.i70 = phi ptr [ %63, %59 ], [ %72, %67 ]
+  %65 = load i8, ptr %.0.i70, align 1, !tbaa !32
+  switch i8 %65, label %67 [
     i8 0, label %Gia_ManFormulaEndToken.exit73
-    i8 40, label %63
-    i8 41, label %65
+    i8 40, label %66
+    i8 41, label %68
   ]
 
-63:                                               ; preds = %61
-  %64 = add nsw i32 %.09.i69, 1
-  br label %67
+66:                                               ; preds = %64
+  %67 = add nsw i32 %.09.i69, 1
+  br label %70
 
-65:                                               ; preds = %61
-  %66 = add nsw i32 %.09.i69, -1
-  br label %67
+68:                                               ; preds = %64
+  %69 = add nsw i32 %.09.i69, -1
+  br label %70
 
-67:                                               ; preds = %65, %63, %61
-  %.1.i71 = phi i32 [ %64, %63 ], [ %66, %65 ], [ %.09.i69, %61 ]
-  %68 = icmp eq i32 %.1.i71, 0
-  %69 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 1
-  br i1 %68, label %Gia_ManFormulaEndToken.exit73, label %61, !llvm.loop !90
+70:                                               ; preds = %68, %66, %64
+  %.1.i71 = phi i32 [ %67, %63 ], [ %69, %65 ], [ %.09.i69, %61 ]
+  %71 = icmp eq i32 %.1.i71, 0
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 1
+  br i1 %71, label %Gia_ManFormulaEndToken.exit73, label %64, !llvm.loop !90
 
 common.ret113:                                    ; preds = %Gia_ManFormulaEndToken.exit68, %11, %19, %20, %14, %17, %Gia_ManFormulaEndToken.exit73
   ret void
 
-Gia_ManFormulaEndToken.exit73:                    ; preds = %61, %67
-  %.010.i72 = phi ptr [ %69, %67 ], [ null, %61 ]
+Gia_ManFormulaEndToken.exit73:                    ; preds = %64, %70
+  %.010.i72 = phi ptr [ %72, %67 ], [ null, %61 ]
   %putchar50 = tail call i32 @putchar(i32 40)
-  tail call void @Gia_ManPrintFormula_rec(ptr noundef nonnull %60, ptr noundef %.010.i72)
+  tail call void @Gia_ManPrintFormula_rec(ptr noundef nonnull %63, ptr noundef %.010.i72)
   %putchar51 = tail call i32 @putchar(i32 41)
   br label %common.ret113
 }

@@ -409,12 +409,12 @@ define internal fastcc void @_ZN5regex5regex6string5Regex11captures_at17h9983fbb
   %11 = alloca { { i32, [1 x i32] }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
   store i32 0, ptr %11, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %2, ptr %.sroa.420.0..sroa_idx, align 8
-  %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 %3, ptr %.sroa.521.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 0, ptr %.sroa.7.0..sroa_idx22, align 8
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %2, ptr %.sroa.421.0..sroa_idx, align 8
+  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i64 %3, ptr %.sroa.522.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i64 0, ptr %.sroa.7.0..sroa_idx23, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i64 %3, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -877,15 +877,15 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.7377480865939079465.exit.
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 32
   %173 = load i64, ptr %172, align 8, !range !74, !noundef !5
   %trunc.i = trunc nuw i64 %173 to i1
-  br i1 %trunc.i, label %174, label %.thread28
+  br i1 %trunc.i, label %174, label %.thread29
 
 174:                                              ; preds = %168
   %175 = getelementptr inbounds nuw i8, ptr %171, i64 40
   %176 = load i64, ptr %175, align 8
   %177 = call i64 @llvm.uadd.sat.i64(i64 %176, i64 1)
-  br label %.thread28
+  br label %.thread29
 
-.thread28:                                        ; preds = %168, %174
+.thread29:                                        ; preds = %168, %174
   %.sroa.3.0.i19 = phi i64 [ %177, %174 ], [ undef, %168 ]
   store i64 %173, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -898,7 +898,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.7377480865939079465.exit.
   store i64 %3, ptr %.sroa.7.0..sroa_idx, align 8
   br label %178
 
-178:                                              ; preds = %.thread28, %.thread
+178:                                              ; preds = %.thread29, %.thread
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   ret void

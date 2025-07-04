@@ -1629,7 +1629,7 @@ define dso_local void @_ZN4V3Os18filenameSubstituteERKNSt7__cxx1112basic_stringI
   br i1 %33, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  br i1 %34, label %.lr.ph.split.split.us.split, label %.critedge.loopexit283
+  br i1 %34, label %.lr.ph.split.split.us.split, label %.critedge.loopexit
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
   %55 = getelementptr inbounds nuw i8, ptr %23, i64 %37
@@ -1678,11 +1678,11 @@ define dso_local void @_ZN4V3Os18filenameSubstituteERKNSt7__cxx1112basic_stringI
   %exitcond.not = icmp eq i64 %70, %65
   br i1 %exitcond.not, label %.critedge, label %66, !llvm.loop !86
 
-.critedge.loopexit283:                            ; preds = %.lr.ph.split.split.us
+.critedge.loopexit:                               ; preds = %.lr.ph.split.split.us
   %71 = add i64 %22, -1
   br label %.critedge
 
-.critedge:                                        ; preds = %66, %.critedge2.us180, %58, %.critedge2.us165, %.critedge.loopexit283, %.thread
+.critedge:                                        ; preds = %66, %.critedge2.us180, %58, %.critedge2.us165, %.critedge.loopexit, %.thread
   %.054.lcssa = phi i64 [ %36, %.thread ], [ %71, %.critedge.loopexit283 ], [ %62, %58 ], [ %57, %.critedge2.us165 ], [ %70, %66 ], [ %65, %.critedge2.us180 ]
   %.lcssa = phi i64 [ %37, %.thread ], [ %22, %.critedge.loopexit283 ], [ %59, %58 ], [ %22, %.critedge2.us165 ], [ %67, %66 ], [ %22, %.critedge2.us180 ]
   br i1 %33, label %.critedge.thread247, label %75

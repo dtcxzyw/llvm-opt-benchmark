@@ -91390,7 +91390,7 @@ define void @"_ZN11ruff_linter5rules5isort10categorize1_100_$LT$impl$u20$schemar
 define void @"_ZN104_$LT$ruff_linter..rules..isort..categorize..ImportSection$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h7f87604fbb7fa45aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !range !103, !noundef !4
   %.not = icmp eq i64 %3, -9223372036854775808
-  br i1 %.not, label %"_ZN101_$LT$ruff_linter..rules..isort..categorize..ImportType$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h8f8aae587c5c1726E.exit", label %4
+  br i1 %.not, label %switch.lookup, label %4
 
 4:                                                ; preds = %2
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 1)
@@ -91402,16 +91402,16 @@ define void @"_ZN104_$LT$ruff_linter..rules..isort..categorize..ImportSection$u2
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef -1)
   br label %11
 
-"_ZN101_$LT$ruff_linter..rules..isort..categorize..ImportType$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h8f8aae587c5c1726E.exit": ; preds = %2
+switch.lookup:                                    ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7674)
   %10 = load i8, ptr %9, align 8, !range !292, !alias.scope !7674, !noalias !7677, !noundef !4
-  %.sink.i = zext nneg i8 %10 to i64
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.sink.i), !noalias !7674
+  %switch.idx.cast = zext nneg i8 %10 to i64
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %switch.idx.cast), !noalias !7674
   br label %11
 
-11:                                               ; preds = %"_ZN101_$LT$ruff_linter..rules..isort..categorize..ImportType$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h8f8aae587c5c1726E.exit", %4
+11:                                               ; preds = %switch.lookup, %4
   ret void
 }
 

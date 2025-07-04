@@ -5455,22 +5455,22 @@ parse_CInGroupSortAggregSet_type.exit:            ; preds = %6
   %18 = add i32 %2, 1
   %19 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %18, i32 noundef 4, ptr noundef %4, ptr noundef nonnull @.str.1324)
   %20 = icmp eq i8 %14, 3
-  br i1 %20, label %21, label %23
+  br i1 %20, label %24, label %26
 
-21:                                               ; preds = %parse_CInGroupSortAggregSet_type.exit
+24:                                               ; preds = %parse_CInGroupSortAggregSet_type.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #11
-  %22 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %19, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.1325)
+  %25 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %19, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.1325)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #11
-  br label %23
+  br label %26
 
-23:                                               ; preds = %21, %parse_CInGroupSortAggregSet_type.exit
-  %.0 = phi i32 [ %22, %21 ], [ %19, %parse_CInGroupSortAggregSet_type.exit ]
-  %24 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CSortSet(ptr noundef %0, i32 noundef %.0, ptr noundef %13, ptr noundef %4, ptr nonnull poison)
-  %25 = load ptr, ptr %7, align 8
-  call void @proto_item_set_end(ptr noundef %25, ptr noundef %0, i32 noundef %24)
+26:                                               ; preds = %24, %parse_CInGroupSortAggregSet_type.exit
+  %.0 = phi i32 [ %25, %21 ], [ %19, %parse_CInGroupSortAggregSet_type.exit ]
+  %27 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CSortSet(ptr noundef %0, i32 noundef %.0, ptr noundef %13, ptr noundef %4, ptr nonnull poison)
+  %28 = load ptr, ptr %7, align 8
+  call void @proto_item_set_end(ptr noundef %28, ptr noundef %0, i32 noundef %27)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  ret i32 %24
+  ret i32 %27
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

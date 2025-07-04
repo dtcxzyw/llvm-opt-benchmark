@@ -75668,7 +75668,7 @@ define hidden void @_ZN11ruff_linter5rules6refurb5rules27single_item_membership_
   %switch = icmp eq i8 %25, 8
   br i1 %switch, label %26, label %_ZN11ruff_linter5rules6refurb5rules27single_item_membership_test11single_item17ha6411569ec4ed3f7E.exit.thread
 
-26:                                               ; preds = %23
+25:                                               ; preds = %23
   %27 = load i32, ptr %5, align 8, !range !312, !noundef !4
   switch i32 %27, label %_ZN11ruff_linter5rules6refurb5rules27single_item_membership_test11single_item17ha6411569ec4ed3f7E.exit.thread [
     i32 7, label %54

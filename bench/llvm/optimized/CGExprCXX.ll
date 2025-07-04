@@ -3659,7 +3659,7 @@ _ZL31EmitNullBaseClassInitializationRN5clang7CodeGen15CodeGenFunctionENS0_7Addre
   %.1 = xor i1 %257, true
   br label %258
 
-258:                                              ; preds = %256, %252, %248
+257:                                              ; preds = %256, %252, %248
   %.023 = phi i32 [ %255, %252 ], [ 1, %256 ], [ 0, %248 ]
   %.022 = phi i1 [ false, %252 ], [ %.1, %256 ], [ false, %248 ]
   %.0 = phi i1 [ true, %252 ], [ false, %256 ], [ false, %248 ]

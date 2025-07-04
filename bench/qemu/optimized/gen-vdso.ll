@@ -191,7 +191,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.7, ptr noundef %25, i32 noundef %64) #15
   br label %589
 
-67:                                               ; preds = %60
+68:                                               ; preds = %60
   %68 = trunc i8 %62 to i1
   %.073 = xor i1 %68, true
   %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.8, ptr noundef %.1) #11
@@ -202,7 +202,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
     i8 2, label %315
   ]
 
-72:                                               ; preds = %67
+72:                                               ; preds = %68
   br i1 %68, label %113, label %73
 
 73:                                               ; preds = %72
@@ -737,7 +737,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   store i16 %314, ptr %120, align 4, !tbaa !27
   br label %elf32_process.exit.sink.split
 
-315:                                              ; preds = %67
+315:                                              ; preds = %68
   br i1 %68, label %356, label %316
 
 316:                                              ; preds = %315
@@ -1270,7 +1270,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   store i16 %554, ptr %362, align 4, !tbaa !61
   br label %elf32_process.exit.sink.split
 
-555:                                              ; preds = %67
+555:                                              ; preds = %68
   %556 = zext i8 %71 to i32
   %557 = load ptr, ptr @stderr, align 8, !tbaa !9
   %558 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %557, ptr noundef nonnull @.str.9, ptr noundef %25, i32 noundef %556) #15

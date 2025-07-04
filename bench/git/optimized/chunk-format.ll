@@ -663,11 +663,11 @@ hash_algo_by_ptr.exit:                            ; preds = %2
   br i1 %switch, label %8, label %hash_algo_by_ptr.exit.thread
 
 hash_algo_by_ptr.exit.thread:                     ; preds = %4, %hash_algo_by_ptr.exit
-  %7 = tail call fastcc ptr @_(ptr noundef nonnull @.str.9)
-  tail call void (ptr, ...) @die(ptr noundef %7) #12
+  %8 = tail call fastcc ptr @_(ptr noundef nonnull @.str.9)
+  tail call void (ptr, ...) @die(ptr noundef %8) #12
   unreachable
 
-8:                                                ; preds = %hash_algo_by_ptr.exit
+9:                                                ; preds = %hash_algo_by_ptr.exit
   %.0 = trunc i64 %.0811.i to i8
   ret i8 %.0
 }

@@ -811,7 +811,7 @@ _ZNK5boost9unit_test13basic_cstringIKcE4findES3_.exit.thread.i: ; preds = %_ZN5b
 
 _ZN5boost5debug14under_debuggerEv.exit:           ; preds = %_ZNK5boost9unit_test13basic_cstringIKcE4findES3_.exit.i
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %2) #32
-  br label %98
+  br label %97
 
 .loopexit:                                        ; preds = %_ZNK5boost9unit_test13basic_cstringIKcE4findES3_.exit.thread.i, %1
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %3) #32
@@ -991,19 +991,19 @@ _ZN5boost8functionIFvRKNS_5debug16dbg_startup_infoEEEC2ERKS6_.exit.thread: ; pre
   %94 = invoke i32 @close(i32 noundef %34)
           to label %_ZN5boost5debug12_GLOBAL__N_19fd_holderD2Ev.exit unwind label %95
 
-95:                                               ; preds = %.thread42
-  %96 = landingpad { ptr, i32 }
+94:                                               ; preds = %.thread42
+  %95 = landingpad { ptr, i32 }
           catch ptr null
-  %97 = extractvalue { ptr, i32 } %96, 0
-  call void @__clang_call_terminate(ptr %97) #30
+  %96 = extractvalue { ptr, i32 } %95, 0
+  call void @__clang_call_terminate(ptr %96) #30
   unreachable
 
 _ZN5boost5debug12_GLOBAL__N_19fd_holderD2Ev.exit: ; preds = %.loopexit, %.thread42
   %.141 = phi i1 [ %.144, %.thread42 ], [ false, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %3) #32
-  br label %98
+  br label %97
 
-98:                                               ; preds = %_ZN5boost5debug14under_debuggerEv.exit, %_ZN5boost5debug12_GLOBAL__N_19fd_holderD2Ev.exit
+97:                                               ; preds = %_ZN5boost5debug14under_debuggerEv.exit, %_ZN5boost5debug12_GLOBAL__N_19fd_holderD2Ev.exit
   %.0 = phi i1 [ %.141, %_ZN5boost5debug12_GLOBAL__N_19fd_holderD2Ev.exit ], [ false, %_ZN5boost5debug14under_debuggerEv.exit ]
   ret i1 %.0
 }

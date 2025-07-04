@@ -6574,7 +6574,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptSubpassInputTypeERNS_
   %switch = icmp eq i32 %7, 296
   br i1 %switch, label %8, label %97
 
-8:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
   store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6633,7 +6633,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptSubpassInputTypeERNS_
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 344
   %37 = load ptr, ptr %36, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %37(ptr noundef nonnull align 8 dereferenceable(1280) %33, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1) #16
-  br label %97
+  br label %94
 
 38:                                               ; preds = %29
   %39 = load i32, ptr %9, align 8
@@ -6653,7 +6653,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptSubpassInputTypeERNS_
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 344
   %46 = load ptr, ptr %45, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %46(ptr noundef nonnull align 8 dereferenceable(1280) %42, ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.1) #16
-  br label %97
+  br label %94
 
 47:                                               ; preds = %38, %38, %38, %38
   %48 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 374) #16
@@ -6667,7 +6667,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptSubpassInputTypeERNS_
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 344
   %55 = load ptr, ptr %54, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %55(ptr noundef nonnull align 8 dereferenceable(1280) %51, ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull @.str, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1) #16
-  br label %97
+  br label %94
 
 56:                                               ; preds = %47
   %.pre = load i32, ptr %9, align 8
@@ -6691,20 +6691,20 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptSubpassInputTypeERNS_
 
 .thread:                                          ; preds = %8, %56, %59
   %70 = phi i32 [ %69, %59 ], [ %57, %56 ], [ 1, %8 ]
-  %71 = shl nuw nsw i32 %6, 18
+  %71 = shl nuw nsw i32 %6, 17
   %72 = and i32 %71, 262144
   %73 = or disjoint i32 %72, %70
   %74 = or disjoint i32 %73, 520619776
   store i32 %74, ptr %5, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %76 = load ptr, ptr %75, align 8
+  %75 = getelementptr inbounds nuw i7, ptr %0, i64 328
+  %76 = load ptr, ptr %75, align 7
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = call noundef zeroext i1 @_ZN7glslang16HlslParseContext20setTextureReturnTypeERNS_8TSamplerERKNS_5TTypeERKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2489) %76, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(24) %77) #16
-  br i1 %78, label %79, label %97
+  br i1 %77, label %79, label %94
 
-79:                                               ; preds = %.thread
+79:; preds = %.thread
   %80 = load i32, ptr %5, align 4
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %81 = getelementptr inbounds nuw i7, ptr %1, i64 8
   %82 = load i32, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 %80, ptr %83, align 8
@@ -6738,27 +6738,27 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptSubpassInputTypeERNS_
   store i8 0, ptr %.sroa.30.16..sroa_idx, align 8
   %.sroa.31.16..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 89
   store i8 0, ptr %.sroa.31.16..sroa_idx, align 1
-  %85 = and i32 %82, -2097152
-  %86 = or disjoint i32 %85, 270
-  store i32 %86, ptr %81, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store ptr null, ptr %87, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, i8 0, i64 16, i1 false)
-  %89 = load ptr, ptr %1, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 296
-  %91 = load ptr, ptr %90, align 8
-  %92 = call noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store ptr null, ptr %93, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, i8 0, i64 16, i1 false)
-  %95 = load i32, ptr %81, align 8
-  %96 = and i32 %95, -132120577
-  store i32 %96, ptr %81, align 8
-  br label %97
+  %82 = and i32 %82, -2097152
+  %83 = or disjoint i32 %82, 270
+  store i32 %83, ptr %81, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store ptr null, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
+  %86 = load ptr, ptr %1, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 296
+  %88 = load ptr, ptr %87, align 8
+  %89 = call noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  store ptr null, ptr %90, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
+  %92 = load i32, ptr %81, align 8
+  %93 = and i32 %92, -132120577
+  store i32 %93, ptr %81, align 8
+  br label %94
 
-97:                                               ; preds = %31, %40, %49, %79, %.thread, %2
+94:                                               ; preds = %31, %40, %49, %79, %.thread, %2
   %.0 = phi i1 [ false, %2 ], [ false, %40 ], [ true, %79 ], [ false, %49 ], [ false, %31 ], [ false, %.thread ]
   ret i1 %.0
 }

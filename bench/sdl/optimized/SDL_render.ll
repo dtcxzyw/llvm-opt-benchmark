@@ -1902,7 +1902,7 @@ define hidden zeroext i1 @SDL_SetRenderVSync_REAL(ptr noundef %0, i32 noundef %1
 
 4:                                                ; preds = %2
   %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5) #15
-  br label %55
+  br label %56
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 688
@@ -1912,7 +1912,7 @@ define hidden zeroext i1 @SDL_SetRenderVSync_REAL(ptr noundef %0, i32 noundef %1
 
 10:                                               ; preds = %6
   %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.29) #15
-  br label %55
+  br label %56
 
 12:                                               ; preds = %6
   %13 = icmp ne i32 %1, 0
@@ -1931,11 +1931,11 @@ define hidden zeroext i1 @SDL_SetRenderVSync_REAL(ptr noundef %0, i32 noundef %1
   br i1 %.not, label %22, label %25
 
 22:                                               ; preds = %19
-  br i1 %13, label %23, label %55
+  br i1 %13, label %23, label %56
 
 23:                                               ; preds = %22
   %24 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.54) #15
-  br label %55
+  br label %56
 
 25:                                               ; preds = %19
   %26 = tail call zeroext i1 @SDL_SetWindowTextureVSync(ptr noundef null, ptr noundef nonnull %21, i32 noundef %1) #15
@@ -1944,7 +1944,7 @@ define hidden zeroext i1 @SDL_SetRenderVSync_REAL(ptr noundef %0, i32 noundef %1
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 258
   store i8 0, ptr %28, align 2
-  br label %55
+  br label %56
 
 29:                                               ; preds = %25, %12
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1954,7 +1954,7 @@ define hidden zeroext i1 @SDL_SetRenderVSync_REAL(ptr noundef %0, i32 noundef %1
 
 32:                                               ; preds = %29
   %33 = tail call zeroext i1 %31(ptr noundef nonnull %0, i32 noundef %1) #15
-  br i1 %33, label %38, label %34
+  br i1 %33, label %39, label %34
 
 34:                                               ; preds = %32, %29
   %switch = icmp ult i32 %1, 2
@@ -1966,45 +1966,45 @@ define hidden zeroext i1 @SDL_SetRenderVSync_REAL(ptr noundef %0, i32 noundef %1
 
 .sink.split:                                      ; preds = %34
   %.sink = trunc nuw i32 %1 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 258
-  store i8 %.sink, ptr %37, align 2
-  br label %38
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 258
+  store i8 %.sink, ptr %38, align 2
+  br label %39
 
-38:                                               ; preds = %.sink.split, %32
-  %39 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %0, i32 noundef 2) #15
-  br i1 %39, label %42, label %40
+39:                                               ; preds = %.sink.split, %32
+  %40 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %0, i32 noundef 2) #15
+  br i1 %40, label %43, label %41
 
-40:                                               ; preds = %38
-  %41 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5) #15
+41:                                               ; preds = %39
+  %42 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5) #15
   br label %SDL_GetRendererProperties_REAL.exit
 
-42:                                               ; preds = %38
-  %43 = load i8, ptr %7, align 8, !range !3, !noundef !4
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %45, label %47
+43:                                               ; preds = %39
+  %44 = load i8, ptr %7, align 8, !range !3, !noundef !4
+  %45 = trunc nuw i8 %44 to i1
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %42
-  %46 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.29) #15
+46:                                               ; preds = %43
+  %47 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.29) #15
   br label %SDL_GetRendererProperties_REAL.exit
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %SDL_GetRendererProperties_REAL.exit
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %SDL_GetRendererProperties_REAL.exit
 
-51:                                               ; preds = %47
-  %52 = tail call i32 @SDL_CreateProperties_REAL() #15
-  store i32 %52, ptr %48, align 8
+52:                                               ; preds = %48
+  %53 = tail call i32 @SDL_CreateProperties_REAL() #15
+  store i32 %53, ptr %49, align 8
   br label %SDL_GetRendererProperties_REAL.exit
 
-SDL_GetRendererProperties_REAL.exit:              ; preds = %40, %45, %47, %51
-  %.0.i = phi i32 [ 0, %45 ], [ 0, %40 ], [ %52, %51 ], [ %49, %47 ]
-  %53 = sext i32 %1 to i64
-  %54 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %.0.i, ptr noundef nonnull @.str.91, i64 noundef %53) #15
-  br label %55
+SDL_GetRendererProperties_REAL.exit:              ; preds = %41, %46, %48, %52
+  %.0.i = phi i32 [ 0, %45 ], [ 0, %40 ], [ %53, %51 ], [ %50, %47 ]
+  %54 = sext i32 %1 to i64
+  %55 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %.0.i, ptr noundef nonnull @.str.91, i64 noundef %54) #15
+  br label %56
 
-55:                                               ; preds = %22, %SDL_GetRendererProperties_REAL.exit, %35, %27, %23, %10, %4
+56:                                               ; preds = %22, %SDL_GetRendererProperties_REAL.exit, %35, %27, %23, %10, %4
   %.0 = phi i1 [ false, %10 ], [ true, %27 ], [ true, %SDL_GetRendererProperties_REAL.exit ], [ %36, %35 ], [ %24, %23 ], [ false, %4 ], [ true, %22 ]
   ret i1 %.0
 }

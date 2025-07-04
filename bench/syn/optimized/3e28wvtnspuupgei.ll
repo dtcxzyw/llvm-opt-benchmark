@@ -6642,34 +6642,34 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %27, %29
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN3syn3mac8printing42_$LT$impl$u20$syn..mac..MacroDelimiter$GT$8surround17ha05cd8cc682e0607E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { { i64, [3 x i64] } } } }, align 8
-  %5 = alloca { { i32, [5 x i32] } }, align 8
-  %6 = alloca { { i64, [3 x i64] }, { {} } }, align 8
+  %3 = alloca { { i32, [5 x i32] } }, align 8
+  %4 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %7 = load i32, ptr %0, align 4, !range !73, !noundef !12
   %.sroa.5.0.in = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.5.0 = load i32, ptr %.sroa.5.0.in, align 4
-  %8 = icmp eq i32 %.sroa.5.0, 0
+  %7 = icmp eq i32 %.sroa.5.0, 0
   %.sroa.04.0.in = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.04.0 = load i32, ptr %.sroa.04.0.in, align 4
-  %.0 = select i1 %8, i32 0, i32 %.sroa.04.0
+  %.0 = select i1 %7, i32 0, i32 %.sroa.04.0
   %.016 = trunc nuw nsw i32 %7 to i8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1221
-  call void @_ZN11proc_macro25Group3new17h42573d608bedf520E(ptr noalias noundef nonnull sret({ { i32, [5 x i32] } }) align 8 captures(none) dereferenceable(24) %5, i8 noundef %.016, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6), !noalias !1225
+  call void @_ZN11proc_macro25Group3new17h42573d608bedf520E(ptr noalias noundef nonnull sret({ { i32, [5 x i32] } }) align 8 captures(none) dereferenceable(24) %5, i8 noundef %.016, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4), !noalias !1225
   invoke void @_ZN11proc_macro25Group8set_span17hb2e918b3aeb53966E(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %.0)
           to label %_ZN3syn5token8printing5delim17hd3c311fe639540afE.exit unwind label %10, !noalias !1221
 
-9:                                                ; preds = %10
-  resume { ptr, i32 } %11
+8:                                                ; preds = %9
+  resume { ptr, i32 } %10
 
-10:                                               ; preds = %3
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %3
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Group$GT$17hd0207ca369254018E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #27
-          to label %9 unwind label %12, !noalias !1221
+          to label %9 unwind label %11, !noalias !1221
 
-12:                                               ; preds = %10
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %9
+  %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23, !noalias !1221
   unreachable

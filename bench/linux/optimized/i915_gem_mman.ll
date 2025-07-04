@@ -816,7 +816,7 @@ define dso_local i32 @i915_gem_mmap_offset_ioctl(ptr noundef readonly captures(n
   %28 = tail call fastcc i32 @__assign_mmap_offset_handle(ptr noundef %2, i32 noundef %26, i32 noundef %25, ptr noundef nonnull %27)
   br label %29
 
-29:                                               ; preds = %24, %22, %20, %12, %9, %3
+29:; preds = %24, %22, %20, %12, %9, %3
   %30 = phi i32 [ %28, %24 ], [ %7, %3 ], [ -19, %12 ], [ -19, %20 ], [ -19, %22 ], [ -22, %9 ]
   ret i32 %30
 }

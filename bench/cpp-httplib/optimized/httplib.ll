@@ -40667,7 +40667,7 @@ define noundef zeroext i1 @_ZN7httplib6Server27write_content_with_providerERNS_6
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %257, %._crit_edge.i.i.lr.ph.i.i
-  %.015320.i.i = phi i64 [ 0, %._crit_edge.i.i.lr.ph.i.i ], [ %258, %257 ]
+  %.015318.i.i = phi i64 [ 0, %._crit_edge.i.i.lr.ph.i.i ], [ %258, %257 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #47
   store ptr %59, ptr %27, align 8, !tbaa !17
   store i16 11565, ptr %59, align 8
@@ -40902,7 +40902,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137.i.i: ; preds =
 ._crit_edge.i.i138.i.i:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #47
   %171 = load ptr, ptr %42, align 8, !tbaa !336
-  %172 = getelementptr inbounds nuw %"struct.std::pair.101", ptr %171, i64 %.015320.i.i
+  %172 = getelementptr inbounds nuw %"struct.std::pair.101", ptr %171, i64 %.015318.i.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %172, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %172, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -41156,7 +41156,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
 257:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i187.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i188.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #47
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #47
-  %258 = add nuw i64 %.015320.i.i, 1
+  %258 = add nuw i64 %.015318.i.i, 1
   %259 = load ptr, ptr %44, align 8, !tbaa !334
   %260 = load ptr, ptr %42, align 8, !tbaa !336
   %261 = ptrtoint ptr %259 to i64

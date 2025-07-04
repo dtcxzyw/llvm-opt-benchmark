@@ -13924,11 +13924,11 @@ define void @"_ZN3syn3gen5clone73_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
   %.sroa.828.0 = phi i8 [ undef, %17 ], [ %24, %.noexc ]
   %.sroa.7.0 = phi i8 [ %20, %17 ], [ %.sroa.7.0.copyload27, %.noexc ]
   %.sroa.6.0 = phi i32 [ %.val1.i.i, %17 ], [ %.sroa.6.0.copyload26, %.noexc ]
-  %.sroa.5.029 = phi i32 [ %.val.i.i, %17 ], [ %.sroa.5.0.copyload25, %.noexc ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775808, %17 ], [ %.sroa.0.0.copyload23, %.noexc ]
-  store i64 %.sroa.0.0, ptr %8, align 8
+  %.sroa.5.030 = phi i32 [ %.val.i.i, %17 ], [ %.sroa.5.0.copyload25, %.noexc ]
+  %.sroa.0.029 = phi i64 [ -9223372036854775808, %17 ], [ %.sroa.0.0.copyload23, %.noexc ]
+  store i64 %.sroa.0.029, ptr %8, align 8
   %.sroa.5.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %.sroa.5.029, ptr %.sroa.5.0..sroa_idx24, align 8
+  store i32 %.sroa.5.030, ptr %.sroa.5.0..sroa_idx24, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16

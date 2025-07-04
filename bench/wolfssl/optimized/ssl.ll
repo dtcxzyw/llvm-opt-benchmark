@@ -6055,7 +6055,7 @@ define range(i32 -173, 2) i32 @wolfSSL_CTX_SetMinVersion(ptr noundef writeonly c
   %or.cond = and i1 %3, %switch
   br i1 %or.cond, label %.sink.split.i, label %SetMinVersionHelper.exit
 
-.sink.split.i:                                    ; preds = %2
+.sink.split.i:; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %.sink.i = trunc nuw nsw i32 %1 to i8
   store i8 %.sink.i, ptr %4, align 1, !tbaa !43
@@ -6074,7 +6074,7 @@ define range(i32 -173, 2) i32 @wolfSSL_SetMinVersion(ptr noundef writeonly captu
   %or.cond = and i1 %3, %switch
   br i1 %or.cond, label %.sink.split.i, label %SetMinVersionHelper.exit
 
-.sink.split.i:                                    ; preds = %2
+.sink.split.i:; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1047
   %.sink.i = trunc nuw nsw i32 %1 to i8
   store i8 %.sink.i, ptr %4, align 1, !tbaa !43

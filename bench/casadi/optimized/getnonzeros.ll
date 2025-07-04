@@ -5723,8 +5723,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #26
   %179 = load ptr, ptr %152, align 8, !tbaa !19
   %180 = load ptr, ptr %20, align 8, !tbaa !21
-  %.not.i = icmp eq ptr %179, %180
-  br i1 %.not.i, label %.loopexit.invoke, label %.lr.ph.preheader.i
+  %.not8.not.i = icmp eq ptr %179, %180
+  br i1 %.not8.not.i, label %.loopexit.invoke, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110
   %181 = ptrtoint ptr %179 to i64
@@ -5734,13 +5734,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   br label %.lr.ph.i
 
 185:                                              ; preds = %.lr.ph.i
-  %186 = add nuw i64 %.068.i, 1
+  %186 = add nuw i64 %.069.i, 1
   %exitcond.not.i = icmp eq i64 %186, %184
   br i1 %exitcond.not.i, label %.loopexit.invoke, label %.lr.ph.i, !llvm.loop !140
 
 .lr.ph.i:                                         ; preds = %185, %.lr.ph.preheader.i
-  %.068.i = phi i64 [ %186, %185 ], [ 0, %.lr.ph.preheader.i ]
-  %187 = getelementptr inbounds nuw i64, ptr %180, i64 %.068.i
+  %.069.i = phi i64 [ %186, %185 ], [ 0, %.lr.ph.preheader.i ]
+  %187 = getelementptr inbounds nuw i64, ptr %180, i64 %.069.i
   %188 = load i64, ptr %187, align 8, !tbaa !30
   %189 = icmp slt i64 %188, 0
   br i1 %189, label %.loopexit.invoke, label %185

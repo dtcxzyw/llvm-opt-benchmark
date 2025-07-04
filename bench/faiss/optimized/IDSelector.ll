@@ -83,8 +83,8 @@ define linkonce_odr void @_ZN5faiss15IDSelectorRangeD0Ev(ptr noundef nonnull ali
 define noundef zeroext i1 @_ZNK5faiss15IDSelectorArray9is_memberEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !11
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not8.not = icmp eq i64 %4, 0
+  br i1 %.not8.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -92,18 +92,18 @@ define noundef zeroext i1 @_ZNK5faiss15IDSelectorArray9is_memberEl(ptr noundef n
   br label %7
 
 7:                                                ; preds = %7, %.lr.ph
-  %.068 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %.068
+  %.069 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
+  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %.069
   %9 = load i64, ptr %8, align 8, !tbaa !16
   %10 = icmp eq i64 %9, %1
-  %11 = add nuw i64 %.068, 1
+  %11 = add nuw i64 %.069, 1
   %exitcond.not = icmp eq i64 %11, %4
   %or.cond = select i1 %10, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %._crit_edge, label %7, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %7, %2
-  %.lcssa = phi i1 [ false, %2 ], [ %10, %7 ]
-  ret i1 %.lcssa
+  %.not.lcssa = phi i1 [ false, %2 ], [ %10, %7 ]
+  ret i1 %.not.lcssa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

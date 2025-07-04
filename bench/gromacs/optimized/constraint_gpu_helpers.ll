@@ -1105,10 +1105,10 @@ define noundef zeroext i1 @_Z32isNumCoupledConstraintsSupportedRK10gmx_mtop_ti(p
   %6 = load ptr, ptr %5, align 8, !tbaa !66
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8, !tbaa !66
-  %.not3643 = icmp eq ptr %6, %8
-  br i1 %.not3643, label %._crit_edge47, label %.lr.ph46
+  %.not3644 = icmp eq ptr %6, %8
+  br i1 %.not3644, label %._crit_edge47, label %.lr.ph48
 
-.lr.ph46:                                         ; preds = %2
+.lr.ph48:                                         ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1116,18 +1116,18 @@ define noundef zeroext i1 @_Z32isNumCoupledConstraintsSupportedRK10gmx_mtop_ti(p
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %14
 
-14:                                               ; preds = %_ZN3gmx11ListOfListsI25AtomsAdjacencyListElementED2Ev.exit, %.lr.ph46
-  %.sroa.033.044 = phi ptr [ %6, %.lr.ph46 ], [ %49, %_ZN3gmx11ListOfListsI25AtomsAdjacencyListElementED2Ev.exit ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.033.044, i64 1568
+14:                                               ; preds = %_ZN3gmx11ListOfListsI25AtomsAdjacencyListElementED2Ev.exit, %.lr.ph48
+  %.sroa.033.045 = phi ptr [ %6, %.lr.ph46 ], [ %49, %_ZN3gmx11ListOfListsI25AtomsAdjacencyListElementED2Ev.exit ]
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.033.045, i64 1568
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.033.044, i64 1576
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.033.045, i64 1576
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %16 to i64
   %21 = sub i64 %19, %20
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 %21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #21
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.033.044, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.033.045, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !68
   call void @_Z27constructAtomsAdjacencyListiN3gmx8ArrayRefIKiEE(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ListOfLists") align 8 %3, i32 noundef %24, ptr %16, ptr %22)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #21
@@ -1137,8 +1137,8 @@ define noundef zeroext i1 @_Z32isNumCoupledConstraintsSupportedRK10gmx_mtop_ti(p
 25:                                               ; preds = %14
   %26 = load ptr, ptr %4, align 8, !tbaa !31
   %27 = load ptr, ptr %9, align 8, !tbaa !31
-  %.not3738.not = icmp eq ptr %26, %27
-  br i1 %.not3738.not, label %._crit_edge, label %.lr.ph
+  %.not3739 = icmp eq ptr %26, %27
+  br i1 %.not3739, label %._crit_edge, label %.lr.ph
 
 28:                                               ; preds = %14
   %29 = landingpad { ptr, i32 }
@@ -1149,16 +1149,16 @@ define noundef zeroext i1 @_Z32isNumCoupledConstraintsSupportedRK10gmx_mtop_ti(p
   resume { ptr, i32 } %29
 
 .lr.ph:                                           ; preds = %25, %.lr.ph
-  %.sroa.023.039 = phi ptr [ %31, %.lr.ph ], [ %26, %25 ]
-  %30 = load i32, ptr %.sroa.023.039, align 4, !tbaa !13
-  %.not = icmp sgt i32 %30, %1
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.023.039, i64 4
-  %.not37.not = icmp eq ptr %31, %27
-  %or.cond50 = select i1 %.not, i1 true, i1 %.not37.not
-  br i1 %or.cond50, label %._crit_edge, label %.lr.ph
+  %.sroa.023.040 = phi ptr [ %31, %.lr.ph ], [ %26, %25 ]
+  %30 = load i32, ptr %.sroa.023.040, align 4, !tbaa !13
+  %.not.not = icmp sgt i32 %30, %1
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.023.040, i64 4
+  %.not37 = icmp eq ptr %31, %27
+  %or.cond52.not = select i1 %.not.not, i1 true, i1 %.not37
+  br i1 %or.cond52.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
-  %.not37.lcssa = phi i1 [ false, %25 ], [ %.not, %.lr.ph ]
+  %.not37.lcssa = phi i1 [ false, %25 ], [ %.not.not, %.lr.ph ]
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %32
 
@@ -1199,12 +1199,12 @@ _ZNSt6vectorI25AtomsAdjacencyListElementSaIS0_EED2Ev.exit.i: ; preds = %38, %_ZN
 
 _ZN3gmx11ListOfListsI25AtomsAdjacencyListElementED2Ev.exit: ; preds = %_ZNSt6vectorI25AtomsAdjacencyListElementSaIS0_EED2Ev.exit.i, %44
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #21
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.033.044, i64 2408
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.033.045, i64 2408
   %.not36 = icmp eq ptr %49, %8
-  %or.cond = select i1 %.not37.lcssa, i1 true, i1 %.not36
-  br i1 %or.cond, label %._crit_edge47.loopexit, label %14
+  %or.cond.not = select i1 %.not37.lcssa, i1 true, i1 %.not36
+  br i1 %or.cond.not, label %._crit_edge49, label %14
 
-._crit_edge47.loopexit:                           ; preds = %_ZN3gmx11ListOfListsI25AtomsAdjacencyListElementED2Ev.exit
+._crit_edge49:                                    ; preds = %_ZN3gmx11ListOfListsI25AtomsAdjacencyListElementED2Ev.exit
   %.5.ph = xor i1 %.not37.lcssa, true
   br label %._crit_edge47
 

@@ -745,15 +745,15 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   store i32 0, ptr %18, align 4, !tbaa !102
   store i16 0, ptr %19, align 8, !tbaa !103
   %45 = load i16, ptr %20, align 8, !tbaa !104
-  %.not86.i = icmp eq i16 %45, 0
-  br i1 %.not86.i, label %Convert_Glyph.exit.thread45, label %.lr.ph.i
+  %.not97.i = icmp eq i16 %45, 0
+  br i1 %.not97.i, label %Convert_Glyph.exit.thread45, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36, %255
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %255 ], [ 0, %36 ]
-  %.085.i = phi i64 [ %50, %255 ], [ 4294967295, %36 ]
+  %.096.i = phi i64 [ %50, %255 ], [ 4294967295, %36 ]
   store i32 0, ptr %21, align 8, !tbaa !105
   store ptr null, ptr %22, align 8, !tbaa !106
-  %46 = add nuw nsw i64 %.085.i, 1
+  %46 = add nuw nsw i64 %.096.i, 1
   %47 = load ptr, ptr %23, align 8, !tbaa !107
   %48 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv.i
   %49 = load i16, ptr %48, align 2, !tbaa !27
@@ -878,7 +878,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   %.not203.i.i = icmp eq i8 %117, 0
   br i1 %.not203.i.i, label %.backedge.i.i, label %.loopexit
 
-.backedge.i.i:                                    ; preds = %select.unfold.i.i, %select.unfold.us.i.i, %212, %105
+.backedge.i.i:                                    ; preds = %select.unfold.i.i, %.split.i.i, %212, %105
   %.1190.be.i.i = phi ptr [ %102, %105 ], [ %191, %212 ], [ %134, %select.unfold.us.i.i ], [ %159, %select.unfold.i.i ]
   %.1183.be.i.i = phi ptr [ %101, %105 ], [ %190, %212 ], [ %133, %select.unfold.us.i.i ], [ %158, %select.unfold.i.i ]
   %118 = icmp ult ptr %.1183.be.i.i, %.0187.i.i
@@ -898,11 +898,11 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   %130 = sub nsw i64 %129, %125
   br i1 %.not.i.i, label %.split.us.i.i, label %.split.i.i
 
-.split.us.i.i:                                    ; preds = %119, %select.unfold.us.i.i
+.split.us.i.i:                                    ; preds = %119, %.split.i.i
   %.2191.us.i.i = phi ptr [ %134, %select.unfold.us.i.i ], [ %102, %119 ]
   %.2184.us.i.i = phi ptr [ %133, %select.unfold.us.i.i ], [ %101, %119 ]
-  %.sroa.098.1.us.i.i = phi i64 [ %.sroa.098.2.us.i.i, %select.unfold.us.i.i ], [ %126, %119 ]
-  %.sroa.11.1.us.i.i = phi i64 [ %.sroa.11.2.us.i.i, %select.unfold.us.i.i ], [ %130, %119 ]
+  %.sroa.098.1.us.i.i = phi i64 [ %.2191.i.i, %select.unfold.us.i.i ], [ %126, %119 ]
+  %.sroa.11.1.us.i.i = phi i64 [ %.2184.i.i, %select.unfold.us.i.i ], [ %130, %119 ]
   %131 = icmp ult ptr %.2184.us.i.i, %.0187.i.i
   br i1 %131, label %132, label %.split257.us.i.i
 
@@ -934,16 +934,16 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   %152 = sdiv i64 %151, 2
   %153 = tail call fastcc signext i8 @Conic_To(ptr noundef nonnull %0, i64 noundef %.sroa.098.1.us.i.i, i64 noundef %.sroa.11.1.us.i.i, i64 noundef %150, i64 noundef %152)
   %.not201.us.i.i = icmp eq i8 %153, 0
-  br i1 %.not201.us.i.i, label %select.unfold.us.i.i, label %.loopexit
+  br i1 %.not201.us.i.i, label %.split.i.i, label %.loopexit
 
 154:                                              ; preds = %132
   %155 = tail call fastcc signext i8 @Conic_To(ptr noundef nonnull %0, i64 noundef %.sroa.098.1.us.i.i, i64 noundef %.sroa.11.1.us.i.i, i64 noundef %143, i64 noundef %147)
   %.not202.us.i.i = icmp eq i8 %155, 0
-  br i1 %.not202.us.i.i, label %select.unfold.us.i.i, label %.loopexit, !llvm.loop !113
+  br i1 %.not202.us.i.i, label %.split.i.i, label %.loopexit, !llvm.loop !113
 
-select.unfold.us.i.i:                             ; preds = %154, %148
-  %.sroa.098.2.us.i.i = phi i64 [ %.sroa.098.1.us.i.i, %154 ], [ %143, %148 ]
-  %.sroa.11.2.us.i.i = phi i64 [ %.sroa.11.1.us.i.i, %154 ], [ %147, %148 ]
+.split.i.i:                                       ; preds = %154, %148
+  %.2191.i.i = phi i64 [ %.sroa.098.1.us.i.i, %154 ], [ %143, %148 ]
+  %.2184.i.i = phi i64 [ %.sroa.11.1.us.i.i, %154 ], [ %147, %148 ]
   %switch.us.i.i = trunc i8 %135 to i1
   br i1 %switch.us.i.i, label %.backedge.i.i, label %.split.us.i.i
 
@@ -1075,7 +1075,7 @@ select.unfold.i.i:                                ; preds = %175, %173
 
 .thread:                                          ; preds = %81, %182, %185, %157, %132
   store i32 20, ptr %11, align 8, !tbaa !99
-  br label %.loopexit59
+  br label %.loopexit58
 
 224:                                              ; preds = %._crit_edge.i.i, %221, %.split257.us.i.i
   %225 = load ptr, ptr %22, align 8, !tbaa !106
@@ -1149,7 +1149,7 @@ select.unfold.i.i:                                ; preds = %175, %173
   %.val.i = load i16, ptr %19, align 8, !tbaa !103
   %260 = add i16 %.val.i, -1
   %.not1.i.i = icmp eq i16 %260, 0
-  br i1 %.not1.i.i, label %Convert_Glyph.exit.thread124, label %.lr.ph.i47.i
+  br i1 %.not1.i.i, label %Convert_Glyph.exit.thread146, label %.lr.ph.i47.i
 
 .lr.ph.i47.i:                                     ; preds = %259, %269
   %261 = phi i16 [ %270, %269 ], [ %260, %259 ]
@@ -1169,16 +1169,16 @@ select.unfold.i.i:                                ; preds = %175, %173
 269:                                              ; preds = %268, %.lr.ph.i47.i
   %270 = add i16 %261, -1
   %.not.i48.i = icmp eq i16 %270, 0
-  br i1 %.not.i48.i, label %Convert_Glyph.exit.thread124, label %.lr.ph.i47.i, !llvm.loop !122
+  br i1 %.not.i48.i, label %Convert_Glyph.exit.thread146, label %.lr.ph.i47.i, !llvm.loop !122
 
 .loopexit:                                        ; preds = %249, %.split257.us.i.i, %221, %._crit_edge.i.i, %105, %212, %173, %175, %148, %154
   %.pr = load i32, ptr %11, align 8, !tbaa !99
   %.not33 = icmp eq i32 %.pr, 98
-  br i1 %.not33, label %271, label %.loopexit59
+  br i1 %.not33, label %271, label %.loopexit58
 
 271:                                              ; preds = %.loopexit
   %272 = icmp eq i32 %.027, %.025.ph
-  br i1 %272, label %.loopexit59, label %273
+  br i1 %272, label %.loopexit58, label %273
 
 273:                                              ; preds = %271
   %274 = add nsw i32 %.025.ph, %.027
@@ -1190,7 +1190,7 @@ select.unfold.i.i:                                ; preds = %175, %173
   %279 = add nsw i32 %275, 1
   br label %36
 
-Convert_Glyph.exit.thread124:                     ; preds = %269, %259
+Convert_Glyph.exit.thread146:                     ; preds = %269, %259
   %.sink = phi ptr [ %.pre.i, %259 ], [ %262, %269 ]
   store ptr null, ptr %.sink, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -1213,7 +1213,7 @@ Convert_Glyph.exit.thread124:                     ; preds = %269, %259
   %.not.not175.i = icmp slt i32 %282, %287
   br i1 %.not.not175.i, label %.preheader157.i, label %Draw_Sweep.exit
 
-.preheader157.i:                                  ; preds = %Convert_Glyph.exit.thread124, %458
+.preheader157.i:                                  ; preds = %Convert_Glyph.exit.thread146, %458
   %.0..0102160.pre183.i = phi ptr [ %.0..0102160.pre184.i, %458 ], [ null, %Convert_Glyph.exit.thread124 ]
   %.096176.i = phi i32 [ %456, %458 ], [ %282, %Convert_Glyph.exit.thread124 ]
   %.0..0..0..0..i = load ptr, ptr %4, align 8, !tbaa !123
@@ -1622,7 +1622,7 @@ Increment.exit153.i:                              ; preds = %454, %.preheader.i1
   %.not.not.i = icmp slt i32 %456, %287
   br i1 %.not.not.i, label %.preheader157.i, label %Draw_Sweep.exit, !llvm.loop !136
 
-Draw_Sweep.exit:                                  ; preds = %458, %Convert_Glyph.exit.thread124
+Draw_Sweep.exit:                                  ; preds = %458, %Convert_Glyph.exit.thread146
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1630,7 +1630,7 @@ Draw_Sweep.exit:                                  ; preds = %458, %Convert_Glyph
 
 Convert_Glyph.exit.thread45:                      ; preds = %36, %._crit_edge.i, %Draw_Sweep.exit
   %459 = icmp slt i32 %.0, 1
-  br i1 %459, label %.loopexit59, label %460
+  br i1 %459, label %.loopexit58, label %460
 
 460:                                              ; preds = %Convert_Glyph.exit.thread45
   %461 = add nsw i32 %.0, -1
@@ -1640,7 +1640,7 @@ Convert_Glyph.exit.thread45:                      ; preds = %36, %._crit_edge.i,
   %465 = load i32, ptr %464, align 4, !tbaa !3
   br label %.outer
 
-.loopexit59:                                      ; preds = %271, %.loopexit, %Convert_Glyph.exit.thread45, %.thread
+.loopexit58:                                      ; preds = %271, %.loopexit, %Convert_Glyph.exit.thread45, %.thread
   %.024 = phi i32 [ 20, %.thread ], [ %.pr, %.loopexit ], [ 98, %271 ], [ 0, %Convert_Glyph.exit.thread45 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #10
   ret i32 %.024

@@ -533,7 +533,7 @@ lpad79:                                           ; preds = %sw.bb81.invoke, %sw
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %websockAcceptKey_) #27
   resume { ptr, i32 } %1
 
-sw.bb81.invoke:                                   ; preds = %entry
+sw.bb81:                                          ; preds = %entry
   %2 = zext nneg i8 %direction to i32
   %parser_78 = getelementptr inbounds nuw i8, ptr %this, i64 64
   invoke void @_ZN8proxygen16http_parser_initEPNS_11http_parserENS_16http_parser_typeE(ptr noundef nonnull %parser_78, i32 noundef %2)

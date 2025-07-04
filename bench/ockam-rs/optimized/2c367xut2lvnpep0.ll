@@ -1099,8 +1099,8 @@ define hidden void @"_ZN5ecdsa9verifying21VerifyingKey$LT$C$GT$15from_sec1_bytes
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h04719ca9fd1cdb90E.llvm.10553303005396541960.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h04719ca9fd1cdb90E.llvm.10553303005396541960.exit": ; preds = %6, %9
-  %.sink.i4 = phi i64 [ 0, %6 ], [ 1, %9 ]
-  store i64 %.sink.i4, ptr %0, align 8, !alias.scope !234, !noalias !237
+  %storemerge.i = phi i64 [ 0, %6 ], [ 1, %9 ]
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !234, !noalias !237
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.4)
   ret void
 }
@@ -3901,12 +3901,12 @@ define hidden noundef align 8 ptr @_ZN11ockam_vault8software25vault_for_secure_c
 18:                                               ; preds = %10
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hece1c13a4c61a04fE.llvm.8710632623519176205"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %13, i64 noundef %11)
   %.pre = load i64, ptr %12, align 8
-  %.pre31 = load i64, ptr %14, align 8, !alias.scope !1105, !noalias !1112
-  %.pre32 = sub i64 %.pre31, %.pre
+  %.pre33 = load i64, ptr %14, align 8, !alias.scope !1105, !noalias !1112
+  %.pre34 = sub i64 %.pre33, %.pre
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hff69dbcd17ed3c06E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hff69dbcd17ed3c06E.exit": ; preds = %10, %18
-  %.pre-phi = phi i64 [ %16, %10 ], [ %.pre32, %18 ]
+  %.pre-phi = phi i64 [ %16, %10 ], [ %.pre34, %18 ]
   %19 = phi i64 [ %13, %10 ], [ %.pre, %18 ]
   %20 = icmp ugt i64 %3, %.pre-phi
   br i1 %20, label %21, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8321437b65f2e73cE.exit"
@@ -4277,10 +4277,10 @@ default.unreachable95:                            ; preds = %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %.critedge
 
-.critedge:                                        ; preds = %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit36", %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit42", %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit", %32, %16
+.critedge:                                        ; preds = %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit37", %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit44", %"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit", %32, %16
   ret void
 
-"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit36": ; preds = %14
+"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit37": ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %19, align 8
   store i8 1, ptr %0, align 8
@@ -4323,17 +4323,17 @@ default.unreachable95:                            ; preds = %2
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %3, align 8, !alias.scope !1173, !nonnull !9, !noundef !9
-  %.val.i37 = load <32 x i8>, ptr %33, align 1, !alias.scope !1176, !noalias !1179
+  %.val.i38 = load <32 x i8>, ptr %33, align 1, !alias.scope !1176, !noalias !1179
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %34, align 1
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store <32 x i8> %.val.i37, ptr %.sroa.410.0..sroa_idx, align 2
+  store <32 x i8> %.val.i38, ptr %.sroa.410.0..sroa_idx, align 2
   store i8 0, ptr %0, align 8
   call void @"_ZN4core3ptr66drop_in_place$LT$ockam_vault..software..legacy..secret..Secret$GT$17hbe35665078628542E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %.critedge
 
-"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit42": ; preds = %30
+"_ZN11ockam_vault5error112_$LT$impl$u20$core..convert..From$LT$ockam_vault..error..VaultError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h2c44bd1dbd5b3fdbE.exit44": ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %31, ptr %35, align 8
   store i8 1, ptr %0, align 8
@@ -4341,9 +4341,9 @@ default.unreachable95:                            ; preds = %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %.critedge
 
-.thread71:                                        ; preds = %24, %8, %36
-  %.pn74 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %36 ], [ %25, %24 ], [ %9, %8 ]
-  resume { ptr, i32 } %.pn74
+.thread72:                                        ; preds = %24, %8, %36
+  %.pn75 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %36 ], [ %25, %24 ], [ %9, %8 ]
+  resume { ptr, i32 } %.pn75
 
 36:                                               ; preds = %6
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }

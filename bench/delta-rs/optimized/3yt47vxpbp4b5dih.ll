@@ -26973,12 +26973,12 @@ define void @"_ZN206_$LT$deltalake_aws..CommitEntry$u20$as$u20$core..convert..Tr
   call void @llvm.experimental.noalias.scope.decl(metadata !5391)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25), !noalias !5394
   store i32 0, ptr %25, align 8, !noalias !5394
-  %.sroa.420.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %46, ptr %.sroa.420.0..sroa_idx.i.i, align 8, !noalias !5394
-  %.sroa.521.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i64 %48, ptr %.sroa.521.0..sroa_idx.i.i, align 8, !noalias !5394
-  %.sroa.7.0..sroa_idx22.i.i = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store i64 0, ptr %.sroa.7.0..sroa_idx22.i.i, align 8, !noalias !5394
+  %.sroa.421.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %46, ptr %.sroa.421.0..sroa_idx.i.i, align 8, !noalias !5394
+  %.sroa.522.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store i64 %48, ptr %.sroa.522.0..sroa_idx.i.i, align 8, !noalias !5394
+  %.sroa.7.0..sroa_idx23.i.i = getelementptr inbounds nuw i8, ptr %25, i64 24
+  store i64 0, ptr %.sroa.7.0..sroa_idx23.i.i, align 8, !noalias !5394
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i64 %48, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !noalias !5394
   %.sroa.11.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -27758,7 +27758,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i:
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %326 = load i64, ptr %325, align 8, !alias.scope !5520, !noalias !5521, !noundef !4
   %327 = icmp eq i64 %326, 0
-  br i1 %327, label %.thread287, label %328
+  br i1 %327, label %.thread284, label %328
 
 328:                                              ; preds = %323
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -27787,7 +27787,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i:
   %338 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i.i, splat (i8 -1)
   %339 = bitcast <16 x i1> %338 to i16
   %.not.i.i.i.i.i204 = icmp eq i16 %339, 0
-  br i1 %.not.i.i.i.i.i204, label %352, label %.thread287
+  br i1 %.not.i.i.i.i.i204, label %352, label %.thread284
 
 .lr.ph.i.i.i.i:                                   ; preds = %334, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h45e0605148f74792E.exit.backedge.i.i.i.i"
   %.02337.i.i.i.i = phi i16 [ %343, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h45e0605148f74792E.exit.backedge.i.i.i.i" ], [ %337, %334 ]
@@ -27826,7 +27826,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i:
   %358 = icmp eq i8 %357, 5
   br i1 %358, label %363, label %359
 
-.thread287:                                       ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h45e0605148f74792E.exit._crit_edge.i.i.i.i", %323
+.thread284:                                       ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h45e0605148f74792E.exit._crit_edge.i.i.i.i", %323
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %381
 
@@ -27932,7 +27932,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i:
   %380 = invoke { i64, i32 } @"_ZN91_$LT$std..time..SystemTime$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17hc5a0e66cd44a671aE"(i64 noundef 0, i32 noundef 0, i64 noundef %379, i32 noundef 0)
           to label %_ZN4core3ops8function6FnOnce9call_once17h34a6640c1ff588f2E.exit unwind label %411
 
-381:                                              ; preds = %.thread287, %_ZN4core3ops8function6FnOnce9call_once17h34a6640c1ff588f2E.exit
+381:                                              ; preds = %.thread284, %_ZN4core3ops8function6FnOnce9call_once17h34a6640c1ff588f2E.exit
   %.sroa.0105.0 = phi i64 [ %382, %_ZN4core3ops8function6FnOnce9call_once17h34a6640c1ff588f2E.exit ], [ undef, %.thread287 ]
   %.sroa.3106.0 = phi i32 [ %383, %_ZN4core3ops8function6FnOnce9call_once17h34a6640c1ff588f2E.exit ], [ 1000000000, %.thread287 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.083)

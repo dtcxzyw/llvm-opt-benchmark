@@ -11222,8 +11222,8 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPa
   br i1 %32, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEE15bucket_accessorC2EPSI_mb.exit, %.lr.ph
-  %.02955 = phi ptr [ %33, %.lr.ph ], [ %.0.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEE15bucket_accessorC2EPSI_mb.exit ]
-  %33 = load ptr, ptr %.02955, align 8
+  %.02952 = phi ptr [ %33, %.lr.ph ], [ %.0.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEE15bucket_accessorC2EPSI_mb.exit ]
+  %33 = load ptr, ptr %.02952, align 8
   %34 = icmp ne ptr %33, null
   %35 = icmp ne ptr %33, %5
   %36 = select i1 %34, i1 %35, i1 false
@@ -11309,7 +11309,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i: ; pred
 
 76:                                               ; preds = %._crit_edge
   %77 = load ptr, ptr %33, align 8
-  store ptr %77, ptr %.02955, align 8
+  store ptr %77, ptr %.02952, align 8
   br label %78
 
 78:                                               ; preds = %76, %73
@@ -11434,7 +11434,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPa
   %.2 = xor i1 %128, true
   ret i1 %.2
 
-default.unreachable61:                            ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEE15bucket_accessorD2Ev.exit37
+default.unreachable55:                            ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt3setIS4_St4lessIS4_ESaIS4_EENS3_15HdChangeTracker16_PathHashCompareENS0_2d113tbb_allocatorISt4pairIKS4_S9_EEEE15bucket_accessorD2Ev.exit37
   unreachable
 }
 

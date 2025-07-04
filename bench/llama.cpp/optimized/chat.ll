@@ -86870,8 +86870,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonINS0_11ordered_mapES
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %35
   store i8 0, ptr %48, align 1, !tbaa !12
   %49 = getelementptr inbounds nuw i8, ptr %.0623, i64 8
-  %.not.not = icmp eq ptr %49, %26
-  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !1145
+  %.not = icmp eq ptr %49, %26
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !1145
 
 .thread:                                          ; preds = %.lr.ph, %30
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -86879,8 +86879,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonINS0_11ordered_mapES
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonINS0_11ordered_mapESt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE3addEi.exit13, %.thread
-  %.not.not21 = phi i1 [ false, %.thread ], [ true, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonINS0_11ordered_mapESt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE3addEi.exit13 ]
-  ret i1 %.not.not21
+  %.not21 = phi i1 [ false, %.thread ], [ true, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonINS0_11ordered_mapESt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE3addEi.exit13 ]
+  ret i1 %.not21
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0

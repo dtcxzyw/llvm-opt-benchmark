@@ -23371,15 +23371,15 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i.i: ; preds = %
   tail call void @llvm.assume(i1 %13)
   br label %17
 
-16:                                               ; preds = %31
+16:                                               ; preds = %30
   %..i = or disjoint i8 %.sroa.02.1.i, 2
   br label %"_ZN9polars_io10file_cache8eviction15EvictionManager17run_in_background28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e0f1e53d606bc5cE.exit"
 
-17:                                               ; preds = %31, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6ff3907148dabd51E.exit.thread.i"
+17:                                               ; preds = %30, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6ff3907148dabd51E.exit.thread.i"
   %18 = phi i1 [ true, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6ff3907148dabd51E.exit.thread.i" ], [ false, %31 ]
-  %.sroa.05.07.i = phi i32 [ 0, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6ff3907148dabd51E.exit.thread.i" ], [ 1, %31 ]
-  %.sroa.02.06.i = phi i8 [ 0, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6ff3907148dabd51E.exit.thread.i" ], [ %.sroa.02.1.i, %31 ]
-  %19 = add i32 %.sroa.05.07.i, %12
+  %.sroa.05.06.i = phi i32 [ 0, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6ff3907148dabd51E.exit.thread.i" ], [ 1, %31 ]
+  %.sroa.02.05.i = phi i8 [ 0, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6ff3907148dabd51E.exit.thread.i" ], [ %.sroa.02.1.i, %31 ]
+  %19 = add i32 %.sroa.05.06.i, %12
   %trunc.i = trunc i32 %19 to i1
   %20 = load i8, ptr %.val, align 1, !noalias !2522, !noundef !3
   br i1 %trunc.i, label %23, label %21, !prof !2525
@@ -23387,17 +23387,17 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i.i: ; preds = %
 21:                                               ; preds = %17
   %22 = and i8 %20, 1
   %.not9.i = icmp eq i8 %22, 0
-  br i1 %.not9.i, label %25, label %31
+  br i1 %.not9.i, label %25, label %30
 
 23:                                               ; preds = %17
   %24 = and i8 %20, 2
   %.not.i = icmp eq i8 %24, 0
-  br i1 %.not.i, label %32, label %31
+  br i1 %.not.i, label %31, label %30
 
 25:                                               ; preds = %21
   tail call void @llvm.assume(i1 %14)
   %26 = tail call noundef zeroext i1 @"_ZN78_$LT$tokio..sync..notify..Notified$u20$as$u20$core..future..future..Future$GT$4poll17hd0c6926b0f16c85dE"(ptr noundef nonnull align 8 %.val1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %26, label %31, label %27
+  br i1 %26, label %30, label %27
 
 27:                                               ; preds = %32, %25
   %.sink12.i = phi i8 [ 2, %32 ], [ 1, %25 ]
@@ -23408,14 +23408,14 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i.i: ; preds = %
   %.sroa.0.1.i = and i8 %30, 1
   br label %"_ZN9polars_io10file_cache8eviction15EvictionManager17run_in_background28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e0f1e53d606bc5cE.exit"
 
-31:                                               ; preds = %32, %25, %23, %21
-  %.sroa.02.1.i = phi i8 [ %.sroa.02.06.i, %21 ], [ %.sroa.02.06.i, %23 ], [ 1, %25 ], [ 1, %32 ]
+30:                                               ; preds = %31, %25, %23, %21
+  %.sroa.02.1.i = phi i8 [ %.sroa.02.05.i, %21 ], [ %.sroa.02.05.i, %23 ], [ 1, %25 ], [ 1, %32 ]
   br i1 %18, label %17, label %16
 
-32:                                               ; preds = %23
+31:                                               ; preds = %23
   tail call void @llvm.assume(i1 %14)
-  %33 = tail call noundef zeroext i1 @"_ZN74_$LT$tokio..time..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17h30c1744547f208e3E"(ptr noundef nonnull align 8 %15, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %33, label %31, label %27
+  %32 = tail call noundef zeroext i1 @"_ZN74_$LT$tokio..time..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17h30c1744547f208e3E"(ptr noundef nonnull align 8 %15, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  br i1 %32, label %30, label %27
 
 "_ZN9polars_io10file_cache8eviction15EvictionManager17run_in_background28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6e0f1e53d606bc5cE.exit": ; preds = %11, %16, %27
   %.sroa.0.0.i = phi i8 [ %.sroa.0.1.i, %27 ], [ 3, %11 ], [ %..i, %16 ]

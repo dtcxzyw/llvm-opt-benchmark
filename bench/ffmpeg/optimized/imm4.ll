@@ -58,7 +58,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !33
   %10 = icmp slt i32 %9, 33
-  br i1 %10, label %159, label %11
+  br i1 %10, label %156, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -69,7 +69,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   tail call void @av_fast_padded_malloc(ptr noundef nonnull %12, ptr noundef nonnull %13, i64 noundef %16) #6
   %17 = load ptr, ptr %12, align 8, !tbaa !35
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %159, label %18
+  br i1 %.not, label %156, label %18
 
 18:                                               ; preds = %11
   %19 = load ptr, ptr %6, align 16, !tbaa !36
@@ -104,7 +104,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store ptr %37, ptr %38, align 8, !tbaa !41
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %39, align 8, !tbaa !42
-  br i1 %or.cond3.i.i, label %40, label %159
+  br i1 %or.cond3.i.i, label %40, label %156
 
 40:                                               ; preds = %18
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -220,38 +220,38 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 110:                                              ; preds = %59
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i32 noundef %79) #6
-  br label %159
+  br label %156
 
-111:                                              ; preds = %106, %102
+103:                                              ; preds = %106, %102
   %.sink = phi i32 [ 2, %106 ], [ 1, %102 ]
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 %.sink, ptr %112, align 8, !tbaa !55
   %.not85 = icmp eq i32 %44, %.074
   %.not86 = icmp eq i32 %46, %.075
   %or.cond = select i1 %.not85, i1 %.not86, i1 false
-  br i1 %or.cond, label %119, label %113
+  br i1 %or.cond, label %116, label %113
 
-113:                                              ; preds = %111
+.thread:                                          ; preds = %111
   %114 = trunc i32 %76 to i1
   br i1 %114, label %116, label %115
 
-115:                                              ; preds = %113
+115:; preds = %.thread
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #6
-  br label %159
+  br label %156
 
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %118 = load ptr, ptr %117, align 16, !tbaa !27
-  tail call void @av_frame_unref(ptr noundef %118) #6
-  br label %119
+113:                                              ; preds = %.thread
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %115 = load ptr, ptr %114, align 16, !tbaa !27
+  tail call void @av_frame_unref(ptr noundef %115) #6
+  br label %116
 
-119:                                              ; preds = %111, %116
-  %120 = tail call i32 @ff_set_dimensions(ptr noundef nonnull %0, i32 noundef %.074, i32 noundef %.075) #6
-  %121 = icmp slt i32 %120, 0
-  br i1 %121, label %159, label %122
+116:                                              ; preds = %103, %113
+  %117 = tail call i32 @ff_set_dimensions(ptr noundef nonnull %0, i32 noundef %.074, i32 noundef %.075) #6
+  %118 = icmp slt i32 %117, 0
+  br i1 %118, label %156, label %119
 
-122:                                              ; preds = %119
-  %123 = load i32, ptr %43, align 8, !tbaa !45
+119:                                              ; preds = %116
+  %120 = load i32, ptr %43, align 8, !tbaa !45
   %124 = add nsw i32 %123, 15
   %125 = sdiv i32 %124, 16
   %126 = load i32, ptr %45, align 4, !tbaa !46
@@ -260,23 +260,23 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %129 = mul nsw i32 %128, %125
   %.val = load i32, ptr %39, align 8, !tbaa !42
   %.val91 = load i32, ptr %33, align 4, !tbaa !39
-  %130 = sub nsw i32 %.val91, %.val
-  %131 = icmp sgt i32 %129, %130
-  br i1 %131, label %159, label %132
+  %127 = sub nsw i32 %.val91, %.val
+  %128 = icmp sgt i32 %129, %127
+  br i1 %128, label %156, label %129
 
-132:                                              ; preds = %122
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %134 = load i32, ptr %133, align 4, !tbaa !50
-  %135 = lshr i32 %134, 1
-  %.lobit = and i32 %135, 1
-  %136 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.lobit) #6
-  %137 = icmp slt i32 %136, 0
-  br i1 %137, label %159, label %138
+129:                                              ; preds = %119
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 276
+  %131 = load i32, ptr %130, align 4, !tbaa !50
+  %132 = lshr i32 %131, 1
+  %.lobit = and i32 %132, 1
+  %133 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.lobit) #6
+  %134 = icmp slt i32 %133, 0
+  br i1 %134, label %156, label %135
 
-138:                                              ; preds = %132
-  %139 = load i32, ptr %133, align 4, !tbaa !50
-  %140 = and i32 %139, 2
-  %.not89 = icmp eq i32 %140, 0
+135:                                              ; preds = %129
+  %136 = load i32, ptr %130, align 4, !tbaa !50
+  %137 = and i32 %136, 2
+  %.not89 = icmp eq i32 %137, 0
   br i1 %.not89, label %149, label %141
 
 141:                                              ; preds = %138
@@ -284,14 +284,14 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %159, label %144
 
-144:                                              ; preds = %141
+144:; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %146 = load ptr, ptr %145, align 16, !tbaa !27
   %147 = tail call i32 @av_frame_replace(ptr noundef %146, ptr noundef nonnull %1) #6
   %148 = icmp slt i32 %147, 0
   br i1 %148, label %159, label %157
 
-149:                                              ; preds = %138
+149:; preds = %135
   %150 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %151 = load ptr, ptr %150, align 16, !tbaa !27
   %152 = load ptr, ptr %151, align 8, !tbaa !56
@@ -300,19 +300,19 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 153:                                              ; preds = %149
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4) #6
-  br label %159
+  br label %156
 
-154:                                              ; preds = %149
-  %155 = tail call fastcc i32 @decode_inter(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef nonnull %151)
-  %156 = icmp slt i32 %155, 0
-  br i1 %156, label %159, label %157
+151:                                              ; preds = %149
+  %152 = tail call fastcc i32 @decode_inter(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef nonnull %151)
+  %153 = icmp slt i32 %152, 0
+  br i1 %153, label %156, label %154
 
-157:                                              ; preds = %154, %144
+154:                                              ; preds = %151, %144
   store i32 1, ptr %2, align 4, !tbaa !57
-  %158 = load i32, ptr %8, align 8, !tbaa !33
-  br label %159
+  %155 = load i32, ptr %8, align 8, !tbaa !33
+  br label %156
 
-159:                                              ; preds = %154, %144, %141, %132, %122, %119, %18, %11, %4, %157, %153, %115, %110
+156:                                              ; preds = %154, %144, %141, %132, %119, %116, %18, %11, %4, %154, %153, %115, %110
   %.0 = phi i32 [ -1163346256, %110 ], [ %158, %157 ], [ -1094995529, %153 ], [ -1094995529, %115 ], [ -1094995529, %4 ], [ -12, %11 ], [ -1094995529, %18 ], [ %120, %119 ], [ -1094995529, %122 ], [ %136, %132 ], [ %142, %141 ], [ %147, %144 ], [ %155, %154 ]
   ret i32 %.0
 }

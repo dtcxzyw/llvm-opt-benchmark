@@ -50736,7 +50736,7 @@ terminate.lpad.i:                                 ; preds = %CoroSave53
   call void @__clang_call_terminate(ptr %5) #39
   unreachable
 
-AfterCoroSuspend56.thread:                        ; preds = %CoroSave53
+await.ready:                                      ; preds = %CoroSave53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   br label %CoroEnd
 
@@ -50780,7 +50780,7 @@ _ZN12async_simple4coro6detail11LazyPromiseIbE12return_valueIbEEvOT_Qsr3stdE16is_
   musttail call fastcc void %10(ptr nonnull %retval.sroa.0.0.copyload.i) #30
   ret void
 
-CoroEnd:                                          ; preds = %AfterCoroSuspend56.thread, %AfterCoroSuspend56
+CoroEnd:                                          ; preds = %await.ready, %AfterCoroSuspend56
   ret void
 }
 
@@ -51438,9 +51438,9 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont26
   %14 = load ptr, ptr %ref.tmp11.reload.addr, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
   %or.cond.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZN12async_simple3TryIbED2Ev.exit.thread15, label %_ZN12async_simple3TryIbED2Ev.exit
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZN12async_simple3TryIbED2Ev.exit.thread14, label %_ZN12async_simple3TryIbED2Ev.exit
 
-_ZN12async_simple3TryIbED2Ev.exit.thread15:       ; preds = %if.end.i.i.i.i.i.i.i.i.i
+_ZN12async_simple3TryIbED2Ev.exit.thread14:       ; preds = %if.end.i.i.i.i.i.i.i.i.i
   store i8 -1, ptr %_M_index.i.i.i.i, align 8
   br label %final.ready
 
@@ -51522,7 +51522,7 @@ lpad36:                                           ; preds = %invoke.cont35
           cleanup
   br label %CoroEnd83
 
-final.ready:                                      ; preds = %invoke.cont26, %_ZN12async_simple3TryIbED2Ev.exit.thread15, %invoke.cont35, %_ZN12async_simple3TryIbED2Ev.exit, %invoke.cont.i.i.i
+final.ready:                                      ; preds = %invoke.cont26, %_ZN12async_simple3TryIbED2Ev.exit.thread14, %invoke.cont35, %_ZN12async_simple3TryIbED2Ev.exit, %invoke.cont.i.i.i
   %28 = load ptr, ptr %lazy2.reload.addr, align 8
   %cmp.i.not.i = icmp eq ptr %28, null
   br i1 %cmp.i.not.i, label %_ZN12async_simple4coro6detail8LazyBaseIbLb1EED2Ev.exit, label %if.then.i9
@@ -55046,7 +55046,7 @@ terminate.lpad.i:                                 ; preds = %CoroSave58
   call void @__clang_call_terminate(ptr %12) #39
   unreachable
 
-AfterCoroSuspend61.thread:                        ; preds = %CoroSave58
+await.ready:                                      ; preds = %CoroSave58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   br label %CoroEnd
@@ -55089,7 +55089,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt4pairISt10error_codemEE12return_val
   musttail call fastcc void %16(ptr nonnull %retval.sroa.0.0.copyload.i) #30
   ret void
 
-CoroEnd:                                          ; preds = %AfterCoroSuspend61.thread, %AfterCoroSuspend61
+CoroEnd:                                          ; preds = %await.ready, %AfterCoroSuspend61
   ret void
 }
 
@@ -55198,7 +55198,7 @@ terminate.lpad.i:                                 ; preds = %CoroSave58
   call void @__clang_call_terminate(ptr %12) #39
   unreachable
 
-AfterCoroSuspend61.thread:                        ; preds = %CoroSave58
+await.ready:                                      ; preds = %CoroSave58
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   br label %CoroEnd
@@ -55241,7 +55241,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt4pairISt10error_codemEE12return_val
   musttail call fastcc void %16(ptr nonnull %retval.sroa.0.0.copyload.i) #30
   ret void
 
-CoroEnd:                                          ; preds = %AfterCoroSuspend61.thread, %AfterCoroSuspend61
+CoroEnd:                                          ; preds = %await.ready, %AfterCoroSuspend61
   ret void
 }
 
@@ -55344,7 +55344,7 @@ terminate.lpad.i:                                 ; preds = %CoroSave58
   call void @__clang_call_terminate(ptr %11) #39
   unreachable
 
-AfterCoroSuspend61.thread:                        ; preds = %CoroSave58
+await.ready:                                      ; preds = %CoroSave58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   br label %CoroEnd
@@ -55387,7 +55387,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt4pairISt10error_codemEE12return_val
   musttail call fastcc void %15(ptr nonnull %retval.sroa.0.0.copyload.i) #30
   ret void
 
-CoroEnd:                                          ; preds = %AfterCoroSuspend61.thread, %AfterCoroSuspend61
+CoroEnd:                                          ; preds = %await.ready, %AfterCoroSuspend61
   ret void
 }
 
@@ -55496,7 +55496,7 @@ terminate.lpad.i:                                 ; preds = %CoroSave58
   call void @__clang_call_terminate(ptr %12) #39
   unreachable
 
-AfterCoroSuspend61.thread:                        ; preds = %CoroSave58
+await.ready:                                      ; preds = %CoroSave58
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   br label %CoroEnd
@@ -55539,7 +55539,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt4pairISt10error_codemEE12return_val
   musttail call fastcc void %16(ptr nonnull %retval.sroa.0.0.copyload.i) #30
   ret void
 
-CoroEnd:                                          ; preds = %AfterCoroSuspend61.thread, %AfterCoroSuspend61
+CoroEnd:                                          ; preds = %await.ready, %AfterCoroSuspend61
   ret void
 }
 

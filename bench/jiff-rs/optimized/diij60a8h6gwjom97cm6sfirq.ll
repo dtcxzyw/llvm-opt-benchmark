@@ -12186,7 +12186,7 @@ define noundef zeroext i1 @"_ZN56_$LT$jiff..span..UnitSet$u20$as$u20$core..fmt..
   %switch86 = icmp samesign ult i16 %15, 10
   br i1 %switch86, label %.lr.ph89, label %_ZN4jiff4span4Unit10from_usize17he96f1be1d4ca1e42E.exit.thread
 
-.lr.ph89:                                         ; preds = %.lr.ph, %24
+.lr.ph89:; preds = %.lr.ph, %24
   %16 = phi i16 [ %29, %24 ], [ %15, %.lr.ph ]
   %.sroa.03.07588 = phi i32 [ %25, %24 ], [ 0, %.lr.ph ]
   %.sroa.09.07687 = phi i16 [ %27, %24 ], [ %11, %.lr.ph ]
@@ -12205,8 +12205,8 @@ define noundef zeroext i1 @"_ZN56_$LT$jiff..span..UnitSet$u20$as$u20$core..fmt..
 switch.lookup:                                    ; preds = %19, %.lr.ph89
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %21 = zext nneg i16 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN56_$LT$jiff..span..UnitSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h2c3d0c40fe0ad310E", i64 0, i64 %21
+  %22 = zext nneg i16 %16 to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN56_$LT$jiff..span..UnitSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h2c3d0c40fe0ad310E", i64 0, i64 %22
   %switch.load = load i64, ptr %switch.gep, align 8
   %switch.gep90 = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN56_$LT$jiff..span..UnitSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h2c3d0c40fe0ad310E.71", i64 0, i64 %.sroa.0.0.i.ph
   %switch.load91 = load ptr, ptr %switch.gep90, align 8
@@ -12220,21 +12220,21 @@ switch.lookup:                                    ; preds = %19, %.lr.ph89
   store ptr %5, ptr %.sroa.753.0..sroa_idx, align 8
   store i64 1, ptr %.sroa.854.0..sroa_idx, align 8
   store ptr null, ptr %.sroa.1055.0..sroa_idx, align 8
-  %22 = call noundef zeroext i1 @_ZN4core3fmt5write17h752296e6eed1df48E(ptr noundef nonnull align 1 %.val19, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !719
+  %24 = call noundef zeroext i1 @_ZN4core3fmt5write17h752296e6eed1df48E(ptr noundef nonnull align 1 %.val19, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !719
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !719
-  br i1 %22, label %23, label %24
+  br i1 %24, label %25, label %26
 
-23:                                               ; preds = %switch.lookup
+25:                                               ; preds = %switch.lookup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit42
 
-24:                                               ; preds = %switch.lookup
-  %25 = add i32 %.sroa.03.07588, 1
+26:                                               ; preds = %switch.lookup
+  %27 = add i32 %.sroa.03.07588, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %26 = shl nuw nsw i16 1, %16
-  %27 = or i16 %26, %.sroa.09.07687
+  %28 = shl nuw nsw i16 1, %16
+  %29 = or i16 %28, %.sroa.09.07687
   %28 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %27, i1 true)
   %29 = xor i16 %28, 15
   %switch = icmp samesign ult i16 %29, 10

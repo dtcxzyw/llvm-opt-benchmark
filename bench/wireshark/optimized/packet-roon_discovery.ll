@@ -181,11 +181,11 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr noundef readonly 
   %26 = load i32, ptr @hf_roon_disco_marker, align 4
   %27 = tail call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 4, ptr noundef nonnull @.str.48)
   %28 = load ptr, ptr %19, align 8
-  %.str.51..str.49 = select i1 %18, ptr @.str.51, ptr @.str.49
-  %.str.52..str.50 = select i1 %18, ptr @.str.52, ptr @.str.50
-  tail call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull %.str.51..str.49)
+  %.str.49..str.51 = select i1 %18, ptr @.str.51, ptr @.str.49
+  %.str.50..str.52 = select i1 %18, ptr @.str.52, ptr @.str.50
+  tail call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull %.str.49..str.51)
   %29 = load i32, ptr @hf_roon_disco_type, align 4
-  %30 = tail call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef 2, ptr noundef nonnull %.str.52..str.50)
+  %30 = tail call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef 2, ptr noundef nonnull %.str.50..str.52)
   %31 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %32 = icmp ugt i32 %31, 6
   br i1 %32, label %.lr.ph.i.i.preheader, label %._crit_edge

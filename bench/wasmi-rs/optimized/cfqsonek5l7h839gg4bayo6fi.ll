@@ -12715,7 +12715,7 @@ define noundef i32 @_ZN5wasmi6module6export9MemoryIdx8into_u3217h43aa09de89cc6cf
 define hidden void @_ZN5wasmi6module6export9ExternIdx3new17h803e4a761be53628E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, i8 noundef range(i8 0, 5) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [48 x i8], align 8
   switch i8 %1, label %default.unreachable7 [
-    i8 0, label %12
+    i8 0, label %14
     i8 1, label %12
     i8 2, label %12
     i8 3, label %5
@@ -12732,24 +12732,24 @@ default.unreachable7:                             ; preds = %3
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @anon.c691e9fd82882113baa42aab06760c9e.879, ptr %4, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %11, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 0, ptr %13, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c691e9fd82882113baa42aab06760c9e.881) #24
   unreachable
 
-12:                                               ; preds = %3, %3, %3, %5
-  %.sink = phi i32 [ %6, %5 ], [ %2, %3 ], [ %2, %3 ], [ %2, %3 ]
+14:                                               ; preds = %3, %3, %3, %5
+  %.sink9 = phi i32 [ %6, %5 ], [ %2, %3 ], [ %2, %3 ], [ %2, %3 ]
   %.sink9 = zext nneg i8 %1 to i32
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink9, ptr %13, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink9, ptr %15, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sink, ptr %16, align 8
   store i32 0, ptr %0, align 8
   ret void
 }

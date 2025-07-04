@@ -596,7 +596,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hf6d3d0724ae2
   %15 = icmp ugt i64 %1, 1
   br i1 %15, label %.lr.ph, label %._crit_edge
 
-._crit_edge.thread:                               ; preds = %.lr.ph
+.lr.ph:                                           ; preds = %22
   %16 = add i64 %11, %1
   %17 = add i64 %16, -1
   br label %19
@@ -611,7 +611,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hf6d3d0724ae2
   ret void
 
 19:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa32 = phi ptr [ %24, %._crit_edge.thread ], [ %14, %._crit_edge ]
+  %.0.lcssa32 = phi ptr [ %25, %._crit_edge.thread ], [ %14, %._crit_edge ]
   %storemerge.lcssa31 = phi i64 [ %17, %._crit_edge.thread ], [ %11, %._crit_edge ]
   store i64 %2, ptr %.0.lcssa32, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.0.lcssa32, i64 8
@@ -619,16 +619,16 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hf6d3d0724ae2
   %21 = add i64 %storemerge.lcssa31, 1
   br label %18
 
-.lr.ph:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdcbe63986a526048E.exit", %.lr.ph
+22:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdcbe63986a526048E.exit", %22
   %.025 = phi ptr [ %24, %.lr.ph ], [ %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdcbe63986a526048E.exit" ]
   %.sroa.03.024 = phi i64 [ %22, %.lr.ph ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdcbe63986a526048E.exit" ]
-  %22 = add nuw i64 %.sroa.03.024, 1
+  %23 = add nuw i64 %.sroa.03.024, 1
   store i64 %2, ptr %.025, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %.025, i64 8
-  store i64 %3, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %.025, i64 16
-  %exitcond.not = icmp eq i64 %22, %1
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph
+  %24 = getelementptr inbounds nuw i8, ptr %.025, i64 8
+  store i64 %3, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %.025, i64 16
+  %exitcond.not = icmp eq i64 %23, %1
+  br i1 %exitcond.not, label %._crit_edge.thread, label %22
 }
 
 ; Function Attrs: nonlazybind uwtable

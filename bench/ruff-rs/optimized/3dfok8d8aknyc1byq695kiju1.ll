@@ -58504,15 +58504,15 @@ define { ptr, i64 } @"_ZN135_$LT$ruff_linter..rules..flake8_pyi..rules..type_ali
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN111_$LT$ruff_linter..rules..flake8_pytest_style..settings..Settings$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h7f0a57cf48536a24E"(ptr noalias noundef readonly align 8 dereferenceable(104) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #2 {
-"_ZN119_$LT$ruff_linter..rules..flake8_pytest_style..types..ParametrizeNameType$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17hd013e50751363cd3E.exit":
+switch.lookup:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i8, ptr %2, align 8, !range !172, !noundef !4
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7017)
   %5 = load i8, ptr %4, align 4, !range !215, !alias.scope !7017, !noalias !7020, !noundef !4
-  %.sink.i = zext nneg i8 %5 to i64
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.sink.i), !noalias !7017
+  %switch.idx.cast = zext nneg i8 %5 to i64
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %switch.idx.cast), !noalias !7017
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 97
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7022)
   %7 = load i8, ptr %6, align 1, !range !172, !alias.scope !7022, !noalias !7025, !noundef !4

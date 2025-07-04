@@ -8479,7 +8479,7 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %13 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %13)
-  br label %109
+  br label %108
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8500,7 +8500,7 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
-  br label %109
+  br label %108
 
 29:                                               ; preds = %14
   %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 192), align 8, !tbaa !108, !range !48, !noundef !49
@@ -8520,7 +8520,7 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %40 = icmp ne ptr %39, null
   call void @llvm.assume(i1 %40)
-  br label %109
+  br label %108
 
 41:                                               ; preds = %32, %29
   %42 = load i64, ptr %6, align 8, !tbaa !50
@@ -8540,7 +8540,7 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %50 = icmp ne ptr %49, null
   call void @llvm.assume(i1 %50)
-  br label %109
+  br label %108
 
 51:                                               ; preds = %41
   %52 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 196), align 4, !tbaa !107, !range !48, !noundef !49
@@ -8553,7 +8553,7 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %58 = icmp ne ptr %57, null
   call void @llvm.assume(i1 %58)
-  br label %109
+  br label %108
 
 59:                                               ; preds = %41
   %60 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !54
@@ -8561,7 +8561,7 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %63 = icmp ne ptr %62, null
   call void @llvm.assume(i1 %63)
-  br label %109
+  br label %108
 
 64:                                               ; preds = %51, %43
   %.0 = trunc nuw nsw i64 %42 to i32
@@ -8577,7 +8577,7 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %72 = icmp ne ptr %71, null
   call void @llvm.assume(i1 %72)
-  br label %109
+  br label %108
 
 73:                                               ; preds = %64
   %74 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -8587,7 +8587,7 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
   %75 = load i32, ptr %4, align 4, !tbaa !168
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
   %.not19 = icmp eq i32 %75, 0
-  br i1 %.not19, label %76, label %82
+  br i1 %.not19, label %76, label %81
 
 76:                                               ; preds = %73
   %77 = icmp eq i64 %42, 4096
@@ -8599,21 +8599,21 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
   call void @llvm.assume(i1 %81)
   br label %109
 
-82:                                               ; preds = %73
-  %83 = load ptr, ptr %22, align 8, !tbaa !8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 316
-  %85 = load i16, ptr %84, align 4
-  %86 = and i16 %85, 256
-  %.not20 = icmp eq i16 %86, 0
-  br i1 %.not20, label %96, label %87
+81:                                               ; preds = %73
+  %82 = load ptr, ptr %22, align 8, !tbaa !8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 316
+  %84 = load i16, ptr %83, align 4
+  %85 = and i16 %84, 256
+  %.not20 = icmp eq i16 %85, 0
+  br i1 %.not20, label %96, label %86
 
-87:                                               ; preds = %82
-  %88 = call i32 @phar_copy_on_write(ptr noundef nonnull %22) #20
-  %89 = icmp eq i32 %88, -1
+86:                                               ; preds = %81
+  %87 = call i32 @phar_copy_on_write(ptr noundef nonnull %22) #20
+  %88 = icmp eq i32 %87, -1
   %.pre = load ptr, ptr %22, align 8, !tbaa !8
-  br i1 %89, label %90, label %96
+  br i1 %88, label %90, label %96
 
-90:                                               ; preds = %87
+95:                                               ; preds = %86
   %91 = load ptr, ptr @phar_ce_PharException, align 8, !tbaa !54
   %92 = load ptr, ptr %.pre, align 8, !tbaa !117
   %93 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %91, i64 noundef 0, ptr noundef nonnull @.str.77, ptr noundef %92) #20
@@ -8629,25 +8629,25 @@ define hidden void @zim_Phar_compressFiles(ptr noundef readonly captures(none) %
   store i32 %.0, ptr %3, align 4, !tbaa !168
   call void @zend_hash_apply_with_argument(ptr noundef nonnull %98, ptr noundef nonnull @phar_set_compression, ptr noundef nonnull %3) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %99 = load ptr, ptr %22, align 8, !tbaa !8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 316
-  %101 = load i16, ptr %100, align 4
-  %102 = or i16 %101, 2
-  store i16 %102, ptr %100, align 4
-  %103 = load ptr, ptr %22, align 8, !tbaa !8
-  call void @phar_flush(ptr noundef %103, ptr noundef nonnull %5) #20
-  %104 = load ptr, ptr %5, align 8, !tbaa !47
-  %.not21 = icmp eq ptr %104, null
-  br i1 %.not21, label %109, label %105
+  %98 = load ptr, ptr %22, align 8, !tbaa !8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 316
+  %100 = load i16, ptr %99, align 4
+  %101 = or i16 %100, 2
+  store i16 %101, ptr %99, align 4
+  %102 = load ptr, ptr %22, align 8, !tbaa !8
+  call void @phar_flush(ptr noundef %102, ptr noundef nonnull %5) #20
+  %103 = load ptr, ptr %5, align 8, !tbaa !47
+  %.not21 = icmp eq ptr %103, null
+  br i1 %.not21, label %108, label %104
 
-105:                                              ; preds = %96
-  %106 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !54
-  %107 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %106, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %104) #20
-  %108 = load ptr, ptr %5, align 8, !tbaa !47
-  call void @_efree(ptr noundef %108) #20
-  br label %109
+104:                                              ; preds = %96
+  %105 = load ptr, ptr @spl_ce_BadMethodCallException, align 8, !tbaa !54
+  %106 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %105, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %103) #20
+  %107 = load ptr, ptr %5, align 8, !tbaa !47
+  call void @_efree(ptr noundef %107) #20
+  br label %108
 
-109:                                              ; preds = %24, %36, %46, %54, %59, %68, %76, %90, %105, %96, %11
+108:                                              ; preds = %24, %36, %46, %54, %59, %68, %76, %90, %104, %96, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   ret void
