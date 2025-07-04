@@ -11004,7 +11004,6 @@ define hidden void @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6export17h9
           to label %.noexc unwind label %59
 
 .noexc:                                           ; preds = %16, %12
-  %.sroa.05.0.i = phi i32 [ 0, %12 ], [ 1, %16 ]
   %.sroa.3.0.i = phi i32 [ undef, %12 ], [ %19, %16 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %21 = load i32, ptr %20, align 8, !range !794, !alias.scope !1268, !noalias !1271, !noundef !9
@@ -11018,7 +11017,6 @@ define hidden void @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6export17h9
           to label %.noexc2 unwind label %59
 
 .noexc2:                                          ; preds = %22, %.noexc
-  %.sroa.06.0.i = phi i32 [ 0, %.noexc ], [ 1, %22 ]
   %.sroa.37.0.i = phi i32 [ undef, %.noexc ], [ %25, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %27 = load i32, ptr %26, align 8, !range !794, !alias.scope !1268, !noalias !1271, !noundef !9
@@ -11093,7 +11091,6 @@ define hidden void @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6export17h9
           to label %74 unwind label %72
 
 61:                                               ; preds = %.noexc2, %28
-  %.sroa.08.0.i = phi i32 [ 0, %.noexc2 ], [ 1, %28 ]
   %.sroa.39.0.i = phi i32 [ undef, %.noexc2 ], [ %31, %28 ]
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %63 = load i32, ptr %62, align 8, !alias.scope !1268, !noalias !1271, !noundef !9
@@ -11106,15 +11103,15 @@ define hidden void @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6export17h9
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.sroa.05.0.i, ptr %70, align 8
+  store i32 %15, ptr %70, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %.sroa.06.0.i, ptr %.sroa.3.0..sroa_idx, align 8
+  store i32 %21, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.sroa.37.0.i, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %.sroa.08.0.i, ptr %.sroa.5.0..sroa_idx, align 8
+  store i32 %27, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %.sroa.39.0.i, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -11465,7 +11462,6 @@ select.unfold:                                    ; preds = %52, %2
   br label %117
 
 117:                                              ; preds = %113, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit"
-  %.sroa.05.0.i = phi i32 [ 1, %113 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit" ]
   %.sroa.3.0.i = phi i32 [ %116, %113 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit" ]
   %118 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %119 = load i32, ptr %118, align 4, !range !794, !alias.scope !1356, !noalias !1359, !noundef !9
@@ -11479,7 +11475,6 @@ select.unfold:                                    ; preds = %52, %2
   br label %124
 
 124:                                              ; preds = %120, %117
-  %.sroa.06.0.i = phi i32 [ 1, %120 ], [ 0, %117 ]
   %.sroa.37.0.i = phi i32 [ %123, %120 ], [ undef, %117 ]
   %125 = getelementptr inbounds nuw i8, ptr %78, i64 20
   %126 = load i32, ptr %125, align 4, !range !794, !alias.scope !1356, !noalias !1359, !noundef !9
@@ -11493,7 +11488,6 @@ select.unfold:                                    ; preds = %52, %2
   br label %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit
 
 _ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit: ; preds = %124, %127
-  %.sroa.08.0.i = phi i32 [ 1, %127 ], [ 0, %124 ]
   %.sroa.39.0.i = phi i32 [ %130, %127 ], [ undef, %124 ]
   %131 = getelementptr inbounds nuw i8, ptr %78, i64 28
   %132 = load i32, ptr %131, align 4, !alias.scope !1356, !noalias !1359, !noundef !9
@@ -11552,10 +11546,10 @@ _ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.ex
   br label %163
 
 163:                                              ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit", %162, %161, %160, %159, %156, %153, %150, %137, %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit
-  %.sroa.22.0 = phi i32 [ %.sroa.08.0.i, %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit ], [ undef, %137 ], [ undef, %150 ], [ undef, %153 ], [ undef, %156 ], [ undef, %159 ], [ undef, %160 ], [ undef, %161 ], [ undef, %162 ], [ undef, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit" ]
-  %.sroa.16.0 = phi i32 [ %.sroa.06.0.i, %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit ], [ %147, %137 ], [ undef, %150 ], [ undef, %153 ], [ undef, %156 ], [ undef, %159 ], [ undef, %160 ], [ undef, %161 ], [ undef, %162 ], [ undef, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit" ]
+  %.sroa.22.0 = phi i32 [ %126, %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit ], [ undef, %137 ], [ undef, %150 ], [ undef, %153 ], [ undef, %156 ], [ undef, %159 ], [ undef, %160 ], [ undef, %161 ], [ undef, %162 ], [ undef, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit" ]
+  %.sroa.16.0 = phi i32 [ %119, %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit ], [ %147, %137 ], [ undef, %150 ], [ undef, %153 ], [ undef, %156 ], [ undef, %159 ], [ undef, %160 ], [ undef, %161 ], [ undef, %162 ], [ undef, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit" ]
   %.sroa.1111.0 = phi i32 [ %.sroa.3.0.i, %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit ], [ %142, %137 ], [ %152, %150 ], [ %155, %153 ], [ %158, %156 ], [ undef, %159 ], [ undef, %160 ], [ undef, %161 ], [ undef, %162 ], [ undef, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit" ]
-  %.sroa.010.0 = phi i32 [ %.sroa.05.0.i, %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit ], [ 2, %137 ], [ 4, %150 ], [ 5, %153 ], [ 6, %156 ], [ 7, %159 ], [ 8, %160 ], [ 9, %161 ], [ 10, %162 ], [ 3, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit" ]
+  %.sroa.010.0 = phi i32 [ %112, %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit ], [ 2, %137 ], [ 4, %150 ], [ 5, %153 ], [ 6, %156 ], [ 7, %159 ], [ 8, %160 ], [ 9, %161 ], [ 10, %162 ], [ 3, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit" ]
   %.sroa.23.0 = phi i32 [ %.sroa.39.0.i, %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit ], [ undef, %137 ], [ undef, %150 ], [ undef, %153 ], [ undef, %156 ], [ undef, %159 ], [ undef, %160 ], [ undef, %161 ], [ undef, %162 ], [ undef, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit" ]
   %.sroa.24.0 = phi i32 [ %132, %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit ], [ undef, %137 ], [ undef, %150 ], [ undef, %153 ], [ undef, %156 ], [ undef, %159 ], [ undef, %160 ], [ undef, %161 ], [ undef, %162 ], [ undef, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit" ]
   %.sroa.25.0 = phi i8 [ %134, %_ZN16wasmtime_environ9component3dfg12LinearizeDfg7options17h5fa4ffdd9bd7967eE.exit ], [ undef, %137 ], [ undef, %150 ], [ undef, %153 ], [ undef, %156 ], [ undef, %159 ], [ undef, %160 ], [ undef, %161 ], [ undef, %162 ], [ undef, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hcf9f482c20aa67eaE.exit" ]

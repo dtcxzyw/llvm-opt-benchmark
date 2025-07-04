@@ -658,21 +658,17 @@ define dso_local zeroext range(i8 1, 3) i8 @oid_version(ptr noundef readnone cap
 
 hash_algo_by_ptr.exit:                            ; preds = %2
   %6 = trunc nuw nsw i64 %.0811.i to i32
-  switch i32 %6, label %hash_algo_by_ptr.exit.thread [
-    i32 1, label %9
-    i32 2, label %7
-  ]
-
-7:                                                ; preds = %hash_algo_by_ptr.exit
-  br label %9
+  %.off = add i32 %6, -1
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %8, label %hash_algo_by_ptr.exit.thread
 
 hash_algo_by_ptr.exit.thread:                     ; preds = %4, %hash_algo_by_ptr.exit
-  %8 = tail call fastcc ptr @_(ptr noundef nonnull @.str.9)
-  tail call void (ptr, ...) @die(ptr noundef %8) #12
+  %7 = tail call fastcc ptr @_(ptr noundef nonnull @.str.9)
+  tail call void (ptr, ...) @die(ptr noundef %7) #12
   unreachable
 
-9:                                                ; preds = %hash_algo_by_ptr.exit, %7
-  %.0 = phi i8 [ 2, %7 ], [ 1, %hash_algo_by_ptr.exit ]
+8:                                                ; preds = %hash_algo_by_ptr.exit
+  %.0 = trunc i64 %.0811.i to i8
   ret i8 %.0
 }
 

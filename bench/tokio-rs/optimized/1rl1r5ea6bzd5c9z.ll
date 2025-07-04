@@ -850,25 +850,25 @@ define hidden { ptr, i8 } @"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new28_$u7b$$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17h3ea73a88c0cfb50fE(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 4 %3) unnamed_addr #4 {
-  %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %6, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17hc7545f8239ace084E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 4 %3) unnamed_addr #4 {
-  %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %6, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -3155,8 +3155,8 @@ define hidden { ptr, i8 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h6f611a
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h03d2dd1540f54d08E.llvm.5542961546488995764"(i64 noundef %0, i64 %1) unnamed_addr #3 {
-  %switch = icmp ne i64 %0, 0
-  ret i1 %switch
+  %3 = trunc i64 %0 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -6499,8 +6499,7 @@ define hidden { i64, ptr } @"_ZN72_$LT$tokio..runtime..scheduler..Handle$u20$as$
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8414ab62449d27f8E.llvm.5542961546488995764.exit": ; preds = %9, %4
   %.sroa.3.0 = phi ptr [ %5, %4 ], [ %10, %9 ]
-  %.sroa.0.0 = phi i64 [ 0, %4 ], [ 1, %9 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %14 = insertvalue { i64, ptr } poison, i64 %2, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.3.0, 1
   ret { i64, ptr } %15
 }
@@ -6903,8 +6902,7 @@ _ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit: ; preds = %5
   unreachable
 
 19:                                               ; preds = %17, %15
-  %.sroa.0.0.i = phi i64 [ 0, %15 ], [ 1, %17 ]
-  store i64 %.sroa.0.0.i, ptr %0, align 8
+  store i64 %6, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32

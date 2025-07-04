@@ -3976,8 +3976,7 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   unreachable
 
 31:                                               ; preds = %9, %22
-  %storemerge = phi i32 [ 1, %22 ], [ 0, %9 ]
-  store i32 %storemerge, ptr %0, align 8
+  store i32 %8, ptr %0, align 8
   ret void
 
 .body:                                            ; preds = %28
@@ -4063,8 +4062,7 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   unreachable
 
 31:                                               ; preds = %9, %22
-  %storemerge = phi i32 [ 1, %22 ], [ 0, %9 ]
-  store i32 %storemerge, ptr %0, align 8
+  store i32 %8, ptr %0, align 8
   ret void
 
 .body:                                            ; preds = %28
@@ -4150,8 +4148,7 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   unreachable
 
 31:                                               ; preds = %9, %22
-  %storemerge = phi i32 [ 1, %22 ], [ 0, %9 ]
-  store i32 %storemerge, ptr %0, align 8
+  store i32 %8, ptr %0, align 8
   ret void
 
 .body:                                            ; preds = %28
@@ -4201,10 +4198,9 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
 20:                                               ; preds = %12, %17
   %.sink3 = phi i64 [ 16, %12 ], [ 8, %17 ]
   %.sink = phi ptr [ %14, %12 ], [ %19, %17 ]
-  %storemerge = phi i64 [ 0, %12 ], [ 1, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink3
   store ptr %.sink, ptr %21, align 8
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %9, ptr %0, align 8
   ret void
 
 "_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h19ce20bd33c5efdfE.exit": ; preds = %22
@@ -4301,8 +4297,7 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   unreachable
 
 30:                                               ; preds = %9, %21
-  %storemerge = phi i32 [ 1, %21 ], [ 0, %9 ]
-  store i32 %storemerge, ptr %0, align 8
+  store i32 %8, ptr %0, align 8
   ret void
 
 .body:                                            ; preds = %27
@@ -4471,8 +4466,7 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   br label %17
 
 17:                                               ; preds = %6, %10
-  %storemerge = phi i8 [ 1, %10 ], [ 0, %6 ]
-  store i8 %storemerge, ptr %0, align 8
+  store i8 %5, ptr %0, align 8
   ret void
 }
 
@@ -4786,10 +4780,9 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
 22:                                               ; preds = %13, %19
   %.sink3 = phi i64 [ 16, %13 ], [ 8, %19 ]
   %.sink = phi ptr [ %15, %13 ], [ %21, %19 ]
-  %storemerge = phi i64 [ 0, %13 ], [ 1, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink3
   store ptr %.sink, ptr %23, align 8
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %10, ptr %0, align 8
   ret void
 
 "_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h19ce20bd33c5efdfE.exit": ; preds = %24

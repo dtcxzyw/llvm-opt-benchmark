@@ -6641,49 +6641,48 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %27, %29
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN3syn3mac8printing42_$LT$impl$u20$syn..mac..MacroDelimiter$GT$8surround17ha05cd8cc682e0607E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-switch.lookup:
-  %3 = alloca { { { { i64, [3 x i64] } } } }, align 8
-  %4 = alloca { { i32, [5 x i32] } }, align 8
-  %5 = alloca { { i64, [3 x i64] }, { {} } }, align 8
-  %6 = load i32, ptr %0, align 4, !range !73, !noundef !12
-  %switch.idx.cast = trunc nuw i32 %6 to i8
+  %4 = alloca { { { { i64, [3 x i64] } } } }, align 8
+  %5 = alloca { { i32, [5 x i32] } }, align 8
+  %6 = alloca { { i64, [3 x i64] }, { {} } }, align 8
+  %7 = load i32, ptr %0, align 4, !range !73, !noundef !12
   %.sroa.5.0.in = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.5.0 = load i32, ptr %.sroa.5.0.in, align 4
-  %7 = icmp eq i32 %.sroa.5.0, 0
+  %8 = icmp eq i32 %.sroa.5.0, 0
   %.sroa.04.0.in = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.04.0 = load i32, ptr %.sroa.04.0.in, align 4
-  %.0 = select i1 %7, i32 0, i32 %.sroa.04.0
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1221
-  call void @_ZN11proc_macro25Group3new17h42573d608bedf520E(ptr noalias noundef nonnull sret({ { i32, [5 x i32] } }) align 8 captures(none) dereferenceable(24) %4, i8 noundef %switch.idx.cast, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5), !noalias !1225
-  invoke void @_ZN11proc_macro25Group8set_span17hb2e918b3aeb53966E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.0)
-          to label %_ZN3syn5token8printing5delim17hd3c311fe639540afE.exit unwind label %9, !noalias !1221
+  %.0 = select i1 %8, i32 0, i32 %.sroa.04.0
+  %.016 = trunc nuw nsw i32 %7 to i8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1221
+  call void @_ZN11proc_macro25Group3new17h42573d608bedf520E(ptr noalias noundef nonnull sret({ { i32, [5 x i32] } }) align 8 captures(none) dereferenceable(24) %5, i8 noundef %.016, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6), !noalias !1225
+  invoke void @_ZN11proc_macro25Group8set_span17hb2e918b3aeb53966E(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %.0)
+          to label %_ZN3syn5token8printing5delim17hd3c311fe639540afE.exit unwind label %10, !noalias !1221
 
-8:                                                ; preds = %9
-  resume { ptr, i32 } %10
+9:                                                ; preds = %10
+  resume { ptr, i32 } %11
 
-9:                                                ; preds = %switch.lookup
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Group$GT$17hd0207ca369254018E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #27
-          to label %8 unwind label %11, !noalias !1221
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Group$GT$17hd0207ca369254018E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #27
+          to label %9 unwind label %12, !noalias !1221
 
-11:                                               ; preds = %9
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23, !noalias !1221
   unreachable
 
-_ZN3syn5token8printing5delim17hd3c311fe639540afE.exit: ; preds = %switch.lookup
-  %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1226
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !1221
-  store i64 -9223372036854775807, ptr %3, align 8, !noalias !1226
-  call void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17hb05fa54c9b9cd6f6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3), !noalias !1230
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1226
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1221
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+_ZN3syn5token8printing5delim17hd3c311fe639540afE.exit: ; preds = %3
+  %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1226
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !1221
+  store i64 -9223372036854775807, ptr %4, align 8, !noalias !1226
+  call void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17hb05fa54c9b9cd6f6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4), !noalias !1230
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1226
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1221
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
 }
 
@@ -6897,13 +6896,13 @@ common.resume:                                    ; preds = %82, %66, %69
   %.sroa.03.0 = phi i64 [ %.sroa.0.i.sroa.0.0.copyload, %"_ZN76_$LT$proc_macro2..imp..DeferredTokenStream$u20$as$u20$core..clone..Clone$GT$5clone17h3a717b477080e467E.llvm.8518282266673452345.exit.i" ], [ -9223372036854775808, %72 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1300)
   %80 = load i32, ptr %50, align 8, !range !73, !alias.scope !1300, !noalias !1303, !noundef !12
-  %switch.idx.cast = trunc nuw i32 %80 to i8
   %.sroa.5.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 92
   %.sroa.5.0.i = load i32, ptr %.sroa.5.0.in.i, align 4, !alias.scope !1300, !noalias !1303
   %81 = icmp eq i32 %.sroa.5.0.i, 0
   %.sroa.04.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 84
   %.sroa.04.0.i = load i32, ptr %.sroa.04.0.in.i, align 4, !alias.scope !1300, !noalias !1303
   %.0.i = select i1 %81, i32 0, i32 %.sroa.04.0.i
+  %.016.i = trunc nuw nsw i32 %80 to i8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !1306
   store i64 %.sroa.03.0, ptr %5, align 8, !noalias !1307
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6913,7 +6912,7 @@ common.resume:                                    ; preds = %82, %66, %69
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %.sroa.67.0, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !1307
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1308
-  call void @_ZN11proc_macro25Group3new17h42573d608bedf520E(ptr noalias noundef nonnull sret({ { i32, [5 x i32] } }) align 8 captures(none) dereferenceable(24) %4, i8 noundef %switch.idx.cast, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5), !noalias !1312
+  call void @_ZN11proc_macro25Group3new17h42573d608bedf520E(ptr noalias noundef nonnull sret({ { i32, [5 x i32] } }) align 8 captures(none) dereferenceable(24) %4, i8 noundef %.016.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5), !noalias !1312
   invoke void @_ZN11proc_macro25Group8set_span17hb2e918b3aeb53966E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.0.i)
           to label %"_ZN3syn3mac8printing42_$LT$impl$u20$syn..mac..MacroDelimiter$GT$8surround17ha05cd8cc682e0607E.exit" unwind label %82, !noalias !1308
 

@@ -1592,7 +1592,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4mold12InputSectionINS_6X86_64E
   %10 = load i32, ptr %9, align 1
   %11 = zext i32 %10 to i64
   %.not = icmp ugt i64 %8, %11
-  br i1 %.not, label %12, label %81
+  br i1 %.not, label %12, label %82
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1663,7 +1663,7 @@ _ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112b
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 136
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %52) #15
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4) #15
-  br label %81
+  br label %82
 
 53:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
@@ -1717,16 +1717,17 @@ _ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112b
   br i1 %.not19, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %74, %77
-  %.2.ph = phi i1 [ true, %77 ], [ false, %74 ]
+  %81 = trunc i32 %76 to i1
+  %.2.ph = xor i1 %81, true
   call void @_ZZN4mold12InputSectionINS_6X86_64EE18record_undef_errorERNS_7ContextIS1_EERKNS_6ElfRelIS1_EEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %74, %77, %64, %67, %53, %60
   %.2 = phi i1 [ false, %60 ], [ false, %53 ], [ false, %67 ], [ false, %64 ], [ false, %77 ], [ false, %74 ], [ %.2.ph, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
-  br label %81
+  br label %82
 
-81:                                               ; preds = %_ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit, %.critedge, %3
+82:                                               ; preds = %_ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit, %.critedge, %3
   %.0 = phi i1 [ false, %3 ], [ %.2, %.critedge ], [ true, %_ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit ]
   ret i1 %.0
 }

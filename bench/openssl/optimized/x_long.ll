@@ -43,118 +43,114 @@ define internal void @long_free(ptr noundef writeonly captures(none) initializes
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 %3, ptr readnone captures(none) %4, ptr noundef readonly captures(none) %5) #2 {
   %7 = icmp sgt i32 %2, 1
-  br i1 %7, label %8, label %17
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %6
   %9 = load i8, ptr %1, align 1, !tbaa !3
   switch i8 %9, label %.thread [
-    i8 -1, label %11
+    i8 -1, label %10
     i8 0, label %10
   ]
 
-10:                                               ; preds = %8
-  br label %11
-
-11:                                               ; preds = %8, %10
-  %.0 = phi i64 [ 0, %10 ], [ 255, %8 ]
-  %12 = add nsw i32 %2, -1
-  %13 = icmp samesign ugt i32 %12, 8
-  br i1 %13, label %16, label %18
+10:                                               ; preds = %8, %8
+  %11 = add nsw i32 %2, -1
+  %12 = icmp samesign ugt i32 %11, 8
+  br i1 %12, label %15, label %17
 
 .thread:                                          ; preds = %8
-  %14 = icmp samesign ugt i32 %2, 8
-  br i1 %14, label %16, label %.thread85
+  %13 = icmp samesign ugt i32 %2, 8
+  br i1 %13, label %15, label %.thread85
 
 .thread85:                                        ; preds = %.thread
-  %15 = load i8, ptr %1, align 1, !tbaa !3
-  %.not3586 = icmp sgt i8 %15, -1
+  %14 = load i8, ptr %1, align 1, !tbaa !3
+  %.not3586 = icmp sgt i8 %14, -1
   %spec.select5987 = select i1 %.not3586, i64 0, i64 255
   br label %.lr.ph.preheader
 
-16:                                               ; preds = %.thread, %11
+15:                                               ; preds = %.thread, %10
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 155, ptr noundef nonnull @__func__.long_c2i) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 128, ptr noundef null) #5
-  br label %42
+  br label %40
 
-17:                                               ; preds = %6
+16:                                               ; preds = %6
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %._crit_edge.thread, label %25
+  br i1 %.not, label %._crit_edge.thread, label %23
 
-18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !3
-  %21 = zext i8 %20 to i64
-  %22 = xor i64 %.0, %21
-  %23 = icmp samesign ult i64 %22, 128
-  br i1 %23, label %24, label %.lr.ph.preheader
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %.0 = zext i8 %9 to i64
+  %19 = load i8, ptr %18, align 1, !tbaa !3
+  %20 = xor i8 %9, %19
+  %21 = icmp sgt i8 %20, -1
+  br i1 %21, label %22, label %.lr.ph.preheader
 
-24:                                               ; preds = %18
+22:                                               ; preds = %17
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 166, ptr noundef nonnull @__func__.long_c2i) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 221, ptr noundef null) #5
-  br label %42
+  br label %40
 
-25:                                               ; preds = %17
-  %26 = load i8, ptr %1, align 1, !tbaa !3
-  %.not35 = icmp sgt i8 %26, -1
+23:                                               ; preds = %16
+  %24 = load i8, ptr %1, align 1, !tbaa !3
+  %.not35 = icmp sgt i8 %24, -1
   %spec.select59 = select i1 %.not35, i64 0, i64 255
-  %27 = icmp eq i32 %2, 1
-  br i1 %27, label %.lr.ph.preheader, label %._crit_edge.thread
+  %25 = icmp eq i32 %2, 1
+  br i1 %25, label %.lr.ph.preheader, label %._crit_edge.thread
 
-.lr.ph.preheader:                                 ; preds = %18, %.thread85, %25
-  %.179 = phi i64 [ %spec.select59, %25 ], [ %spec.select5987, %.thread85 ], [ %.0, %18 ]
-  %.031414778 = phi ptr [ %1, %25 ], [ %1, %.thread85 ], [ %19, %18 ]
-  %.032404977 = phi i32 [ 1, %25 ], [ %2, %.thread85 ], [ %12, %18 ]
+.lr.ph.preheader:                                 ; preds = %17, %.thread85, %23
+  %.179 = phi i64 [ %spec.select59, %23 ], [ %spec.select5987, %.thread85 ], [ %.0, %17 ]
+  %.031414778 = phi ptr [ %1, %23 ], [ %1, %.thread85 ], [ %18, %17 ]
+  %.032404977 = phi i32 [ 1, %23 ], [ %2, %.thread85 ], [ %11, %17 ]
   %wide.trip.count = zext nneg i32 %.032404977 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.02761 = phi i64 [ 0, %.lr.ph.preheader ], [ %33, %.lr.ph ]
-  %28 = shl i64 %.02761, 8
-  %29 = getelementptr inbounds nuw i8, ptr %.031414778, i64 %indvars.iv
-  %30 = load i8, ptr %29, align 1, !tbaa !3
-  %31 = zext i8 %30 to i64
-  %32 = xor i64 %.179, %31
-  %33 = or i64 %32, %28
+  %.02761 = phi i64 [ 0, %.lr.ph.preheader ], [ %31, %.lr.ph ]
+  %26 = shl i64 %.02761, 8
+  %27 = getelementptr inbounds nuw i8, ptr %.031414778, i64 %indvars.iv
+  %28 = load i8, ptr %27, align 1, !tbaa !3
+  %29 = zext i8 %28 to i64
+  %30 = xor i64 %.179, %29
+  %31 = or disjoint i64 %30, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %34 = icmp slt i64 %33, 0
-  br i1 %34, label %35, label %._crit_edge.thread
+  %32 = icmp slt i64 %26, 0
+  br i1 %32, label %33, label %._crit_edge.thread
 
-35:                                               ; preds = %._crit_edge
+33:                                               ; preds = %._crit_edge
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 176, ptr noundef nonnull @__func__.long_c2i) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 128, ptr noundef null) #5
-  br label %42
+  br label %40
 
-._crit_edge.thread:                               ; preds = %17, %25, %._crit_edge
-  %.027.lcssa91 = phi i64 [ %33, %._crit_edge ], [ 0, %25 ], [ 0, %17 ]
-  %.18090 = phi i64 [ %.179, %._crit_edge ], [ %spec.select59, %25 ], [ 0, %17 ]
+._crit_edge.thread:                               ; preds = %16, %23, %._crit_edge
+  %.027.lcssa91 = phi i64 [ %31, %._crit_edge ], [ 0, %23 ], [ 0, %16 ]
+  %.18090 = phi i64 [ %.179, %._crit_edge ], [ %spec.select59, %23 ], [ 0, %16 ]
   %.not36 = icmp ne i64 %.18090, 0
-  %36 = sext i1 %.not36 to i64
-  %spec.select = xor i64 %.027.lcssa91, %36
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %38 = load i64, ptr %37, align 8, !tbaa !8
-  %39 = icmp eq i64 %spec.select, %38
-  br i1 %39, label %40, label %41
+  %34 = sext i1 %.not36 to i64
+  %spec.select = xor i64 %.027.lcssa91, %34
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %36 = load i64, ptr %35, align 8, !tbaa !8
+  %37 = icmp eq i64 %spec.select, %36
+  br i1 %37, label %38, label %39
 
-40:                                               ; preds = %._crit_edge.thread
+38:                                               ; preds = %._crit_edge.thread
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 182, ptr noundef nonnull @__func__.long_c2i) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 128, ptr noundef null) #5
-  br label %42
+  br label %40
 
-41:                                               ; preds = %._crit_edge.thread
+39:                                               ; preds = %._crit_edge.thread
   store i64 %spec.select, ptr %0, align 8
-  br label %42
+  br label %40
 
-42:                                               ; preds = %41, %40, %35, %24, %16
-  %.030 = phi i32 [ 0, %16 ], [ 0, %35 ], [ 0, %40 ], [ 1, %41 ], [ 0, %24 ]
+40:                                               ; preds = %39, %38, %33, %22, %15
+  %.030 = phi i32 [ 0, %15 ], [ 0, %33 ], [ 0, %38 ], [ 1, %39 ], [ 0, %22 ]
   ret i32 %.030
 }
 

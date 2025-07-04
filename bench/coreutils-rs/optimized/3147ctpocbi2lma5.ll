@@ -58,8 +58,8 @@ define hidden void @_ZN3nix6unistd5write17h023005b3601ee0cbE(ptr noalias noundef
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2dc314c5ebe28c17E.llvm.12372031650670403472.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h2dc314c5ebe28c17E.llvm.12372031650670403472.exit": ; preds = %7, %9
-  %storemerge.i1 = phi i32 [ 1, %9 ], [ 0, %7 ]
-  store i32 %storemerge.i1, ptr %0, align 8, !alias.scope !5, !noalias !8
+  %storemerge.i5 = phi i32 [ 0, %7 ], [ 1, %9 ]
+  store i32 %storemerge.i5, ptr %0, align 8, !alias.scope !5, !noalias !8
   ret void
 }
 
@@ -131,8 +131,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2dc314c5ebe28c17
   br label %12
 
 12:                                               ; preds = %4, %8
-  %storemerge = phi i32 [ 1, %8 ], [ 0, %4 ]
-  store i32 %storemerge, ptr %0, align 8
+  store i32 %3, ptr %0, align 8
   ret void
 }
 

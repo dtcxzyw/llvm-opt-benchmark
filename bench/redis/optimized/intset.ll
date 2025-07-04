@@ -809,132 +809,126 @@ define dso_local range(i32 0, 2) i32 @intsetValidateIntegrity(ptr noundef readon
 5:                                                ; preds = %3
   %6 = load i32, ptr %0, align 4, !tbaa !5
   switch i32 %6, label %._crit_edge [
-    i32 8, label %9
+    i32 8, label %7
     i32 4, label %7
-    i32 2, label %8
+    i32 2, label %7
   ]
 
-7:                                                ; preds = %5
-  br label %9
+7:                                                ; preds = %5, %5, %5
+  %.029 = zext nneg i32 %6 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %9 = load i32, ptr %8, align 4, !tbaa !5
+  %10 = zext i32 %9 to i64
+  %11 = mul nuw nsw i64 %10, %.029
+  %12 = add nuw nsw i64 %11, 8
+  %.not = icmp ne i64 %12, %1
+  %13 = icmp eq i32 %9, 0
+  %or.cond = or i1 %13, %.not
+  br i1 %or.cond, label %._crit_edge, label %14
 
-8:                                                ; preds = %5
-  br label %9
-
-9:                                                ; preds = %5, %7, %8
-  %.029 = phi i64 [ 4, %7 ], [ 2, %8 ], [ 8, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !5
-  %12 = zext i32 %11 to i64
-  %13 = mul nuw nsw i64 %.029, %12
-  %14 = add nuw nsw i64 %13, 8
-  %.not = icmp ne i64 %14, %1
-  %15 = icmp eq i32 %11, 0
-  %or.cond = or i1 %15, %.not
-  br i1 %or.cond, label %._crit_edge, label %16
-
-16:                                               ; preds = %9
+14:                                               ; preds = %7
   %.not34 = icmp eq i32 %2, 0
-  br i1 %.not34, label %._crit_edge, label %17
+  br i1 %.not34, label %._crit_edge, label %15
 
-17:                                               ; preds = %16
-  %18 = trunc nuw nsw i32 %6 to i8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i8 %18, label %23 [
-    i8 8, label %20
-    i8 4, label %21
+15:                                               ; preds = %14
+  %16 = trunc nuw nsw i32 %6 to i8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  switch i8 %16, label %21 [
+    i8 8, label %18
+    i8 4, label %19
   ]
 
-20:                                               ; preds = %17
-  %.0.copyload3.i.i = load i64, ptr %19, align 8
+18:                                               ; preds = %15
+  %.0.copyload3.i.i = load i64, ptr %17, align 8
   br label %_intsetGet.exit
 
-21:                                               ; preds = %17
-  %.0.copyload1.i.i = load i32, ptr %19, align 4
-  %22 = sext i32 %.0.copyload1.i.i to i64
+19:                                               ; preds = %15
+  %.0.copyload1.i.i = load i32, ptr %17, align 4
+  %20 = sext i32 %.0.copyload1.i.i to i64
   br label %_intsetGet.exit
 
-23:                                               ; preds = %17
-  %.0.copyload.i.i = load i16, ptr %19, align 2
-  %24 = sext i16 %.0.copyload.i.i to i64
+21:                                               ; preds = %15
+  %.0.copyload.i.i = load i16, ptr %17, align 2
+  %22 = sext i16 %.0.copyload.i.i to i64
   br label %_intsetGet.exit
 
-_intsetGet.exit:                                  ; preds = %20, %21, %23
-  %.0.i.i = phi i64 [ %.0.copyload3.i.i, %20 ], [ %22, %21 ], [ %24, %23 ]
-  %.not3642 = icmp ult i32 %11, 2
+_intsetGet.exit:                                  ; preds = %18, %19, %21
+  %.0.i.i = phi i64 [ %.0.copyload3.i.i, %18 ], [ %20, %19 ], [ %22, %21 ]
+  %.not3642 = icmp ult i32 %9, 2
   br i1 %.not3642, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_intsetGet.exit
-  switch i8 %18, label %.lr.ph.split [
+  switch i8 %16, label %.lr.ph.split [
     i8 8, label %.lr.ph.split.us
     i8 4, label %.lr.ph.split.us48
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.0.copyload3.i.i39.us66 = load i64, ptr %25, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.copyload3.i.i39.us66 = load i64, ptr %23, align 8
   %.not35.us67 = icmp sgt i64 %.0.copyload3.i.i39.us66, %.0.i.i
   br i1 %.not35.us67, label %.lr.ph69, label %._crit_edge
 
 _intsetGet.exit41.us:                             ; preds = %.lr.ph69
-  %26 = sext i32 %29 to i64
-  %27 = getelementptr inbounds i64, ptr %19, i64 %26
-  %.0.copyload3.i.i39.us = load i64, ptr %27, align 8
+  %24 = sext i32 %27 to i64
+  %25 = getelementptr inbounds i64, ptr %17, i64 %24
+  %.0.copyload3.i.i39.us = load i64, ptr %25, align 8
   %.not35.us = icmp sgt i64 %.0.copyload3.i.i39.us, %.0.copyload3.i.i39.us68
-  %28 = add i32 %29, 1
+  %26 = add i32 %27, 1
   br i1 %.not35.us, label %.lr.ph69, label %._crit_edge, !llvm.loop !18
 
 .lr.ph69:                                         ; preds = %.lr.ph.split.us, %_intsetGet.exit41.us
-  %29 = phi i32 [ %28, %_intsetGet.exit41.us ], [ 2, %.lr.ph.split.us ]
+  %27 = phi i32 [ %26, %_intsetGet.exit41.us ], [ 2, %.lr.ph.split.us ]
   %.0.copyload3.i.i39.us68 = phi i64 [ %.0.copyload3.i.i39.us, %_intsetGet.exit41.us ], [ %.0.copyload3.i.i39.us66, %.lr.ph.split.us ]
-  %exitcond79.not = icmp eq i32 %29, %11
+  %exitcond79.not = icmp eq i32 %27, %9
   br i1 %exitcond79.not, label %._crit_edge, label %_intsetGet.exit41.us, !llvm.loop !18
 
 .lr.ph.split.us48:                                ; preds = %.lr.ph
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.0.copyload1.i.i37.us71 = load i32, ptr %30, align 4
-  %31 = sext i32 %.0.copyload1.i.i37.us71 to i64
-  %.not35.us5772 = icmp slt i64 %.0.i.i, %31
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.0.copyload1.i.i37.us71 = load i32, ptr %28, align 4
+  %29 = sext i32 %.0.copyload1.i.i37.us71 to i64
+  %.not35.us5772 = icmp slt i64 %.0.i.i, %29
   br i1 %.not35.us5772, label %.lr.ph73, label %._crit_edge
 
 _intsetGet.exit41.us55:                           ; preds = %.lr.ph73
-  %32 = sext i32 %36 to i64
-  %33 = getelementptr inbounds i32, ptr %19, i64 %32
-  %.0.copyload1.i.i37.us = load i32, ptr %33, align 4
-  %34 = sext i32 %.0.copyload1.i.i37.us to i64
-  %.not35.us57 = icmp slt i64 %37, %34
-  %35 = add i32 %36, 1
+  %30 = sext i32 %34 to i64
+  %31 = getelementptr inbounds i32, ptr %17, i64 %30
+  %.0.copyload1.i.i37.us = load i32, ptr %31, align 4
+  %32 = sext i32 %.0.copyload1.i.i37.us to i64
+  %.not35.us57 = icmp slt i64 %35, %32
+  %33 = add i32 %34, 1
   br i1 %.not35.us57, label %.lr.ph73, label %._crit_edge, !llvm.loop !18
 
 .lr.ph73:                                         ; preds = %.lr.ph.split.us48, %_intsetGet.exit41.us55
-  %36 = phi i32 [ %35, %_intsetGet.exit41.us55 ], [ 2, %.lr.ph.split.us48 ]
-  %37 = phi i64 [ %34, %_intsetGet.exit41.us55 ], [ %31, %.lr.ph.split.us48 ]
-  %exitcond.not = icmp eq i32 %36, %11
+  %34 = phi i32 [ %33, %_intsetGet.exit41.us55 ], [ 2, %.lr.ph.split.us48 ]
+  %35 = phi i64 [ %32, %_intsetGet.exit41.us55 ], [ %29, %.lr.ph.split.us48 ]
+  %exitcond.not = icmp eq i32 %34, %9
   br i1 %exitcond.not, label %._crit_edge, label %_intsetGet.exit41.us55, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %.0.copyload.i.i4062 = load i16, ptr %38, align 2
-  %39 = sext i16 %.0.copyload.i.i4062 to i64
-  %.not3563 = icmp slt i64 %.0.i.i, %39
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %.0.copyload.i.i4062 = load i16, ptr %36, align 2
+  %37 = sext i16 %.0.copyload.i.i4062 to i64
+  %.not3563 = icmp slt i64 %.0.i.i, %37
   br i1 %.not3563, label %.lr.ph64, label %._crit_edge
 
 .lr.ph64:                                         ; preds = %.lr.ph.split, %_intsetGet.exit41
-  %40 = phi i32 [ %45, %_intsetGet.exit41 ], [ 2, %.lr.ph.split ]
-  %41 = phi i64 [ %44, %_intsetGet.exit41 ], [ %39, %.lr.ph.split ]
-  %exitcond80.not = icmp eq i32 %40, %11
+  %38 = phi i32 [ %43, %_intsetGet.exit41 ], [ 2, %.lr.ph.split ]
+  %39 = phi i64 [ %42, %_intsetGet.exit41 ], [ %37, %.lr.ph.split ]
+  %exitcond80.not = icmp eq i32 %38, %9
   br i1 %exitcond80.not, label %._crit_edge, label %_intsetGet.exit41, !llvm.loop !18
 
 _intsetGet.exit41:                                ; preds = %.lr.ph64
-  %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds i16, ptr %19, i64 %42
-  %.0.copyload.i.i40 = load i16, ptr %43, align 2
-  %44 = sext i16 %.0.copyload.i.i40 to i64
-  %.not35 = icmp slt i64 %41, %44
-  %45 = add i32 %40, 1
+  %40 = sext i32 %38 to i64
+  %41 = getelementptr inbounds i16, ptr %17, i64 %40
+  %.0.copyload.i.i40 = load i16, ptr %41, align 2
+  %42 = sext i16 %.0.copyload.i.i40 to i64
+  %.not35 = icmp slt i64 %39, %42
+  %43 = add i32 %38, 1
   br i1 %.not35, label %.lr.ph64, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph73, %_intsetGet.exit41.us55, %.lr.ph69, %_intsetGet.exit41.us, %.lr.ph64, %_intsetGet.exit41, %_intsetGet.exit, %.lr.ph.split.us48, %.lr.ph.split, %.lr.ph.split.us, %5, %16, %9, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %9 ], [ 1, %16 ], [ 1, %_intsetGet.exit ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us48 ], [ 0, %.lr.ph.split ], [ 1, %.lr.ph64 ], [ 0, %_intsetGet.exit41 ], [ 1, %.lr.ph69 ], [ 0, %_intsetGet.exit41.us ], [ 1, %.lr.ph73 ], [ 0, %_intsetGet.exit41.us55 ]
+._crit_edge:                                      ; preds = %.lr.ph73, %_intsetGet.exit41.us55, %.lr.ph69, %_intsetGet.exit41.us, %.lr.ph64, %_intsetGet.exit41, %_intsetGet.exit, %.lr.ph.split.us48, %.lr.ph.split, %.lr.ph.split.us, %5, %14, %7, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %7 ], [ 1, %14 ], [ 1, %_intsetGet.exit ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us48 ], [ 0, %.lr.ph.split ], [ 1, %.lr.ph64 ], [ 0, %_intsetGet.exit41 ], [ 1, %.lr.ph69 ], [ 0, %_intsetGet.exit41.us ], [ 1, %.lr.ph73 ], [ 0, %_intsetGet.exit41.us55 ]
   ret i32 %.0
 }
 

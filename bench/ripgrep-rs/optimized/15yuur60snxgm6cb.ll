@@ -1645,7 +1645,6 @@ define void @_ZN6ignore4walk11WalkBuilder5build17hd27302679e4ec68eE(ptr noalias 
   unreachable
 
 "_ZN59_$LT$ignore..walk..Sorter$u20$as$u20$core..clone..Clone$GT$5clone17hf00ff15947392e01E.exit": ; preds = %20, %22
-  %storemerge.i = phi i64 [ 0, %20 ], [ 1, %22 ]
   %24 = icmp ne ptr %.val3.i, null
   tail call void @llvm.assume(i1 %24)
   br label %25
@@ -1653,7 +1652,6 @@ define void @_ZN6ignore4walk11WalkBuilder5build17hd27302679e4ec68eE(ptr noalias 
 25:                                               ; preds = %2, %"_ZN59_$LT$ignore..walk..Sorter$u20$as$u20$core..clone..Clone$GT$5clone17hf00ff15947392e01E.exit"
   %.sroa.5.sroa.0.0 = phi ptr [ undef, %2 ], [ %.val2.i, %"_ZN59_$LT$ignore..walk..Sorter$u20$as$u20$core..clone..Clone$GT$5clone17hf00ff15947392e01E.exit" ]
   %.sroa.5.sroa.4.0 = phi ptr [ undef, %2 ], [ %.val3.i, %"_ZN59_$LT$ignore..walk..Sorter$u20$as$u20$core..clone..Clone$GT$5clone17hf00ff15947392e01E.exit" ]
-  %.sroa.0.0 = phi i64 [ 2, %2 ], [ %storemerge.i, %"_ZN59_$LT$ignore..walk..Sorter$u20$as$u20$core..clone..Clone$GT$5clone17hf00ff15947392e01E.exit" ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1669,7 +1667,7 @@ define void @_ZN6ignore4walk11WalkBuilder5build17hd27302679e4ec68eE(ptr noalias 
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %11, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.sroa.0.0, ptr %.sroa.56.0..sroa_idx, align 8
+  store i64 %13, ptr %.sroa.56.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.sroa.5.sroa.0.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32

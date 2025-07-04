@@ -14918,10 +14918,10 @@ _ZN4llvm15AssumptionCache11assumptionsEv.exit:    ; preds = %3, %9
   %14 = zext i32 %13 to i64
   %.idx = shl nuw nsw i64 %14, 5
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
-  %.not76.not = icmp eq i32 %13, 0
-  br i1 %.not76.not, label %._crit_edge, label %.lr.ph79
+  %.not76 = icmp eq i32 %13, 0
+  br i1 %.not76, label %._crit_edge, label %.lr.ph78
 
-.lr.ph79:                                         ; preds = %_ZN4llvm15AssumptionCache11assumptionsEv.exit
+.lr.ph78:                                         ; preds = %_ZN4llvm15AssumptionCache11assumptionsEv.exit
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -14932,8 +14932,8 @@ _ZN4llvm15AssumptionCache11assumptionsEv.exit:    ; preds = %3, %9
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %24
 
-24:                                               ; preds = %.lr.ph79, %113
-  %.03477 = phi ptr [ %11, %.lr.ph79 ], [ %114, %113 ]
+24:                                               ; preds = %.lr.ph78, %113
+  %.03477 = phi ptr [ %11, %.lr.ph78 ], [ %114, %113 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
   store i64 4, ptr %4, align 8
   store ptr null, ptr %16, align 8, !tbaa !765
@@ -15147,19 +15147,24 @@ _ZN4llvm16dyn_cast_or_nullINS_8CallInstENS_15AssumptionCache10ResultElemEEEDaRT0
 
 _ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8CallInstENS_15AssumptionCache10ResultElemEEEDaRT0_.exit.thread, %_ZN4llvm16dyn_cast_or_nullINS_8CallInstENS_15AssumptionCache10ResultElemEEEDaRT0_.exit.thread, %_ZN4llvm16dyn_cast_or_nullINS_8CallInstENS_15AssumptionCache10ResultElemEEEDaRT0_.exit.thread, %112
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #21
-  switch i32 %.136, label %._crit_edge [
+  switch i32 %.136, label %._crit_edge.loopexit [
     i32 0, label %113
     i32 3, label %113
   ]
 
 113:                                              ; preds = %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60, %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60
   %114 = getelementptr inbounds nuw i8, ptr %.03477, i64 32
-  %.not.not = icmp eq ptr %114, %15
-  br i1 %.not.not, label %._crit_edge, label %24
+  %.not = icmp eq ptr %114, %15
+  br i1 %.not, label %._crit_edge.loopexit, label %24
 
-._crit_edge:                                      ; preds = %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60, %113, %_ZN4llvm15AssumptionCache11assumptionsEv.exit
-  %.not.lcssa = phi i1 [ false, %_ZN4llvm15AssumptionCache11assumptionsEv.exit ], [ false, %113 ], [ true, %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60 ]
-  ret i1 %.not.lcssa
+._crit_edge.loopexit:                             ; preds = %113, %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60
+  %.035.ph = phi i32 [ %.136, %_ZN4llvm15AssumptionCache10ResultElemD2Ev.exit60 ], [ 2, %113 ]
+  %115 = trunc i32 %.035.ph to i1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN4llvm15AssumptionCache11assumptionsEv.exit
+  %.035 = phi i1 [ false, %_ZN4llvm15AssumptionCache11assumptionsEv.exit ], [ %115, %._crit_edge.loopexit ]
+  ret i1 %.035
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

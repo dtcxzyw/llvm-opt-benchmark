@@ -8129,7 +8129,8 @@ define internal void @ioc_rqos_done(ptr noundef readonly captures(none) %0, ptr 
 
 19:                                               ; preds = %18, %14
   %20 = phi i64 [ 3, %18 ], [ 1, %14 ]
-  %21 = phi i64 [ 1, %18 ], [ 0, %14 ]
+  %.mask = and i32 %16, 255
+  %21 = zext nneg i32 %.mask to i64
   %22 = tail call i64 @ktime_get() #21
   %23 = load i64, ptr %7, align 8
   %24 = sub i64 %22, %23

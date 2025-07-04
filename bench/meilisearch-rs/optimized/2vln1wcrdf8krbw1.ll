@@ -1500,8 +1500,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 18:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hadb1a29ee4560416E.llvm.8666068179502612882.exit.i", %.lr.ph.i
   %19 = phi i64 [ %.sroa.5.0.copyload, %.lr.ph.i ], [ %31, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hadb1a29ee4560416E.llvm.8666068179502612882.exit.i" ]
-  %.sroa.0.011.i = phi i32 [ %5, %.lr.ph.i ], [ %20, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hadb1a29ee4560416E.llvm.8666068179502612882.exit.i" ]
-  %20 = add i32 %.sroa.0.011.i, 1
+  %.sroa.0.010.i = phi i32 [ %5, %.lr.ph.i ], [ %20, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hadb1a29ee4560416E.llvm.8666068179502612882.exit.i" ]
+  %20 = add i32 %.sroa.0.010.i, 1
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3), !noalias !105
   %21 = load i8, ptr %12, align 8, !range !110, !noalias !111, !noundef !4
   %22 = load i32, ptr %13, align 8, !range !115, !noalias !111, !noundef !4
@@ -1519,8 +1519,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 "_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids28_$u7b$$u7b$closure$u7d$$u7d$17hfddd95c6f2d4bcb5E.llvm.8666068179502612882.exit.i.i": ; preds = %27, %18
   %.sroa.5.0.i.i.i = phi i64 [ %29, %27 ], [ undef, %18 ]
-  %.sroa.0.0.i.i5.i = phi i64 [ 1, %27 ], [ 0, %18 ]
-  invoke void @_ZN5milli6update15index_documents7helpers14grenad_helpers13create_sorter17hb73aae0bb0144eedE(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %3, i1 noundef zeroext true, ptr noundef nonnull @_ZN5milli6update15index_documents7helpers15merge_functions32merge_deladd_cbo_roaring_bitmaps17h47347131f416199fE, i8 noundef %21, i32 noundef %22, i32 %23, i64 noundef %24, i64 %25, i64 noundef %.sroa.0.0.i.i5.i, i64 %.sroa.5.0.i.i.i)
+  invoke void @_ZN5milli6update15index_documents7helpers14grenad_helpers13create_sorter17hb73aae0bb0144eedE(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %3, i1 noundef zeroext true, ptr noundef nonnull @_ZN5milli6update15index_documents7helpers15merge_functions32merge_deladd_cbo_roaring_bitmaps17h47347131f416199fE, i8 noundef %21, i32 noundef %22, i32 %23, i64 noundef %24, i64 %25, i64 noundef %26, i64 %.sroa.5.0.i.i.i)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hadb1a29ee4560416E.llvm.8666068179502612882.exit.i" unwind label %32, !noalias !117
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hadb1a29ee4560416E.llvm.8666068179502612882.exit.i": ; preds = %"_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids28_$u7b$$u7b$closure$u7d$$u7d$17hfddd95c6f2d4bcb5E.llvm.8666068179502612882.exit.i.i"
@@ -35389,8 +35388,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5ef44518d2ea2c
 
 19:                                               ; preds = %.lr.ph, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hadb1a29ee4560416E.llvm.8666068179502612882.exit"
   %20 = phi i64 [ %.promoted, %.lr.ph ], [ %32, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hadb1a29ee4560416E.llvm.8666068179502612882.exit" ]
-  %.sroa.0.011 = phi i32 [ %0, %.lr.ph ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hadb1a29ee4560416E.llvm.8666068179502612882.exit" ]
-  %21 = add i32 %.sroa.0.011, 1
+  %.sroa.0.010 = phi i32 [ %0, %.lr.ph ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hadb1a29ee4560416E.llvm.8666068179502612882.exit" ]
+  %21 = add i32 %.sroa.0.010, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10297)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4), !noalias !10297
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10298)
@@ -35410,8 +35409,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5ef44518d2ea2c
 
 "_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids28_$u7b$$u7b$closure$u7d$$u7d$17hfddd95c6f2d4bcb5E.llvm.8666068179502612882.exit.i": ; preds = %28, %19
   %.sroa.5.0.i.i = phi i64 [ %30, %28 ], [ undef, %19 ]
-  %.sroa.0.0.i.i5 = phi i64 [ 1, %28 ], [ 0, %19 ]
-  invoke void @_ZN5milli6update15index_documents7helpers14grenad_helpers13create_sorter17hb73aae0bb0144eedE(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %4, i1 noundef zeroext true, ptr noundef nonnull @_ZN5milli6update15index_documents7helpers15merge_functions32merge_deladd_cbo_roaring_bitmaps17h47347131f416199fE, i8 noundef %22, i32 noundef %23, i32 %24, i64 noundef %25, i64 %26, i64 noundef %.sroa.0.0.i.i5, i64 %.sroa.5.0.i.i)
+  invoke void @_ZN5milli6update15index_documents7helpers14grenad_helpers13create_sorter17hb73aae0bb0144eedE(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %4, i1 noundef zeroext true, ptr noundef nonnull @_ZN5milli6update15index_documents7helpers15merge_functions32merge_deladd_cbo_roaring_bitmaps17h47347131f416199fE, i8 noundef %22, i32 noundef %23, i32 %24, i64 noundef %25, i64 %26, i64 noundef %27, i64 %.sroa.5.0.i.i)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hadb1a29ee4560416E.llvm.8666068179502612882.exit" unwind label %35
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hadb1a29ee4560416E.llvm.8666068179502612882.exit": ; preds = %"_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids28_$u7b$$u7b$closure$u7d$$u7d$17hfddd95c6f2d4bcb5E.llvm.8666068179502612882.exit.i"
@@ -39443,8 +39441,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 
 "_ZN5milli6update15index_documents7extract34extract_word_pair_proximity_docids34extract_word_pair_proximity_docids28_$u7b$$u7b$closure$u7d$$u7d$17hfddd95c6f2d4bcb5E.llvm.8666068179502612882.exit": ; preds = %2, %19
   %.sroa.5.0.i = phi i64 [ %22, %19 ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i64 [ 1, %19 ], [ 0, %2 ]
-  call void @_ZN5milli6update15index_documents7helpers14grenad_helpers13create_sorter17hb73aae0bb0144eedE(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %3, i1 noundef zeroext true, ptr noundef nonnull @_ZN5milli6update15index_documents7helpers15merge_functions32merge_deladd_cbo_roaring_bitmaps17h47347131f416199fE, i8 noundef %7, i32 noundef %9, i32 %11, i64 noundef %13, i64 %15, i64 noundef %.sroa.0.0.i, i64 %.sroa.5.0.i)
+  call void @_ZN5milli6update15index_documents7helpers14grenad_helpers13create_sorter17hb73aae0bb0144eedE(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %3, i1 noundef zeroext true, ptr noundef nonnull @_ZN5milli6update15index_documents7helpers15merge_functions32merge_deladd_cbo_roaring_bitmaps17h47347131f416199fE, i8 noundef %7, i32 noundef %9, i32 %11, i64 noundef %13, i64 %15, i64 noundef %18, i64 %.sroa.5.0.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11395)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11398)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -52514,8 +52511,7 @@ define hidden void @"_ZN5milli6update15index_documents7extract34extract_word_pai
 
 22:                                               ; preds = %3, %18
   %.sroa.5.0 = phi i64 [ %21, %18 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i64 [ 1, %18 ], [ 0, %3 ]
-  tail call void @_ZN5milli6update15index_documents7helpers14grenad_helpers13create_sorter17hb73aae0bb0144eedE(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %0, i1 noundef zeroext true, ptr noundef nonnull @_ZN5milli6update15index_documents7helpers15merge_functions32merge_deladd_cbo_roaring_bitmaps17h47347131f416199fE, i8 noundef %6, i32 noundef %8, i32 %10, i64 noundef %12, i64 %14, i64 noundef %.sroa.0.0, i64 %.sroa.5.0)
+  tail call void @_ZN5milli6update15index_documents7helpers14grenad_helpers13create_sorter17hb73aae0bb0144eedE(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %0, i1 noundef zeroext true, ptr noundef nonnull @_ZN5milli6update15index_documents7helpers15merge_functions32merge_deladd_cbo_roaring_bitmaps17h47347131f416199fE, i8 noundef %6, i32 noundef %8, i32 %10, i64 noundef %12, i64 %14, i64 noundef %17, i64 %.sroa.5.0)
   ret void
 }
 
@@ -87207,11 +87203,11 @@ define hidden void @_ZN7memmap211MmapOptions3map17h9fc4c19f3ee51a3cE(ptr dead_on
   br label %35
 
 35:                                               ; preds = %31, %23, %7, %18
-  %.sink = phi ptr [ %19, %18 ], [ %10, %7 ], [ %30, %23 ], [ %30, %31 ]
-  %storemerge.sink = phi i64 [ 1, %18 ], [ 1, %7 ], [ 1, %23 ], [ 0, %31 ]
+  %.sink15 = phi ptr [ %19, %18 ], [ %10, %7 ], [ %30, %23 ], [ %30, %31 ]
+  %.sink = phi i64 [ 1, %18 ], [ 1, %7 ], [ %28, %23 ], [ %28, %31 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %36, align 8
-  store i64 %storemerge.sink, ptr %0, align 8
+  store ptr %.sink15, ptr %36, align 8
+  store i64 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
@@ -87276,11 +87272,11 @@ define hidden void @_ZN7memmap211MmapOptions3map17hab3be0b40d12dd51E(ptr dead_on
   br label %35
 
 35:                                               ; preds = %31, %23, %7, %18
-  %.sink = phi ptr [ %19, %18 ], [ %10, %7 ], [ %30, %23 ], [ %30, %31 ]
-  %storemerge.sink = phi i64 [ 1, %18 ], [ 1, %7 ], [ 1, %23 ], [ 0, %31 ]
+  %.sink15 = phi ptr [ %19, %18 ], [ %10, %7 ], [ %30, %23 ], [ %30, %31 ]
+  %.sink = phi i64 [ 1, %18 ], [ 1, %7 ], [ %28, %23 ], [ %28, %31 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %36, align 8
-  store i64 %storemerge.sink, ptr %0, align 8
+  store ptr %.sink15, ptr %36, align 8
+  store i64 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }

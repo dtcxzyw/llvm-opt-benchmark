@@ -3194,7 +3194,7 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   br label %34
 
 34:                                               ; preds = %13, %"_ZN52_$LT$E$u20$as$u20$anyhow..context..ext..StdError$GT$11ext_context17h5cfc6f6c876802d7E.exit"
-  %storemerge = phi i64 [ 1, %"_ZN52_$LT$E$u20$as$u20$anyhow..context..ext..StdError$GT$11ext_context17h5cfc6f6c876802d7E.exit" ], [ 0, %13 ]
+  %storemerge = zext nneg i8 %12 to i64
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -3230,10 +3230,9 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
 
 17:                                               ; preds = %9, %11
   %.sink = phi i64 [ %16, %11 ], [ %10, %9 ]
-  %storemerge = phi i64 [ 1, %11 ], [ 0, %9 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %18, align 8
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %7, ptr %0, align 8
   ret void
 }
 
@@ -3400,8 +3399,7 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   br label %17
 
 17:                                               ; preds = %9, %11
-  %storemerge = phi i64 [ 1, %11 ], [ 0, %9 ]
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %7, ptr %0, align 8
   ret void
 }
 
@@ -3437,8 +3435,7 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   br label %17
 
 17:                                               ; preds = %9, %11
-  %storemerge = phi i64 [ 1, %11 ], [ 0, %9 ]
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %7, ptr %0, align 8
   ret void
 }
 
@@ -3474,8 +3471,7 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   br label %17
 
 17:                                               ; preds = %9, %11
-  %storemerge = phi i64 [ 1, %11 ], [ 0, %9 ]
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %7, ptr %0, align 8
   ret void
 }
 
@@ -3514,10 +3510,9 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
 
 20:                                               ; preds = %9, %14
   %.sink = phi i64 [ %19, %14 ], [ %10, %9 ]
-  %storemerge = phi i64 [ 1, %14 ], [ 0, %9 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %21, align 8
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %7, ptr %0, align 8
   ret void
 }
 
@@ -14622,10 +14617,9 @@ define void @"_ZN13wasmtime_wasi4host6clocks175_$LT$impl$u20$core..convert..TryF
 
 17:                                               ; preds = %14, %12
   %.sink = phi i64 [ %16, %14 ], [ %9, %12 ]
-  %storemerge = phi i64 [ 1, %14 ], [ 0, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %18, align 8
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %7, ptr %0, align 8
   ret void
 }
 
@@ -14724,8 +14718,7 @@ define void @"_ZN13wasmtime_wasi4host2io4sync195_$LT$impl$u20$core..convert..Fro
   br label %7
 
 7:                                                ; preds = %2, %4
-  %storemerge = phi i64 [ 0, %4 ], [ 1, %2 ]
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %3, ptr %0, align 8
   ret void
 }
 

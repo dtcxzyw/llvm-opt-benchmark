@@ -1070,15 +1070,13 @@ adjleap.exit:                                     ; preds = %255, %253, %237, %2
   %369 = getelementptr inbounds i8, ptr %368, i64 -1
   %370 = load i8, ptr %369, align 1
   switch i8 %370, label %375 [
-    i8 100, label %372
+    i8 100, label %371
     i8 115, label %371
   ]
 
-371:                                              ; preds = %367
-  br label %372
-
-372:                                              ; preds = %371, %367
-  %373 = phi i1 [ false, %371 ], [ true, %367 ]
+371:                                              ; preds = %367, %367
+  %372 = trunc i8 %370 to i1
+  %373 = xor i1 %372, true
   store i8 0, ptr %369, align 1
   %374 = tail call fastcc i64 @gethms(ptr noundef nonnull %364, ptr noundef nonnull @.str.53)
   br label %getsave.exit.i
@@ -1088,9 +1086,9 @@ adjleap.exit:                                     ; preds = %255, %253, %237, %2
   %377 = icmp ne i64 %376, 0
   br label %getsave.exit.i
 
-getsave.exit.i:                                   ; preds = %375, %372
-  %378 = phi i64 [ %376, %375 ], [ %374, %372 ]
-  %379 = phi i1 [ %377, %375 ], [ %373, %372 ]
+getsave.exit.i:                                   ; preds = %375, %371
+  %378 = phi i64 [ %376, %375 ], [ %374, %371 ]
+  %379 = phi i1 [ %377, %375 ], [ %373, %371 ]
   %380 = zext i1 %379 to i8
   store i8 %380, ptr %365, align 1
   %381 = getelementptr inbounds nuw i8, ptr %355, i64 56
@@ -5571,15 +5569,13 @@ sub_069:                                          ; preds = %getfields.exit, %.t
   %112 = getelementptr inbounds i8, ptr %111, i64 -1
   %113 = load i8, ptr %112, align 1
   switch i8 %113, label %118 [
-    i8 100, label %115
+    i8 100, label %114
     i8 115, label %114
   ]
 
-114:                                              ; preds = %110
-  br label %115
-
-115:                                              ; preds = %114, %110
-  %116 = phi i1 [ false, %114 ], [ true, %110 ]
+114:                                              ; preds = %110, %110
+  %115 = trunc i8 %113 to i1
+  %116 = xor i1 %115, true
   store i8 0, ptr %112, align 1
   %117 = call fastcc i64 @gethms(ptr noundef nonnull %108, ptr noundef nonnull @.str.53)
   br label %getsave.exit.i
@@ -5589,9 +5585,9 @@ sub_069:                                          ; preds = %getfields.exit, %.t
   %120 = icmp ne i64 %119, 0
   br label %getsave.exit.i
 
-getsave.exit.i:                                   ; preds = %118, %115
-  %121 = phi i64 [ %119, %118 ], [ %117, %115 ]
-  %122 = phi i1 [ %120, %118 ], [ %116, %115 ]
+getsave.exit.i:                                   ; preds = %118, %114
+  %121 = phi i64 [ %119, %118 ], [ %117, %114 ]
+  %122 = phi i1 [ %120, %118 ], [ %116, %114 ]
   %123 = zext i1 %122 to i8
   store i8 %123, ptr getelementptr inbounds nuw (i8, ptr @inrule.r, i64 74), align 2
   store i64 %121, ptr getelementptr inbounds nuw (i8, ptr @inrule.r, i64 80), align 8

@@ -1076,21 +1076,19 @@ define internal i32 @virtio_gpu_resource_create_blob_ioctl(ptr noundef readonly 
   %26 = load i32, ptr %1, align 8
   switch i32 %26, label %.thread11 [
     i32 1, label %48
-    i32 3, label %28
+    i32 3, label %27
     i32 2, label %27
   ]
 
-27:                                               ; preds = %25
-  br label %28
-
-28:                                               ; preds = %25, %27
-  %29 = phi i1 [ true, %27 ], [ false, %25 ]
+27:                                               ; preds = %25, %25
+  %28 = trunc i32 %26 to i1
+  %29 = xor i1 %28, true
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 62136
   %31 = load i8, ptr %30, align 8, !range !5, !noundef !6
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %.thread11, label %33
 
-33:                                               ; preds = %28
+33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 3
@@ -1307,8 +1305,8 @@ virtio_gpu_create_context_locked.exit:            ; preds = %76, %83
   call void @drm_gem_object_free(ptr noundef nonnull %121) #6, !callees !12
   br label %.thread11
 
-.thread11:                                        ; preds = %150, %152, %15, %21, %33, %28, %48, %52, %25, %3, %.thread12, %153, %139, %138, %134, %114, %111
-  %154 = phi i32 [ %132, %134 ], [ %136, %138 ], [ -22, %111 ], [ %118, %114 ], [ 0, %139 ], [ 0, %153 ], [ %103, %.thread12 ], [ -22, %3 ], [ -22, %25 ], [ -22, %52 ], [ -22, %48 ], [ -22, %28 ], [ -22, %33 ], [ -22, %21 ], [ -22, %15 ], [ 0, %152 ], [ 0, %150 ]
+.thread11:                                        ; preds = %150, %152, %15, %21, %33, %27, %48, %52, %25, %3, %.thread12, %153, %139, %138, %134, %114, %111
+  %154 = phi i32 [ %132, %134 ], [ %136, %138 ], [ -22, %111 ], [ %118, %114 ], [ 0, %139 ], [ 0, %153 ], [ %103, %.thread12 ], [ -22, %3 ], [ -22, %25 ], [ -22, %52 ], [ -22, %48 ], [ -22, %27 ], [ -22, %33 ], [ -22, %21 ], [ -22, %15 ], [ 0, %152 ], [ 0, %150 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6

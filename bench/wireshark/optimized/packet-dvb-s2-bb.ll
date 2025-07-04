@@ -2182,21 +2182,16 @@ dissect_dvb_s2_gse.exit.i:                        ; preds = %502, %501, %303
   %626 = call ptr @tvb_new_subset_length(ptr noundef nonnull %614, i32 noundef 1, i32 noundef 187)
   call void @tvb_composite_append(ptr noundef %619, ptr noundef %626)
   %627 = zext nneg i8 %.1376.i to i32
-  switch i8 %.1376.i, label %631 [
-    i8 2, label %.sink.split.i
-    i8 3, label %628
-  ]
+  %628 = and i8 %.1376.i, -2
+  %switch88 = icmp eq i8 %628, 2
+  br i1 %switch88, label %.sink.split.i, label %631
 
-628:                                              ; preds = %618
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %628, %618
-  %.sink39.i = phi i32 [ 3, %628 ], [ 2, %618 ]
+.sink.split.i:                                    ; preds = %618
   %629 = load i32, ptr @hf_dvb_s2_bb_issy_short, align 4
-  %630 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %629, ptr noundef nonnull %614, i32 noundef 188, i32 noundef %.sink39.i, i32 noundef 0)
+  %630 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %629, ptr noundef nonnull %614, i32 noundef 188, i32 noundef %627, i32 noundef 0)
   br label %631
 
-631:                                              ; preds = %.sink.split.i, %618
+631:                                              ; preds = %618, %.sink.split.i
   %632 = trunc nuw i8 %.0392.i to i1
   br i1 %632, label %633, label %643
 
@@ -2297,9 +2292,8 @@ compute_crc8.exit462.i:                           ; preds = %.lr.ph.i457.i, %660
 
 .sink.split40.i:                                  ; preds = %671, %compute_crc8.exit462.i
   %hf_dvb_s2_bb_issy_long.sink.i = phi ptr [ @hf_dvb_s2_bb_issy_long, %671 ], [ @hf_dvb_s2_bb_issy_short, %compute_crc8.exit462.i ]
-  %.sink42.i = phi i32 [ 3, %671 ], [ 2, %compute_crc8.exit462.i ]
   %672 = load i32, ptr %hf_dvb_s2_bb_issy_long.sink.i, align 4
-  %673 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %672, ptr noundef %89, i32 noundef %670, i32 noundef %.sink42.i, i32 noundef 0)
+  %673 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %672, ptr noundef %89, i32 noundef %670, i32 noundef %651, i32 noundef 0)
   br label %674
 
 674:                                              ; preds = %.sink.split40.i, %compute_crc8.exit462.i

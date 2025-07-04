@@ -99714,7 +99714,7 @@ _ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit263: ; preds
 .invoke:                                          ; preds = %415, %422
   %.sink = phi i64 [ 17, %422 ], [ 16, %415 ]
   %.str.299.sink = phi ptr [ @.str.300, %422 ], [ @.str.299, %415 ]
-  %423 = phi i1 [ true, %422 ], [ false, %415 ]
+  %423 = trunc i32 %.01172 to i1
   store i64 %.sink, ptr %9, align 8, !tbaa !23
   store ptr %.str.299.sink, ptr %.sroa.4685.0..sroa_idx, align 8, !tbaa !577
   invoke void @_ZN4absl13cord_internal12CordRepBtree4DumpEPKNS0_7CordRepESt17basic_string_viewIcSt11char_traitsIcEEbRSo(ptr noundef nonnull %.033.lcssa, i64 17, ptr nonnull @.str.296, i1 noundef zeroext %423, ptr noundef nonnull align 8 dereferenceable(8) %139)

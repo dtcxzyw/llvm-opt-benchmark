@@ -6049,45 +6049,39 @@ define range(i32 -173, 2) i32 @wolfSSL_set_group_messages(ptr noundef captures(a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define range(i32 -173, 2) i32 @wolfSSL_CTX_SetMinVersion(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = icmp eq ptr %0, null
-  br i1 %3, label %SetMinVersionHelper.exit, label %4
+  %3 = icmp ne ptr %0, null
+  %.off = add i32 %1, -2
+  %switch = icmp ult i32 %.off, 3
+  %or.cond = and i1 %3, %switch
+  br i1 %or.cond, label %.sink.split.i, label %SetMinVersionHelper.exit
 
-4:                                                ; preds = %2
-  %switch.tableidx = add i32 %1, -2
-  %5 = icmp ult i32 %switch.tableidx, 3
-  br i1 %5, label %switch.lookup, label %SetMinVersionHelper.exit
-
-switch.lookup:                                    ; preds = %4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %switch.idx.cast = trunc nuw i32 %switch.tableidx to i8
-  %switch.offset = add nuw nsw i8 %switch.idx.cast, 2
-  store i8 %switch.offset, ptr %6, align 1, !tbaa !43
+.sink.split.i:                                    ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %.sink.i = trunc nuw nsw i32 %1 to i8
+  store i8 %.sink.i, ptr %4, align 1, !tbaa !43
   br label %SetMinVersionHelper.exit
 
-SetMinVersionHelper.exit:                         ; preds = %4, %switch.lookup, %2
-  %.0 = phi i32 [ -173, %2 ], [ -173, %4 ], [ 1, %switch.lookup ]
+SetMinVersionHelper.exit:                         ; preds = %.sink.split.i, %2
+  %.0 = phi i32 [ -173, %2 ], [ 1, %.sink.split.i ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define range(i32 -173, 2) i32 @wolfSSL_SetMinVersion(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = icmp eq ptr %0, null
-  br i1 %3, label %SetMinVersionHelper.exit, label %4
+  %3 = icmp ne ptr %0, null
+  %.off = add i32 %1, -2
+  %switch = icmp ult i32 %.off, 3
+  %or.cond = and i1 %3, %switch
+  br i1 %or.cond, label %.sink.split.i, label %SetMinVersionHelper.exit
 
-4:                                                ; preds = %2
-  %switch.tableidx = add i32 %1, -2
-  %5 = icmp ult i32 %switch.tableidx, 3
-  br i1 %5, label %switch.lookup, label %SetMinVersionHelper.exit
-
-switch.lookup:                                    ; preds = %4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1047
-  %switch.idx.cast = trunc nuw i32 %switch.tableidx to i8
-  %switch.offset = add nuw nsw i8 %switch.idx.cast, 2
-  store i8 %switch.offset, ptr %6, align 1, !tbaa !43
+.sink.split.i:                                    ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1047
+  %.sink.i = trunc nuw nsw i32 %1 to i8
+  store i8 %.sink.i, ptr %4, align 1, !tbaa !43
   br label %SetMinVersionHelper.exit
 
-SetMinVersionHelper.exit:                         ; preds = %4, %switch.lookup, %2
-  %.0 = phi i32 [ -173, %2 ], [ -173, %4 ], [ 1, %switch.lookup ]
+SetMinVersionHelper.exit:                         ; preds = %.sink.split.i, %2
+  %.0 = phi i32 [ -173, %2 ], [ 1, %.sink.split.i ]
   ret i32 %.0
 }
 

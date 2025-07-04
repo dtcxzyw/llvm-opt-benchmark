@@ -1686,7 +1686,7 @@ define internal fastcc i64 @hugetlb_cgroup_write(ptr noundef %0, ptr noundef %1,
   %6 = tail call ptr @of_css(ptr noundef %0) #9
   %7 = load ptr, ptr @root_h_cgroup, align 8
   %8 = icmp eq ptr %7, %6
-  br i1 %8, label %.thread2, label %9
+  br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %4
   store i64 0, ptr %5, align 8, !annotation !6
@@ -1697,7 +1697,7 @@ define internal fastcc i64 @hugetlb_cgroup_write(ptr noundef %0, ptr noundef %1,
 
 13:                                               ; preds = %9
   %14 = sext i32 %11 to i64
-  br label %.thread2
+  br label %.thread
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
@@ -1715,33 +1715,31 @@ define internal fastcc i64 @hugetlb_cgroup_write(ptr noundef %0, ptr noundef %1,
   %28 = or disjoint i64 %27, -4294967296
   %29 = and i64 %28, %22
   store i64 %29, ptr %5, align 8
-  %30 = trunc i64 %20 to i16
-  switch i16 %30, label %.thread2 [
-    i16 3, label %31
-    i16 2, label %32
-  ]
+  %30 = and i64 %20, 65534
+  %switch = icmp eq i64 %30, 2
+  br i1 %switch, label %31, label %.thread
 
 31:                                               ; preds = %15
-  br label %32
-
-32:                                               ; preds = %15, %31
-  %33 = phi i64 [ 640, %31 ], [ 256, %15 ]
+  %32 = trunc i64 %20 to i1
   call void @mutex_lock(ptr noundef nonnull @hugetlb_limit_mutex) #9
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 %33
-  %35 = getelementptr [2 x %struct.page_counter], ptr %34, i64 0, i64 %23
-  %36 = load i64, ptr %5, align 8
-  %37 = call i32 @page_counter_set_max(ptr noundef %35, i64 noundef %36) #9
-  %.fr = freeze i32 %37
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 640
+  %34 = getelementptr [2 x %struct.page_counter], ptr %33, i64 0, i64 %23
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 256
+  %36 = getelementptr [2 x %struct.page_counter], ptr %35, i64 0, i64 %23
+  %37 = select i1 %32, ptr %34, ptr %36
+  %38 = load i64, ptr %5, align 8
+  %39 = call i32 @page_counter_set_max(ptr noundef %37, i64 noundef %38) #9
+  %.fr = freeze i32 %39
   call void @mutex_unlock(ptr noundef nonnull @hugetlb_limit_mutex) #9
-  %38 = icmp eq i32 %.fr, 0
-  %39 = sext i32 %.fr to i64
-  %spec.select = select i1 %38, i64 %2, i64 %39
-  br label %.thread2
+  %40 = icmp eq i32 %.fr, 0
+  %41 = sext i32 %.fr to i64
+  %spec.select = select i1 %40, i64 %2, i64 %41
+  br label %.thread
 
-.thread2:                                         ; preds = %32, %15, %13, %4
-  %40 = phi i64 [ %14, %13 ], [ -22, %4 ], [ -22, %15 ], [ %spec.select, %32 ]
+.thread:                                          ; preds = %31, %15, %13, %4
+  %42 = phi i64 [ %14, %13 ], [ -22, %4 ], [ -22, %15 ], [ %spec.select, %31 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  ret i64 %40
+  ret i64 %42
 }
 
 ; Function Attrs: null_pointer_is_valid

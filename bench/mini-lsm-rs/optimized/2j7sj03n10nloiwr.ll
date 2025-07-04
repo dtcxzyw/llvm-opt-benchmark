@@ -8413,7 +8413,7 @@ define hidden void @_ZN13mini_lsm_mvcc5table7builder14SsTableBuilder5build17h707
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0e57246aca700086E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %22)
           to label %"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$17h9e805db57cdd5b71E.exit" unwind label %230
 
-"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$17h9e805db57cdd5b71E.exit94": ; preds = %290, %.thread101, %293, %168, %230
+"_ZN4core3ptr180drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$$GT$$GT$17h9e805db57cdd5b71E.exit94": ; preds = %168, %290, %.thread101, %293, %230
   %.236 = phi i1 [ false, %168 ], [ true, %230 ], [ true, %293 ], [ true, %.thread101 ], [ true, %290 ]
   %.2 = phi i1 [ false, %168 ], [ false, %230 ], [ %.1106, %293 ], [ %.1106, %.thread101 ], [ %.1106, %290 ]
   %.pn56.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %169, %168 ], [ %231, %230 ], [ %.pn56.pn.pn.pn.pn107, %293 ], [ %.pn56.pn.pn.pn.pn107, %.thread101 ], [ %.pn56.pn.pn.pn.pn107, %290 ]
@@ -11328,7 +11328,7 @@ define { i64, ptr } @_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached17he99c3
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %69 = load ptr, ptr %68, align 8, !noundef !4
   %.not = icmp eq ptr %69, null
-  br i1 %.not, label %1000, label %70
+  br i1 %.not, label %999, label %70
 
 70:                                               ; preds = %2
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -13965,12 +13965,12 @@ common.resume:                                    ; preds = %982, %987, %.body.i
 
 "_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread": ; preds = %152, %156
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65), !noalias !2205
-  br label %998
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit"
 
 "_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit": ; preds = %940, %944
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63), !noalias !2221
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65), !noalias !2205
-  br i1 %.sroa.0.0.i.i.i, label %980, label %998
+  br i1 %.sroa.0.0.i.i.i, label %980, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit"
 
 980:                                              ; preds = %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -14023,12 +14023,12 @@ common.resume:                                    ; preds = %982, %987, %.body.i
   %991 = load ptr, ptr %7, align 8, !alias.scope !2742, !nonnull !4, !noundef !4
   %992 = atomicrmw sub ptr %991, i64 1 release, align 8, !noalias !2742
   %993 = icmp eq i64 %992, 1
-  br i1 %993, label %994, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit"
+  br i1 %993, label %994, label %"_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17hefd575f4ce42213dE.exit.i"
 
 994:                                              ; preds = %990
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0a4da7c92fa646bfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit"
+  br label %"_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17hefd575f4ce42213dE.exit.i"
 
 995:                                              ; preds = %987
   %996 = landingpad { ptr, i32 }
@@ -14036,23 +14036,24 @@ common.resume:                                    ; preds = %982, %987, %.body.i
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #40
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit": ; preds = %990, %994
+"_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17hefd575f4ce42213dE.exit.i": ; preds = %994, %990
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %997 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %989, 1
-  br label %1002
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit"
 
-998:                                              ; preds = %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread", %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit"
-  %.pn13.i.i161 = phi ptr [ %150, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread" ], [ %866, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit" ]
-  %999 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.pn13.i.i161, 1
-  br label %1002
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit": ; preds = %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread", %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit", %"_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17hefd575f4ce42213dE.exit.i"
+  %switch = phi i64 [ 1, %"_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17hefd575f4ce42213dE.exit.i" ], [ 0, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit" ], [ 0, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread" ]
+  %.sroa.3.0.i = phi ptr [ %989, %"_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17hefd575f4ce42213dE.exit.i" ], [ %866, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit" ], [ %150, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread" ]
+  %997 = insertvalue { i64, ptr } poison, i64 %switch, 0
+  %998 = insertvalue { i64, ptr } %997, ptr %.sroa.3.0.i, 1
+  br label %1001
 
-1000:                                             ; preds = %2
-  %1001 = tail call { i64, ptr } @_ZN13mini_lsm_mvcc5table7SsTable10read_block17h603858a7c3fde5d4E(ptr noundef nonnull align 8 %0, i64 noundef %1)
-  br label %1002
+999:                                              ; preds = %2
+  %1000 = tail call { i64, ptr } @_ZN13mini_lsm_mvcc5table7SsTable10read_block17h603858a7c3fde5d4E(ptr noundef nonnull align 8 %0, i64 noundef %1)
+  br label %1001
 
-1002:                                             ; preds = %998, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit", %1000
-  %.merged = phi { i64, ptr } [ %1001, %1000 ], [ %999, %998 ], [ %997, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit" ]
+1001:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit", %999
+  %.merged = phi { i64, ptr } [ %1000, %999 ], [ %998, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit" ]
   ret { i64, ptr } %.merged
 }
 

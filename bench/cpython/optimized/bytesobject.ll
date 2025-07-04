@@ -2982,10 +2982,9 @@ Py_DECREF.exit433:                                ; preds = %Py_DECREF.exit, %10
 
 .backedge:                                        ; preds = %.lr.ph, %113, %115, %116, %117
   %.sink = phi i32 [ 1, %113 ], [ 4, %115 ], [ 8, %116 ], [ 16, %117 ], [ 2, %.lr.ph ]
-  %.0286.be = phi i32 [ 45, %113 ], [ 32, %115 ], [ 35, %116 ], [ 48, %117 ], [ 43, %.lr.ph ]
   %114 = or i32 %.0303999, %.sink
   %.not711 = icmp eq i64 %110, 0
-  br i1 %.not711, label %.thread570, label %.lr.ph, !llvm.loop !50
+  br i1 %.not711, label %.thread570.loopexit, label %.lr.ph, !llvm.loop !50
 
 115:                                              ; preds = %.lr.ph
   br label %.backedge
@@ -3063,11 +3062,15 @@ getnextarg.exit:                                  ; preds = %120, %123
   %147 = icmp sgt i8 %112, -1
   br i1 %147, label %.thread570, label %.thread598
 
-.thread570:                                       ; preds = %.backedge, %109, %145
-  %.0303729 = phi i32 [ %.0303999, %145 ], [ 0, %109 ], [ %114, %.backedge ]
-  %148 = phi i64 [ %110, %145 ], [ -1, %109 ], [ -1, %.backedge ]
-  %.1287566574 = phi i32 [ %146, %145 ], [ 0, %109 ], [ %.0286.be, %.backedge ]
-  %.7567573 = phi ptr [ %111, %145 ], [ %.3267, %109 ], [ %scevgep, %.backedge ]
+.thread570.loopexit:                              ; preds = %.backedge
+  %.0286.be = zext nneg i8 %112 to i32
+  br label %.thread570
+
+.thread570:                                       ; preds = %.thread570.loopexit, %109, %145
+  %.0303729 = phi i32 [ %.0303999, %145 ], [ 0, %109 ], [ %114, %.thread570.loopexit ]
+  %148 = phi i64 [ %110, %145 ], [ -1, %109 ], [ -1, %.thread570.loopexit ]
+  %.1287566574 = phi i32 [ %146, %145 ], [ 0, %109 ], [ %.0286.be, %.thread570.loopexit ]
+  %.7567573 = phi ptr [ %111, %145 ], [ %.3267, %109 ], [ %scevgep, %.thread570.loopexit ]
   %149 = zext nneg i32 %.1287566574 to i64
   %150 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !24

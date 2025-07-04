@@ -357,9 +357,8 @@ switch.lookup:                                    ; preds = %80
   %93 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_mojito, i64 0, i64 %93
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.offset = zext nneg i8 %81 to i32
   %94 = load i32, ptr %switch.load, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %94, ptr noundef %0, i32 noundef %92, i32 noundef %switch.offset, i32 noundef 0)
+  %95 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %94, ptr noundef %0, i32 noundef %92, i32 noundef %82, i32 noundef 0)
   %96 = load i32, ptr @hf_mojito_bigintegerval, align 4
   %97 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %96, ptr noundef %0, i32 noundef %92, i32 noundef %82, i32 noundef 0)
   br label %dissect_mojito_ping_response.exit
@@ -770,8 +769,8 @@ define internal fastcc noundef i32 @dissect_mojito_address(ptr noundef %0, ptr n
 
 17:                                               ; preds = %5, %13
   %hf_mojito_socketaddress_ipv6.sink = phi ptr [ @hf_mojito_socketaddress_ipv6, %13 ], [ @hf_mojito_socketaddress_ipv4, %5 ]
-  %.sink30 = phi i32 [ 16, %13 ], [ 4, %5 ]
   %.sink = phi i32 [ 17, %13 ], [ 5, %5 ]
+  %.sink30 = zext i8 %7 to i32
   %18 = load i32, ptr %hf_mojito_socketaddress_ipv6.sink, align 4
   %19 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %18, ptr noundef %0, i32 noundef %12, i32 noundef %.sink30, i32 noundef 0)
   %20 = add i32 %3, %.sink

@@ -484,7 +484,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %_ZNK6vectorISt4pair
   %38 = load i8, ptr %37, align 1, !tbaa !201
   switch i8 %38, label %57 [
     i8 1, label %41
-    i8 -1, label %.loopexit
+    i8 -1, label %.loopexit.loopexit
     i8 0, label %56
   ]
 
@@ -528,7 +528,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %43, %.noexc
 
 56:                                               ; preds = %30
   %.not52 = icmp eq i32 %.sroa.044.056, -2
-  br i1 %.not52, label %57, label %.loopexit
+  br i1 %.not52, label %57, label %.loopexit.loopexit
 
 57:                                               ; preds = %56, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit, %30
   %58 = phi ptr [ %31, %30 ], [ %50, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ], [ %31, %56 ]
@@ -646,8 +646,12 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %100, %104
   %108 = invoke noundef zeroext i1 @_ZN3smt10theory_seq13propagate_litEPN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyEjPKN3sat7literalESA_(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef %102, i32 noundef %.0.i, ptr noundef %58, i32 %107)
           to label %.loopexit unwind label %89
 
-.loopexit:                                        ; preds = %56, %30, %98, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
-  %.4 = phi i1 [ true, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ true, %98 ], [ true, %30 ], [ false, %56 ]
+.loopexit.loopexit:                               ; preds = %30, %56
+  %.4.ph = trunc nsw i8 %38 to i1
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %98, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
+  %.4 = phi i1 [ true, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ true, %98 ], [ %.4.ph, %.loopexit.loopexit ]
   %109 = load ptr, ptr %3, align 8, !tbaa !196
   %.not.i.i = icmp eq ptr %109, null
   br i1 %.not.i.i, label %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit, label %110

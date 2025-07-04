@@ -5856,12 +5856,17 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %50 = load i32, ptr %49, align 8, !tbaa !582
   switch i32 %50, label %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit [
-    i32 0, label %_ZN4llvm15SmallVectorImplIPNS_17MachineMemOperandEE7reserveEm.exit.i.i
+    i32 0, label %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit.thread
     i32 1, label %_ZNK4llvm13MachineSDNode17memoperands_beginEv.exit.thread30
   ]
 
 _ZNK4llvm13MachineSDNode17memoperands_beginEv.exit.thread30: ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  br label %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit.thread
+
+_ZNK4llvm13MachineSDNode15memoperands_endEv.exit.thread: ; preds = %_ZNK4llvm13MachineSDNode17memoperands_beginEv.exit.thread30, %48
+  %.sroa.0.0.i.i29.ph = phi ptr [ null, %48 ], [ %51, %_ZNK4llvm13MachineSDNode17memoperands_beginEv.exit.thread30 ]
+  %.sroa.5.0.i.i.ph = zext i32 %50 to i64
   br label %_ZN4llvm15SmallVectorImplIPNS_17MachineMemOperandEE7reserveEm.exit.i.i
 
 _ZNK4llvm13MachineSDNode15memoperands_endEv.exit: ; preds = %48
@@ -5878,10 +5883,10 @@ _ZNK4llvm13MachineSDNode15memoperands_endEv.exit: ; preds = %48
   %.pre8.pre.i.i = load i32, ptr %46, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplIPNS_17MachineMemOperandEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplIPNS_17MachineMemOperandEE7reserveEm.exit.i.i: ; preds = %48, %_ZNK4llvm13MachineSDNode17memoperands_beginEv.exit.thread30, %57, %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit
-  %.sroa.5.0.i.i39 = phi i64 [ %55, %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit ], [ %55, %57 ], [ 0, %48 ], [ 1, %_ZNK4llvm13MachineSDNode17memoperands_beginEv.exit.thread30 ]
-  %.sroa.0.0.i.i2938 = phi ptr [ %54, %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit ], [ %54, %57 ], [ null, %48 ], [ %51, %_ZNK4llvm13MachineSDNode17memoperands_beginEv.exit.thread30 ]
-  %.pre8.i.i25 = phi i32 [ 0, %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit ], [ %.pre8.pre.i.i, %57 ], [ %50, %48 ], [ 0, %_ZNK4llvm13MachineSDNode17memoperands_beginEv.exit.thread30 ]
+_ZN4llvm15SmallVectorImplIPNS_17MachineMemOperandEE7reserveEm.exit.i.i: ; preds = %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit.thread, %57, %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit
+  %.sroa.5.0.i.i39 = phi i64 [ %55, %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit ], [ %55, %57 ], [ %.sroa.5.0.i.i.ph, %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit.thread ]
+  %.sroa.0.0.i.i2938 = phi ptr [ %54, %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit ], [ %54, %57 ], [ %.sroa.0.0.i.i29.ph, %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit.thread ]
+  %.pre8.i.i25 = phi i32 [ 0, %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit ], [ %.pre8.pre.i.i, %57 ], [ 0, %_ZNK4llvm13MachineSDNode15memoperands_endEv.exit.thread ]
   %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i39, 0
   br i1 %.not.i.i.i, label %_ZN4llvm15SmallVectorImplIPNS_17MachineMemOperandEE6assignIPKS2_vEEvT_S7_.exit, label %58
 

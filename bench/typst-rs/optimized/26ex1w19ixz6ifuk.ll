@@ -63422,8 +63422,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h06a59bba0157b0daE.ll
   br label %19
 
 19:                                               ; preds = %3, %6
-  %storemerge = phi i64 [ 1, %6 ], [ 0, %3 ]
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %5, ptr %0, align 8
   ret void
 }
 
@@ -65972,8 +65971,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h63623a927092c1efE.ll
   br label %19
 
 19:                                               ; preds = %3, %6
-  %storemerge = phi i64 [ 1, %6 ], [ 0, %3 ]
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %5, ptr %0, align 8
   ret void
 }
 
@@ -67592,8 +67590,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17ha4fc971bd1751bb2E.ll
   br label %19
 
 19:                                               ; preds = %3, %6
-  %storemerge = phi i64 [ 1, %6 ], [ 0, %3 ]
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %5, ptr %0, align 8
   ret void
 }
 
@@ -95199,8 +95196,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h1477ecabc054
 20:                                               ; preds = %12, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread"
   %.sroa.7.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %16, %12 ]
   %.sroa.6.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %14, %12 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ 1, %12 ]
-  store i64 %.sroa.0.0.ph, ptr %0, align 8, !alias.scope !21830
+  store i64 %11, ptr %0, align 8, !alias.scope !21830
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !21830
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -98254,8 +98250,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h2a50d9a9f921
 20:                                               ; preds = %12, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread"
   %.sroa.7.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %16, %12 ]
   %.sroa.6.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %14, %12 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ 1, %12 ]
-  store i64 %.sroa.0.0.ph, ptr %0, align 8, !alias.scope !23853
+  store i64 %11, ptr %0, align 8, !alias.scope !23853
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !23853
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -101181,8 +101176,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h42d141595cf6
 20:                                               ; preds = %12, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread"
   %.sroa.7.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %16, %12 ]
   %.sroa.6.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %14, %12 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ 1, %12 ]
-  store i64 %.sroa.0.0.ph, ptr %0, align 8, !alias.scope !25833
+  store i64 %11, ptr %0, align 8, !alias.scope !25833
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !25833
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -101986,8 +101980,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h480c0bd0b473
 20:                                               ; preds = %12, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread"
   %.sroa.7.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %16, %12 ]
   %.sroa.6.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %14, %12 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ 1, %12 ]
-  store i64 %.sroa.0.0.ph, ptr %0, align 8, !alias.scope !26390
+  store i64 %11, ptr %0, align 8, !alias.scope !26390
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !26390
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -103896,8 +103889,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h57d58fc47fa2
 20:                                               ; preds = %12, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread"
   %.sroa.7.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %16, %12 ]
   %.sroa.6.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %14, %12 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ 1, %12 ]
-  store i64 %.sroa.0.0.ph, ptr %0, align 8, !alias.scope !27702
+  store i64 %11, ptr %0, align 8, !alias.scope !27702
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !27702
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -111745,8 +111737,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h90a41a5f0cd9
 20:                                               ; preds = %12, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread"
   %.sroa.7.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %16, %12 ]
   %.sroa.6.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %14, %12 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ 1, %12 ]
-  store i64 %.sroa.0.0.ph, ptr %0, align 8, !alias.scope !32767
+  store i64 %11, ptr %0, align 8, !alias.scope !32767
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !32767
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -118581,8 +118572,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hc0570fd8e193
 20:                                               ; preds = %12, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread"
   %.sroa.7.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %16, %12 ]
   %.sroa.6.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %14, %12 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ 1, %12 ]
-  store i64 %.sroa.0.0.ph, ptr %0, align 8, !alias.scope !37154
+  store i64 %11, ptr %0, align 8, !alias.scope !37154
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !37154
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -120478,8 +120468,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hce0063969827
 20:                                               ; preds = %12, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread"
   %.sroa.7.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %16, %12 ]
   %.sroa.6.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %14, %12 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ 1, %12 ]
-  store i64 %.sroa.0.0.ph, ptr %0, align 8, !alias.scope !38411
+  store i64 %11, ptr %0, align 8, !alias.scope !38411
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !38411
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -122944,8 +122933,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17he55e054c8e4e
 20:                                               ; preds = %12, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread"
   %.sroa.7.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %16, %12 ]
   %.sroa.6.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %14, %12 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ 1, %12 ]
-  store i64 %.sroa.0.0.ph, ptr %0, align 8, !alias.scope !40044
+  store i64 %11, ptr %0, align 8, !alias.scope !40044
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !40044
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -123188,8 +123176,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17he653d1a40652
 18:                                               ; preds = %12, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread"
   %.sroa.7.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %16, %12 ]
   %.sroa.6.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %14, %12 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ 1, %12 ]
-  store i64 %.sroa.0.0.ph, ptr %0, align 8, !alias.scope !40207
+  store i64 %11, ptr %0, align 8, !alias.scope !40207
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !40207
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -126079,8 +126066,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hf9e047bdffc2
 20:                                               ; preds = %12, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread"
   %.sroa.7.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %16, %12 ]
   %.sroa.6.0.ph = phi double [ undef, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ %14, %12 ]
-  %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17h21690d14895a6f42E.llvm.4622153547959463051.exit.thread" ], [ 1, %12 ]
-  store i64 %.sroa.0.0.ph, ptr %0, align 8, !alias.scope !42105
+  store i64 %11, ptr %0, align 8, !alias.scope !42105
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !42105
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

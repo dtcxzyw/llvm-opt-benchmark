@@ -47882,7 +47882,7 @@ define hidden void @_ZN11ruff_linter5rules21flake8_comprehensions5rules33unneces
   br i1 %switch.i, label %"_ZN160_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_comprehension_in_call..SupportedBuiltins$u20$as$u20$core..convert..TryFrom$LT$$RF$str$GT$$GT$8try_from17heee981fc848620e9E.exit.sink.split", label %59
 
 59:                                               ; preds = %56, %58
-  %.sink = phi i1 [ true, %58 ], [ false, %56 ]
+  %.sink = trunc i32 %57 to i1
   %60 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %3)
   %61 = extractvalue { i32, i32 } %60, 0
   %62 = extractvalue { i32, i32 } %60, 1
@@ -91146,10 +91146,9 @@ define noundef zeroext i1 @"_ZN206_$LT$ruff_linter..rules..isort..categorize.._.
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN101_$LT$ruff_linter..rules..isort..categorize..ImportType$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h8f8aae587c5c1726E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #1 {
-switch.lookup:
-  %2 = load i8, ptr %0, align 1, !range !292, !noundef !4
-  %switch.idx.cast = zext nneg i8 %2 to i64
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %switch.idx.cast)
+  %3 = load i8, ptr %0, align 1, !range !292, !noundef !4
+  %.sink = zext nneg i8 %3 to i64
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.sink)
   ret void
 }
 
@@ -91391,7 +91390,7 @@ define void @"_ZN11ruff_linter5rules5isort10categorize1_100_$LT$impl$u20$schemar
 define void @"_ZN104_$LT$ruff_linter..rules..isort..categorize..ImportSection$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h7f87604fbb7fa45aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8, !range !103, !noundef !4
   %.not = icmp eq i64 %3, -9223372036854775808
-  br i1 %.not, label %switch.lookup, label %4
+  br i1 %.not, label %"_ZN101_$LT$ruff_linter..rules..isort..categorize..ImportType$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h8f8aae587c5c1726E.exit", label %4
 
 4:                                                ; preds = %2
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 1)
@@ -91403,16 +91402,16 @@ define void @"_ZN104_$LT$ruff_linter..rules..isort..categorize..ImportSection$u2
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$8write_u817h595c86ff6f14b4e5E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i8 noundef -1)
   br label %11
 
-switch.lookup:                                    ; preds = %2
+"_ZN101_$LT$ruff_linter..rules..isort..categorize..ImportType$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h8f8aae587c5c1726E.exit": ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7674)
   %10 = load i8, ptr %9, align 8, !range !292, !alias.scope !7674, !noalias !7677, !noundef !4
-  %switch.idx.cast = zext nneg i8 %10 to i64
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %switch.idx.cast), !noalias !7674
+  %.sink.i = zext nneg i8 %10 to i64
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.sink.i), !noalias !7674
   br label %11
 
-11:                                               ; preds = %switch.lookup, %4
+11:                                               ; preds = %"_ZN101_$LT$ruff_linter..rules..isort..categorize..ImportType$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h8f8aae587c5c1726E.exit", %4
   ret void
 }
 
@@ -96072,10 +96071,9 @@ define void @"_ZN93_$LT$ruff_linter..settings..types..PreviewMode$u20$as$u20$ruf
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN93_$LT$ruff_linter..settings..types..UnsafeFixes$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h40aa7ea878379880E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #1 {
-switch.lookup:
-  %2 = load i8, ptr %0, align 1, !range !1564, !noundef !4
-  %switch.idx.cast = zext nneg i8 %2 to i64
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %switch.idx.cast)
+  %3 = load i8, ptr %0, align 1, !range !1564, !noundef !4
+  %.sink = zext nneg i8 %3 to i64
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.sink)
   ret void
 }
 
@@ -96147,10 +96145,9 @@ define noundef zeroext i1 @"_ZN186_$LT$ruff_linter..settings..types.._..$LT$impl
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN90_$LT$ruff_linter..settings..types..Language$u20$as$u20$ruff_cache..cache_key..CacheKey$GT$9cache_key17h69e155ff89b95bf7E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #1 {
-switch.lookup:
-  %2 = load i8, ptr %0, align 1, !range !1564, !noundef !4
-  %switch.idx.cast = zext nneg i8 %2 to i64
-  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %switch.idx.cast)
+  %3 = load i8, ptr %0, align 1, !range !1564, !noundef !4
+  %.sink = zext nneg i8 %3 to i64
+  tail call void @"_ZN65_$LT$seahash..stream..SeaHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17hdefb683ec0e47286E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %.sink)
   ret void
 }
 

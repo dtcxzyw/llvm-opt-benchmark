@@ -163,16 +163,12 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr noundef readonly 
 
 15:                                               ; preds = %10
   %16 = tail call signext i16 @tvb_get_int16(ptr noundef %0, i32 noundef 4, i32 noundef 0)
-  switch i16 %16, label %124 [
-    i16 594, label %17
-    i16 593, label %18
-  ]
+  %.off = add i16 %16, -593
+  %switch = icmp ult i16 %.off, 2
+  br i1 %switch, label %17, label %124
 
 17:                                               ; preds = %15
-  br label %18
-
-18:                                               ; preds = %17, %15
-  %.062 = phi i1 [ true, %17 ], [ false, %15 ]
+  %18 = trunc i16 %16 to i1
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 35, ptr noundef nonnull @.str.45)
@@ -185,21 +181,21 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr noundef readonly 
   %26 = load i32, ptr @hf_roon_disco_marker, align 4
   %27 = tail call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 4, ptr noundef nonnull @.str.48)
   %28 = load ptr, ptr %19, align 8
-  %.str.49..str.51 = select i1 %.062, ptr @.str.49, ptr @.str.51
-  %.str.50..str.52 = select i1 %.062, ptr @.str.50, ptr @.str.52
-  tail call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull %.str.49..str.51)
+  %.str.51..str.49 = select i1 %18, ptr @.str.51, ptr @.str.49
+  %.str.52..str.50 = select i1 %18, ptr @.str.52, ptr @.str.50
+  tail call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull %.str.51..str.49)
   %29 = load i32, ptr @hf_roon_disco_type, align 4
-  %30 = tail call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef 2, ptr noundef nonnull %.str.50..str.52)
+  %30 = tail call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef 2, ptr noundef nonnull %.str.52..str.50)
   %31 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %32 = icmp ugt i32 %31, 6
   br i1 %32, label %.lr.ph.i.i.preheader, label %._crit_edge
 
-._crit_edge:                                      ; preds = %roon_map_name.exit90.thread, %18
+._crit_edge:                                      ; preds = %roon_map_name.exit90.thread, %17
   %33 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %124
 
-.lr.ph.i.i.preheader:                             ; preds = %18, %roon_map_name.exit90.thread
-  %.063117 = phi i32 [ %121, %roon_map_name.exit90.thread ], [ 6, %18 ]
+.lr.ph.i.i.preheader:                             ; preds = %17, %roon_map_name.exit90.thread
+  %.063117 = phi i32 [ %121, %roon_map_name.exit90.thread ], [ 6, %17 ]
   %34 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.063117)
   %35 = add nuw i32 %.063117, 1
   %36 = load ptr, ptr %11, align 8
@@ -396,7 +392,7 @@ roon_map_name.exit90.thread:                      ; preds = %91, %bsearch.exit.i
   %123 = icmp ult i32 %121, %122
   br i1 %123, label %.lr.ph.i.i.preheader, label %._crit_edge, !llvm.loop !8
 
-124:                                              ; preds = %._crit_edge, %10, %15, %4, %7
+124:                                              ; preds = %15, %._crit_edge, %10, %4, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ %33, %._crit_edge ], [ 0, %10 ], [ 0, %15 ]
   ret i32 %.0
 }

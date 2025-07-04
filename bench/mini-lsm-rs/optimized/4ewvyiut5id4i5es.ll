@@ -97,15 +97,15 @@ define hidden void @"_ZN15crossbeam_epoch4sync5queue14Queue$LT$T$GT$12pop_intern
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.8.copyload, ptr %28, align 8, !alias.scope !39
-  %.sroa.7.8..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.7.8.copyload, ptr %.sroa.7.8..sroa_idx5, align 8, !alias.scope !39
-  %.sroa.8.8..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.8.8..sroa_idx7, ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.8.8..sroa_idx, i64 2048, i1 false)
+  %.sroa.7.8..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.7.8.copyload, ptr %.sroa.7.8..sroa_idx4, align 8, !alias.scope !39
+  %.sroa.8.8..sroa_idx6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.8.8..sroa_idx6, ptr noundef nonnull align 8 dereferenceable(2048) %.sroa.8.8..sroa_idx, i64 2048, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d297a09E.llvm.12023550525612096193.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d297a09E.llvm.12023550525612096193.exit": ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit", %27
-  %storemerge.i3 = phi i64 [ 0, %27 ], [ 1, %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit" ]
-  store i64 %storemerge.i3, ptr %0, align 8, !alias.scope !41, !noalias !36
+  %storemerge.i22 = phi i64 [ 0, %27 ], [ 1, %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$16compare_exchange17h2399e4e99222d6d2E.exit" ]
+  store i64 %storemerge.i22, ptr %0, align 8, !alias.scope !41, !noalias !36
   br label %29
 
 29:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d297a09E.llvm.12023550525612096193.exit", %13
@@ -1825,8 +1825,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h594ba9a59d29
   br label %7
 
 7:                                                ; preds = %2, %4
-  %storemerge = phi i64 [ 0, %4 ], [ 1, %2 ]
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %3, ptr %0, align 8
   ret void
 }
 

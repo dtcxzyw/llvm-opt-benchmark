@@ -510,10 +510,8 @@ entry:
   %bf.set8 = or disjoint i32 %bf.set, %bf.clear
   %bf.set38 = or disjoint i32 %bf.set8, 2048
   store i32 %bf.set38, ptr %force1_1_, align 8
-  switch i8 %direction, label %sw.default [
-    i8 0, label %sw.bb81.invoke
-    i8 1, label %sw.bb81
-  ]
+  %switch = icmp ult i8 %direction, 2
+  br i1 %switch, label %sw.bb81.invoke, label %sw.default
 
 lpad79:                                           ; preds = %sw.bb81.invoke, %sw.default
   %1 = landingpad { ptr, i32 }
@@ -535,11 +533,8 @@ lpad79:                                           ; preds = %sw.bb81.invoke, %sw
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %websockAcceptKey_) #27
   resume { ptr, i32 } %1
 
-sw.bb81:                                          ; preds = %entry
-  br label %sw.bb81.invoke
-
-sw.bb81.invoke:                                   ; preds = %entry, %sw.bb81
-  %2 = phi i32 [ 1, %sw.bb81 ], [ 0, %entry ]
+sw.bb81.invoke:                                   ; preds = %entry
+  %2 = zext nneg i8 %direction to i32
   %parser_78 = getelementptr inbounds nuw i8, ptr %this, i64 64
   invoke void @_ZN8proxygen16http_parser_initEPNS_11http_parserENS_16http_parser_typeE(ptr noundef nonnull %parser_78, i32 noundef %2)
           to label %sw.epilog unwind label %lpad79

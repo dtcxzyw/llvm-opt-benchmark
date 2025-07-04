@@ -3643,7 +3643,7 @@ _ZL31EmitNullBaseClassInitializationRN5clang7CodeGen15CodeGenFunctionENS0_7Addre
   %251 = and i32 %250, 7
   switch i32 %251, label %258 [
     i32 3, label %252
-    i32 1, label %257
+    i32 1, label %256
     i32 2, label %256
   ]
 
@@ -3654,16 +3654,15 @@ _ZL31EmitNullBaseClassInitializationRN5clang7CodeGen15CodeGenFunctionENS0_7Addre
   %255 = and i32 %254, 7
   br label %258
 
-256:                                              ; preds = %248
+256:                                              ; preds = %248, %248
+  %257 = trunc i32 %250 to i1
+  %.1 = xor i1 %257, true
   br label %258
 
-257:                                              ; preds = %248
-  br label %258
-
-258:                                              ; preds = %256, %257, %252, %248
-  %.023 = phi i32 [ %255, %252 ], [ 0, %248 ], [ 1, %256 ], [ 1, %257 ]
-  %.022 = phi i1 [ false, %252 ], [ false, %248 ], [ true, %256 ], [ false, %257 ]
-  %.0 = phi i1 [ true, %252 ], [ false, %248 ], [ false, %256 ], [ false, %257 ]
+258:                                              ; preds = %256, %252, %248
+  %.023 = phi i32 [ %255, %252 ], [ 1, %256 ], [ 0, %248 ]
+  %.022 = phi i1 [ false, %252 ], [ %.1, %256 ], [ false, %248 ]
+  %.0 = phi i1 [ true, %252 ], [ false, %256 ], [ false, %248 ]
   call void @_ZN5clang7CodeGen15CodeGenFunction22EmitCXXConstructorCallEPKNS_18CXXConstructorDeclENS_11CXXCtorTypeEbbNS0_12AggValueSlotEPKNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull %18, i32 noundef %.023, i1 noundef zeroext %.022, i1 noundef zeroext %.0, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %2, ptr noundef nonnull %1) #16
   br label %259
 

@@ -91,9 +91,9 @@ define noundef zeroext i1 @_ZN4base23IsWprintfFormatPortableEPKw(ptr noundef rea
   ]
 
 .preheader:                                       ; preds = %2, %.thread
-  %.043 = phi i8 [ %.1, %.thread ], [ 0, %2 ]
-  %.12641 = phi ptr [ %4, %.thread ], [ %.025, %2 ]
-  %4 = getelementptr inbounds nuw i8, ptr %.12641, i64 4
+  %.044 = phi i8 [ %.1, %.thread ], [ 0, %2 ]
+  %.12642 = phi ptr [ %4, %.thread ], [ %.025, %2 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.12642, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !3
   switch i32 %5, label %6 [
     i32 0, label %.thread36
@@ -103,12 +103,12 @@ define noundef zeroext i1 @_ZN4base23IsWprintfFormatPortableEPKw(ptr noundef rea
 
 6:                                                ; preds = %.preheader
   %7 = icmp ne i32 %5, 99
-  %8 = trunc nuw i8 %.043 to i1
+  %8 = trunc nuw i8 %.044 to i1
   %or.cond = select i1 %7, i1 true, i1 %8
   br i1 %or.cond, label %10, label %.thread36
 
 9:                                                ; preds = %.preheader
-  %.old1 = trunc nuw i8 %.043 to i1
+  %.old1 = trunc nuw i8 %.044 to i1
   br i1 %.old1, label %.thread, label %.thread36
 
 10:                                               ; preds = %6
@@ -116,11 +116,11 @@ define noundef zeroext i1 @_ZN4base23IsWprintfFormatPortableEPKw(ptr noundef rea
   %11 = icmp ult i32 %switch.tableidx, 19
   %switch.shifted = lshr i32 331787, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
-  %or.cond50 = select i1 %11, i1 %switch.lobit, i1 false
-  br i1 %or.cond50, label %.thread36, label %.thread
+  %or.cond54 = select i1 %11, i1 %switch.lobit, i1 false
+  br i1 %or.cond54, label %.thread36, label %.thread
 
 .thread:                                          ; preds = %10, %9, %.preheader
-  %.1 = phi i8 [ 1, %.preheader ], [ %.043, %10 ], [ 1, %9 ]
+  %.1 = phi i8 [ 1, %.preheader ], [ %.044, %10 ], [ 1, %9 ]
   %12 = tail call ptr @wcschr(ptr noundef nonnull @.str, i32 noundef signext %5) #26
   %.not34 = icmp eq ptr %12, null
   br i1 %.not34, label %.preheader, label %.loopexit, !llvm.loop !7
@@ -131,7 +131,10 @@ define noundef zeroext i1 @_ZN4base23IsWprintfFormatPortableEPKw(ptr noundef rea
   br label %2, !llvm.loop !9
 
 .thread36:                                        ; preds = %2, %.preheader, %6, %9, %10
-  %spec.select35 = phi i1 [ false, %10 ], [ true, %.preheader ], [ false, %6 ], [ false, %9 ], [ true, %2 ]
+  %.128 = phi i1 [ false, %10 ], [ true, %.preheader ], [ false, %6 ], [ false, %9 ], [ undef, %2 ]
+  %14 = trunc i32 %3 to i1
+  %switch = xor i1 %14, true
+  %spec.select35 = or i1 %.128, %switch
   ret i1 %spec.select35
 }
 

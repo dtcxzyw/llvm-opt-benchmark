@@ -3628,23 +3628,18 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
-  switch i32 %shape, label %if.end6 [
-    i32 0, label %if.end6.sink.split
-    i32 1, label %if.then3
-  ]
+  %switch = icmp ult i32 %shape, 2
+  br i1 %switch, label %if.end6.sink.split, label %if.end6
 
-if.then3:                                         ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  br label %if.end6.sink.split
-
-if.end6.sink.split:                               ; preds = %if.then3, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %.sink = phi i8 [ 1, %if.then3 ], [ 0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
+if.end6.sink.split:                               ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
+  %.sink = trunc nuw nsw i32 %shape to i8
   %data4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data4, align 8, !tbaa !139
   %minimap_shape_round5 = getelementptr inbounds nuw i8, ptr %0, i64 2097253
   store i8 %.sink, ptr %minimap_shape_round5, align 1, !tbaa !140
   br label %if.end6
 
-if.end6:                                          ; preds = %if.end6.sink.split, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
+if.end6:                                          ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %if.end6.sink.split
   %1 = load ptr, ptr @g_settings, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #34
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16

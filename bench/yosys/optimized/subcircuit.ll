@@ -32516,8 +32516,8 @@ _ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit: ; preds = 
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.not7491 = icmp eq ptr %19, %20
-  br i1 %.not7491, label %.thread71, label %.lr.ph94
+  %.not74.not91 = icmp eq ptr %19, %20
+  br i1 %.not74.not91, label %.thread71, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %_ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 136
@@ -32656,12 +32656,12 @@ _ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5countERS3_.exit.thread: ; preds = %70, 
 
 92:                                               ; preds = %70
   %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.059.092) #32
-  %.not74 = icmp eq ptr %93, %20
-  br i1 %.not74, label %.thread71, label %29
+  %.not74.not = icmp eq ptr %93, %20
+  br i1 %.not74.not, label %.thread71, label %29
 
 .thread71:                                        ; preds = %92, %29, %_ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5countERS3_.exit.thread, %_ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit
-  %.not7486 = phi i1 [ true, %_ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit ], [ false, %_ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5countERS3_.exit.thread ], [ %.not7587.not.not, %29 ], [ %.not7587.not.not, %92 ]
-  ret i1 %.not7486
+  %.not74.not86 = phi i1 [ true, %_ZNKSt6vectorISt3mapIiiSt4lessIiESaISt4pairIKiiEEESaIS7_EE2atEm.exit ], [ false, %_ZNKSt3mapIiiSt4lessIiESaISt4pairIKiiEEE5countERS3_.exit.thread ], [ %.not7587.not.not, %29 ], [ %.not7587.not.not, %92 ]
+  ret i1 %.not74.not86
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -34370,8 +34370,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK10SubCircuit12SolverWorker6DiEdge7co
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %.not139141 = icmp eq ptr %7, %8
-  br i1 %.not139141, label %._crit_edge, label %.lr.ph
+  %.not139140 = icmp eq ptr %7, %8
+  br i1 %.not139140, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -34396,9 +34396,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK10SubCircuit12SolverWorker6DiEdge7co
   br label %28
 
 28:                                               ; preds = %.lr.ph, %162
-  %.sroa.0124.0142 = phi ptr [ %7, %.lr.ph ], [ %163, %162 ]
+  %.sroa.0124.0141 = phi ptr [ %7, %.lr.ph ], [ %163, %162 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #30
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0124.0142, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0124.0141, i64 32
   call void @_ZN10SubCircuit12SolverWorker5DiBitC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %29)
   %30 = load ptr, ptr %9, align 8, !tbaa !15
   %.not10.i.i.i = icmp eq ptr %30, null
@@ -34804,19 +34804,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 
 _ZN10SubCircuit12SolverWorker5DiBitD2Ev.exit:     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #30
-  switch i32 %.117, label %._crit_edge [
+  switch i32 %.117, label %._crit_edge.loopexit [
     i32 0, label %162
     i32 3, label %162
   ]
 
 162:                                              ; preds = %_ZN10SubCircuit12SolverWorker5DiBitD2Ev.exit, %_ZN10SubCircuit12SolverWorker5DiBitD2Ev.exit
-  %163 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0124.0142) #32
+  %163 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0124.0141) #32
   %.not139 = icmp eq ptr %163, %8
-  br i1 %.not139, label %._crit_edge, label %28
+  br i1 %.not139, label %._crit_edge.loopexit, label %28
 
-._crit_edge:                                      ; preds = %_ZN10SubCircuit12SolverWorker5DiBitD2Ev.exit, %162, %4
-  %.not139.lcssa = phi i1 [ true, %4 ], [ true, %162 ], [ false, %_ZN10SubCircuit12SolverWorker5DiBitD2Ev.exit ]
-  ret i1 %.not139.lcssa
+._crit_edge.loopexit:                             ; preds = %162, %_ZN10SubCircuit12SolverWorker5DiBitD2Ev.exit
+  %.016.ph = phi i32 [ %.117, %_ZN10SubCircuit12SolverWorker5DiBitD2Ev.exit ], [ 2, %162 ]
+  %164 = trunc i32 %.016.ph to i1
+  %165 = xor i1 %164, true
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
+  %.016 = phi i1 [ true, %4 ], [ %165, %._crit_edge.loopexit ]
+  ret i1 %.016
 }
 
 ; Function Attrs: mustprogress uwtable

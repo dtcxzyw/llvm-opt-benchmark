@@ -9,7 +9,7 @@ define hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17h7a64bb114b17
   %4 = and i64 %3, 3
   switch i64 %4, label %default.unreachable9 [
     i64 2, label %5
-    i64 3, label %switch.lookup
+    i64 3, label %_ZN3std2io5error14repr_bitpacked14kind_from_prim17hee8848ea1926270fE.exit
     i64 0, label %11
     i64 1, label %13
   ]
@@ -24,11 +24,11 @@ default.unreachable9:                             ; preds = %2
   store i32 %7, ptr %8, align 4
   br label %17
 
-switch.lookup:                                    ; preds = %2
+_ZN3std2io5error14repr_bitpacked14kind_from_prim17hee8848ea1926270fE.exit: ; preds = %2
   %9 = lshr i64 %3, 32
-  %switch.idx.cast = trunc i64 %9 to i8
+  %.0.i = trunc i64 %9 to i8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %switch.idx.cast, ptr %10, align 1
+  store i8 %.0.i, ptr %10, align 1
   br label %17
 
 11:                                               ; preds = %2
@@ -44,8 +44,8 @@ switch.lookup:                                    ; preds = %2
   store ptr %14, ptr %16, align 8
   br label %17
 
-17:                                               ; preds = %13, %switch.lookup, %11, %5
-  %.sink = phi i8 [ 3, %13 ], [ 1, %switch.lookup ], [ 2, %11 ], [ 0, %5 ]
+17:                                               ; preds = %13, %_ZN3std2io5error14repr_bitpacked14kind_from_prim17hee8848ea1926270fE.exit, %11, %5
+  %.sink = phi i8 [ 3, %13 ], [ 1, %_ZN3std2io5error14repr_bitpacked14kind_from_prim17hee8848ea1926270fE.exit ], [ 2, %11 ], [ 0, %5 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }

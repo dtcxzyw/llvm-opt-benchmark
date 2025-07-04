@@ -50704,7 +50704,7 @@ entry.resume:
   %index.addr = getelementptr inbounds nuw i8, ptr %0, i64 112
   %index = load i2, ptr %index.addr, align 8
   %switch = icmp eq i2 %index, 0
-  br i1 %switch, label %CoroSave53, label %await.ready
+  br i1 %switch, label %CoroSave53, label %AfterCoroSuspend56
 
 CoroSave53:                                       ; preds = %entry.resume
   %ref.tmp10.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -50727,7 +50727,7 @@ CoroSave53:                                       ; preds = %entry.resume
   %implementation_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this1.reload, i64 8
   %executor_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this1.reload, i64 64
   invoke void @_ZN4asio6detail22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEE10async_waitIZZN7coro_io12period_timer11async_awaitEvENKUlT_E_clINSB_21callback_awaitor_baseIbNSB_16callback_awaitorIbEEE15awaitor_handlerEEEDaSD_EUlRKSD_E_NS_15any_io_executorEEEvRNS9_19implementation_typeERSD_RKT0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(56) %implementation_.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(56) %executor_.i.i.i.i.i.i.i)
-          to label %CoroEnd unwind label %terminate.lpad.i
+          to label %AfterCoroSuspend56.thread unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %CoroSave53
   %4 = landingpad { ptr, i32 }
@@ -50736,7 +50736,15 @@ terminate.lpad.i:                                 ; preds = %CoroSave53
   call void @__clang_call_terminate(ptr %5) #39
   unreachable
 
-await.ready:                                      ; preds = %entry.resume
+AfterCoroSuspend56.thread:                        ; preds = %CoroSave53
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  br label %CoroEnd
+
+AfterCoroSuspend56:                               ; preds = %entry.resume
+  %cond1 = trunc i2 %index to i1
+  br i1 %cond1, label %await.ready, label %CoroEnd
+
+await.ready:                                      ; preds = %AfterCoroSuspend56
   %6 = load ptr, ptr %ref.tmp8.reload.addr, align 8
   %_value.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %_M_index.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -50772,8 +50780,7 @@ _ZN12async_simple4coro6detail11LazyPromiseIbE12return_valueIbEEvOT_Qsr3stdE16is_
   musttail call fastcc void %10(ptr nonnull %retval.sroa.0.0.copyload.i) #30
   ret void
 
-CoroEnd:                                          ; preds = %CoroSave53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+CoroEnd:                                          ; preds = %AfterCoroSuspend56.thread, %AfterCoroSuspend56
   ret void
 }
 
@@ -51329,7 +51336,7 @@ entry.resume:
   %index.addr = getelementptr inbounds nuw i8, ptr %0, i64 56
   %index = load i2, ptr %index.addr, align 8
   %switch = icmp eq i2 %index, 0
-  br i1 %switch, label %CoroSave75, label %await.ready
+  br i1 %switch, label %CoroSave75, label %AfterCoroSuspend78
 
 CoroSave75:                                       ; preds = %entry.resume
   tail call void @llvm.experimental.noalias.scope.decl(metadata !655)
@@ -51342,12 +51349,16 @@ CoroSave75:                                       ; preds = %entry.resume
   invoke void @_ZN12async_simple4coro6detail8LazyBaseIbLb1EE11AwaiterBase16awaitSuspendImplEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12.reload.addr)
           to label %CoroEnd unwind label %lpad23
 
+AfterCoroSuspend78:                               ; preds = %entry.resume
+  %cond1 = trunc i2 %index to i1
+  br i1 %cond1, label %await.ready, label %CoroEnd
+
 lpad23:                                           ; preds = %CoroSave75
   %2 = landingpad { ptr, i32 }
           catch ptr null
   br label %ehcleanup
 
-await.ready:                                      ; preds = %entry.resume
+await.ready:                                      ; preds = %AfterCoroSuspend78
   %3 = load ptr, ptr %ref.tmp12.reload.addr, align 8, !noalias !658
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @_ZN12async_simple4coro6detail11LazyPromiseIbE9tryResultEv(ptr nonnull sret(%"class.async_simple::Try.372") align 8 %ref.tmp11.reload.addr, ptr noundef nonnull align 8 dereferenceable(32) %4) #30
@@ -51427,9 +51438,9 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont26
   %14 = load ptr, ptr %ref.tmp11.reload.addr, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
   %or.cond.i.i.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZN12async_simple3TryIbED2Ev.exit.thread14, label %_ZN12async_simple3TryIbED2Ev.exit
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZN12async_simple3TryIbED2Ev.exit.thread15, label %_ZN12async_simple3TryIbED2Ev.exit
 
-_ZN12async_simple3TryIbED2Ev.exit.thread14:       ; preds = %if.end.i.i.i.i.i.i.i.i.i
+_ZN12async_simple3TryIbED2Ev.exit.thread15:       ; preds = %if.end.i.i.i.i.i.i.i.i.i
   store i8 -1, ptr %_M_index.i.i.i.i, align 8
   br label %final.ready
 
@@ -51511,7 +51522,7 @@ lpad36:                                           ; preds = %invoke.cont35
           cleanup
   br label %CoroEnd83
 
-final.ready:                                      ; preds = %invoke.cont26, %_ZN12async_simple3TryIbED2Ev.exit.thread14, %invoke.cont35, %_ZN12async_simple3TryIbED2Ev.exit, %invoke.cont.i.i.i
+final.ready:                                      ; preds = %invoke.cont26, %_ZN12async_simple3TryIbED2Ev.exit.thread15, %invoke.cont35, %_ZN12async_simple3TryIbED2Ev.exit, %invoke.cont.i.i.i
   %28 = load ptr, ptr %lazy2.reload.addr, align 8
   %cmp.i.not.i = icmp eq ptr %28, null
   br i1 %cmp.i.not.i, label %_ZN12async_simple4coro6detail8LazyBaseIbLb1EED2Ev.exit, label %if.then.i9
@@ -51537,7 +51548,7 @@ _ZN12async_simple4coro6detail8LazyBaseIbLb1EED2Ev.exit: ; preds = %final.ready, 
   call void @_ZdlPv(ptr noundef nonnull %0) #30
   br label %CoroEnd
 
-CoroEnd:                                          ; preds = %CoroSave75, %_ZN12async_simple4coro6detail8LazyBaseIbLb1EED2Ev.exit
+CoroEnd:                                          ; preds = %CoroSave75, %AfterCoroSuspend78, %_ZN12async_simple4coro6detail8LazyBaseIbLb1EED2Ev.exit
   ret void
 
 CoroEnd83:                                        ; preds = %lpad36, %lpad34
@@ -54972,7 +54983,7 @@ entry.resume:
   %index.addr = getelementptr inbounds nuw i8, ptr %0, i64 160
   %index = load i2, ptr %index.addr, align 8
   %switch = icmp eq i2 %index, 0
-  br i1 %switch, label %CoroSave58, label %await.ready
+  br i1 %switch, label %CoroSave58, label %AfterCoroSuspend61
 
 CoroSave58:                                       ; preds = %entry.resume
   %ref.tmp12.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -55026,7 +55037,7 @@ CoroSave58:                                       ; preds = %entry.resume
   %implementation_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %executor_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @_ZN4asio6detail28reactive_socket_service_base10async_sendINS_15const_buffers_1ENS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEENS_17mutable_buffers_1EPKNS_14mutable_bufferENS0_14transfer_all_tEZZN7coro_io11async_writeIS9_SA_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSO_E_clINSF_21callback_awaitor_baseISM_NSF_16callback_awaitorISM_EEE15awaitor_handlerEEEDaSO_EUlRKSO_SQ_E_EES8_EEvRNS1_24base_implementation_typeES10_iRSQ_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %implementation_.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %executor_.i.i.i.i.i.i.i.i.i.i.i.i.i)
-          to label %CoroEnd unwind label %terminate.lpad.i
+          to label %AfterCoroSuspend61.thread unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %CoroSave58
   %11 = landingpad { ptr, i32 }
@@ -55035,7 +55046,16 @@ terminate.lpad.i:                                 ; preds = %CoroSave58
   call void @__clang_call_terminate(ptr %12) #39
   unreachable
 
-await.ready:                                      ; preds = %entry.resume
+AfterCoroSuspend61.thread:                        ; preds = %CoroSave58
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  br label %CoroEnd
+
+AfterCoroSuspend61:                               ; preds = %entry.resume
+  %cond1 = trunc i2 %index to i1
+  br i1 %cond1, label %await.ready, label %CoroEnd
+
+await.ready:                                      ; preds = %AfterCoroSuspend61
   %13 = load ptr, ptr %ref.tmp10.reload.addr, align 8
   %_value.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %_M_index.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -55069,9 +55089,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt4pairISt10error_codemEE12return_val
   musttail call fastcc void %16(ptr nonnull %retval.sroa.0.0.copyload.i) #30
   ret void
 
-CoroEnd:                                          ; preds = %CoroSave58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+CoroEnd:                                          ; preds = %AfterCoroSuspend61.thread, %AfterCoroSuspend61
   ret void
 }
 
@@ -55113,7 +55131,7 @@ entry.resume:
   %index.addr = getelementptr inbounds nuw i8, ptr %0, i64 160
   %index = load i2, ptr %index.addr, align 8
   %switch = icmp eq i2 %index, 0
-  br i1 %switch, label %CoroSave58, label %await.ready
+  br i1 %switch, label %CoroSave58, label %AfterCoroSuspend61
 
 CoroSave58:                                       ; preds = %entry.resume
   %ref.tmp12.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -55171,7 +55189,7 @@ CoroSave58:                                       ; preds = %entry.resume
   %implementation_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %executor_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @_ZN4asio6detail28reactive_socket_service_base10async_sendISt5arrayINS_12const_bufferELm2EENS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEES5_PKS4_NS0_14transfer_all_tEZZN7coro_io11async_writeISB_RS5_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSP_E_clINSF_21callback_awaitor_baseISN_NSF_16callback_awaitorISN_EEE15awaitor_handlerEEEDaSP_EUlRKSP_SR_E_EESA_EEvRNS1_24base_implementation_typeES11_iRSR_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %implementation_.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %executor_.i.i.i.i.i.i.i.i.i.i.i.i.i)
-          to label %CoroEnd unwind label %terminate.lpad.i
+          to label %AfterCoroSuspend61.thread unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %CoroSave58
   %11 = landingpad { ptr, i32 }
@@ -55180,7 +55198,16 @@ terminate.lpad.i:                                 ; preds = %CoroSave58
   call void @__clang_call_terminate(ptr %12) #39
   unreachable
 
-await.ready:                                      ; preds = %entry.resume
+AfterCoroSuspend61.thread:                        ; preds = %CoroSave58
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  br label %CoroEnd
+
+AfterCoroSuspend61:                               ; preds = %entry.resume
+  %cond1 = trunc i2 %index to i1
+  br i1 %cond1, label %await.ready, label %CoroEnd
+
+await.ready:                                      ; preds = %AfterCoroSuspend61
   %13 = load ptr, ptr %ref.tmp10.reload.addr, align 8
   %_value.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %_M_index.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -55214,9 +55241,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt4pairISt10error_codemEE12return_val
   musttail call fastcc void %16(ptr nonnull %retval.sroa.0.0.copyload.i) #30
   ret void
 
-CoroEnd:                                          ; preds = %CoroSave58
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+CoroEnd:                                          ; preds = %AfterCoroSuspend61.thread, %AfterCoroSuspend61
   ret void
 }
 
@@ -55258,7 +55283,7 @@ entry.resume:
   %index.addr = getelementptr inbounds nuw i8, ptr %0, i64 160
   %index = load i2, ptr %index.addr, align 8
   %switch = icmp eq i2 %index, 0
-  br i1 %switch, label %CoroSave58, label %await.ready
+  br i1 %switch, label %CoroSave58, label %AfterCoroSuspend61
 
 CoroSave58:                                       ; preds = %entry.resume
   %ref.tmp12.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -55310,7 +55335,7 @@ CoroSave58:                                       ; preds = %entry.resume
   %implementation_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %executor_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @_ZN4asio6detail28reactive_socket_service_base13async_receiveINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEES3_PKNS_14mutable_bufferENS0_14transfer_all_tEZZN7coro_io10async_readIS9_S3_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSN_E_clINSE_21callback_awaitor_baseISL_NSE_16callback_awaitorISL_EEE15awaitor_handlerEEEDaSN_EUlRKSN_SP_E_EES8_EEvRNS1_24base_implementation_typeESZ_iRSP_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %implementation_.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %executor_.i.i.i.i.i.i.i.i.i.i.i.i.i)
-          to label %CoroEnd unwind label %terminate.lpad.i
+          to label %AfterCoroSuspend61.thread unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %CoroSave58
   %10 = landingpad { ptr, i32 }
@@ -55319,7 +55344,16 @@ terminate.lpad.i:                                 ; preds = %CoroSave58
   call void @__clang_call_terminate(ptr %11) #39
   unreachable
 
-await.ready:                                      ; preds = %entry.resume
+AfterCoroSuspend61.thread:                        ; preds = %CoroSave58
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  br label %CoroEnd
+
+AfterCoroSuspend61:                               ; preds = %entry.resume
+  %cond1 = trunc i2 %index to i1
+  br i1 %cond1, label %await.ready, label %CoroEnd
+
+await.ready:                                      ; preds = %AfterCoroSuspend61
   %12 = load ptr, ptr %ref.tmp10.reload.addr, align 8
   %_value.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %_M_index.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -55353,9 +55387,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt4pairISt10error_codemEE12return_val
   musttail call fastcc void %15(ptr nonnull %retval.sroa.0.0.copyload.i) #30
   ret void
 
-CoroEnd:                                          ; preds = %CoroSave58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+CoroEnd:                                          ; preds = %AfterCoroSuspend61.thread, %AfterCoroSuspend61
   ret void
 }
 
@@ -55397,7 +55429,7 @@ entry.resume:
   %index.addr = getelementptr inbounds nuw i8, ptr %0, i64 160
   %index = load i2, ptr %index.addr, align 8
   %switch = icmp eq i2 %index, 0
-  br i1 %switch, label %CoroSave58, label %await.ready
+  br i1 %switch, label %CoroSave58, label %AfterCoroSuspend61
 
 CoroSave58:                                       ; preds = %entry.resume
   %ref.tmp12.reload.addr = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -55455,7 +55487,7 @@ CoroSave58:                                       ; preds = %entry.resume
   %implementation_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %executor_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @_ZN4asio6detail28reactive_socket_service_base13async_receiveISt5arrayINS_14mutable_bufferELm2EENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEES5_PKS4_NS0_14transfer_all_tEZZN7coro_io10async_readISB_RS5_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSP_E_clINSF_21callback_awaitor_baseISN_NSF_16callback_awaitorISN_EEE15awaitor_handlerEEEDaSP_EUlRKSP_SR_E_EESA_EEvRNS1_24base_implementation_typeES11_iRSR_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %implementation_.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %executor_.i.i.i.i.i.i.i.i.i.i.i.i.i)
-          to label %CoroEnd unwind label %terminate.lpad.i
+          to label %AfterCoroSuspend61.thread unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %CoroSave58
   %11 = landingpad { ptr, i32 }
@@ -55464,7 +55496,16 @@ terminate.lpad.i:                                 ; preds = %CoroSave58
   call void @__clang_call_terminate(ptr %12) #39
   unreachable
 
-await.ready:                                      ; preds = %entry.resume
+AfterCoroSuspend61.thread:                        ; preds = %CoroSave58
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  br label %CoroEnd
+
+AfterCoroSuspend61:                               ; preds = %entry.resume
+  %cond1 = trunc i2 %index to i1
+  br i1 %cond1, label %await.ready, label %CoroEnd
+
+await.ready:                                      ; preds = %AfterCoroSuspend61
   %13 = load ptr, ptr %ref.tmp10.reload.addr, align 8
   %_value.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %_M_index.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -55498,9 +55539,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt4pairISt10error_codemEE12return_val
   musttail call fastcc void %16(ptr nonnull %retval.sroa.0.0.copyload.i) #30
   ret void
 
-CoroEnd:                                          ; preds = %CoroSave58
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+CoroEnd:                                          ; preds = %AfterCoroSuspend61.thread, %AfterCoroSuspend61
   ret void
 }
 

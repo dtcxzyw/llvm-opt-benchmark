@@ -45762,8 +45762,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split unwind label %.loopexit
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split: ; preds = %52, %44
-  %.sink31 = phi i8 [ 1, %44 ], [ 2, %52 ]
   %.pn.ph = phi i32 [ %45, %44 ], [ %53, %52 ]
+  %.sink31 = trunc i16 %41 to i8
   %54 = load i8, ptr %25, align 8
   %55 = or i8 %54, %.sink31
   store i8 %55, ptr %25, align 8
@@ -61632,8 +61632,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split unwind label %.loopexit
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split: ; preds = %53, %45
-  %.sink31 = phi i8 [ 1, %45 ], [ 2, %53 ]
   %.pn.ph = phi i32 [ %46, %45 ], [ %54, %53 ]
+  %.sink31 = trunc i16 %42 to i8
   %55 = load i8, ptr %25, align 8
   %56 = or i8 %55, %.sink31
   store i8 %56, ptr %25, align 8

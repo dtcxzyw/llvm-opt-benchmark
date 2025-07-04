@@ -75664,16 +75664,11 @@ define hidden void @_ZN11ruff_linter5rules6refurb5rules27single_item_membership_
 
 23:                                               ; preds = %7
   %24 = load i8, ptr %3, align 1, !range !5783, !noundef !4
-  switch i8 %24, label %_ZN11ruff_linter5rules6refurb5rules27single_item_membership_test11single_item17ha6411569ec4ed3f7E.exit.thread [
-    i8 8, label %26
-    i8 9, label %25
-  ]
+  %25 = and i8 %24, 14
+  %switch = icmp eq i8 %25, 8
+  br i1 %switch, label %26, label %_ZN11ruff_linter5rules6refurb5rules27single_item_membership_test11single_item17ha6411569ec4ed3f7E.exit.thread
 
-25:                                               ; preds = %23
-  br label %26
-
-26:                                               ; preds = %23, %25
-  %.sroa.02.0 = phi i1 [ true, %25 ], [ false, %23 ]
+26:                                               ; preds = %23
   %27 = load i32, ptr %5, align 8, !range !312, !noundef !4
   switch i32 %27, label %_ZN11ruff_linter5rules6refurb5rules27single_item_membership_test11single_item17ha6411569ec4ed3f7E.exit.thread [
     i32 7, label %54
@@ -75781,6 +75776,7 @@ _ZN4core3ops8function5FnMut8call_mut17h7f35a35b5a10f95aE.exit23.i.i: ; preds = %
 
 select.unfold:                                    ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h41e7c69f078d06b9E.exit.i", %58
   %.sroa.06.0.i = phi ptr [ %60, %58 ], [ %5, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h41e7c69f078d06b9E.exit.i" ]
+  %.sroa.02.0 = trunc i8 %24 to i1
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %20)
   %65 = call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %1)
   %66 = extractvalue { i32, i32 } %65, 0
@@ -75790,7 +75786,7 @@ select.unfold:                                    ; preds = %"_ZN4core4iter8adap
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
-  %..i13 = zext i1 %.sroa.02.0 to i8
+  %..i13 = and i8 %24, 1
   store i8 %..i13, ptr %16, align 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)

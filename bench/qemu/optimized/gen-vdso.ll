@@ -181,22 +181,19 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 60:                                               ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %35, i64 5
   %62 = load i8, ptr %61, align 1, !tbaa !13
-  switch i8 %62, label %64 [
-    i8 1, label %68
-    i8 2, label %63
-  ]
+  %.off = add i8 %62, -1
+  %switch = icmp ult i8 %.off, 2
+  br i1 %switch, label %67, label %63
 
 63:                                               ; preds = %60
-  br label %68
-
-64:                                               ; preds = %60
-  %65 = zext i8 %62 to i32
-  %66 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.7, ptr noundef %25, i32 noundef %65) #15
+  %64 = zext i8 %62 to i32
+  %65 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.7, ptr noundef %25, i32 noundef %64) #15
   br label %589
 
-68:                                               ; preds = %60, %63
-  %.073 = phi i1 [ true, %63 ], [ false, %60 ]
+67:                                               ; preds = %60
+  %68 = trunc i8 %62 to i1
+  %.073 = xor i1 %68, true
   %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.8, ptr noundef %.1) #11
   %70 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %71 = load i8, ptr %70, align 1, !tbaa !13
@@ -205,8 +202,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
     i8 2, label %315
   ]
 
-72:                                               ; preds = %68
-  br i1 %.073, label %73, label %113
+72:                                               ; preds = %67
+  br i1 %68, label %113, label %73
 
 73:                                               ; preds = %72
   %74 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -546,8 +543,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i32
   %232 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.extract.trunc.i)
   %233 = tail call i32 @llvm.bswap.i32(i32 %.sroa.6.0.extract.trunc.i)
-  %.sroa.6.0.i = select i1 %.073, i32 %233, i32 %.sroa.6.0.extract.trunc.i
-  %.sroa.0.0.i = select i1 %.073, i32 %232, i32 %.sroa.0.0.extract.trunc.i
+  %.sroa.6.0.i = select i1 %68, i32 %.sroa.6.0.extract.trunc.i, i32 %233
+  %.sroa.0.0.i = select i1 %68, i32 %.sroa.0.0.extract.trunc.i, i32 %232
   switch i32 %.sroa.0.0.i, label %239 [
     i32 4, label %234
     i32 6, label %234
@@ -690,7 +687,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %281
 
 281:                                              ; preds = %280, %.critedge.i
-  br i1 %.073, label %282, label %elf32_process.exit
+  br i1 %68, label %elf32_process.exit, label %282
 
 282:                                              ; preds = %281
   tail call fastcc void @elf32_bswap_ps_hdrs(ptr noundef nonnull %35)
@@ -740,8 +737,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   store i16 %314, ptr %120, align 4, !tbaa !27
   br label %elf32_process.exit.sink.split
 
-315:                                              ; preds = %68
-  br i1 %.073, label %316, label %356
+315:                                              ; preds = %67
+  br i1 %68, label %356, label %316
 
 316:                                              ; preds = %315
   %317 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -1082,8 +1079,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..0137.sroa_idx.i, align 8
   %474 = tail call i64 @llvm.bswap.i64(i64 %.sroa.0.0.copyload.i)
   %475 = tail call i64 @llvm.bswap.i64(i64 %.sroa.6.0.copyload.i)
-  %.sroa.6.0.i151 = select i1 %.073, i64 %475, i64 %.sroa.6.0.copyload.i
-  %.sroa.0.0.i152 = select i1 %.073, i64 %474, i64 %.sroa.0.0.copyload.i
+  %.sroa.6.0.i151 = select i1 %68, i64 %.sroa.6.0.copyload.i, i64 %475
+  %.sroa.0.0.i152 = select i1 %68, i64 %.sroa.0.0.copyload.i, i64 %474
   switch i64 %.sroa.0.0.i152, label %480 [
     i64 4, label %476
     i64 6, label %476
@@ -1223,7 +1220,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %521
 
 521:                                              ; preds = %520, %.critedge.i166
-  br i1 %.073, label %522, label %elf32_process.exit
+  br i1 %68, label %elf32_process.exit, label %522
 
 522:                                              ; preds = %521
   tail call fastcc void @elf64_bswap_ps_hdrs(ptr noundef nonnull %35)
@@ -1273,7 +1270,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   store i16 %554, ptr %362, align 4, !tbaa !61
   br label %elf32_process.exit.sink.split
 
-555:                                              ; preds = %68
+555:                                              ; preds = %67
   %556 = zext i8 %71 to i32
   %557 = load ptr, ptr @stderr, align 8, !tbaa !9
   %558 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %557, ptr noundef nonnull @.str.9, ptr noundef %25, i32 noundef %556) #15
@@ -1336,8 +1333,8 @@ elf32_process.exit:                               ; preds = %elf32_process.exit.
   tail call void @perror(ptr noundef nonnull %.176) #12
   br label %589
 
-589:                                              ; preds = %._crit_edge189, %588, %587, %555, %64, %57, %42, %.loopexit
-  %.072 = phi i32 [ 1, %.loopexit ], [ 1, %587 ], [ 1, %588 ], [ 1, %42 ], [ 1, %57 ], [ 1, %64 ], [ 1, %555 ], [ 0, %._crit_edge189 ]
+589:                                              ; preds = %._crit_edge189, %588, %587, %555, %63, %57, %42, %.loopexit
+  %.072 = phi i32 [ 1, %.loopexit ], [ 1, %587 ], [ 1, %588 ], [ 1, %42 ], [ 1, %57 ], [ 1, %63 ], [ 1, %555 ], [ 0, %._crit_edge189 ]
   ret i32 %.072
 }
 

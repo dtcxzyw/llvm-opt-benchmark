@@ -2654,9 +2654,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %203 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %204 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %205 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.432.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.sroa.533.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %.sroa.7.0..sroa_idx34.i = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %.sroa.431.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sroa.532.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %.sroa.7.0..sroa_idx33.i = getelementptr inbounds nuw i8, ptr %22, i64 24
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 32
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 40
   %206 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -2966,9 +2966,9 @@ common.resume:                                    ; preds = %84, %666, %255
   call void @llvm.experimental.noalias.scope.decl(metadata !354)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22), !noalias !357
   store i32 0, ptr %22, align 8, !noalias !357
-  store ptr %295, ptr %.sroa.432.0..sroa_idx.i, align 8, !noalias !357
-  store i64 %294, ptr %.sroa.533.0..sroa_idx.i, align 8, !noalias !357
-  store i64 0, ptr %.sroa.7.0..sroa_idx34.i, align 8, !noalias !357
+  store ptr %295, ptr %.sroa.431.0..sroa_idx.i, align 8, !noalias !357
+  store i64 %294, ptr %.sroa.532.0..sroa_idx.i, align 8, !noalias !357
+  store i64 0, ptr %.sroa.7.0..sroa_idx33.i, align 8, !noalias !357
   store i64 %294, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !357
   store i8 0, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !357
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21), !noalias !357
@@ -3458,16 +3458,16 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.th
 
 445:                                              ; preds = %444
   %446 = invoke noundef align 8 dereferenceable(8) ptr @_ZN14regex_automata4meta5regex9RegexInfo11props_union17h4a581b62ff2ad979E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %298)
-          to label %.noexc31.i unwind label %.loopexit606.loopexit.split-lp, !noalias !364
+          to label %.noexc30.i unwind label %.loopexit606.loopexit.split-lp, !noalias !364
 
-.noexc31.i:                                       ; preds = %445
+.noexc30.i:                                       ; preds = %445
   %447 = load ptr, ptr %446, align 8, !noalias !364, !nonnull !4, !align !40, !noundef !4
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 32
   %449 = load i64, ptr %448, align 8, !range !63, !noalias !364, !noundef !4
   %trunc.i.i = trunc nuw i64 %449 to i1
   br i1 %trunc.i.i, label %450, label %565
 
-450:                                              ; preds = %.noexc31.i
+450:                                              ; preds = %.noexc30.i
   %451 = getelementptr inbounds nuw i8, ptr %447, i64 40
   %452 = load i64, ptr %451, align 8, !noalias !364
   %453 = call i64 @llvm.uadd.sat.i64(i64 %452, i64 1)
@@ -3844,15 +3844,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit337
   %.pre = load i64, ptr %165, align 8
   br label %293
 
-565:                                              ; preds = %450, %.noexc31.i
-  %.sroa.3.0.i29.i = phi i64 [ %453, %450 ], [ undef, %.noexc31.i ]
-  %.sroa.0.0.i30.i = phi i64 [ 1, %450 ], [ 0, %.noexc31.i ]
+565:                                              ; preds = %450, %.noexc30.i
+  %.sroa.3.0.i29.i = phi i64 [ %453, %450 ], [ undef, %.noexc30.i ]
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %34)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21), !noalias !357
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22), !noalias !357
-  store i64 %.sroa.0.0.i30.i, ptr %34, align 8
+  store i64 %449, ptr %34, align 8
   %.sroa.7729.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sroa.3.0.i29.i, ptr %.sroa.7729.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 56

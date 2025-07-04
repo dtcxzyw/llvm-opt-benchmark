@@ -28706,7 +28706,7 @@ _ZN5image8dynimage12DynamicImage11new_rgba32f17h382a0ff64fd4fd65E.exit: ; preds 
 79:                                               ; preds = %_ZN5image8dynimage12DynamicImage11new_rgba32f17h382a0ff64fd4fd65E.exit, %_ZN5image8dynimage12DynamicImage10new_rgb32f17h2b353a7fc5f6cb33E.exit, %_ZN5image8dynimage12DynamicImage10new_rgba1617hc4942208a050e0d3E.exit, %_ZN5image8dynimage12DynamicImage9new_rgb1617h45563a8232bb36faE.exit, %_ZN5image8dynimage12DynamicImage12new_luma_a1617h23f8d8253f3ec774E.exit, %35, %_ZN5image8dynimage12DynamicImage9new_rgba817h00abbd65e4aa646bE.exit, %_ZN5image8dynimage12DynamicImage8new_rgb817h5b13ae464f5c2b6aE.exit, %_ZN5image8dynimage12DynamicImage11new_luma_a817hc4aabab6edbf2649E.exit, %7
   %.pn = phi { i64, ptr } [ %78, %_ZN5image8dynimage12DynamicImage11new_rgba32f17h382a0ff64fd4fd65E.exit ], [ %70, %_ZN5image8dynimage12DynamicImage10new_rgb32f17h2b353a7fc5f6cb33E.exit ], [ %62, %_ZN5image8dynimage12DynamicImage10new_rgba1617hc4942208a050e0d3E.exit ], [ %54, %_ZN5image8dynimage12DynamicImage9new_rgb1617h45563a8232bb36faE.exit ], [ %46, %_ZN5image8dynimage12DynamicImage12new_luma_a1617h23f8d8253f3ec774E.exit ], [ %38, %35 ], [ %34, %_ZN5image8dynimage12DynamicImage9new_rgba817h00abbd65e4aa646bE.exit ], [ %26, %_ZN5image8dynimage12DynamicImage8new_rgb817h5b13ae464f5c2b6aE.exit ], [ %18, %_ZN5image8dynimage12DynamicImage11new_luma_a817hc4aabab6edbf2649E.exit ], [ %10, %7 ]
   %.sink40 = phi i64 [ %77, %_ZN5image8dynimage12DynamicImage11new_rgba32f17h382a0ff64fd4fd65E.exit ], [ %69, %_ZN5image8dynimage12DynamicImage10new_rgb32f17h2b353a7fc5f6cb33E.exit ], [ %61, %_ZN5image8dynimage12DynamicImage10new_rgba1617hc4942208a050e0d3E.exit ], [ %53, %_ZN5image8dynimage12DynamicImage9new_rgb1617h45563a8232bb36faE.exit ], [ %45, %_ZN5image8dynimage12DynamicImage12new_luma_a1617h23f8d8253f3ec774E.exit ], [ %37, %35 ], [ %33, %_ZN5image8dynimage12DynamicImage9new_rgba817h00abbd65e4aa646bE.exit ], [ %25, %_ZN5image8dynimage12DynamicImage8new_rgb817h5b13ae464f5c2b6aE.exit ], [ %17, %_ZN5image8dynimage12DynamicImage11new_luma_a817hc4aabab6edbf2649E.exit ], [ %9, %7 ]
-  %.sink = phi i64 [ 9, %_ZN5image8dynimage12DynamicImage11new_rgba32f17h382a0ff64fd4fd65E.exit ], [ 8, %_ZN5image8dynimage12DynamicImage10new_rgb32f17h2b353a7fc5f6cb33E.exit ], [ 7, %_ZN5image8dynimage12DynamicImage10new_rgba1617hc4942208a050e0d3E.exit ], [ 6, %_ZN5image8dynimage12DynamicImage9new_rgb1617h45563a8232bb36faE.exit ], [ 5, %_ZN5image8dynimage12DynamicImage12new_luma_a1617h23f8d8253f3ec774E.exit ], [ 4, %35 ], [ 3, %_ZN5image8dynimage12DynamicImage9new_rgba817h00abbd65e4aa646bE.exit ], [ 2, %_ZN5image8dynimage12DynamicImage8new_rgb817h5b13ae464f5c2b6aE.exit ], [ 1, %_ZN5image8dynimage12DynamicImage11new_luma_a817hc4aabab6edbf2649E.exit ], [ 0, %7 ]
+  %.sink = zext i8 %3 to i64
   %.sink41 = extractvalue { i64, ptr } %.pn, 1
   %.sink42 = extractvalue { i64, ptr } %.pn, 0
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35748,10 +35748,9 @@ _ZN5image8dynimage12DynamicImage8as_bytes17hdff9c2bb18c9aca7E.exit: ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i8 0, 10) i8 @_ZN5image8dynimage12DynamicImage5color17h002f8014e19deb5bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #2 {
-switch.lookup:
-  %1 = load i64, ptr %0, align 8, !range !11, !noundef !4
-  %switch.idx.cast = trunc nuw i64 %1 to i8
-  ret i8 %switch.idx.cast
+  %2 = load i64, ptr %0, align 8, !range !11, !noundef !4
+  %.0 = trunc nuw nsw i64 %2 to i8
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

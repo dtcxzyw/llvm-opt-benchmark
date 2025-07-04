@@ -13695,7 +13695,6 @@ define void @"_ZN3syn3gen5clone74_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
   br label %10
 
 10:                                               ; preds = %2, %8
-  %.sroa.0.0 = phi i32 [ 1, %8 ], [ 0, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.sroa.0.0.copyload.i = load i64, ptr %11, align 8, !alias.scope !2343
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -13823,7 +13822,7 @@ common.resume:                                    ; preds = %55, %.body, %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !2373
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2381
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %.sroa.0.0, ptr %57, align 8
+  store i32 %7, ptr %57, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5, i64 12, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -13925,11 +13924,11 @@ define void @"_ZN3syn3gen5clone73_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
   %.sroa.828.0 = phi i8 [ undef, %17 ], [ %24, %.noexc ]
   %.sroa.7.0 = phi i8 [ %20, %17 ], [ %.sroa.7.0.copyload27, %.noexc ]
   %.sroa.6.0 = phi i32 [ %.val1.i.i, %17 ], [ %.sroa.6.0.copyload26, %.noexc ]
-  %.sroa.5.030 = phi i32 [ %.val.i.i, %17 ], [ %.sroa.5.0.copyload25, %.noexc ]
-  %.sroa.0.029 = phi i64 [ -9223372036854775808, %17 ], [ %.sroa.0.0.copyload23, %.noexc ]
-  store i64 %.sroa.0.029, ptr %8, align 8
+  %.sroa.5.029 = phi i32 [ %.val.i.i, %17 ], [ %.sroa.5.0.copyload25, %.noexc ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775808, %17 ], [ %.sroa.0.0.copyload23, %.noexc ]
+  store i64 %.sroa.0.0, ptr %8, align 8
   %.sroa.5.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %.sroa.5.030, ptr %.sroa.5.0..sroa_idx24, align 8
+  store i32 %.sroa.5.029, ptr %.sroa.5.0..sroa_idx24, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16

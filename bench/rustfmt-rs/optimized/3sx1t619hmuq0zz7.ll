@@ -1005,14 +1005,13 @@ define hidden void @_RNvXs1x_NtCs2al5CLA23zg_9rustc_ast3astNtB6_17ParenthesizedA
 32:                                               ; preds = %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit", %18
   %.sroa.6.0 = phi ptr [ %20, %18 ], [ %25, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit" ]
   %.sroa.5.0 = phi i32 [ %.sroa.01.0.copyload, %18 ], [ undef, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit" ]
-  %.sroa.0.0 = phi i32 [ 0, %18 ], [ 1, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit" ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %6, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %14, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %16, ptr %35, align 8
-  store i32 %.sroa.0.0, ptr %0, align 8
+  store i32 %17, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6137,10 +6136,9 @@ define hidden void @_RNvXs6p_NtCs2al5CLA23zg_9rustc_ast3astNtB6_6FnDeclNtNtCs9nh
 _RNvXs7c_NtCs2al5CLA23zg_9rustc_ast3astNtB6_7FnRetTyNtNtCs9nhK3FOW46N_4core5clone5Clone5clone.llvm.9097680112167513710.exit: ; preds = %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit.i", %14
   %.sroa.4.0 = phi i32 [ undef, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit.i" ], [ %16, %14 ]
   %.sroa.5.0 = phi ptr [ %23, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit.i" ], [ %18, %14 ]
-  %storemerge.i = phi i32 [ 1, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit.i" ], [ 0, %14 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %12, ptr %34, align 8
-  store i32 %storemerge.i, ptr %0, align 8
+  store i32 %13, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6222,8 +6220,7 @@ define hidden void @_RNvXs7c_NtCs2al5CLA23zg_9rustc_ast3astNtB6_7FnRetTyNtNtCs9n
   br label %22
 
 22:                                               ; preds = %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit", %5
-  %storemerge = phi i32 [ 0, %5 ], [ 1, %"_ZN65_$LT$rustc_ast..ptr..P$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb45b3e0bf88e4809E.exit" ]
-  store i32 %storemerge, ptr %0, align 8
+  store i32 %4, ptr %0, align 8
   ret void
 }
 
@@ -7693,12 +7690,12 @@ _ZN3std4sync6poison4Flag5guard17h8a78567d643f84cdE.llvm.9097680112167513710.exit
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load atomic i8, ptr %10 monotonic, align 4
   %12 = icmp ne i8 %11, 0
-  %spec.select.i = zext i1 %12 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %13, align 8, !alias.scope !670
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.0.i.i, ptr %14, align 8, !alias.scope !670
-  store i64 %spec.select.i, ptr %0, align 8, !alias.scope !670
+  %storemerge.i = zext i1 %12 to i64
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !670
   ret void
 }
 
@@ -7720,12 +7717,12 @@ _ZN3std4sync6poison4Flag5guard17h8a78567d643f84cdE.llvm.9097680112167513710.exit
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load atomic i8, ptr %10 monotonic, align 4
   %12 = icmp ne i8 %11, 0
-  %spec.select.i = zext i1 %12 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %13, align 8, !alias.scope !673
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.0.i.i, ptr %14, align 8, !alias.scope !673
-  store i64 %spec.select.i, ptr %0, align 8, !alias.scope !673
+  %storemerge.i = zext i1 %12 to i64
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !673
   ret void
 }
 
@@ -7747,12 +7744,12 @@ _ZN3std4sync6poison4Flag5guard17h8a78567d643f84cdE.llvm.9097680112167513710.exit
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load atomic i8, ptr %10 monotonic, align 4
   %12 = icmp ne i8 %11, 0
-  %spec.select.i = zext i1 %12 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %13, align 8, !alias.scope !676
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.0.i.i, ptr %14, align 8, !alias.scope !676
-  store i64 %spec.select.i, ptr %0, align 8, !alias.scope !676
+  %storemerge.i = zext i1 %12 to i64
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !676
   ret void
 }
 
@@ -17843,10 +17840,9 @@ define hidden void @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clon
 
 "_ZN44_$LT$T$u20$as$u20$alloc..borrow..ToOwned$GT$8to_owned17hae4673312de6325fE.exit": ; preds = %13, %10, %5
   %.sroa.0.0.i.i.sink = phi ptr [ %6, %5 ], [ @_RNvCsj4mk7jSHATF_8thin_vec12EMPTY_HEADER, %13 ], [ %12, %10 ]
-  %storemerge = phi i64 [ 0, %5 ], [ 1, %13 ], [ 1, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.i.sink, ptr %15, align 8
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %3, ptr %0, align 8
   ret void
 }
 

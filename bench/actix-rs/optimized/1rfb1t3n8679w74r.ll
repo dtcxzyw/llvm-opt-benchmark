@@ -7377,9 +7377,8 @@ default.unreachable13:                            ; preds = %3
           to label %41 unwind label %39
 
 common.ret:                                       ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h1cbe3880b7411ae3E.exit", %38
-  %storemerge5 = phi i64 [ 1, %38 ], [ 0, %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h1cbe3880b7411ae3E.exit" ]
   %storemerge = phi i8 [ 3, %38 ], [ 1, %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h1cbe3880b7411ae3E.exit" ]
-  store i64 %storemerge5, ptr %0, align 8
+  store i64 %25, ptr %0, align 8
   store i8 %storemerge, ptr %5, align 8
   ret void
 

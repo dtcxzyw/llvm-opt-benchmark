@@ -314,7 +314,7 @@ define range(i32 -1, 1) i32 @H5_timer_stop(ptr noundef captures(none) %0) local_
 
 H5__timer_get_timevals.exit.thread:               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #11
-  br label %61
+  br label %63
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -355,43 +355,44 @@ H5__timer_get_timevals.exit.thread:               ; preds = %1
   %37 = fdiv double %36, 1.000000e+09
   %38 = fadd double %37, %33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
-  %.pre = load double, ptr %16, align 8, !tbaa !28
-  %.pre18 = load double, ptr %4, align 8, !tbaa !29
   br label %39
 
 39:                                               ; preds = %30, %7
-  %40 = phi double [ %.pre18, %30 ], [ %23, %7 ]
-  %41 = phi double [ %.pre, %30 ], [ %15, %7 ]
   %.0.i.i = phi double [ %38, %30 ], [ 0.000000e+00, %7 ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = load double, ptr %43, align 8, !tbaa !30
-  %45 = fsub double %.0.i.i, %44
-  store double %45, ptr %42, align 8, !tbaa !31
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load double, ptr %46, align 8, !tbaa !32
-  %48 = fsub double %41, %47
-  store double %48, ptr %16, align 8, !tbaa !28
-  %49 = load double, ptr %0, align 8, !tbaa !33
-  %50 = fsub double %40, %49
-  store double %50, ptr %4, align 8, !tbaa !29
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %53 = load double, ptr %52, align 8, !tbaa !34
-  %54 = fadd double %45, %53
-  store double %54, ptr %52, align 8, !tbaa !34
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %56 = load double, ptr %55, align 8, !tbaa !35
-  %57 = fadd double %48, %56
-  store double %57, ptr %55, align 8, !tbaa !35
-  %58 = load double, ptr %51, align 8, !tbaa !36
-  %59 = fadd double %50, %58
-  store double %59, ptr %51, align 8, !tbaa !36
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 0, ptr %60, align 8, !tbaa !26
-  br label %61
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store double %.0.i.i, ptr %40, align 8, !tbaa !25
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load double, ptr %42, align 8, !tbaa !28
+  %44 = fsub double %.0.i.i, %43
+  store double %44, ptr %41, align 8, !tbaa !29
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %46 = load double, ptr %45, align 8, !tbaa !30
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = load double, ptr %47, align 8, !tbaa !31
+  %49 = fsub double %46, %48
+  store double %49, ptr %45, align 8, !tbaa !30
+  %50 = load double, ptr %4, align 8, !tbaa !32
+  %51 = load double, ptr %0, align 8, !tbaa !33
+  %52 = fsub double %50, %51
+  store double %52, ptr %4, align 8, !tbaa !32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %55 = load double, ptr %54, align 8, !tbaa !34
+  %56 = fadd double %44, %55
+  store double %56, ptr %54, align 8, !tbaa !34
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %58 = load double, ptr %57, align 8, !tbaa !35
+  %59 = fadd double %49, %58
+  store double %59, ptr %57, align 8, !tbaa !35
+  %60 = load double, ptr %53, align 8, !tbaa !36
+  %61 = fadd double %52, %60
+  store double %61, ptr %53, align 8, !tbaa !36
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 0, ptr %62, align 8, !tbaa !26
+  br label %63
 
-61:                                               ; preds = %H5__timer_get_timevals.exit.thread, %39
+63:                                               ; preds = %H5__timer_get_timevals.exit.thread, %39
   %.0 = phi i32 [ 0, %39 ], [ -1, %H5__timer_get_timevals.exit.thread ]
   ret i32 %.0
 }
@@ -403,13 +404,13 @@ define range(i32 -1, 1) i32 @H5_timer_get_times(ptr noundef readonly byval(%stru
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i8, ptr %5, align 8, !tbaa !26, !range !13, !noundef !14
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %53
+  br i1 %7, label %8, label %52
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #11
   %9 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %4) #11
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %52, label %11
+  br i1 %10, label %H5__timer_get_timevals.exit, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -449,43 +450,43 @@ define range(i32 -1, 1) i32 @H5_timer_get_times(ptr noundef readonly byval(%stru
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
   br label %.thread
 
+H5__timer_get_timevals.exit:                      ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #11
+  br label %61
+
 .thread:                                          ; preds = %11, %33
   %.sroa.6.0.ph = phi double [ 0.000000e+00, %11 ], [ %41, %33 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load double, ptr %42, align 8, !tbaa !30
+  %43 = load double, ptr %42, align 8, !tbaa !28
   %44 = fsub double %.sroa.6.0.ph, %43
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %44, ptr %45, align 8, !tbaa !25
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load double, ptr %46, align 8, !tbaa !32
+  %47 = load double, ptr %46, align 8, !tbaa !31
   %48 = fsub double %19, %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %48, ptr %49, align 8, !tbaa !19
   %50 = load double, ptr %0, align 8, !tbaa !33
   %51 = fsub double %26, %50
   store double %51, ptr %1, align 8, !tbaa !24
-  br label %62
+  br label %61
 
-52:                                               ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #11
-  br label %62
+52:                                               ; preds = %2
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %55 = load double, ptr %54, align 8, !tbaa !29
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store double %55, ptr %56, align 8, !tbaa !25
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %58 = load double, ptr %57, align 8, !tbaa !30
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double %58, ptr %59, align 8, !tbaa !19
+  %60 = load double, ptr %53, align 8, !tbaa !32
+  store double %60, ptr %1, align 8, !tbaa !24
+  br label %61
 
-53:                                               ; preds = %2
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %56 = load double, ptr %55, align 8, !tbaa !31
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double %56, ptr %57, align 8, !tbaa !25
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %59 = load double, ptr %58, align 8, !tbaa !28
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %59, ptr %60, align 8, !tbaa !19
-  %61 = load double, ptr %54, align 8, !tbaa !29
-  store double %61, ptr %1, align 8, !tbaa !24
-  br label %62
-
-62:                                               ; preds = %53, %.thread, %52
-  %.1 = phi i32 [ -1, %52 ], [ 0, %.thread ], [ 0, %53 ]
+61:                                               ; preds = %H5__timer_get_timevals.exit, %52, %.thread
+  %.1 = phi i32 [ -1, %H5__timer_get_timevals.exit ], [ 0, %.thread ], [ 0, %52 ]
   ret i32 %.1
 }
 
@@ -496,13 +497,13 @@ define range(i32 -1, 1) i32 @H5_timer_get_total_times(ptr noundef readonly byval
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i8, ptr %5, align 8, !tbaa !26, !range !13, !noundef !14
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %62
+  br i1 %7, label %8, label %61
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #11
   %9 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %4) #11
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %61, label %11
+  br i1 %10, label %H5__timer_get_timevals.exit, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -542,13 +543,17 @@ define range(i32 -1, 1) i32 @H5_timer_get_total_times(ptr noundef readonly byval
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
   br label %.thread
 
+H5__timer_get_timevals.exit:                      ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #11
+  br label %70
+
 .thread:                                          ; preds = %11, %33
   %.sroa.6.0.ph = phi double [ 0.000000e+00, %11 ], [ %41, %33 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %44 = load double, ptr %43, align 8, !tbaa !34
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load double, ptr %45, align 8, !tbaa !30
+  %46 = load double, ptr %45, align 8, !tbaa !28
   %47 = fsub double %.sroa.6.0.ph, %46
   %48 = fadd double %44, %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -556,7 +561,7 @@ define range(i32 -1, 1) i32 @H5_timer_get_total_times(ptr noundef readonly byval
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load double, ptr %50, align 8, !tbaa !35
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load double, ptr %52, align 8, !tbaa !32
+  %53 = load double, ptr %52, align 8, !tbaa !31
   %54 = fsub double %19, %53
   %55 = fadd double %51, %54
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -566,28 +571,24 @@ define range(i32 -1, 1) i32 @H5_timer_get_total_times(ptr noundef readonly byval
   %59 = fsub double %26, %58
   %60 = fadd double %57, %59
   store double %60, ptr %1, align 8, !tbaa !24
-  br label %71
+  br label %70
 
-61:                                               ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #11
-  br label %71
+61:                                               ; preds = %2
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %64 = load double, ptr %63, align 8, !tbaa !34
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store double %64, ptr %65, align 8, !tbaa !25
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %67 = load double, ptr %66, align 8, !tbaa !35
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double %67, ptr %68, align 8, !tbaa !19
+  %69 = load double, ptr %62, align 8, !tbaa !36
+  store double %69, ptr %1, align 8, !tbaa !24
+  br label %70
 
-62:                                               ; preds = %2
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %65 = load double, ptr %64, align 8, !tbaa !34
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double %65, ptr %66, align 8, !tbaa !25
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %68 = load double, ptr %67, align 8, !tbaa !35
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %68, ptr %69, align 8, !tbaa !19
-  %70 = load double, ptr %63, align 8, !tbaa !36
-  store double %70, ptr %1, align 8, !tbaa !24
-  br label %71
-
-71:                                               ; preds = %62, %.thread, %61
-  %.1 = phi i32 [ -1, %61 ], [ 0, %.thread ], [ 0, %62 ]
+70:                                               ; preds = %H5__timer_get_timevals.exit, %61, %.thread
+  %.1 = phi i32 [ -1, %H5__timer_get_timevals.exit ], [ 0, %.thread ], [ 0, %61 ]
   ret i32 %.1
 }
 
@@ -757,11 +758,11 @@ attributes #13 = { nounwind allocsize(0,1) }
 !25 = !{!20, !21, i64 16}
 !26 = !{!27, !12, i64 72}
 !27 = !{!"", !20, i64 0, !20, i64 24, !20, i64 48, !12, i64 72}
-!28 = !{!27, !21, i64 32}
-!29 = !{!27, !21, i64 24}
-!30 = !{!27, !21, i64 16}
-!31 = !{!27, !21, i64 40}
-!32 = !{!27, !21, i64 8}
+!28 = !{!27, !21, i64 16}
+!29 = !{!27, !21, i64 40}
+!30 = !{!27, !21, i64 32}
+!31 = !{!27, !21, i64 8}
+!32 = !{!27, !21, i64 24}
 !33 = !{!27, !21, i64 0}
 !34 = !{!27, !21, i64 64}
 !35 = !{!27, !21, i64 56}

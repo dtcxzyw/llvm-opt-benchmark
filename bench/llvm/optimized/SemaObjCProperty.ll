@@ -16134,7 +16134,7 @@ define internal fastcc noundef zeroext i1 @_ZL20LocPropertyAttributeRN5clang10AS
   %5 = alloca %"class.clang::Lexer", align 8
   %6 = alloca %"class.clang::Token", align 8
   %7 = icmp slt i32 %1, 0
-  br i1 %7, label %42, label %8
+  br i1 %7, label %43, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2152
@@ -16148,7 +16148,7 @@ define internal fastcc noundef zeroext i1 @_ZL20LocPropertyAttributeRN5clang10AS
   %14 = extractvalue { ptr, i64 } %12, 1
   %15 = load i8, ptr %4, align 1, !tbaa !780, !range !687, !noundef !688
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %41, label %17
+  br i1 %16, label %42, label %17
 
 17:                                               ; preds = %8
   %.sroa.5.0.extract.shift = lshr i64 %11, 32
@@ -16203,30 +16203,31 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %.2 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ false, %.backedge ]
+  %36 = trunc i16 %30 to i1
+  %.2 = xor i1 %36, true
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %5, align 8, !tbaa !729
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %37 = load ptr, ptr %36, align 8, !tbaa !710
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %39 = icmp eq ptr %37, %38
-  br i1 %39, label %_ZN5clang17PreprocessorLexerD2Ev.exit, label %40
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %38 = load ptr, ptr %37, align 8, !tbaa !710
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %40 = icmp eq ptr %38, %39
+  br i1 %40, label %_ZN5clang17PreprocessorLexerD2Ev.exit, label %41
 
-40:                                               ; preds = %.loopexit
-  call void @free(ptr noundef %37) #16
+41:                                               ; preds = %.loopexit
+  call void @free(ptr noundef %38) #16
   br label %_ZN5clang17PreprocessorLexerD2Ev.exit
 
-_ZN5clang17PreprocessorLexerD2Ev.exit:            ; preds = %.loopexit, %40
+_ZN5clang17PreprocessorLexerD2Ev.exit:            ; preds = %.loopexit, %41
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #16
-  br label %41
-
-41:                                               ; preds = %8, %_ZN5clang17PreprocessorLexerD2Ev.exit
-  %.1 = phi i1 [ %.2, %_ZN5clang17PreprocessorLexerD2Ev.exit ], [ false, %8 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
   br label %42
 
-42:                                               ; preds = %3, %41
-  %.0 = phi i1 [ %.1, %41 ], [ false, %3 ]
+42:                                               ; preds = %8, %_ZN5clang17PreprocessorLexerD2Ev.exit
+  %.1 = phi i1 [ %.2, %_ZN5clang17PreprocessorLexerD2Ev.exit ], [ false, %8 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  br label %43
+
+43:                                               ; preds = %3, %42
+  %.0 = phi i1 [ %.1, %42 ], [ false, %3 ]
   ret i1 %.0
 }
 

@@ -11524,21 +11524,21 @@ define noundef zeroext i1 @_ZNK5Yosys3AST7AstNode12bits_only_01Ev(ptr noundef no
   %3 = load ptr, ptr %2, align 8, !tbaa !125
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8, !tbaa !125
-  %.not14 = icmp eq ptr %3, %5
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %.not.not14 = icmp eq ptr %3, %5
+  br i1 %.not.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.011.015 = phi ptr [ %7, %.lr.ph ], [ %3, %1 ]
   %6 = load i8, ptr %.sroa.011.015, align 1, !tbaa !127
   %or.cond = icmp ult i8 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 1
-  %.not = icmp ne ptr %7, %5
-  %or.cond19.not = select i1 %or.cond, i1 %.not, i1 false
+  %.not.not = icmp ne ptr %7, %5
+  %or.cond19.not = select i1 %or.cond, i1 %.not.not, i1 false
   br i1 %or.cond19.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.not.lcssa = phi i1 [ true, %1 ], [ %or.cond, %.lr.ph ]
-  ret i1 %.not.lcssa
+  %.not.not.lcssa = phi i1 [ true, %1 ], [ %or.cond, %.lr.ph ]
+  ret i1 %.not.not.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20890,7 +20890,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #42
-  switch i32 %.125, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit71.sink.split [
+  switch i32 %.125, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit [
     i32 0, label %167
     i32 3, label %167
   ]
@@ -20926,16 +20926,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   store i32 %177, ptr %13, align 4, !tbaa !93
   resume { ptr, i32 } %.pn46.pn
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit71.sink.split: ; preds = %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66
-  %.not88.lcssa168.ph = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66 ], [ false, %167 ]
-  %178 = load i32, ptr %13, align 4, !tbaa !93
-  %179 = add nsw i32 %178, -1
-  store i32 %179, ptr %13, align 4, !tbaa !93
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66
+  %178 = trunc i32 %.125 to i1
+  br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit71.sink.split
+
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit71.sink.split: ; preds = %167, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit
+  %.024155.ph = phi i1 [ %178, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit ], [ false, %167 ]
+  %179 = load i32, ptr %13, align 4, !tbaa !93
+  %180 = add nsw i32 %179, -1
+  store i32 %180, ptr %13, align 4, !tbaa !93
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit71
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit71: ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit71.sink.split, %2
-  %.not88.lcssa168 = phi i1 [ false, %2 ], [ %.not88.lcssa168.ph, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit71.sink.split ]
-  ret i1 %.not88.lcssa168
+  %.024155 = phi i1 [ false, %2 ], [ %.024155.ph, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit71.sink.split ]
+  ret i1 %.024155
 }
 
 declare void @_ZNK5Yosys5RTLIL10AttrObject20get_string_attributeB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0

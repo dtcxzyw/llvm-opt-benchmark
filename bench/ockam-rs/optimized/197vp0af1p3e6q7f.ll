@@ -1729,8 +1729,7 @@ define hidden void @"_ZN11tungstenite6buffer19ReadBuffer$LT$_$GT$9read_from17h73
   br label %45
 
 45:                                               ; preds = %42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hca77519f8e36674fE.exit"
-  %storemerge = phi i64 [ 1, %42 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hca77519f8e36674fE.exit" ]
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %23, ptr %0, align 8
   ret void
 }
 
@@ -1826,8 +1825,7 @@ define hidden void @"_ZN11tungstenite6buffer19ReadBuffer$LT$_$GT$9read_from17h8d
   br label %45
 
 45:                                               ; preds = %42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hca77519f8e36674fE.exit"
-  %storemerge = phi i64 [ 1, %42 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hca77519f8e36674fE.exit" ]
-  store i64 %storemerge, ptr %0, align 8
+  store i64 %23, ptr %0, align 8
   ret void
 }
 

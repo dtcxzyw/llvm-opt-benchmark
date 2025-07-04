@@ -5441,49 +5441,36 @@ define internal noundef i32 @parse_CInGroupSortAggregSet(ptr noundef %0, ptr nou
   %12 = load i32, ptr @ett_CInGroupSortAggregSet, align 4
   %13 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef %12, ptr noundef nonnull %7, ptr noundef %11)
   %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
-  switch i8 %14, label %18 [
-    i8 0, label %parse_CInGroupSortAggregSet_type.exit
-    i8 1, label %15
-    i8 2, label %16
-    i8 3, label %17
-  ]
+  %switch = icmp ult i8 %14, 4
+  br i1 %switch, label %parse_CInGroupSortAggregSet_type.exit, label %15
 
 15:                                               ; preds = %6
-  br label %parse_CInGroupSortAggregSet_type.exit
-
-16:                                               ; preds = %6
-  br label %parse_CInGroupSortAggregSet_type.exit
-
-17:                                               ; preds = %6
-  br label %parse_CInGroupSortAggregSet_type.exit
-
-18:                                               ; preds = %6
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1156, ptr noundef nonnull @.str.1157, i32 noundef 4785, ptr noundef nonnull @.str.1264) #13
   unreachable
 
-parse_CInGroupSortAggregSet_type.exit:            ; preds = %6, %15, %16, %17
-  %19 = phi i1 [ true, %17 ], [ false, %16 ], [ false, %15 ], [ false, %6 ]
-  %.sink.i = phi i32 [ 3, %17 ], [ 2, %16 ], [ 1, %15 ], [ 0, %6 ]
-  %20 = load i32, ptr @hf_mswsp_cingroupsortaggregset_type, align 4
-  %21 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %20, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %.sink.i)
-  %22 = add i32 %2, 1
-  %23 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %22, i32 noundef 4, ptr noundef %4, ptr noundef nonnull @.str.1324)
-  br i1 %19, label %24, label %26
+parse_CInGroupSortAggregSet_type.exit:            ; preds = %6
+  %.sink.i = zext nneg i8 %14 to i32
+  %16 = load i32, ptr @hf_mswsp_cingroupsortaggregset_type, align 4
+  %17 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %16, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %.sink.i)
+  %18 = add i32 %2, 1
+  %19 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef %18, i32 noundef 4, ptr noundef %4, ptr noundef nonnull @.str.1324)
+  %20 = icmp eq i8 %14, 3
+  br i1 %20, label %21, label %23
 
-24:                                               ; preds = %parse_CInGroupSortAggregSet_type.exit
+21:                                               ; preds = %parse_CInGroupSortAggregSet_type.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #11
-  %25 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %23, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.1325)
+  %22 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %19, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.1325)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #11
-  br label %26
+  br label %23
 
-26:                                               ; preds = %24, %parse_CInGroupSortAggregSet_type.exit
-  %.0 = phi i32 [ %25, %24 ], [ %23, %parse_CInGroupSortAggregSet_type.exit ]
-  %27 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CSortSet(ptr noundef %0, i32 noundef %.0, ptr noundef %13, ptr noundef %4, ptr nonnull poison)
-  %28 = load ptr, ptr %7, align 8
-  call void @proto_item_set_end(ptr noundef %28, ptr noundef %0, i32 noundef %27)
+23:                                               ; preds = %21, %parse_CInGroupSortAggregSet_type.exit
+  %.0 = phi i32 [ %22, %21 ], [ %19, %parse_CInGroupSortAggregSet_type.exit ]
+  %24 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CSortSet(ptr noundef %0, i32 noundef %.0, ptr noundef %13, ptr noundef %4, ptr nonnull poison)
+  %25 = load ptr, ptr %7, align 8
+  call void @proto_item_set_end(ptr noundef %25, ptr noundef %0, i32 noundef %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  ret i32 %27
+  ret i32 %24
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

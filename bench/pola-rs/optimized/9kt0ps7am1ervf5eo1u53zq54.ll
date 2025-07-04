@@ -78464,21 +78464,24 @@ define hidden void @_ZN11polars_plan5plans10conversion10expr_to_ir30to_aexpr_imp
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h63a765b8ac6683b0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
           to label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h8d7a75357427d642E.exit" unwind label %.thread20
 
-.thread20:                                        ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h8d7a75357427d642E.exit", %72, %71, %58
-  %.sroa.03.0.ph = phi i1 [ false, %58 ], [ true, %71 ], [ true, %72 ], [ false, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h8d7a75357427d642E.exit" ]
+.thread20:                                        ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h8d7a75357427d642E.exit.invoke", %71, %58
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
+  %.sroa.03.0.ph = trunc i64 %13 to i1
   br label %.thread
 
 "_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h8d7a75357427d642E.exit": ; preds = %52, %58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h8d7a75357427d642E.exit.invoke"
+
+"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h8d7a75357427d642E.exit.invoke": ; preds = %72, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h8d7a75357427d642E.exit"
   invoke void @_ZN11polars_plan5plans10conversion10expr_to_ir13to_aexpr_impl17he6bc80f720b10c0eE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(192) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
           to label %60 unwind label %.thread20
 
 59:                                               ; preds = %16, %74, %60, %60
   ret void
 
-60:                                               ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h8d7a75357427d642E.exit", %72
+60:                                               ; preds = %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h8d7a75357427d642E.exit.invoke"
   %61 = load i64, ptr %1, align 16, !range !2610, !noundef !12
   %62 = xor i64 %61, -9223372036854775808
   %63 = icmp ne i64 %61, -9223372036854775783
@@ -78518,8 +78521,7 @@ define hidden void @_ZN11polars_plan5plans10conversion10expr_to_ir30to_aexpr_imp
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %73, ptr noundef nonnull align 16 dereferenceable(96) %11, i64 96, i1 false)
   store i64 -9223372036854775803, ptr %6, align 16
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11)
-  invoke void @_ZN11polars_plan5plans10conversion10expr_to_ir13to_aexpr_impl17he6bc80f720b10c0eE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(192) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
-          to label %60 unwind label %.thread20
+  br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h8d7a75357427d642E.exit.invoke"
 
 74:                                               ; preds = %60
   call fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17hc9d7371a717c6848E"(ptr noalias noundef align 16 dereferenceable(192) %1)
@@ -98496,10 +98498,10 @@ _ZN11polars_plan3dsl9file_scan14python_dataset21PythonDatasetProvider11reader_na
   br label %277
 
 277:                                              ; preds = %421, %"_ZN4core3ptr295drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$alloc..sync..Arc$LT$either..Either$LT$polars_utils..python_function..PythonObject$C$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h6e88060ea5a41e54E.exit"
-  %.sroa.081.2 = phi i1 [ true, %"_ZN4core3ptr295drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$alloc..sync..Arc$LT$either..Either$LT$polars_utils..python_function..PythonObject$C$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h6e88060ea5a41e54E.exit" ], [ false, %421 ]
-  %.sroa.082.2 = phi i1 [ false, %"_ZN4core3ptr295drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$alloc..sync..Arc$LT$either..Either$LT$polars_utils..python_function..PythonObject$C$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h6e88060ea5a41e54E.exit" ], [ true, %421 ]
   %.sroa.2113.0 = phi ptr [ %262, %"_ZN4core3ptr295drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$alloc..sync..Arc$LT$either..Either$LT$polars_utils..python_function..PythonObject$C$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h6e88060ea5a41e54E.exit" ], [ undef, %421 ]
   %.sroa.3114.0 = phi i8 [ %265, %"_ZN4core3ptr295drop_in_place$LT$core..option..Option$LT$polars_plan..dsl..expr..expr_dyn_fn..SpecialEq$LT$alloc..sync..Arc$LT$either..Either$LT$polars_utils..python_function..PythonObject$C$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h6e88060ea5a41e54E.exit" ], [ 3, %421 ]
+  %.sroa.082.2 = trunc i64 %230 to i1
+  %.sroa.081.2 = xor i1 %.sroa.082.2, true
   %278 = load i64, ptr %50, align 8, !range !285, !noundef !12
   %279 = load i64, ptr %181, align 8
   %280 = load ptr, ptr %51, align 8, !noundef !12

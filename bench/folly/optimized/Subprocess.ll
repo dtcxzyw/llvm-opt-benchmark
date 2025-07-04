@@ -9986,19 +9986,19 @@ declare noundef zeroext i1 @_ZNK5folly5IOBuf5emptyEv(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZN5folly6detail8function5call_IZNS_10Subprocess16communicateIOBufENS_10IOBufQueueEE3$_0Lb1ELb0EbJiiEEET2_DpT3_RNS1_4DataE"(i32 noundef %0, i32 noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %2) #3 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %2, align 16
-  switch i32 %1, label %53 [
+  switch i32 %1, label %55 [
     i32 1, label %4
-    i32 2, label %28
+    i32 2, label %29
   ]
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %.pre.i.i = load ptr, ptr %5, align 8, !tbaa !360
-  %.pre17.i.i = load ptr, ptr %.pre.i.i, align 8, !tbaa !361
+  %.pre19.i.i = load ptr, ptr %.pre.i.i, align 8, !tbaa !361
   br label %6
 
 6:                                                ; preds = %24, %4
-  %7 = phi ptr [ %27, %24 ], [ %.pre17.i.i, %4 ]
+  %7 = phi ptr [ %27, %24 ], [ %.pre19.i.i, %4 ]
   %8 = phi ptr [ %25, %24 ], [ %.pre.i.i, %4 ]
   %.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i, label %.critedge.i.i.i, label %9, !prof !25
@@ -10028,14 +10028,14 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i:  ; preds = %.critedge.i.i.i, %1
   %19 = tail call noundef i64 @_ZN5folly9readNoIntEiPvm(i32 noundef %0, ptr noundef %17, i64 noundef %18)
   switch i64 %19, label %24 [
     i64 -1, label %20
-    i64 0, label %"_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_0clEii.exit"
+    i64 0, label %_ZN5folly12_GLOBAL__N_110handleReadEiRNS_10IOBufQueueE.exit.i
   ]
 
 20:                                               ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i
   %21 = tail call ptr @__errno_location() #54
   %22 = load i32, ptr %21, align 4, !tbaa !7
   %23 = icmp eq i32 %22, 11
-  br i1 %23, label %"_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_0clEii.exit", label %.split9.i.i
+  br i1 %23, label %_ZN5folly12_GLOBAL__N_110handleReadEiRNS_10IOBufQueueE.exit.i, label %.split9.i.i
 
 .split9.i.i:                                      ; preds = %20
   tail call void @_ZN5folly16throwSystemErrorIJRA5_KcEEEvDpOT_(ptr noundef nonnull align 1 dereferenceable(5) @.str.75) #47
@@ -10048,113 +10048,123 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i:  ; preds = %.critedge.i.i.i, %1
   store ptr %27, ptr %25, align 8, !tbaa !361
   br label %6
 
-28:                                               ; preds = %3
-  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  %30 = getelementptr inbounds nuw i8, ptr %.val, i64 96
-  %.pre.i7.i = load ptr, ptr %30, align 8, !tbaa !360
-  %.pre17.i8.i = load ptr, ptr %.pre.i7.i, align 8, !tbaa !361
-  br label %31
+_ZN5folly12_GLOBAL__N_110handleReadEiRNS_10IOBufQueueE.exit.i: ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i, %20
+  %28 = trunc nsw i64 %19 to i1
+  %.1.ph.i.i = xor i1 %28, true
+  br label %"_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_0clEii.exit"
 
-31:                                               ; preds = %49, %28
-  %32 = phi ptr [ %52, %49 ], [ %.pre17.i8.i, %28 ]
-  %33 = phi ptr [ %50, %49 ], [ %.pre.i7.i, %28 ]
-  %.not.i.i9.i = icmp eq ptr %32, null
-  br i1 %.not.i.i9.i, label %.critedge.i.i17.i, label %34, !prof !25
+29:                                               ; preds = %3
+  %30 = getelementptr inbounds nuw i8, ptr %.val, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.val, i64 96
+  %.pre.i7.i = load ptr, ptr %31, align 8, !tbaa !360
+  %.pre19.i8.i = load ptr, ptr %.pre.i7.i, align 8, !tbaa !361
+  br label %32
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !395
-  %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %32 to i64
-  %39 = sub i64 %37, %38
-  %.not8.i.i10.i = icmp ult i64 %39, 100
-  br i1 %.not8.i.i10.i, label %.critedge.i.i17.i, label %40, !prof !25
+32:                                               ; preds = %50, %29
+  %33 = phi ptr [ %53, %50 ], [ %.pre19.i8.i, %29 ]
+  %34 = phi ptr [ %51, %50 ], [ %.pre.i7.i, %29 ]
+  %.not.i.i9.i = icmp eq ptr %33, null
+  br i1 %.not.i.i9.i, label %.critedge.i.i17.i, label %35, !prof !25
 
-40:                                               ; preds = %34
-  %.fca.0.insert.i.i.i11.i = insertvalue { ptr, i64 } poison, ptr %32, 0
-  %.fca.1.insert.i.i.i12.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i11.i, i64 %39, 1
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !395
+  %38 = ptrtoint ptr %37 to i64
+  %39 = ptrtoint ptr %33 to i64
+  %40 = sub i64 %38, %39
+  %.not8.i.i10.i = icmp ult i64 %40, 100
+  br i1 %.not8.i.i10.i, label %.critedge.i.i17.i, label %41, !prof !25
+
+41:                                               ; preds = %35
+  %.fca.0.insert.i.i.i11.i = insertvalue { ptr, i64 } poison, ptr %33, 0
+  %.fca.1.insert.i.i.i12.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i11.i, i64 %40, 1
   br label %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i
 
-.critedge.i.i17.i:                                ; preds = %34, %31
-  %41 = tail call { ptr, i64 } @_ZN5folly10IOBufQueue15preallocateSlowEmmm(ptr noundef nonnull align 8 dereferenceable(64) %29, i64 noundef 100, i64 noundef 65000, i64 noundef -1)
+.critedge.i.i17.i:                                ; preds = %35, %32
+  %42 = tail call { ptr, i64 } @_ZN5folly10IOBufQueue15preallocateSlowEmmm(ptr noundef nonnull align 8 dereferenceable(64) %30, i64 noundef 100, i64 noundef 65000, i64 noundef -1)
   br label %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i
 
-_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i: ; preds = %.critedge.i.i17.i, %40
-  %.pn.i.i14.i = phi { ptr, i64 } [ %.fca.1.insert.i.i.i12.i, %40 ], [ %41, %.critedge.i.i17.i ]
-  %42 = extractvalue { ptr, i64 } %.pn.i.i14.i, 0
-  %43 = extractvalue { ptr, i64 } %.pn.i.i14.i, 1
-  %44 = tail call noundef i64 @_ZN5folly9readNoIntEiPvm(i32 noundef %0, ptr noundef %42, i64 noundef %43)
-  switch i64 %44, label %49 [
-    i64 -1, label %45
-    i64 0, label %"_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_0clEii.exit"
+_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i: ; preds = %.critedge.i.i17.i, %41
+  %.pn.i.i14.i = phi { ptr, i64 } [ %.fca.1.insert.i.i.i12.i, %41 ], [ %42, %.critedge.i.i17.i ]
+  %43 = extractvalue { ptr, i64 } %.pn.i.i14.i, 0
+  %44 = extractvalue { ptr, i64 } %.pn.i.i14.i, 1
+  %45 = tail call noundef i64 @_ZN5folly9readNoIntEiPvm(i32 noundef %0, ptr noundef %43, i64 noundef %44)
+  switch i64 %45, label %50 [
+    i64 -1, label %46
+    i64 0, label %_ZN5folly12_GLOBAL__N_110handleReadEiRNS_10IOBufQueueE.exit18.i
   ]
 
-45:                                               ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i
-  %46 = tail call ptr @__errno_location() #54
-  %47 = load i32, ptr %46, align 4, !tbaa !7
-  %48 = icmp eq i32 %47, 11
-  br i1 %48, label %"_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_0clEii.exit", label %.split9.i16.i
+46:                                               ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i
+  %47 = tail call ptr @__errno_location() #54
+  %48 = load i32, ptr %47, align 4, !tbaa !7
+  %49 = icmp eq i32 %48, 11
+  br i1 %49, label %_ZN5folly12_GLOBAL__N_110handleReadEiRNS_10IOBufQueueE.exit18.i, label %.split9.i16.i
 
-.split9.i16.i:                                    ; preds = %45
+.split9.i16.i:                                    ; preds = %46
   tail call void @_ZN5folly16throwSystemErrorIJRA5_KcEEEvDpOT_(ptr noundef nonnull align 1 dereferenceable(5) @.str.75) #47
   unreachable
 
-49:                                               ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i
-  %50 = load ptr, ptr %30, align 8, !tbaa !360
-  %51 = load ptr, ptr %50, align 8, !tbaa !361
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %44
-  store ptr %52, ptr %50, align 8, !tbaa !361
-  br label %31
+50:                                               ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i
+  %51 = load ptr, ptr %31, align 8, !tbaa !360
+  %52 = load ptr, ptr %51, align 8, !tbaa !361
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %45
+  store ptr %53, ptr %51, align 8, !tbaa !361
+  br label %32
 
-53:                                               ; preds = %3
-  %54 = load atomic i8, ptr @_ZGVZN5folly12_GLOBAL__N_111discardReadEiE3buf acquire, align 8
-  %55 = icmp eq i8 %54, 0
-  br i1 %55, label %56, label %.preheader, !prof !259
+_ZN5folly12_GLOBAL__N_110handleReadEiRNS_10IOBufQueueE.exit18.i: ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i, %46
+  %54 = trunc nsw i64 %45 to i1
+  %.1.ph.i15.i = xor i1 %54, true
+  br label %"_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_0clEii.exit"
 
-56:                                               ; preds = %53
-  %57 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_111discardReadEiE3buf) #46
-  %.not.i.i = icmp eq i32 %57, 0
-  br i1 %.not.i.i, label %.preheader, label %58
+55:                                               ; preds = %3
+  %56 = load atomic i8, ptr @_ZGVZN5folly12_GLOBAL__N_111discardReadEiE3buf acquire, align 8
+  %57 = icmp eq i8 %56, 0
+  br i1 %57, label %58, label %.preheader, !prof !259
 
-58:                                               ; preds = %56
-  %59 = invoke noalias noundef nonnull dereferenceable(65000) ptr @_Znam(i64 noundef 65000) #52
-          to label %60 unwind label %69
+58:                                               ; preds = %55
+  %59 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_111discardReadEiE3buf) #46
+  %.not.i.i = icmp eq i32 %59, 0
+  br i1 %.not.i.i, label %.preheader, label %60
 
 60:                                               ; preds = %58
-  store ptr %59, ptr @_ZZN5folly12_GLOBAL__N_111discardReadEiE3buf, align 8, !tbaa !38
-  %61 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev, ptr nonnull @_ZZN5folly12_GLOBAL__N_111discardReadEiE3buf, ptr nonnull @__dso_handle) #46
+  %61 = invoke noalias noundef nonnull dereferenceable(65000) ptr @_Znam(i64 noundef 65000) #52
+          to label %62 unwind label %71
+
+62:                                               ; preds = %60
+  store ptr %61, ptr @_ZZN5folly12_GLOBAL__N_111discardReadEiE3buf, align 8, !tbaa !38
+  %63 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev, ptr nonnull @_ZZN5folly12_GLOBAL__N_111discardReadEiE3buf, ptr nonnull @__dso_handle) #46
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_111discardReadEiE3buf) #46
   br label %.preheader
 
-.preheader:                                       ; preds = %60, %56, %53
-  br label %62
+.preheader:                                       ; preds = %62, %58, %55
+  br label %64
 
-62:                                               ; preds = %.preheader, %62
-  %63 = load ptr, ptr @_ZZN5folly12_GLOBAL__N_111discardReadEiE3buf, align 8, !tbaa !38
-  %64 = tail call noundef i64 @_ZN5folly9readNoIntEiPvm(i32 noundef %0, ptr noundef %63, i64 noundef 65000)
-  switch i64 %64, label %62 [
-    i64 -1, label %65
+64:                                               ; preds = %.preheader, %64
+  %65 = load ptr, ptr @_ZZN5folly12_GLOBAL__N_111discardReadEiE3buf, align 8, !tbaa !38
+  %66 = tail call noundef i64 @_ZN5folly9readNoIntEiPvm(i32 noundef %0, ptr noundef %65, i64 noundef 65000)
+  switch i64 %66, label %64 [
+    i64 -1, label %67
     i64 0, label %"_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_0clEii.exit"
   ]
 
-65:                                               ; preds = %62
-  %66 = tail call ptr @__errno_location() #54
-  %67 = load i32, ptr %66, align 4, !tbaa !7
-  %68 = icmp eq i32 %67, 11
-  br i1 %68, label %"_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_0clEii.exit", label %.split8.i.i
+67:                                               ; preds = %64
+  %68 = tail call ptr @__errno_location() #54
+  %69 = load i32, ptr %68, align 4, !tbaa !7
+  %70 = icmp eq i32 %69, 11
+  br i1 %70, label %"_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_0clEii.exit", label %.split8.i.i
 
-.split8.i.i:                                      ; preds = %65
+.split8.i.i:                                      ; preds = %67
   tail call void @_ZN5folly16throwSystemErrorIJRA5_KcEEEvDpOT_(ptr noundef nonnull align 1 dereferenceable(5) @.str.75) #47
   unreachable
 
-69:                                               ; preds = %58
-  %70 = landingpad { ptr, i32 }
+71:                                               ; preds = %60
+  %72 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_111discardReadEiE3buf) #46
-  resume { ptr, i32 } %70
+  resume { ptr, i32 } %72
 
-"_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_0clEii.exit": ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i, %62, %20, %45, %65
-  %.0.i = phi i1 [ false, %20 ], [ false, %45 ], [ false, %65 ], [ true, %62 ], [ true, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i ], [ true, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i13.i ]
+"_ZZN5folly10Subprocess16communicateIOBufENS_10IOBufQueueEENK3$_0clEii.exit": ; preds = %64, %_ZN5folly12_GLOBAL__N_110handleReadEiRNS_10IOBufQueueE.exit.i, %_ZN5folly12_GLOBAL__N_110handleReadEiRNS_10IOBufQueueE.exit18.i, %67
+  %.0.i = phi i1 [ %.1.ph.i.i, %_ZN5folly12_GLOBAL__N_110handleReadEiRNS_10IOBufQueueE.exit.i ], [ %.1.ph.i15.i, %_ZN5folly12_GLOBAL__N_110handleReadEiRNS_10IOBufQueueE.exit18.i ], [ false, %67 ], [ true, %64 ]
   ret i1 %.0.i
 }
 

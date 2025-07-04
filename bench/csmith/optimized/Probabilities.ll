@@ -7477,23 +7477,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
     i8 0, label %_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv.exit
     i8 35, label %.backedge
     i8 91, label %.invoke
-    i8 40, label %52
+    i8 40, label %.invoke
   ]
 
-.invoke:                                          ; preds = %.noexc12, %52
-  %50 = phi i1 [ true, %52 ], [ false, %.noexc12 ]
-  %51 = invoke noundef zeroext i1 @_ZN13Probabilities25parse_group_probabilitiesEbRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_(ptr noundef nonnull align 8 dereferenceable(288) %0, i1 noundef zeroext %50, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
+.invoke:                                          ; preds = %.noexc12, %.noexc12
+  %50 = trunc i8 %49 to i1
+  %51 = xor i1 %50, true
+  %52 = invoke noundef zeroext i1 @_ZN13Probabilities25parse_group_probabilitiesEbRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_(ptr noundef nonnull align 8 dereferenceable(288) %0, i1 noundef zeroext %51, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN13Probabilities10parse_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit unwind label %.loopexit
-
-52:                                               ; preds = %.noexc12
-  br label %.invoke
 
 53:                                               ; preds = %.noexc12
   %54 = invoke noundef zeroext i1 @_ZN13Probabilities24parse_single_probabilityERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.backedge unwind label %.loopexit
 
 _ZN13Probabilities10parse_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit: ; preds = %.invoke
-  br i1 %51, label %.backedge, label %_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv.exit
+  br i1 %52, label %.backedge, label %_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv.exit
 
 .backedge:                                        ; preds = %.noexc12, %53, %_ZN13Probabilities10parse_lineERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit, %40
   %55 = load ptr, ptr %4, align 8, !tbaa !4

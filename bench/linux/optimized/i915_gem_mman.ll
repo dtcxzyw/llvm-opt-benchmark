@@ -778,15 +778,15 @@ define dso_local i32 @i915_gem_mmap_offset_ioctl(ptr noundef readonly captures(n
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call i32 @i915_user_extensions(ptr noundef %6, ptr noundef null, i32 noundef 0, ptr noundef null) #13
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %30
+  br i1 %8, label %9, label %29
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
-  switch i64 %11, label %30 [
+  switch i64 %11, label %29 [
     i64 0, label %12
     i64 1, label %20
-    i64 2, label %25
+    i64 2, label %24
     i64 3, label %22
     i64 4, label %24
   ]
@@ -799,29 +799,26 @@ define dso_local i32 @i915_gem_mmap_offset_ioctl(ptr noundef readonly captures(n
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 776
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %30, label %25
+  br i1 %19, label %29, label %24
 
 20:                                               ; preds = %9
   %21 = tail call zeroext i1 @pat_enabled() #13
-  br i1 %21, label %25, label %30
+  br i1 %21, label %24, label %29
 
 22:                                               ; preds = %9
   %23 = tail call zeroext i1 @pat_enabled() #13
-  br i1 %23, label %25, label %30
+  br i1 %23, label %24, label %29
 
-24:                                               ; preds = %9
-  br label %25
+24:                                               ; preds = %9, %22, %20, %12, %9
+  %25 = trunc nuw nsw i64 %11 to i32
+  %26 = load i32, ptr %1, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %28 = tail call fastcc i32 @__assign_mmap_offset_handle(ptr noundef %2, i32 noundef %26, i32 noundef %25, ptr noundef nonnull %27)
+  br label %29
 
-25:                                               ; preds = %24, %22, %20, %12, %9
-  %26 = phi i32 [ 4, %24 ], [ 0, %12 ], [ 1, %20 ], [ 2, %9 ], [ 3, %22 ]
-  %27 = load i32, ptr %1, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = tail call fastcc i32 @__assign_mmap_offset_handle(ptr noundef %2, i32 noundef %27, i32 noundef %26, ptr noundef nonnull %28)
-  br label %30
-
-30:                                               ; preds = %25, %22, %20, %12, %9, %3
-  %31 = phi i32 [ %29, %25 ], [ %7, %3 ], [ -19, %12 ], [ -19, %20 ], [ -19, %22 ], [ -22, %9 ]
-  ret i32 %31
+29:                                               ; preds = %24, %22, %20, %12, %9, %3
+  %30 = phi i32 [ %28, %24 ], [ %7, %3 ], [ -19, %12 ], [ -19, %20 ], [ -19, %22 ], [ -22, %9 ]
+  ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid
