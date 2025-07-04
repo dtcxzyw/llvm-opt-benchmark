@@ -2415,18 +2415,18 @@ define internal fastcc noundef ptr @mkSPNode(ptr noundef %0, i32 noundef %1, i32
 22:                                               ; preds = %._crit_edge
   %23 = sext i32 %.193 to i64
   %24 = shl nsw i64 %23, 4
-  %25 = or disjoint i64 %24, 8
-  %26 = icmp ugt i64 %25, 1024
-  br i1 %26, label %27, label %29
+  %25 = icmp ugt i64 %24, 1023
+  %26 = or disjoint i64 %24, 8
+  br i1 %25, label %27, label %29
 
 27:                                               ; preds = %22
-  %28 = tail call ptr @palloc0(i64 noundef %25) #14
+  %28 = tail call ptr @palloc0(i64 noundef %26) #14
   br label %compact_palloc0.exit
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %31 = load i64, ptr %30, align 8
-  %32 = icmp ugt i64 %25, %31
+  %32 = icmp ugt i64 %26, %31
   br i1 %32, label %33, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %29
@@ -2442,9 +2442,9 @@ define internal fastcc noundef ptr @mkSPNode(ptr noundef %0, i32 noundef %1, i32
   %36 = phi i64 [ %31, %._crit_edge.i ], [ 8192, %33 ]
   %37 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %34, %33 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %25
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %26
   store ptr %39, ptr %38, align 8
-  %40 = sub i64 %36, %25
+  %40 = sub i64 %36, %26
   store i64 %40, ptr %30, align 8
   br label %compact_palloc0.exit
 

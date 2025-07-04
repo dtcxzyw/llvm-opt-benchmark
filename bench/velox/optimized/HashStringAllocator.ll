@@ -2493,7 +2493,7 @@ if.end18.i.i:                                     ; preds = %if.then11.i.i, %if.
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.end18.i.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i.i ], [ %6, %if.end18.i.i ]
-  %cmp19.not.i.i = icmp samesign ugt i64 %indvars.iv, 2944
+  %cmp19.not.i.i = icmp samesign ugt i64 %indvars.iv, 3007
   br i1 %cmp19.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
@@ -2558,7 +2558,7 @@ _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i: ; preds = %
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.body.i
   %i.0.in.i = phi i32 [ %i.0.i, %for.body.i ], [ %12, %for.cond.i.preheader ]
-  %cmp20.not.i = icmp slt i32 %i.0.in.i, 64
+  %cmp20.not.i = icmp slt i32 %i.0.in.i, 1
   br i1 %cmp20.not.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
@@ -2568,18 +2568,19 @@ for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i44.i = getelementptr inbounds nuw i64, ptr %freeNonEmpty_, i64 %idxprom.i43.i
   %15 = load i64, ptr %arrayidx.i44.i, align 8
   %tobool4.not.i46.i = icmp eq i64 %15, 0
-  br i1 %tobool4.not.i46.i, label %for.cond.i, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i
+  br i1 %tobool4.not.i46.i, label %for.cond.i, label %if.end10
 
-_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i: ; preds = %for.body.i
+if.end10:                                         ; preds = %for.body.i
   %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 true)
   %cast.i51.i = trunc nuw nsw i64 %16 to i32
   %17 = xor i32 %cast.i51.i, -1
   %sub.i52.i = add nsw i32 %i.0.in.i, %17
-  br label %if.end13
+  %cmp11 = icmp eq i32 %sub.i52.i, -1
+  br i1 %cmp11, label %return, label %if.end13
 
-if.end13:                                         ; preds = %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread
-  %available.0 = phi i32 [ %sub.i52.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i ], [ %sub.i41.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i ], [ %add.i59.i.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread ]
-  %call16 = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator20allocateFromFreeListEibbi(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %.sroa.speculated, i1 noundef zeroext %mustHaveSize, i1 noundef zeroext %isFinalSize, i32 noundef %available.0)
+if.end13:                                         ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i, %if.end10
+  %available.034 = phi i32 [ %sub.i52.i, %if.end10 ], [ %add.i59.i.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread ], [ %sub.i41.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i ]
+  %call16 = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator20allocateFromFreeListEibbi(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %.sroa.speculated, i1 noundef zeroext %mustHaveSize, i1 noundef zeroext %isFinalSize, i32 noundef %available.034)
   %cmp17.not = icmp eq ptr %call16, null
   br i1 %cmp17.not, label %if.then18, label %return
 
@@ -2587,8 +2588,8 @@ if.then18:                                        ; preds = %if.end13
   tail call void @llvm.trap()
   unreachable
 
-return:                                           ; preds = %for.cond.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit, %if.end13, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %call16, %if.end13 ], [ null, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit ], [ null, %for.cond.i ]
+return:                                           ; preds = %for.cond.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit, %if.end13, %if.end10, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end10 ], [ %call16, %if.end13 ], [ null, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit ], [ null, %for.cond.i ]
   ret ptr %retval.0
 }
 
@@ -3332,7 +3333,7 @@ if.end18.i.i:                                     ; preds = %if.then11.i.i, %if.
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.end18.i.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i.i ], [ %6, %if.end18.i.i ]
-  %cmp19.not.i.i = icmp samesign ugt i64 %indvars.iv, 2944
+  %cmp19.not.i.i = icmp samesign ugt i64 %indvars.iv, 3007
   br i1 %cmp19.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i

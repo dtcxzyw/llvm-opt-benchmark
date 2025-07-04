@@ -163,7 +163,7 @@ mbedtls_ctr_increment_counter.exit.i:             ; preds = %11
   %.0.copyload.i.i = load i64, ptr %26, align 8
   %27 = xor i64 %.0.copyload.i.i, %.0.copyload.i15.i
   store i64 %27, ptr %25, align 8
-  %.not.i.i = icmp samesign ugt i64 %.0.i20.i, 32
+  %.not.i.i = icmp samesign ugt i64 %.0.i20.i, 39
   br i1 %.not.i.i, label %mbedtls_xor.exit.i, label %.preheader16.i, !llvm.loop !17
 
 mbedtls_xor.exit.i:                               ; preds = %.preheader16.i
@@ -449,7 +449,7 @@ mbedtls_ctr_increment_counter.exit.i:             ; preds = %40
   %.0.copyload.i.i = load i64, ptr %55, align 8
   %56 = xor i64 %.0.copyload.i.i, %.0.copyload.i15.i
   store i64 %56, ptr %54, align 8
-  %.not.i.i = icmp samesign ugt i64 %.0.i20.i, 32
+  %.not.i.i = icmp samesign ugt i64 %.0.i20.i, 39
   br i1 %.not.i.i, label %mbedtls_xor.exit.i, label %.preheader16.i, !llvm.loop !17
 
 mbedtls_xor.exit.i:                               ; preds = %.preheader16.i
@@ -617,7 +617,7 @@ mbedtls_ctr_increment_counter.exit.i:             ; preds = %28
   %.0.copyload.i.i = load i64, ptr %43, align 1
   %44 = xor i64 %.0.copyload.i.i, %.0.copyload.i15.i
   store i64 %44, ptr %42, align 8
-  %.not.i.i = icmp samesign ugt i64 %.0.i20.i, 32
+  %.not.i.i = icmp samesign ugt i64 %.0.i20.i, 39
   br i1 %.not.i.i, label %mbedtls_xor.exit.i, label %.preheader16.i, !llvm.loop !17
 
 mbedtls_xor.exit.i:                               ; preds = %.preheader16.i
@@ -726,7 +726,7 @@ mbedtls_ctr_increment_counter.exit.i56:           ; preds = %63
   %.0.copyload.i.i62 = load i64, ptr %78, align 1
   %79 = xor i64 %.0.copyload.i.i62, %.0.copyload.i15.i61
   store i64 %79, ptr %77, align 8
-  %.not.i.i63 = icmp samesign ugt i64 %.0.i20.i60, 32
+  %.not.i.i63 = icmp samesign ugt i64 %.0.i20.i60, 39
   br i1 %.not.i.i63, label %mbedtls_xor.exit.i64, label %.preheader16.i59, !llvm.loop !17
 
 mbedtls_xor.exit.i64:                             ; preds = %.preheader16.i59

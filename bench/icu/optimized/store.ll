@@ -519,17 +519,17 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
 40:                                               ; preds = %._crit_edge115.i
   %41 = load i16, ptr @currentIndex, align 2, !tbaa !18
   %42 = shl i16 %41, 2
-  %43 = or disjoint i16 %42, 2
-  %44 = icmp ugt i16 %43, -16
-  br i1 %44, label %45, label %48
+  %43 = icmp ugt i16 %42, -17
+  br i1 %43, label %44, label %47
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr @stderr, align 8, !tbaa !12
-  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.21, i32 noundef 65520) #17
+44:                                               ; preds = %40
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.21, i32 noundef 65520) #17
   call void @exit(i32 noundef 12) #16
   unreachable
 
-48:                                               ; preds = %40
+47:                                               ; preds = %40
+  %48 = or disjoint i16 %42, 2
   %49 = load ptr, ptr @sprepTrie, align 8, !tbaa !9
   %50 = call i32 @utrie_get32_77(ptr noundef %49, i32 noundef %27, ptr noundef null) #13
   switch i32 %50, label %53 [
@@ -537,18 +537,18 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
     i32 65522, label %51
   ]
 
-51:                                               ; preds = %48
+51:                                               ; preds = %47
   %52 = or disjoint i16 %42, 3
   br label %56
 
-53:                                               ; preds = %48
+53:                                               ; preds = %47
   %54 = load ptr, ptr @stderr, align 8, !tbaa !12
   %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.1, i32 noundef %27) #17
   call void @exit(i32 noundef 1) #16
   unreachable
 
-56:                                               ; preds = %51, %48
-  %.034.i = phi i16 [ %52, %51 ], [ %43, %48 ]
+56:                                               ; preds = %51, %47
+  %.034.i = phi i16 [ %52, %51 ], [ %48, %47 ]
   %57 = load ptr, ptr @sprepTrie, align 8, !tbaa !9
   %58 = zext i16 %.034.i to i32
   %59 = call signext i8 @utrie_set32_77(ptr noundef %57, i32 noundef %27, i32 noundef %58) #13

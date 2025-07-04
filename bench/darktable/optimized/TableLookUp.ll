@@ -157,137 +157,133 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !21, !nonnull !24, !noundef !24
-  %21 = shl nsw i32 %15, 17
-  %22 = icmp sgt i32 %15, -1
+  %21 = icmp sgt i32 %15, -1
+  tail call void @llvm.assume(i1 %21)
+  %22 = icmp sgt i32 %1, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = icmp sgt i32 %1, -1
+  %23 = icmp samesign ult i32 %1, %15
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp samesign ult i32 %1, %15
-  tail call void @llvm.assume(i1 %24)
-  %25 = shl nuw nsw i32 %1, 17
-  %26 = add nuw nsw i32 %25, 131072
-  %27 = icmp samesign ule i32 %26, %21
-  tail call void @llvm.assume(i1 %27)
-  %28 = zext nneg i32 %25 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %20, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load i8, ptr %30, align 8, !tbaa !18, !range !25, !noundef !24
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %.preheader92, label %.preheader93
+  %24 = shl nuw nsw i32 %1, 17
+  %25 = zext nneg i32 %24 to i64
+  %26 = getelementptr inbounds nuw i16, ptr %20, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = load i8, ptr %27, align 8, !tbaa !18, !range !25, !noundef !24
+  %29 = trunc nuw i8 %28 to i1
+  br i1 %29, label %.preheader92, label %.preheader93
 
 .preheader93:                                     ; preds = %18
-  %33 = shl i64 %9, 31
-  %sext = add i64 %33, -4294967296
-  %34 = ashr i64 %sext, 32
+  %30 = shl i64 %9, 31
+  %sext = add i64 %30, -4294967296
+  %31 = ashr i64 %sext, 32
   %sext116 = shl i64 %9, 31
-  %35 = ashr i64 %sext116, 32
-  br label %39
+  %32 = ashr i64 %sext116, 32
+  br label %36
 
 .preheader92:                                     ; preds = %18
   %invariant.gep = getelementptr i8, ptr %6, i64 -2
   %invariant.gep96 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %invariant.gep98 = getelementptr inbounds nuw i8, ptr %29, i64 2
-  %36 = icmp sgt i32 %11, 0
-  br i1 %36, label %.lr.ph, label %.lr.ph104
+  %invariant.gep98 = getelementptr inbounds nuw i8, ptr %26, i64 2
+  %33 = icmp sgt i32 %11, 0
+  br i1 %33, label %.lr.ph, label %.lr.ph104
 
 .lr.ph:                                           ; preds = %.preheader92
-  %37 = shl i64 %9, 31
-  %sext117 = add i64 %37, -4294967296
-  %38 = ashr i64 %sext117, 32
+  %34 = shl i64 %9, 31
+  %sext117 = add i64 %34, -4294967296
+  %35 = ashr i64 %sext117, 32
   %wide.trip.count = and i64 %10, 2147483647
-  br label %49
+  br label %46
 
-39:                                               ; preds = %.preheader93, %39
-  %indvars.iv = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next, %39 ]
-  %40 = icmp slt i64 %indvars.iv, %35
-  %.in.v = select i1 %40, i64 %indvars.iv, i64 %34
+36:                                               ; preds = %.preheader93, %36
+  %indvars.iv = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next, %36 ]
+  %37 = icmp slt i64 %indvars.iv, %32
+  %.in.v = select i1 %37, i64 %indvars.iv, i64 %31
   %.in = getelementptr inbounds nuw i16, ptr %6, i64 %.in.v
-  %41 = load i16, ptr %.in, align 2, !tbaa !19
-  %42 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv
-  store i16 %41, ptr %42, align 2, !tbaa !19
+  %38 = load i16, ptr %.in, align 2, !tbaa !19
+  %39 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
+  store i16 %38, ptr %39, align 2, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
-  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !26
 
-.preheader:                                       ; preds = %62
+.preheader:                                       ; preds = %59
   %.not105 = icmp eq i32 %11, 65536
   br i1 %.not105, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %.preheader92, %.preheader
-  %43 = shl i64 %9, 31
-  %sext91 = add i64 %43, -4294967296
-  %44 = ashr i64 %sext91, 32
-  %45 = getelementptr inbounds nuw i16, ptr %6, i64 %44
-  %46 = and i64 %10, 2147483647
+  %40 = shl i64 %9, 31
+  %sext91 = add i64 %40, -4294967296
+  %41 = ashr i64 %sext91, 32
+  %42 = getelementptr inbounds nuw i16, ptr %6, i64 %41
+  %43 = and i64 %10, 2147483647
   %umax = tail call i32 @llvm.umax.i32(i32 %11, i32 65535)
-  %47 = add nuw i32 %umax, 1
-  %48 = icmp sgt i32 %11, -1
-  tail call void @llvm.assume(i1 %48)
-  br label %74
+  %44 = add nuw i32 %umax, 1
+  %45 = icmp sgt i32 %11, -1
+  tail call void @llvm.assume(i1 %45)
+  br label %71
 
-49:                                               ; preds = %.lr.ph, %62
-  %indvars.iv108 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next109, %62 ]
-  %50 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv108
-  %51 = load i16, ptr %50, align 2, !tbaa !19
-  %52 = zext i16 %51 to i32
+46:                                               ; preds = %.lr.ph, %59
+  %indvars.iv108 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next109, %59 ]
+  %47 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv108
+  %48 = load i16, ptr %47, align 2, !tbaa !19
+  %49 = zext i16 %48 to i32
   %.not = icmp eq i64 %indvars.iv108, 0
-  br i1 %.not, label %56, label %53
+  br i1 %.not, label %53, label %50
 
-53:                                               ; preds = %49
+50:                                               ; preds = %46
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv108
-  %54 = load i16, ptr %gep, align 2, !tbaa !19
-  %55 = zext i16 %54 to i32
-  br label %56
+  %51 = load i16, ptr %gep, align 2, !tbaa !19
+  %52 = zext i16 %51 to i32
+  br label %53
 
-56:                                               ; preds = %49, %53
-  %57 = phi i32 [ %55, %53 ], [ %52, %49 ]
-  %58 = icmp slt i64 %indvars.iv108, %38
-  br i1 %58, label %59, label %62
+53:                                               ; preds = %46, %50
+  %54 = phi i32 [ %52, %50 ], [ %49, %46 ]
+  %55 = icmp slt i64 %indvars.iv108, %35
+  br i1 %55, label %56, label %59
 
-59:                                               ; preds = %56
+56:                                               ; preds = %53
   %gep97 = getelementptr inbounds nuw i16, ptr %invariant.gep96, i64 %indvars.iv108
-  %60 = load i16, ptr %gep97, align 2, !tbaa !19
-  %61 = zext i16 %60 to i32
-  br label %62
+  %57 = load i16, ptr %gep97, align 2, !tbaa !19
+  %58 = zext i16 %57 to i32
+  br label %59
 
-62:                                               ; preds = %56, %59
-  %63 = phi i32 [ %61, %59 ], [ %52, %56 ]
-  %.sroa.speculated45 = tail call i32 @llvm.umin.i32(i32 %57, i32 %52)
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %63, i32 %52)
-  %64 = sub nsw i32 %.sroa.speculated, %.sroa.speculated45
-  %65 = icmp sgt i32 %64, -1
-  tail call void @llvm.assume(i1 %65)
-  %66 = add nuw nsw i32 %64, 2
-  %67 = lshr i32 %66, 2
-  %68 = sub nsw i32 %52, %67
-  %.sroa.speculate.load.false.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %68, i32 0)
-  %69 = trunc nuw i32 %.sroa.speculate.load.false.sroa.speculated.i to i16
-  %70 = shl nuw nsw i64 %indvars.iv108, 1
-  %71 = icmp samesign ult i64 %indvars.iv108, 65536
-  tail call void @llvm.assume(i1 %71)
-  %72 = getelementptr inbounds nuw i16, ptr %29, i64 %70
-  store i16 %69, ptr %72, align 2, !tbaa !19
-  %73 = trunc nuw i32 %64 to i16
-  %gep99 = getelementptr inbounds nuw i16, ptr %invariant.gep98, i64 %70
-  store i16 %73, ptr %gep99, align 2, !tbaa !19
+59:                                               ; preds = %53, %56
+  %60 = phi i32 [ %58, %56 ], [ %49, %53 ]
+  %.sroa.speculated45 = tail call i32 @llvm.umin.i32(i32 %54, i32 %49)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %60, i32 %49)
+  %61 = sub nsw i32 %.sroa.speculated, %.sroa.speculated45
+  %62 = icmp sgt i32 %61, -1
+  tail call void @llvm.assume(i1 %62)
+  %63 = add nuw nsw i32 %61, 2
+  %64 = lshr i32 %63, 2
+  %65 = sub nsw i32 %49, %64
+  %.sroa.speculate.load.false.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %65, i32 0)
+  %66 = trunc nuw i32 %.sroa.speculate.load.false.sroa.speculated.i to i16
+  %67 = shl nuw nsw i64 %indvars.iv108, 1
+  %68 = icmp samesign ult i64 %indvars.iv108, 65536
+  tail call void @llvm.assume(i1 %68)
+  %69 = getelementptr inbounds nuw i16, ptr %26, i64 %67
+  store i16 %66, ptr %69, align 2, !tbaa !19
+  %70 = trunc nuw i32 %61 to i16
+  %gep99 = getelementptr inbounds nuw i16, ptr %invariant.gep98, i64 %67
+  store i16 %70, ptr %gep99, align 2, !tbaa !19
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count
-  br i1 %exitcond111.not, label %.preheader, label %49, !llvm.loop !28
+  br i1 %exitcond111.not, label %.preheader, label %46, !llvm.loop !28
 
-74:                                               ; preds = %.lr.ph104, %74
-  %indvars.iv112 = phi i64 [ %46, %.lr.ph104 ], [ %indvars.iv.next113, %74 ]
-  %75 = load i16, ptr %45, align 2, !tbaa !19
-  %76 = shl nuw nsw i64 %indvars.iv112, 1
-  %77 = getelementptr inbounds nuw i16, ptr %29, i64 %76
-  store i16 %75, ptr %77, align 2, !tbaa !19
-  %gep102 = getelementptr inbounds nuw i16, ptr %invariant.gep98, i64 %76
+71:                                               ; preds = %.lr.ph104, %71
+  %indvars.iv112 = phi i64 [ %43, %.lr.ph104 ], [ %indvars.iv.next113, %71 ]
+  %72 = load i16, ptr %42, align 2, !tbaa !19
+  %73 = shl nuw nsw i64 %indvars.iv112, 1
+  %74 = getelementptr inbounds nuw i16, ptr %26, i64 %73
+  store i16 %72, ptr %74, align 2, !tbaa !19
+  %gep102 = getelementptr inbounds nuw i16, ptr %invariant.gep98, i64 %73
   store i16 0, ptr %gep102, align 2, !tbaa !19
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next113 to i32
-  %exitcond115.not = icmp eq i32 %47, %lftr.wideiv
-  br i1 %exitcond115.not, label %.loopexit, label %74, !llvm.loop !29
+  %exitcond115.not = icmp eq i32 %44, %lftr.wideiv
+  br i1 %exitcond115.not, label %.loopexit, label %71, !llvm.loop !29
 
-.loopexit:                                        ; preds = %39, %74, %.preheader
+.loopexit:                                        ; preds = %36, %71, %.preheader
   ret void
 }
 
@@ -307,20 +303,16 @@ define hidden { ptr, i32 } @_ZN8rawspeed11TableLookUp8getTableEi(ptr noundef non
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !21, !nonnull !24, !noundef !24
-  %9 = shl nsw i32 %3, 17
-  %10 = icmp sgt i32 %3, -1
+  %9 = icmp sgt i32 %3, -1
+  tail call void @llvm.assume(i1 %9)
+  %10 = icmp sgt i32 %1, -1
   tail call void @llvm.assume(i1 %10)
-  %11 = icmp sgt i32 %1, -1
+  %11 = icmp samesign ult i32 %1, %3
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp samesign ult i32 %1, %3
-  tail call void @llvm.assume(i1 %12)
-  %13 = shl nuw nsw i32 %1, 17
-  %14 = add nuw nsw i32 %13, 131072
-  %15 = icmp samesign ule i32 %14, %9
-  tail call void @llvm.assume(i1 %15)
-  %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %8, i64 %16
-  %.fca.0.insert.i.i = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %12 = shl nuw nsw i32 %1, 17
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr inbounds nuw i16, ptr %8, i64 %13
+  %.fca.0.insert.i.i = insertvalue { ptr, i32 } poison, ptr %14, 0
   %.fca.1.insert.i.i = insertvalue { ptr, i32 } %.fca.0.insert.i.i, i32 131072, 1
   ret { ptr, i32 } %.fca.1.insert.i.i
 }
