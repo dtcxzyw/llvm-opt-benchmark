@@ -1218,7 +1218,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile::Iterator", align 8
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %71, label %4
+  br i1 %.not, label %70, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
@@ -1234,12 +1234,12 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %.neg.i.i = add i64 %9, %14
   %15 = sub i64 %.neg.i.i, %13
   %16 = icmp ult i64 %15, 30
-  br i1 %16, label %68, label %17
+  br i1 %16, label %67, label %17
 
 17:                                               ; preds = %4
   %18 = load i32, ptr %12, align 1, !noalias !15
   %19 = icmp eq i32 %18, 67324752
-  br i1 %19, label %20, label %68
+  br i1 %19, label %20, label %67
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1267,7 +1267,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %43 = sub i64 %.neg.i.i, %42
   %44 = zext i16 %38 to i64
   %45 = icmp ult i64 %43, %44
-  br i1 %45, label %68, label %46
+  br i1 %45, label %67, label %46
 
 46:                                               ; preds = %20
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 %44
@@ -1275,7 +1275,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %49 = sub i64 %.neg.i.i, %48
   %50 = zext i16 %40 to i64
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %68, label %52
+  br i1 %51, label %67, label %52
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 %50
@@ -1283,69 +1283,68 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %55 = sub i64 %.neg.i.i, %54
   %56 = zext i32 %34 to i64
   %57 = icmp ult i64 %55, %56
-  br i1 %57, label %68, label %58
+  br i1 %57, label %67, label %58
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %11, ptr %59, align 8
-  %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store i32 67324752, ptr %61, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 %56
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %11, ptr %60, align 8
+  %61 = load ptr, ptr %0, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  store i32 67324752, ptr %62, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 20
   store i16 %22, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 22
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 22
   store i16 %24, ptr %.sroa.9.0..sroa_idx, align 2
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 24
   store i16 %26, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 26
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 26
   store i16 %28, ptr %.sroa.11.0..sroa_idx, align 2
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 28
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 28
   store i16 %30, ptr %.sroa.12.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 30
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 30
   store i16 0, ptr %.sroa.13.0..sroa_idx, align 2
-  %.sroa.133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %.sroa.133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 32
   store i32 %32, ptr %.sroa.133.0..sroa_idx, align 8
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 36
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 36
   store i32 %34, ptr %.sroa.14.0..sroa_idx, align 4
-  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 40
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i32 %36, ptr %.sroa.15.0..sroa_idx, align 8
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 44
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 44
   store i16 %38, ptr %.sroa.16.0..sroa_idx, align 4
-  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 46
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 46
   store i16 %40, ptr %.sroa.17.0..sroa_idx, align 2
-  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 48
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 48
   store ptr %41, ptr %.sroa.18.0..sroa_idx, align 8
-  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 56
+  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 56
   store ptr %47, ptr %.sroa.19.0..sroa_idx, align 8
-  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 64
+  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 64
   store ptr %53, ptr %.sroa.20.0..sroa_idx, align 8
-  %62 = add nsw i64 %11, 30
-  %63 = add i64 %62, %56
-  %64 = add i64 %63, %44
-  %65 = add i64 %64, %50
-  %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 72
-  store i64 %65, ptr %67, align 8
-  br label %71
+  %63 = ptrtoint ptr %59 to i64
+  %64 = sub i64 %63, %14
+  %65 = load ptr, ptr %0, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 72
+  store i64 %64, ptr %66, align 8
+  br label %70
 
-68:                                               ; preds = %17, %4, %20, %46, %52
+67:                                               ; preds = %17, %4, %20, %46, %52
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %69 = load ptr, ptr %2, align 8
+  %68 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
-  %70 = load ptr, ptr %0, align 8
-  store ptr %69, ptr %0, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %70, null
+  %69 = load ptr, ptr %0, align 8
+  store ptr %68, ptr %0, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %69, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoraSEOS1_.exit, label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataEEclEPS3_.exit.i.i.i.i.i
 
-_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataEEclEPS3_.exit.i.i.i.i.i: ; preds = %68
-  call void @_ZdlPvm(ptr noundef nonnull %70, i64 noundef 80) #24
+_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataEEclEPS3_.exit.i.i.i.i.i: ; preds = %67
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 80) #24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoraSEOS1_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoraSEOS1_.exit: ; preds = %68, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataEEclEPS3_.exit.i.i.i.i.i
+_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoraSEOS1_.exit: ; preds = %67, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataEEclEPS3_.exit.i.i.i.i.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
-  br label %71
+  br label %70
 
-71:                                               ; preds = %58, %_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoraSEOS1_.exit, %1
+70:                                               ; preds = %58, %_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratoraSEOS1_.exit, %1
   ret ptr %0
 }
 
@@ -1780,13 +1779,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorC2EPKNS0_
           to label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataESt14default_deleteIS3_EE5resetEPS3_.exit unwind label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataESt14default_deleteIS3_EE5resetEPS3_.exit: ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 %52
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store ptr %55, ptr %0, align 8
   store ptr %1, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store i64 %2, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store i32 67324752, ptr %58, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i64 %2, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  store i32 67324752, ptr %59, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 20
   store i16 %18, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 22
@@ -1799,7 +1799,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_Ite
   store i16 %26, ptr %.sroa.12.0..sroa_idx, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 30
   store i16 0, ptr %.sroa.13.0..sroa_idx, align 2
-  store i32 %28, ptr %56, align 8
+  store i32 %28, ptr %57, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 36
   store i32 %30, ptr %.sroa.14.0..sroa_idx, align 4
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 40
@@ -1814,19 +1814,17 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_Ite
   store ptr %43, ptr %.sroa.19.0..sroa_idx, align 8
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 64
   store ptr %49, ptr %.sroa.20.0..sroa_idx, align 8
-  %59 = add nsw i64 %2, 30
-  %60 = add i64 %59, %52
-  %61 = add i64 %60, %40
-  %62 = add i64 %61, %46
-  %63 = getelementptr inbounds nuw i8, ptr %55, i64 72
-  store i64 %62, ptr %63, align 8
+  %60 = ptrtoint ptr %56 to i64
+  %61 = sub i64 %60, %10
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 72
+  store i64 %61, ptr %62, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_ReadLocalFileHeaderERNS0_12_InputStreamE.exit.thread
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataESt14default_deleteIS3_EED2Ev.exit: ; preds = %54
-  %64 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %0, align 8
-  resume { ptr, i32 } %64
+  resume { ptr, i32 } %63
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_ReadLocalFileHeaderERNS0_12_InputStreamE.exit.thread: ; preds = %13, %48, %42, %16, %3, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_IteratorDataESt14default_deleteIS3_EE5resetEPS3_.exit
   ret void

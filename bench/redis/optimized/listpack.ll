@@ -640,10 +640,10 @@ define dso_local ptr @lpLast(ptr noundef %0) local_unnamed_addr #3 {
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %12
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %16
   %21 = getelementptr inbounds i8, ptr %20, i64 -1
-  %22 = or disjoint i64 %8, %4
-  %23 = or disjoint i64 %22, %12
-  %24 = or disjoint i64 %23, %16
-  %25 = icmp eq i64 %24, 7
+  %22 = ptrtoint ptr %21 to i64
+  %23 = ptrtoint ptr %0 to i64
+  %24 = sub i64 %22, %23
+  %25 = icmp eq i64 %24, 6
   br i1 %25, label %lpPrev.exit, label %.preheader
 
 .preheader:                                       ; preds = %1, %31

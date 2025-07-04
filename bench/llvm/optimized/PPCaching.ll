@@ -1356,36 +1356,34 @@ define dso_local void @_ZN5clang12Preprocessor26ReplacePreviousCachedTokenEN4llv
   %11 = tail call noundef ptr @_ZN4llvm15SmallVectorImplIN5clang5TokenEE6insertIPKS2_vEEPS2_S7_T_S8_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %10)
   %12 = load ptr, ptr %4, align 8, !tbaa !21
   %13 = load i64, ptr %6, align 8, !tbaa !267
-  %.idx4 = mul nuw nsw i64 %13, 24
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx4
+  %14 = getelementptr inbounds nuw %"class.clang::Token", ptr %12, i64 %13
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
-  %.idx5 = mul nuw nsw i64 %2, 24
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx5
+  %16 = getelementptr inbounds nuw %"class.clang::Token", ptr %15, i64 %2
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %19 = load i32, ptr %18, align 8, !tbaa !14
   %20 = zext i32 %19 to i64
-  %.idx = mul nuw nsw i64 %20, 24
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
+  %21 = getelementptr inbounds nuw %"class.clang::Token", ptr %12, i64 %20
   %.not.i.i.i.i.i.i = icmp eq ptr %21, %17
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit, label %22
 
 22:                                               ; preds = %3
-  %23 = add nuw i64 %.idx4, %.idx5
-  %gepdiff = sub i64 %.idx, %23
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %17, i64 %gepdiff, i1 false)
+  %23 = ptrtoint ptr %21 to i64
+  %24 = ptrtoint ptr %17 to i64
+  %25 = sub i64 %23, %24
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %17, i64 %25, i1 false)
   %.pre.i = load i32, ptr %18, align 8, !tbaa !14
   %.pre = load i64, ptr %6, align 8, !tbaa !267
   br label %_ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit
 
 _ZN4llvm15SmallVectorImplIN5clang5TokenEE5eraseEPKS2_.exit: ; preds = %3, %22
-  %24 = phi i64 [ %13, %3 ], [ %.pre, %22 ]
-  %25 = phi i32 [ %19, %3 ], [ %.pre.i, %22 ]
-  %26 = add i32 %25, -1
-  store i32 %26, ptr %18, align 8, !tbaa !14
-  %27 = add i64 %2, -1
-  %28 = add i64 %27, %24
-  store i64 %28, ptr %6, align 8, !tbaa !267
+  %26 = phi i64 [ %13, %3 ], [ %.pre, %22 ]
+  %27 = phi i32 [ %19, %3 ], [ %.pre.i, %22 ]
+  %28 = add i32 %27, -1
+  store i32 %28, ptr %18, align 8, !tbaa !14
+  %29 = add i64 %2, -1
+  %30 = add i64 %29, %26
+  store i64 %30, ptr %6, align 8, !tbaa !267
   ret void
 }
 
