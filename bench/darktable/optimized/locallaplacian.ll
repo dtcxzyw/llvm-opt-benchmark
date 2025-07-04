@@ -81,7 +81,7 @@ define void @local_laplacian_internal(ptr noundef readonly captures(none) %0, pt
   %16 = icmp slt i32 %2, 2
   %17 = icmp slt i32 %3, 2
   %or.cond = or i1 %16, %17
-  br i1 %or.cond, label %804, label %18
+  br i1 %or.cond, label %805, label %18
 
 18:                                               ; preds = %9
   %19 = tail call i32 @llvm.umin.i32(i32 %2, i32 %3)
@@ -1575,67 +1575,67 @@ gauss_expand.exit:                                ; preds = %.loopexit.i.i, %714
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %785, ptr nonnull align 16 %13, i64 %787, i1 false), !tbaa !15
   br label %.thread823.preheader
 
-788:                                              ; preds = %801
+789:                                              ; preds = %802
   call void @llvm.lifetime.end.p0(i64 1440, ptr nonnull %15) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #13
   br label %.loopexit
 
-.thread823:                                       ; preds = %.thread823.preheader, %801
+.thread823:                                       ; preds = %.thread823.preheader, %802
   %indvars.iv1038 = phi i64 [ %indvars.iv.next1039, %801 ], [ 0, %.thread823.preheader ]
-  br i1 %.not, label %.thread841, label %791
+  br i1 %.not, label %.thread841, label %792
 
 .thread841:                                       ; preds = %.thread823
-  %789 = getelementptr inbounds nuw [30 x ptr], ptr %12, i64 0, i64 %indvars.iv1038
-  %790 = load ptr, ptr %789, align 8, !tbaa !15
-  tail call void @free(ptr noundef %790) #13
-  br label %798
+  %790 = getelementptr inbounds nuw [30 x ptr], ptr %12, i64 0, i64 %indvars.iv1038
+  %791 = load ptr, ptr %790, align 8, !tbaa !15
+  tail call void @free(ptr noundef %791) #13
+  br label %799
 
-791:                                              ; preds = %.thread823
-  %792 = load i32, ptr %8, align 8, !tbaa !16
-  %793 = icmp ne i32 %792, 1
-  %794 = icmp ne i64 %indvars.iv1038, 0
-  %or.cond3 = or i1 %794, %793
-  br i1 %or.cond3, label %795, label %.thread842.preheader
+792:                                              ; preds = %.thread823
+  %793 = load i32, ptr %8, align 8, !tbaa !16
+  %794 = icmp ne i32 %793, 1
+  %795 = icmp ne i64 %indvars.iv1038, 0
+  %or.cond3 = or i1 %795, %794
+  br i1 %or.cond3, label %796, label %.thread842.preheader
 
-795:                                              ; preds = %791
-  %796 = getelementptr inbounds nuw [30 x ptr], ptr %12, i64 0, i64 %indvars.iv1038
-  %797 = load ptr, ptr %796, align 8, !tbaa !15
-  tail call void @free(ptr noundef %797) #13
+796:                                              ; preds = %792
+  %797 = getelementptr inbounds nuw [30 x ptr], ptr %12, i64 0, i64 %indvars.iv1038
+  %798 = load ptr, ptr %797, align 8, !tbaa !15
+  tail call void @free(ptr noundef %798) #13
   %.pr = load i32, ptr %8, align 8, !tbaa !16
   %.not627 = icmp eq i32 %.pr, 1
-  br i1 %.not627, label %.thread842.preheader, label %798
+  br i1 %.not627, label %.thread842.preheader, label %799
 
-.thread842.preheader:                             ; preds = %791, %798, %795
+.thread842.preheader:                             ; preds = %792, %799, %796
   br label %.thread842
 
-798:                                              ; preds = %.thread841, %795
-  %799 = getelementptr inbounds nuw [30 x ptr], ptr %13, i64 0, i64 %indvars.iv1038
-  %800 = load ptr, ptr %799, align 8, !tbaa !15
-  tail call void @free(ptr noundef %800) #13
+799:                                              ; preds = %.thread841, %796
+  %800 = getelementptr inbounds nuw [30 x ptr], ptr %13, i64 0, i64 %indvars.iv1038
+  %801 = load ptr, ptr %800, align 8, !tbaa !15
+  tail call void @free(ptr noundef %801) #13
   br label %.thread842.preheader
 
-801:                                              ; preds = %.thread842
+802:                                              ; preds = %.thread842
   %indvars.iv.next1039 = add nuw nsw i64 %indvars.iv1038, 1
   %exitcond1041.not = icmp eq i64 %indvars.iv.next1039, 30
-  br i1 %exitcond1041.not, label %788, label %.thread823
+  br i1 %exitcond1041.not, label %789, label %.thread823
 
 .thread842:                                       ; preds = %.thread842.preheader, %.thread842
   %indvars.iv1034 = phi i64 [ %indvars.iv.next1035, %.thread842 ], [ 0, %.thread842.preheader ]
-  %802 = getelementptr inbounds nuw [6 x [30 x ptr]], ptr %15, i64 0, i64 %indvars.iv1034, i64 %indvars.iv1038
-  %803 = load ptr, ptr %802, align 8, !tbaa !15
-  tail call void @free(ptr noundef %803) #13
+  %803 = getelementptr inbounds nuw [6 x [30 x ptr]], ptr %15, i64 0, i64 %indvars.iv1034, i64 %indvars.iv1038
+  %804 = load ptr, ptr %803, align 8, !tbaa !15
+  tail call void @free(ptr noundef %804) #13
   %indvars.iv.next1035 = add nuw nsw i64 %indvars.iv1034, 1
   %exitcond1037.not = icmp eq i64 %indvars.iv.next1035, 6
-  br i1 %exitcond1037.not, label %801, label %.thread842
+  br i1 %exitcond1037.not, label %802, label %.thread842
 
-.loopexit:                                        ; preds = %.lr.ph932, %.preheader, %788
+.loopexit:                                        ; preds = %.lr.ph932, %.preheader, %789
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %12) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
-  br label %804
+  br label %805
 
-804:                                              ; preds = %9, %.loopexit
+805:                                              ; preds = %9, %.loopexit
   ret void
 }
 
