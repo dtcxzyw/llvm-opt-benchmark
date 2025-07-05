@@ -4349,38 +4349,38 @@ if.end.i.i.i.i.i227:                              ; preds = %land.rhs.i.i.i225
   %162 = zext nneg i32 %161 to i64
   br label %for.cond.i.i.i.i.i228
 
-for.cond.i.i.i.i.i228:                            ; preds = %for.body.i.i.i.i.i242, %if.end.i.i.i.i.i227
+for.cond.i.i.i.i.i228:                            ; preds = %for.body.i.i.i.i.i232, %if.end.i.i.i.i.i227
   %indvars.iv.i.i.i229 = phi i64 [ %indvars.iv.next.i.i.i243, %for.body.i.i.i.i.i242 ], [ 0, %if.end.i.i.i.i.i227 ]
   %cmp19.not.i.i.not.i.i.i230 = icmp samesign ult i64 %indvars.iv.i.i.i229, %162
   br i1 %cmp19.not.i.i.not.i.i.i230, label %for.body.i.i.i.i.i242, label %for.end.i.i.i.i.i231
 
-for.body.i.i.i.i.i242:                            ; preds = %for.cond.i.i.i.i.i228
+for.body.i.i.i.i.i232:                            ; preds = %for.cond.i.i.i.i.i228
   %indvars.iv.next.i.i.i243 = add nuw nsw i64 %indvars.iv.i.i.i229, 64
   %163 = lshr exact i64 %indvars.iv.i.i.i229, 3
-  %arrayidx.i35.i.i.i.i.i244 = getelementptr inbounds nuw i8, ptr %160, i64 %163
-  %164 = load i64, ptr %arrayidx.i35.i.i.i.i.i244, align 8
-  %cmp.i36.i.i.i.i.i245 = icmp eq i64 %164, -1
-  br i1 %cmp.i36.i.i.i.i.i245, label %for.cond.i.i.i.i.i228, label %land.end.i.i.i122, !llvm.loop !23
+  %arrayidx.i35.i.i.i.i.i233 = getelementptr inbounds nuw i8, ptr %160, i64 %163
+  %164 = load i64, ptr %arrayidx.i35.i.i.i.i.i233, align 8
+  %cmp.i36.i.i.i.i.i234 = icmp eq i64 %164, -1
+  br i1 %cmp.i36.i.i.i.i.i234, label %for.cond.i.i.i.i.i228, label %land.end.i.i.i122, !llvm.loop !23
 
-for.end.i.i.i.i.i231:                             ; preds = %for.cond.i.i.i.i.i228
-  %cmp25.not.i.i.i.i.i232 = icmp eq i32 %158, %161
-  br i1 %cmp25.not.i.i.i.i.i232, label %land.end.i.i.i122, label %if.then26.i.i.i.i.i233
+for.end.i.i.i.i.i235:                             ; preds = %for.cond.i.i.i.i.i228
+  %cmp25.not.i.i.i.i.i236 = icmp eq i32 %158, %161
+  br i1 %cmp25.not.i.i.i.i.i236, label %land.end.i.i.i122, label %if.then26.i.i.i.i.i237
 
-if.then26.i.i.i.i.i233:                           ; preds = %for.end.i.i.i.i.i231
-  %div27.i.i.i.i.i234 = lshr i32 %158, 6
-  %sub28.i.i.i.i.i235 = and i32 %158, 63
-  %sh_prom.i37.i.i.i.i.i236 = zext nneg i32 %sub28.i.i.i.i.i235 to i64
-  %notmask.i38.i.i.i.i.i237 = shl nsw i64 -1, %sh_prom.i37.i.i.i.i.i236
-  %idxprom.i40.i.i.i.i.i238 = zext nneg i32 %div27.i.i.i.i.i234 to i64
-  %arrayidx.i41.i.i.i.i.i239 = getelementptr inbounds nuw i64, ptr %160, i64 %idxprom.i40.i.i.i.i.i238
-  %165 = load i64, ptr %arrayidx.i41.i.i.i.i.i239, align 8
-  %.demorgan.i.i.i240 = or i64 %165, %notmask.i38.i.i.i.i.i237
-  %cmp.i42.i.i.i.i.i241 = icmp eq i64 %.demorgan.i.i.i240, -1
-  %166 = zext i1 %cmp.i42.i.i.i.i.i241 to i16
+if.then26.i.i.i.i.i237:                           ; preds = %for.end.i.i.i.i.i235
+  %div27.i.i.i.i.i238 = lshr i32 %158, 6
+  %sub28.i.i.i.i.i239 = and i32 %158, 63
+  %sh_prom.i37.i.i.i.i.i240 = zext nneg i32 %sub28.i.i.i.i.i239 to i64
+  %notmask.i38.i.i.i.i.i241 = shl nsw i64 -1, %sh_prom.i37.i.i.i.i.i240
+  %idxprom.i40.i.i.i.i.i242 = zext nneg i32 %div27.i.i.i.i.i238 to i64
+  %arrayidx.i41.i.i.i.i.i243 = getelementptr inbounds nuw i64, ptr %160, i64 %idxprom.i40.i.i.i.i.i242
+  %165 = load i64, ptr %arrayidx.i41.i.i.i.i.i243, align 8
+  %.demorgan.i.i.i244 = or i64 %165, %notmask.i38.i.i.i.i.i241
+  %cmp.i42.i.i.i.i.i245 = icmp eq i64 %.demorgan.i.i.i244, -1
+  %166 = zext i1 %cmp.i42.i.i.i.i.i245 to i16
   %167 = or disjoint i16 %166, 256
   br label %land.end.i.i.i122
 
-land.end.i.i.i122:                                ; preds = %for.body.i.i.i.i.i242, %if.then26.i.i.i.i.i233, %for.end.i.i.i.i.i231, %land.rhs.i.i.i225, %land.lhs.true.i.i.i221, %if.end.i7.i.i119
+land.end.i.i.i122:                                ; preds = %for.body.i.i.i.i.i232, %if.then26.i.i.i.i.i237, %for.end.i.i.i.i.i235, %land.rhs.i.i.i225, %land.lhs.true.i.i.i221, %if.end.i7.i.i119
   %frombool.i.i.i123 = phi i16 [ 256, %land.lhs.true.i.i.i221 ], [ 256, %if.end.i7.i.i119 ], [ 257, %land.rhs.i.i.i225 ], [ %167, %if.then26.i.i.i.i.i233 ], [ 257, %for.end.i.i.i.i.i231 ], [ 256, %for.body.i.i.i.i.i242 ]
   store i16 %frombool.i.i.i123, ptr %allSelected_.i.i.i, align 4
   %168 = trunc i16 %frombool.i.i.i123 to i8

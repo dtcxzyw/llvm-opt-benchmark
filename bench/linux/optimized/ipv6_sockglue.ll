@@ -1615,7 +1615,7 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
 
 24:                                               ; preds = %18, %15
   %25 = icmp sgt i32 %4, 0
-  br i1 %25, label %26, label %61
+  br i1 %25, label %26, label %63
 
 26:                                               ; preds = %24
   %27 = icmp eq ptr %2, null
@@ -1675,41 +1675,41 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   %58 = zext i8 %57 to i32
   %59 = shl nuw nsw i32 %58, 3
   %.not = icmp samesign ult i32 %59, %4
-  br i1 %.not, label %61, label %60, !prof !10
+  br i1 %.not, label %61, label %64, !prof !10
 
-60:                                               ; preds = %55
+62:                                               ; preds = %55
   tail call void @kfree(ptr noundef nonnull %39) #13
   br label %.thread13
 
-61:                                               ; preds = %55, %24
-  %62 = phi ptr [ %39, %55 ], [ null, %24 ]
-  %63 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call ptr @ipv6_renew_options(ptr noundef %0, ptr noundef %64, i32 noundef %1, ptr noundef %62) #13
-  tail call void @kfree(ptr noundef %62) #13
-  %66 = icmp ugt ptr %65, inttoptr (i64 -4096 to ptr)
-  br i1 %66, label %67, label %70
+63:                                               ; preds = %55, %24
+  %64 = phi ptr [ %39, %55 ], [ null, %24 ]
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 112
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call ptr @ipv6_renew_options(ptr noundef %0, ptr noundef %66, i32 noundef %1, ptr noundef %64) #13
+  tail call void @kfree(ptr noundef %64) #13
+  %68 = icmp ugt ptr %67, inttoptr (i64 -4096 to ptr)
+  br i1 %68, label %69, label %72
 
-67:                                               ; preds = %61
-  %68 = ptrtoint ptr %65 to i64
-  %69 = trunc i64 %68 to i32
+69:                                               ; preds = %63
+  %70 = ptrtoint ptr %67 to i64
+  %71 = trunc i64 %70 to i32
   br label %.thread13
 
-70:                                               ; preds = %61
-  %71 = icmp ne ptr %65, null
-  %72 = select i1 %17, i1 %71, i1 false
-  br i1 %72, label %73, label %83
+72:                                               ; preds = %63
+  %73 = icmp ne ptr %67, null
+  %74 = select i1 %17, i1 %73, i1 false
+  br i1 %74, label %75, label %83
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %83, label %77
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %83, label %79
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 2
-  %79 = load i8, ptr %78, align 1
-  %80 = icmp eq i8 %79, 4
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 2
+  %81 = load i8, ptr %80, align 1
+  %82 = icmp eq i8 %81, 4
   br i1 %80, label %81, label %.thread11
 
 81:                                               ; preds = %77
@@ -1725,7 +1725,7 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   %89 = or i1 %88, %87
   br i1 %89, label %111, label %90
 
-90:                                               ; preds = %83
+90:; preds = %83
   %91 = load volatile i8, ptr %6, align 2
   %92 = zext nneg i8 %91 to i32
   %93 = shl nuw i32 1, %92
@@ -1733,12 +1733,12 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %111
 
-96:                                               ; preds = %90
+96:; preds = %90
   %97 = load i32, ptr %0, align 8
   %98 = icmp eq i32 %97, 100663423
   br i1 %98, label %111, label %99
 
-99:                                               ; preds = %96
+99:; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %101 = load i16, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %65, i64 10
@@ -1748,12 +1748,12 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   store i16 %104, ptr %105, align 2
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1156
-  %109 = load i32, ptr %108, align 4
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1156
+  %109 = load i32, ptr %107, align 4
   %110 = tail call i32 %107(ptr noundef %0, i32 noundef %109) #13
   br label %111
 
-111:                                              ; preds = %99, %96, %90, %83
+111:; preds = %99, %96, %90, %83
   %112 = load volatile i8, ptr %6, align 2
   %113 = zext nneg i8 %112 to i32
   %114 = shl nuw i32 1, %113
@@ -1761,26 +1761,26 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %120, label %117
 
-117:                                              ; preds = %111
+117:; preds = %111
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %119 = load ptr, ptr %118, align 8
   br label %120
 
-120:                                              ; preds = %111, %117
+120: ; preds = %111, %117
   %121 = phi ptr [ %119, %117 ], [ null, %111 ]
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 112
   %123 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %122, ptr %65, ptr nonnull elementtype(ptr) %122) #13, !srcloc !14
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store volatile i16 -1, ptr %124, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store volatile i32 0, ptr %125, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  store volatile i32 0, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %127 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %126, ptr null, ptr nonnull elementtype(ptr) %126) #13, !srcloc !15
   tail call void @dst_release(ptr noundef %127) #13
   %128 = icmp eq ptr %123, null
   br i1 %128, label %.thread13, label %.thread11
 
-.thread11:                                        ; preds = %81, %77, %120
+.thread11:; preds = %81, %77, %120
   %129 = phi i32 [ 0, %120 ], [ -22, %77 ], [ -22, %81 ]
   %130 = phi ptr [ %123, %120 ], [ %65, %77 ], [ %65, %81 ]
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
@@ -1791,7 +1791,7 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   %135 = icmp eq i32 %134, 1
   br i1 %135, label %139, label %136
 
-136:                                              ; preds = %.thread11
+136:; preds = %.thread11
   %137 = icmp sgt i32 %134, 0
   br i1 %137, label %.thread13, label %138, !prof !10
 
@@ -1799,15 +1799,15 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   tail call void @refcount_warn_saturate(ptr noundef nonnull %130, i32 noundef 3) #13
   br label %.thread13
 
-139:                                              ; preds = %.thread11
+141:                                              ; preds = %.thread11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
-  %140 = getelementptr inbounds nuw i8, ptr %130, i64 48
-  tail call void @kvfree_call_rcu(ptr noundef nonnull %140, ptr noundef nonnull %130) #13
+  %142 = getelementptr inbounds nuw i8, ptr %130, i64 48
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %142, ptr noundef nonnull %130) #13
   br label %.thread13
 
-.thread13:                                        ; preds = %136, %138, %139, %120, %67, %60, %.thread, %31, %28, %26, %18
-  %141 = phi i32 [ %54, %.thread ], [ -22, %60 ], [ %69, %67 ], [ -1, %18 ], [ -22, %26 ], [ -22, %31 ], [ -22, %28 ], [ 0, %120 ], [ %129, %139 ], [ %129, %138 ], [ %129, %136 ]
-  ret i32 %141
+.thread13:                                        ; preds = %136, %138, %141, %120, %69, %62, %.thread, %31, %28, %26, %18
+  %143 = phi i32 [ %54, %.thread ], [ -22, %60 ], [ %71, %67 ], [ -1, %18 ], [ -22, %26 ], [ -22, %31 ], [ -22, %28 ], [ 0, %120 ], [ %129, %139 ], [ %129, %138 ], [ %129, %136 ]
+  ret i32 %143
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

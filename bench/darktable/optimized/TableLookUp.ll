@@ -172,118 +172,118 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   br i1 %29, label %.preheader92, label %.preheader93
 
 .preheader93:                                     ; preds = %18
-  %30 = shl i64 %9, 31
-  %sext = add i64 %30, -4294967296
-  %31 = ashr i64 %sext, 32
+  %33 = shl i64 %9, 31
+  %sext = add i64 %33, -4294967296
+  %34 = ashr i64 %sext, 32
   %sext116 = shl i64 %9, 31
-  %32 = ashr i64 %sext116, 32
-  br label %36
+  %35 = ashr i64 %sext116, 32
+  br label %39
 
 .preheader92:                                     ; preds = %18
   %invariant.gep = getelementptr i8, ptr %6, i64 -2
   %invariant.gep96 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %invariant.gep98 = getelementptr inbounds nuw i8, ptr %26, i64 2
-  %33 = icmp sgt i32 %11, 0
-  br i1 %33, label %.lr.ph, label %.lr.ph104
+  %36 = icmp sgt i32 %11, 0
+  br i1 %36, label %.lr.ph, label %.lr.ph104
 
 .lr.ph:                                           ; preds = %.preheader92
-  %34 = shl i64 %9, 31
-  %sext117 = add i64 %34, -4294967296
-  %35 = ashr i64 %sext117, 32
+  %37 = shl i64 %9, 31
+  %sext117 = add i64 %37, -4294967296
+  %38 = ashr i64 %sext117, 32
   %wide.trip.count = and i64 %10, 2147483647
-  br label %46
+  br label %49
 
-36:                                               ; preds = %.preheader93, %36
+39:                                               ; preds = %.preheader93, %39
   %indvars.iv = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next, %36 ]
-  %37 = icmp slt i64 %indvars.iv, %32
-  %.in.v = select i1 %37, i64 %indvars.iv, i64 %31
+  %40 = icmp slt i64 %indvars.iv, %35
+  %.in.v = select i1 %40, i64 %indvars.iv, i64 %34
   %.in = getelementptr inbounds nuw i16, ptr %6, i64 %.in.v
-  %38 = load i16, ptr %.in, align 2, !tbaa !19
-  %39 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
-  store i16 %38, ptr %39, align 2, !tbaa !19
+  %41 = load i16, ptr %.in, align 2, !tbaa !19
+  %42 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
+  store i16 %41, ptr %42, align 2, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
-  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !26
 
-.preheader:                                       ; preds = %59
+.preheader:                                       ; preds = %62
   %.not105 = icmp eq i32 %11, 65536
   br i1 %.not105, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %.preheader92, %.preheader
-  %40 = shl i64 %9, 31
-  %sext91 = add i64 %40, -4294967296
-  %41 = ashr i64 %sext91, 32
-  %42 = getelementptr inbounds nuw i16, ptr %6, i64 %41
-  %43 = and i64 %10, 2147483647
+  %43 = shl i64 %9, 31
+  %sext91 = add i64 %43, -4294967296
+  %44 = ashr i64 %sext91, 32
+  %45 = getelementptr inbounds nuw i16, ptr %6, i64 %44
+  %46 = and i64 %10, 2147483647
   %umax = tail call i32 @llvm.umax.i32(i32 %11, i32 65535)
-  %44 = add nuw i32 %umax, 1
-  %45 = icmp sgt i32 %11, -1
-  tail call void @llvm.assume(i1 %45)
-  br label %71
+  %47 = add nuw i32 %umax, 1
+  %48 = icmp sgt i32 %11, -1
+  tail call void @llvm.assume(i1 %48)
+  br label %74
 
-46:                                               ; preds = %.lr.ph, %59
+49:                                               ; preds = %.lr.ph, %62
   %indvars.iv108 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next109, %59 ]
-  %47 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv108
-  %48 = load i16, ptr %47, align 2, !tbaa !19
-  %49 = zext i16 %48 to i32
-  %.not = icmp eq i64 %indvars.iv108, 0
-  br i1 %.not, label %53, label %50
-
-50:                                               ; preds = %46
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv108
-  %51 = load i16, ptr %gep, align 2, !tbaa !19
+  %50 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv108
+  %51 = load i16, ptr %50, align 2, !tbaa !19
   %52 = zext i16 %51 to i32
-  br label %53
+  %.not = icmp eq i64 %indvars.iv108, 0
+  br i1 %.not, label %56, label %53
 
-53:                                               ; preds = %46, %50
-  %54 = phi i32 [ %52, %50 ], [ %49, %46 ]
-  %55 = icmp slt i64 %indvars.iv108, %35
-  br i1 %55, label %56, label %59
+53:                                               ; preds = %49
+  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv108
+  %54 = load i16, ptr %gep, align 2, !tbaa !19
+  %55 = zext i16 %54 to i32
+  br label %56
 
-56:                                               ; preds = %53
+56:                                               ; preds = %49, %53
+  %57 = phi i32 [ %55, %50 ], [ %52, %46 ]
+  %58 = icmp slt i64 %indvars.iv108, %38
+  br i1 %58, label %59, label %62
+
+59:                                               ; preds = %56
   %gep97 = getelementptr inbounds nuw i16, ptr %invariant.gep96, i64 %indvars.iv108
-  %57 = load i16, ptr %gep97, align 2, !tbaa !19
-  %58 = zext i16 %57 to i32
-  br label %59
+  %60 = load i16, ptr %gep97, align 2, !tbaa !19
+  %61 = zext i16 %60 to i32
+  br label %62
 
-59:                                               ; preds = %53, %56
-  %60 = phi i32 [ %58, %56 ], [ %49, %53 ]
-  %.sroa.speculated45 = tail call i32 @llvm.umin.i32(i32 %54, i32 %49)
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %60, i32 %49)
-  %61 = sub nsw i32 %.sroa.speculated, %.sroa.speculated45
-  %62 = icmp sgt i32 %61, -1
-  tail call void @llvm.assume(i1 %62)
-  %63 = add nuw nsw i32 %61, 2
-  %64 = lshr i32 %63, 2
-  %65 = sub nsw i32 %49, %64
-  %.sroa.speculate.load.false.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %65, i32 0)
-  %66 = trunc nuw i32 %.sroa.speculate.load.false.sroa.speculated.i to i16
-  %67 = shl nuw nsw i64 %indvars.iv108, 1
-  %68 = icmp samesign ult i64 %indvars.iv108, 65536
-  tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds nuw i16, ptr %26, i64 %67
-  store i16 %66, ptr %69, align 2, !tbaa !19
-  %70 = trunc nuw i32 %61 to i16
-  %gep99 = getelementptr inbounds nuw i16, ptr %invariant.gep98, i64 %67
-  store i16 %70, ptr %gep99, align 2, !tbaa !19
+62:                                               ; preds = %56, %59
+  %63 = phi i32 [ %61, %56 ], [ %52, %53 ]
+  %.sroa.speculated45 = tail call i32 @llvm.umin.i32(i32 %57, i32 %52)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %63, i32 %52)
+  %64 = sub nsw i32 %.sroa.speculated, %.sroa.speculated45
+  %65 = icmp sgt i32 %64, -1
+  tail call void @llvm.assume(i1 %65)
+  %66 = add nuw nsw i32 %64, 2
+  %67 = lshr i32 %66, 2
+  %68 = sub nsw i32 %52, %67
+  %.sroa.speculate.load.false.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %68, i32 0)
+  %69 = trunc nuw i32 %.sroa.speculate.load.false.sroa.speculated.i to i16
+  %70 = shl nuw nsw i64 %indvars.iv108, 1
+  %71 = icmp samesign ult i64 %indvars.iv108, 65536
+  tail call void @llvm.assume(i1 %71)
+  %72 = getelementptr inbounds nuw i16, ptr %26, i64 %70
+  store i16 %69, ptr %72, align 2, !tbaa !19
+  %73 = trunc nuw i32 %64 to i16
+  %gep99 = getelementptr inbounds nuw i16, ptr %invariant.gep98, i64 %70
+  store i16 %73, ptr %gep99, align 2, !tbaa !19
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count
-  br i1 %exitcond111.not, label %.preheader, label %46, !llvm.loop !28
+  br i1 %exitcond111.not, label %.preheader, label %49, !llvm.loop !28
 
-71:                                               ; preds = %.lr.ph104, %71
-  %indvars.iv112 = phi i64 [ %43, %.lr.ph104 ], [ %indvars.iv.next113, %71 ]
-  %72 = load i16, ptr %42, align 2, !tbaa !19
-  %73 = shl nuw nsw i64 %indvars.iv112, 1
-  %74 = getelementptr inbounds nuw i16, ptr %26, i64 %73
-  store i16 %72, ptr %74, align 2, !tbaa !19
-  %gep102 = getelementptr inbounds nuw i16, ptr %invariant.gep98, i64 %73
+74:                                               ; preds = %.lr.ph104, %74
+  %indvars.iv112 = phi i64 [ %46, %.lr.ph104 ], [ %indvars.iv.next113, %71 ]
+  %75 = load i16, ptr %45, align 2, !tbaa !19
+  %76 = shl nuw nsw i64 %indvars.iv112, 1
+  %77 = getelementptr inbounds nuw i16, ptr %26, i64 %76
+  store i16 %75, ptr %77, align 2, !tbaa !19
+  %gep102 = getelementptr inbounds nuw i16, ptr %invariant.gep98, i64 %76
   store i16 0, ptr %gep102, align 2, !tbaa !19
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next113 to i32
-  %exitcond115.not = icmp eq i32 %44, %lftr.wideiv
-  br i1 %exitcond115.not, label %.loopexit, label %71, !llvm.loop !29
+  %exitcond115.not = icmp eq i32 %47, %lftr.wideiv
+  br i1 %exitcond115.not, label %.loopexit, label %74, !llvm.loop !29
 
-.loopexit:                                        ; preds = %36, %71, %.preheader
+.loopexit:                                        ; preds = %39, %74, %.preheader
   ret void
 }
 
