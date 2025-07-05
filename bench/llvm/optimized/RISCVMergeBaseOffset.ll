@@ -314,11 +314,10 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt20
   br i1 %.not38.i, label %44, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
 
 44:                                               ; preds = %33
-  %trunc.i = trunc i32 %39 to i8
-  switch i8 %trunc.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread [
-    i8 10, label %45
-    i8 6, label %45
-    i8 11, label %45
+  switch i32 %40, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread [
+    i32 10, label %45
+    i32 6, label %45
+    i32 11, label %45
   ]
 
 45:                                               ; preds = %44, %44, %44
@@ -437,8 +436,8 @@ _ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i: ; preds = 
   br i1 %.not43.i, label %95, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
 
 95:                                               ; preds = %89
-  %trunc7.i = trunc i32 %91 to i8
-  switch i8 %trunc7.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread [
+  %trunc.i = trunc i32 %91 to i8
+  switch i8 %trunc.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread [
     i8 10, label %96
     i8 6, label %96
     i8 11, label %96

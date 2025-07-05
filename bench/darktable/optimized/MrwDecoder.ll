@@ -171,21 +171,21 @@ _ZN8rawspeed10MrwDecoder5isMRWENS_6BufferE.exit:  ; preds = %1
   unreachable
 
 _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZN8rawspeed10MrwDecoder5isMRWENS_6BufferE.exit
+  %7 = zext i32 %.sroa.234.0.copyload to i64
   %.not.i.i.i.i.i.i = icmp ult i32 %.sroa.234.0.copyload, 8
-  br i1 %.not.i.i.i.i.i.i, label %7, label %_ZN8rawspeed10ByteStream6getU32Ev.exit
+  br i1 %.not.i.i.i.i.i.i, label %8, label %_ZN8rawspeed10ByteStream6getU32Ev.exit
 
-7:                                                ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit
+8:                                                ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16
   unreachable
 
 _ZN8rawspeed10ByteStream6getU32Ev.exit:           ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit
-  %8 = zext i32 %.sroa.234.0.copyload to i64
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.copyload, i64 4
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %9, align 1
   %10 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i)
   %11 = zext i32 %10 to i64
   %12 = add nuw nsw i64 %11, 8
-  %.not.i = icmp samesign ugt i64 %12, %8
+  %.not.i = icmp samesign ugt i64 %12, %7
   br i1 %.not.i, label %13, label %_ZNK8rawspeed10ByteStream12getSubStreamEjj.exit
 
 13:                                               ; preds = %_ZN8rawspeed10ByteStream6getU32Ev.exit
@@ -686,22 +686,23 @@ _ZN8rawspeed10ByteStream11setPositionEj.exit:     ; preds = %_ZN8rawspeed10ByteS
   %176 = load i32, ptr %175, align 8, !tbaa !9
   %177 = mul i32 %174, %176
   %178 = lshr i32 %177, 3
-  %narrow391 = add nuw i32 %178, %14
-  %.not.i104 = icmp ugt i32 %narrow391, %.sroa.234.0.copyload
-  br i1 %.not.i104, label %179, label %_ZNK8rawspeed6Buffer10getSubViewEjj.exit
+  %179 = zext nneg i32 %14 to i64
+  %180 = zext nneg i32 %178 to i64
+  %181 = add nuw nsw i64 %180, %179
+  %.not.i104 = icmp samesign ugt i64 %181, %7
+  br i1 %.not.i104, label %182, label %_ZNK8rawspeed6Buffer10getSubViewEjj.exit
 
-179:                                              ; preds = %169
+182:                                              ; preds = %169
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16
   unreachable
 
 _ZNK8rawspeed6Buffer10getSubViewEjj.exit:         ; preds = %169
-  %180 = zext nneg i32 %14 to i64
-  %181 = add nuw nsw i32 %178, %14
-  %182 = icmp samesign ule i32 %181, %.sroa.234.0.copyload
-  call void @llvm.assume(i1 %182)
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.copyload, i64 %180
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %183, ptr %184, align 8, !tbaa !47
+  %183 = add nuw nsw i32 %178, %14
+  %184 = icmp samesign ule i32 %183, %.sroa.234.0.copyload
+  call void @llvm.assume(i1 %184)
+  %185 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.copyload, i64 %179
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr %185, ptr %186, align 8, !tbaa !47
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %178, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !48
   ret void

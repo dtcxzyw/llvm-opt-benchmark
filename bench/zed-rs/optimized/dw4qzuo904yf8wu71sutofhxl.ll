@@ -28493,7 +28493,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 
 157:                                              ; preds = %151
   %158 = getelementptr i8, ptr %2, i64 %154
-  %159 = sub nuw i64 %3, %154
+  %159 = sub nuw nsw i64 %3, %154
   %160 = mul nuw nsw i64 %153, %143
   %.not219.i = icmp ugt i64 %160, %159
   br i1 %.not219.i, label %161, label %162
@@ -28551,13 +28551,13 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 
 173:                                              ; preds = %171, %.thread340.i
   call void @llvm.lifetime.end.p0(i64 63, ptr nonnull %.sroa.645.i)
-  %174 = getelementptr inbounds i8, ptr %2, i64 %3
+  %174 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %175 = icmp eq ptr %163, %174
   br i1 %175, label %"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5745ba766d39db5aE.exit271.i", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7fcb38994838d758E.llvm.10066118007184727147.exit250.preheader.i"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7fcb38994838d758E.llvm.10066118007184727147.exit250.preheader.i": ; preds = %173
   %176 = mul nuw nsw i64 %153, %144
-  %177 = sub i64 %3, %176
+  %177 = sub nsw i64 %3, %176
   call void @llvm.memset.p0.i64(ptr align 1 %163, i8 0, i64 %177, i1 false), !alias.scope !5684, !noalias !5747
   br label %"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h5745ba766d39db5aE.exit271.i"
 

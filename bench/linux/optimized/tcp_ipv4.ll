@@ -1640,6 +1640,7 @@ define dso_local ptr @__tcp_md5_do_lookup(ptr noundef %0, i32 noundef %1, ptr no
 
 12:                                               ; preds = %9
   %13 = getelementptr i8, ptr %2, i64 8
+  %trunc = trunc nuw i32 %3 to i8
   br label %14
 
 14:                                               ; preds = %99, %12
@@ -1668,9 +1669,9 @@ define dso_local ptr @__tcp_md5_do_lookup(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %30, label %31, label %99
 
 31:                                               ; preds = %27, %22, %21
-  switch i32 %3, label %99 [
-    i32 2, label %32
-    i32 10, label %47
+  switch i8 %trunc, label %99 [
+    i8 2, label %32
+    i8 10, label %47
   ]
 
 32:                                               ; preds = %31

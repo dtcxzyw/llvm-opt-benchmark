@@ -3452,7 +3452,7 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
   %57 = load ptr, ptr %56, align 8, !tbaa !205
   tail call void @free(ptr noundef %57) #13
   store ptr null, ptr %56, align 8, !tbaa !205
-  %58 = mul nuw nsw i32 %7, 3
+  %58 = mul nsw i32 %7, 3
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %61 = load i64, ptr %60, align 8, !tbaa !42

@@ -1708,9 +1708,9 @@ define internal fastcc void @spr_update_device_location(i32 noundef range(i32 8,
   %33 = zext i8 %32 to i32
   %34 = shl nuw nsw i32 %33, 20
   %35 = or disjoint i32 %30, %34
-  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @spr_uncore_upi, i64 56), align 8
-  %37 = or i32 %35, %36
-  %38 = or i32 %37, %16
+  %36 = add nuw nsw i32 %35, %16
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @spr_uncore_upi, i64 56), align 8
+  %38 = or i32 %36, %37
   %39 = zext i32 %38 to i64
   %40 = zext nneg i32 %22 to i64
   %41 = getelementptr i64, ptr %10, i64 %40
@@ -1751,9 +1751,9 @@ define internal fastcc void @spr_update_device_location(i32 noundef range(i32 8,
   %62 = zext i8 %61 to i32
   %63 = shl nuw nsw i32 %62, 20
   %64 = or disjoint i32 %59, %63
-  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @spr_uncore_m3upi, i64 56), align 8
-  %66 = or i32 %64, %65
-  %67 = or i32 %66, %16
+  %65 = add nuw nsw i32 %64, %16
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @spr_uncore_m3upi, i64 56), align 8
+  %67 = or i32 %65, %66
   %68 = zext i32 %67 to i64
   %69 = zext nneg i32 %51 to i64
   %70 = getelementptr i64, ptr %10, i64 %69

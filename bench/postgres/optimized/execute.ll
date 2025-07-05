@@ -3031,12 +3031,12 @@ store_input_from_desc.exit:                       ; preds = %93, %94
 123:                                              ; preds = %117
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %125 = load ptr, ptr %124, align 8
-  %126 = zext nneg i32 %.0191372 to i64
-  %127 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %125, i64 %126
+  %126 = sext i32 %.0191372 to i64
+  %127 = getelementptr inbounds %struct.sqlvar_compat, ptr %125, i64 %126
   %128 = load i16, ptr %127, align 8
   %129 = sext i16 %128 to i32
   store i32 %129, ptr %4, align 8
-  %130 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %125, i64 %126, i32 2
+  %130 = getelementptr inbounds %struct.sqlvar_compat, ptr %125, i64 %126, i32 2
   %131 = load ptr, ptr %130, align 8
   store ptr %131, ptr %32, align 8
   store ptr %130, ptr %33, align 8
@@ -3054,7 +3054,7 @@ store_input_from_desc.exit:                       ; preds = %93, %94
   store i64 %storemerge404, ptr %34, align 8
   store i64 1, ptr %35, align 8
   store i64 0, ptr %36, align 8
-  %135 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %125, i64 %126, i32 3
+  %135 = getelementptr inbounds %struct.sqlvar_compat, ptr %125, i64 %126, i32 3
   %136 = load ptr, ptr %135, align 8
   %.not245 = icmp eq ptr %136, null
   br i1 %.not245, label %144, label %137
@@ -3068,14 +3068,14 @@ store_input_from_desc.exit:                       ; preds = %93, %94
 139:                                              ; preds = %137
   store i16 -1, ptr %136, align 2
   %.pre394 = load ptr, ptr %124, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %.pre394, i64 %126, i32 3
+  %.phi.trans.insert = getelementptr inbounds %struct.sqlvar_compat, ptr %.pre394, i64 %126, i32 3
   %.pre395 = load ptr, ptr %.phi.trans.insert, align 8
   br label %140
 
 140:                                              ; preds = %139, %137
   %141 = phi ptr [ %.pre395, %139 ], [ %136, %137 ]
   %142 = phi ptr [ %.pre394, %139 ], [ %125, %137 ]
-  %143 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %142, i64 %126, i32 3
+  %143 = getelementptr inbounds %struct.sqlvar_compat, ptr %142, i64 %126, i32 3
   store ptr %141, ptr %38, align 8
   store ptr %143, ptr %39, align 8
   store i64 1, ptr %40, align 8
@@ -3128,8 +3128,8 @@ store_input_from_desc.exit:                       ; preds = %93, %94
 
 159:                                              ; preds = %152
   %160 = getelementptr inbounds nuw i8, ptr %114, i64 32
-  %161 = zext nneg i32 %.0191372 to i64
-  %162 = getelementptr inbounds nuw [1 x %struct.sqlvar_struct], ptr %160, i64 0, i64 %161
+  %161 = sext i32 %.0191372 to i64
+  %162 = getelementptr inbounds [1 x %struct.sqlvar_struct], ptr %160, i64 0, i64 %161
   %163 = load i16, ptr %162, align 8
   %164 = sext i16 %163 to i32
   store i32 %164, ptr %5, align 8
