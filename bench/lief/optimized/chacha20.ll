@@ -141,7 +141,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr noundef captures(none) %0
 
 .critedge:                                        ; preds = %7
   %21 = icmp ugt i64 %.03346, 63
-  br i1 %21, label %.lr.ph57, label %._crit_edge.thread75
+  br i1 %21, label %.lr.ph57, label %._crit_edge.thread74
 
 .lr.ph57:                                         ; preds = %.critedge
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -169,7 +169,7 @@ define hidden noundef i32 @mbedtls_chacha20_update(ptr noundef captures(none) %0
   %33 = xor i64 %.0.copyload.i42, %.0.copyload.i43
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 %.0.i52
   store i64 %33, ptr %34, align 1
-  %.not.i = icmp samesign ugt i64 %.0.i52, 48
+  %.not.i = icmp samesign ugt i64 %.0.i52, 55
   br i1 %.not.i, label %mbedtls_xor.exit, label %29, !llvm.loop !13
 
 mbedtls_xor.exit:                                 ; preds = %29
@@ -180,30 +180,30 @@ mbedtls_xor.exit:                                 ; preds = %29
 
 ._crit_edge:                                      ; preds = %mbedtls_xor.exit
   %.not36 = icmp eq i64 %36, 0
-  br i1 %.not36, label %._crit_edge.thread, label %._crit_edge.thread75
+  br i1 %.not36, label %._crit_edge.thread, label %._crit_edge.thread74
 
-._crit_edge.thread75:                             ; preds = %.critedge, %._crit_edge
-  %.1.lcssa80 = phi i64 [ %35, %._crit_edge ], [ %.047, %.critedge ]
-  %.134.lcssa79 = phi i64 [ %36, %._crit_edge ], [ %.03346, %.critedge ]
+._crit_edge.thread74:                             ; preds = %.critedge, %._crit_edge
+  %.1.lcssa79 = phi i64 [ %35, %._crit_edge ], [ %.047, %.critedge ]
+  %.134.lcssa78 = phi i64 [ %36, %._crit_edge ], [ %.03346, %.critedge ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call fastcc void @chacha20_block(ptr noundef nonnull %0, ptr noundef nonnull %38)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load i32, ptr %39, align 8, !tbaa !8
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 8, !tbaa !8
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.lcssa80
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 %.1.lcssa80
-  %.not.i3860 = icmp samesign ult i64 %.134.lcssa79, 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.lcssa79
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 %.1.lcssa79
+  %.not.i3860 = icmp samesign ult i64 %.134.lcssa78, 8
   br i1 %.not.i3860, label %.preheader, label %.lr.ph63
 
-.preheader:                                       ; preds = %.lr.ph63, %._crit_edge.thread75
-  %.0.i37.lcssa = phi i64 [ 0, %._crit_edge.thread75 ], [ %45, %.lr.ph63 ]
-  %44 = icmp samesign ult i64 %.0.i37.lcssa, %.134.lcssa79
+.preheader:                                       ; preds = %.lr.ph63, %._crit_edge.thread74
+  %.0.i37.lcssa = phi i64 [ 0, %._crit_edge.thread74 ], [ %45, %.lr.ph63 ]
+  %44 = icmp samesign ult i64 %.0.i37.lcssa, %.134.lcssa78
   br i1 %44, label %.lr.ph66, label %mbedtls_xor.exit40
 
-.lr.ph63:                                         ; preds = %._crit_edge.thread75, %.lr.ph63
-  %45 = phi i64 [ %50, %.lr.ph63 ], [ 8, %._crit_edge.thread75 ]
-  %.0.i3761 = phi i64 [ %45, %.lr.ph63 ], [ 0, %._crit_edge.thread75 ]
+.lr.ph63:                                         ; preds = %._crit_edge.thread74, %.lr.ph63
+  %45 = phi i64 [ %50, %.lr.ph63 ], [ 8, %._crit_edge.thread74 ]
+  %.0.i3761 = phi i64 [ %45, %.lr.ph63 ], [ 0, %._crit_edge.thread74 ]
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 %.0.i3761
   %.0.copyload.i41 = load i64, ptr %46, align 1
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 %.0.i3761
@@ -212,7 +212,7 @@ mbedtls_xor.exit:                                 ; preds = %29
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 %.0.i3761
   store i64 %48, ptr %49, align 1
   %50 = add nuw nsw i64 %45, 8
-  %.not.i38 = icmp ugt i64 %50, %.134.lcssa79
+  %.not.i38 = icmp ugt i64 %50, %.134.lcssa78
   br i1 %.not.i38, label %.preheader, label %.lr.ph63, !llvm.loop !13
 
 .lr.ph66:                                         ; preds = %.preheader, %.lr.ph66
@@ -225,11 +225,11 @@ mbedtls_xor.exit:                                 ; preds = %29
   %56 = getelementptr inbounds nuw i8, ptr %42, i64 %.1.i3965
   store i8 %55, ptr %56, align 1, !tbaa !10
   %57 = add nuw nsw i64 %.1.i3965, 1
-  %exitcond.not = icmp eq i64 %57, %.134.lcssa79
+  %exitcond.not = icmp eq i64 %57, %.134.lcssa78
   br i1 %exitcond.not, label %mbedtls_xor.exit40, label %.lr.ph66, !llvm.loop !15
 
 mbedtls_xor.exit40:                               ; preds = %.lr.ph66, %.preheader
-  store i64 %.134.lcssa79, ptr %5, align 8, !tbaa !3
+  store i64 %.134.lcssa78, ptr %5, align 8, !tbaa !3
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %10, %4, %mbedtls_xor.exit40, %._crit_edge

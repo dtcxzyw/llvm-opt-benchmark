@@ -13,7 +13,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
 14:                                               ; preds = %10
   %15 = tail call ptr @__errno_location() #5
   store i32 27, ptr %15, align 4
-  br label %143
+  br label %142
 
 16:                                               ; preds = %10
   %17 = mul nuw i64 %12, %11
@@ -23,7 +23,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
 19:                                               ; preds = %16
   %20 = tail call ptr @__errno_location() #5
   store i32 27, ptr %20, align 4
-  br label %143
+  br label %142
 
 21:                                               ; preds = %16
   %22 = icmp ugt i64 %5, 4294967295
@@ -32,7 +32,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
 23:                                               ; preds = %21
   %24 = tail call ptr @__errno_location() #5
   store i32 27, ptr %24, align 4
-  br label %143
+  br label %142
 
 25:                                               ; preds = %21
   %26 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %5)
@@ -44,7 +44,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
 29:                                               ; preds = %25
   %30 = tail call ptr @__errno_location() #5
   store i32 22, ptr %30, align 4
-  br label %143
+  br label %142
 
 31:                                               ; preds = %25
   %32 = icmp eq i32 %6, 0
@@ -55,7 +55,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
 34:                                               ; preds = %31
   %35 = tail call ptr @__errno_location() #5
   store i32 22, ptr %35, align 4
-  br label %143
+  br label %142
 
 36:                                               ; preds = %31
   %37 = udiv i64 144115188075855871, %12
@@ -70,7 +70,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
 42:                                               ; preds = %39, %36
   %43 = tail call ptr @__errno_location() #5
   store i32 12, ptr %43, align 4
-  br label %143
+  br label %142
 
 44:                                               ; preds = %39
   %45 = shl nuw nsw i64 %11, 7
@@ -83,176 +83,176 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
 50:                                               ; preds = %44
   %51 = tail call ptr @__errno_location() #5
   store i32 12, ptr %51, align 4
-  br label %143
+  br label %142
 
 52:                                               ; preds = %44
   %53 = shl nuw nsw i64 %11, 8
   %54 = or disjoint i64 %53, 64
   %55 = add i64 %48, %54
-  %56 = icmp ult i64 %55, %54
-  br i1 %56, label %57, label %59
+  %.not = icmp ugt i64 %55, %53
+  br i1 %.not, label %58, label %56
 
-57:                                               ; preds = %52
-  %58 = tail call ptr @__errno_location() #5
-  store i32 12, ptr %58, align 4
-  br label %143
+56:                                               ; preds = %52
+  %57 = tail call ptr @__errno_location() #5
+  store i32 12, ptr %57, align 4
+  br label %142
 
-59:                                               ; preds = %52
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %61 = load i64, ptr %60, align 8
-  %62 = icmp ult i64 %61, %55
-  br i1 %62, label %63, label %.lr.ph
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %60 = load i64, ptr %59, align 8
+  %61 = icmp ult i64 %60, %55
+  br i1 %61, label %62, label %.lr.ph
 
-63:                                               ; preds = %59
-  %64 = tail call i32 @_sodium_escrypt_free_region(ptr noundef nonnull %0) #6
-  %.not = icmp eq i32 %64, 0
-  br i1 %.not, label %65, label %143
+62:                                               ; preds = %58
+  %63 = tail call i32 @_sodium_escrypt_free_region(ptr noundef nonnull %0) #6
+  %.not72 = icmp eq i32 %63, 0
+  br i1 %.not72, label %64, label %142
 
-65:                                               ; preds = %63
-  %66 = tail call ptr @_sodium_escrypt_alloc_region(ptr noundef nonnull %0, i64 noundef %55) #6
-  %.not72 = icmp eq ptr %66, null
-  br i1 %.not72, label %143, label %.lr.ph
+64:                                               ; preds = %62
+  %65 = tail call ptr @_sodium_escrypt_alloc_region(ptr noundef nonnull %0, i64 noundef %55) #6
+  %.not73 = icmp eq ptr %65, null
+  br i1 %.not73, label %142, label %.lr.ph
 
-.lr.ph:                                           ; preds = %59, %65
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr i8, ptr %68, i64 %46
-  %70 = getelementptr i8, ptr %69, i64 %47
-  tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef 1, ptr noundef %68, i64 noundef %46) #6
-  %71 = shl nuw nsw i64 %11, 1
-  %72 = add nsw i64 %5, -1
-  %73 = icmp samesign ugt i64 %5, 2
+.lr.ph:                                           ; preds = %58, %64
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr i8, ptr %67, i64 %46
+  %69 = getelementptr i8, ptr %68, i64 %47
+  tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef 1, ptr noundef %67, i64 noundef %46) #6
+  %70 = shl nuw nsw i64 %11, 1
+  %71 = add nsw i64 %5, -1
+  %72 = icmp samesign ugt i64 %5, 2
+  %73 = ptrtoint ptr %68 to i64
   %74 = ptrtoint ptr %69 to i64
-  %75 = ptrtoint ptr %70 to i64
-  %76 = add i64 %45, %75
-  %77 = inttoptr i64 %76 to ptr
-  %78 = getelementptr i8, ptr %70, i64 %45
-  %79 = getelementptr i8, ptr %78, i64 -64
-  %80 = getelementptr i8, ptr %78, i64 -16
-  br label %81
+  %75 = add i64 %45, %74
+  %76 = inttoptr i64 %75 to ptr
+  %77 = getelementptr i8, ptr %69, i64 %45
+  %78 = getelementptr i8, ptr %77, i64 -64
+  %79 = getelementptr i8, ptr %77, i64 -16
+  br label %80
 
-81:                                               ; preds = %.lr.ph, %smix.exit
+80:                                               ; preds = %.lr.ph, %smix.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %smix.exit ]
-  %82 = mul i64 %45, %indvars.iv
-  %83 = getelementptr i8, ptr %68, i64 %82
+  %81 = mul i64 %45, %indvars.iv
+  %82 = getelementptr i8, ptr %67, i64 %81
   br label %.preheader82.i
 
-.preheader82.i:                                   ; preds = %95, %81
-  %.07485.i = phi i64 [ 0, %81 ], [ %96, %95 ]
-  %84 = shl nuw nsw i64 %.07485.i, 4
-  %85 = getelementptr i32, ptr %69, i64 %84
-  br label %86
+.preheader82.i:                                   ; preds = %94, %80
+  %.07485.i = phi i64 [ 0, %80 ], [ %95, %94 ]
+  %83 = shl nuw nsw i64 %.07485.i, 4
+  %84 = getelementptr i32, ptr %68, i64 %83
+  br label %85
 
-.preheader81.i:                                   ; preds = %95
-  br i1 %73, label %.lr.ph.i, label %._crit_edge.i
+.preheader81.i:                                   ; preds = %94
+  br i1 %72, label %.lr.ph.i, label %._crit_edge.i
 
-86:                                               ; preds = %86, %.preheader82.i
-  %.07684.i = phi i64 [ 0, %.preheader82.i ], [ %94, %86 ]
-  %87 = mul nuw nsw i64 %.07684.i, 5
-  %88 = and i64 %87, 15
-  %89 = or disjoint i64 %88, %84
-  %90 = shl nuw nsw i64 %89, 2
-  %91 = getelementptr i8, ptr %83, i64 %90
-  %92 = load i32, ptr %91, align 1
-  %93 = getelementptr i32, ptr %85, i64 %.07684.i
-  store i32 %92, ptr %93, align 4
-  %94 = add nuw nsw i64 %.07684.i, 1
-  %exitcond.not.i = icmp eq i64 %94, 16
-  br i1 %exitcond.not.i, label %95, label %86, !llvm.loop !4
+85:                                               ; preds = %85, %.preheader82.i
+  %.07684.i = phi i64 [ 0, %.preheader82.i ], [ %93, %85 ]
+  %86 = mul nuw nsw i64 %.07684.i, 5
+  %87 = and i64 %86, 15
+  %88 = or disjoint i64 %87, %83
+  %89 = shl nuw nsw i64 %88, 2
+  %90 = getelementptr i8, ptr %82, i64 %89
+  %91 = load i32, ptr %90, align 1
+  %92 = getelementptr i32, ptr %84, i64 %.07684.i
+  store i32 %91, ptr %92, align 4
+  %93 = add nuw nsw i64 %.07684.i, 1
+  %exitcond.not.i = icmp eq i64 %93, 16
+  br i1 %exitcond.not.i, label %94, label %85, !llvm.loop !4
 
-95:                                               ; preds = %86
-  %96 = add nuw nsw i64 %.07485.i, 1
-  %exitcond95.not.i = icmp eq i64 %96, %71
+94:                                               ; preds = %85
+  %95 = add nuw nsw i64 %.07485.i, 1
+  %exitcond95.not.i = icmp eq i64 %95, %70
   br i1 %exitcond95.not.i, label %.preheader81.i, label %.preheader82.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %.preheader81.i, %.lr.ph.i
-  %.087.i = phi ptr [ %103, %.lr.ph.i ], [ %69, %.preheader81.i ]
-  %.17786.i = phi i64 [ %104, %.lr.ph.i ], [ 1, %.preheader81.i ]
-  %97 = mul i64 %.17786.i, %45
-  %98 = add i64 %97, %74
-  %99 = inttoptr i64 %98 to ptr
-  tail call fastcc void @blockmix_salsa8(ptr noundef %.087.i, ptr noundef %99, i64 noundef range(i64 1, 4294967296) %11)
-  %100 = add nuw nsw i64 %.17786.i, 1
-  %101 = mul i64 %100, %45
-  %102 = add i64 %101, %74
-  %103 = inttoptr i64 %102 to ptr
-  tail call fastcc void @blockmix_salsa8(ptr noundef %99, ptr noundef %103, i64 noundef range(i64 1, 4294967296) %11)
-  %104 = add nuw nsw i64 %.17786.i, 2
-  %105 = icmp ult i64 %104, %72
-  br i1 %105, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
+  %.087.i = phi ptr [ %102, %.lr.ph.i ], [ %68, %.preheader81.i ]
+  %.17786.i = phi i64 [ %103, %.lr.ph.i ], [ 1, %.preheader81.i ]
+  %96 = mul i64 %.17786.i, %45
+  %97 = add i64 %96, %73
+  %98 = inttoptr i64 %97 to ptr
+  tail call fastcc void @blockmix_salsa8(ptr noundef %.087.i, ptr noundef %98, i64 noundef range(i64 1, 4294967296) %11)
+  %99 = add nuw nsw i64 %.17786.i, 1
+  %100 = mul i64 %99, %45
+  %101 = add i64 %100, %73
+  %102 = inttoptr i64 %101 to ptr
+  tail call fastcc void @blockmix_salsa8(ptr noundef %98, ptr noundef %102, i64 noundef range(i64 1, 4294967296) %11)
+  %103 = add nuw nsw i64 %.17786.i, 2
+  %104 = icmp ult i64 %103, %71
+  br i1 %104, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader81.i
-  %.177.lcssa.i = phi i64 [ 1, %.preheader81.i ], [ %104, %.lr.ph.i ]
-  %.0.lcssa.i = phi ptr [ %69, %.preheader81.i ], [ %103, %.lr.ph.i ]
-  %106 = mul i64 %.177.lcssa.i, %45
-  %107 = add i64 %106, %74
-  %108 = inttoptr i64 %107 to ptr
-  tail call fastcc void @blockmix_salsa8(ptr noundef %.0.lcssa.i, ptr noundef %108, i64 noundef range(i64 1, 4294967296) %11)
-  tail call fastcc void @blockmix_salsa8(ptr noundef %108, ptr noundef %70, i64 noundef range(i64 1, 4294967296) %11)
-  %109 = load i32, ptr %79, align 16
-  %110 = load <4 x i32>, ptr %80, align 16
-  %111 = extractelement <4 x i32> %110, i64 1
-  %112 = zext i32 %111 to i64
-  %113 = shl nuw i64 %112, 32
-  %114 = zext i32 %109 to i64
-  %115 = or disjoint i64 %113, %114
-  br label %116
+  %.177.lcssa.i = phi i64 [ 1, %.preheader81.i ], [ %103, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %68, %.preheader81.i ], [ %102, %.lr.ph.i ]
+  %105 = mul i64 %.177.lcssa.i, %45
+  %106 = add i64 %105, %73
+  %107 = inttoptr i64 %106 to ptr
+  tail call fastcc void @blockmix_salsa8(ptr noundef %.0.lcssa.i, ptr noundef %107, i64 noundef range(i64 1, 4294967296) %11)
+  tail call fastcc void @blockmix_salsa8(ptr noundef %107, ptr noundef %69, i64 noundef range(i64 1, 4294967296) %11)
+  %108 = load i32, ptr %78, align 16
+  %109 = load <4 x i32>, ptr %79, align 16
+  %110 = extractelement <4 x i32> %109, i64 1
+  %111 = zext i32 %110 to i64
+  %112 = shl nuw i64 %111, 32
+  %113 = zext i32 %108 to i64
+  %114 = or disjoint i64 %112, %113
+  br label %115
 
-116:                                              ; preds = %116, %._crit_edge.i
-  %.pn91.i = phi i64 [ %115, %._crit_edge.i ], [ %127, %116 ]
-  %.290.i = phi i64 [ 0, %._crit_edge.i ], [ %128, %116 ]
-  %.075.i = and i64 %.pn91.i, %72
-  %117 = mul i64 %.075.i, %45
-  %118 = add i64 %117, %74
-  %119 = inttoptr i64 %118 to ptr
-  %120 = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef nonnull %70, ptr noundef %119, ptr noundef %77, i64 noundef range(i64 1, 4294967296) %11)
-  %121 = zext i32 %120 to i64
-  %122 = and i64 %72, %121
-  %123 = mul i64 %122, %45
-  %124 = add i64 %123, %74
-  %125 = inttoptr i64 %124 to ptr
-  %126 = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef %77, ptr noundef %125, ptr noundef nonnull %70, i64 noundef range(i64 1, 4294967296) %11)
-  %127 = zext i32 %126 to i64
-  %128 = add nuw nsw i64 %.290.i, 2
-  %129 = icmp samesign ult i64 %128, %5
-  br i1 %129, label %116, label %.preheader.i, !llvm.loop !8
+115:                                              ; preds = %115, %._crit_edge.i
+  %.pn91.i = phi i64 [ %114, %._crit_edge.i ], [ %126, %115 ]
+  %.290.i = phi i64 [ 0, %._crit_edge.i ], [ %127, %115 ]
+  %.075.i = and i64 %.pn91.i, %71
+  %116 = mul i64 %.075.i, %45
+  %117 = add i64 %116, %73
+  %118 = inttoptr i64 %117 to ptr
+  %119 = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef nonnull %69, ptr noundef %118, ptr noundef %76, i64 noundef range(i64 1, 4294967296) %11)
+  %120 = zext i32 %119 to i64
+  %121 = and i64 %71, %120
+  %122 = mul i64 %121, %45
+  %123 = add i64 %122, %73
+  %124 = inttoptr i64 %123 to ptr
+  %125 = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef %76, ptr noundef %124, ptr noundef nonnull %69, i64 noundef range(i64 1, 4294967296) %11)
+  %126 = zext i32 %125 to i64
+  %127 = add nuw nsw i64 %.290.i, 2
+  %128 = icmp samesign ult i64 %127, %5
+  br i1 %128, label %115, label %.preheader.i, !llvm.loop !8
 
-.preheader.i:                                     ; preds = %116, %141
-  %.193.i = phi i64 [ %142, %141 ], [ 0, %116 ]
-  %130 = shl nuw nsw i64 %.193.i, 4
-  %131 = getelementptr i32, ptr %70, i64 %130
-  br label %132
+.preheader.i:                                     ; preds = %115, %140
+  %.193.i = phi i64 [ %141, %140 ], [ 0, %115 ]
+  %129 = shl nuw nsw i64 %.193.i, 4
+  %130 = getelementptr i32, ptr %69, i64 %129
+  br label %131
 
-132:                                              ; preds = %132, %.preheader.i
-  %.392.i = phi i64 [ 0, %.preheader.i ], [ %140, %132 ]
-  %133 = mul nuw nsw i64 %.392.i, 5
-  %134 = and i64 %133, 15
-  %135 = or disjoint i64 %134, %130
-  %136 = shl nuw nsw i64 %135, 2
-  %137 = getelementptr i8, ptr %83, i64 %136
-  %138 = getelementptr i32, ptr %131, i64 %.392.i
-  %139 = load i32, ptr %138, align 4
-  store i32 %139, ptr %137, align 1
-  %140 = add nuw nsw i64 %.392.i, 1
-  %exitcond96.not.i = icmp eq i64 %140, 16
-  br i1 %exitcond96.not.i, label %141, label %132, !llvm.loop !9
+131:                                              ; preds = %131, %.preheader.i
+  %.392.i = phi i64 [ 0, %.preheader.i ], [ %139, %131 ]
+  %132 = mul nuw nsw i64 %.392.i, 5
+  %133 = and i64 %132, 15
+  %134 = or disjoint i64 %133, %129
+  %135 = shl nuw nsw i64 %134, 2
+  %136 = getelementptr i8, ptr %82, i64 %135
+  %137 = getelementptr i32, ptr %130, i64 %.392.i
+  %138 = load i32, ptr %137, align 4
+  store i32 %138, ptr %136, align 1
+  %139 = add nuw nsw i64 %.392.i, 1
+  %exitcond96.not.i = icmp eq i64 %139, 16
+  br i1 %exitcond96.not.i, label %140, label %131, !llvm.loop !9
 
-141:                                              ; preds = %132
-  %142 = add nuw nsw i64 %.193.i, 1
-  %exitcond97.not.i = icmp eq i64 %142, %71
+140:                                              ; preds = %131
+  %141 = add nuw nsw i64 %.193.i, 1
+  %exitcond97.not.i = icmp eq i64 %141, %70
   br i1 %exitcond97.not.i, label %smix.exit, label %.preheader.i, !llvm.loop !10
 
-smix.exit:                                        ; preds = %141
+smix.exit:                                        ; preds = %140
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
-  br i1 %exitcond.not, label %._crit_edge, label %81, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %80, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %smix.exit
-  tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %68, i64 noundef %46, i64 noundef 1, ptr noundef %8, i64 noundef %9) #6
-  br label %143
+  tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %67, i64 noundef %46, i64 noundef 1, ptr noundef %8, i64 noundef %9) #6
+  br label %142
 
-143:                                              ; preds = %65, %63, %._crit_edge, %57, %50, %42, %34, %29, %23, %19, %14
-  %.063 = phi i32 [ -1, %14 ], [ -1, %19 ], [ -1, %23 ], [ -1, %29 ], [ -1, %34 ], [ -1, %42 ], [ -1, %50 ], [ -1, %57 ], [ 0, %._crit_edge ], [ -1, %63 ], [ -1, %65 ]
+142:                                              ; preds = %64, %62, %._crit_edge, %56, %50, %42, %34, %29, %23, %19, %14
+  %.063 = phi i32 [ -1, %14 ], [ -1, %19 ], [ -1, %23 ], [ -1, %29 ], [ -1, %34 ], [ -1, %42 ], [ -1, %50 ], [ -1, %56 ], [ 0, %._crit_edge ], [ -1, %62 ], [ -1, %64 ]
   ret i32 %.063
 }
 
