@@ -839,213 +839,213 @@ aclitem_match.exit.thread:                        ; preds = %95, %aclitem_match.
   %.186 = phi ptr [ %137, %125 ], [ %.085, %.loopexit ]
   %.1 = phi ptr [ %129, %125 ], [ %.084, %.loopexit ]
   %.0 = phi i32 [ %120, %125 ], [ %77, %.loopexit ]
-  %147 = zext nneg i32 %.083105151 to i64
-  %148 = getelementptr inbounds nuw %struct.AclItem, ptr %.186, i64 %147
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %150 = load i64, ptr %149, align 8
+  %148 = zext nneg i32 %.083105151 to i64
+  %149 = getelementptr inbounds nuw %struct.AclItem, ptr %.186, i64 %148
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %151 = load i64, ptr %150, align 8
   switch i32 %2, label %163 [
-    i32 1, label %151
-    i32 2, label %155
-    i32 3, label %160
+    i32 1, label %152
+    i32 2, label %156
+    i32 3, label %161
   ]
 
-151:                                              ; preds = %146
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %153 = load i64, ptr %152, align 8
-  %154 = or i64 %153, %150
+152:                                              ; preds = %146
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %154 = load i64, ptr %153, align 8
+  %155 = or i64 %154, %151
   br label %.sink.split
 
-155:                                              ; preds = %146
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %157 = load i64, ptr %156, align 8
-  %158 = xor i64 %157, -1
-  %159 = and i64 %150, %158
+156:                                              ; preds = %146
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %158 = load i64, ptr %157, align 8
+  %159 = xor i64 %158, -1
+  %160 = and i64 %151, %159
   br label %.sink.split
 
-160:                                              ; preds = %146
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %162 = load i64, ptr %161, align 8
+161:                                              ; preds = %146
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %163 = load i64, ptr %162, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %151, %155, %160
-  %.sink = phi i64 [ %162, %160 ], [ %159, %155 ], [ %154, %151 ]
-  store i64 %.sink, ptr %149, align 8
-  br label %163
+.sink.split:                                      ; preds = %152, %156, %161
+  %.sink = phi i64 [ %163, %160 ], [ %160, %155 ], [ %155, %151 ]
+  store i64 %.sink, ptr %150, align 8
+  br label %164
 
-163:                                              ; preds = %.sink.split, %146
-  %164 = phi i64 [ %150, %146 ], [ %.sink, %.sink.split ]
-  %165 = icmp eq i64 %164, 0
-  br i1 %165, label %166, label %176
+164:                                              ; preds = %.sink.split, %146
+  %165 = phi i64 [ %151, %146 ], [ %.sink, %.sink.split ]
+  %166 = icmp eq i64 %165, 0
+  br i1 %166, label %167, label %177
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %168 = xor i32 %.083105151, -1
-  %169 = add i32 %.0, %168
-  %170 = sext i32 %169 to i64
-  %171 = shl nsw i64 %170, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %148, ptr nonnull align 8 %167, i64 %171, i1 false)
-  %172 = add i32 %.0, -1
-  %173 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  store i32 %172, ptr %173, align 4
-  %174 = shl i32 %172, 6
-  %175 = add i32 %174, 96
-  store i32 %175, ptr %.1, align 4
-  br label %176
+167:                                              ; preds = %164
+  %168 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %169 = xor i32 %.083105151, -1
+  %170 = add i32 %.0, %169
+  %171 = sext i32 %170 to i64
+  %172 = shl nsw i64 %171, 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %149, ptr nonnull align 8 %168, i64 %172, i1 false)
+  %173 = add i32 %.0, -1
+  %174 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  store i32 %173, ptr %174, align 4
+  %175 = shl i32 %173, 6
+  %176 = add i32 %175, 96
+  store i32 %176, ptr %.1, align 4
+  br label %177
 
-176:                                              ; preds = %166, %163
-  %177 = xor i64 %164, -1
-  %178 = and i64 %150, %177
-  %.not98 = icmp ult i64 %178, 4294967296
-  br i1 %.not98, label %recursive_revoke.exit, label %179
+177:                                              ; preds = %167, %164
+  %178 = xor i64 %165, -1
+  %179 = and i64 %151, %178
+  %.not98 = icmp ult i64 %179, 4294967296
+  br i1 %.not98, label %recursive_revoke.exit, label %180
 
-179:                                              ; preds = %176
-  %180 = load i32, ptr %1, align 8
+180:                                              ; preds = %177
+  %181 = load i32, ptr %1, align 8
   tail call fastcc void @check_acl(ptr noundef %.1)
-  %181 = icmp eq i32 %180, %3
-  br i1 %181, label %recursive_revoke.exit, label %182
+  %182 = icmp eq i32 %181, %3
+  br i1 %182, label %recursive_revoke.exit, label %183
 
-182:                                              ; preds = %179
-  %183 = and i64 %178, -4294967296
-  %184 = tail call i64 @aclmask(ptr noundef %.1, i32 noundef %180, i32 noundef %3, i64 noundef %183, i32 noundef 0)
-  %185 = xor i64 %184, -1
-  %186 = and i64 %178, %185
-  %187 = lshr i64 %186, 32
-  %188 = icmp ult i64 %186, 4294967296
-  br i1 %188, label %recursive_revoke.exit, label %.preheader
+183:                                              ; preds = %180
+  %184 = and i64 %179, -4294967296
+  %185 = tail call i64 @aclmask(ptr noundef %.1, i32 noundef %181, i32 noundef %3, i64 noundef %184, i32 noundef 0)
+  %186 = xor i64 %185, -1
+  %187 = and i64 %179, %186
+  %188 = lshr i64 %187, 32
+  %189 = icmp ult i64 %187, 4294967296
+  br i1 %189, label %recursive_revoke.exit, label %.preheader
 
-.preheader:                                       ; preds = %182
-  %189 = icmp eq i32 %4, 0
-  %190 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %191 = and i64 %186, -4294967296
-  %192 = or disjoint i64 %187, %191
-  %193 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %189, label %.preheader.split.us, label %.preheader.split
+.preheader:                                       ; preds = %183
+  %190 = icmp eq i32 %4, 0
+  %191 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %192 = and i64 %187, -4294967296
+  %193 = or disjoint i64 %188, %192
+  %194 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br i1 %190, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
-  %194 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %195 = load i32, ptr %194, align 4
-  %196 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %197 = load i32, ptr %196, align 4
-  %.not.i100.us = icmp eq i32 %197, 0
-  br i1 %.not.i100.us, label %200, label %198
+  %195 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %196 = load i32, ptr %195, align 4
+  %197 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %198 = load i32, ptr %197, align 4
+  %.not.i100.us = icmp eq i32 %198, 0
+  br i1 %.not.i100.us, label %201, label %199
 
-198:                                              ; preds = %.preheader.split.us
-  %199 = sext i32 %197 to i64
-  br label %207
+199:                                              ; preds = %.preheader.split.us
+  %200 = sext i32 %198 to i64
+  br label %208
 
-200:                                              ; preds = %.preheader.split.us
-  %201 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %202 = load i32, ptr %201, align 4
-  %203 = sext i32 %202 to i64
-  %204 = shl nsw i64 %203, 3
-  %205 = add nsw i64 %204, 23
-  %206 = and i64 %205, -8
-  br label %207
+201:                                              ; preds = %.preheader.split.us
+  %202 = getelementptr inbounds nuw i8, ptr %.1, i64 4
+  %203 = load i32, ptr %202, align 4
+  %204 = sext i32 %203 to i64
+  %205 = shl nsw i64 %204, 3
+  %206 = add nsw i64 %205, 23
+  %207 = and i64 %206, -8
+  br label %208
 
-207:                                              ; preds = %200, %198
-  %208 = phi i64 [ %199, %198 ], [ %206, %200 ]
-  %209 = getelementptr inbounds nuw i8, ptr %.1, i64 %208
-  %210 = icmp sgt i32 %195, 0
-  br i1 %210, label %.lr.ph116.us.preheader, label %recursive_revoke.exit
+208:                                              ; preds = %201, %199
+  %209 = phi i64 [ %200, %198 ], [ %207, %200 ]
+  %210 = getelementptr inbounds nuw i8, ptr %.1, i64 %209
+  %211 = icmp sgt i32 %196, 0
+  br i1 %211, label %.lr.ph116.us.preheader, label %recursive_revoke.exit
 
-.lr.ph116.us.preheader:                           ; preds = %207
-  %wide.trip.count146 = zext nneg i32 %195 to i64
+.lr.ph116.us.preheader:                           ; preds = %208
+  %wide.trip.count146 = zext nneg i32 %196 to i64
   br label %.lr.ph116.us
 
-.lr.ph116.us:                                     ; preds = %.lr.ph116.us.preheader, %223
+.lr.ph116.us:                                     ; preds = %.lr.ph116.us.preheader, %224
   %indvars.iv143 = phi i64 [ 0, %.lr.ph116.us.preheader ], [ %indvars.iv.next144, %223 ]
-  %211 = getelementptr inbounds nuw %struct.AclItem, ptr %209, i64 %indvars.iv143
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
-  %213 = load i32, ptr %212, align 4
-  %214 = icmp eq i32 %213, %180
-  br i1 %214, label %215, label %223
+  %212 = getelementptr inbounds nuw %struct.AclItem, ptr %210, i64 %indvars.iv143
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
+  %214 = load i32, ptr %213, align 4
+  %215 = icmp eq i32 %214, %181
+  br i1 %215, label %216, label %224
 
-215:                                              ; preds = %.lr.ph116.us
-  %216 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  %217 = load i64, ptr %216, align 8
-  %218 = and i64 %217, %187
-  %.not44.i.us = icmp eq i64 %218, 0
-  br i1 %.not44.i.us, label %223, label %.split.us
+216:                                              ; preds = %.lr.ph116.us
+  %217 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  %218 = load i64, ptr %217, align 8
+  %219 = and i64 %218, %188
+  %.not44.i.us = icmp eq i64 %219, 0
+  br i1 %.not44.i.us, label %224, label %.split.us
 
-.split.us:                                        ; preds = %215
+.split.us:                                        ; preds = %216
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
-  %219 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %219)
-  %220 = tail call i32 @errcode(i32 noundef 16909442) #14
-  %221 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #14
-  %222 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.55) #14
+  %220 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %220)
+  %221 = tail call i32 @errcode(i32 noundef 16909442) #14
+  %222 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #14
+  %223 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.55) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1326, ptr noundef nonnull @__func__.recursive_revoke) #14
   unreachable
 
-223:                                              ; preds = %215, %.lr.ph116.us
+224:                                              ; preds = %216, %.lr.ph116.us
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
   br i1 %exitcond147.not, label %recursive_revoke.exit, label %.lr.ph116.us, !llvm.loop !8
 
-.preheader.split:                                 ; preds = %.preheader, %249
-  %.038.i = phi ptr [ %251, %249 ], [ %.1, %.preheader ]
-  %224 = getelementptr inbounds nuw i8, ptr %.038.i, i64 16
-  %225 = load i32, ptr %224, align 4
-  %226 = getelementptr inbounds nuw i8, ptr %.038.i, i64 8
-  %227 = load i32, ptr %226, align 4
-  %.not.i100 = icmp eq i32 %227, 0
-  br i1 %.not.i100, label %230, label %228
+.preheader.split:                                 ; preds = %.preheader, %250
+  %.038.i = phi ptr [ %252, %249 ], [ %.1, %.preheader ]
+  %225 = getelementptr inbounds nuw i8, ptr %.038.i, i64 16
+  %226 = load i32, ptr %225, align 4
+  %227 = getelementptr inbounds nuw i8, ptr %.038.i, i64 8
+  %228 = load i32, ptr %227, align 4
+  %.not.i100 = icmp eq i32 %228, 0
+  br i1 %.not.i100, label %231, label %229
 
-228:                                              ; preds = %.preheader.split
-  %229 = sext i32 %227 to i64
-  br label %237
+229:                                              ; preds = %.preheader.split
+  %230 = sext i32 %228 to i64
+  br label %238
 
-230:                                              ; preds = %.preheader.split
-  %231 = getelementptr inbounds nuw i8, ptr %.038.i, i64 4
-  %232 = load i32, ptr %231, align 4
-  %233 = sext i32 %232 to i64
-  %234 = shl nsw i64 %233, 3
-  %235 = add nsw i64 %234, 23
-  %236 = and i64 %235, -8
-  br label %237
+231:                                              ; preds = %.preheader.split
+  %232 = getelementptr inbounds nuw i8, ptr %.038.i, i64 4
+  %233 = load i32, ptr %232, align 4
+  %234 = sext i32 %233 to i64
+  %235 = shl nsw i64 %234, 3
+  %236 = add nsw i64 %235, 23
+  %237 = and i64 %236, -8
+  br label %238
 
-237:                                              ; preds = %230, %228
-  %238 = phi i64 [ %229, %228 ], [ %236, %230 ]
-  %239 = getelementptr inbounds nuw i8, ptr %.038.i, i64 %238
-  %240 = icmp sgt i32 %225, 0
-  br i1 %240, label %.lr.ph116.preheader, label %recursive_revoke.exit
+238:                                              ; preds = %231, %229
+  %239 = phi i64 [ %230, %228 ], [ %237, %230 ]
+  %240 = getelementptr inbounds nuw i8, ptr %.038.i, i64 %239
+  %241 = icmp sgt i32 %226, 0
+  br i1 %241, label %.lr.ph116.preheader, label %recursive_revoke.exit
 
-.lr.ph116.preheader:                              ; preds = %237
-  %wide.trip.count141 = zext nneg i32 %225 to i64
+.lr.ph116.preheader:                              ; preds = %238
+  %wide.trip.count141 = zext nneg i32 %226 to i64
   br label %.lr.ph116
 
-.lr.ph116:                                        ; preds = %.lr.ph116.preheader, %252
+.lr.ph116:                                        ; preds = %.lr.ph116.preheader, %253
   %indvars.iv138 = phi i64 [ 0, %.lr.ph116.preheader ], [ %indvars.iv.next139, %252 ]
-  %241 = getelementptr inbounds nuw %struct.AclItem, ptr %239, i64 %indvars.iv138
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
-  %243 = load i32, ptr %242, align 4
-  %244 = icmp eq i32 %243, %180
-  br i1 %244, label %245, label %252
+  %242 = getelementptr inbounds nuw %struct.AclItem, ptr %240, i64 %indvars.iv138
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 4
+  %244 = load i32, ptr %243, align 4
+  %245 = icmp eq i32 %244, %181
+  br i1 %245, label %246, label %253
 
-245:                                              ; preds = %.lr.ph116
-  %246 = getelementptr inbounds nuw i8, ptr %241, i64 8
-  %247 = load i64, ptr %246, align 8
-  %248 = and i64 %247, %187
-  %.not44.i = icmp eq i64 %248, 0
-  br i1 %.not44.i, label %252, label %249
+246:                                              ; preds = %.lr.ph116
+  %247 = getelementptr inbounds nuw i8, ptr %242, i64 8
+  %248 = load i64, ptr %247, align 8
+  %249 = and i64 %248, %188
+  %.not44.i = icmp eq i64 %249, 0
+  br i1 %.not44.i, label %253, label %250
 
-249:                                              ; preds = %245
+250:                                              ; preds = %246
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
-  store i32 %180, ptr %190, align 4
-  %250 = load i32, ptr %241, align 8
-  store i32 %250, ptr %6, align 8
-  store i64 %192, ptr %193, align 8
-  %251 = call ptr @aclupdate(ptr noundef nonnull %.038.i, ptr noundef nonnull %6, i32 noundef 2, i32 noundef %3, i32 noundef %4)
+  store i32 %181, ptr %191, align 4
+  %251 = load i32, ptr %242, align 8
+  store i32 %251, ptr %6, align 8
+  store i64 %193, ptr %194, align 8
+  %252 = call ptr @aclupdate(ptr noundef nonnull %.038.i, ptr noundef nonnull %6, i32 noundef 2, i32 noundef %3, i32 noundef %4)
   tail call void @pfree(ptr noundef nonnull %.038.i) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
   br label %.preheader.split
 
-252:                                              ; preds = %245, %.lr.ph116
+253:                                              ; preds = %246, %.lr.ph116
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
   br i1 %exitcond142.not, label %recursive_revoke.exit, label %.lr.ph116, !llvm.loop !8
 
-recursive_revoke.exit:                            ; preds = %237, %252, %223, %207, %182, %179, %176
+recursive_revoke.exit:                            ; preds = %238, %253, %224, %208, %183, %180, %177
   %.2 = phi ptr [ %.1, %176 ], [ %.1, %179 ], [ %.1, %182 ], [ %.1, %207 ], [ %.1, %223 ], [ %.038.i, %252 ], [ %.038.i, %237 ]
   ret ptr %.2
 }

@@ -13054,9 +13054,9 @@ _ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i: ; preds = %18
 23:                                               ; preds = %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i
   %24 = trunc nuw i64 %1 to i32
   %25 = icmp slt i32 %24, 1
-  br i1 %25, label %_ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit, label %.lr.ph.i
+  br i1 %25, label %_ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
+.lr.ph.preheader.i:                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %23 ]
   %26 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4, !tbaa !108
@@ -13129,7 +13129,7 @@ _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit: ; preds 
   %25 = trunc nuw i64 %1 to i32
   %26 = shl nuw nsw i32 %2, 1
   %27 = icmp slt i32 %25, 1
-  br i1 %27, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, label %.lr.ph
+  br i1 %27, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, label %.lr.ph.preheader
 
 .lr.ph:                                           ; preds = %24, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %24 ]
@@ -13206,7 +13206,7 @@ _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit: ; preds 
 23:                                               ; preds = %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit
   %24 = trunc nuw i64 %1 to i32
   %25 = icmp slt i32 %24, 1
-  br i1 %25, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, label %.lr.ph
+  br i1 %25, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, label %.lr.ph.preheader
 
 .lr.ph:                                           ; preds = %23, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %23 ]
@@ -13279,9 +13279,9 @@ _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit: ; preds 
 _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread: ; preds = %9, %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit
   %23 = trunc nuw i64 %1 to i32
   %24 = icmp slt i32 %23, 1
-  br i1 %24, label %.loopexit, label %.lr.ph
+  br i1 %24, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, %.lr.ph
+.lr.ph.preheader:                                 ; preds = %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread ]
   %25 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !108

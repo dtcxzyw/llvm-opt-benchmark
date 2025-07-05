@@ -3786,7 +3786,7 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
   %10 = zext nneg i32 %9 to i64
   %11 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %10, i32 noundef 3520) #16
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %154, label %13
+  br i1 %12, label %156, label %13
 
 13:                                               ; preds = %5
   %14 = shl nuw nsw i32 %3, 4
@@ -3798,7 +3798,7 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
 
 19:                                               ; preds = %13
   tail call void @kfree(ptr noundef nonnull %11) #13
-  br label %154
+  br label %156
 
 20:                                               ; preds = %13
   store i8 0, ptr %7, align 1, !annotation !11
@@ -3993,18 +3993,18 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
   store ptr %7, ptr %133, align 8
   %134 = getelementptr i8, ptr %129, i64 32
   store i16 %.pre22, ptr %134, align 8
-  %135 = getelementptr i8, ptr %129, i64 34
-  store i16 1, ptr %135, align 2
-  %136 = getelementptr i8, ptr %129, i64 36
-  store i16 1, ptr %136, align 4
-  %137 = getelementptr i8, ptr %129, i64 40
-  store ptr %7, ptr %137, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %139 = load ptr, ptr %138, align 8
+  %136 = getelementptr i8, ptr %129, i64 34
+  store i16 1, ptr %136, align 2
+  %137 = getelementptr i8, ptr %129, i64 36
+  store i16 1, ptr %137, align 4
+  %138 = getelementptr i8, ptr %129, i64 40
+  store ptr %7, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %139 = load ptr, ptr %139, align 8
   %140 = add nuw nsw i32 %3, 3
   br i1 %4, label %141, label %143
 
-141:                                              ; preds = %._crit_edge
+141:; preds = %._crit_edge
   %142 = call i32 @i2c_transfer(ptr noundef %139, ptr noundef nonnull %17, i32 noundef %140) #13
   br label %145
 
@@ -4017,28 +4017,28 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
   %147 = icmp slt i32 %146, 0
   br i1 %147, label %148, label %149
 
-148:                                              ; preds = %145
+150:                                              ; preds = %145
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %146) #13
-  br label %152
-
-149:                                              ; preds = %145
-  %150 = icmp eq i32 %146, %140
-  br i1 %150, label %152, label %151
-
-151:                                              ; preds = %149
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %146, i32 noundef %140) #13
-  br label %152
-
-152:                                              ; preds = %151, %149, %148
-  %153 = phi i1 [ false, %148 ], [ false, %151 ], [ true, %149 ]
-  call void @kfree(ptr noundef nonnull %17) #13
-  call void @kfree(ptr noundef nonnull %11) #13
   br label %154
 
-154:                                              ; preds = %152, %19, %5
-  %155 = phi i1 [ %153, %152 ], [ false, %19 ], [ false, %5 ]
+151:                                              ; preds = %145
+  %152 = icmp eq i32 %146, %140
+  br i1 %152, label %154, label %153
+
+153:                                              ; preds = %151
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %146, i32 noundef %140) #13
+  br label %154
+
+154:                                              ; preds = %153, %151, %150
+  %155 = phi i1 [ false, %148 ], [ false, %151 ], [ true, %149 ]
+  call void @kfree(ptr noundef nonnull %17) #13
+  call void @kfree(ptr noundef nonnull %11) #13
+  br label %156
+
+156:                                              ; preds = %154, %19, %5
+  %157 = phi i1 [ %155, %152 ], [ false, %19 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #13
-  ret i1 %155
+  ret i1 %157
 }
 
 ; Function Attrs: null_pointer_is_valid

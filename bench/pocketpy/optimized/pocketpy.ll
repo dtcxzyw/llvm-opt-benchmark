@@ -9428,21 +9428,21 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit:    ; preds = %._ZN4pkpy7is_typeEP
   %.not.i.i = icmp samesign ugt i64 %49, %indvars.iv
   br i1 %.not.i.i, label %50, label %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EE9push_backIRKS2_EEvOT_.exit
 
-50:                                               ; preds = %48
-  %51 = shl nuw nsw i64 %indvars.iv, 5
-  %52 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef %51) #37
+51:                                               ; preds = %48
+  %52 = shl nuw nsw i64 %indvars.iv, 5
+  %53 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef %52) #37
   %.not6.i.i = icmp eq ptr %.sroa.10.044, null
   %53 = trunc nsw i64 %49 to i32
   br i1 %.not6.i.i, label %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EE9push_backIRKS2_EEvOT_.exit, label %54
 
-54:                                               ; preds = %50
+54:                                               ; preds = %51
   %55 = shl nuw nsw i64 %indvars.iv, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr nonnull align 8 %.sroa.10.044, i64 %55, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr nonnull align 8 %.sroa.10.044, i64 %55, i1 false)
   call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %.sroa.10.044) #37
   br label %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EE9push_backIRKS2_EEvOT_.exit
 
-_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EE9push_backIRKS2_EEvOT_.exit: ; preds = %42, %48, %50, %54
-  %.sroa.10.1 = phi ptr [ %52, %50 ], [ %52, %54 ], [ %.sroa.10.044, %48 ], [ %.sroa.10.044, %42 ]
+_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EE9push_backIRKS2_EEvOT_.exit: ; preds = %42, %48, %51, %54
+  %.sroa.10.1 = phi ptr [ %53, %50 ], [ %53, %54 ], [ %.sroa.10.044, %48 ], [ %.sroa.10.044, %42 ]
   %.sroa.6.1 = phi i32 [ %53, %50 ], [ %53, %54 ], [ %.sroa.6.045, %48 ], [ %.sroa.6.045, %42 ]
   %56 = load ptr, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
