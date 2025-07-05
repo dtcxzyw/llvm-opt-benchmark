@@ -173,9 +173,9 @@ _ZN8rawspeed10MrwDecoder5isMRWENS_6BufferE.exit:  ; preds = %1
 _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZN8rawspeed10MrwDecoder5isMRWENS_6BufferE.exit
   %7 = zext i32 %.sroa.234.0.copyload to i64
   %.not.i.i.i.i.i.i = icmp ult i32 %.sroa.234.0.copyload, 8
-  br i1 %.not.i.i.i.i.i.i, label %8, label %_ZN8rawspeed10ByteStream6getU32Ev.exit
+  br i1 %.not.i.i.i.i.i.i, label %7, label %_ZN8rawspeed10ByteStream6getU32Ev.exit
 
-8:                                                ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit
+7:                                                ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16
   unreachable
 
@@ -692,7 +692,7 @@ _ZN8rawspeed10ByteStream11setPositionEj.exit:     ; preds = %_ZN8rawspeed10ByteS
   %.not.i104 = icmp samesign ugt i64 %181, %7
   br i1 %.not.i104, label %182, label %_ZNK8rawspeed6Buffer10getSubViewEjj.exit
 
-182:                                              ; preds = %169
+179:                                              ; preds = %169
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16
   unreachable
 
@@ -701,7 +701,7 @@ _ZNK8rawspeed6Buffer10getSubViewEjj.exit:         ; preds = %169
   %184 = icmp samesign ule i32 %183, %.sroa.234.0.copyload
   call void @llvm.assume(i1 %184)
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.copyload, i64 %179
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %185, ptr %186, align 8, !tbaa !47
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %178, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !48

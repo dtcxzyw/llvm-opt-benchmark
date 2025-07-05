@@ -4490,31 +4490,31 @@ _ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   tail call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef %23) #30
   %.pre = load ptr, ptr %17, align 8, !tbaa !88
-  %.pre91 = load ptr, ptr %19, align 8, !tbaa !89
+  %.pre90 = load ptr, ptr %19, align 8, !tbaa !89
   br label %61
 
 61:                                               ; preds = %59, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit
-  %62 = phi ptr [ %.pre91, %59 ], [ %20, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %20, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
-  %.promoted62 = phi ptr [ %60, %59 ], [ %51, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %51, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
-  %.promoted54 = phi ptr [ %58, %59 ], [ %47, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %47, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
+  %62 = phi ptr [ %.pre90, %59 ], [ %20, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %20, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
+  %.promoted61 = phi ptr [ %60, %59 ], [ %51, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %51, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
+  %.promoted53 = phi ptr [ %58, %59 ], [ %47, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %47, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
   %63 = phi ptr [ %.pre, %59 ], [ %18, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %18, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
   %.promoted = phi ptr [ %58, %59 ], [ %57, %_ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit.i ], [ %48, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4__fs10filesystem12__dir_streamEEEE8allocateB8ne210000ERS5_m.exit ]
   store ptr %52, ptr %.promoted, align 8, !tbaa !27
   %64 = getelementptr inbounds nuw i8, ptr %.promoted, i64 8
-  %.not66 = icmp eq ptr %63, %62
-  br i1 %.not66, label %_ZNSt3__110unique_ptrIPNS_4__fs10filesystem12__dir_streamENS_22__allocator_destructorINS_9allocatorIS3_EEEEED2B8ne210000Ev.exit, label %.lr.ph
+  %.not65 = icmp eq ptr %63, %62
+  br i1 %.not65, label %_ZNSt3__110unique_ptrIPNS_4__fs10filesystem12__dir_streamENS_22__allocator_destructorINS_9allocatorIS3_EEEEED2B8ne210000Ev.exit, label %.lr.ph
 
 _ZNSt3__110unique_ptrIPNS_4__fs10filesystem12__dir_streamENS_22__allocator_destructorINS_9allocatorIS3_EEEEED2B8ne210000Ev.exit: ; preds = %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit, %61
-  %.lcssa63 = phi ptr [ %.promoted62, %61 ], [ %114, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ]
-  %.lcssa59 = phi ptr [ %64, %61 ], [ %115, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ]
-  %.lcssa55 = phi ptr [ %.promoted54, %61 ], [ %116, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ]
-  %.lcssa51 = phi ptr [ %.promoted, %61 ], [ %118, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ]
+  %.lcssa62 = phi ptr [ %.promoted61, %61 ], [ %114, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ]
+  %.lcssa58 = phi ptr [ %64, %61 ], [ %115, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ]
+  %.lcssa54 = phi ptr [ %.promoted53, %61 ], [ %116, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ]
+  %.lcssa50 = phi ptr [ %.promoted, %61 ], [ %118, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ]
   %65 = load ptr, ptr %0, align 8, !tbaa !156
-  store ptr %.lcssa55, ptr %0, align 8, !tbaa !156
-  store ptr %.lcssa51, ptr %19, align 8, !tbaa !156
-  store ptr %.lcssa59, ptr %17, align 8, !tbaa !156
+  store ptr %.lcssa54, ptr %0, align 8, !tbaa !156
+  store ptr %.lcssa50, ptr %19, align 8, !tbaa !156
+  store ptr %.lcssa58, ptr %17, align 8, !tbaa !156
   %66 = load ptr, ptr %24, align 8, !tbaa !156
-  store ptr %.lcssa63, ptr %24, align 8, !tbaa !156
+  store ptr %.lcssa62, ptr %24, align 8, !tbaa !156
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEED2B8ne210000Ev.exit, label %67
 
@@ -4535,12 +4535,12 @@ _ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_
   br label %_ZNSt3__110unique_ptrIPNS_4__fs10filesystem12__dir_streamENS_22__allocator_destructorINS_9allocatorIS3_EEEEED2B8ne210000Ev.exit33
 
 .lr.ph:                                           ; preds = %61, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit
-  %.067 = phi ptr [ %77, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ], [ %63, %61 ]
+  %.066 = phi ptr [ %77, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ], [ %63, %61 ]
   %73 = phi ptr [ %118, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ], [ %.promoted, %61 ]
-  %74 = phi ptr [ %116, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ], [ %.promoted54, %61 ]
+  %74 = phi ptr [ %116, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ], [ %.promoted53, %61 ]
   %75 = phi ptr [ %115, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ], [ %64, %61 ]
-  %76 = phi ptr [ %114, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ], [ %.promoted62, %61 ]
-  %77 = getelementptr inbounds i8, ptr %.067, i64 -8
+  %76 = phi ptr [ %114, %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit ], [ %.promoted61, %61 ]
+  %77 = getelementptr inbounds i8, ptr %.066, i64 -8
   %78 = icmp eq ptr %73, %74
   br i1 %78, label %79, label %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit
 

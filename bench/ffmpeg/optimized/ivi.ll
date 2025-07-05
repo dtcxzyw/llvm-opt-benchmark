@@ -110,7 +110,7 @@ define i32 @ff_ivi_dec_huff_desc(ptr noundef captures(none) %0, i32 noundef %1, 
   %8 = select i1 %.not32, ptr getelementptr inbounds nuw (i8, ptr @ivi_mb_vlc_tabs, i64 168), ptr getelementptr inbounds nuw (i8, ptr @ivi_blk_vlc_tabs, i64 168)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !14
-  br label %76
+  br label %75
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -130,7 +130,7 @@ define i32 @ff_ivi_dec_huff_desc(ptr noundef captures(none) %0, i32 noundef %1, 
   store i32 %24, ptr %11, align 8, !tbaa !18
   store i32 %22, ptr %3, align 8, !tbaa !24
   %25 = icmp eq i32 %22, 7
-  br i1 %25, label %26, label %70
+  br i1 %25, label %26, label %69
 
 26:                                               ; preds = %10
   %27 = lshr i32 %24, 3
@@ -153,7 +153,7 @@ define i32 @ff_ivi_dec_huff_desc(ptr noundef captures(none) %0, i32 noundef %1, 
 
 37:                                               ; preds = %26
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 16, ptr noundef nonnull @.str) #10
-  br label %76
+  br label %75
 
 38:                                               ; preds = %.preheader, %38
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %38 ]
@@ -186,56 +186,56 @@ ivi_huff_desc_cmp.exit:                           ; preds = %51
   %55 = zext nneg i32 %33 to i64
   %bcmp.i = call i32 @bcmp(ptr nonnull readonly %36, ptr nonnull readonly %54, i64 %55)
   %.not40 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not40, label %56, label %ivi_huff_desc_cmp.exit.thread
+  br i1 %.not40, label %55, label %ivi_huff_desc_cmp.exit.thread
 
-56:                                               ; preds = %ivi_huff_desc_cmp.exit
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %58 = load ptr, ptr %57, align 8, !tbaa !27
-  %.not36 = icmp eq ptr %58, null
-  br i1 %.not36, label %ivi_huff_desc_cmp.exit.thread, label %67
+55:                                               ; preds = %ivi_huff_desc_cmp.exit
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %57 = load ptr, ptr %56, align 8, !tbaa !27
+  %.not36 = icmp eq ptr %57, null
+  br i1 %.not36, label %ivi_huff_desc_cmp.exit.thread, label %66
 
-ivi_huff_desc_cmp.exit.thread:                    ; preds = %51, %56, %ivi_huff_desc_cmp.exit
+ivi_huff_desc_cmp.exit.thread:                    ; preds = %51, %55, %ivi_huff_desc_cmp.exit
   store i32 %33, ptr %52, align 4, !tbaa !26
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %59, ptr nonnull readonly align 4 %36, i64 %wide.trip.count, i1 false)
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %62 = load ptr, ptr %61, align 8, !tbaa !27
-  %.not37 = icmp eq ptr %62, null
-  br i1 %.not37, label %64, label %63
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %58, ptr nonnull readonly align 4 %36, i64 %wide.trip.count, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %61 = load ptr, ptr %60, align 8, !tbaa !27
+  %.not37 = icmp eq ptr %61, null
+  br i1 %.not37, label %63, label %62
 
-63:                                               ; preds = %ivi_huff_desc_cmp.exit.thread
-  tail call void @ff_vlc_free(ptr noundef nonnull %60) #10
-  br label %64
+62:                                               ; preds = %ivi_huff_desc_cmp.exit.thread
+  tail call void @ff_vlc_free(ptr noundef nonnull %59) #10
+  br label %63
 
-64:                                               ; preds = %63, %ivi_huff_desc_cmp.exit.thread
-  %65 = tail call fastcc i32 @ivi_create_huff_from_desc(ptr noundef nonnull %52, ptr noundef nonnull %60, i32 noundef 0)
-  %.not38 = icmp eq i32 %65, 0
-  br i1 %.not38, label %67, label %66
+63:                                               ; preds = %62, %ivi_huff_desc_cmp.exit.thread
+  %64 = tail call fastcc i32 @ivi_create_huff_from_desc(ptr noundef nonnull %52, ptr noundef nonnull %59, i32 noundef 0)
+  %.not38 = icmp eq i32 %64, 0
+  br i1 %.not38, label %66, label %65
 
-66:                                               ; preds = %64
+65:                                               ; preds = %63
   store i32 0, ptr %52, align 8, !tbaa !28
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %4, i32 noundef 16, ptr noundef nonnull @.str.1) #10
-  br label %76
+  br label %75
 
-67:                                               ; preds = %64, %56
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %68, ptr %69, align 8, !tbaa !14
-  br label %76
+66:                                               ; preds = %63, %55
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %67, ptr %68, align 8, !tbaa !14
+  br label %75
 
-70:                                               ; preds = %10
+69:                                               ; preds = %10
   %.not33 = icmp eq i32 %2, 0
-  %71 = zext nneg i32 %22 to i64
-  %72 = getelementptr inbounds nuw [8 x %struct.VLC], ptr @ivi_blk_vlc_tabs, i64 0, i64 %71
-  %73 = getelementptr inbounds nuw [8 x %struct.VLC], ptr @ivi_mb_vlc_tabs, i64 0, i64 %71
-  %74 = select i1 %.not33, ptr %73, ptr %72
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %74, ptr %75, align 8, !tbaa !14
-  br label %76
+  %70 = zext nneg i32 %22 to i64
+  %71 = getelementptr inbounds nuw [8 x %struct.VLC], ptr @ivi_blk_vlc_tabs, i64 0, i64 %70
+  %72 = getelementptr inbounds nuw [8 x %struct.VLC], ptr @ivi_mb_vlc_tabs, i64 0, i64 %70
+  %73 = select i1 %.not33, ptr %72, ptr %71
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %73, ptr %74, align 8, !tbaa !14
+  br label %75
 
-76:                                               ; preds = %67, %70, %66, %37, %7
-  %.0 = phi i32 [ %65, %66 ], [ -1094995529, %37 ], [ 0, %7 ], [ 0, %70 ], [ 0, %67 ]
+75:                                               ; preds = %66, %69, %65, %37, %7
+  %.0 = phi i32 [ %64, %66 ], [ -1094995529, %37 ], [ 0, %7 ], [ 0, %70 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #10
   ret i32 %.0
 }

@@ -372,7 +372,7 @@ define internal fastcc ptr @find_plan(ptr noundef nonnull %0, ptr noundef captur
   store ptr %4, ptr @CurrentMemoryContext, align 8
   %6 = load i32, ptr %2, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.preheader, label %27
+  br i1 %7, label %.preheader, label %26
 
 .preheader:                                       ; preds = %3
   %8 = load ptr, ptr %1, align 8
@@ -402,7 +402,7 @@ define internal fastcc ptr @find_plan(ptr noundef nonnull %0, ptr noundef captur
   %18 = load ptr, ptr %1, align 8
   %19 = and i64 %indvars.iv, 4294967295
   %20 = getelementptr inbounds nuw %struct.EPlan, ptr %18, i64 %19
-  br label %35
+  br label %34
 
 .thread:                                          ; preds = %14, %15
   %21 = add nuw i32 %6, 1
@@ -414,27 +414,27 @@ define internal fastcc ptr @find_plan(ptr noundef nonnull %0, ptr noundef captur
   %26 = getelementptr inbounds nuw %struct.EPlan, ptr %24, i64 %25
   br label %29
 
-27:                                               ; preds = %3
-  %28 = tail call ptr @palloc(i64 noundef 24) #9
-  store ptr %28, ptr %1, align 8
+26:                                               ; preds = %3
+  %27 = tail call ptr @palloc(i64 noundef 24) #9
+  store ptr %27, ptr %1, align 8
   store i32 0, ptr %2, align 4
-  br label %29
+  br label %28
 
-29:                                               ; preds = %27, %.thread
-  %.027 = phi ptr [ %26, %.thread ], [ %28, %27 ]
-  %30 = tail call ptr @pstrdup(ptr noundef nonnull %0) #9
-  store ptr %30, ptr %.027, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %.027, i64 8
-  store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %.027, i64 16
-  store ptr null, ptr %32, align 8
-  %33 = load i32, ptr %2, align 4
-  %34 = add i32 %33, 1
-  store i32 %34, ptr %2, align 4
+28:                                               ; preds = %26, %.thread
+  %.027 = phi ptr [ %26, %.thread ], [ %27, %27 ]
+  %29 = tail call ptr @pstrdup(ptr noundef nonnull %0) #9
+  store ptr %29, ptr %.027, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %.027, i64 8
+  store i32 0, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %.027, i64 16
+  store ptr null, ptr %31, align 8
+  %32 = load i32, ptr %2, align 4
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %2, align 4
   store ptr %5, ptr @CurrentMemoryContext, align 8
-  br label %35
+  br label %34
 
-35:                                               ; preds = %29, %17
+34:                                               ; preds = %28, %17
   %.0 = phi ptr [ %20, %17 ], [ %.027, %29 ]
   ret ptr %.0
 }
