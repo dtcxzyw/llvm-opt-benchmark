@@ -76,8 +76,8 @@ define ptr @TXT_DB_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %wide.trip.count140 = zext nneg i32 %smax to i64
   br label %.backedge.outer
 
-.backedge.outer:                                  ; preds = %90, %._crit_edge
-  %.ph = phi ptr [ %92, %90 ], [ %13, %._crit_edge ]
+.backedge.outer:                                  ; preds = %91, %._crit_edge
+  %.ph = phi ptr [ %93, %90 ], [ %13, %._crit_edge ]
   %.091.ph = phi i32 [ %.192, %90 ], [ 512, %._crit_edge ]
   br label %.backedge
 
@@ -85,177 +85,177 @@ define ptr @TXT_DB_read(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.091 = phi i32 [ %.091.ph, %.backedge.outer ], [ %.192, %.backedge.backedge ]
   %.090 = phi i32 [ 0, %.backedge.outer ], [ %.090.be, %.backedge.backedge ]
   %.not103 = icmp eq i32 %.090, 0
-  br i1 %.not103, label %37, label %33
+  br i1 %.not103, label %38, label %34
 
-33:                                               ; preds = %.backedge
-  %34 = add nsw i32 %.091, 512
-  %35 = sext i32 %34 to i64
-  %36 = tail call i64 @BUF_MEM_grow_clean(ptr noundef nonnull %3, i64 noundef %35) #5
-  %.not104 = icmp eq i64 %36, 0
-  br i1 %.not104, label %.loopexit165, label %37
+34:                                               ; preds = %.backedge
+  %35 = add nsw i32 %.091, 512
+  %36 = sext i32 %35 to i64
+  %37 = tail call i64 @BUF_MEM_grow_clean(ptr noundef nonnull %3, i64 noundef %36) #5
+  %.not104 = icmp eq i64 %37, 0
+  br i1 %.not104, label %.loopexit165, label %38
 
-37:                                               ; preds = %33, %.backedge
-  %.192 = phi i32 [ %34, %33 ], [ %.091, %.backedge ]
-  %38 = load ptr, ptr %29, align 8, !tbaa !21
-  %39 = sext i32 %.090 to i64
-  %40 = getelementptr inbounds i8, ptr %38, i64 %39
-  store i8 0, ptr %40, align 1, !tbaa !24
-  %41 = load ptr, ptr %29, align 8, !tbaa !21
-  %42 = getelementptr inbounds i8, ptr %41, i64 %39
-  %43 = sub nsw i32 %.192, %.090
-  %44 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %42, i32 noundef %43) #5
-  %45 = load ptr, ptr %29, align 8, !tbaa !21
-  %46 = getelementptr inbounds i8, ptr %45, i64 %39
-  %47 = load i8, ptr %46, align 1, !tbaa !24
-  %48 = icmp eq i8 %47, 0
-  br i1 %48, label %95, label %49
+38:                                               ; preds = %34, %.backedge
+  %.192 = phi i32 [ %35, %33 ], [ %.091, %.backedge ]
+  %39 = load ptr, ptr %29, align 8, !tbaa !21
+  %40 = sext i32 %.090 to i64
+  %41 = getelementptr inbounds i8, ptr %39, i64 %40
+  store i8 0, ptr %41, align 1, !tbaa !24
+  %42 = load ptr, ptr %29, align 8, !tbaa !21
+  %43 = getelementptr inbounds i8, ptr %42, i64 %40
+  %44 = sub nsw i32 %.192, %.090
+  %45 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %43, i32 noundef %44) #5
+  %46 = load ptr, ptr %29, align 8, !tbaa !21
+  %47 = getelementptr inbounds i8, ptr %46, i64 %40
+  %48 = load i8, ptr %47, align 1, !tbaa !24
+  %49 = icmp eq i8 %48, 0
+  br i1 %49, label %96, label %50
 
-49:                                               ; preds = %37
-  br i1 %.not103, label %50, label %53
+50:                                               ; preds = %38
+  br i1 %.not103, label %51, label %54
 
-50:                                               ; preds = %49
-  %51 = load i8, ptr %45, align 1, !tbaa !24
-  %52 = icmp eq i8 %51, 35
-  br i1 %52, label %.backedge.backedge, label %53
+51:                                               ; preds = %50
+  %52 = load i8, ptr %46, align 1, !tbaa !24
+  %53 = icmp eq i8 %52, 35
+  br i1 %53, label %.backedge.backedge, label %54
 
-.backedge.backedge:                               ; preds = %50, %53
-  %.090.be = phi i32 [ 0, %50 ], [ %56, %53 ]
+.backedge.backedge:                               ; preds = %51, %54
+  %.090.be = phi i32 [ 0, %50 ], [ %57, %53 ]
   br label %.backedge
 
-53:                                               ; preds = %50, %49
-  %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #6
-  %55 = trunc i64 %54 to i32
-  %56 = add nsw i32 %.090, %55
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr i8, ptr %45, i64 %57
-  %59 = getelementptr i8, ptr %58, i64 -1
-  %60 = load i8, ptr %59, align 1, !tbaa !24
-  %.not105 = icmp eq i8 %60, 10
-  br i1 %.not105, label %61, label %.backedge.backedge
+54:                                               ; preds = %51, %50
+  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #6
+  %56 = trunc i64 %55 to i32
+  %57 = add nsw i32 %.090, %56
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr i8, ptr %46, i64 %58
+  %60 = getelementptr i8, ptr %59, i64 -1
+  %61 = load i8, ptr %60, align 1, !tbaa !24
+  %.not105 = icmp eq i8 %61, 10
+  br i1 %.not105, label %62, label %.backedge.backedge
 
-61:                                               ; preds = %53
-  %62 = getelementptr i8, ptr %58, i64 -1
-  store i8 0, ptr %62, align 1, !tbaa !24
-  %63 = add nsw i32 %56, %28
-  %64 = sext i32 %63 to i64
-  %65 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %64, ptr noundef nonnull @.str, i32 noundef 73) #5
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %.loopexit165, label %67
+62:                                               ; preds = %54
+  %63 = getelementptr i8, ptr %59, i64 -1
+  store i8 0, ptr %63, align 1, !tbaa !24
+  %64 = add nsw i32 %57, %28
+  %65 = sext i32 %64 to i64
+  %66 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %65, ptr noundef nonnull @.str, i32 noundef 73) #5
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %.loopexit165, label %68
 
-67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %65, i64 %32
-  store ptr %68, ptr %65, align 8, !tbaa !25
-  %69 = load ptr, ptr %29, align 8, !tbaa !21
+68:                                               ; preds = %62
+  %69 = getelementptr inbounds i8, ptr %66, i64 %32
+  store ptr %69, ptr %66, align 8, !tbaa !25
+  %70 = load ptr, ptr %29, align 8, !tbaa !21
   br label %.outer
 
-.outer:                                           ; preds = %78, %67
+.outer:                                           ; preds = %79, %68
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %78 ], [ 1, %67 ]
-  %.088.ph = phi ptr [ %76, %78 ], [ %68, %67 ]
-  %.087.ph = phi ptr [ %77, %78 ], [ %69, %67 ]
-  br label %70
+  %.088.ph = phi ptr [ %77, %78 ], [ %69, %67 ]
+  %.087.ph = phi ptr [ %78, %78 ], [ %70, %67 ]
+  br label %71
 
-70:                                               ; preds = %.outer, %80
-  %.096 = phi i1 [ %81, %80 ], [ true, %.outer ]
-  %.088 = phi ptr [ %83, %80 ], [ %.088.ph, %.outer ]
-  %.087 = phi ptr [ %82, %80 ], [ %.087.ph, %.outer ]
-  %71 = load i8, ptr %.087, align 1, !tbaa !24
-  switch i8 %71, label %80 [
+71:                                               ; preds = %.outer, %81
+  %.096 = phi i1 [ %82, %80 ], [ true, %.outer ]
+  %.088 = phi ptr [ %84, %80 ], [ %.088.ph, %.outer ]
+  %.087 = phi ptr [ %83, %80 ], [ %.087.ph, %.outer ]
+  %72 = load i8, ptr %.087, align 1, !tbaa !24
+  switch i8 %72, label %80 [
     i8 0, label %.loopexit.loopexit
-    i8 9, label %72
+    i8 9, label %73
   ]
 
-72:                                               ; preds = %70
-  br i1 %.096, label %75, label %73
+73:                                               ; preds = %71
+  br i1 %.096, label %76, label %74
 
-73:                                               ; preds = %72
-  %74 = getelementptr inbounds i8, ptr %.088, i64 -1
-  br label %80
+74:                                               ; preds = %73
+  %75 = getelementptr inbounds i8, ptr %.088, i64 -1
+  br label %81
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %.088, i64 1
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %.088, i64 1
   store i8 0, ptr %.088, align 1, !tbaa !24
-  %77 = getelementptr inbounds nuw i8, ptr %.087, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.087, i64 1
   %exitcond141.not = icmp eq i64 %indvars.iv137, %wide.trip.count140
-  br i1 %exitcond141.not, label %.loopexit, label %78
+  br i1 %exitcond141.not, label %.loopexit, label %79
 
-78:                                               ; preds = %75
+79:                                               ; preds = %76
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %79 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv137
-  store ptr %76, ptr %79, align 8, !tbaa !25
+  %80 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv137
+  store ptr %77, ptr %80, align 8, !tbaa !25
   br label %.outer
 
-80:                                               ; preds = %70, %73
-  %.2 = phi ptr [ %74, %73 ], [ %.088, %70 ]
-  %81 = icmp ne i8 %71, 92
-  %82 = getelementptr inbounds nuw i8, ptr %.087, i64 1
-  %83 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  store i8 %71, ptr %.2, align 1, !tbaa !24
-  br label %70
+81:                                               ; preds = %71, %74
+  %.2 = phi ptr [ %75, %73 ], [ %.088, %70 ]
+  %82 = icmp ne i8 %72, 92
+  %83 = getelementptr inbounds nuw i8, ptr %.087, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  store i8 %72, ptr %.2, align 1, !tbaa !24
+  br label %71
 
-.loopexit.loopexit:                               ; preds = %70
-  %84 = trunc nuw nsw i64 %indvars.iv137 to i32
+.loopexit.loopexit:                               ; preds = %71
+  %85 = trunc nuw nsw i64 %indvars.iv137 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %75, %.loopexit.loopexit
-  %.093.ph132 = phi i32 [ %84, %.loopexit.loopexit ], [ %smax, %75 ]
-  %.189 = phi ptr [ %.088, %.loopexit.loopexit ], [ %76, %75 ]
-  %.1 = phi ptr [ %.087, %.loopexit.loopexit ], [ %77, %75 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.189, i64 1
+.loopexit:                                        ; preds = %76, %.loopexit.loopexit
+  %.093.ph132 = phi i32 [ %85, %.loopexit.loopexit ], [ %smax, %75 ]
+  %.189 = phi ptr [ %.088, %.loopexit.loopexit ], [ %77, %75 ]
+  %.1 = phi ptr [ %.087, %.loopexit.loopexit ], [ %78, %75 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.189, i64 1
   store i8 0, ptr %.189, align 1, !tbaa !24
   %.not108 = icmp eq i32 %.093.ph132, %1
-  br i1 %.not108, label %86, label %88
+  br i1 %.not108, label %87, label %89
 
-86:                                               ; preds = %.loopexit
-  %87 = load i8, ptr %.1, align 1, !tbaa !24
-  %.not109 = icmp eq i8 %87, 0
-  br i1 %.not109, label %90, label %88
+87:                                               ; preds = %.loopexit
+  %88 = load i8, ptr %.1, align 1, !tbaa !24
+  %.not109 = icmp eq i8 %88, 0
+  br i1 %.not109, label %91, label %89
 
-88:                                               ; preds = %86, %.loopexit
-  tail call void @CRYPTO_free(ptr noundef nonnull %65, ptr noundef nonnull @.str, i32 noundef 104) #5
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i64 6, ptr %89, align 8, !tbaa !26
+89:                                               ; preds = %87, %.loopexit
+  tail call void @CRYPTO_free(ptr noundef nonnull %66, ptr noundef nonnull @.str, i32 noundef 104) #5
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i64 6, ptr %90, align 8, !tbaa !26
   br label %.thread
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds ptr, ptr %65, i64 %17
-  store ptr %85, ptr %91, align 8, !tbaa !25
-  %92 = load ptr, ptr %14, align 8, !tbaa !13
-  %93 = tail call i32 @OPENSSL_sk_push(ptr noundef %92, ptr noundef nonnull %65) #5
-  %.not110 = icmp eq i32 %93, 0
-  br i1 %.not110, label %94, label %.backedge.outer
+91:                                               ; preds = %87
+  %92 = getelementptr inbounds ptr, ptr %66, i64 %17
+  store ptr %86, ptr %92, align 8, !tbaa !25
+  %93 = load ptr, ptr %14, align 8, !tbaa !13
+  %94 = tail call i32 @OPENSSL_sk_push(ptr noundef %93, ptr noundef nonnull %66) #5
+  %.not110 = icmp eq i32 %94, 0
+  br i1 %.not110, label %95, label %.backedge.outer
 
-94:                                               ; preds = %90
-  tail call void @CRYPTO_free(ptr noundef nonnull %65, ptr noundef nonnull @.str, i32 noundef 110) #5
+95:                                               ; preds = %91
+  tail call void @CRYPTO_free(ptr noundef nonnull %66, ptr noundef nonnull @.str, i32 noundef 110) #5
   br label %.thread
 
-95:                                               ; preds = %37
+96:                                               ; preds = %38
   tail call void @BUF_MEM_free(ptr noundef nonnull %3) #5
-  br label %100
+  br label %101
 
-.thread:                                          ; preds = %10, %16, %21, %88, %94
+.thread:                                          ; preds = %10, %16, %21, %89, %95
   tail call void @BUF_MEM_free(ptr noundef nonnull %3) #5
   %.pre = load ptr, ptr %14, align 8, !tbaa !13
-  br label %96
+  br label %97
 
 .thread116:                                       ; preds = %2, %7, %5
   tail call void @BUF_MEM_free(ptr noundef %3) #5
-  br label %100
+  br label %101
 
-.loopexit165:                                     ; preds = %61, %33
+.loopexit165:                                     ; preds = %62, %34
   tail call void @BUF_MEM_free(ptr noundef nonnull %3) #5
-  br label %96
+  br label %97
 
-96:                                               ; preds = %.loopexit165, %.thread
-  %97 = phi ptr [ %.ph, %.loopexit165 ], [ %.pre, %.thread ]
-  tail call void @OPENSSL_sk_free(ptr noundef %97) #5
-  %98 = load ptr, ptr %11, align 8, !tbaa !14
-  tail call void @CRYPTO_free(ptr noundef %98, ptr noundef nonnull @.str, i32 noundef 120) #5
-  %99 = load ptr, ptr %12, align 8, !tbaa !15
-  tail call void @CRYPTO_free(ptr noundef %99, ptr noundef nonnull @.str, i32 noundef 121) #5
+97:                                               ; preds = %.loopexit165, %.thread
+  %98 = phi ptr [ %.ph, %.loopexit165 ], [ %.pre, %.thread ]
+  tail call void @OPENSSL_sk_free(ptr noundef %98) #5
+  %99 = load ptr, ptr %11, align 8, !tbaa !14
+  tail call void @CRYPTO_free(ptr noundef %99, ptr noundef nonnull @.str, i32 noundef 120) #5
+  %100 = load ptr, ptr %12, align 8, !tbaa !15
+  tail call void @CRYPTO_free(ptr noundef %100, ptr noundef nonnull @.str, i32 noundef 121) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %8, ptr noundef nonnull @.str, i32 noundef 122) #5
-  br label %100
+  br label %101
 
-100:                                              ; preds = %.thread116, %96, %95
+101:                                              ; preds = %.thread116, %97, %96
   %.0 = phi ptr [ %8, %95 ], [ null, %96 ], [ null, %.thread116 ]
   ret ptr %.0
 }

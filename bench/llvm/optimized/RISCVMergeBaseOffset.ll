@@ -436,8 +436,8 @@ _ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i: ; preds = 
   br i1 %.not43.i, label %95, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread
 
 95:                                               ; preds = %89
-  %trunc.i = trunc i32 %91 to i8
-  switch i8 %trunc.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread [
+  %trunc7.i = trunc i32 %91 to i8
+  switch i8 %trunc7.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread [
     i8 10, label %96
     i8 6, label %96
     i8 11, label %96

@@ -803,7 +803,7 @@ if.end.i32.lr.ph:                                 ; preds = %if.end.i76, %if.end
   br label %if.end.i32
 
 if.end.i32:                                       ; preds = %if.end.i32.lr.ph, %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit
-  %23 = phi i32 [ %22, %if.end.i32.lr.ph ], [ %108, %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit ]
+  %23 = phi i32 [ %22, %if.end.i32.lr.ph ], [ %107, %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit ]
   %24 = load i32, ptr %error.i353, align 8, !noalias !20
   %tobool.i321.not = icmp eq i32 %24, 0
   br i1 %tobool.i321.not, label %if.end.i322, label %if.then.i324
@@ -1244,35 +1244,35 @@ while.end.i:                                      ; preds = %sw.epilog40.i, %sw.
   br label %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit
 
 if.end5.i:                                        ; preds = %sw.bb31.i, %if.end.i916, %sw.bb4.i1000, %sw.default.i982
-  %104 = phi i32 [ %84, %if.end.i916 ], [ %dec.i, %sw.bb4.i1000 ], [ %dec19.i, %sw.default.i982 ], [ %dec33.i, %sw.bb31.i ]
-  %105 = phi ptr [ %85, %if.end.i916 ], [ %incdec.ptr.i.i976, %sw.bb4.i1000 ], [ %incdec.ptr.i.i976, %sw.default.i982 ], [ %incdec.ptr.i84.i, %sw.bb31.i ]
-  %cmp.i320 = icmp ugt ptr %105, %ref.tmp3.i.sroa.0.sroa.4.0.copyload488
+  %103 = phi i32 [ %84, %if.end.i916 ], [ %dec.i, %sw.bb4.i1000 ], [ %dec19.i, %sw.default.i982 ], [ %dec33.i, %sw.bb31.i ]
+  %104 = phi ptr [ %85, %if.end.i916 ], [ %incdec.ptr.i.i976, %sw.bb4.i1000 ], [ %incdec.ptr.i.i976, %sw.default.i982 ], [ %incdec.ptr.i84.i, %sw.bb31.i ]
+  %cmp.i320 = icmp ugt ptr %104, %ref.tmp3.i.sroa.0.sroa.4.0.copyload488
   tail call void @llvm.assume(i1 %cmp.i320)
-  %cmp5.i323 = icmp eq i32 %104, %ref.tmp3.i.sroa.0.sroa.2.0.copyload489
+  %cmp5.i323 = icmp eq i32 %103, %ref.tmp3.i.sroa.0.sroa.2.0.copyload489
   tail call void @llvm.assume(i1 %cmp5.i323)
-  %incdec.ptr.i.i946 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  %incdec.ptr.i.i946 = getelementptr inbounds nuw i8, ptr %104, i64 4
   store ptr %incdec.ptr.i.i946, ptr %_position.i262, align 8
-  %106 = load i32, ptr %105, align 4
-  %idxprom.i.i947 = zext i32 %106 to i64
+  %105 = load i32, ptr %104, align 4
+  %idxprom.i.i947 = zext i32 %105 to i64
   %arrayidx.i.i948 = getelementptr inbounds nuw i8, ptr %.pre482, i64 %idxprom.i.i947
-  %107 = load i8, ptr %arrayidx.i.i948, align 1
-  switch i8 %107, label %sw.default.i [
-    i8 125, label %sw.bb.i
+  %106 = load i8, ptr %arrayidx.i.i948, align 1
+  switch i8 %106, label %sw.default.i [
+    i8 125, label %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit.thread
     i8 44, label %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit
   ]
 
-sw.bb.i:                                          ; preds = %if.end5.i
+_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit.thread: ; preds = %if.end5.i
   tail call void @llvm.assume(i1 %or.cond12)
   store i32 %sub.i.i, ptr %_depth.i.i311491, align 4
   br label %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit
 
-sw.default.i:                                     ; preds = %if.end5.i
+_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit.sink.split: ; preds = %if.end5.i
   store i32 3, ptr %error.i353, align 8
   br label %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit
 
-_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit: ; preds = %sw.bb.i, %sw.default.i, %if.end5.i, %while.end.i, %if.end.i60
-  %108 = phi i32 [ %sub.i.i, %sw.bb.i ], [ %ref.tmp3.i.sroa.0.sroa.2.0.copyload489, %sw.default.i ], [ %ref.tmp3.i.sroa.0.sroa.2.0.copyload489, %if.end5.i ], [ %103, %while.end.i ], [ %84, %if.end.i60 ]
-  %cmp.i313.not = icmp slt i32 %108, %ref.tmp3.i.sroa.0.sroa.2.0.copyload489
+_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit: ; preds = %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit.thread, %sw.default.i, %if.end5.i, %while.end.i, %if.end.i60
+  %107 = phi i32 [ %sub.i.i, %sw.bb.i ], [ %ref.tmp3.i.sroa.0.sroa.2.0.copyload489, %sw.default.i ], [ %ref.tmp3.i.sroa.0.sroa.2.0.copyload489, %if.end5.i ], [ %103, %while.end.i ], [ %84, %if.end.i60 ]
+  %cmp.i313.not = icmp slt i32 %107, %ref.tmp3.i.sroa.0.sroa.2.0.copyload489
   br i1 %cmp.i313.not, label %return, label %if.end.i32
 
 return:                                           ; preds = %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit, %if.else23.i, %if.end.i649, %if.then.i645, %lor.lhs.false.i, %if.else.i595, %if.end, %if.else.i, %if.then.i94, %if.then6.i323, %if.then.i324, %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand5fieldEE5valueEv.exit

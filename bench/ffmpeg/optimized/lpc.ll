@@ -1160,7 +1160,7 @@ define internal void @lpc_compute_autocorr_c(ptr noundef readonly captures(none)
 ._crit_edge51:                                    ; preds = %._crit_edge51.loopexit, %4
   %.041.lcssa = phi i32 [ 0, %4 ], [ %20, %._crit_edge51.loopexit ]
   %21 = icmp eq i32 %.041.lcssa, %2
-  br i1 %21, label %22, label %34
+  br i1 %21, label %22, label %35
 
 22:                                               ; preds = %._crit_edge51
   %23 = add nsw i32 %2, -1
@@ -1188,7 +1188,7 @@ define internal void @lpc_compute_autocorr_c(ptr noundef readonly captures(none)
   store double %.0.lcssa, ptr %33, align 8, !tbaa !14
   br label %34
 
-34:                                               ; preds = %._crit_edge57, %._crit_edge51
+35:                                               ; preds = %._crit_edge57, %._crit_edge51
   ret void
 }
 

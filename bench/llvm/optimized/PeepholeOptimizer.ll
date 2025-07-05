@@ -7064,10 +7064,10 @@ _ZN12_GLOBAL__N_112ValueTracker28getNextSourceFromRegSequenceEv.exit.i.i: ; pred
   store ptr %27, ptr %12, align 8, !tbaa !25, !alias.scope !560
   store i32 2, ptr %29, align 4, !tbaa !27, !alias.scope !560
   store ptr null, ptr %30, align 8, !tbaa !528, !alias.scope !560
-  %.sroa.2.0.insert.ext.i.i.i = zext i32 %293 to i64
-  %.sroa.2.0.insert.shift.i.i.i76 = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
+  %.sroa.2.0.insert.ext.i.i.i76 = zext i32 %293 to i64
+  %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i76, 32
   %.sroa.0.0.insert.ext.i.i.i77 = zext i32 %.sroa.0.0.copyload.i75 to i64
-  %.sroa.0.0.insert.insert.i.i.i78 = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i76, %.sroa.0.0.insert.ext.i.i.i77
+  %.sroa.0.0.insert.insert.i.i.i78 = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i77
   store i64 %.sroa.0.0.insert.insert.i.i.i78, ptr %27, align 8, !alias.scope !560
   store i32 1, ptr %28, align 8, !tbaa !26, !alias.scope !560
   br label %294
@@ -7306,9 +7306,9 @@ _ZN12_GLOBAL__N_112ValueTracker17getNextSourceImplEv.exit.i: ; preds = %294, %_Z
 .thread.sink.split:                               ; preds = %108, %197, %307
   %.sink180 = phi i64 [ %298, %307 ], [ %.sroa.2.0.insert.ext.i.i.i3.i.i, %197 ], [ %.sroa.2.0.insert.ext.i.i.i.i.i, %108 ]
   %.sink179 = phi i32 [ %309, %307 ], [ %199, %197 ], [ %110, %108 ]
-  %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sink180, 32
+  %.sroa.2.0.insert.ext.i.i.i = shl nuw i64 %.sink180, 32
   %.sroa.0.0.insert.ext.i.i.i = zext i32 %.sink179 to i64
-  %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
+  %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.ext.i.i.i, %.sroa.0.0.insert.ext.i.i.i
   store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %27, align 8
   store i32 1, ptr %28, align 8, !tbaa !26
   br label %.thread

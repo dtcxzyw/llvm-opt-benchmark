@@ -2313,9 +2313,9 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %30 = load ptr, ptr %29, align 32
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %375, label %.thread27
+  br i1 %31, label %375, label %.thread26
 
-.thread27:                                        ; preds = %28
+.thread26:                                        ; preds = %28
   store ptr @irq_nested_primary_handler, ptr %2, align 64
   br label %119
 
@@ -2409,14 +2409,14 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %83 = add i32 %80, 1
   %84 = or i32 %83, %80
   %85 = icmp sgt i32 %84, -1
-  br i1 %85, label %.thread28, label %86, !prof !20
+  br i1 %85, label %.thread27, label %86, !prof !20
 
 86:                                               ; preds = %82, %78
   %87 = phi i32 [ 2, %78 ], [ 1, %82 ]
   tail call void @refcount_warn_saturate(ptr noundef nonnull %79, i32 noundef %87) #10
-  br label %.thread28
+  br label %.thread27
 
-.thread28:                                        ; preds = %82, %86
+.thread27:                                        ; preds = %82, %86
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %76, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -2429,7 +2429,7 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %375
 
-94:                                               ; preds = %.thread28, %90
+94:                                               ; preds = %.thread27, %90
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %96 = load ptr, ptr %95, align 16
   %97 = icmp eq ptr %96, null
@@ -2452,14 +2452,14 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %108 = add i32 %105, 1
   %109 = or i32 %108, %105
   %110 = icmp sgt i32 %109, -1
-  br i1 %110, label %.thread29, label %111, !prof !20
+  br i1 %110, label %.thread28, label %111, !prof !20
 
 111:                                              ; preds = %107, %103
   %112 = phi i32 [ 2, %103 ], [ 1, %107 ]
   tail call void @refcount_warn_saturate(ptr noundef nonnull %104, i32 noundef %112) #10
-  br label %.thread29
+  br label %.thread28
 
-.thread29:                                        ; preds = %107, %111
+.thread28:                                        ; preds = %107, %111
   %113 = getelementptr inbounds nuw i8, ptr %96, i64 40
   store ptr %101, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %96, i64 64
@@ -2472,7 +2472,7 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %358
 
-119:                                              ; preds = %.thread29, %.thread27, %115, %94, %.thread
+119:                                              ; preds = %.thread28, %.thread26, %115, %94, %.thread
   %120 = load ptr, ptr %5, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 256
   %122 = load i64, ptr %121, align 8
@@ -2503,19 +2503,19 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %137 = load ptr, ptr %136, align 16
   %138 = icmp eq ptr %137, null
-  br i1 %138, label %139, label %.thread30
+  br i1 %138, label %139, label %.thread29
 
 139:                                              ; preds = %135
   %140 = load ptr, ptr %5, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 168
   %142 = load ptr, ptr %141, align 8
   %143 = icmp eq ptr %142, null
-  br i1 %143, label %.thread30, label %144
+  br i1 %143, label %.thread29, label %144
 
 144:                                              ; preds = %139
   %145 = tail call i32 %142(ptr noundef nonnull %4) #10
   %146 = icmp eq i32 %145, 0
-  br i1 %146, label %.thread30, label %147
+  br i1 %146, label %.thread29, label %147
 
 147:                                              ; preds = %144
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -2525,14 +2525,14 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %152 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef %149, i32 noundef %0, ptr noundef %151) #11
   br label %350
 
-.thread30:                                        ; preds = %139, %144, %135
+.thread29:                                        ; preds = %139, %144, %135
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %154 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %153) #10
   %155 = load ptr, ptr %136, align 8
   %156 = icmp eq ptr %155, null
   br i1 %156, label %.thread33, label %157
 
-157:                                              ; preds = %.thread30
+157:                                              ; preds = %.thread29
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %159 = load i32, ptr %158, align 4
   %160 = and i32 %159, 8192
@@ -2582,14 +2582,14 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %or.cond = and i1 %192, %190
   br i1 %or.cond, label %.preheader, label %331
 
-.preheader:                                       ; preds = %180, %.preheader
+.preheader:; preds = %180, %.preheader
   %193 = phi ptr [ %195, %.preheader ], [ %155, %180 ]
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
   %195 = load ptr, ptr %194, align 8
   %196 = icmp eq ptr %195, null
   br i1 %196, label %.thread31.loopexit, label %.preheader, !llvm.loop !82
 
-197:                                              ; preds = %157
+197:; preds = %157
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %199 = load ptr, ptr %198, align 16
   %200 = load ptr, ptr %5, align 8
@@ -2597,22 +2597,22 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %202 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %199, i32 noundef %0, ptr noundef %201) #11
   br label %340
 
-.thread33:                                        ; preds = %.thread30
+203:                                              ; preds = %.thread30
   %203 = load i32, ptr %14, align 4
   %204 = and i32 %203, 8192
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %.thread31, label %.thread39
 
-.thread39:                                        ; preds = %.thread33
+.thread39:; preds = %203
   %206 = tail call i64 asm "rep; bsf $1,$0", "=r,r,~{dirflag},~{fpsr},~{flags}"(i64 -1) #14, !srcloc !83
   %207 = shl nuw i64 1, %206
-  %208 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %209 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i64 %207, ptr %208, align 8
   %209 = and i32 %203, 15
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %236, label %230
 
-.thread31.loopexit:                               ; preds = %.preheader
+.thread31.loopexit:; preds = %.preheader
   %211 = getelementptr inbounds nuw i8, ptr %193, i64 24
   br label %.thread31
 
@@ -2623,7 +2623,7 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %215 = icmp eq ptr %214, @irq_default_primary_handler
   br i1 %215, label %216, label %226
 
-216:                                              ; preds = %.thread31
+216: ; preds = %.thread31
   %217 = load ptr, ptr %5, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 256
   %219 = load i64, ptr %218, align 8
@@ -2631,21 +2631,21 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %221 = icmp eq i64 %220, 0
   br i1 %221, label %222, label %226
 
-222:                                              ; preds = %216
+222:; preds = %216
   %223 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %224 = load ptr, ptr %223, align 16
   %225 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef %224, i32 noundef %0) #11
   br label %340
 
-226:                                              ; preds = %216, %.thread31
+226:; preds = %216, %.thread31
   %227 = and i32 %212, 15
   %228 = icmp eq i32 %227, 0
   br i1 %156, label %229, label %301
 
-229:                                              ; preds = %226
+229:; preds = %226
   br i1 %228, label %236, label %230
 
-230:                                              ; preds = %.thread39, %229
+230:; preds = %.thread39, %229
   %231 = phi ptr [ %136, %.thread39 ], [ %213, %229 ]
   %232 = phi i32 [ %209, %.thread39 ], [ %227, %229 ]
   %233 = zext nneg i32 %232 to i64
@@ -2653,13 +2653,13 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %235 = icmp eq i32 %234, 0
   br i1 %235, label %236, label %340
 
-236:                                              ; preds = %.thread39, %230, %229
+236:; preds = %.thread39, %230, %229
   %237 = phi ptr [ %136, %.thread39 ], [ %231, %230 ], [ %213, %229 ]
   %238 = tail call i32 @irq_activate(ptr noundef nonnull %1) #10
   %239 = icmp eq i32 %238, 0
   br i1 %239, label %240, label %340
 
-240:                                              ; preds = %236
+240:; preds = %236
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %242 = load i32, ptr %241, align 4
   %243 = and i32 %242, -164
@@ -2674,7 +2674,7 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %262, label %251
 
-251:                                              ; preds = %240
+251:; preds = %240
   %252 = load ptr, ptr %244, align 8
   %253 = load i32, ptr %252, align 8
   %254 = or i32 %253, 2048
@@ -2687,7 +2687,7 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %259 = icmp eq i32 %258, 0
   br i1 %259, label %262, label %260
 
-260:                                              ; preds = %251
+260:; preds = %251
   %261 = or i32 %255, 2097664
   store i32 %261, ptr %25, align 8
   br label %262
@@ -2697,99 +2697,99 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %264 = icmp eq i8 %263, 0
   br i1 %264, label %268, label %265
 
-265:                                              ; preds = %262
-  %266 = load i32, ptr %25, align 8
-  %267 = or i32 %266, 2097152
-  store i32 %267, ptr %25, align 8
+265: ; preds = %262
+  %271 = load i32, ptr %25, align 8
+  %272 = or i32 %271, 2097152
+  store i32 %272, ptr %25, align 8
   br label %268
 
-268:                                              ; preds = %265, %262
+268:; preds = %265, %262
   %269 = load i32, ptr %14, align 4
   %270 = and i32 %269, 8192
   %271 = icmp eq i32 %270, 0
-  br i1 %271, label %275, label %272
+  br i1 %271, label %291, label %272
 
-272:                                              ; preds = %268
+272:; preds = %268
   %273 = load i32, ptr %241, align 4
   %274 = or i32 %273, 32
   store i32 %274, ptr %241, align 4
   %.pre = load i32, ptr %14, align 4
-  br label %275
+  br label %291
 
-275:                                              ; preds = %272, %268
-  %276 = phi i32 [ %.pre, %272 ], [ %269, %268 ]
-  %277 = and i32 %276, 2048
-  %278 = icmp eq i32 %277, 0
-  br i1 %278, label %285, label %279
+291:                                              ; preds = %272, %268
+  %292 = phi i32 [ %.pre, %272 ], [ %269, %268 ]
+  %293 = and i32 %292, 2048
+  %294 = icmp eq i32 %293, 0
+  br i1 %294, label %301, label %295
 
-279:                                              ; preds = %275
-  %280 = load i32, ptr %25, align 8
-  %281 = or i32 %280, 8192
-  store i32 %281, ptr %25, align 8
-  %282 = load ptr, ptr %244, align 8
-  %283 = load i32, ptr %282, align 8
-  %284 = or i32 %283, 1024
-  store i32 %284, ptr %282, align 8
+295:                                              ; preds = %291
+  %296 = load i32, ptr %25, align 8
+  %297 = or i32 %296, 8192
+  store i32 %297, ptr %25, align 8
+  %298 = load ptr, ptr %244, align 8
+  %299 = load i32, ptr %298, align 8
+  %300 = or i32 %299, 1024
+  store i32 %300, ptr %298, align 8
   %.pre38 = load i32, ptr %14, align 4
-  br label %285
+  br label %301
 
-285:                                              ; preds = %279, %275
-  %286 = phi i32 [ %.pre38, %279 ], [ %276, %275 ]
-  %287 = and i32 %286, 524288
-  %288 = icmp eq i32 %287, 0
-  br i1 %288, label %289, label %295
+301:                                              ; preds = %295, %291
+  %302 = phi i32 [ %.pre38, %279 ], [ %292, %275 ]
+  %303 = and i32 %302, 524288
+  %304 = icmp eq i32 %303, 0
+  br i1 %304, label %305, label %311
 
-289:                                              ; preds = %285
-  %290 = load i32, ptr %25, align 8
-  %291 = and i32 %290, 4096
-  %292 = icmp eq i32 %291, 0
-  br i1 %292, label %293, label %295
+305:                                              ; preds = %301
+  %306 = load i32, ptr %25, align 8
+  %307 = and i32 %306, 4096
+  %308 = icmp eq i32 %307, 0
+  br i1 %308, label %309, label %311
 
-293:                                              ; preds = %289
-  %294 = tail call i32 @irq_startup(ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext false) #10
-  br label %310
+309:                                              ; preds = %305
+  %310 = tail call i32 @irq_startup(ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext false) #10
+  br label %326
 
-295:                                              ; preds = %289, %285
-  %296 = and i32 %286, 128
-  %297 = icmp eq i32 %296, 0
-  br i1 %297, label %299, label %298, !prof !20
+311:                                              ; preds = %305, %301
+  %312 = and i32 %302, 128
+  %313 = icmp eq i32 %312, 0
+  br i1 %313, label %315, label %314, !prof !20
 
-298:                                              ; preds = %295
+314:                                              ; preds = %311
   tail call void asm sideeffect "419: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 419b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 419) #10, !srcloc !84
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1785, i32 2307, i64 12) #10, !srcloc !85
   tail call void asm sideeffect "420: nop\0A\09.pushsection .discard.instr_end\0A\09.long 420b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 420) #10, !srcloc !86
-  br label %299
+  br label %315
 
-299:                                              ; preds = %298, %295
-  %300 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i32 1, ptr %300, align 64
-  br label %310
+315:                                              ; preds = %314, %311
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  store i32 1, ptr %316, align 64
+  br label %326
 
-301:                                              ; preds = %226
-  br i1 %228, label %.critedge, label %302
+317:                                              ; preds = %226
+  br i1 %228, label %329, label %318
 
-302:                                              ; preds = %301
-  %303 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %304 = load ptr, ptr %303, align 8
-  %305 = load i32, ptr %304, align 8
-  %306 = and i32 %305, 15
-  %307 = icmp eq i32 %227, %306
-  br i1 %307, label %.critedge, label %308
+318:                                              ; preds = %317
+  %319 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %320 = load ptr, ptr %319, align 8
+  %321 = load i32, ptr %320, align 8
+  %322 = and i32 %321, 15
+  %323 = icmp eq i32 %227, %322
+  br i1 %323, label %329, label %324
 
-308:                                              ; preds = %302
-  %309 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, i32 noundef %0, i32 noundef %306, i32 noundef %227) #11
-  br label %.critedge
+324:                                              ; preds = %318
+  %325 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, i32 noundef %0, i32 noundef %322, i32 noundef %227) #11
+  br label %329
 
-310:                                              ; preds = %299, %293
+326:                                              ; preds = %315, %309
   store ptr %2, ptr %237, align 8
   tail call void @irq_pm_install_action(ptr noundef nonnull %1, ptr noundef %2) #10
-  %311 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  store i32 0, ptr %311, align 4
-  %312 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store i32 0, ptr %312, align 8
-  br label %321
+  %327 = getelementptr inbounds nuw i8, ptr %1, i64 140
+  store i32 0, ptr %327, align 4
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  store i32 0, ptr %328, align 8
+  br label %336
 
-.critedge:                                        ; preds = %301, %302, %308
+329:                                              ; preds = %301, %302, %308
   store ptr %2, ptr %213, align 8
   tail call void @irq_pm_install_action(ptr noundef nonnull %1, ptr noundef %2) #10
   %313 = getelementptr inbounds nuw i8, ptr %1, i64 140
@@ -2806,60 +2806,60 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %320 = and i32 %316, -3
   store i32 %320, ptr %315, align 4
   tail call void @__enable_irq(ptr noundef nonnull %1)
-  br label %321
+  br label %336
 
-321:                                              ; preds = %310, %319, %.critedge
+336:                                              ; preds = %310, %319, %329
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %153, i64 noundef %154) #10
-  %322 = load ptr, ptr %5, align 8
-  %323 = getelementptr inbounds nuw i8, ptr %322, i64 120
-  %324 = load ptr, ptr %323, align 8
-  %325 = icmp eq ptr %324, null
-  br i1 %325, label %327, label %326, !prof !20
+  %337 = load ptr, ptr %5, align 8
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 120
+  %339 = load ptr, ptr %338, align 8
+  %340 = icmp eq ptr %339, null
+  br i1 %340, label %342, label %341, !prof !20
 
-326:                                              ; preds = %321
+341:                                              ; preds = %336
   tail call void %324(ptr noundef nonnull %4) #10
-  br label %327
+  br label %342
 
-327:                                              ; preds = %326, %321
+342:                                              ; preds = %341, %336
   tail call void @mutex_unlock(ptr noundef nonnull %129) #10
   tail call fastcc void @wake_up_and_wait_for_irq_thread_ready(ptr noundef %1, ptr noundef %2)
-  %328 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %329 = load ptr, ptr %328, align 16
-  tail call fastcc void @wake_up_and_wait_for_irq_thread_ready(ptr noundef %1, ptr noundef %329)
+  %343 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %344 = load ptr, ptr %343, align 16
+  tail call fastcc void @wake_up_and_wait_for_irq_thread_ready(ptr noundef %1, ptr noundef %344)
   tail call void @register_irq_proc(i32 noundef %0, ptr noundef nonnull %1) #10
-  %330 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store ptr null, ptr %330, align 8
+  %345 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store ptr null, ptr %345, align 8
   tail call void @register_handler_proc(i32 noundef %0, ptr noundef %2) #10
   br label %378
 
-331:                                              ; preds = %180
-  %332 = and i32 %184, 256
-  %333 = icmp eq i32 %332, 0
-  br i1 %333, label %334, label %340
+346:                                              ; preds = %180
+  %347 = and i32 %184, 256
+  %348 = icmp eq i32 %347, 0
+  br i1 %348, label %349, label %355
 
-334:                                              ; preds = %331
-  %335 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %336 = load ptr, ptr %335, align 16
-  %337 = getelementptr inbounds nuw i8, ptr %155, i64 80
-  %338 = load ptr, ptr %337, align 16
-  %339 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %0, i32 noundef %184, ptr noundef %336, i32 noundef %183, ptr noundef %338) #11
-  br label %340
+349:                                              ; preds = %346
+  %350 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %351 = load ptr, ptr %350, align 16
+  %352 = getelementptr inbounds nuw i8, ptr %155, i64 80
+  %353 = load ptr, ptr %352, align 16
+  %354 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %0, i32 noundef %184, ptr noundef %351, i32 noundef %183, ptr noundef %353) #11
+  br label %355
 
-340:                                              ; preds = %197, %334, %331, %236, %230, %222
-  %341 = phi i32 [ -22, %197 ], [ %234, %230 ], [ %238, %236 ], [ -22, %222 ], [ -16, %334 ], [ -16, %331 ]
+355:                                              ; preds = %197, %349, %346, %236, %230, %222
+  %356 = phi i32 [ -22, %197 ], [ %234, %230 ], [ %238, %236 ], [ -22, %222 ], [ -16, %334 ], [ -16, %331 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %153, i64 noundef %154) #10
-  %342 = load ptr, ptr %136, align 16
-  %343 = icmp eq ptr %342, null
-  br i1 %343, label %344, label %350
+  %357 = load ptr, ptr %136, align 16
+  %358 = icmp eq ptr %357, null
+  br i1 %358, label %359, label %350
 
-344:                                              ; preds = %340
-  %345 = load ptr, ptr %5, align 8
-  %346 = getelementptr inbounds nuw i8, ptr %345, i64 176
-  %347 = load ptr, ptr %346, align 8
-  %348 = icmp eq ptr %347, null
-  br i1 %348, label %350, label %349
+359:                                              ; preds = %355
+  %360 = load ptr, ptr %5, align 8
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 176
+  %362 = load ptr, ptr %361, align 8
+  %363 = icmp eq ptr %362, null
+  br i1 %363, label %350, label %364
 
-349:                                              ; preds = %344
+364:                                              ; preds = %359
   tail call void %347(ptr noundef nonnull %4) #10
   br label %350
 
@@ -2897,21 +2897,21 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   %368 = icmp eq ptr %367, null
   br i1 %368, label %375, label %369
 
-369:                                              ; preds = %365
+369:; preds = %365
   %370 = getelementptr inbounds nuw i8, ptr %367, i64 40
   %371 = load ptr, ptr %370, align 8
   %372 = icmp eq ptr %371, null
-  br i1 %372, label %375, label %373
+  br i1 %372, label %375, label %372
 
-373:                                              ; preds = %369
+372:                                              ; preds = %369
   store ptr null, ptr %370, align 8
   %374 = tail call i32 @kthread_stop_put(ptr noundef nonnull %371) #10
   br label %375
 
-375:                                              ; preds = %50, %373, %369, %365, %90, %28
+375:; preds = %50, %372, %369, %365, %90, %28
   %376 = phi i32 [ %359, %373 ], [ %359, %369 ], [ %359, %365 ], [ %92, %90 ], [ -22, %28 ], [ -12, %50 ]
-  %377 = load ptr, ptr %9, align 8
-  tail call void @module_put(ptr noundef %377) #10
+  %376 = load ptr, ptr %9, align 8
+  tail call void @module_put(ptr noundef %376) #10
   br label %378
 
 378:                                              ; preds = %375, %327, %8, %3
