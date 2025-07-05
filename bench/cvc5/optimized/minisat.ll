@@ -1569,17 +1569,17 @@ define hidden noundef i32 @_ZN4cvc58internal4prop16MinisatSatSolver9addClauseERS
   br i1 %15, label %16, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i
 
 16:                                               ; preds = %8
-  %17 = lshr i32 %.sroa.12.0, 1
-  %18 = and i32 %17, 1073741822
+  %17 = ashr i32 %.sroa.12.0, 1
+  %18 = and i32 %17, -2
   %19 = add nuw nsw i32 %18, 2
   %20 = xor i32 %.sroa.12.0, 2147483647
   %21 = icmp samesign ugt i32 %19, %20
   br i1 %21, label %.loopexit.i, label %22
 
 22:                                               ; preds = %16
-  %23 = add nuw nsw i32 %19, %.sroa.12.0
-  %24 = zext nneg i32 %23 to i64
-  %25 = shl nuw nsw i64 %24, 2
+  %23 = add nsw i32 %19, %.sroa.12.0
+  %24 = sext i32 %23 to i64
+  %25 = shl nsw i64 %24, 2
   %26 = tail call ptr @realloc(ptr noundef %.sroa.0.1, i64 noundef %25) #36
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %._ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit_crit_edge.i
@@ -1922,17 +1922,17 @@ _ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit.i: ; preds = %25, %.n
 
 34:                                               ; preds = %.lr.ph
   %35 = trunc nuw nsw i64 %indvars.iv to i32
-  %36 = lshr i32 %35, 1
-  %37 = and i32 %36, 1073741822
+  %36 = ashr i32 %35, 1
+  %37 = and i32 %36, -2
   %38 = add nuw nsw i32 %37, 2
   %39 = xor i32 %35, 2147483647
   %40 = icmp samesign ugt i32 %38, %39
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %34
-  %42 = add nuw nsw i32 %38, %35
-  %43 = zext nneg i32 %42 to i64
-  %44 = shl nuw nsw i64 %43, 2
+  %42 = add nsw i32 %38, %35
+  %43 = sext i32 %42 to i64
+  %44 = shl nsw i64 %43, 2
   %45 = tail call ptr @realloc(ptr noundef %.sroa.023.047, i64 noundef %44) #36
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %52

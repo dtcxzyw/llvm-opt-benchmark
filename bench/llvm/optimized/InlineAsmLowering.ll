@@ -1696,7 +1696,6 @@ _ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit354: 
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   %810 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %811 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %wide.trip.count = and i64 %800, 4294967295
   br label %812
 
 812:                                              ; preds = %.lr.ph575, %.thread529
@@ -1864,7 +1863,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit371:           ; preds = %849, %851
 
 .thread529:                                       ; preds = %817, %862, %840, %812
   %indvars.iv.next597 = add nuw nsw i64 %indvars.iv596, 1
-  %exitcond599.not = icmp eq i64 %indvars.iv.next597, %wide.trip.count
+  %exitcond599.not = icmp eq i64 %indvars.iv.next597, %800
   br i1 %exitcond599.not, label %.critedge291thread-pre-split, label %812, !llvm.loop !339
 
 .critedge291thread-pre-split:                     ; preds = %._crit_edge, %688, %_ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit341, %582, %475, %599, %630, %654, %658, %_ZNK4llvm3LLT13getSizeInBitsEv.exit371, %817, %817, %817, %820, %.thread529, %803, %_ZNSt6vectorIN4llvm14MachineOperandESaIS1_EED2Ev.exit348

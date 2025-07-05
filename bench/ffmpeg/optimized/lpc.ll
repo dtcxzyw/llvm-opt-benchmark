@@ -1160,21 +1160,18 @@ define internal void @lpc_compute_autocorr_c(ptr noundef readonly captures(none)
 ._crit_edge51:                                    ; preds = %._crit_edge51.loopexit, %4
   %.041.lcssa = phi i32 [ 0, %4 ], [ %20, %._crit_edge51.loopexit ]
   %21 = icmp eq i32 %.041.lcssa, %2
-  br i1 %21, label %22, label %35
+  br i1 %21, label %22, label %34
 
 22:                                               ; preds = %._crit_edge51
   %23 = add nsw i32 %2, -1
   %24 = sext i32 %23 to i64
   %25 = icmp sgt i64 %1, %24
-  br i1 %25, label %.lr.ph56.preheader, label %._crit_edge57
-
-.lr.ph56.preheader:                               ; preds = %22
   %26 = sext i32 %2 to i64
-  br label %.lr.ph56
+  br i1 %25, label %.lr.ph56, label %._crit_edge57
 
-.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
-  %indvars.iv66 = phi i64 [ %24, %.lr.ph56.preheader ], [ %indvars.iv.next67, %.lr.ph56 ]
-  %.054 = phi double [ 1.000000e+00, %.lr.ph56.preheader ], [ %32, %.lr.ph56 ]
+.lr.ph56:                                         ; preds = %22, %.lr.ph56
+  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.lr.ph56 ], [ %24, %22 ]
+  %.054 = phi double [ %32, %.lr.ph56 ], [ 1.000000e+00, %22 ]
   %27 = getelementptr inbounds double, ptr %0, i64 %indvars.iv66
   %28 = load double, ptr %27, align 8, !tbaa !14
   %29 = sub nsw i64 %indvars.iv66, %26
@@ -1187,12 +1184,11 @@ define internal void @lpc_compute_autocorr_c(ptr noundef readonly captures(none)
 
 ._crit_edge57:                                    ; preds = %.lr.ph56, %22
   %.0.lcssa = phi double [ 1.000000e+00, %22 ], [ %32, %.lr.ph56 ]
-  %33 = zext nneg i32 %2 to i64
-  %34 = getelementptr inbounds nuw double, ptr %3, i64 %33
-  store double %.0.lcssa, ptr %34, align 8, !tbaa !14
-  br label %35
+  %33 = getelementptr inbounds double, ptr %3, i64 %26
+  store double %.0.lcssa, ptr %33, align 8, !tbaa !14
+  br label %34
 
-35:                                               ; preds = %._crit_edge57, %._crit_edge51
+34:                                               ; preds = %._crit_edge57, %._crit_edge51
   ret void
 }
 

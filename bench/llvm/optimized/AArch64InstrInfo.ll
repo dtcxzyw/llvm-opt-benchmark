@@ -42772,13 +42772,14 @@ define internal fastcc noundef zeroext i1 @_ZL10canCombineRN4llvm17MachineBasicB
   br i1 %.not6, label %31, label %.critedge.thread
 
 31:                                               ; preds = %27, %26
-  switch i32 %1, label %_ZL25isCombineInstrSettingFlagj.exit [
-    i32 312, label %32
-    i32 1491, label %32
-    i32 313, label %32
-    i32 1494, label %32
-    i32 1213, label %32
-    i32 1214, label %32
+  %trunc = trunc nuw nsw i32 %1 to i16
+  switch i16 %trunc, label %_ZL25isCombineInstrSettingFlagj.exit [
+    i16 312, label %32
+    i16 1491, label %32
+    i16 313, label %32
+    i16 1494, label %32
+    i16 1213, label %32
+    i16 1214, label %32
   ]
 
 32:                                               ; preds = %31, %31, %31, %31, %31, %31

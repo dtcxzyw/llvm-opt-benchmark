@@ -1342,7 +1342,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
 
 139:                                              ; preds = %133
   %140 = trunc nuw nsw i64 %indvars.iv345 to i32
-  %141 = add nuw nsw i32 %140, 1
+  %141 = add nsw i32 %140, 1
   br label %.critedge2
 
 142:                                              ; preds = %133

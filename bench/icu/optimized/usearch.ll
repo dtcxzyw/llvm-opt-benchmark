@@ -3058,8 +3058,8 @@ define signext range(i8 0, 2) i8 @usearch_search_77(ptr noundef %0, i32 noundef 
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 3152
   %62 = load ptr, ptr %61, align 8, !tbaa !45
   %63 = load ptr, ptr %43, align 8, !tbaa !84
-  %64 = zext nneg i32 %49 to i64
-  %65 = getelementptr inbounds nuw %struct.CEI, ptr %63, i64 %64
+  %64 = sext i32 %49 to i64
+  %65 = getelementptr inbounds %struct.CEI, ptr %63, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %68 = invoke noundef i64 @_ZN6icu_7713UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %62, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %10)
@@ -3067,7 +3067,7 @@ define signext range(i8 0, 2) i8 @usearch_search_77(ptr noundef %0, i32 noundef 
 
 _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread493: ; preds = %59
   %69 = load ptr, ptr %43, align 8, !tbaa !84
-  %70 = getelementptr inbounds nuw %struct.CEI, ptr %69, i64 %64
+  %70 = getelementptr inbounds %struct.CEI, ptr %69, i64 %64
   store i64 %68, ptr %70, align 8, !tbaa !85
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #19
   br label %.preheader398
@@ -4634,8 +4634,8 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread: ; preds = %45, %
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 3152
   %89 = load ptr, ptr %88, align 8, !tbaa !45
   %90 = load ptr, ptr %70, align 8, !tbaa !84
-  %91 = zext nneg i32 %73 to i64
-  %92 = getelementptr inbounds nuw %struct.CEI, ptr %90, i64 %91
+  %91 = sext i32 %73 to i64
+  %92 = getelementptr inbounds %struct.CEI, ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 12
   %95 = invoke noundef i64 @_ZN6icu_7713UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %89, ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noundef nonnull %10)
@@ -4643,7 +4643,7 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread: ; preds = %45, %
 
 .noexc253:                                        ; preds = %86
   %96 = load ptr, ptr %70, align 8, !tbaa !84
-  %97 = getelementptr inbounds nuw %struct.CEI, ptr %96, i64 %91
+  %97 = getelementptr inbounds %struct.CEI, ptr %96, i64 %91
   store i64 %95, ptr %97, align 8, !tbaa !85
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #19
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit
@@ -4733,8 +4733,8 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit: ; preds = %.noexc253, %7
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 3152
   %133 = load ptr, ptr %132, align 8, !tbaa !45
   %134 = load ptr, ptr %114, align 8, !tbaa !84
-  %135 = zext nneg i32 %120 to i64
-  %136 = getelementptr inbounds nuw %struct.CEI, ptr %134, i64 %135
+  %135 = sext i32 %120 to i64
+  %136 = getelementptr inbounds %struct.CEI, ptr %134, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 12
   %139 = invoke noundef i64 @_ZN6icu_7713UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %133, ptr noundef nonnull %137, ptr noundef nonnull %138, ptr noundef nonnull %9)
@@ -4742,7 +4742,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit: ; preds = %.noexc253, %7
 
 _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit260.thread326: ; preds = %130
   %140 = load ptr, ptr %114, align 8, !tbaa !84
-  %141 = getelementptr inbounds nuw %struct.CEI, ptr %140, i64 %135
+  %141 = getelementptr inbounds %struct.CEI, ptr %140, i64 %135
   store i64 %139, ptr %141, align 8, !tbaa !85
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #19
   br label %148

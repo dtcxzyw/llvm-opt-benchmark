@@ -19949,7 +19949,7 @@ switch.lookup:                                    ; preds = %132
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
   %276 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %277 = load ptr, ptr %276, align 8, !nonnull !19, !noundef !19
-  %278 = getelementptr inbounds i8, ptr %277, i64 %275
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 %275
   store ptr %277, ptr %45, align 8
   %279 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %278, ptr %279, align 8
@@ -22155,7 +22155,7 @@ switch.lookup:                                    ; preds = %132
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
   %276 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %277 = load ptr, ptr %276, align 8, !nonnull !19, !noundef !19
-  %278 = getelementptr inbounds i8, ptr %277, i64 %275
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 %275
   store ptr %277, ptr %45, align 8
   %279 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %278, ptr %279, align 8
@@ -28319,7 +28319,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 
 141:                                              ; preds = %126
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
-  %142 = getelementptr inbounds i8, ptr %2, i64 %3
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %143 = icmp eq ptr %122, %142
   br i1 %143, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd70b16e9dd7060c3E.exit219.thread", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd70b16e9dd7060c3E.exit219.preheader"
 
@@ -29321,7 +29321,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 
 142:                                              ; preds = %127
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
-  %143 = getelementptr inbounds i8, ptr %2, i64 %3
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %144 = icmp eq ptr %123, %143
   br i1 %144, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd70b16e9dd7060c3E.exit220.thread", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd70b16e9dd7060c3E.exit220.preheader"
 

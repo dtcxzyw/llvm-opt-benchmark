@@ -659,9 +659,8 @@ define noalias noundef ptr @utrie2_openFromSerialized_77(i32 noundef %0, ptr nou
   store ptr %58, ptr %52, align 8, !tbaa !13
   %59 = zext i16 %30 to i64
   %60 = getelementptr inbounds nuw i16, ptr %58, i64 %59
-  %trunc = trunc nuw i32 %0 to i1
   %61 = zext i16 %39 to i64
-  br i1 %trunc, label %69, label %62
+  br i1 %44, label %62, label %69
 
 62:                                               ; preds = %55
   %63 = getelementptr inbounds nuw i16, ptr %58, i64 %61
@@ -680,10 +679,10 @@ define noalias noundef ptr @utrie2_openFromSerialized_77(i32 noundef %0, ptr nou
   br label %74
 
 74:                                               ; preds = %69, %62
-  %.sink84 = phi ptr [ null, %69 ], [ %60, %62 ]
-  %.sink83 = phi ptr [ %60, %69 ], [ null, %62 ]
-  %.sink82 = phi i32 [ %71, %69 ], [ %65, %62 ]
-  %.sink = phi i32 [ %73, %69 ], [ %68, %62 ]
+  %.sink84 = phi ptr [ %60, %62 ], [ null, %69 ]
+  %.sink83 = phi ptr [ null, %62 ], [ %60, %69 ]
+  %.sink82 = phi i32 [ %65, %62 ], [ %71, %69 ]
+  %.sink = phi i32 [ %68, %62 ], [ %73, %69 ]
   %75 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %.sink84, ptr %75, align 8, !tbaa !3
   %76 = getelementptr inbounds nuw i8, ptr %52, i64 16

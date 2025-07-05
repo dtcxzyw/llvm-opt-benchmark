@@ -443,66 +443,67 @@ define internal void @AddVector_SSE2(ptr noalias noundef readonly captures(none)
 35:                                               ; preds = %7
   %36 = and i32 %3, 8
   %.not74 = icmp eq i32 %36, 0
-  br i1 %.not74, label %54, label %37
+  br i1 %.not74, label %55, label %37
 
 37:                                               ; preds = %35
   %38 = trunc nuw nsw i64 %indvars.iv to i32
-  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %6
-  %40 = load <4 x i32>, ptr %39, align 1, !tbaa !7
-  %41 = add nuw nsw i64 %indvars.iv, 20
-  %42 = and i64 %41, 4294967284
-  %43 = getelementptr inbounds nuw i32, ptr %0, i64 %42
-  %44 = load <4 x i32>, ptr %43, align 1, !tbaa !7
-  %45 = getelementptr inbounds nuw i32, ptr %1, i64 %6
-  %46 = load <4 x i32>, ptr %45, align 1, !tbaa !7
-  %47 = getelementptr inbounds nuw i32, ptr %1, i64 %42
-  %48 = load <4 x i32>, ptr %47, align 1, !tbaa !7
-  %49 = getelementptr inbounds nuw i32, ptr %2, i64 %6
-  %50 = add <4 x i32> %46, %40
-  store <4 x i32> %50, ptr %49, align 1, !tbaa !7
-  %51 = getelementptr inbounds nuw i32, ptr %2, i64 %42
-  %52 = add <4 x i32> %48, %44
-  store <4 x i32> %52, ptr %51, align 1, !tbaa !7
-  %53 = add nuw nsw i32 %38, 24
-  br label %54
+  %39 = sext i32 %5 to i64
+  %40 = getelementptr inbounds i32, ptr %0, i64 %39
+  %41 = load <4 x i32>, ptr %40, align 1, !tbaa !7
+  %42 = add nuw nsw i64 %indvars.iv, 20
+  %43 = and i64 %42, 4294967284
+  %44 = getelementptr inbounds nuw i32, ptr %0, i64 %43
+  %45 = load <4 x i32>, ptr %44, align 1, !tbaa !7
+  %46 = getelementptr inbounds i32, ptr %1, i64 %39
+  %47 = load <4 x i32>, ptr %46, align 1, !tbaa !7
+  %48 = getelementptr inbounds nuw i32, ptr %1, i64 %43
+  %49 = load <4 x i32>, ptr %48, align 1, !tbaa !7
+  %50 = getelementptr inbounds i32, ptr %2, i64 %39
+  %51 = add <4 x i32> %47, %41
+  store <4 x i32> %51, ptr %50, align 1, !tbaa !7
+  %52 = getelementptr inbounds nuw i32, ptr %2, i64 %43
+  %53 = add <4 x i32> %49, %45
+  store <4 x i32> %53, ptr %52, align 1, !tbaa !7
+  %54 = add nuw nsw i32 %38, 24
+  br label %55
 
-54:                                               ; preds = %37, %35
-  %.1 = phi i32 [ %53, %37 ], [ %5, %35 ]
-  %55 = and i32 %3, 7
-  switch i32 %55, label %78 [
-    i32 4, label %56
-    i32 2, label %64
+55:                                               ; preds = %37, %35
+  %.1 = phi i32 [ %54, %37 ], [ %5, %35 ]
+  %56 = and i32 %3, 7
+  switch i32 %56, label %79 [
+    i32 4, label %57
+    i32 2, label %65
   ]
 
-56:                                               ; preds = %54
-  %57 = sext i32 %.1 to i64
-  %58 = getelementptr inbounds i32, ptr %0, i64 %57
-  %59 = load <4 x i32>, ptr %58, align 1, !tbaa !7
-  %60 = getelementptr inbounds i32, ptr %1, i64 %57
-  %61 = load <4 x i32>, ptr %60, align 1, !tbaa !7
-  %62 = getelementptr inbounds i32, ptr %2, i64 %57
-  %63 = add <4 x i32> %61, %59
-  store <4 x i32> %63, ptr %62, align 1, !tbaa !7
-  br label %78
+57:                                               ; preds = %55
+  %58 = sext i32 %.1 to i64
+  %59 = getelementptr inbounds i32, ptr %0, i64 %58
+  %60 = load <4 x i32>, ptr %59, align 1, !tbaa !7
+  %61 = getelementptr inbounds i32, ptr %1, i64 %58
+  %62 = load <4 x i32>, ptr %61, align 1, !tbaa !7
+  %63 = getelementptr inbounds i32, ptr %2, i64 %58
+  %64 = add <4 x i32> %62, %60
+  store <4 x i32> %64, ptr %63, align 1, !tbaa !7
+  br label %79
 
-64:                                               ; preds = %54
-  %65 = sext i32 %.1 to i64
-  %66 = getelementptr inbounds i32, ptr %0, i64 %65
-  %67 = load i64, ptr %66, align 1, !tbaa !7
-  %68 = insertelement <2 x i64> poison, i64 %67, i64 0
-  %69 = getelementptr inbounds i32, ptr %1, i64 %65
-  %70 = load i64, ptr %69, align 1, !tbaa !7
-  %71 = insertelement <2 x i64> poison, i64 %70, i64 0
-  %72 = getelementptr inbounds i32, ptr %2, i64 %65
-  %73 = bitcast <2 x i64> %68 to <4 x i32>
-  %74 = bitcast <2 x i64> %71 to <4 x i32>
-  %75 = add <4 x i32> %74, %73
-  %76 = bitcast <4 x i32> %75 to <2 x i64>
-  %77 = extractelement <2 x i64> %76, i64 0
-  store i64 %77, ptr %72, align 1, !tbaa !7
-  br label %78
+65:                                               ; preds = %55
+  %66 = sext i32 %.1 to i64
+  %67 = getelementptr inbounds i32, ptr %0, i64 %66
+  %68 = load i64, ptr %67, align 1, !tbaa !7
+  %69 = insertelement <2 x i64> poison, i64 %68, i64 0
+  %70 = getelementptr inbounds i32, ptr %1, i64 %66
+  %71 = load i64, ptr %70, align 1, !tbaa !7
+  %72 = insertelement <2 x i64> poison, i64 %71, i64 0
+  %73 = getelementptr inbounds i32, ptr %2, i64 %66
+  %74 = bitcast <2 x i64> %69 to <4 x i32>
+  %75 = bitcast <2 x i64> %72 to <4 x i32>
+  %76 = add <4 x i32> %75, %74
+  %77 = bitcast <4 x i32> %76 to <2 x i64>
+  %78 = extractelement <2 x i64> %77, i64 0
+  store i64 %78, ptr %73, align 1, !tbaa !7
+  br label %79
 
-78:                                               ; preds = %54, %64, %56
+79:                                               ; preds = %55, %65, %57
   ret void
 }
 
@@ -548,62 +549,63 @@ define internal void @AddVectorEq_SSE2(ptr noalias noundef readonly captures(non
 30:                                               ; preds = %6
   %31 = and i32 %2, 8
   %.not74 = icmp eq i32 %31, 0
-  br i1 %.not74, label %47, label %32
+  br i1 %.not74, label %48, label %32
 
 32:                                               ; preds = %30
   %33 = trunc nuw nsw i64 %indvars.iv to i32
-  %34 = getelementptr inbounds nuw i32, ptr %0, i64 %5
-  %35 = load <4 x i32>, ptr %34, align 1, !tbaa !7
-  %36 = add nuw nsw i64 %indvars.iv, 20
-  %37 = and i64 %36, 4294967284
-  %38 = getelementptr inbounds nuw i32, ptr %0, i64 %37
-  %39 = load <4 x i32>, ptr %38, align 1, !tbaa !7
-  %40 = getelementptr inbounds nuw i32, ptr %1, i64 %5
-  %41 = load <4 x i32>, ptr %40, align 1, !tbaa !7
-  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %37
-  %43 = load <4 x i32>, ptr %42, align 1, !tbaa !7
-  %44 = add <4 x i32> %41, %35
-  store <4 x i32> %44, ptr %40, align 1, !tbaa !7
-  %45 = add <4 x i32> %43, %39
-  store <4 x i32> %45, ptr %42, align 1, !tbaa !7
-  %46 = add nuw nsw i32 %33, 24
-  br label %47
+  %34 = sext i32 %4 to i64
+  %35 = getelementptr inbounds i32, ptr %0, i64 %34
+  %36 = load <4 x i32>, ptr %35, align 1, !tbaa !7
+  %37 = add nuw nsw i64 %indvars.iv, 20
+  %38 = and i64 %37, 4294967284
+  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %38
+  %40 = load <4 x i32>, ptr %39, align 1, !tbaa !7
+  %41 = getelementptr inbounds i32, ptr %1, i64 %34
+  %42 = load <4 x i32>, ptr %41, align 1, !tbaa !7
+  %43 = getelementptr inbounds nuw i32, ptr %1, i64 %38
+  %44 = load <4 x i32>, ptr %43, align 1, !tbaa !7
+  %45 = add <4 x i32> %42, %36
+  store <4 x i32> %45, ptr %41, align 1, !tbaa !7
+  %46 = add <4 x i32> %44, %40
+  store <4 x i32> %46, ptr %43, align 1, !tbaa !7
+  %47 = add nuw nsw i32 %33, 24
+  br label %48
 
-47:                                               ; preds = %32, %30
-  %.1 = phi i32 [ %46, %32 ], [ %4, %30 ]
-  %48 = and i32 %2, 7
-  switch i32 %48, label %69 [
-    i32 4, label %49
-    i32 2, label %56
+48:                                               ; preds = %32, %30
+  %.1 = phi i32 [ %47, %32 ], [ %4, %30 ]
+  %49 = and i32 %2, 7
+  switch i32 %49, label %70 [
+    i32 4, label %50
+    i32 2, label %57
   ]
 
-49:                                               ; preds = %47
-  %50 = sext i32 %.1 to i64
-  %51 = getelementptr inbounds i32, ptr %0, i64 %50
-  %52 = load <4 x i32>, ptr %51, align 1, !tbaa !7
-  %53 = getelementptr inbounds i32, ptr %1, i64 %50
-  %54 = load <4 x i32>, ptr %53, align 1, !tbaa !7
-  %55 = add <4 x i32> %54, %52
-  store <4 x i32> %55, ptr %53, align 1, !tbaa !7
-  br label %69
+50:                                               ; preds = %48
+  %51 = sext i32 %.1 to i64
+  %52 = getelementptr inbounds i32, ptr %0, i64 %51
+  %53 = load <4 x i32>, ptr %52, align 1, !tbaa !7
+  %54 = getelementptr inbounds i32, ptr %1, i64 %51
+  %55 = load <4 x i32>, ptr %54, align 1, !tbaa !7
+  %56 = add <4 x i32> %55, %53
+  store <4 x i32> %56, ptr %54, align 1, !tbaa !7
+  br label %70
 
-56:                                               ; preds = %47
-  %57 = sext i32 %.1 to i64
-  %58 = getelementptr inbounds i32, ptr %0, i64 %57
-  %59 = load i64, ptr %58, align 1, !tbaa !7
-  %60 = insertelement <2 x i64> poison, i64 %59, i64 0
-  %61 = getelementptr inbounds i32, ptr %1, i64 %57
-  %62 = load i64, ptr %61, align 1, !tbaa !7
-  %63 = insertelement <2 x i64> poison, i64 %62, i64 0
-  %64 = bitcast <2 x i64> %60 to <4 x i32>
-  %65 = bitcast <2 x i64> %63 to <4 x i32>
-  %66 = add <4 x i32> %65, %64
-  %67 = bitcast <4 x i32> %66 to <2 x i64>
-  %68 = extractelement <2 x i64> %67, i64 0
-  store i64 %68, ptr %61, align 1, !tbaa !7
-  br label %69
+57:                                               ; preds = %48
+  %58 = sext i32 %.1 to i64
+  %59 = getelementptr inbounds i32, ptr %0, i64 %58
+  %60 = load i64, ptr %59, align 1, !tbaa !7
+  %61 = insertelement <2 x i64> poison, i64 %60, i64 0
+  %62 = getelementptr inbounds i32, ptr %1, i64 %58
+  %63 = load i64, ptr %62, align 1, !tbaa !7
+  %64 = insertelement <2 x i64> poison, i64 %63, i64 0
+  %65 = bitcast <2 x i64> %61 to <4 x i32>
+  %66 = bitcast <2 x i64> %64 to <4 x i32>
+  %67 = add <4 x i32> %66, %65
+  %68 = bitcast <4 x i32> %67 to <2 x i64>
+  %69 = extractelement <2 x i64> %68, i64 0
+  store i64 %69, ptr %62, align 1, !tbaa !7
+  br label %70
 
-69:                                               ; preds = %47, %56, %49
+70:                                               ; preds = %48, %57, %50
   ret void
 }
 

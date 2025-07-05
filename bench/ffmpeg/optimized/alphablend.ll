@@ -138,6 +138,7 @@ isGray.exit.thread:                               ; preds = %18, %22
   %67 = getelementptr inbounds nuw i32, ptr %2, i64 %65
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 9
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 10
+  %wide.trip.count527 = zext nneg i32 %29 to i64
   br label %70
 
 70:                                               ; preds = %.preheader444, %._crit_edge
@@ -586,7 +587,7 @@ isBE.exit414:                                     ; preds = %293
 
 ._crit_edge:                                      ; preds = %.loopexit435, %.thread423
   %indvars.iv.next525 = add nuw nsw i64 %indvars.iv524, 1
-  %exitcond528.not = icmp eq i64 %indvars.iv.next525, %65
+  %exitcond528.not = icmp eq i64 %indvars.iv.next525, %wide.trip.count527
   br i1 %exitcond528.not, label %.loopexit433, label %70, !llvm.loop !49
 
 373:                                              ; preds = %61
@@ -598,8 +599,8 @@ isBE.exit414:                                     ; preds = %293
 .lr.ph472:                                        ; preds = %373
   %narrow = mul nuw nsw i32 %29, 20
   %377 = zext nneg i32 %narrow to i64
-  %378 = getelementptr inbounds nuw i8, ptr %30, i64 %377
-  %379 = getelementptr inbounds nuw i8, ptr %378, i64 8
+  %378 = getelementptr i8, ptr %30, i64 %377
+  %379 = getelementptr i8, ptr %378, i64 8
   %380 = load i32, ptr %379, align 4, !tbaa !51
   %.not403 = icmp eq i32 %380, 0
   %381 = zext i1 %.not403 to i64
@@ -613,7 +614,9 @@ isBE.exit414:                                     ; preds = %293
   %386 = zext nneg i32 %383 to i64
   %387 = zext nneg i32 %29 to i64
   %wide.trip.count548 = zext nneg i32 %375 to i64
+  %wide.trip.count543 = zext nneg i32 %29 to i64
   %wide.trip.count558 = zext nneg i32 %375 to i64
+  %wide.trip.count553 = zext nneg i32 %29 to i64
   br label %.lr.ph472.split.us
 
 .lr.ph472.split.us:                               ; preds = %.lr.ph472.split.us.preheader, %.loopexit.us
@@ -672,7 +675,7 @@ isBE.exit416.us:                                  ; preds = %.lr.ph472.split.us
   %gep578 = getelementptr inbounds nuw i16, ptr %invariant.gep577, i64 %indvars.iv540
   store i16 %424, ptr %gep578, align 2, !tbaa !39
   %indvars.iv.next541 = add nuw nsw i64 %indvars.iv540, 1
-  %exitcond544.not = icmp eq i64 %indvars.iv.next541, %387
+  %exitcond544.not = icmp eq i64 %indvars.iv.next541, %wide.trip.count543
   br i1 %exitcond544.not, label %406, label %407, !llvm.loop !53
 
 .loopexit.us:                                     ; preds = %406, %426, %.preheader430.us, %.preheader429.us
@@ -707,7 +710,7 @@ isBE.exit416.us:                                  ; preds = %.lr.ph472.split.us
   %gep582 = getelementptr inbounds nuw i16, ptr %invariant.gep581, i64 %indvars.iv550
   store i16 %442, ptr %gep582, align 2, !tbaa !39
   %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
-  %exitcond554.not = icmp eq i64 %indvars.iv.next551, %387
+  %exitcond554.not = icmp eq i64 %indvars.iv.next551, %wide.trip.count553
   br i1 %exitcond554.not, label %426, label %427, !llvm.loop !56
 
 .preheader.us:                                    ; preds = %.preheader429.us, %426
@@ -751,6 +754,7 @@ isBE.exit416.us:                                  ; preds = %.lr.ph472.split.us
   %459 = zext nneg i32 %383 to i64
   %460 = zext nneg i32 %29 to i64
   %wide.trip.count537 = zext nneg i32 %375 to i64
+  %wide.trip.count532 = zext nneg i32 %29 to i64
   br label %.preheader428.lr.ph.us
 
 .preheader428.lr.ph.us:                           ; preds = %.preheader428.lr.ph.us.preheader, %..loopexit432_crit_edge.us
@@ -795,7 +799,7 @@ isBE.exit416.us:                                  ; preds = %.lr.ph472.split.us
   %gep574 = getelementptr inbounds nuw i8, ptr %invariant.gep573, i64 %indvars.iv529
   store i8 %489, ptr %gep574, align 1, !tbaa !43
   %indvars.iv.next530 = add nuw nsw i64 %indvars.iv529, 1
-  %exitcond533.not = icmp eq i64 %indvars.iv.next530, %460
+  %exitcond533.not = icmp eq i64 %indvars.iv.next530, %wide.trip.count532
   br i1 %exitcond533.not, label %474, label %475, !llvm.loop !58
 
 .preheader428.us:                                 ; preds = %.preheader428.lr.ph.us, %474

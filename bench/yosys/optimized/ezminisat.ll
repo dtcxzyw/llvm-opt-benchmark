@@ -994,16 +994,16 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
 
 220:                                              ; preds = %214
   %221 = trunc nuw nsw i64 %indvars.iv to i32
-  %222 = lshr i32 %221, 1
-  %223 = and i32 %222, 1073741822
+  %222 = ashr i32 %221, 1
+  %223 = and i32 %222, -2
   %224 = add nuw nsw i32 %223, 2
   %225 = xor i32 %221, 2147483647
   %226 = icmp samesign ugt i32 %224, %225
   br i1 %226, label %.loopexit304, label %227
 
 227:                                              ; preds = %220
-  %228 = add nuw nsw i32 %224, %221
-  %229 = zext nneg i32 %228 to i64
+  %228 = add nsw i32 %224, %221
+  %229 = sext i32 %228 to i64
   %230 = call ptr @reallocarray(ptr noundef %.sroa.0224.1478, i64 noundef %229, i64 noundef 4) #21
   %231 = icmp eq ptr %230, null
   br i1 %231, label %232, label %269
@@ -1054,16 +1054,16 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
 
 250:                                              ; preds = %243
   %251 = trunc nuw nsw i64 %indvars.iv to i32
-  %252 = lshr i32 %251, 1
-  %253 = and i32 %252, 1073741822
+  %252 = ashr i32 %251, 1
+  %253 = and i32 %252, -2
   %254 = add nuw nsw i32 %253, 2
   %255 = xor i32 %251, 2147483647
   %256 = icmp samesign ugt i32 %254, %255
   br i1 %256, label %.loopexit303, label %257
 
 257:                                              ; preds = %250
-  %258 = add nuw nsw i32 %254, %251
-  %259 = zext nneg i32 %258 to i64
+  %258 = add nsw i32 %254, %251
+  %259 = sext i32 %258 to i64
   %260 = call ptr @reallocarray(ptr noundef %.sroa.0224.1478, i64 noundef %259, i64 noundef 4) #21
   %261 = icmp eq ptr %260, null
   br i1 %261, label %262, label %269
@@ -1256,16 +1256,16 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %_ZN7Minisat10SimpSo
 
 329:                                              ; preds = %323
   %330 = trunc nuw nsw i64 %indvars.iv596 to i32
-  %331 = lshr i32 %330, 1
-  %332 = and i32 %331, 1073741822
+  %331 = ashr i32 %330, 1
+  %332 = and i32 %331, -2
   %333 = add nuw nsw i32 %332, 2
   %334 = xor i32 %330, 2147483647
   %335 = icmp samesign ugt i32 %333, %334
   br i1 %335, label %.loopexit302, label %336
 
 336:                                              ; preds = %329
-  %337 = add nuw nsw i32 %333, %330
-  %338 = zext nneg i32 %337 to i64
+  %337 = add nsw i32 %333, %330
+  %338 = sext i32 %337 to i64
   %339 = call ptr @reallocarray(ptr noundef %.sroa.0200.0492, i64 noundef %338, i64 noundef 4) #21
   %340 = icmp eq ptr %339, null
   br i1 %340, label %341, label %378
@@ -1316,16 +1316,16 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %_ZN7Minisat10SimpSo
 
 359:                                              ; preds = %352
   %360 = trunc nuw nsw i64 %indvars.iv596 to i32
-  %361 = lshr i32 %360, 1
-  %362 = and i32 %361, 1073741822
+  %361 = ashr i32 %360, 1
+  %362 = and i32 %361, -2
   %363 = add nuw nsw i32 %362, 2
   %364 = xor i32 %360, 2147483647
   %365 = icmp samesign ugt i32 %363, %364
   br i1 %365, label %.loopexit301, label %366
 
 366:                                              ; preds = %359
-  %367 = add nuw nsw i32 %363, %360
-  %368 = zext nneg i32 %367 to i64
+  %367 = add nsw i32 %363, %360
+  %368 = sext i32 %367 to i64
   %369 = call ptr @reallocarray(ptr noundef %.sroa.0200.0492, i64 noundef %368, i64 noundef 4) #21
   %370 = icmp eq ptr %369, null
   br i1 %370, label %371, label %378
