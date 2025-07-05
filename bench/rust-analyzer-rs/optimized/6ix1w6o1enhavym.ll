@@ -466,29 +466,29 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
   %8 = ptrtoint ptr %1 to i64
   %9 = sub nuw i64 %7, %8
   %10 = lshr i64 %9, 4
-  %11 = icmp eq i64 %9, -16
-  br i1 %11, label %12, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc6acc702c21d70e1E.exit.i"
+  %11 = lshr exact i64 %9, 1
+  %12 = icmp eq i64 %9, -16
+  br i1 %12, label %13, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc6acc702c21d70e1E.exit.i"
 
-12:                                               ; preds = %3
+13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.d9b319fdc28c08d9bbb8b2026cb3226e.4, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d9b319fdc28c08d9bbb8b2026cb3226e.5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d9b319fdc28c08d9bbb8b2026cb3226e.14) #16, !noalias !75
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc6acc702c21d70e1E.exit.i": ; preds = %3
-  %13 = lshr exact i64 %9, 1
-  %14 = add nuw i64 %13, 15
-  %15 = and i64 %14, -8
-  %16 = icmp ugt i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc6acc702c21d70e1E.exit.i.i.i"
+  %14 = icmp ugt i64 %9, -48
+  br i1 %14, label %15, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc6acc702c21d70e1E.exit.i.i.i"
 
-17:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc6acc702c21d70e1E.exit.i"
+15:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc6acc702c21d70e1E.exit.i"
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.d9b319fdc28c08d9bbb8b2026cb3226e.4, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d9b319fdc28c08d9bbb8b2026cb3226e.5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d9b319fdc28c08d9bbb8b2026cb3226e.11) #16, !noalias !79
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc6acc702c21d70e1E.exit.i.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc6acc702c21d70e1E.exit.i"
-  %18 = add nuw nsw i64 %15, 15
-  %19 = and i64 %18, 9223372036854775800
+  %16 = add nuw i64 %11, 15
+  %17 = and i64 %16, -8
+  %18 = add nuw i64 %17, 15
+  %19 = and i64 %18, -8
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %21 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %19, i64 noundef 8) #19
   %22 = icmp eq ptr %21, null

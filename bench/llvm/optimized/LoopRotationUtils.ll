@@ -6759,7 +6759,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implINS_20l
 
 _ZN4llvm20location_op_iteratordeEv.exit:          ; preds = %.lr.ph, %9
   %11 = phi ptr [ %10, %9 ], [ %8, %.lr.ph ]
-  %.not42 = icmp samesign ugt i64 %.037.idx49, 56
+  %.not42 = icmp samesign ugt i64 %.037.idx49, 63
   br i1 %.not42, label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit, label %12
 
 12:                                               ; preds = %_ZN4llvm20location_op_iteratordeEv.exit
@@ -6864,7 +6864,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit.thread
 
 _ZN4llvm20location_op_iteratordeEv.exit14:        ; preds = %.lr.ph59, %56
   %58 = phi ptr [ %57, %56 ], [ %55, %.lr.ph59 ]
-  %.not45 = icmp samesign ugt i64 %.2.idx56, 56
+  %.not45 = icmp samesign ugt i64 %.2.idx56, 63
   br i1 %.not45, label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit15, label %59
 
 59:                                               ; preds = %_ZN4llvm20location_op_iteratordeEv.exit14
@@ -7368,7 +7368,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implINS_17D
 
 _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit: ; preds = %.lr.ph, %9
   %11 = phi ptr [ %10, %9 ], [ %8, %.lr.ph ]
-  %.not44 = icmp samesign ugt i64 %.039.idx51, 56
+  %.not44 = icmp samesign ugt i64 %.039.idx51, 63
   br i1 %.not44, label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit, label %12
 
 12:                                               ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit
@@ -7478,7 +7478,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit.thread
 
 _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14: ; preds = %.lr.ph61, %59
   %61 = phi ptr [ %60, %59 ], [ %58, %.lr.ph61 ]
-  %.not47 = icmp samesign ugt i64 %.2.idx58, 56
+  %.not47 = icmp samesign ugt i64 %.2.idx58, 63
   br i1 %.not47, label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit15, label %62
 
 62:                                               ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14

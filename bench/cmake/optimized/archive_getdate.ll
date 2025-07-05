@@ -469,7 +469,7 @@ nexttoken.exit:                                   ; preds = %132, %159
 162:                                              ; preds = %nexttoken.exit.thread, %nexttoken.exit
   %.1262 = phi ptr [ %.1.ph, %nexttoken.exit.thread ], [ %.1, %nexttoken.exit ]
   %.072.add = add nuw nsw i64 %.072.idx, 16
-  %163 = icmp samesign ugt i64 %.072.idx, 4064
+  %163 = icmp samesign ugt i64 %.072.idx, 4079
   br i1 %163, label %phrase.exit.thread, label %66, !llvm.loop !39
 
 .loopexit:                                        ; preds = %nexttoken.exit, %nexttoken.exit.thread263

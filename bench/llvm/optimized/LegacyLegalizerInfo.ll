@@ -3199,7 +3199,7 @@ _ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEE
   %694 = shl nuw nsw i64 %693, 1
   %695 = xor i64 %694, 126
   call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_less_iterEEvT_SE_T0_T1_(ptr nonnull %686, ptr nonnull %.0.lcssa.i.i.i.i.i.i121.ptr, i64 noundef %695)
-  %696 = icmp samesign ugt i64 %.09.i.i.i.i.i.i.idx, 60
+  %696 = icmp samesign ugt i64 %.09.i.i.i.i.i.i.idx, 63
   br i1 %696, label %.lr.ph.i.i296, label %.preheader.i19.i265
 
 .lr.ph.i.i296:                                    ; preds = %690
@@ -4310,7 +4310,7 @@ _ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeAction
   %1109 = shl nuw nsw i64 %1108, 1
   %1110 = xor i64 %1109, 126
   call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_less_iterEEvT_SE_T0_T1_(ptr nonnull %1102, ptr nonnull %.0.lcssa.i.i.i.i.i.i156.ptr, i64 noundef %1110)
-  %1111 = icmp samesign ugt i64 %.09.i.i.i.i.i.i153.idx, 60
+  %1111 = icmp samesign ugt i64 %.09.i.i.i.i.i.i153.idx, 63
   br i1 %1111, label %.lr.ph.i.i497, label %.preheader.i19.i466
 
 .lr.ph.i.i497:                                    ; preds = %1105

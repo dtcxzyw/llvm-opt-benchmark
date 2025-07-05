@@ -705,7 +705,7 @@ sink_checkalloc.exit.thread.i28:                  ; preds = %sink_checkalloc.exi
 
 378:                                              ; preds = %373, %371, %369, %355, %353, %343, %341, %sink_checkalloc.exit.thread.i28, %322
   %.0.add.i = add nsw i64 %.0.idx63.i, -8
-  %.not.i22 = icmp slt i64 %.0.idx63.i, 262152
+  %.not.i22 = icmp slt i64 %.0.idx63.i, 262145
   br i1 %.not.i22, label %._crit_edge.loopexit.i, label %297, !llvm.loop !44
 
 ._crit_edge.loopexit.i:                           ; preds = %378

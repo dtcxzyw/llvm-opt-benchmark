@@ -90,8 +90,8 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %65 = fcmp ole double %64, %.0599705
   %66 = select i1 %65, double %64, double %.0599705
   %indvars.iv.next773 = add nsw i64 %indvars.iv772, 4
-  %.not654 = icmp sgt i64 %indvars.iv.next773, %50
-  br i1 %.not654, label %.loopexit689, label %.lr.ph708, !llvm.loop !9
+  %.not654.not = icmp slt i64 %indvars.iv772, %50
+  br i1 %.not654.not, label %.lr.ph708, label %.loopexit689, !llvm.loop !9
 
 67:                                               ; preds = %47
   br i1 %.not652718, label %.loopexit689, label %.lr.ph.preheader
@@ -127,8 +127,8 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %84 = fcmp ole double %82, %.2601700
   %85 = select i1 %84, double %82, double %.2601700
   %indvars.iv.next = add nsw i64 %indvars.iv, 4
-  %.not653 = icmp sgt i64 %indvars.iv.next, %69
-  br i1 %.not653, label %.loopexit689, label %.lr.ph, !llvm.loop !11
+  %.not653.not = icmp slt i64 %indvars.iv, %69
+  br i1 %.not653.not, label %.lr.ph, label %.loopexit689, !llvm.loop !11
 
 .loopexit689:                                     ; preds = %.lr.ph, %.lr.ph708, %67, %48
   %.1600 = phi double [ %37, %67 ], [ %37, %48 ], [ %66, %.lr.ph708 ], [ %85, %.lr.ph ]
@@ -227,8 +227,8 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %147 = fcmp ole double %.3602719, %146
   %148 = select i1 %147, double %.3602719, double %146
   %indvars.iv.next779 = add nsw i64 %indvars.iv778, 4
-  %.not652 = icmp sgt i64 %indvars.iv.next779, %129
-  br i1 %.not652, label %.loopexit685, label %.lr.ph722, !llvm.loop !12
+  %.not652.not = icmp slt i64 %indvars.iv778, %129
+  br i1 %.not652.not, label %.lr.ph722, label %.loopexit685, !llvm.loop !12
 
 149:                                              ; preds = %126
   br i1 %.not652718, label %.loopexit685, label %.lr.ph715.preheader
@@ -269,8 +269,8 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %169 = fcmp ole double %.5604712, %168
   %170 = select i1 %169, double %.5604712, double %168
   %indvars.iv.next776 = add nsw i64 %indvars.iv775, 4
-  %.not651 = icmp sgt i64 %indvars.iv.next776, %151
-  br i1 %.not651, label %.loopexit685, label %.lr.ph715, !llvm.loop !13
+  %.not651.not = icmp slt i64 %indvars.iv775, %151
+  br i1 %.not651.not, label %.lr.ph715, label %.loopexit685, !llvm.loop !13
 
 .loopexit685:                                     ; preds = %157, %136, %149, %127
   %.4603 = phi double [ %37, %149 ], [ %37, %127 ], [ %148, %136 ], [ %170, %157 ]
@@ -400,8 +400,8 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %255 = fcmp ole double %254, %.7606733
   %256 = select i1 %255, double %254, double %.7606733
   %indvars.iv.next785 = add nsw i64 %indvars.iv784, 4
-  %.not649 = icmp sgt i64 %indvars.iv.next785, %238
-  br i1 %.not649, label %.loopexit683, label %.lr.ph736, !llvm.loop !14
+  %.not649.not = icmp slt i64 %indvars.iv784, %238
+  br i1 %.not649.not, label %.lr.ph736, label %.loopexit683, !llvm.loop !14
 
 257:                                              ; preds = %235
   br i1 %.not647746, label %.loopexit683, label %.lr.ph729.preheader
@@ -439,8 +439,8 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %276 = fcmp ole double %274, %.9608726
   %277 = select i1 %276, double %274, double %.9608726
   %indvars.iv.next782 = add nsw i64 %indvars.iv781, 4
-  %.not648 = icmp sgt i64 %indvars.iv.next782, %259
-  br i1 %.not648, label %.loopexit683, label %.lr.ph729, !llvm.loop !15
+  %.not648.not = icmp slt i64 %indvars.iv781, %259
+  br i1 %.not648.not, label %.lr.ph729, label %.loopexit683, !llvm.loop !15
 
 .loopexit683:                                     ; preds = %.lr.ph729, %.lr.ph736, %257, %236
   %.8607 = phi double [ %225, %257 ], [ %225, %236 ], [ %256, %.lr.ph736 ], [ %277, %.lr.ph729 ]
@@ -541,8 +541,8 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %341 = fcmp ole double %.10609747, %340
   %342 = select i1 %341, double %.10609747, double %340
   %indvars.iv.next791 = add nsw i64 %indvars.iv790, 4
-  %.not647 = icmp sgt i64 %indvars.iv.next791, %321
-  br i1 %.not647, label %.loopexit, label %.lr.ph750, !llvm.loop !16
+  %.not647.not = icmp slt i64 %indvars.iv790, %321
+  br i1 %.not647.not, label %.lr.ph750, label %.loopexit, !llvm.loop !16
 
 343:                                              ; preds = %318
   br i1 %.not647746, label %.loopexit, label %.lr.ph743.preheader
@@ -585,8 +585,8 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %365 = fcmp ole double %.12611740, %364
   %366 = select i1 %365, double %.12611740, double %364
   %indvars.iv.next788 = add nsw i64 %indvars.iv787, 4
-  %.not646 = icmp sgt i64 %indvars.iv.next788, %345
-  br i1 %.not646, label %.loopexit, label %.lr.ph743, !llvm.loop !17
+  %.not646.not = icmp slt i64 %indvars.iv787, %345
+  br i1 %.not646.not, label %.lr.ph743, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %351, %328, %343, %319
   %.11610 = phi double [ %225, %343 ], [ %225, %319 ], [ %342, %328 ], [ %366, %351 ]

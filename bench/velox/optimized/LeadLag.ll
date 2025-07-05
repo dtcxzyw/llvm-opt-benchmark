@@ -5680,9 +5680,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %cast.i39.i.i = trunc nuw nsw i64 %12 to i32
   %add.i40.i.i = add nuw nsw i32 %add.i4057.i.i, %cast.i39.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %cmp15.not.i.i = icmp samesign ugt i64 %indvars.iv.next, %9
+  %cmp15.not.i.i.not = icmp samesign ult i64 %indvars.iv, %9
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 64
-  br i1 %cmp15.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !50
+  br i1 %cmp15.not.i.i.not, label %for.body.i.i, label %for.end.i.i, !llvm.loop !50
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %if.end.i.i
   %count.1.i = phi i32 [ 0, %if.end.i.i ], [ %add.i40.i.i, %for.body.i.i ]
@@ -10100,9 +10100,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %cast.i39.i.i = trunc nuw nsw i64 %12 to i32
   %add.i40.i.i = add nuw nsw i32 %add.i4057.i.i, %cast.i39.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %cmp15.not.i.i = icmp samesign ugt i64 %indvars.iv.next, %9
+  %cmp15.not.i.i.not = icmp samesign ult i64 %indvars.iv, %9
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 64
-  br i1 %cmp15.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !50
+  br i1 %cmp15.not.i.i.not, label %for.body.i.i, label %for.end.i.i, !llvm.loop !50
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %if.end.i.i
   %count.1.i = phi i32 [ 0, %if.end.i.i ], [ %add.i40.i.i, %for.body.i.i ]

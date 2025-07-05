@@ -3433,11 +3433,11 @@ if.end.i.i.i.i159:                                ; preds = %land.rhs.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i159
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i159 ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
-  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %71
-  br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
+  %cmp19.not.i.i.not.i.i = icmp samesign ult i64 %indvars.iv.i.i, %71
+  br i1 %cmp19.not.i.i.not.i.i, label %for.body.i.i.i.i, label %for.end.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
   %72 = lshr exact i64 %indvars.iv.i.i, 3
   %arrayidx.i35.i.i.i.i = getelementptr inbounds nuw i8, ptr %69, i64 %72
   %73 = load i64, ptr %arrayidx.i35.i.i.i.i, align 8
@@ -4324,39 +4324,39 @@ if.end.i.i.i.i449:                                ; preds = %land.rhs.i.i447
   %222 = zext nneg i32 %221 to i64
   br label %for.cond.i.i.i.i450
 
-for.cond.i.i.i.i450:                              ; preds = %for.body.i.i.i.i454, %if.end.i.i.i.i449
-  %indvars.iv.i.i451 = phi i64 [ %indvars.iv.next.i.i452, %for.body.i.i.i.i454 ], [ 0, %if.end.i.i.i.i449 ]
-  %indvars.iv.next.i.i452 = add nuw nsw i64 %indvars.iv.i.i451, 64
-  %cmp19.not.i.i.i.i453 = icmp samesign ugt i64 %indvars.iv.next.i.i452, %222
-  br i1 %cmp19.not.i.i.i.i453, label %for.end.i.i.i.i457, label %for.body.i.i.i.i454
+for.cond.i.i.i.i450:                              ; preds = %for.body.i.i.i.i464, %if.end.i.i.i.i449
+  %indvars.iv.i.i451 = phi i64 [ %indvars.iv.next.i.i465, %for.body.i.i.i.i464 ], [ 0, %if.end.i.i.i.i449 ]
+  %cmp19.not.i.i.not.i.i452 = icmp samesign ult i64 %indvars.iv.i.i451, %222
+  br i1 %cmp19.not.i.i.not.i.i452, label %for.body.i.i.i.i464, label %for.end.i.i.i.i453
 
-for.body.i.i.i.i454:                              ; preds = %for.cond.i.i.i.i450
+for.body.i.i.i.i464:                              ; preds = %for.cond.i.i.i.i450
+  %indvars.iv.next.i.i465 = add nuw nsw i64 %indvars.iv.i.i451, 64
   %223 = lshr exact i64 %indvars.iv.i.i451, 3
-  %arrayidx.i35.i.i.i.i455 = getelementptr inbounds nuw i8, ptr %220, i64 %223
-  %224 = load i64, ptr %arrayidx.i35.i.i.i.i455, align 8
-  %cmp.i36.i.i.i.i456 = icmp eq i64 %224, -1
-  br i1 %cmp.i36.i.i.i.i456, label %for.cond.i.i.i.i450, label %land.end.i.i340, !llvm.loop !29
+  %arrayidx.i35.i.i.i.i466 = getelementptr inbounds nuw i8, ptr %220, i64 %223
+  %224 = load i64, ptr %arrayidx.i35.i.i.i.i466, align 8
+  %cmp.i36.i.i.i.i467 = icmp eq i64 %224, -1
+  br i1 %cmp.i36.i.i.i.i467, label %for.cond.i.i.i.i450, label %land.end.i.i340, !llvm.loop !29
 
-for.end.i.i.i.i457:                               ; preds = %for.cond.i.i.i.i450
-  %cmp25.not.i.i.i.i458 = icmp eq i32 %218, %221
-  br i1 %cmp25.not.i.i.i.i458, label %land.end.i.i340, label %if.then26.i.i.i.i459
+for.end.i.i.i.i453:                               ; preds = %for.cond.i.i.i.i450
+  %cmp25.not.i.i.i.i454 = icmp eq i32 %218, %221
+  br i1 %cmp25.not.i.i.i.i454, label %land.end.i.i340, label %if.then26.i.i.i.i455
 
-if.then26.i.i.i.i459:                             ; preds = %for.end.i.i.i.i457
-  %div27.i.i.i.i460 = lshr i32 %218, 6
-  %sub28.i.i.i.i461 = and i32 %218, 63
-  %sh_prom.i37.i.i.i.i462 = zext nneg i32 %sub28.i.i.i.i461 to i64
-  %notmask.i38.i.i.i.i463 = shl nsw i64 -1, %sh_prom.i37.i.i.i.i462
-  %idxprom.i40.i.i.i.i464 = zext nneg i32 %div27.i.i.i.i460 to i64
-  %arrayidx.i41.i.i.i.i465 = getelementptr inbounds nuw i64, ptr %220, i64 %idxprom.i40.i.i.i.i464
-  %225 = load i64, ptr %arrayidx.i41.i.i.i.i465, align 8
-  %.demorgan.i.i466 = or i64 %225, %notmask.i38.i.i.i.i463
-  %cmp.i42.i.i.i.i467 = icmp eq i64 %.demorgan.i.i466, -1
-  %226 = zext i1 %cmp.i42.i.i.i.i467 to i16
+if.then26.i.i.i.i455:                             ; preds = %for.end.i.i.i.i453
+  %div27.i.i.i.i456 = lshr i32 %218, 6
+  %sub28.i.i.i.i457 = and i32 %218, 63
+  %sh_prom.i37.i.i.i.i458 = zext nneg i32 %sub28.i.i.i.i457 to i64
+  %notmask.i38.i.i.i.i459 = shl nsw i64 -1, %sh_prom.i37.i.i.i.i458
+  %idxprom.i40.i.i.i.i460 = zext nneg i32 %div27.i.i.i.i456 to i64
+  %arrayidx.i41.i.i.i.i461 = getelementptr inbounds nuw i64, ptr %220, i64 %idxprom.i40.i.i.i.i460
+  %225 = load i64, ptr %arrayidx.i41.i.i.i.i461, align 8
+  %.demorgan.i.i462 = or i64 %225, %notmask.i38.i.i.i.i459
+  %cmp.i42.i.i.i.i463 = icmp eq i64 %.demorgan.i.i462, -1
+  %226 = zext i1 %cmp.i42.i.i.i.i463 to i16
   %227 = or disjoint i16 %226, 256
   br label %land.end.i.i340
 
-land.end.i.i340:                                  ; preds = %for.body.i.i.i.i454, %if.then26.i.i.i.i459, %for.end.i.i.i.i457, %land.rhs.i.i447, %land.lhs.true.i.i443, %if.end.i.i337
-  %frombool.i.i341 = phi i16 [ 256, %land.lhs.true.i.i443 ], [ 256, %if.end.i.i337 ], [ 257, %land.rhs.i.i447 ], [ %227, %if.then26.i.i.i.i459 ], [ 257, %for.end.i.i.i.i457 ], [ 256, %for.body.i.i.i.i454 ]
+land.end.i.i340:                                  ; preds = %for.body.i.i.i.i464, %if.then26.i.i.i.i455, %for.end.i.i.i.i453, %land.rhs.i.i447, %land.lhs.true.i.i443, %if.end.i.i337
+  %frombool.i.i341 = phi i16 [ 256, %land.lhs.true.i.i443 ], [ 256, %if.end.i.i337 ], [ 257, %land.rhs.i.i447 ], [ %227, %if.then26.i.i.i.i455 ], [ 257, %for.end.i.i.i.i453 ], [ 256, %for.body.i.i.i.i464 ]
   store i16 %frombool.i.i341, ptr %allSelected_.i.i334, align 4
   %228 = trunc i16 %frombool.i.i341 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i342

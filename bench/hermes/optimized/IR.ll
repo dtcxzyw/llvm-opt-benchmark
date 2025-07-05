@@ -12621,7 +12621,7 @@ while.body:                                       ; preds = %_ZN4llvh7hashing6de
   store ptr %4, ptr %buffer_ptr.0.ptr81, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %first.sroa.0.080, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %last.coerce
-  %cmp.i6.not = icmp samesign ugt i64 %buffer_ptr.0.idx79, 48
+  %cmp.i6.not = icmp samesign ugt i64 %buffer_ptr.0.idx79, 55
   %or.cond = select i1 %cmp.i.not, i1 true, i1 %cmp.i6.not
   br i1 %or.cond, label %while.end, label %while.body, !llvm.loop !83
 
@@ -12735,7 +12735,7 @@ while.body25:                                     ; preds = %while.cond17.prehea
   store ptr %9, ptr %buffer_ptr.2.ptr85, align 8
   %incdec.ptr.i15 = getelementptr inbounds nuw i8, ptr %first.sroa.0.284, i64 8
   %cmp.i9.not = icmp eq ptr %incdec.ptr.i15, %last.coerce
-  %cmp.i11.not = icmp samesign ugt i64 %buffer_ptr.2.idx83, 48
+  %cmp.i11.not = icmp samesign ugt i64 %buffer_ptr.2.idx83, 55
   %or.cond77 = select i1 %cmp.i9.not, i1 true, i1 %cmp.i11.not
   br i1 %or.cond77, label %while.end27, label %while.body25, !llvm.loop !87
 

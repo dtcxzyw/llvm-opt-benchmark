@@ -1048,7 +1048,7 @@ _ZNK12MallocHeader11looks_validEv.exit:           ; preds = %10, %10
 _ZNK12MallocHeader11looks_validEv.exit.thread:    ; preds = %10, %19, %15, %_ZNK12MallocHeader11looks_validEv.exit
   %.1 = phi ptr [ %.04558, %15 ], [ %.04558, %_ZNK12MallocHeader11looks_validEv.exit ], [ %.048.ptr59, %19 ], [ %.04558, %10 ]
   %.048.add = add nsw i64 %.048.idx57, -8
-  %.not = icmp slt i64 %.048.idx57, -4104
+  %.not = icmp slt i64 %.048.idx57, -4111
   br i1 %.not, label %21, label %7, !llvm.loop !12
 
 21:                                               ; preds = %19, %7, %_ZNK12MallocHeader11looks_validEv.exit.thread

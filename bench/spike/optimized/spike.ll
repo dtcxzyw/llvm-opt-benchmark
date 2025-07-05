@@ -5836,7 +5836,7 @@ _ZNSt16allocator_traitsISaI9mem_cfg_tEE8allocateERS1_m.exit.i.i.i.i.i.i.i.i: ; p
           to label %.noexc45.i.i.i.i unwind label %243, !noalias !441
 
 .noexc45.i.i.i.i:                                 ; preds = %77
-  %83 = icmp samesign ugt i64 %.08.i.i.i.i.i.idx.i.i.i.i, 240
+  %83 = icmp samesign ugt i64 %.08.i.i.i.i.i.idx.i.i.i.i, 255
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %74, i64 16
   br i1 %83, label %.lr.ph.i.i.i.i.i.i.i, label %124
 

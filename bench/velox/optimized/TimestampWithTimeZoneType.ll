@@ -748,11 +748,11 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %land.rhs.i.i.i.i.i.
 
 for.cond.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i.i.i.i.i ]
-  %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 64
-  %cmp19.not.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i.i.i.i.i.i, %34
-  br i1 %cmp19.not.i.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i
+  %cmp19.not.i.i.not.i.i.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.i.i.i.i.i.i.i, %34
+  br i1 %cmp19.not.i.i.not.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.cond.i.i.i.i.i.i.i.i.i
+  %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 64
   %35 = lshr exact i64 %indvars.iv.i.i.i.i.i.i.i, 3
   %arrayidx.i35.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 %35
   %36 = load i64, ptr %arrayidx.i35.i.i.i.i.i.i.i.i.i, align 8
@@ -1745,11 +1745,11 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %land.rhs.i.i.i.i.i.
 
 for.cond.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i.i.i.i.i ]
-  %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 64
-  %cmp19.not.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i.i.i.i.i.i, %21
-  br i1 %cmp19.not.i.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i
+  %cmp19.not.i.i.not.i.i.i.i.i.i.i = icmp samesign ult i64 %indvars.iv.i.i.i.i.i.i.i, %21
+  br i1 %cmp19.not.i.i.not.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.cond.i.i.i.i.i.i.i.i.i
+  %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 64
   %22 = lshr exact i64 %indvars.iv.i.i.i.i.i.i.i, 3
   %arrayidx.i35.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 %22
   %23 = load i64, ptr %arrayidx.i35.i.i.i.i.i.i.i.i.i, align 8

@@ -3556,7 +3556,7 @@ if.then.i.i7:                                     ; preds = %for.body.i.i.i.i.i.
   %sub.i.i.i = shl nuw nsw i64 %68, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
   call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIN6hermes4inst6OpCodeEmESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_15ProfileAnalyzer20dumpInstructionStatsEvE3$_1EEEvT_SH_T0_T1_"(ptr nonnull %call5.i.i.i.i.i, ptr nonnull %incdec.ptr.i.i.i.i.i.i.ptr.le, i64 noundef %mul.i.i)
-  %cmp.i2.i.i = icmp samesign ugt i64 %__cur.07.i.i.i.i.i.i.idx, 240
+  %cmp.i2.i.i = icmp samesign ugt i64 %__cur.07.i.i.i.i.i.i.idx, 255
   br i1 %cmp.i2.i.i, label %for.body.lr.ph.i.i.i.i, label %for.cond.preheader.i17.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.then.i.i7

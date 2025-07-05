@@ -435,8 +435,8 @@ safe_log.exit.i:                                  ; preds = %.lr.ph267.i
   store float %.0.i.i, ptr %121, align 4, !tbaa !56
   store float 0.000000e+00, ptr %122, align 4, !tbaa !56
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 2
-  %.not246.i = icmp samesign ugt i64 %indvars.iv.next.i92, %120
-  br i1 %.not246.i, label %._crit_edge268.i, label %.lr.ph267.i, !llvm.loop !64
+  %.not246.not.i = icmp samesign ult i64 %indvars.iv.i91, %120
+  br i1 %.not246.not.i, label %.lr.ph267.i, label %._crit_edge268.i, !llvm.loop !64
 
 ._crit_edge268.i:                                 ; preds = %safe_log.exit.i, %117
   %155 = load ptr, ptr %114, align 8, !tbaa !65

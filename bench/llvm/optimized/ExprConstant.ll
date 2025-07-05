@@ -33746,7 +33746,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKN5cl
 .lr.ph:                                           ; preds = %2, %5
   %.02060 = phi ptr [ %18, %5 ], [ %0, %2 ]
   %.044.idx59 = phi i64 [ %.044.add, %5 ], [ 0, %2 ]
-  %.not54 = icmp samesign ugt i64 %.044.idx59, 56
+  %.not54 = icmp samesign ugt i64 %.044.idx59, 63
   br i1 %.not54, label %_ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit, label %5
 
 5:                                                ; preds = %.lr.ph
@@ -33860,7 +33860,7 @@ _ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit: ; preds = %.lr.
   store i64 %64, ptr %.246.ptr64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.263, i64 8
   %.not23 = icmp eq ptr %65, %1
-  %.not55 = icmp samesign ugt i64 %.246.idx62, 48
+  %.not55 = icmp samesign ugt i64 %.246.idx62, 55
   %or.cond = select i1 %.not23, i1 true, i1 %.not55
   br i1 %or.cond, label %_ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit26, label %52, !llvm.loop !1101
 

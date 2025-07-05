@@ -25910,7 +25910,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPKNS_9
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.02061, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !10
   %5 = tail call noundef i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #27
-  %.not55 = icmp samesign ugt i64 %.045.idx60, 56
+  %.not55 = icmp samesign ugt i64 %.045.idx60, 63
   br i1 %.not55, label %_ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit, label %6
 
 6:                                                ; preds = %.lr.ph
@@ -25996,7 +25996,7 @@ _ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit: ; preds = %.lr.
   %.sroa.2.0..sroa_idx.i25 = getelementptr inbounds nuw i8, ptr %.264, i64 8
   %.sroa.2.0.copyload.i26 = load i64, ptr %.sroa.2.0..sroa_idx.i25, align 8, !tbaa !10
   %42 = call noundef i64 @_ZN4llvm10hash_valueENS_9StringRefE(ptr %.sroa.0.0.copyload.i24, i64 %.sroa.2.0.copyload.i26) #27
-  %.not56 = icmp samesign ugt i64 %.247.idx63, 56
+  %.not56 = icmp samesign ugt i64 %.247.idx63, 63
   br i1 %.not56, label %_ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit27, label %43
 
 43:                                               ; preds = %41

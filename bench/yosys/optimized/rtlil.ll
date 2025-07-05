@@ -143304,7 +143304,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Yosys5RTLIL6SigBitESt6vectorIS4_SaIS
           to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %24
-  %29 = icmp samesign ugt i64 %.09.i.i.i.i.i.idx, 240
+  %29 = icmp samesign ugt i64 %.09.i.i.i.i.i.idx, 255
   br i1 %29, label %30, label %53
 
 30:                                               ; preds = %.noexc

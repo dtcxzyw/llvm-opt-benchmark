@@ -12190,7 +12190,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implINS_4Us
   store ptr %5, ptr %.040.ptr53, align 8
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.031.052, i64 32
   %.not = icmp eq ptr %6, %1
-  %.not45 = icmp samesign ugt i64 %.040.idx51, 48
+  %.not45 = icmp samesign ugt i64 %.040.idx51, 55
   %or.cond = select i1 %.not, i1 true, i1 %.not45
   br i1 %or.cond, label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit, label %.lr.ph, !llvm.loop !626
 
@@ -12274,7 +12274,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit: ; pre
   store ptr %44, ptr %.2.ptr57, align 8
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.031.256, i64 32
   %.not47 = icmp eq ptr %45, %1
-  %.not48 = icmp samesign ugt i64 %.2.idx55, 48
+  %.not48 = icmp samesign ugt i64 %.2.idx55, 55
   %or.cond49 = select i1 %.not47, i1 true, i1 %.not48
   br i1 %or.cond49, label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit8, label %43, !llvm.loop !630
 

@@ -1855,7 +1855,7 @@ exp2.i.noexc:                                     ; preds = %.preheader510
 
 509:                                              ; preds = %exp2.i.noexc
   %510 = add nuw nsw i32 %.01521.i, 2
-  %511 = icmp samesign ugt i32 %.01521.i, 14
+  %511 = icmp samesign ugt i32 %.01521.i, 15
   br i1 %511, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120GetLikelyLutBitDepthEi.exit.thread, label %.preheader510, !llvm.loop !71
 
 .split.loop.exit18.i:                             ; preds = %exp2.i.noexc
@@ -2270,7 +2270,7 @@ exp2.i.noexc358:                                  ; preds = %.preheader
 
 658:                                              ; preds = %exp2.i.noexc358
   %659 = add nuw nsw i32 %.01521.i353, 2
-  %660 = icmp samesign ugt i32 %.01521.i353, 14
+  %660 = icmp samesign ugt i32 %.01521.i353, 15
   br i1 %660, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120GetLikelyLutBitDepthEi.exit360, label %.preheader, !llvm.loop !71
 
 .split.loop.exit18.i356:                          ; preds = %exp2.i.noexc358

@@ -904,8 +904,8 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captu
   %.5548 = phi double [ %438, %433 ], [ %447, %441 ]
   %.1 = phi double [ %440, %433 ], [ %449, %441 ]
   %indvars.iv.next795 = add nsw i64 %indvars.iv794, 4
-  %.not601 = icmp sgt i64 %indvars.iv.next795, %420
-  br i1 %.not601, label %._crit_edge704.loopexit, label %421, !llvm.loop !21
+  %.not601.not = icmp slt i64 %indvars.iv794, %420
+  br i1 %.not601.not, label %421, label %._crit_edge704.loopexit, !llvm.loop !21
 
 ._crit_edge704.loopexit:                          ; preds = %450
   %452 = add nsw i32 %.1566, 1

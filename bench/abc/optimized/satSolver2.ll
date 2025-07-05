@@ -183,7 +183,7 @@ clause2_read.exit:                                ; preds = %41, %43
   %72 = and i32 %71, 8388604
   %73 = zext nneg i32 %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %51, i64 %73
-  %75 = icmp samesign ugt i32 %72, 8
+  %75 = icmp ugt i32 %70, 6143
   br i1 %75, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %69

@@ -45916,7 +45916,7 @@ _ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EEC2ERKS3_.exit36.thread: ; preds = %
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %49
-  %54 = icmp samesign ugt i64 %.09.i.i.i.i.i31.idx, 240
+  %54 = icmp samesign ugt i64 %.09.i.i.i.i.i31.idx, 255
   br i1 %54, label %55, label %118
 
 55:                                               ; preds = %.noexc

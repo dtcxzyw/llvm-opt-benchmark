@@ -21161,8 +21161,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit: ; preds = %893, %901
   br i1 %930, label %.lr.ph, label %.critedge, !llvm.loop !674
 
 .critedge:                                        ; preds = %927
-  %.not431 = icmp samesign ugt i32 %928, %923
-  br i1 %.not431, label %.critedge.thread, label %.critedge.thread477
+  %.not431.not = icmp samesign ult i32 %.0131458, %923
+  br i1 %.not431.not, label %.critedge.thread477, label %.critedge.thread
 
 .critedge.thread477:                              ; preds = %920, %.critedge
   %.0130.lcssa482 = phi i64 [ %929, %.critedge ], [ %922, %920 ]
@@ -76262,7 +76262,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14i
   %14 = and i64 %11, %13
   %15 = icmp eq i64 %14, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 16
-  %.not.not.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 32
+  %.not.not.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 47
   %or.cond.i.i = select i1 %15, i1 true, i1 %.not.not.i.i
   br i1 %or.cond.i.i, label %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, label %.lr.ph.i.i, !llvm.loop !1741
 
@@ -76304,7 +76304,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14i
   %14 = and i64 %11, %13
   %15 = icmp eq i64 %14, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 16
-  %.not.not.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 32
+  %.not.not.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 47
   %or.cond.i.i = select i1 %15, i1 true, i1 %.not.not.i.i
   br i1 %or.cond.i.i, label %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, label %.lr.ph.i.i, !llvm.loop !1741
 
@@ -76350,7 +76350,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14i
   %14 = and i64 %11, %13
   %15 = icmp eq i64 %14, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 16
-  %.not.not.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 32
+  %.not.not.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 47
   %or.cond.i.i = select i1 %15, i1 true, i1 %.not.not.i.i
   br i1 %or.cond.i.i, label %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, label %.lr.ph.i.i, !llvm.loop !1741
 
@@ -76396,7 +76396,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_114AArch64Operand14i
   %14 = and i64 %11, %13
   %15 = icmp eq i64 %14, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 16
-  %.not.not.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 32
+  %.not.not.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 47
   %or.cond.i.i = select i1 %15, i1 true, i1 %.not.not.i.i
   br i1 %or.cond.i.i, label %_ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit.i, label %.lr.ph.i.i, !llvm.loop !1741
 

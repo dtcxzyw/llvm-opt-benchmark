@@ -49881,7 +49881,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
           to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i
 
 .noexc.i.i:                                       ; preds = %68
-  %74 = icmp samesign ugt i64 %.09.i.i.i.i.i.idx.i.i, 120
+  %74 = icmp samesign ugt i64 %.09.i.i.i.i.i.idx.i.i, 127
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %.noexc.i.i

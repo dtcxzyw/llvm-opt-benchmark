@@ -2646,11 +2646,11 @@ if.end.i.i.i:                                     ; preds = %_ZN8facebook5velox1
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %10
-  br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
+  %cmp19.not.i.i.not.i = icmp samesign ult i64 %indvars.iv.i, %10
+  br i1 %cmp19.not.i.i.not.i, label %for.body.i.i.i, label %for.end.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
   %11 = lshr exact i64 %indvars.iv.i, 3
   %arrayidx.i43.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %11
   %12 = load i64, ptr %arrayidx.i43.i.i.i, align 8
@@ -4151,11 +4151,11 @@ if.end.i.i.i:                                     ; preds = %land.rhs.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i.i.i ], [ 0, %if.end.i.i.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp19.not.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i, %12
-  br i1 %cmp19.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
+  %cmp19.not.i.i.not.i = icmp samesign ult i64 %indvars.iv.i, %12
+  br i1 %cmp19.not.i.i.not.i, label %for.body.i.i.i, label %for.end.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
   %13 = lshr exact i64 %indvars.iv.i, 3
   %arrayidx.i35.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %13
   %14 = load i64, ptr %arrayidx.i35.i.i.i, align 8
@@ -4480,11 +4480,11 @@ if.end.i.i:                                       ; preds = %if.end34
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.end.i.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i.i ], [ 0, %if.end.i.i ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %cmp19.not.i.i = icmp samesign ugt i64 %indvars.iv.next, %70
-  br i1 %cmp19.not.i.i, label %for.end.i.i, label %for.body.i.i
+  %cmp19.not.i.i.not = icmp samesign ult i64 %indvars.iv, %70
+  br i1 %cmp19.not.i.i.not, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
   %71 = lshr exact i64 %indvars.iv, 3
   %arrayidx.i35.i.i = getelementptr inbounds nuw i8, ptr %67, i64 %71
   %72 = load i64, ptr %arrayidx.i35.i.i, align 8

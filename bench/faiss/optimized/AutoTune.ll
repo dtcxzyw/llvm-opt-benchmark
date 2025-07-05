@@ -6433,8 +6433,8 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %17, %_ZNSt6vectorId
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %42 = shl i64 %39, 2
   %43 = and i64 %42, 9223372036854775804
-  %.not = icmp samesign ult i64 %43, %indvars.iv.next
-  br i1 %.not, label %.loopexit, label %11, !llvm.loop !220
+  %.not.not = icmp samesign ugt i64 %43, %indvars.iv
+  br i1 %.not.not, label %11, label %.loopexit, !llvm.loop !220
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit, %2
   %44 = phi i64 [ %4, %2 ], [ %39, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]

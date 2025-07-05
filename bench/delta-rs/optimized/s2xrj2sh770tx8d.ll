@@ -29037,7 +29037,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
   %101 = lshr exact i64 %100, 1
   %102 = and i64 %101, 9223372036854775744
   %103 = add nuw i64 %102, 64
-  %104 = icmp samesign ugt i64 %102, 9223372036854775616
+  %104 = icmp ugt i64 %100, -258
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !8775
   br i1 %104, label %105, label %106
 
@@ -40807,7 +40807,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
   %101 = lshr exact i64 %100, 1
   %102 = and i64 %101, 9223372036854775744
   %103 = add nuw i64 %102, 64
-  %104 = icmp samesign ugt i64 %102, 9223372036854775616
+  %104 = icmp ugt i64 %100, -258
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !12896
   br i1 %104, label %105, label %106
 
