@@ -168,8 +168,9 @@ check_ref_format_branch.exit:                     ; preds = %skip_prefix.exit.i
 
 56:                                               ; preds = %.critedge
   %57 = icmp eq i32 %.04061, 0
-  %58 = and i64 %indvars.iv, 4294967295
-  %59 = getelementptr inbounds nuw ptr, ptr %1, i64 %58
+  %sext = shl i64 %indvars.iv, 32
+  %58 = ashr exact i64 %sext, 29
+  %59 = getelementptr inbounds i8, ptr %1, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !4
   br i1 %57, label %72, label %61
 

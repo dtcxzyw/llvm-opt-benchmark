@@ -13052,16 +13052,12 @@ _ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i: ; preds = %18
   br i1 %22, label %23, label %_ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit
 
 23:                                               ; preds = %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i
-  %24 = trunc i64 %1 to i32
+  %24 = trunc nuw i64 %1 to i32
   %25 = icmp slt i32 %24, 1
-  br i1 %25, label %_ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit, label %.lr.ph.preheader.i
+  br i1 %25, label %_ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %23
-  %wide.trip.count.i = and i64 %1, 2147483647
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %23 ]
   %26 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4, !tbaa !108
   %28 = icmp eq i32 %27, -1
@@ -13073,7 +13069,7 @@ _ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i: ; preds = %18
   %.not13.i = icmp eq i32 %27, %31
   %or.cond17.i = or i1 %.not13.i, %or.cond.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %1
   %or.cond.not = select i1 %or.cond17.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %.lr.ph.i, label %_ZL18isIdentityMaskImplN4llvm8ArrayRefIiEEi.exit, !llvm.loop !289
 
@@ -13130,17 +13126,13 @@ _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit: ; preds 
   br i1 %or.cond.not, label %24, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread
 
 24:                                               ; preds = %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit
-  %25 = trunc i64 %1 to i32
+  %25 = trunc nuw i64 %1 to i32
   %26 = shl nuw nsw i32 %2, 1
   %27 = icmp slt i32 %25, 1
-  br i1 %27, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, label %.lr.ph.preheader
+  br i1 %27, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %24
-  %wide.trip.count = and i64 %1, 2147483647
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
+.lr.ph:                                           ; preds = %24, %36
+  %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %24 ]
   %28 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !108
   %30 = icmp eq i32 %29, -1
@@ -13158,7 +13150,7 @@ _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit: ; preds 
 
 36:                                               ; preds = %31, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, label %.lr.ph, !llvm.loop !290
 
 _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread: ; preds = %9, %31, %36, %24, %5, %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit, %3
@@ -13212,16 +13204,12 @@ _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit: ; preds 
   br i1 %22, label %23, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread
 
 23:                                               ; preds = %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit
-  %24 = trunc i64 %1 to i32
+  %24 = trunc nuw i64 %1 to i32
   %25 = icmp slt i32 %24, 1
-  br i1 %25, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, label %.lr.ph.preheader
+  br i1 %25, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %23
-  %wide.trip.count = and i64 %1, 2147483647
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
+.lr.ph:                                           ; preds = %23, %29
+  %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %23 ]
   %26 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !108
   switch i32 %27, label %28 [
@@ -13235,7 +13223,7 @@ _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit: ; preds 
 
 29:                                               ; preds = %.lr.ph, %.lr.ph, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, label %.lr.ph, !llvm.loop !291
 
 _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread: ; preds = %9, %28, %29, %23, %5, %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit, %3
@@ -13289,16 +13277,12 @@ _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit: ; preds 
   br i1 %22, label %.loopexit, label %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread
 
 _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread: ; preds = %9, %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit
-  %23 = trunc i64 %1 to i32
+  %23 = trunc nuw i64 %1 to i32
   %24 = icmp slt i32 %23, 1
-  br i1 %24, label %.loopexit, label %.lr.ph.preheader
+  br i1 %24, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread
-  %wide.trip.count = and i64 %1, 2147483647
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+.lr.ph:                                           ; preds = %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread ]
   %25 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !108
   %27 = icmp eq i32 %26, -1
@@ -13310,7 +13294,7 @@ _ZN4llvm17ShuffleVectorInst18isSingleSourceMaskENS_8ArrayRefIiEEi.exit.thread: ;
   %.not15 = icmp eq i32 %26, %30
   %or.cond21 = or i1 %or.cond, %.not15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %1
   %or.cond27.not = select i1 %or.cond21, i1 %exitcond.not, i1 false
   br i1 %or.cond27.not, label %.lr.ph, label %.loopexit, !llvm.loop !292
 

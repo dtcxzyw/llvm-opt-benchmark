@@ -102,7 +102,7 @@ mul_size_t.exit31:                                ; preds = %14
 
 26:                                               ; preds = %24
   tail call fastcc void @squaretrans_pow2(ptr noundef %0, i64 noundef %1)
-  %27 = lshr i64 %umul.value.i, 1
+  %27 = lshr exact i64 %umul.value.i, 1
   %28 = getelementptr i64, ptr %0, i64 %27
   tail call fastcc void @squaretrans_pow2(ptr noundef %28, i64 noundef %1)
   br label %44
@@ -128,7 +128,7 @@ mul_size_t.exit34:                                ; preds = %29
 
 39:                                               ; preds = %mul_size_t.exit34
   tail call fastcc void @squaretrans_pow2(ptr noundef %0, i64 noundef %2)
-  %40 = lshr i64 %umul.value.i, 1
+  %40 = lshr exact i64 %umul.value.i, 1
   %41 = getelementptr i64, ptr %0, i64 %40
   tail call fastcc void @squaretrans_pow2(ptr noundef %41, i64 noundef %2)
   %42 = tail call fastcc i32 @swap_halfrows_pow2(ptr noundef %0, i64 noundef %2, i64 noundef %1, i32 noundef 1)

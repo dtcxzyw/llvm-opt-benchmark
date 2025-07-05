@@ -5420,13 +5420,13 @@ tcg_temp_ebb_new_i64.exit:                        ; preds = %find_first_bit.exit
   %.0.lcssa = phi i32 [ 0, %.loopexit ], [ %.1, %._crit_edge.loopexit ]
   %183 = ptrtoint ptr %0 to i64
   %184 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
-  %185 = add i32 %.281.lcssa, 1
-  %186 = sext i32 %.281.lcssa to i64
-  %187 = getelementptr inbounds [0 x i64], ptr %184, i64 0, i64 %186
+  %185 = add nuw nsw i32 %.281.lcssa, 1
+  %186 = zext nneg i32 %.281.lcssa to i64
+  %187 = getelementptr inbounds nuw [0 x i64], ptr %184, i64 0, i64 %186
   store i64 %183, ptr %187, align 8
   %188 = ptrtoint ptr %1 to i64
-  %189 = sext i32 %185 to i64
-  %190 = getelementptr inbounds [0 x i64], ptr %184, i64 0, i64 %189
+  %189 = zext nneg i32 %185 to i64
+  %190 = getelementptr inbounds nuw [0 x i64], ptr %184, i64 0, i64 %189
   store i64 %188, ptr %190, align 8
   %191 = icmp eq i32 %.281.lcssa, %19
   tail call void @llvm.assume(i1 %191)

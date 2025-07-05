@@ -9257,13 +9257,13 @@ define hidden void @FT_CMap_Done(ptr noundef %0) local_unnamed_addr #0 {
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %11
 
-11:                                               ; preds = %.lr.ph, %60
-  %indvars.iv59 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next60, %60 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
+11:                                               ; preds = %.lr.ph, %62
+  %indvars.iv59 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next60, %62 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !338
   %14 = icmp eq ptr %13, %0
-  br i1 %14, label %15, label %60
+  br i1 %14, label %15, label %62
 
 15:                                               ; preds = %11
   %16 = trunc nuw nsw i64 %indvars.iv to i32
@@ -9314,68 +9314,72 @@ ft_mem_qrealloc.exit.._crit_edge_crit_edge:       ; preds = %ft_mem_qrealloc.exi
   %36 = zext i32 %35 to i64
   %37 = add nsw i32 %33, -1
   %wide.trip.count70 = zext i32 %37 to i64
-  br label %38
+  %38 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %36
+  br label %39
 
-38:                                               ; preds = %.lr.ph56, %43
-  %indvars.iv65 = phi i64 [ %indvars.iv, %.lr.ph56 ], [ %indvars.iv.next66, %43 ]
-  %indvars.iv62 = phi i64 [ %indvars.iv59, %.lr.ph56 ], [ %indvars.iv.next63, %43 ]
-  %39 = icmp eq i64 %indvars.iv65, %36
-  br i1 %39, label %43, label %40
+39:                                               ; preds = %.lr.ph56, %46
+  %indvars.iv65 = phi i64 [ %indvars.iv, %.lr.ph56 ], [ %indvars.iv.next66, %46 ]
+  %indvars.iv62 = phi i64 [ %indvars.iv59, %.lr.ph56 ], [ %indvars.iv.next63, %46 ]
+  %40 = icmp eq i64 %indvars.iv65, %36
+  br i1 %40, label %41, label %42
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv62
-  %42 = load ptr, ptr %41, align 8, !tbaa !338
-  br label %43
+41:                                               ; preds = %39
+  store ptr %20, ptr %38, align 8, !tbaa !338
+  br label %46
 
-43:                                               ; preds = %38, %40
-  %.sink = phi ptr [ %42, %40 ], [ %20, %38 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv65
-  store ptr %.sink, ptr %44, align 8, !tbaa !338
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv62
+  %44 = load ptr, ptr %43, align 8, !tbaa !338
+  %45 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv65
+  store ptr %44, ptr %45, align 8, !tbaa !338
+  br label %46
+
+46:                                               ; preds = %41, %42
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count70
-  br i1 %exitcond71.not, label %._crit_edge, label %38, !llvm.loop !392
+  br i1 %exitcond71.not, label %._crit_edge, label %39, !llvm.loop !392
 
-._crit_edge:                                      ; preds = %43, %ft_mem_qrealloc.exit.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre, %ft_mem_qrealloc.exit.._crit_edge_crit_edge ], [ %37, %43 ]
+._crit_edge:                                      ; preds = %46, %ft_mem_qrealloc.exit.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre, %ft_mem_qrealloc.exit.._crit_edge_crit_edge ], [ %37, %46 ]
   store i32 %.pre-phi, ptr %6, align 8, !tbaa !336
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %46 = load ptr, ptr %45, align 8, !tbaa !291
-  %47 = icmp eq ptr %46, %0
-  br i1 %47, label %48, label %49
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  %48 = load ptr, ptr %47, align 8, !tbaa !291
+  %49 = icmp eq ptr %48, %0
+  br i1 %49, label %50, label %51
 
-48:                                               ; preds = %._crit_edge
-  store ptr null, ptr %45, align 8, !tbaa !291
-  br label %49
+50:                                               ; preds = %._crit_edge
+  store ptr null, ptr %47, align 8, !tbaa !291
+  br label %51
 
-49:                                               ; preds = %48, %._crit_edge
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !292
-  %52 = load ptr, ptr %0, align 8, !tbaa !339
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
-  %54 = load ptr, ptr %53, align 8, !tbaa !60
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !340
-  %.not.i40 = icmp eq ptr %56, null
-  br i1 %.not.i40, label %ft_cmap_done_internal.exit, label %57
+51:                                               ; preds = %50, %._crit_edge
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %53 = load ptr, ptr %52, align 8, !tbaa !292
+  %54 = load ptr, ptr %0, align 8, !tbaa !339
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
+  %56 = load ptr, ptr %55, align 8, !tbaa !60
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %58 = load ptr, ptr %57, align 8, !tbaa !340
+  %.not.i40 = icmp eq ptr %58, null
+  br i1 %.not.i40, label %ft_cmap_done_internal.exit, label %59
 
-57:                                               ; preds = %49
-  tail call void %56(ptr noundef nonnull %0) #34
+59:                                               ; preds = %51
+  tail call void %58(ptr noundef nonnull %0) #34
   br label %ft_cmap_done_internal.exit
 
-ft_cmap_done_internal.exit:                       ; preds = %49, %57
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !61
-  tail call void %59(ptr noundef %54, ptr noundef nonnull %0) #34
+ft_cmap_done_internal.exit:                       ; preds = %51, %59
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %61 = load ptr, ptr %60, align 8, !tbaa !61
+  tail call void %61(ptr noundef %56, ptr noundef nonnull %0) #34
   br label %.critedge
 
-60:                                               ; preds = %11
+62:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !393
 
-.critedge:                                        ; preds = %60, %2, %ft_cmap_done_internal.exit, %ft_mem_qrealloc.exit.thread, %1
+.critedge:                                        ; preds = %62, %2, %ft_cmap_done_internal.exit, %ft_mem_qrealloc.exit.thread, %1
   ret void
 }
 

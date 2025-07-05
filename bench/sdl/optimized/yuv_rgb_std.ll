@@ -360,7 +360,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %307 = mul i32 %13, %5
   %308 = zext i32 %307 to i64
   %309 = getelementptr inbounds nuw i8, ptr %2, i64 %308
-  %310 = lshr exact i32 %13, 1
+  %310 = lshr i32 %13, 1
   %311 = mul i32 %310, %6
   %312 = zext i32 %311 to i64
   %313 = getelementptr inbounds nuw i8, ptr %3, i64 %312
@@ -883,7 +883,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %259 = mul i32 %13, %5
   %260 = zext i32 %259 to i64
   %261 = getelementptr inbounds nuw i8, ptr %2, i64 %260
-  %262 = lshr exact i32 %13, 1
+  %262 = lshr i32 %13, 1
   %263 = mul i32 %262, %6
   %264 = zext i32 %263 to i64
   %265 = getelementptr inbounds nuw i8, ptr %3, i64 %264
@@ -1418,7 +1418,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %301 = mul i32 %13, %5
   %302 = zext i32 %301 to i64
   %303 = getelementptr inbounds nuw i8, ptr %2, i64 %302
-  %304 = lshr exact i32 %13, 1
+  %304 = lshr i32 %13, 1
   %305 = mul i32 %304, %6
   %306 = zext i32 %305 to i64
   %307 = getelementptr inbounds nuw i8, ptr %3, i64 %306
@@ -1968,7 +1968,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %301 = mul i32 %13, %5
   %302 = zext i32 %301 to i64
   %303 = getelementptr inbounds nuw i8, ptr %2, i64 %302
-  %304 = lshr exact i32 %13, 1
+  %304 = lshr i32 %13, 1
   %305 = mul i32 %304, %6
   %306 = zext i32 %305 to i64
   %307 = getelementptr inbounds nuw i8, ptr %3, i64 %306
@@ -2512,7 +2512,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %295 = mul i32 %13, %5
   %296 = zext i32 %295 to i64
   %297 = getelementptr inbounds nuw i8, ptr %2, i64 %296
-  %298 = lshr exact i32 %13, 1
+  %298 = lshr i32 %13, 1
   %299 = mul i32 %298, %6
   %300 = zext i32 %299 to i64
   %301 = getelementptr inbounds nuw i8, ptr %3, i64 %300
@@ -3053,7 +3053,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %295 = mul i32 %13, %5
   %296 = zext i32 %295 to i64
   %297 = getelementptr inbounds nuw i8, ptr %2, i64 %296
-  %298 = lshr exact i32 %13, 1
+  %298 = lshr i32 %13, 1
   %299 = mul i32 %298, %6
   %300 = zext i32 %299 to i64
   %301 = getelementptr inbounds nuw i8, ptr %3, i64 %300
@@ -5048,7 +5048,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %307 = mul i32 %13, %5
   %308 = zext i32 %307 to i64
   %309 = getelementptr inbounds nuw i8, ptr %2, i64 %308
-  %310 = lshr exact i32 %13, 1
+  %310 = lshr i32 %13, 1
   %311 = mul i32 %310, %6
   %312 = zext i32 %311 to i64
   %313 = getelementptr inbounds nuw i8, ptr %3, i64 %312
@@ -5571,7 +5571,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %259 = mul i32 %13, %5
   %260 = zext i32 %259 to i64
   %261 = getelementptr inbounds nuw i8, ptr %2, i64 %260
-  %262 = lshr exact i32 %13, 1
+  %262 = lshr i32 %13, 1
   %263 = mul i32 %262, %6
   %264 = zext i32 %263 to i64
   %265 = getelementptr inbounds nuw i8, ptr %3, i64 %264
@@ -6106,7 +6106,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %301 = mul i32 %13, %5
   %302 = zext i32 %301 to i64
   %303 = getelementptr inbounds nuw i8, ptr %2, i64 %302
-  %304 = lshr exact i32 %13, 1
+  %304 = lshr i32 %13, 1
   %305 = mul i32 %304, %6
   %306 = zext i32 %305 to i64
   %307 = getelementptr inbounds nuw i8, ptr %3, i64 %306
@@ -6656,7 +6656,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %301 = mul i32 %13, %5
   %302 = zext i32 %301 to i64
   %303 = getelementptr inbounds nuw i8, ptr %2, i64 %302
-  %304 = lshr exact i32 %13, 1
+  %304 = lshr i32 %13, 1
   %305 = mul i32 %304, %6
   %306 = zext i32 %305 to i64
   %307 = getelementptr inbounds nuw i8, ptr %3, i64 %306
@@ -7200,7 +7200,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %295 = mul i32 %13, %5
   %296 = zext i32 %295 to i64
   %297 = getelementptr inbounds nuw i8, ptr %2, i64 %296
-  %298 = lshr exact i32 %13, 1
+  %298 = lshr i32 %13, 1
   %299 = mul i32 %298, %6
   %300 = zext i32 %299 to i64
   %301 = getelementptr inbounds nuw i8, ptr %3, i64 %300
@@ -7741,7 +7741,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %295 = mul i32 %13, %5
   %296 = zext i32 %295 to i64
   %297 = getelementptr inbounds nuw i8, ptr %2, i64 %296
-  %298 = lshr exact i32 %13, 1
+  %298 = lshr i32 %13, 1
   %299 = mul i32 %298, %6
   %300 = zext i32 %299 to i64
   %301 = getelementptr inbounds nuw i8, ptr %3, i64 %300
@@ -8235,7 +8235,7 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
   %248 = mul i32 %15, %13
   %249 = zext i32 %248 to i64
   %250 = getelementptr inbounds nuw i16, ptr %2, i64 %249
-  %251 = lshr exact i32 %15, 1
+  %251 = lshr i32 %15, 1
   %252 = mul i32 %251, %14
   %253 = zext i32 %252 to i64
   %254 = getelementptr inbounds nuw i16, ptr %3, i64 %253

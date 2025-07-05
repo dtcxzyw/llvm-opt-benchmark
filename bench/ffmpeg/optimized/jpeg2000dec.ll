@@ -5801,11 +5801,12 @@ define internal fastcc range(i32 0, 2) i32 @pix_fmt_match(i32 noundef %0, i32 no
   br i1 %.not, label %10, label %.critedge46
 
 10:                                               ; preds = %5
-  switch i32 %1, label %default.unreachable57 [
-    i32 4, label %11
-    i32 3, label %.critedge
-    i32 2, label %.critedge43
-    i32 1, label %.critedge45
+  %trunc = trunc nuw nsw i32 %1 to i8
+  switch i8 %trunc, label %default.unreachable57 [
+    i8 4, label %11
+    i8 3, label %.critedge
+    i8 2, label %.critedge43
+    i8 1, label %.critedge45
   ]
 
 11:                                               ; preds = %10

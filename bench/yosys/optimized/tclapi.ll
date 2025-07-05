@@ -5314,9 +5314,9 @@ define internal noundef range(i32 0, 2) i32 @_ZN5YosysL12tcl_set_attrEPvP10Tcl_I
   store i32 0, ptr %21, align 4, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #32
-  %79 = add nuw nsw i32 %.0116.lcssa339, 1
-  %80 = zext nneg i32 %.0116.lcssa339 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %3, i64 %80
+  %79 = add nsw i32 %.0116.lcssa339, 1
+  %80 = sext i32 %.0116.lcssa339 to i64
+  %81 = getelementptr inbounds ptr, ptr %3, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !119
   %83 = invoke ptr @Tcl_GetString(ptr noundef %82)
           to label %84 unwind label %258
@@ -5561,9 +5561,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
 168:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #32
-  %169 = add nuw nsw i32 %.0116.lcssa339, 2
-  %170 = zext nneg i32 %79 to i64
-  %171 = getelementptr inbounds nuw ptr, ptr %3, i64 %170
+  %169 = add nsw i32 %.0116.lcssa339, 2
+  %170 = sext i32 %79 to i64
+  %171 = getelementptr inbounds ptr, ptr %3, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !119
   %173 = invoke ptr @Tcl_GetString(ptr noundef %172)
           to label %174 unwind label %280
@@ -7102,8 +7102,8 @@ define internal noundef range(i32 0, 2) i32 @_ZN5YosysL13tcl_get_paramEPvP10Tcl_
   store i32 0, ptr %17, align 4, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #32
-  %45 = zext nneg i32 %.049.lcssa to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %3, i64 %45
+  %45 = sext i32 %.049.lcssa to i64
+  %46 = getelementptr inbounds ptr, ptr %3, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !35
   %48 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %48, ptr %19, align 8, !tbaa !37
@@ -7341,7 +7341,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #32
-  %131 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %131 = getelementptr i8, ptr %46, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !35
   %133 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %133, ptr %21, align 8, !tbaa !37
@@ -7579,7 +7579,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #32
-  %216 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %216 = getelementptr i8, ptr %46, i64 16
   %217 = load ptr, ptr %216, align 8, !tbaa !35
   %218 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %218, ptr %23, align 8, !tbaa !37
@@ -8495,8 +8495,8 @@ define internal noundef range(i32 0, 2) i32 @_ZN5YosysL13tcl_set_paramEPvP10Tcl_
   store i32 0, ptr %19, align 4, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #32
-  %55 = zext nneg i32 %.047.lcssa to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %3, i64 %55
+  %55 = sext i32 %.047.lcssa to i64
+  %56 = getelementptr inbounds ptr, ptr %3, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !119
   %58 = invoke ptr @Tcl_GetString(ptr noundef %57)
           to label %59 unwind label %322
@@ -8738,7 +8738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #32
-  %143 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %143 = getelementptr i8, ptr %56, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !119
   %145 = invoke ptr @Tcl_GetString(ptr noundef %144)
           to label %146 unwind label %344
@@ -8980,8 +8980,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #32
-  %230 = add nuw nsw i32 %.047.lcssa, 3
-  %231 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %230 = add nsw i32 %.047.lcssa, 3
+  %231 = getelementptr i8, ptr %56, i64 16
   %232 = load ptr, ptr %231, align 8, !tbaa !119
   %233 = invoke ptr @Tcl_GetString(ptr noundef %232)
           to label %234 unwind label %366
@@ -9511,8 +9511,8 @@ _ZN5Yosys5RTLIL6Module4cellERKNS0_8IdStringE.exit.thread: ; preds = %.noexc194, 
 
 428:                                              ; preds = %427
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #32
-  %429 = zext nneg i32 %230 to i64
-  %430 = getelementptr inbounds nuw ptr, ptr %3, i64 %429
+  %429 = sext i32 %230 to i64
+  %430 = getelementptr inbounds ptr, ptr %3, i64 %429
   %431 = load ptr, ptr %430, align 8, !tbaa !119
   %432 = invoke ptr @Tcl_GetString(ptr noundef %431)
           to label %433 unwind label %459
@@ -9656,8 +9656,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205: ; preds = %46
   %477 = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %477, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29) #32
-  %478 = zext nneg i32 %230 to i64
-  %479 = getelementptr inbounds nuw ptr, ptr %3, i64 %478
+  %478 = sext i32 %230 to i64
+  %479 = getelementptr inbounds ptr, ptr %3, i64 %478
   %480 = load ptr, ptr %479, align 8, !tbaa !119
   %481 = invoke i32 @Tcl_TakeBignumFromObj(ptr noundef %1, ptr noundef %480, ptr noundef nonnull %29)
           to label %482 unwind label %483
@@ -9749,8 +9749,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205: ; preds = %46
 
 508:                                              ; preds = %474
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32) #32
-  %509 = zext nneg i32 %230 to i64
-  %510 = getelementptr inbounds nuw ptr, ptr %3, i64 %509
+  %509 = sext i32 %230 to i64
+  %510 = getelementptr inbounds ptr, ptr %3, i64 %509
   %511 = load ptr, ptr %510, align 8, !tbaa !119
   %512 = invoke ptr @Tcl_GetString(ptr noundef %511)
           to label %513 unwind label %539

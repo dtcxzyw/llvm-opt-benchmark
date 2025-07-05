@@ -2462,17 +2462,17 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %2
 
 20:                                               ; preds = %15
   %21 = trunc nuw nsw i64 %indvars.iv to i32
-  %22 = lshr i32 %21, 1
-  %23 = and i32 %22, 1073741822
+  %22 = ashr i32 %21, 1
+  %23 = and i32 %22, -2
   %24 = add nuw nsw i32 %23, 2
   %25 = xor i32 %21, 2147483647
   %26 = icmp samesign ugt i32 %24, %25
   br i1 %26, label %.loopexit111, label %27
 
 27:                                               ; preds = %20
-  %28 = add nuw nsw i32 %24, %21
-  %29 = zext nneg i32 %28 to i64
-  %30 = shl nuw nsw i64 %29, 2
+  %28 = add nsw i32 %24, %21
+  %29 = sext i32 %28 to i64
+  %30 = shl nsw i64 %29, 2
   %31 = tail call ptr @realloc(ptr noundef %.sroa.093.1124, i64 noundef %30) #35
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
@@ -14694,7 +14694,7 @@ define linkonce_odr noundef i32 @_ZN6Gluco26Solver22gatePropagateCheckThisEi(ptr
   %10 = icmp slt i32 %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %12 = load ptr, ptr %11, align 8, !tbaa !132
-  br i1 %10, label %13, label %136
+  br i1 %10, label %13, label %139
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds %"class.Gluco2::lbool", ptr %12, i64 %5
@@ -14706,13 +14706,11 @@ define linkonce_odr noundef i32 @_ZN6Gluco26Solver22gatePropagateCheckThisEi(ptr
   %19 = trunc i32 %.sroa.0.0.copyload.i.i.i to i8
   %20 = and i8 %19, 1
   %21 = xor i8 %18, %20
-  br i1 %15, label %22, label %86
+  br i1 %15, label %22, label %89
 
 22:                                               ; preds = %13
-  %.not197 = icmp eq i8 %18, %20
-  %23 = and i8 %18, 2
-  %.not170171 = icmp ne i8 %23, 0
-  br i1 %.not197, label %24, label %.critedge
+  %23 = icmp eq i8 %18, %20
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %22
   %25 = sext i32 %9 to i64
@@ -14720,311 +14718,313 @@ define linkonce_odr noundef i32 @_ZN6Gluco26Solver22gatePropagateCheckThisEi(ptr
   %27 = load i8, ptr %26, align 1, !tbaa !150
   %28 = trunc i32 %.sroa.0.0.copyload.i.i2.i to i8
   %29 = and i8 %28, 1
-  %.not174 = icmp eq i8 %27, %29
-  br i1 %.not174, label %30, label %.critedge
+  %30 = icmp eq i8 %27, %29
+  br i1 %30, label %31, label %.critedge
 
-30:                                               ; preds = %24
-  %31 = or i32 %1, -2147483648
+31:                                               ; preds = %24
+  %32 = or i32 %1, -2147483648
   br label %.critedge2
 
 .critedge:                                        ; preds = %22, %24
-  %32 = icmp ne i8 %21, 1
-  %.not175 = or i1 %32, %.not170171
-  br i1 %.not175, label %33, label %.critedge2
+  %33 = icmp ne i8 %21, 1
+  %34 = and i8 %18, 2
+  %.not170171 = icmp ne i8 %34, 0
+  %.not170 = or i1 %33, %.not170171
+  br i1 %.not170, label %35, label %.critedge2
 
-33:                                               ; preds = %.critedge
-  %34 = sext i32 %9 to i64
-  %35 = getelementptr inbounds %"class.Gluco2::lbool", ptr %12, i64 %34
-  %36 = load i8, ptr %35, align 1, !tbaa !150
-  %37 = trunc i32 %.sroa.0.0.copyload.i.i2.i to i8
-  %38 = and i8 %37, 1
-  %39 = xor i8 %36, %38
-  %40 = icmp ne i8 %39, 1
-  %41 = and i8 %36, 2
-  %.not177178 = icmp ne i8 %41, 0
-  %.not177 = or i1 %40, %.not177178
-  br i1 %.not177, label %42, label %.critedge2
+35:                                               ; preds = %.critedge
+  %36 = sext i32 %9 to i64
+  %37 = getelementptr inbounds %"class.Gluco2::lbool", ptr %12, i64 %36
+  %38 = load i8, ptr %37, align 1, !tbaa !150
+  %39 = trunc i32 %.sroa.0.0.copyload.i.i2.i to i8
+  %40 = and i8 %39, 1
+  %41 = xor i8 %38, %40
+  %42 = icmp ne i8 %41, 1
+  %43 = and i8 %38, 2
+  %.not172173 = icmp ne i8 %43, 0
+  %.not172 = or i1 %42, %.not172173
+  br i1 %.not172, label %44, label %.critedge2
 
-42:                                               ; preds = %33
-  br i1 %.not197, label %43, label %60
+44:                                               ; preds = %35
+  br i1 %23, label %45, label %62
 
-43:                                               ; preds = %42
-  %44 = xor i32 %.sroa.0.0.copyload.i.i2.i, 1
-  %45 = or i32 %1, -2147483648
-  %46 = trunc i32 %44 to i8
-  %47 = and i8 %46, 1
-  store i8 %47, ptr %35, align 1, !tbaa !109
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %49 = load i32, ptr %48, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i = zext i32 %49 to i64
+45:                                               ; preds = %44
+  %46 = xor i32 %.sroa.0.0.copyload.i.i2.i, 1
+  %47 = or i32 %1, -2147483648
+  %48 = trunc i32 %46 to i8
+  %49 = and i8 %48, 1
+  store i8 %49, ptr %37, align 1, !tbaa !109
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %51 = load i32, ptr %50, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i = zext i32 %51 to i64
   %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
-  %.sroa.0.0.insert.ext.i.i = zext i32 %45 to i64
+  %.sroa.0.0.insert.ext.i.i = zext i32 %47 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %51 = load ptr, ptr %50, align 8, !tbaa !129
-  %52 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %51, i64 %34
-  store i64 %.sroa.0.0.insert.insert.i.i, ptr %52, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %54 = load ptr, ptr %53, align 8, !tbaa !112
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %56 = load i32, ptr %55, align 8, !tbaa !113
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %55, align 8, !tbaa !113
-  %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %54, i64 %58
-  store i32 %44, ptr %59, align 4, !tbaa !55
-  %.pre184 = load ptr, ptr %3, align 8, !tbaa !123
-  %.phi.trans.insert185 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %.pre184, i64 %5, i32 1
-  %.sroa.0.0.copyload.i95.pre = load i32, ptr %.phi.trans.insert185, align 4, !tbaa !55
-  %.pre187 = load ptr, ptr %11, align 8, !tbaa !132
-  %.pre188 = ashr i32 %.sroa.0.0.copyload.i95.pre, 1
-  %.pre189 = sext i32 %.pre188 to i64
-  %.pre191 = trunc i32 %.sroa.0.0.copyload.i95.pre to i8
-  %.pre193 = and i8 %.pre191, 1
-  br label %60
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %53 = load ptr, ptr %52, align 8, !tbaa !129
+  %54 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %53, i64 %36
+  store i64 %.sroa.0.0.insert.insert.i.i, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %56 = load ptr, ptr %55, align 8, !tbaa !112
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %58 = load i32, ptr %57, align 8, !tbaa !113
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %57, align 8, !tbaa !113
+  %60 = sext i32 %58 to i64
+  %61 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %56, i64 %60
+  store i32 %46, ptr %61, align 4, !tbaa !55
+  %.pre176 = load ptr, ptr %3, align 8, !tbaa !123
+  %.phi.trans.insert177 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %.pre176, i64 %5, i32 1
+  %.sroa.0.0.copyload.i95.pre = load i32, ptr %.phi.trans.insert177, align 4, !tbaa !55
+  %.pre179 = load ptr, ptr %11, align 8, !tbaa !132
+  %.pre180 = ashr i32 %.sroa.0.0.copyload.i95.pre, 1
+  %.pre181 = sext i32 %.pre180 to i64
+  %.pre183 = trunc i32 %.sroa.0.0.copyload.i95.pre to i8
+  %.pre185 = and i8 %.pre183, 1
+  br label %62
 
-60:                                               ; preds = %43, %42
-  %.pre-phi194 = phi i8 [ %.pre193, %43 ], [ %38, %42 ]
-  %.pre-phi190 = phi i64 [ %.pre189, %43 ], [ %34, %42 ]
-  %61 = phi ptr [ %.pre187, %43 ], [ %12, %42 ]
-  %62 = phi ptr [ %.pre184, %43 ], [ %4, %42 ]
-  %63 = getelementptr inbounds %"class.Gluco2::lbool", ptr %61, i64 %.pre-phi190
-  %64 = load i8, ptr %63, align 1, !tbaa !150
-  %.not181 = icmp eq i8 %64, %.pre-phi194
-  br i1 %.not181, label %65, label %.critedge2
+62:                                               ; preds = %45, %44
+  %.pre-phi186 = phi i8 [ %.pre185, %45 ], [ %40, %44 ]
+  %.pre-phi182 = phi i64 [ %.pre181, %45 ], [ %36, %44 ]
+  %63 = phi ptr [ %.pre179, %45 ], [ %12, %44 ]
+  %64 = phi ptr [ %.pre176, %45 ], [ %4, %44 ]
+  %65 = getelementptr inbounds %"class.Gluco2::lbool", ptr %63, i64 %.pre-phi182
+  %66 = load i8, ptr %65, align 1, !tbaa !150
+  %67 = icmp eq i8 %66, %.pre-phi186
+  br i1 %67, label %68, label %.critedge2
 
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %62, i64 %5
-  %.sroa.0.0.copyload.i96 = load i32, ptr %66, align 4, !tbaa !55
-  %67 = xor i32 %.sroa.0.0.copyload.i96, 1
-  %68 = or i32 %1, -2147483648
-  %69 = trunc i32 %67 to i8
-  %70 = and i8 %69, 1
-  %71 = ashr i32 %.sroa.0.0.copyload.i96, 1
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds %"class.Gluco2::lbool", ptr %61, i64 %72
-  store i8 %70, ptr %73, align 1, !tbaa !109
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %75 = load i32, ptr %74, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i97 = zext i32 %75 to i64
+68:                                               ; preds = %62
+  %69 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %64, i64 %5
+  %.sroa.0.0.copyload.i96 = load i32, ptr %69, align 4, !tbaa !55
+  %70 = xor i32 %.sroa.0.0.copyload.i96, 1
+  %71 = or i32 %1, -2147483648
+  %72 = trunc i32 %70 to i8
+  %73 = and i8 %72, 1
+  %74 = ashr i32 %.sroa.0.0.copyload.i96, 1
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds %"class.Gluco2::lbool", ptr %63, i64 %75
+  store i8 %73, ptr %76, align 1, !tbaa !109
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %78 = load i32, ptr %77, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i97 = zext i32 %78 to i64
   %.sroa.2.0.insert.shift.i.i98 = shl nuw i64 %.sroa.2.0.insert.ext.i.i97, 32
-  %.sroa.0.0.insert.ext.i.i99 = zext i32 %68 to i64
+  %.sroa.0.0.insert.ext.i.i99 = zext i32 %71 to i64
   %.sroa.0.0.insert.insert.i.i100 = or disjoint i64 %.sroa.2.0.insert.shift.i.i98, %.sroa.0.0.insert.ext.i.i99
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %77 = load ptr, ptr %76, align 8, !tbaa !129
-  %78 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %77, i64 %72
-  store i64 %.sroa.0.0.insert.insert.i.i100, ptr %78, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %80 = load ptr, ptr %79, align 8, !tbaa !112
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %82 = load i32, ptr %81, align 8, !tbaa !113
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %81, align 8, !tbaa !113
-  %84 = sext i32 %82 to i64
-  %85 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %80, i64 %84
-  store i32 %67, ptr %85, align 4, !tbaa !55
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %80 = load ptr, ptr %79, align 8, !tbaa !129
+  %81 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %80, i64 %75
+  store i64 %.sroa.0.0.insert.insert.i.i100, ptr %81, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %83 = load ptr, ptr %82, align 8, !tbaa !112
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %85 = load i32, ptr %84, align 8, !tbaa !113
+  %86 = add nsw i32 %85, 1
+  store i32 %86, ptr %84, align 8, !tbaa !113
+  %87 = sext i32 %85 to i64
+  %88 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %83, i64 %87
+  store i32 %70, ptr %88, align 4, !tbaa !55
   br label %.critedge2
 
-86:                                               ; preds = %13
-  %87 = and i8 %18, 2
-  %88 = icmp ne i8 %21, 1
-  %.not164165 = icmp ne i8 %87, 0
-  %.not164 = or i1 %88, %.not164165
-  br i1 %.not164, label %89, label %.critedge4
+89:                                               ; preds = %13
+  %90 = and i8 %18, 2
+  %91 = icmp ne i8 %21, 1
+  %.not164165 = icmp ne i8 %90, 0
+  %.not164 = or i1 %91, %.not164165
+  br i1 %.not164, label %92, label %.critedge4
 
-89:                                               ; preds = %86
-  %90 = sext i32 %9 to i64
-  %91 = getelementptr inbounds %"class.Gluco2::lbool", ptr %12, i64 %90
-  %92 = load i8, ptr %91, align 1, !tbaa !150
-  %93 = trunc i32 %.sroa.0.0.copyload.i.i2.i to i8
-  %94 = and i8 %93, 1
-  %95 = xor i8 %92, %94
-  %96 = icmp ne i8 %95, 1
-  %97 = and i8 %92, 2
-  %.not166167 = icmp ne i8 %97, 0
-  %.not166 = or i1 %96, %.not166167
-  br i1 %.not166, label %99, label %.critedge4
+92:                                               ; preds = %89
+  %93 = sext i32 %9 to i64
+  %94 = getelementptr inbounds %"class.Gluco2::lbool", ptr %12, i64 %93
+  %95 = load i8, ptr %94, align 1, !tbaa !150
+  %96 = trunc i32 %.sroa.0.0.copyload.i.i2.i to i8
+  %97 = and i8 %96, 1
+  %98 = xor i8 %95, %97
+  %99 = icmp ne i8 %98, 1
+  %100 = and i8 %95, 2
+  %.not166167 = icmp ne i8 %100, 0
+  %.not166 = or i1 %99, %.not166167
+  br i1 %.not166, label %102, label %.critedge4
 
-.critedge4:                                       ; preds = %86, %89
-  %98 = or i32 %1, -2147483648
-  br label %99
-
-99:                                               ; preds = %.critedge4, %89
-  %.086 = phi i32 [ %98, %.critedge4 ], [ -1, %89 ]
-  %.not168 = icmp eq i8 %87, 0
-  br i1 %.not168, label %114, label %100
-
-100:                                              ; preds = %99
+.critedge4:                                       ; preds = %89, %92
   %101 = or i32 %1, -2147483648
+  br label %102
+
+102:                                              ; preds = %.critedge4, %92
+  %.086 = phi i32 [ %101, %.critedge4 ], [ -1, %92 ]
+  %.not168 = icmp eq i8 %90, 0
+  br i1 %.not168, label %117, label %103
+
+103:                                              ; preds = %102
+  %104 = or i32 %1, -2147483648
   store i8 %20, ptr %17, align 1, !tbaa !109
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %103 = load i32, ptr %102, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i105 = zext i32 %103 to i64
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %106 = load i32, ptr %105, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i105 = zext i32 %106 to i64
   %.sroa.2.0.insert.shift.i.i106 = shl nuw i64 %.sroa.2.0.insert.ext.i.i105, 32
-  %.sroa.0.0.insert.ext.i.i107 = zext i32 %101 to i64
+  %.sroa.0.0.insert.ext.i.i107 = zext i32 %104 to i64
   %.sroa.0.0.insert.insert.i.i108 = or disjoint i64 %.sroa.2.0.insert.shift.i.i106, %.sroa.0.0.insert.ext.i.i107
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %105 = load ptr, ptr %104, align 8, !tbaa !129
-  %106 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %105, i64 %16
-  store i64 %.sroa.0.0.insert.insert.i.i108, ptr %106, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %108 = load ptr, ptr %107, align 8, !tbaa !112
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %110 = load i32, ptr %109, align 8, !tbaa !113
-  %111 = add nsw i32 %110, 1
-  store i32 %111, ptr %109, align 8, !tbaa !113
-  %112 = sext i32 %110 to i64
-  %113 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %108, i64 %112
-  store i32 %.sroa.0.0.copyload.i.i.i, ptr %113, align 4, !tbaa !55
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %108 = load ptr, ptr %107, align 8, !tbaa !129
+  %109 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %108, i64 %16
+  store i64 %.sroa.0.0.insert.insert.i.i108, ptr %109, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %111 = load ptr, ptr %110, align 8, !tbaa !112
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %113 = load i32, ptr %112, align 8, !tbaa !113
+  %114 = add nsw i32 %113, 1
+  store i32 %114, ptr %112, align 8, !tbaa !113
+  %115 = sext i32 %113 to i64
+  %116 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %111, i64 %115
+  store i32 %.sroa.0.0.copyload.i.i.i, ptr %116, align 4, !tbaa !55
   %.pre = load ptr, ptr %3, align 8, !tbaa !123
   %.phi.trans.insert = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %.pre, i64 %5, i32 1
   %.sroa.0.0.copyload.i109.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !55
-  %.pre183 = load ptr, ptr %11, align 8, !tbaa !132
-  %.pre195 = ashr i32 %.sroa.0.0.copyload.i109.pre, 1
-  br label %114
+  %.pre175 = load ptr, ptr %11, align 8, !tbaa !132
+  %.pre187 = ashr i32 %.sroa.0.0.copyload.i109.pre, 1
+  br label %117
 
-114:                                              ; preds = %100, %99
-  %.pre-phi196 = phi i32 [ %.pre195, %100 ], [ %9, %99 ]
-  %115 = phi ptr [ %.pre183, %100 ], [ %12, %99 ]
-  %.sroa.0.0.copyload.i109 = phi i32 [ %.sroa.0.0.copyload.i109.pre, %100 ], [ %.sroa.0.0.copyload.i.i2.i, %99 ]
-  %116 = sext i32 %.pre-phi196 to i64
-  %117 = getelementptr inbounds %"class.Gluco2::lbool", ptr %115, i64 %116
-  %118 = load i8, ptr %117, align 1, !tbaa !150
-  %119 = and i8 %118, 2
-  %.not169 = icmp eq i8 %119, 0
-  br i1 %.not169, label %.critedge2, label %120
+117:                                              ; preds = %103, %102
+  %.pre-phi188 = phi i32 [ %.pre187, %103 ], [ %9, %102 ]
+  %118 = phi ptr [ %.pre175, %103 ], [ %12, %102 ]
+  %.sroa.0.0.copyload.i109 = phi i32 [ %.sroa.0.0.copyload.i109.pre, %103 ], [ %.sroa.0.0.copyload.i.i2.i, %102 ]
+  %119 = sext i32 %.pre-phi188 to i64
+  %120 = getelementptr inbounds %"class.Gluco2::lbool", ptr %118, i64 %119
+  %121 = load i8, ptr %120, align 1, !tbaa !150
+  %122 = and i8 %121, 2
+  %.not169 = icmp eq i8 %122, 0
+  br i1 %.not169, label %.critedge2, label %123
 
-120:                                              ; preds = %114
-  %121 = trunc i32 %.sroa.0.0.copyload.i109 to i8
-  %122 = and i8 %121, 1
-  %123 = or i32 %1, -2147483648
-  store i8 %122, ptr %117, align 1, !tbaa !109
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %125 = load i32, ptr %124, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i111 = zext i32 %125 to i64
+123:                                              ; preds = %117
+  %124 = trunc i32 %.sroa.0.0.copyload.i109 to i8
+  %125 = and i8 %124, 1
+  %126 = or i32 %1, -2147483648
+  store i8 %125, ptr %120, align 1, !tbaa !109
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %128 = load i32, ptr %127, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i111 = zext i32 %128 to i64
   %.sroa.2.0.insert.shift.i.i112 = shl nuw i64 %.sroa.2.0.insert.ext.i.i111, 32
-  %.sroa.0.0.insert.ext.i.i113 = zext i32 %123 to i64
+  %.sroa.0.0.insert.ext.i.i113 = zext i32 %126 to i64
   %.sroa.0.0.insert.insert.i.i114 = or disjoint i64 %.sroa.2.0.insert.shift.i.i112, %.sroa.0.0.insert.ext.i.i113
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %127 = load ptr, ptr %126, align 8, !tbaa !129
-  %128 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %127, i64 %116
-  store i64 %.sroa.0.0.insert.insert.i.i114, ptr %128, align 4
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %130 = load ptr, ptr %129, align 8, !tbaa !112
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %132 = load i32, ptr %131, align 8, !tbaa !113
-  %133 = add nsw i32 %132, 1
-  store i32 %133, ptr %131, align 8, !tbaa !113
-  %134 = sext i32 %132 to i64
-  %135 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %130, i64 %134
-  store i32 %.sroa.0.0.copyload.i109, ptr %135, align 4, !tbaa !55
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %130 = load ptr, ptr %129, align 8, !tbaa !129
+  %131 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %130, i64 %119
+  store i64 %.sroa.0.0.insert.insert.i.i114, ptr %131, align 4
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %133 = load ptr, ptr %132, align 8, !tbaa !112
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %135 = load i32, ptr %134, align 8, !tbaa !113
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %134, align 8, !tbaa !113
+  %137 = sext i32 %135 to i64
+  %138 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %133, i64 %137
+  store i32 %.sroa.0.0.copyload.i109, ptr %138, align 4, !tbaa !55
   br label %.critedge2
 
-136:                                              ; preds = %2
-  %137 = sext i32 %7 to i64
-  %138 = getelementptr inbounds %"class.Gluco2::lbool", ptr %12, i64 %137
-  %139 = load i8, ptr %138, align 1, !tbaa !150
-  %140 = trunc i32 %.sroa.0.0.copyload.i.i.i to i8
-  %141 = and i8 %140, 1
-  %142 = xor i8 %139, %141
-  %143 = sext i32 %9 to i64
-  %144 = getelementptr inbounds %"class.Gluco2::lbool", ptr %12, i64 %143
-  %145 = load i8, ptr %144, align 1, !tbaa !150
-  %146 = trunc i32 %.sroa.0.0.copyload.i.i2.i to i8
-  %147 = and i8 %146, 1
-  %148 = xor i8 %145, %147
-  %149 = getelementptr inbounds %"class.Gluco2::lbool", ptr %12, i64 %5
-  %.sroa.0.0.copyload.i117 = load i8, ptr %149, align 1, !tbaa !109
-  %150 = and i8 %139, 2
-  %.not = icmp eq i8 %150, 0
-  %151 = and i8 %145, 2
-  %.not160 = icmp eq i8 %151, 0
-  br i1 %.not, label %.critedge6, label %152
+139:                                              ; preds = %2
+  %140 = sext i32 %7 to i64
+  %141 = getelementptr inbounds %"class.Gluco2::lbool", ptr %12, i64 %140
+  %142 = load i8, ptr %141, align 1, !tbaa !150
+  %143 = trunc i32 %.sroa.0.0.copyload.i.i.i to i8
+  %144 = and i8 %143, 1
+  %145 = xor i8 %142, %144
+  %146 = sext i32 %9 to i64
+  %147 = getelementptr inbounds %"class.Gluco2::lbool", ptr %12, i64 %146
+  %148 = load i8, ptr %147, align 1, !tbaa !150
+  %149 = trunc i32 %.sroa.0.0.copyload.i.i2.i to i8
+  %150 = and i8 %149, 1
+  %151 = xor i8 %148, %150
+  %152 = getelementptr inbounds %"class.Gluco2::lbool", ptr %12, i64 %5
+  %.sroa.0.0.copyload.i117 = load i8, ptr %152, align 1, !tbaa !109
+  %153 = and i8 %142, 2
+  %.not = icmp eq i8 %153, 0
+  %154 = and i8 %148, 2
+  %.not160 = icmp eq i8 %154, 0
+  br i1 %.not, label %.critedge6, label %155
 
-152:                                              ; preds = %136
-  br i1 %.not160, label %153, label %.critedge2
+155:                                              ; preds = %139
+  br i1 %.not160, label %156, label %.critedge2
 
-153:                                              ; preds = %152
-  %154 = icmp eq i8 %145, %147
-  %155 = icmp eq i8 %.sroa.0.0.copyload.i117, 0
-  %156 = xor i1 %154, %155
-  %157 = zext i1 %156 to i32
-  %158 = xor i32 %.sroa.0.0.copyload.i.i.i, %157
-  %159 = xor i32 %158, 1
-  %160 = or i32 %1, -2147483648
-  %161 = trunc i32 %159 to i8
-  %162 = and i8 %161, 1
-  store i8 %162, ptr %138, align 1, !tbaa !109
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %164 = load i32, ptr %163, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i119 = zext i32 %164 to i64
+156:                                              ; preds = %155
+  %157 = icmp eq i8 %148, %150
+  %158 = icmp eq i8 %.sroa.0.0.copyload.i117, 0
+  %159 = xor i1 %157, %158
+  %160 = zext i1 %159 to i32
+  %161 = xor i32 %.sroa.0.0.copyload.i.i.i, %160
+  %162 = xor i32 %161, 1
+  %163 = or i32 %1, -2147483648
+  %164 = trunc i32 %162 to i8
+  %165 = and i8 %164, 1
+  store i8 %165, ptr %141, align 1, !tbaa !109
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %167 = load i32, ptr %166, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i119 = zext i32 %167 to i64
   %.sroa.2.0.insert.shift.i.i120 = shl nuw i64 %.sroa.2.0.insert.ext.i.i119, 32
-  %.sroa.0.0.insert.ext.i.i121 = zext i32 %160 to i64
+  %.sroa.0.0.insert.ext.i.i121 = zext i32 %163 to i64
   %.sroa.0.0.insert.insert.i.i122 = or disjoint i64 %.sroa.2.0.insert.shift.i.i120, %.sroa.0.0.insert.ext.i.i121
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %166 = load ptr, ptr %165, align 8, !tbaa !129
-  %167 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %166, i64 %137
-  store i64 %.sroa.0.0.insert.insert.i.i122, ptr %167, align 4
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %169 = load ptr, ptr %168, align 8, !tbaa !112
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %171 = load i32, ptr %170, align 8, !tbaa !113
-  %172 = add nsw i32 %171, 1
-  store i32 %172, ptr %170, align 8, !tbaa !113
-  %173 = sext i32 %171 to i64
-  %174 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %169, i64 %173
-  store i32 %159, ptr %174, align 4, !tbaa !55
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %169 = load ptr, ptr %168, align 8, !tbaa !129
+  %170 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %169, i64 %140
+  store i64 %.sroa.0.0.insert.insert.i.i122, ptr %170, align 4
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %172 = load ptr, ptr %171, align 8, !tbaa !112
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %174 = load i32, ptr %173, align 8, !tbaa !113
+  %175 = add nsw i32 %174, 1
+  store i32 %175, ptr %173, align 8, !tbaa !113
+  %176 = sext i32 %174 to i64
+  %177 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %172, i64 %176
+  store i32 %162, ptr %177, align 4, !tbaa !55
   br label %.critedge2
 
-.critedge6:                                       ; preds = %136
-  br i1 %.not160, label %197, label %175
+.critedge6:                                       ; preds = %139
+  br i1 %.not160, label %200, label %178
 
-175:                                              ; preds = %.critedge6
-  %176 = icmp eq i8 %139, %141
-  %177 = icmp eq i8 %.sroa.0.0.copyload.i117, 0
-  %178 = xor i1 %176, %177
-  %179 = zext i1 %178 to i32
-  %180 = xor i32 %.sroa.0.0.copyload.i.i2.i, %179
-  %181 = xor i32 %180, 1
-  %182 = or i32 %1, -2147483648
-  %183 = trunc i32 %181 to i8
-  %184 = and i8 %183, 1
-  store i8 %184, ptr %144, align 1, !tbaa !109
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %186 = load i32, ptr %185, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i124 = zext i32 %186 to i64
+178:                                              ; preds = %.critedge6
+  %179 = icmp eq i8 %142, %144
+  %180 = icmp eq i8 %.sroa.0.0.copyload.i117, 0
+  %181 = xor i1 %179, %180
+  %182 = zext i1 %181 to i32
+  %183 = xor i32 %.sroa.0.0.copyload.i.i2.i, %182
+  %184 = xor i32 %183, 1
+  %185 = or i32 %1, -2147483648
+  %186 = trunc i32 %184 to i8
+  %187 = and i8 %186, 1
+  store i8 %187, ptr %147, align 1, !tbaa !109
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %189 = load i32, ptr %188, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i124 = zext i32 %189 to i64
   %.sroa.2.0.insert.shift.i.i125 = shl nuw i64 %.sroa.2.0.insert.ext.i.i124, 32
-  %.sroa.0.0.insert.ext.i.i126 = zext i32 %182 to i64
+  %.sroa.0.0.insert.ext.i.i126 = zext i32 %185 to i64
   %.sroa.0.0.insert.insert.i.i127 = or disjoint i64 %.sroa.2.0.insert.shift.i.i125, %.sroa.0.0.insert.ext.i.i126
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %188 = load ptr, ptr %187, align 8, !tbaa !129
-  %189 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %188, i64 %143
-  store i64 %.sroa.0.0.insert.insert.i.i127, ptr %189, align 4
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %191 = load ptr, ptr %190, align 8, !tbaa !112
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %193 = load i32, ptr %192, align 8, !tbaa !113
-  %194 = add nsw i32 %193, 1
-  store i32 %194, ptr %192, align 8, !tbaa !113
-  %195 = sext i32 %193 to i64
-  %196 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %191, i64 %195
-  store i32 %181, ptr %196, align 4, !tbaa !55
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %191 = load ptr, ptr %190, align 8, !tbaa !129
+  %192 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %191, i64 %146
+  store i64 %.sroa.0.0.insert.insert.i.i127, ptr %192, align 4
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %194 = load ptr, ptr %193, align 8, !tbaa !112
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %196 = load i32, ptr %195, align 8, !tbaa !113
+  %197 = add nsw i32 %196, 1
+  store i32 %197, ptr %195, align 8, !tbaa !113
+  %198 = sext i32 %196 to i64
+  %199 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %194, i64 %198
+  store i32 %184, ptr %199, align 4, !tbaa !55
   br label %.critedge2
 
-197:                                              ; preds = %.critedge6
-  %198 = icmp eq i8 %142, %148
-  %199 = zext i1 %198 to i8
-  %200 = xor i8 %.sroa.0.0.copyload.i117, %199
-  %201 = icmp ne i8 %200, 1
-  %202 = and i8 %.sroa.0.0.copyload.i117, 2
-  %.not161162 = icmp ne i8 %202, 0
-  %.not161 = or i1 %.not161162, %201
-  %203 = or i32 %1, -2147483648
-  %spec.select = select i1 %.not161, i32 -1, i32 %203
+200:                                              ; preds = %.critedge6
+  %201 = icmp eq i8 %145, %151
+  %202 = zext i1 %201 to i8
+  %203 = xor i8 %.sroa.0.0.copyload.i117, %202
+  %204 = icmp ne i8 %203, 1
+  %205 = and i8 %.sroa.0.0.copyload.i117, 2
+  %.not161162 = icmp ne i8 %205, 0
+  %.not161 = or i1 %.not161162, %204
+  %206 = or i32 %1, -2147483648
+  %spec.select = select i1 %.not161, i32 -1, i32 %206
   br label %.critedge2
 
-.critedge2:                                       ; preds = %197, %152, %175, %153, %.critedge, %114, %120, %60, %65, %33, %30
-  %.0 = phi i32 [ %31, %30 ], [ -1, %33 ], [ -1, %65 ], [ -1, %60 ], [ %.086, %120 ], [ %.086, %114 ], [ -1, %.critedge ], [ -1, %152 ], [ -1, %175 ], [ -1, %153 ], [ %spec.select, %197 ]
+.critedge2:                                       ; preds = %200, %155, %178, %156, %.critedge, %117, %123, %62, %68, %35, %31
+  %.0 = phi i32 [ %32, %31 ], [ -1, %35 ], [ -1, %68 ], [ -1, %62 ], [ %.086, %123 ], [ %.086, %117 ], [ -1, %.critedge ], [ -1, %155 ], [ -1, %178 ], [ -1, %156 ], [ %spec.select, %200 ]
   ret i32 %.0
 }
 
@@ -15047,7 +15047,7 @@ define linkonce_odr noundef i32 @_ZN6Gluco26Solver24gatePropagateCheckFanoutEiNS
   %.sroa.0.0.copyload.i.i2.i = load i32, ptr %13, align 4, !tbaa !55
   %14 = ashr i32 %.sroa.0.0.copyload.i.i2.i, 1
   %15 = icmp slt i32 %12, %14
-  br i1 %15, label %16, label %104
+  br i1 %15, label %16, label %106
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -15123,188 +15123,188 @@ define linkonce_odr noundef i32 @_ZN6Gluco26Solver24gatePropagateCheckFanoutEiNS
   %61 = load i8, ptr %60, align 1, !tbaa !150
   %62 = trunc i32 %spec.select to i8
   %63 = and i8 %62, 1
-  br i1 %57, label %64, label %88
+  br i1 %57, label %64, label %89
 
 64:                                               ; preds = %56
   %65 = xor i8 %61, %63
   %66 = icmp ne i8 %65, 1
   %67 = and i8 %61, 2
-  %.not175176 = icmp ne i8 %67, 0
-  %.not175 = or i1 %66, %.not175176
-  br i1 %.not175, label %68, label %.thread
+  %.not172173 = icmp ne i8 %67, 0
+  %.not172 = or i1 %66, %.not172173
+  br i1 %.not172, label %68, label %.thread
 
 68:                                               ; preds = %64
-  %.not180 = icmp eq i8 %61, %63
-  br i1 %.not180, label %69, label %71
+  %69 = icmp eq i8 %61, %63
+  br i1 %69, label %70, label %72
 
-69:                                               ; preds = %68
-  %70 = or i32 %5, -2147483648
+70:                                               ; preds = %68
+  %71 = or i32 %5, -2147483648
   br label %.thread
 
-71:                                               ; preds = %68
-  %72 = xor i32 %spec.select, 1
-  %73 = or i32 %5, -2147483648
-  %74 = trunc i32 %72 to i8
-  %75 = and i8 %74, 1
-  store i8 %75, ptr %60, align 1, !tbaa !109
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %77 = load i32, ptr %76, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i113 = zext i32 %77 to i64
+72:                                               ; preds = %68
+  %73 = xor i32 %spec.select, 1
+  %74 = or i32 %5, -2147483648
+  %75 = trunc i32 %73 to i8
+  %76 = and i8 %75, 1
+  store i8 %76, ptr %60, align 1, !tbaa !109
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %78 = load i32, ptr %77, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i113 = zext i32 %78 to i64
   %.sroa.2.0.insert.shift.i.i114 = shl nuw i64 %.sroa.2.0.insert.ext.i.i113, 32
-  %.sroa.0.0.insert.ext.i.i115 = zext i32 %73 to i64
+  %.sroa.0.0.insert.ext.i.i115 = zext i32 %74 to i64
   %.sroa.0.0.insert.insert.i.i116 = or disjoint i64 %.sroa.2.0.insert.shift.i.i114, %.sroa.0.0.insert.ext.i.i115
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %79 = load ptr, ptr %78, align 8, !tbaa !129
-  %80 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %79, i64 %59
-  store i64 %.sroa.0.0.insert.insert.i.i116, ptr %80, align 4
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %82 = load ptr, ptr %81, align 8, !tbaa !112
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %84 = load i32, ptr %83, align 8, !tbaa !113
-  %85 = add nsw i32 %84, 1
-  store i32 %85, ptr %83, align 8, !tbaa !113
-  %86 = sext i32 %84 to i64
-  %87 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %82, i64 %86
-  store i32 %72, ptr %87, align 4, !tbaa !55
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %80 = load ptr, ptr %79, align 8, !tbaa !129
+  %81 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %80, i64 %59
+  store i64 %.sroa.0.0.insert.insert.i.i116, ptr %81, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %83 = load ptr, ptr %82, align 8, !tbaa !112
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %85 = load i32, ptr %84, align 8, !tbaa !113
+  %86 = add nsw i32 %85, 1
+  store i32 %86, ptr %84, align 8, !tbaa !113
+  %87 = sext i32 %85 to i64
+  %88 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %83, i64 %87
+  store i32 %73, ptr %88, align 4, !tbaa !55
   br label %.thread
 
-88:                                               ; preds = %56
-  %.not174 = icmp eq i8 %61, %63
-  br i1 %.not174, label %89, label %.thread
+89:                                               ; preds = %56
+  %90 = icmp eq i8 %61, %63
+  br i1 %90, label %91, label %.thread
 
-89:                                               ; preds = %88
-  %90 = and i32 %2, -2
-  %91 = or i32 %5, -2147483648
+91:                                               ; preds = %89
+  %92 = and i32 %2, -2
+  %93 = or i32 %5, -2147483648
   store i8 0, ptr %28, align 1, !tbaa !109
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %93 = load i32, ptr %92, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i117 = zext i32 %93 to i64
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %95 = load i32, ptr %94, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i117 = zext i32 %95 to i64
   %.sroa.2.0.insert.shift.i.i118 = shl nuw i64 %.sroa.2.0.insert.ext.i.i117, 32
-  %.sroa.0.0.insert.ext.i.i119 = zext i32 %91 to i64
+  %.sroa.0.0.insert.ext.i.i119 = zext i32 %93 to i64
   %.sroa.0.0.insert.insert.i.i120 = or disjoint i64 %.sroa.2.0.insert.shift.i.i118, %.sroa.0.0.insert.ext.i.i119
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %95 = load ptr, ptr %94, align 8, !tbaa !129
-  %96 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %95, i64 %8
-  store i64 %.sroa.0.0.insert.insert.i.i120, ptr %96, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %98 = load ptr, ptr %97, align 8, !tbaa !112
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %100 = load i32, ptr %99, align 8, !tbaa !113
-  %101 = add nsw i32 %100, 1
-  store i32 %101, ptr %99, align 8, !tbaa !113
-  %102 = sext i32 %100 to i64
-  %103 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %98, i64 %102
-  store i32 %90, ptr %103, align 4, !tbaa !55
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %97 = load ptr, ptr %96, align 8, !tbaa !129
+  %98 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %97, i64 %8
+  store i64 %.sroa.0.0.insert.insert.i.i120, ptr %98, align 4
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %100 = load ptr, ptr %99, align 8, !tbaa !112
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %102 = load i32, ptr %101, align 8, !tbaa !113
+  %103 = add nsw i32 %102, 1
+  store i32 %103, ptr %101, align 8, !tbaa !113
+  %104 = sext i32 %102 to i64
+  %105 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %100, i64 %104
+  store i32 %92, ptr %105, align 4, !tbaa !55
   br label %.thread
 
-104:                                              ; preds = %3
+106:                                              ; preds = %3
   %spec.select165 = select i1 %.not, i32 %.sroa.0.0.copyload.i.i2.i, i32 %.sroa.0.0.copyload.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %106 = ashr i32 %.sroa.073.0, 1
-  %107 = load ptr, ptr %105, align 8, !tbaa !132
-  %108 = sext i32 %106 to i64
-  %109 = getelementptr inbounds %"class.Gluco2::lbool", ptr %107, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !150
-  %111 = trunc i32 %.sroa.073.0 to i8
-  %112 = and i8 %111, 1
-  %113 = xor i8 %110, %112
-  %114 = ashr i32 %spec.select165, 1
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds %"class.Gluco2::lbool", ptr %107, i64 %115
-  %117 = load i8, ptr %116, align 1, !tbaa !150
-  %118 = trunc i32 %spec.select165 to i8
-  %119 = and i8 %118, 1
-  %120 = xor i8 %117, %119
-  %121 = getelementptr inbounds %"class.Gluco2::lbool", ptr %107, i64 %8
-  %.sroa.0.0.copyload.i123 = load i8, ptr %121, align 1, !tbaa !109
-  %122 = and i8 %117, 2
-  %.not167 = icmp eq i8 %122, 0
-  %123 = and i8 %.sroa.0.0.copyload.i123, 2
-  %.not168 = icmp eq i8 %123, 0
-  br i1 %.not167, label %.critedge, label %124
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %108 = ashr i32 %.sroa.073.0, 1
+  %109 = load ptr, ptr %107, align 8, !tbaa !132
+  %110 = sext i32 %108 to i64
+  %111 = getelementptr inbounds %"class.Gluco2::lbool", ptr %109, i64 %110
+  %112 = load i8, ptr %111, align 1, !tbaa !150
+  %113 = trunc i32 %.sroa.073.0 to i8
+  %114 = and i8 %113, 1
+  %115 = xor i8 %112, %114
+  %116 = ashr i32 %spec.select165, 1
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds %"class.Gluco2::lbool", ptr %109, i64 %117
+  %119 = load i8, ptr %118, align 1, !tbaa !150
+  %120 = trunc i32 %spec.select165 to i8
+  %121 = and i8 %120, 1
+  %122 = xor i8 %119, %121
+  %123 = getelementptr inbounds %"class.Gluco2::lbool", ptr %109, i64 %8
+  %.sroa.0.0.copyload.i123 = load i8, ptr %123, align 1, !tbaa !109
+  %124 = and i8 %119, 2
+  %.not167 = icmp eq i8 %124, 0
+  %125 = and i8 %.sroa.0.0.copyload.i123, 2
+  %.not168 = icmp eq i8 %125, 0
+  br i1 %.not167, label %.critedge, label %126
 
-124:                                              ; preds = %104
-  br i1 %.not168, label %125, label %.thread
+126:                                              ; preds = %106
+  br i1 %.not168, label %127, label %.thread
 
-125:                                              ; preds = %124
-  %126 = icmp eq i8 %110, %112
-  %127 = icmp eq i8 %.sroa.0.0.copyload.i123, 0
-  %128 = xor i1 %126, %127
-  %129 = zext i1 %128 to i32
-  %130 = xor i32 %spec.select165, %129
-  %131 = xor i32 %130, 1
-  %132 = or i32 %5, -2147483648
-  %133 = trunc i32 %131 to i8
-  %134 = and i8 %133, 1
-  store i8 %134, ptr %116, align 1, !tbaa !109
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %136 = load i32, ptr %135, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i124 = zext i32 %136 to i64
+127:                                              ; preds = %126
+  %128 = icmp eq i8 %112, %114
+  %129 = icmp eq i8 %.sroa.0.0.copyload.i123, 0
+  %130 = xor i1 %128, %129
+  %131 = zext i1 %130 to i32
+  %132 = xor i32 %spec.select165, %131
+  %133 = xor i32 %132, 1
+  %134 = or i32 %5, -2147483648
+  %135 = trunc i32 %133 to i8
+  %136 = and i8 %135, 1
+  store i8 %136, ptr %118, align 1, !tbaa !109
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %138 = load i32, ptr %137, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i124 = zext i32 %138 to i64
   %.sroa.2.0.insert.shift.i.i125 = shl nuw i64 %.sroa.2.0.insert.ext.i.i124, 32
-  %.sroa.0.0.insert.ext.i.i126 = zext i32 %132 to i64
+  %.sroa.0.0.insert.ext.i.i126 = zext i32 %134 to i64
   %.sroa.0.0.insert.insert.i.i127 = or disjoint i64 %.sroa.2.0.insert.shift.i.i125, %.sroa.0.0.insert.ext.i.i126
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %138 = load ptr, ptr %137, align 8, !tbaa !129
-  %139 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %138, i64 %115
-  store i64 %.sroa.0.0.insert.insert.i.i127, ptr %139, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %141 = load ptr, ptr %140, align 8, !tbaa !112
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %143 = load i32, ptr %142, align 8, !tbaa !113
-  %144 = add nsw i32 %143, 1
-  store i32 %144, ptr %142, align 8, !tbaa !113
-  %145 = sext i32 %143 to i64
-  %146 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %141, i64 %145
-  store i32 %131, ptr %146, align 4, !tbaa !55
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %140 = load ptr, ptr %139, align 8, !tbaa !129
+  %141 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %140, i64 %117
+  store i64 %.sroa.0.0.insert.insert.i.i127, ptr %141, align 4
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %143 = load ptr, ptr %142, align 8, !tbaa !112
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %145 = load i32, ptr %144, align 8, !tbaa !113
+  %146 = add nsw i32 %145, 1
+  store i32 %146, ptr %144, align 8, !tbaa !113
+  %147 = sext i32 %145 to i64
+  %148 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %143, i64 %147
+  store i32 %133, ptr %148, align 4, !tbaa !55
   br label %.thread
 
-.critedge:                                        ; preds = %104
-  br i1 %.not168, label %170, label %147
+.critedge:                                        ; preds = %106
+  br i1 %.not168, label %172, label %149
 
-147:                                              ; preds = %.critedge
-  %148 = icmp eq i8 %110, %112
-  %149 = icmp eq i8 %117, %119
-  %150 = xor i1 %148, %149
-  %151 = and i32 %2, -2
-  %152 = zext i1 %150 to i32
-  %153 = or disjoint i32 %151, %152
-  %154 = xor i32 %153, 1
-  %155 = or i32 %5, -2147483648
-  %156 = trunc i32 %154 to i8
-  %157 = and i8 %156, 1
-  store i8 %157, ptr %121, align 1, !tbaa !109
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %159 = load i32, ptr %158, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i128 = zext i32 %159 to i64
+149:                                              ; preds = %.critedge
+  %150 = icmp eq i8 %112, %114
+  %151 = icmp eq i8 %119, %121
+  %152 = xor i1 %150, %151
+  %153 = and i32 %2, -2
+  %154 = zext i1 %152 to i32
+  %155 = or disjoint i32 %153, %154
+  %156 = xor i32 %155, 1
+  %157 = or i32 %5, -2147483648
+  %158 = trunc i32 %156 to i8
+  %159 = and i8 %158, 1
+  store i8 %159, ptr %123, align 1, !tbaa !109
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %161 = load i32, ptr %160, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i128 = zext i32 %161 to i64
   %.sroa.2.0.insert.shift.i.i129 = shl nuw i64 %.sroa.2.0.insert.ext.i.i128, 32
-  %.sroa.0.0.insert.ext.i.i130 = zext i32 %155 to i64
+  %.sroa.0.0.insert.ext.i.i130 = zext i32 %157 to i64
   %.sroa.0.0.insert.insert.i.i131 = or disjoint i64 %.sroa.2.0.insert.shift.i.i129, %.sroa.0.0.insert.ext.i.i130
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %161 = load ptr, ptr %160, align 8, !tbaa !129
-  %162 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %161, i64 %8
-  store i64 %.sroa.0.0.insert.insert.i.i131, ptr %162, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %164 = load ptr, ptr %163, align 8, !tbaa !112
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %166 = load i32, ptr %165, align 8, !tbaa !113
-  %167 = add nsw i32 %166, 1
-  store i32 %167, ptr %165, align 8, !tbaa !113
-  %168 = sext i32 %166 to i64
-  %169 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %164, i64 %168
-  store i32 %154, ptr %169, align 4, !tbaa !55
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %163 = load ptr, ptr %162, align 8, !tbaa !129
+  %164 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %163, i64 %8
+  store i64 %.sroa.0.0.insert.insert.i.i131, ptr %164, align 4
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %166 = load ptr, ptr %165, align 8, !tbaa !112
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %168 = load i32, ptr %167, align 8, !tbaa !113
+  %169 = add nsw i32 %168, 1
+  store i32 %169, ptr %167, align 8, !tbaa !113
+  %170 = sext i32 %168 to i64
+  %171 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %166, i64 %170
+  store i32 %156, ptr %171, align 4, !tbaa !55
   br label %.thread
 
-170:                                              ; preds = %.critedge
-  %171 = icmp eq i8 %113, %120
-  %172 = zext i1 %171 to i8
-  %173 = xor i8 %.sroa.0.0.copyload.i123, %172
-  %174 = icmp eq i8 %173, 1
-  %175 = or i32 %5, -2147483648
-  %spec.select166 = select i1 %174, i32 %175, i32 -1
+172:                                              ; preds = %.critedge
+  %173 = icmp eq i8 %115, %122
+  %174 = zext i1 %173 to i8
+  %175 = xor i8 %.sroa.0.0.copyload.i123, %174
+  %176 = icmp eq i8 %175, 1
+  %177 = or i32 %5, -2147483648
+  %spec.select166 = select i1 %176, i32 %177, i32 -1
   br label %.thread
 
-.thread:                                          ; preds = %29, %170, %147, %125, %71, %89, %88, %32, %124, %69, %64, %54, %30
-  %.0 = phi i32 [ %31, %30 ], [ -1, %29 ], [ -1, %54 ], [ %70, %69 ], [ -1, %64 ], [ -1, %124 ], [ -1, %32 ], [ -1, %88 ], [ -1, %89 ], [ -1, %71 ], [ -1, %125 ], [ -1, %147 ], [ %spec.select166, %170 ]
+.thread:                                          ; preds = %29, %172, %149, %127, %72, %91, %89, %32, %126, %70, %64, %54, %30
+  %.0 = phi i32 [ %31, %30 ], [ -1, %29 ], [ -1, %54 ], [ %71, %70 ], [ -1, %64 ], [ -1, %126 ], [ -1, %32 ], [ -1, %89 ], [ -1, %91 ], [ -1, %72 ], [ -1, %127 ], [ -1, %149 ], [ %spec.select166, %172 ]
   ret i32 %.0
 }
 
