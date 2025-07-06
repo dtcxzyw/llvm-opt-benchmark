@@ -3559,10 +3559,10 @@ define { ptr, ptr } @"_ZN77_$LT$rustls..error..other_error..OtherError$u20$as$u2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @_ZN6rustls5tls1312key_schedule10SecretKind8to_bytes17h6907f9723add07d8E.llvm.3875224068774112026(i8 noundef %0) unnamed_addr #4 {
 switch.lookup:
-  %1 = zext i8 %0 to i64
+  %1 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %2 = zext i8 %0 to i64
+  %2 = zext nneg i8 %0 to i64
   %switch.gep1 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026.51, i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
@@ -6775,10 +6775,10 @@ switch.lookup:
   %9 = load ptr, ptr %1, align 8, !nonnull !4, !align !11, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
-  %12 = zext i8 %2 to i64
+  %12 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %13 = zext i8 %2 to i64
+  %13 = zext nneg i8 %2 to i64
   %switch.gep1 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026.51, i64 0, i64 %13
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1771)
@@ -6845,10 +6845,10 @@ switch.lookup:
   %13 = load ptr, ptr %1, align 8, !alias.scope !1793, !noalias !1796, !nonnull !4, !align !11, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !1793, !noalias !1796, !nonnull !4, !align !5, !noundef !4
-  %16 = zext i8 %2 to i64
+  %16 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026, i64 0, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %17 = zext i8 %2 to i64
+  %17 = zext nneg i8 %2 to i64
   %switch.gep7 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026.51, i64 0, i64 %17
   %switch.load8 = load i64, ptr %switch.gep7, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1799)
@@ -7004,10 +7004,10 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empt
   %26 = load ptr, ptr %1, align 8, !alias.scope !1843, !noalias !1846, !nonnull !4, !align !11, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !1843, !noalias !1846, !nonnull !4, !align !5, !noundef !4
-  %29 = zext i8 %2 to i64
+  %29 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026, i64 0, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %30 = zext i8 %2 to i64
+  %30 = zext nneg i8 %2 to i64
   %switch.gep1 = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c98979bE.llvm.3875224068774112026.51, i64 0, i64 %30
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1849)
@@ -17393,7 +17393,7 @@ switch.lookup:
   %19 = alloca { [64 x i8], i64 }, align 8
   %20 = alloca { { ptr, ptr }, { [64 x i8], i64 }, { [64 x i8], i64 }, ptr, i8, i8, [6 x i8] }, align 8
   %21 = alloca { ptr, ptr }, align 8
-  %22 = zext i8 %1 to i64
+  %22 = zext nneg i8 %1 to i64
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6rustls4quic4Keys7initial17h883688817a2eafd3E, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)

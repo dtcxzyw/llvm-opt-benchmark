@@ -53610,7 +53610,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 
 switch.lookup:                                    ; preds = %182
   %switch.tableidx = add nsw i32 %.090146, -1
-  %184 = zext i32 %switch.tableidx to i64
+  %184 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext18setLayoutQualifierERKNS_10TSourceLocERNS_10TQualifierERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE, i64 0, i64 %184
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang10TQualifier20getLayoutDepthStringENS_12TLayoutDepthE.exit
@@ -60378,7 +60378,7 @@ _ZN7glslang13TIntermediate17setInputPrimitiveENS_15TLayoutGeometryE.exit: ; pred
 
 switch.lookup:                                    ; preds = %_ZN7glslang13TIntermediate17setInputPrimitiveENS_15TLayoutGeometryE.exit
   %switch.tableidx = add nsw i32 %8, -1
-  %15 = zext i32 %switch.tableidx to i64
+  %15 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext19handleInputGeometryERKNS_10TSourceLocERKNS_15TLayoutGeometryE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = load ptr, ptr %0, align 8
@@ -60455,7 +60455,7 @@ _ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit: ; pre
 
 switch.lookup:                                    ; preds = %_ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit
   %switch.tableidx = add nsw i32 %10, -1
-  %17 = zext i32 %switch.tableidx to i64
+  %17 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE, i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   %18 = load ptr, ptr %0, align 8
@@ -60760,7 +60760,7 @@ _ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit.i: ; p
 
 switch.lookup:                                    ; preds = %_ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit.i
   %switch.tableidx = add nsw i32 %18, -1
-  %43 = zext i32 %switch.tableidx to i64
+  %43 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE, i64 0, i64 %43
   %switch.load = load ptr, ptr %switch.gep, align 8
   %44 = load ptr, ptr %0, align 8
@@ -60801,7 +60801,7 @@ _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit12.i: ; pre
 
 switch.lookup94:                                  ; preds = %56
   %switch.tableidx95 = add i32 %18, -1
-  %58 = zext i32 %switch.tableidx95 to i64
+  %58 = zext nneg i32 %switch.tableidx95 to i64
   %switch.gep96 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.98, i64 0, i64 %58
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit72

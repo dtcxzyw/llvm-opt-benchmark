@@ -111824,7 +111824,7 @@ ma_device_get_context.exit.i393:                  ; preds = %switch.lookup547, %
 
 switch.lookup554:                                 ; preds = %308, %ma_device_get_context.exit.i393
   %.0.i1.i394 = phi ptr [ %310, %308 ], [ null, %ma_device_get_context.exit.i393 ]
-  %311 = zext i32 %.0.i391487 to i64
+  %311 = zext nneg i32 %.0.i391487 to i64
   %switch.gep555 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.ma_device_init__pulse.63, i64 0, i64 %311
   %switch.load556 = load ptr, ptr %switch.gep555, align 8
   %312 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i394, i32 noundef 1, ptr noundef nonnull @.str.281, ptr noundef nonnull %switch.load556, i32 noundef %305, i32 noundef %304)
@@ -112334,7 +112334,7 @@ ma_device_get_context.exit.i451:                  ; preds = %switch.lookup571, %
 
 switch.lookup578:                                 ; preds = %556, %ma_device_get_context.exit.i451
   %.0.i1.i452 = phi ptr [ %558, %556 ], [ null, %ma_device_get_context.exit.i451 ]
-  %559 = zext i32 %.0.i449513 to i64
+  %559 = zext nneg i32 %.0.i449513 to i64
   %switch.gep579 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.ma_device_init__pulse.63, i64 0, i64 %559
   %switch.load580 = load ptr, ptr %switch.gep579, align 8
   %560 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i452, i32 noundef 1, ptr noundef nonnull @.str.289, ptr noundef nonnull %switch.load580, i32 noundef %553, i32 noundef %552)
@@ -112499,7 +112499,7 @@ ma_device_get_context.exit.i459:                  ; preds = %613
 
 switch.lookup563:                                 ; preds = %ma_device_get_log.exit436
   %switch.tableidx564 = add nsw i32 %501, -1
-  %639 = zext i32 %switch.tableidx564 to i64
+  %639 = zext nneg i32 %switch.tableidx564 to i64
   %switch.gep565 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %639
   %switch.load566 = load i32, ptr %switch.gep565, align 4
   br label %ma_result_from_pulse.exit438thread-pre-split
@@ -112544,7 +112544,7 @@ ma_log_post.exit416:                              ; preds = %376, %ma_device_get
 
 switch.lookup540:                                 ; preds = %ma_device_get_log.exit380
   %switch.tableidx = add nsw i32 %253, -1
-  %656 = zext i32 %switch.tableidx to i64
+  %656 = zext nneg i32 %switch.tableidx to i64
   %switch.gep541 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %656
   %switch.load542 = load i32, ptr %switch.gep541, align 4
   br label %ma_result_from_pulse.exit

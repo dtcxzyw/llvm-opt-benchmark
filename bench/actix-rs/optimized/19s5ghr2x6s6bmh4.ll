@@ -5853,10 +5853,10 @@ define noundef range(i8 0, 6) i8 @"_ZN119_$LT$actix_http..header..shared..conten
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E"(ptr noalias noundef writeonly sret({ [32 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %0, i8 noundef %1) unnamed_addr #7 {
 switch.lookup:
-  %2 = zext i8 %1 to i64
+  %2 = zext nneg i8 %1 to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E", i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %3 = zext i8 %1 to i64
+  %3 = zext nneg i8 %1 to i64
   %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E.31", i64 0, i64 %3
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !846)
