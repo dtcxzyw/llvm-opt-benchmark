@@ -4240,7 +4240,7 @@ define dso_local noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr no
 
 29:                                               ; preds = %.lr.ph
   %30 = xor i64 %23, -1
-  %31 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %30, i1 false)
+  %31 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %30, i1 true)
   %32 = trunc nuw nsw i64 %31 to i32
   %33 = add i32 %.123, %32
   br label %.loopexit
@@ -16606,7 +16606,7 @@ _ZNK4llvm5APInt11countl_zeroEv.exit.thread14:     ; preds = %60
 
 85:                                               ; preds = %.lr.ph.i.i10
   %86 = xor i64 %79, -1
-  %87 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %86, i1 false)
+  %87 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %86, i1 true)
   %88 = trunc nuw nsw i64 %87 to i32
   %89 = add i32 %.123.i.i, %88
   br label %_ZNK4llvm5APInt11countl_zeroEv.exit
@@ -23213,9 +23213,9 @@ _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %2
 
 _ZNK4llvm5APInt11countl_zeroEv.exit.thread:       ; preds = %6
   %24 = xor i64 %8, %7
-  %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %24, i1 false)
+  %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %24, i1 true)
   %26 = trunc nuw nsw i64 %25 to i32
-  %27 = sub nsw i32 63, %26
+  %27 = xor i32 %26, 63
   br label %_ZN4llvm5APIntD2Ev.exit6
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i, %34
@@ -25084,7 +25084,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm5APInt14getNumSignBitsEv(ptr no
 
 50:                                               ; preds = %.lr.ph.i.i
   %51 = xor i64 %44, -1
-  %52 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %51, i1 false)
+  %52 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %51, i1 true)
   %53 = trunc nuw nsw i64 %52 to i32
   %54 = add i32 %.123.i.i, %53
   br label %_ZNK4llvm5APInt10countl_oneEv.exit

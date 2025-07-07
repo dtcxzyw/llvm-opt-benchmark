@@ -6680,7 +6680,7 @@ define linkonce_odr hidden i32 @_ZNSt3__19__unicode17__code_point_viewIcE9__cons
 
 _ZNSt3__110countl_oneB8ne210000ITkNS_25__libcpp_unsigned_integerEhEEiT_.exit: ; preds = %1
   %4 = xor i8 %3, -1
-  %5 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %4, i1 false)
+  %5 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %4, i1 true)
   switch i8 %5, label %_ZNSt3__110countl_oneB8ne210000ITkNS_25__libcpp_unsigned_integerEhEEiT_.exit.thread [
     i8 0, label %6
     i8 2, label %10
@@ -8319,7 +8319,7 @@ _ZNSt3__124__width_estimation_table17__estimated_widthB8ne210000EDi.exit.us: ; p
 
 _ZNSt3__110countl_oneB8ne210000ITkNS_25__libcpp_unsigned_integerEhEEiT_.exit.i: ; preds = %.lr.ph
   %149 = xor i8 %148, -1
-  %150 = call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %149, i1 false)
+  %150 = call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %149, i1 true)
   switch i8 %150, label %_ZNSt3__110countl_oneB8ne210000ITkNS_25__libcpp_unsigned_integerEhEEiT_.exit.thread.i [
     i8 0, label %151
     i8 2, label %155
@@ -9064,7 +9064,7 @@ define linkonce_odr hidden ptr @_ZNSt3__111__formatter6__fillB8ne210000ITkNS_15_
 
 _ZNSt3__110countl_oneB8ne210000ITkNS_25__libcpp_unsigned_integerEhEEiT_.exit: ; preds = %3
   %6 = xor i8 %5, -1
-  %7 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %6, i1 false)
+  %7 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %6, i1 true)
   %8 = zext nneg i8 %7 to i64
   %9 = icmp eq i8 %7, 0
   br i1 %9, label %15, label %.preheader

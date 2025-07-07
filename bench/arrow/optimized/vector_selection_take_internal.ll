@@ -29651,7 +29651,7 @@ define linkonce_odr noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13
 
 5:                                                ; preds = %1
   %6 = xor i64 %4, -1
-  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %6, i1 false)
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %6, i1 true)
   %8 = trunc nuw nsw i64 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !1116

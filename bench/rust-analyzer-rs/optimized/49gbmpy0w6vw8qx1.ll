@@ -659,7 +659,7 @@ _ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit: ; preds =
 
 97:                                               ; preds = %89
   %98 = xor i32 %.0.copyload12.i, %.0.copyload10.i
-  %99 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %98, i1 false)
+  %99 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %98, i1 true)
   %100 = lshr i32 %99, 3
   %101 = zext nneg i32 %100 to i64
   %102 = add i64 %.4, %101
@@ -700,7 +700,7 @@ _ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit: ; preds =
 
 121:                                              ; preds = %.lr.ph.i50
   %122 = xor i64 %.0.copyload8.i, %.0.copyload.i51
-  %123 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %122, i1 false)
+  %123 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %122, i1 true)
   %124 = lshr i64 %123, 3
   %125 = add i64 %124, %86
   br label %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
@@ -1050,7 +1050,7 @@ _ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit: ; preds =
 
 98:                                               ; preds = %90
   %99 = xor i32 %.0.copyload12.i, %.0.copyload10.i
-  %100 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %99, i1 false)
+  %100 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %99, i1 true)
   %101 = lshr i32 %100, 3
   %102 = zext nneg i32 %101 to i64
   %103 = add i64 %.4, %102
@@ -1091,7 +1091,7 @@ _ZN8lz4_flex5block8compress15backtrack_match17h4536cfc96be0b596E.exit: ; preds =
 
 122:                                              ; preds = %.lr.ph.i50
   %123 = xor i64 %.0.copyload8.i, %.0.copyload.i51
-  %124 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %123, i1 false)
+  %124 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %123, i1 true)
   %125 = lshr i64 %124, 3
   %126 = add i64 %125, %87
   br label %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit

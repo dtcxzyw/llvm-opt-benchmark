@@ -5568,14 +5568,14 @@ if.then27:                                        ; preds = %for.body
 if.end34:                                         ; preds = %for.body
   %5 = xor i4 %4, -1
   store i32 %index.017, ptr %lastLookupIndex_, align 8
-  %conv36 = zext i4 %5 to i64
-  %6 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %conv36, i1 false)
-  %add40 = add nsw i64 %6, %idx.ext
+  %6 = tail call range(i4 0, 5) i4 @llvm.cttz.i4(i4 %5, i1 true)
+  %7 = zext nneg i4 %6 to i64
+  %add40 = add nsw i64 %7, %idx.ext
   %add.ptr.i = getelementptr inbounds i64, ptr %2, i64 %add40
-  %7 = load i64, ptr %add.ptr.i, align 8
-  %8 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %7, i1 false)
+  %8 = load i64, ptr %add.ptr.i, align 8
+  %9 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %8, i1 false)
   %mul = shl nsw i64 %add40, 6
-  %add45 = add nsw i64 %8, %mul
+  %add45 = add nsw i64 %9, %mul
   %conv46 = trunc i64 %add45 to i32
   ret i32 %conv46
 
@@ -5596,8 +5596,8 @@ invoke.cont51:                                    ; preds = %invoke.cont
 
 invoke.cont53:                                    ; preds = %invoke.cont51
   %unitSize_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %9 = load i64, ptr %unitSize_, align 8
-  %call56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call54, i64 noundef %9)
+  %10 = load i64, ptr %unitSize_, align 8
+  %call56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call54, i64 noundef %10)
           to label %invoke.cont55 unwind label %lpad
 
 invoke.cont55:                                    ; preds = %invoke.cont53
@@ -5605,7 +5605,7 @@ invoke.cont55:                                    ; preds = %invoke.cont53
   unreachable
 
 lpad:                                             ; preds = %invoke.cont53, %invoke.cont51, %invoke.cont, %for.end
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp49) #32
   unreachable
@@ -7060,14 +7060,14 @@ declare i64 @llvm.umin.i64(i64, i64) #27
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #27
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i4 @llvm.cttz.i4(i4, i1 immarg) #27
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #28
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i4 @llvm.cttz.i4(i4, i1 immarg) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #27

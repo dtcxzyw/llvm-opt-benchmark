@@ -1469,7 +1469,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEiEvT_S7_RKT0_.exit
 
 36:                                               ; preds = %.lr.ph
   %37 = xor i64 %.0.copyload.i42, %.0.copyload.i
-  %38 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %37, i1 false)
+  %38 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %37, i1 true)
   %.lhs.trunc = trunc nuw nsw i64 %38 to i32
   %.zext = lshr i32 %.lhs.trunc, 3
   %39 = add nuw nsw i32 %.zext, 1
