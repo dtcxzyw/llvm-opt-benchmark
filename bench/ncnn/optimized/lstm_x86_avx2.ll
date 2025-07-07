@@ -37,15 +37,15 @@ define hidden void @_ZN4ncnn31lstm_transform_weight_int8_avx2ERKNS_3MatES2_S2_S2
 
 21:                                               ; preds = %13
   %22 = add nsw i32 %9, %8
-  %23 = sdiv i32 %11, 2
+  %.neg.i = sdiv i32 %11, 2
   %24 = srem i32 %11, 2
   %25 = add nsw i32 %23, %24
   tail call void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %22, i32 noundef %25, i32 noundef %10, i64 noundef 8, i32 noundef 8, ptr noundef null)
   tail call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef 16, i32 noundef %25, i32 noundef %10, i64 noundef 4, ptr noundef null)
   tail call void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %7, i32 noundef %11, i32 noundef 1, i32 noundef %10, i64 noundef 16, i32 noundef 4, ptr noundef null)
-  %26 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !8
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %18, i32 %27)
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %25 = load i32, ptr %24, align 4, !tbaa !8
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %18, i32 %25)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6OptionE.omp_outlined, ptr nonnull %16, ptr nonnull align 8 dereferenceable(72) %0, ptr nonnull align 8 dereferenceable(72) %2, ptr nonnull align 8 dereferenceable(72) %4, ptr nonnull align 8 dereferenceable(72) %1, ptr nonnull align 8 dereferenceable(72) %3, ptr nonnull align 8 dereferenceable(72) %5, ptr nonnull align 8 dereferenceable(72) %7, ptr nonnull align 8 dereferenceable(72) %6, ptr nonnull %17, ptr nonnull %14, ptr nonnull %15)
   br label %_ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6OptionE.exit
 

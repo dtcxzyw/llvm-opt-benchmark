@@ -1823,70 +1823,70 @@ define hidden void @"_ZN4ring3rsa7keypair21PrivatePrime$LT$M$GT$3new17h34b14913a
 
 21:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %11, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %13, ptr %23, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %11, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %13, ptr %22, align 8
   store ptr null, ptr %0, align 8
-  br label %37
+  br label %36
 
-24:                                               ; preds = %14
-  %25 = and i64 %16, 511
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %38
+23:                                               ; preds = %14
+  %24 = and i64 %16, 511
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %26, label %37
 
-27:                                               ; preds = %24
+26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
   store ptr %8, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %20, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %16, ptr %30, align 8
-  %31 = invoke { ptr, i64 } @"_ZN4ring10arithmetic6bigint47One$LT$M$C$ring..arithmetic..montgomery..RR$GT$5newRR17ha873d99e7d3a3ddbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5)
-          to label %34 unwind label %32
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %20, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %16, ptr %29, align 8
+  %30 = invoke { ptr, i64 } @"_ZN4ring10arithmetic6bigint47One$LT$M$C$ring..arithmetic..montgomery..RR$GT$5newRR17ha873d99e7d3a3ddbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5)
+          to label %34 unwind label %31
 
-32:                                               ; preds = %27
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %26
+  %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
-          to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit" unwind label %41
+          to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit" unwind label %40
 
-34:                                               ; preds = %27
-  %35 = extractvalue { ptr, i64 } %31, 0
-  %36 = extractvalue { ptr, i64 } %31, 1
+33:                                               ; preds = %26
+  %34 = extractvalue { ptr, i64 } %30, 0
+  %35 = extractvalue { ptr, i64 } %30, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %35, ptr %.sroa.413.0..sroa_idx, align 8
+  store ptr %34, ptr %.sroa.413.0..sroa_idx, align 8
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %36, ptr %.sroa.514.0..sroa_idx, align 8
-  br label %37
+  store i64 %35, ptr %.sroa.514.0..sroa_idx, align 8
+  br label %36
 
-37:                                               ; preds = %21, %38, %34
+36:                                               ; preds = %21, %37, %33
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret void
 
-38:                                               ; preds = %24, %14
+37:                                               ; preds = %23, %14
   %anon.bb7da592cc2a4db35d4d49e42ec38fbb.18.llvm.11656387384687170936.sink = phi ptr [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.18.llvm.11656387384687170936, %14 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.26.llvm.11656387384687170936, %24 ]
   %.sink = phi i64 [ 22, %14 ], [ 37, %24 ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %anon.bb7da592cc2a4db35d4d49e42ec38fbb.18.llvm.11656387384687170936.sink, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %40, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %anon.bb7da592cc2a4db35d4d49e42ec38fbb.18.llvm.11656387384687170936.sink, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink, ptr %39, align 8
   store ptr null, ptr %0, align 8
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
-  br label %37
+  br label %36
 
-41:                                               ; preds = %32
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %31
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #27
   unreachable
 
-"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit": ; preds = %32
-  resume { ptr, i32 } %33
+"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit": ; preds = %31
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1926,70 +1926,70 @@ define hidden void @"_ZN4ring3rsa7keypair21PrivatePrime$LT$M$GT$3new17hbbf122ace
 
 21:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %11, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %13, ptr %23, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %11, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %13, ptr %22, align 8
   store ptr null, ptr %0, align 8
-  br label %37
+  br label %36
 
-24:                                               ; preds = %14
-  %25 = and i64 %16, 511
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %38
+23:                                               ; preds = %14
+  %24 = and i64 %16, 511
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %26, label %37
 
-27:                                               ; preds = %24
+26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
   store ptr %8, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %20, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %16, ptr %30, align 8
-  %31 = invoke { ptr, i64 } @"_ZN4ring10arithmetic6bigint47One$LT$M$C$ring..arithmetic..montgomery..RR$GT$5newRR17hae9fbbd289c4d01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5)
-          to label %34 unwind label %32
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %20, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %16, ptr %29, align 8
+  %30 = invoke { ptr, i64 } @"_ZN4ring10arithmetic6bigint47One$LT$M$C$ring..arithmetic..montgomery..RR$GT$5newRR17hae9fbbd289c4d01bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5)
+          to label %34 unwind label %31
 
-32:                                               ; preds = %27
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %26
+  %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
-          to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..P$GT$$GT$17hb7d8ca51207c2aa6E.exit" unwind label %41
+          to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..P$GT$$GT$17hb7d8ca51207c2aa6E.exit" unwind label %40
 
-34:                                               ; preds = %27
-  %35 = extractvalue { ptr, i64 } %31, 0
-  %36 = extractvalue { ptr, i64 } %31, 1
+33:                                               ; preds = %26
+  %34 = extractvalue { ptr, i64 } %30, 0
+  %35 = extractvalue { ptr, i64 } %30, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %35, ptr %.sroa.413.0..sroa_idx, align 8
+  store ptr %34, ptr %.sroa.413.0..sroa_idx, align 8
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %36, ptr %.sroa.514.0..sroa_idx, align 8
-  br label %37
+  store i64 %35, ptr %.sroa.514.0..sroa_idx, align 8
+  br label %36
 
-37:                                               ; preds = %21, %38, %34
+36:                                               ; preds = %21, %37, %33
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret void
 
-38:                                               ; preds = %24, %14
+37:                                               ; preds = %23, %14
   %anon.bb7da592cc2a4db35d4d49e42ec38fbb.18.llvm.11656387384687170936.sink = phi ptr [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.18.llvm.11656387384687170936, %14 ], [ @anon.bb7da592cc2a4db35d4d49e42ec38fbb.26.llvm.11656387384687170936, %24 ]
   %.sink = phi i64 [ 22, %14 ], [ 37, %24 ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %anon.bb7da592cc2a4db35d4d49e42ec38fbb.18.llvm.11656387384687170936.sink, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %40, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %anon.bb7da592cc2a4db35d4d49e42ec38fbb.18.llvm.11656387384687170936.sink, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink, ptr %39, align 8
   store ptr null, ptr %0, align 8
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
-  br label %37
+  br label %36
 
-41:                                               ; preds = %32
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %31
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #27
   unreachable
 
-"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..P$GT$$GT$17hb7d8ca51207c2aa6E.exit": ; preds = %32
-  resume { ptr, i32 } %33
+"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..P$GT$$GT$17hb7d8ca51207c2aa6E.exit": ; preds = %31
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: nonlazybind uwtable

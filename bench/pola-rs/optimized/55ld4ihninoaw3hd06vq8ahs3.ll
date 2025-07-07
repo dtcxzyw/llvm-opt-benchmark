@@ -43462,7 +43462,7 @@ define { i64, i64 } @_ZN14polars_compute7rolling18det_offsets_center17hba6c4a2cd
   %5 = and i64 %1, 1
   %.sroa.0.0 = add nuw i64 %4, %5
   %6 = sub i64 %1, %.sroa.0.0
-  %7 = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 %6)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 %6)
   %8 = add i64 %.sroa.0.0, %0
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %2)
   %9 = insertvalue { i64, i64 } poison, i64 %7, 0

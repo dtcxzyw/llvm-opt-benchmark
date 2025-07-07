@@ -21667,12 +21667,12 @@ define hidden void @"_ZN99_$LT$core..char..decode..DecodeUtf16$LT$I$GT$$u20$as$u
   %26 = extractvalue { i64, i1 } %24, 0
   %not. = xor i1 %25, true
   %spec.select = zext i1 %not. to i64
-  %27 = add nuw i64 %.0.i, %.010
-  store i64 %27, ptr %0, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %spec.select, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %26, ptr %29, align 8
+  %26 = add nuw i64 %.0.i, %.010
+  store i64 %26, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %spec.select, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %26, ptr %28, align 8
   ret void
 }
 

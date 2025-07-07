@@ -154140,25 +154140,25 @@ define { i64, i64 } @_ZN11polars_core13chunked_array3ops14rolling_window9inner_m
   %6 = add i64 %2, -1
   %7 = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 %6)
   %8 = add i64 %0, 1
-  br label %15
+  br label %13
 
 9:                                                ; preds = %4
   %10 = lshr i64 %2, 1
   %11 = and i64 %2, 1
   %.sroa.0.0 = add nuw i64 %10, %11
   %12 = sub i64 %2, %.sroa.0.0
-  %13 = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 %12)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 %12)
   %14 = add i64 %.sroa.0.0, %0
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %14, i64 %1)
   br label %15
 
-15:                                               ; preds = %9, %5
+13:                                               ; preds = %9, %5
   %.sroa.04.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %9 ], [ %8, %5 ]
   %.sroa.02.0 = phi i64 [ %13, %9 ], [ %7, %5 ]
-  %16 = sub i64 %.sroa.04.0, %.sroa.02.0
-  %17 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
-  %18 = insertvalue { i64, i64 } %17, i64 %16, 1
-  ret { i64, i64 } %18
+  %14 = sub i64 %.sroa.04.0, %.sroa.02.0
+  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
+  %16 = insertvalue { i64, i64 } %15, i64 %14, 1
+  ret { i64, i64 } %16
 }
 
 ; Function Attrs: nonlazybind uwtable

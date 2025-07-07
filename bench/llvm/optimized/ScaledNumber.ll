@@ -152,7 +152,7 @@ _ZN4llvm13ScaledNumbers11getAdjustedIjEESt4pairIT_sEms.exit: ; preds = %13, %25
   %.sroa.010.sroa.3.0.insert.shift.i = shl nuw nsw i64 %.sroa.010.sroa.3.0.insert.ext.i, 32
   %.sroa.010.sroa.0.0.insert.ext.i = zext i32 %.sroa.010.sroa.0.0.i to i64
   %.sroa.010.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.010.sroa.3.0.insert.shift.i, %.sroa.010.sroa.0.0.insert.ext.i
-  br label %37
+  br label %36
 
 28:                                               ; preds = %2
   %29 = trunc nuw i64 %10 to i32
@@ -162,12 +162,12 @@ _ZN4llvm13ScaledNumbers11getAdjustedIjEESt4pairIT_sEms.exit: ; preds = %13, %25
   %.not = icmp samesign ult i64 %11, %32
   br i1 %.not, label %35, label %33
 
-33:                                               ; preds = %28
+33:; preds = %28
   %34 = add i32 %29, 1
   %.not.i26 = icmp eq i32 %34, 0
   br i1 %.not.i26, label %_ZN4llvm13ScaledNumbers10getRoundedIjEESt4pairIT_sES3_sb.exit, label %35
 
-35:                                               ; preds = %33, %28
+35: ; preds = %33, %28
   %.0.i = phi i32 [ %34, %33 ], [ %29, %28 ]
   %36 = zext i32 %.0.i to i64
   br label %_ZN4llvm13ScaledNumbers10getRoundedIjEESt4pairIT_sES3_sb.exit
@@ -179,9 +179,9 @@ _ZN4llvm13ScaledNumbers10getRoundedIjEESt4pairIT_sES3_sb.exit: ; preds = %33, %3
   %.sroa.010.sroa.3.0.insert.ext.i23 = zext i16 %.sroa.010.sroa.3.0.i22 to i64
   %.sroa.010.sroa.3.0.insert.shift.i24 = shl nuw nsw i64 %.sroa.010.sroa.3.0.insert.ext.i23, 32
   %.sroa.010.sroa.0.0.insert.insert.i25 = or disjoint i64 %.sroa.010.sroa.3.0.insert.shift.i24, %.sroa.010.sroa.0.0.i21
-  br label %37
+  br label %36
 
-37:                                               ; preds = %_ZN4llvm13ScaledNumbers10getRoundedIjEESt4pairIT_sES3_sb.exit, %_ZN4llvm13ScaledNumbers11getAdjustedIjEESt4pairIT_sEms.exit
+36:                                               ; preds = %_ZN4llvm13ScaledNumbers10getRoundedIjEESt4pairIT_sES3_sb.exit, %_ZN4llvm13ScaledNumbers11getAdjustedIjEESt4pairIT_sEms.exit
   %.sroa.0.0.in = phi i64 [ %.sroa.010.sroa.0.0.insert.insert.i, %_ZN4llvm13ScaledNumbers11getAdjustedIjEESt4pairIT_sEms.exit ], [ %.sroa.010.sroa.0.0.insert.insert.i25, %_ZN4llvm13ScaledNumbers10getRoundedIjEESt4pairIT_sES3_sb.exit ]
   ret i64 %.sroa.0.0.in
 }
@@ -239,7 +239,7 @@ define dso_local { i64, i16 } @_ZN4llvm13ScaledNumbers8divide64Emm(i64 noundef %
   %.not = icmp ult i64 %.145.lcssa, %27
   br i1 %.not, label %_ZN4llvm13ScaledNumbers10getRoundedImEESt4pairIT_sES3_sb.exit, label %28
 
-28:                                               ; preds = %._crit_edge
+28:; preds = %._crit_edge
   %29 = add i64 %.023.lcssa, 1
   %.not.i = icmp eq i64 %29, 0
   %spec.select.i = select i1 %.not.i, i64 -9223372036854775808, i64 %29
