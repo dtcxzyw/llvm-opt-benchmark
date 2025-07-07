@@ -279,11 +279,11 @@ define internal fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef %1, i3
   store i32 %15, ptr %13, align 4, !tbaa !3
   %16 = load i32, ptr %4, align 8, !tbaa !10
   %17 = icmp sgt i32 %15, %16
-  br i1 %17, label %Vec_IntFetch.exit.thread, label %Vec_IntFetch.exit
+  br i1 %17, label %Vec_IntFetch.exit.thread, label %18
 
-Vec_IntFetch.exit:                                ; preds = %5
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !11
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %19 = load ptr, ptr %19, align 8, !tbaa !11
   %20 = sext i32 %15 to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
   %22 = sext i32 %12 to i64
@@ -297,11 +297,11 @@ Vec_IntFetch.exit.thread:                         ; preds = %5, %Vec_IntFetch.ex
   store i32 -1, ptr %26, align 4, !tbaa !15
   br label %Kit_TruthClear.exit
 
-27:                                               ; preds = %Vec_IntFetch.exit
+20:                                               ; preds = %18
   %28 = zext i32 %12 to i64
   br label %select.unfold.i
 
-select.unfold.i:                                  ; preds = %31, %27
+select.unfold.i:                                  ; preds = %31, %20
   %indvars.iv.i = phi i64 [ %28, %27 ], [ %32, %31 ]
   %29 = trunc nuw i64 %indvars.iv.i to i32
   %30 = icmp sgt i32 %29, 0

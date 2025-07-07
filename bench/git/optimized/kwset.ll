@@ -1595,7 +1595,7 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 2432
   %294 = load ptr, ptr %293, align 8, !tbaa !27
-  %.fr.i21 = freeze ptr %294
+  %.fr356.i = freeze ptr %294
   %295 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not.i22 = icmp eq i32 %287, 0
   br i1 %.not.i22, label %359, label %296
@@ -1609,8 +1609,8 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
   %.0127.i = select i1 %.not177.i, ptr null, ptr %300
   %.0127.fr.i = freeze ptr %.0127.i
   %301 = ptrtoint ptr %295 to i64
-  %.not179.i = icmp eq ptr %.0127.fr.i, null
-  %.not183.i = icmp eq ptr %.fr.i21, null
+  %.not183.i = icmp eq ptr %.0127.fr.i, null
+  %.not183.i = icmp eq ptr %.fr356.i, null
   br i1 %.not179.i, label %.split267.us.i, label %.outer213.i
 
 .split267.us.i:                                   ; preds = %296
@@ -1713,7 +1713,7 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
   %329 = getelementptr inbounds i8, ptr %.0151259.us.i, i64 -1
   %330 = load i8, ptr %329, align 1, !tbaa !29
   %331 = zext i8 %330 to i64
-  %332 = getelementptr inbounds nuw i8, ptr %.fr.i21, i64 %331
+  %332 = getelementptr inbounds nuw i8, ptr %.fr356.i, i64 %331
   %333 = load i8, ptr %332, align 1, !tbaa !29
   %334 = getelementptr inbounds nuw i8, ptr %.0137261.us.i, i64 8
   %.0126238.us.i = load ptr, ptr %334, align 8, !tbaa !31
@@ -1923,7 +1923,7 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
   %418 = getelementptr inbounds i8, ptr %.0151259.i, i64 -1
   %419 = load i8, ptr %418, align 1, !tbaa !29
   %420 = zext i8 %419 to i64
-  %421 = getelementptr inbounds nuw i8, ptr %.fr.i21, i64 %420
+  %421 = getelementptr inbounds nuw i8, ptr %.fr356.i, i64 %420
   %422 = load i8, ptr %421, align 1, !tbaa !29
   %423 = getelementptr inbounds nuw i8, ptr %.0137261.i, i64 8
   %.0126238.i = load ptr, ptr %423, align 8, !tbaa !31
@@ -1984,7 +1984,7 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
   br i1 %.not187283328343.i, label %.outer._crit_edge.i, label %.lr.ph285.lr.ph.lr.ph.i
 
 .lr.ph285.lr.ph.lr.ph.i:                          ; preds = %.preheader.i23
-  %.not193.i = icmp eq ptr %.fr.i21, null
+  %.not193.i = icmp eq ptr %.fr356.i, null
   br i1 %.not193.i, label %.lr.ph285.lr.ph.us.i, label %.lr.ph285.lr.ph.i
 
 .lr.ph285.lr.ph.us.i:                             ; preds = %.lr.ph285.lr.ph.lr.ph.i, %.loopexit.split.us.us.i
@@ -2181,7 +2181,7 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
   %514 = getelementptr inbounds i8, ptr %.2153312.i, i64 -1
   %515 = load i8, ptr %514, align 1, !tbaa !29
   %516 = zext i8 %515 to i64
-  %517 = getelementptr inbounds nuw i8, ptr %.fr.i21, i64 %516
+  %517 = getelementptr inbounds nuw i8, ptr %.fr356.i, i64 %516
   %518 = load i8, ptr %517, align 1, !tbaa !29
   %519 = getelementptr inbounds nuw i8, ptr %.1138314.i, i64 8
   %.2291.i = load ptr, ptr %519, align 8, !tbaa !31
@@ -2239,8 +2239,8 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
   br i1 %.not188.i, label %.outer._crit_edge._crit_edge.i, label %531
 
 .outer._crit_edge._crit_edge.i:                   ; preds = %.outer._crit_edge.i
-  %.pre434.i = ptrtoint ptr %1 to i64
-  %.pre436.i = sub i64 %.lcssa224.i, %.pre434.i
+  %.pre436.i = ptrtoint ptr %1 to i64
+  %.pre438.i = sub i64 %.lcssa224.i, %.pre436.i
   br label %cwexec.exit
 
 531:                                              ; preds = %.outer._crit_edge.i
@@ -2259,7 +2259,7 @@ bmexec.exit:                                      ; preds = %12, %21, %.preheade
   br label %cwexec.exit
 
 cwexec.exit:                                      ; preds = %362, %343, %302, %.backedge.i, %.backedge.us.i, %.loopexit128.i, %16, %531, %.outer._crit_edge._crit_edge.i, %285, %bmexec.exit, %281
-  %.0 = phi i64 [ %.0.i, %281 ], [ %.0.i, %bmexec.exit ], [ -1, %285 ], [ %.pre436.i, %.outer._crit_edge._crit_edge.i ], [ %535, %531 ], [ -1, %16 ], [ -1, %.loopexit128.i ], [ -1, %.backedge.us.i ], [ -1, %.backedge.i ], [ -1, %302 ], [ -1, %343 ], [ -1, %362 ]
+  %.0 = phi i64 [ %.0.i, %281 ], [ %.0.i, %bmexec.exit ], [ -1, %285 ], [ %.pre438.i, %.outer._crit_edge._crit_edge.i ], [ %535, %531 ], [ -1, %16 ], [ -1, %.loopexit128.i ], [ -1, %.backedge.us.i ], [ -1, %.backedge.i ], [ -1, %302 ], [ -1, %343 ], [ -1, %362 ]
   ret i64 %.0
 }
 
