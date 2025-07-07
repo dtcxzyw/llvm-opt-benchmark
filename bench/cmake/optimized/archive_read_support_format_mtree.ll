@@ -468,8 +468,8 @@ readline.exit.i:                                  ; preds = %.split.i.i, %.split
   ]
 
 .preheader.i:                                     ; preds = %.preheader136.i
-  %103 = getelementptr inbounds i8, ptr %.1107.i, i64 %.031.i
-  %104 = getelementptr inbounds i8, ptr %103, i64 -1
+  %103 = getelementptr i8, ptr %.1107.i, i64 %.031.i
+  %104 = getelementptr i8, ptr %103, i64 -1
   %.not39199.i = icmp sgt i64 %.031.i, 1
   br i1 %.not39199.i, label %.lr.ph.i, label %.critedge47.i
 
@@ -1974,20 +1974,20 @@ next_line.exit:                                   ; preds = %24, %.thread.i
   br i1 %.not.i81260, label %.thread.i83, label %bid_entry.exit
 
 .thread.i83:                                      ; preds = %.loopexit.i82, %.lr.ph.i80._crit_edge, %98
-  %116 = getelementptr inbounds i8, ptr %100, i64 %99
-  %117 = getelementptr inbounds i8, ptr %116, i64 -2
-  %118 = sub i64 %.161181, %.3114354
-  %.not67.i = icmp slt i64 %118, 2
+  %116 = sub i64 %.161181, %.3114354
+  %117 = getelementptr inbounds i8, ptr %100, i64 %99
+  %118 = getelementptr inbounds i8, ptr %117, i64 -2
+  %.not67.i = icmp slt i64 %116, 2
   br i1 %.not67.i, label %125, label %119
 
 119:                                              ; preds = %.thread.i83
-  %120 = getelementptr inbounds i8, ptr %116, i64 -1
+  %120 = getelementptr inbounds i8, ptr %117, i64 -1
   %121 = load i8, ptr %120, align 1, !tbaa !38
   %122 = icmp eq i8 %121, 92
   br i1 %122, label %123, label %125
 
 123:                                              ; preds = %119
-  %124 = load i8, ptr %117, align 1, !tbaa !38
+  %124 = load i8, ptr %118, align 1, !tbaa !38
   switch i8 %124, label %125 [
     i8 32, label %next_line.exit.thread
     i8 9, label %next_line.exit.thread
@@ -1999,7 +1999,7 @@ next_line.exit:                                   ; preds = %24, %.thread.i
   br i1 %.not68.i, label %next_line.exit.thread, label %127
 
 127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %116, i64 -1
+  %128 = getelementptr inbounds i8, ptr %117, i64 -1
   %129 = load i8, ptr %128, align 1, !tbaa !38
   %130 = icmp eq i8 %129, 92
   br i1 %130, label %next_line.exit.thread, label %.lr.ph93.i
@@ -2013,7 +2013,7 @@ next_line.exit:                                   ; preds = %24, %.thread.i
   %132 = phi ptr [ %140, %.lr.ph93thread-pre-split.i ], [ %128, %127 ]
   %.04692.i = phi i32 [ %spec.select.i85, %.lr.ph93thread-pre-split.i ], [ 0, %127 ]
   %.04791.i = phi i32 [ %138, %.lr.ph93thread-pre-split.i ], [ 0, %127 ]
-  %.04890.i = phi ptr [ %132, %.lr.ph93thread-pre-split.i ], [ %116, %127 ]
+  %.04890.i = phi ptr [ %132, %.lr.ph93thread-pre-split.i ], [ %117, %127 ]
   switch i8 %131, label %133 [
     i8 32, label %.critedge.i
     i8 9, label %.critedge.i

@@ -11582,19 +11582,19 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIfLi1EiEC2ERKS1_(ptr nou
 
 40:                                               ; preds = %.noexc
   %41 = load i64, ptr %3, align 8, !tbaa !670
-  %42 = icmp eq i64 %41, -1
-  br i1 %42, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, label %43
-
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !655
   %.idx.i = shl nsw i64 %41, 2
-  %46 = load ptr, ptr %4, align 8, !tbaa !655
-  %47 = add nsw i64 %.idx.i, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %46, ptr align 4 %45, i64 %47, i1 false)
+  %42 = add nsw i64 %.idx.i, 4
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, label %44
+
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8, !tbaa !655
+  %47 = load ptr, ptr %4, align 8, !tbaa !655
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %47, ptr align 4 %46, i64 %42, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
 
-_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %43, %40
+_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %44, %40
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen8internal17CompressedStorageIfiEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %48) #31
           to label %_ZN5Eigen12SparseMatrixIfLi1EiEaSERKS1_.exit unwind label %51
@@ -13561,19 +13561,19 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIfLi0EiEC2ERKS1_(ptr nou
 
 40:                                               ; preds = %.noexc
   %41 = load i64, ptr %3, align 8, !tbaa !736
-  %42 = icmp eq i64 %41, -1
-  br i1 %42, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, label %43
-
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !725
   %.idx.i = shl nsw i64 %41, 2
-  %46 = load ptr, ptr %4, align 8, !tbaa !725
-  %47 = add nsw i64 %.idx.i, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %46, ptr align 4 %45, i64 %47, i1 false)
+  %42 = add nsw i64 %.idx.i, 4
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, label %44
+
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8, !tbaa !725
+  %47 = load ptr, ptr %4, align 8, !tbaa !725
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %47, ptr align 4 %46, i64 %42, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
 
-_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %43, %40
+_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %44, %40
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen8internal17CompressedStorageIfiEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %48) #31
           to label %_ZN5Eigen12SparseMatrixIfLi0EiEaSERKS1_.exit unwind label %51
@@ -18289,19 +18289,19 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixISt7complexIdELi0EiEC2ER
 
 40:                                               ; preds = %.noexc
   %41 = load i64, ptr %3, align 8, !tbaa !916
-  %42 = icmp eq i64 %41, -1
-  br i1 %42, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, label %43
-
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !921
   %.idx.i = shl nsw i64 %41, 2
-  %46 = load ptr, ptr %4, align 8, !tbaa !921
-  %47 = add nsw i64 %.idx.i, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %46, ptr align 4 %45, i64 %47, i1 false)
+  %42 = add nsw i64 %.idx.i, 4
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i, label %44
+
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8, !tbaa !921
+  %47 = load ptr, ptr %4, align 8, !tbaa !921
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %47, ptr align 4 %46, i64 %42, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
 
-_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %43, %40
+_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %44, %40
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen8internal17CompressedStorageISt7complexIdEiEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %48) #31
           to label %_ZN5Eigen12SparseMatrixISt7complexIdELi0EiEaSERKS3_.exit unwind label %51

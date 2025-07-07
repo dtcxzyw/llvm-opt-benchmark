@@ -2726,10 +2726,10 @@ define internal fastcc range(i64 -119, 262147) i64 @HUF_compress4X_usingCTable_i
   %37 = trunc nuw i64 %31 to i16
   store i16 %37, ptr %36, align 1, !tbaa !16
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 %31
+  %.neg = mul i64 %8, -3
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 %8
   %40 = add nuw nsw i64 %30, %31
   %gepdiff129 = sub i64 %gepdiff, %40
-  %.neg = mul i64 %8, -3
   %gepdiff106 = add i64 %.neg, %3
   %41 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %38, i64 noundef %gepdiff129, ptr noundef %39, i64 noundef %gepdiff106, ptr noundef %4, i32 noundef %5)
   %42 = icmp ult i64 %41, -119

@@ -904,6 +904,7 @@ _ZN2cv10AutoBufferIcLm1032EE8allocateEm.exit.i:   ; preds = %.noexc, %_ZN2cv10Au
   %334 = shl nsw i64 %333, 2
   %335 = getelementptr inbounds nuw i8, ptr %332, i64 %334
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 %331
+  %reass.add530 = add nsw i64 %312, %333
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 %334
   %338 = icmp sgt i32 %95, 0
   br i1 %338, label %.lr.ph.i, label %.preheader361.thread.i
@@ -1346,24 +1347,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347.i: ; preds = %
   br i1 %exitcond463.not.i, label %.lr.ph415.i, label %491, !llvm.loop !33
 
 ._crit_edge416.i.thread:                          ; preds = %483
-  %494 = add i32 %.2279.i319, %.2276.i321
-  %495 = add i32 %494, 1
-  %496 = sext i32 %495 to i64
-  %497 = shl nsw i64 %496, 3
-  %498 = getelementptr inbounds nuw i8, ptr %487, i64 %497
-  %499 = sext i32 %494 to i64
-  %500 = shl nsw i64 %499, 5
-  %501 = getelementptr inbounds nuw i8, ptr %498, i64 %500
-  %502 = getelementptr inbounds nuw i8, ptr %501, i64 %486
-  %reass.add530 = add nsw i64 %312, %333
-  %503 = add nsw i64 %reass.add530, %485
-  %504 = add nsw i64 %503, %496
-  %505 = shl nsw i64 %504, 3
-  %506 = add nuw nsw i64 %505, %500
-  %507 = add nuw nsw i64 %506, %486
-  %gepdiff = sub nsw i64 %316, %507
-  call void @llvm.memset.p0.i64(ptr align 1 %502, i8 0, i64 %gepdiff, i1 false)
-  %508 = getelementptr inbounds nuw i8, ptr %502, i64 %486
+  %494 = add nsw i64 %reass.add530, %485
+  %495 = add i32 %.2279.i319, %.2276.i321
+  %496 = add i32 %495, 1
+  %497 = sext i32 %496 to i64
+  %498 = shl nsw i64 %497, 3
+  %499 = add nsw i64 %494, %497
+  %500 = shl nsw i64 %499, 3
+  %501 = getelementptr inbounds nuw i8, ptr %487, i64 %498
+  %502 = sext i32 %495 to i64
+  %503 = shl nsw i64 %502, 5
+  %504 = add nuw nsw i64 %500, %503
+  %505 = getelementptr inbounds nuw i8, ptr %501, i64 %503
+  %506 = add nuw nsw i64 %504, %486
+  %507 = getelementptr inbounds nuw i8, ptr %505, i64 %486
+  %gepdiff = sub nsw i64 %316, %506
+  call void @llvm.memset.p0.i64(ptr align 1 %507, i8 0, i64 %gepdiff, i1 false)
+  %508 = getelementptr inbounds nuw i8, ptr %507, i64 %486
   %509 = shl nsw i64 %489, 3
   %510 = getelementptr inbounds nuw i8, ptr %508, i64 %509
   %511 = shl nsw i64 %485, 4
@@ -1683,9 +1683,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353.i: ; preds = %
   br label %.preheader216.i.i
 
 .lr.ph221.preheader.i.i:                          ; preds = %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge, %._crit_edge.i.i
-  %629 = phi ptr [ %501, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %523, %._crit_edge.i.i ]
-  %630 = phi ptr [ %498, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %520, %._crit_edge.i.i ]
-  %631 = phi i32 [ %494, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %516, %._crit_edge.i.i ]
+  %629 = phi ptr [ %505, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %523, %._crit_edge.i.i ]
+  %630 = phi ptr [ %501, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %520, %._crit_edge.i.i ]
+  %631 = phi i32 [ %495, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %516, %._crit_edge.i.i ]
   %.0302.lcssa.i488 = phi ptr [ %487, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %493, %._crit_edge.i.i ]
   %wide.trip.count309.i.i.pre-phi = phi i64 [ %.pre475, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %527, %._crit_edge.i.i ]
   %632 = phi ptr [ %615, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %601, %._crit_edge.i.i ]
@@ -1695,7 +1695,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353.i: ; preds = %
   %636 = phi ptr [ %510, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %593, %._crit_edge.i.i ]
   %637 = phi ptr [ %508, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %591, %._crit_edge.i.i ]
   %.0297.lcssa.i326331340 = phi float [ 0.000000e+00, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %.4301.i, %._crit_edge.i.i ]
-  %.1303.lcssa.i325332337 = phi ptr [ %502, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %538, %._crit_edge.i.i ]
+  %.1303.lcssa.i325332337 = phi ptr [ %507, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %538, %._crit_edge.i.i ]
   %638 = phi ptr [ %618, %._crit_edge.thread.i.i..lr.ph221.preheader.i.i_crit_edge ], [ %626, %._crit_edge.i.i ]
   br label %.lr.ph221.i.i
 
@@ -1798,16 +1798,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353.i: ; preds = %
   br i1 %exitcond315.not.i.i, label %.preheader216.i.i, label %.lr.ph230.split.i.i, !llvm.loop !45
 
 .preheader216.i.i:                                ; preds = %.lr.ph230.split.i.i, %._crit_edge234.us.i.i, %._crit_edge222.i.i, %._crit_edge222.thread.thread.i.i
-  %673 = phi ptr [ %629, %._crit_edge222.i.i ], [ %501, %._crit_edge222.thread.thread.i.i ], [ %629, %._crit_edge234.us.i.i ], [ %523, %.lr.ph230.split.i.i ]
-  %674 = phi ptr [ %630, %._crit_edge222.i.i ], [ %498, %._crit_edge222.thread.thread.i.i ], [ %630, %._crit_edge234.us.i.i ], [ %520, %.lr.ph230.split.i.i ]
-  %675 = phi i32 [ %631, %._crit_edge222.i.i ], [ %494, %._crit_edge222.thread.thread.i.i ], [ %631, %._crit_edge234.us.i.i ], [ %516, %.lr.ph230.split.i.i ]
+  %673 = phi ptr [ %629, %._crit_edge222.i.i ], [ %505, %._crit_edge222.thread.thread.i.i ], [ %629, %._crit_edge234.us.i.i ], [ %523, %.lr.ph230.split.i.i ]
+  %674 = phi ptr [ %630, %._crit_edge222.i.i ], [ %501, %._crit_edge222.thread.thread.i.i ], [ %630, %._crit_edge234.us.i.i ], [ %520, %.lr.ph230.split.i.i ]
+  %675 = phi i32 [ %631, %._crit_edge222.i.i ], [ %495, %._crit_edge222.thread.thread.i.i ], [ %631, %._crit_edge234.us.i.i ], [ %516, %.lr.ph230.split.i.i ]
   %.0302.lcssa.i487 = phi ptr [ %.0302.lcssa.i488, %._crit_edge222.i.i ], [ %487, %._crit_edge222.thread.thread.i.i ], [ %.0302.lcssa.i488, %._crit_edge234.us.i.i ], [ %493, %.lr.ph230.split.i.i ]
   %676 = phi ptr [ %632, %._crit_edge222.i.i ], [ %615, %._crit_edge222.thread.thread.i.i ], [ %632, %._crit_edge234.us.i.i ], [ %601, %.lr.ph230.split.i.i ]
   %677 = phi float [ %633, %._crit_edge222.i.i ], [ 0.000000e+00, %._crit_edge222.thread.thread.i.i ], [ %633, %._crit_edge234.us.i.i ], [ %623, %.lr.ph230.split.i.i ]
   %678 = phi ptr [ %634, %._crit_edge222.i.i ], [ %514, %._crit_edge222.thread.thread.i.i ], [ %634, %._crit_edge234.us.i.i ], [ %597, %.lr.ph230.split.i.i ]
   %679 = phi ptr [ %637, %._crit_edge222.i.i ], [ %508, %._crit_edge222.thread.thread.i.i ], [ %637, %._crit_edge234.us.i.i ], [ %591, %.lr.ph230.split.i.i ]
   %.0297.lcssa.i326331339 = phi float [ %.0297.lcssa.i326331340, %._crit_edge222.i.i ], [ 0.000000e+00, %._crit_edge222.thread.thread.i.i ], [ %.0297.lcssa.i326331340, %._crit_edge234.us.i.i ], [ %.4301.i, %.lr.ph230.split.i.i ]
-  %.1303.lcssa.i325332336 = phi ptr [ %.1303.lcssa.i325332337, %._crit_edge222.i.i ], [ %502, %._crit_edge222.thread.thread.i.i ], [ %.1303.lcssa.i325332337, %._crit_edge234.us.i.i ], [ %538, %.lr.ph230.split.i.i ]
+  %.1303.lcssa.i325332336 = phi ptr [ %.1303.lcssa.i325332337, %._crit_edge222.i.i ], [ %507, %._crit_edge222.thread.thread.i.i ], [ %.1303.lcssa.i325332337, %._crit_edge234.us.i.i ], [ %538, %.lr.ph230.split.i.i ]
   %680 = phi ptr [ %635, %._crit_edge222.i.i ], [ %512, %._crit_edge222.thread.thread.i.i ], [ %635, %._crit_edge234.us.i.i ], [ %595, %.lr.ph230.split.i.i ]
   %681 = phi ptr [ %636, %._crit_edge222.i.i ], [ %510, %._crit_edge222.thread.thread.i.i ], [ %636, %._crit_edge234.us.i.i ], [ %593, %.lr.ph230.split.i.i ]
   %682 = phi ptr [ %638, %._crit_edge222.i.i ], [ %618, %._crit_edge222.thread.thread.i.i ], [ %638, %._crit_edge234.us.i.i ], [ %626, %.lr.ph230.split.i.i ]

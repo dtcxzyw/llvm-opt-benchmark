@@ -13996,15 +13996,14 @@ _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bi
   %59 = add nsw i64 %3, %29
   %60 = sdiv i64 %59, 64
   %.idx = shl nsw i64 %60, 3
-  %61 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %62 = and i64 %59, -9223372036854775745
-  %63 = icmp ugt i64 %62, -9223372036854775808
-  %storemerge.idx.i.i.i75.neg = select i1 %63, i64 8, i64 0
-  %storemerge.idx.i.i.i75 = select i1 %63, i64 -8, i64 0
-  %storemerge.i.i.i76 = getelementptr inbounds i8, ptr %61, i64 %storemerge.idx.i.i.i75
+  %61 = and i64 %59, -9223372036854775745
+  %62 = icmp ugt i64 %61, -9223372036854775808
+  %storemerge.idx.i.i.i75 = select i1 %62, i64 -8, i64 0
+  %63 = add nsw i64 %storemerge.idx.i.i.i75, %.idx
+  %storemerge.i.i.i76 = getelementptr inbounds i8, ptr %1, i64 %63
   %64 = trunc i64 %59 to i32
   %65 = and i32 %64, 63
-  %.not.i.i.i = icmp eq i64 %.idx, %storemerge.idx.i.i.i75.neg
+  %.not.i.i.i = icmp eq i64 %63, 0
   br i1 %.not.i.i.i, label %91, label %66
 
 66:                                               ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
@@ -14195,15 +14194,14 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %152 = add nsw i64 %3, %151
   %153 = sdiv i64 %152, 64
   %.idx158 = shl nsw i64 %153, 3
-  %154 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %.idx158
-  %155 = and i64 %152, -9223372036854775745
-  %156 = icmp ugt i64 %155, -9223372036854775808
-  %storemerge.idx.i.i.i85.neg = select i1 %156, i64 8, i64 0
-  %storemerge.idx.i.i.i85 = select i1 %156, i64 -8, i64 0
-  %storemerge.i.i.i86 = getelementptr inbounds i8, ptr %154, i64 %storemerge.idx.i.i.i85
+  %154 = and i64 %152, -9223372036854775745
+  %155 = icmp ugt i64 %154, -9223372036854775808
+  %storemerge.idx.i.i.i85 = select i1 %155, i64 -8, i64 0
+  %156 = add nsw i64 %storemerge.idx.i.i.i85, %.idx158
+  %storemerge.i.i.i86 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %156
   %157 = trunc i64 %152 to i32
   %158 = and i32 %157, 63
-  %.not.i.i.i89 = icmp eq i64 %.idx158, %storemerge.idx.i.i.i85.neg
+  %.not.i.i.i89 = icmp eq i64 %156, 0
   br i1 %.not.i.i.i89, label %185, label %159
 
 159:                                              ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit
@@ -15540,16 +15538,16 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vec
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i, %36
   %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.038.054, %36 ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ]
   %.idx = shl nuw nsw i64 %.02155, 3
-  %53 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %54 = add nuw nsw i64 %.idx69, 8
-  %gepdiff = sub nsw i64 %.idx, %54
+  %53 = add nuw nsw i64 %.idx69, 8
+  %54 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %gepdiff = sub nsw i64 %.idx, %53
   %55 = ashr exact i64 %gepdiff, 3
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27, label %.thread
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27
   %.013.i28 = phi i64 [ %.1.i33, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %55, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ]
-  %.sroa.011.012.i29 = phi ptr [ %.sroa.011.1.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %53, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ]
+  %.sroa.011.012.i29 = phi ptr [ %.sroa.011.1.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %54, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ]
   %57 = lshr i64 %.013.i28, 1
   %58 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i29, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !328
@@ -15578,7 +15576,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vec
 
 .thread:                                          ; preds = %73, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27, %3, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit
   %.sroa.043.2 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %.sroa.038.1, %73 ]
-  %.sroa.3.2 = phi ptr [ %53, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.1.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %.sroa.038.1, %73 ]
+  %.sroa.3.2 = phi ptr [ %54, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valIZNS2_10SharedFileIS4_E14get_symbols_atES6_EUlS6_S6_E_EEET_SI_SI_RKT0_T1_.exit ], [ %0, %3 ], [ %.sroa.011.1.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27 ], [ %.sroa.038.1, %73 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.043.2, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.2, 1
   ret { ptr, ptr } %.fca.1.insert

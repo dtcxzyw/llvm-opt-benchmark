@@ -507,11 +507,11 @@ bytestream2_put_buffer.exit.i:                    ; preds = %144
 
 155:                                              ; preds = %144
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %145, ptr nonnull align 1 %.0395.i, i64 %150, i1 false)
+  %.neg.i = xor i64 %150, -1
   %156 = getelementptr inbounds nuw i8, ptr %145, i64 %150
   %157 = load ptr, ptr %66, align 8, !tbaa !54
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %159 = load ptr, ptr %158, align 8, !tbaa !61
-  %.neg.i = xor i64 %150, -1
   %gepdiff641.i = add nsw i64 %143, %.neg.i
   %160 = zext i32 %.1401.i to i64
   %161 = call i64 @llvm.smin.i64(i64 %gepdiff641.i, i64 %160)
@@ -2726,7 +2726,7 @@ define internal fastcc void @mpegts_write_pes(ptr noundef %0, ptr noundef readon
 
 174:                                              ; preds = %174, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %174 ]
-  %.01314.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %198, %174 ]
+  %.01314.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %200, %174 ]
   %175 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv.i.i
   %176 = load ptr, ptr %175, align 8, !tbaa !142
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 32
@@ -2751,22 +2751,22 @@ define internal fastcc void @mpegts_write_pes(ptr noundef %0, ptr noundef readon
   %191 = zext i8 %190 to i64
   %192 = add nuw nsw i64 %191, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %188, ptr noundef nonnull readonly align 1 dereferenceable(1) %189, i64 %192, i1 false)
-  %193 = getelementptr inbounds nuw i8, ptr %188, i64 %192
-  %194 = getelementptr inbounds nuw i8, ptr %176, i64 36
-  %195 = load i8, ptr %194, align 4, !tbaa !21
-  %196 = zext i8 %195 to i64
-  %197 = add nuw nsw i64 %196, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %193, ptr noundef nonnull readonly align 1 dereferenceable(1) %194, i64 %197, i1 false)
-  %198 = getelementptr inbounds nuw i8, ptr %193, i64 %197
-  %199 = ptrtoint ptr %198 to i64
-  %200 = ptrtoint ptr %186 to i64
-  %201 = xor i64 %200, -1
-  %202 = add i64 %199, %201
-  %203 = trunc i64 %202 to i8
-  store i8 %203, ptr %186, align 1, !tbaa !21
-  %204 = add nuw nsw i64 %191, 9
-  %205 = add nuw nsw i64 %204, %197
-  %206 = trunc nuw nsw i64 %205 to i32
+  %193 = add nuw nsw i64 %191, 9
+  %194 = getelementptr inbounds nuw i8, ptr %188, i64 %192
+  %195 = getelementptr inbounds nuw i8, ptr %176, i64 36
+  %196 = load i8, ptr %195, align 4, !tbaa !21
+  %197 = zext i8 %196 to i64
+  %198 = add nuw nsw i64 %197, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %194, ptr noundef nonnull readonly align 1 dereferenceable(1) %195, i64 %198, i1 false)
+  %199 = add nuw nsw i64 %193, %198
+  %200 = getelementptr inbounds nuw i8, ptr %194, i64 %198
+  %201 = ptrtoint ptr %200 to i64
+  %202 = ptrtoint ptr %186 to i64
+  %203 = xor i64 %202, -1
+  %204 = add i64 %201, %203
+  %205 = trunc i64 %204 to i8
+  store i8 %205, ptr %186, align 1, !tbaa !21
+  %206 = trunc nuw nsw i64 %199 to i32
   %207 = add nsw i32 %206, -5
   %208 = lshr i32 %207, 8
   %209 = trunc nuw nsw i32 %208 to i8
@@ -2780,7 +2780,7 @@ define internal fastcc void @mpegts_write_pes(ptr noundef %0, ptr noundef readon
   br i1 %exitcond.not.i.i, label %.loopexit.i, label %174, !llvm.loop !190
 
 .loopexit.i:                                      ; preds = %174, %159
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %159 ], [ %199, %174 ]
+  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %159 ], [ %201, %174 ]
   %213 = getelementptr inbounds nuw i8, ptr %160, i64 40
   %214 = getelementptr inbounds nuw i8, ptr %160, i64 192
   %215 = load i32, ptr %214, align 8, !tbaa !191

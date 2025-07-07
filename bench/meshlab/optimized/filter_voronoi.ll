@@ -39295,15 +39295,14 @@ _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bi
   %59 = add nsw i64 %3, %29
   %60 = sdiv i64 %59, 64
   %.idx = shl nsw i64 %60, 3
-  %61 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %62 = and i64 %59, -9223372036854775745
-  %63 = icmp ugt i64 %62, -9223372036854775808
-  %storemerge.idx.i.i.i42.neg = select i1 %63, i64 8, i64 0
-  %storemerge.idx.i.i.i42 = select i1 %63, i64 -8, i64 0
-  %storemerge.i.i.i43 = getelementptr inbounds i8, ptr %61, i64 %storemerge.idx.i.i.i42
+  %61 = and i64 %59, -9223372036854775745
+  %62 = icmp ugt i64 %61, -9223372036854775808
+  %storemerge.idx.i.i.i42 = select i1 %62, i64 -8, i64 0
+  %63 = add nsw i64 %storemerge.idx.i.i.i42, %.idx
+  %storemerge.i.i.i43 = getelementptr inbounds i8, ptr %1, i64 %63
   %64 = trunc i64 %59 to i32
   %65 = and i32 %64, 63
-  %.not.i.i.i = icmp eq i64 %.idx, %storemerge.idx.i.i.i42.neg
+  %.not.i.i.i = icmp eq i64 %63, 0
   br i1 %.not.i.i.i, label %91, label %66
 
 66:                                               ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
@@ -39494,15 +39493,14 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %152 = add nsw i64 %3, %151
   %153 = sdiv i64 %152, 64
   %.idx125 = shl nsw i64 %153, 3
-  %154 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %.idx125
-  %155 = and i64 %152, -9223372036854775745
-  %156 = icmp ugt i64 %155, -9223372036854775808
-  %storemerge.idx.i.i.i52.neg = select i1 %156, i64 8, i64 0
-  %storemerge.idx.i.i.i52 = select i1 %156, i64 -8, i64 0
-  %storemerge.i.i.i53 = getelementptr inbounds i8, ptr %154, i64 %storemerge.idx.i.i.i52
+  %154 = and i64 %152, -9223372036854775745
+  %155 = icmp ugt i64 %154, -9223372036854775808
+  %storemerge.idx.i.i.i52 = select i1 %155, i64 -8, i64 0
+  %156 = add nsw i64 %storemerge.idx.i.i.i52, %.idx125
+  %storemerge.i.i.i53 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %156
   %157 = trunc i64 %152 to i32
   %158 = and i32 %157, 63
-  %.not.i.i.i56 = icmp eq i64 %.idx125, %storemerge.idx.i.i.i52.neg
+  %.not.i.i.i56 = icmp eq i64 %156, 0
   br i1 %.not.i.i.i56, label %185, label %159
 
 159:                                              ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit
@@ -39727,13 +39725,12 @@ _ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit.i:  ; preds = %21, %7
   %23 = phi i32 [ %.pre18.i, %7 ], [ %.pre17.i, %21 ]
   %24 = phi ptr [ %14, %7 ], [ %.pre.i, %21 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.idx12.i = shl nsw i64 %.pre-phi.i, 3
-  %26 = getelementptr inbounds i8, ptr %25, i64 %.idx12.i
-  %27 = sext i32 %23 to i64
-  %.idx13.i = shl nsw i64 %27, 3
-  %28 = getelementptr inbounds i8, ptr %26, i64 %.idx13.i
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = getelementptr inbounds %"struct.QList<int>::Node", ptr %12, i64 %27
+  %26 = sext i32 %23 to i64
+  %.idx1215.i = add nsw i64 %.pre-phi.i, 1
+  %27 = add nsw i64 %.idx1215.i, %26
+  %28 = shl nsw i64 %27, 3
+  %29 = getelementptr inbounds i8, ptr %25, i64 %28
+  %30 = getelementptr inbounds %"struct.QList<int>::Node", ptr %12, i64 %26
   %.not.i6.i = icmp eq ptr %30, %29
   br i1 %.not.i6.i, label %_ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit7.i, label %31
 
@@ -39741,14 +39738,12 @@ _ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit.i:  ; preds = %21, %7
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
-  %.idx11.i = shl nsw i64 %34, 3
-  %35 = add nsw i64 %.idx12.i, %.idx13.i
-  %reass.sub = sub nsw i64 %.idx11.i, %35
-  %36 = icmp sgt i64 %reass.sub, 8
+  %35 = sub nsw i64 %34, %27
+  %36 = icmp sgt i64 %35, 0
   br i1 %36, label %37, label %_ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit7.i
 
 37:                                               ; preds = %31
-  %gepdiff.i = add nsw i64 %reass.sub, -8
+  %gepdiff.i = shl nuw nsw i64 %35, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %30, i64 %gepdiff.i, i1 false)
   br label %_ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit7.i
 
@@ -60654,10 +60649,10 @@ _ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit:           ; preds = %_ZNSt6vectorIN3vcg4
 _ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit: ; preds = %104, %._crit_edge.i.i
   %114 = phi ptr [ %74, %104 ], [ %113, %._crit_edge.i.i ]
   %.idx = mul nsw i64 %.120, 24
-  %115 = getelementptr inbounds i8, ptr %105, i64 %.idx
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
+  %115 = add nsw i64 %.idx, 24
+  %116 = getelementptr inbounds i8, ptr %105, i64 %115
   %117 = ptrtoint ptr %116 to i64
-  %.not.i.i24 = icmp eq i64 %.120, -1
+  %.not.i.i24 = icmp eq i64 %115, 0
   br i1 %.not.i.i24, label %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit32, label %118
 
 118:                                              ; preds = %_ZNSt6vectorIN3vcg4face3PosI6CFaceOEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit

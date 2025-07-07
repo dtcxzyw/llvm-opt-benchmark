@@ -35366,9 +35366,9 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3836)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3839)
   %3885 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %3886 = getelementptr i8, ptr %3885, i64 %3
-  %3887 = getelementptr i8, ptr %3886, i64 -2
-  %3888 = icmp eq i64 %3, 2
+  %3886 = add i64 %3, -2
+  %3887 = getelementptr i8, ptr %3885, i64 %3886
+  %3888 = icmp eq i64 %3886, 0
   br i1 %3888, label %_ZN9polars_io3csv4read5utils12escape_field17h5f4f6e7b0c5953e1E.exit.i, label %.lr.ph.i.i624
 
 .lr.ph.i.i624:                                    ; preds = %3880, %3894
@@ -36159,9 +36159,9 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3972)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3975)
   %4235 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %4236 = getelementptr i8, ptr %4235, i64 %3
-  %4237 = getelementptr i8, ptr %4236, i64 -2
-  %4238 = icmp eq i64 %3, 2
+  %4236 = add i64 %3, -2
+  %4237 = getelementptr i8, ptr %4235, i64 %4236
+  %4238 = icmp eq i64 %4236, 0
   br i1 %4238, label %_ZN9polars_io3csv4read5utils12escape_field17h5f4f6e7b0c5953e1E.exit.i667, label %.lr.ph.i.i657
 
 .lr.ph.i.i657:                                    ; preds = %4227, %4244
@@ -40717,9 +40717,9 @@ default.unreachable:                              ; preds = %9
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define noundef i64 @_ZN9polars_io3csv4read5utils12escape_field17h5f4f6e7b0c5953e1E(ptr noalias noundef nonnull readonly align 1 captures(address) %0, i64 noundef %1, i8 noundef %2, ptr noalias noundef nonnull writeonly align 1 captures(none) %3, i64 noundef %4) unnamed_addr #18 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %7 = getelementptr i8, ptr %6, i64 %1
-  %8 = getelementptr i8, ptr %7, i64 -2
-  %9 = icmp eq i64 %1, 2
+  %7 = add i64 %1, -2
+  %8 = getelementptr i8, ptr %6, i64 %7
+  %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %15

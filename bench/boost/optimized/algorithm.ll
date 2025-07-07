@@ -86263,9 +86263,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost9unit_test9framework4im
 
 65:                                               ; preds = %59
   %66 = sub i64 0, %62
-  %67 = getelementptr inbounds i8, ptr %7, i64 %66
-  %68 = sub nuw i64 %6, %62
-  %.not11.i = icmp eq i64 %68, -1
+  %67 = sub nuw i64 %6, %62
+  %68 = getelementptr inbounds i8, ptr %7, i64 %66
+  %.not11.i = icmp eq i64 %67, -1
   br i1 %.not11.i, label %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %65, %_ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE7compareEPS3_S5_m.exit.i
@@ -86296,7 +86296,7 @@ _ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE7compareEPS3_S5_m.exit.th
 
 _ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE7compareEPS3_S5_m.exit.i: ; preds = %.lr.ph.i.i12
   %79 = getelementptr inbounds nuw i8, ptr %.0712.i, i64 1
-  %.not.i = icmp eq ptr %.0712.i, %67
+  %.not.i = icmp eq ptr %.0712.i, %68
   br i1 %.not.i, label %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit, label %.lr.ph.i.preheader.i, !llvm.loop !298
 
 80:                                               ; preds = %2

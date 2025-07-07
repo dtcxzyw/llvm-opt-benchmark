@@ -8703,37 +8703,35 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_07Strutil9icontainsENS0_17basic
   br i1 %.not.i, label %_ZN11OpenImageIO6v3_1_07Strutil5ifindENS0_17basic_string_viewIcSt11char_traitsIcEEES5_.exit, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %5
-  %15 = sub i64 0, %8
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = sub nuw i64 %5, %8
-  %.not8.not12.i = icmp slt i64 %17, 0
+  %14 = sub nuw i64 %5, %8
+  %15 = getelementptr inbounds i8, ptr %3, i64 %14
+  %.not8.not12.i = icmp slt i64 %14, 0
   br i1 %.not8.not12.i, label %_ZN11OpenImageIO6v3_1_07Strutil5ifindENS0_17basic_string_viewIcSt11char_traitsIcEEES5_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13
-  %18 = load ptr, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_15c_locE, align 8, !tbaa !232
-  br label %19
+  %16 = load ptr, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_15c_locE, align 8, !tbaa !232
+  br label %17
 
-19:                                               ; preds = %22, %.lr.ph.i
-  %.0713.i = phi ptr [ %3, %.lr.ph.i ], [ %23, %22 ]
-  %20 = tail call noundef i32 @strncasecmp_l(ptr noundef %.0713.i, ptr noundef %6, i64 noundef %8, ptr noundef %18) #49
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %24, label %22
+17:                                               ; preds = %20, %.lr.ph.i
+  %.0713.i = phi ptr [ %3, %.lr.ph.i ], [ %21, %20 ]
+  %18 = tail call noundef i32 @strncasecmp_l(ptr noundef %.0713.i, ptr noundef %6, i64 noundef %8, ptr noundef %16) #49
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %22, label %20
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %.0713.i, i64 1
-  %.not8.not.i = icmp ugt ptr %23, %16
-  br i1 %.not8.not.i, label %_ZN11OpenImageIO6v3_1_07Strutil5ifindENS0_17basic_string_viewIcSt11char_traitsIcEEES5_.exit, label %19, !llvm.loop !234
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %.0713.i, i64 1
+  %.not8.not.i = icmp ugt ptr %21, %15
+  br i1 %.not8.not.i, label %_ZN11OpenImageIO6v3_1_07Strutil5ifindENS0_17basic_string_viewIcSt11char_traitsIcEEES5_.exit, label %17, !llvm.loop !234
 
-24:                                               ; preds = %19
-  %25 = ptrtoint ptr %.0713.i to i64
-  %26 = ptrtoint ptr %3 to i64
-  %27 = sub i64 %25, %26
-  %28 = icmp ne i64 %27, -1
+22:                                               ; preds = %17
+  %23 = ptrtoint ptr %.0713.i to i64
+  %24 = ptrtoint ptr %3 to i64
+  %25 = sub i64 %23, %24
+  %26 = icmp ne i64 %25, -1
   br label %_ZN11OpenImageIO6v3_1_07Strutil5ifindENS0_17basic_string_viewIcSt11char_traitsIcEEES5_.exit
 
-_ZN11OpenImageIO6v3_1_07Strutil5ifindENS0_17basic_string_viewIcSt11char_traitsIcEEES5_.exit: ; preds = %22, %2, %10, %12, %13, %24
-  %.06.i = phi i1 [ %28, %24 ], [ false, %2 ], [ true, %10 ], [ false, %12 ], [ false, %13 ], [ false, %22 ]
+_ZN11OpenImageIO6v3_1_07Strutil5ifindENS0_17basic_string_viewIcSt11char_traitsIcEEES5_.exit: ; preds = %20, %2, %10, %12, %13, %22
+  %.06.i = phi i1 [ %26, %22 ], [ false, %2 ], [ true, %10 ], [ false, %12 ], [ false, %13 ], [ false, %20 ]
   ret i1 %.06.i
 }
 
@@ -8756,37 +8754,35 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_07Strutil5ifindENS0_17basic_string_vie
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr %0, align 8, !tbaa !67
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %4
-  %14 = sub i64 0, %8
-  %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  %16 = sub nuw i64 %4, %8
-  %.not8.not12 = icmp slt i64 %16, 0
+  %13 = sub nuw i64 %4, %8
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %.not8.not12 = icmp slt i64 %13, 0
   br i1 %.not8.not12, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = load ptr, ptr %1, align 8, !tbaa !67
-  %18 = load ptr, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_15c_locE, align 8, !tbaa !232
-  br label %19
+  %15 = load ptr, ptr %1, align 8, !tbaa !67
+  %16 = load ptr, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_15c_locE, align 8, !tbaa !232
+  br label %17
 
-19:                                               ; preds = %.lr.ph, %22
-  %.0713 = phi ptr [ %12, %.lr.ph ], [ %23, %22 ]
-  %20 = tail call noundef i32 @strncasecmp_l(ptr noundef %.0713, ptr noundef %17, i64 noundef %8, ptr noundef %18) #49
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %24, label %22
+17:                                               ; preds = %.lr.ph, %20
+  %.0713 = phi ptr [ %12, %.lr.ph ], [ %21, %20 ]
+  %18 = tail call noundef i32 @strncasecmp_l(ptr noundef %.0713, ptr noundef %15, i64 noundef %8, ptr noundef %16) #49
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %22, label %20
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %.0713, i64 1
-  %.not8.not = icmp ugt ptr %23, %15
-  br i1 %.not8.not, label %.thread, label %19, !llvm.loop !234
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %.0713, i64 1
+  %.not8.not = icmp ugt ptr %21, %14
+  br i1 %.not8.not, label %.thread, label %17, !llvm.loop !234
 
-24:                                               ; preds = %19
-  %25 = ptrtoint ptr %.0713 to i64
-  %26 = ptrtoint ptr %12 to i64
-  %27 = sub i64 %25, %26
+22:                                               ; preds = %17
+  %23 = ptrtoint ptr %.0713 to i64
+  %24 = ptrtoint ptr %12 to i64
+  %25 = sub i64 %23, %24
   br label %.thread
 
-.thread:                                          ; preds = %22, %11, %10, %24, %6, %2
-  %.06 = phi i64 [ %27, %24 ], [ -1, %2 ], [ 0, %6 ], [ -1, %10 ], [ -1, %11 ], [ -1, %22 ]
+.thread:                                          ; preds = %20, %11, %10, %22, %6, %2
+  %.06 = phi i64 [ %25, %22 ], [ -1, %2 ], [ 0, %6 ], [ -1, %10 ], [ -1, %11 ], [ -1, %20 ]
   ret i64 %.06
 }
 
@@ -9360,9 +9356,9 @@ define linkonce_odr hidden noundef i64 @_ZNK11OpenImageIO6v3_1_017basic_string_v
   br i1 %or.cond, label %_ZSt6searchISt16reverse_iteratorIPKcES3_PDoFbRS1_S4_EET_S7_S7_T0_S8_T1_.exit, label %16
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 %13
-  %18 = getelementptr inbounds i8, ptr %17, i64 -1
-  %19 = icmp eq i64 %13, 1
+  %17 = add nsw i64 %13, -1
+  %18 = getelementptr inbounds i8, ptr %11, i64 %17
+  %19 = icmp eq i64 %17, 0
   %20 = ptrtoint ptr %6 to i64
   br i1 %19, label %21, label %.preheader39.i
 

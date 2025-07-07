@@ -70625,21 +70625,21 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v99formatterINS0_17basic_stri
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 125
-  %.pr.pre133 = load i8, ptr %4, align 1
+  %.pr.pre130 = load i8, ptr %4, align 1
   br i1 %18, label %19, label %thread-pre-split
 
 19:                                               ; preds = %15
-  %20 = and i8 %.pr.pre133, -33
+  %20 = and i8 %.pr.pre130, -33
   %21 = add i8 %20, -65
   %22 = icmp ult i8 %21, 26
   br i1 %22, label %23, label %thread-pre-split
 
 23:                                               ; preds = %19
-  %.not = icmp eq i8 %.pr.pre133, 76
+  %.not = icmp eq i8 %.pr.pre130, 76
   br i1 %.not, label %thread-pre-split, label %24
 
 24:                                               ; preds = %23
-  %25 = tail call noundef zeroext i8 @_ZN3fmt2v96detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %.pr.pre133)
+  %25 = tail call noundef zeroext i8 @_ZN3fmt2v96detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %.pr.pre130)
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %.split84, label %.sink.split
 
@@ -70648,220 +70648,218 @@ define linkonce_odr dso_local noundef ptr @_ZN3fmt2v99formatterINS0_17basic_stri
   unreachable
 
 thread-pre-split:                                 ; preds = %15, %23, %.thread-pre-split_crit_edge, %19
-  %27 = phi i8 [ %.pr.pre133, %19 ], [ %.pr.pre, %.thread-pre-split_crit_edge ], [ 76, %23 ], [ %.pr.pre133, %15 ]
+  %27 = phi i8 [ %.pr.pre130, %19 ], [ %.pr.pre, %.thread-pre-split_crit_edge ], [ 76, %23 ], [ %.pr.pre130, %15 ]
   %28 = lshr i8 %27, 3
   %29 = zext nneg i8 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr @.str.123, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i64
   %.not.i.i = icmp eq i8 %31, 0
-  %.neg127 = sext i1 %.not.i.i to i64
   %33 = zext i1 %.not.i.i to i64
-  %34 = getelementptr i8, ptr %4, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 %32
-  %.neg122 = sub i64 %6, %32
-  %gepdiff = add i64 %.neg122, %.neg127
-  %36 = icmp slt i64 %gepdiff, 1
-  %spec.select.i = select i1 %36, ptr %4, ptr %35
-  br label %37
+  %34 = add nsw i64 %33, %32
+  %gepdiff = sub i64 %6, %34
+  %.inv = icmp sgt i64 %gepdiff, 0
+  %spec.select.i.idx = select i1 %.inv, i64 %34, i64 0
+  %spec.select.i = getelementptr i8, ptr %4, i64 %spec.select.i.idx
+  br label %35
 
-37:                                               ; preds = %59, %thread-pre-split
-  %.1.i = phi ptr [ %spec.select.i, %thread-pre-split ], [ %4, %59 ]
-  %38 = load i8, ptr %.1.i, align 1
-  switch i8 %38, label %59 [
+35:                                               ; preds = %57, %thread-pre-split
+  %.1.i = phi ptr [ %spec.select.i, %thread-pre-split ], [ %4, %57 ]
+  %36 = load i8, ptr %.1.i, align 1
+  switch i8 %36, label %57 [
     i8 60, label %.loopexit.i.loopexit
-    i8 62, label %.loopexit.i.loopexit147
+    i8 62, label %.loopexit.i.loopexit144
     i8 94, label %.loopexit.i
   ]
 
-.loopexit.i.loopexit:                             ; preds = %37
+.loopexit.i.loopexit:                             ; preds = %35
   br label %.loopexit.i
 
-.loopexit.i.loopexit147:                          ; preds = %37
+.loopexit.i.loopexit144:                          ; preds = %35
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %37, %.loopexit.i.loopexit147, %.loopexit.i.loopexit
-  %.129.ph.i = phi i16 [ 1, %.loopexit.i.loopexit ], [ 2, %.loopexit.i.loopexit147 ], [ 3, %37 ]
+.loopexit.i:                                      ; preds = %35, %.loopexit.i.loopexit144, %.loopexit.i.loopexit
+  %.129.ph.i = phi i16 [ 1, %.loopexit.i.loopexit ], [ 2, %.loopexit.i.loopexit144 ], [ 3, %35 ]
   %.not34.i = icmp eq ptr %.1.i, %4
-  br i1 %.not34.i, label %54, label %39
+  br i1 %.not34.i, label %52, label %37
 
-39:                                               ; preds = %.loopexit.i
-  %40 = icmp eq i8 %27, 123
-  br i1 %40, label %41, label %42
+37:                                               ; preds = %.loopexit.i
+  %38 = icmp eq i8 %27, 123
+  br i1 %38, label %39, label %40
 
-41:                                               ; preds = %39
+39:                                               ; preds = %37
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.122) #34
   unreachable
 
-42:                                               ; preds = %39
-  %43 = ptrtoint ptr %.1.i to i64
-  %44 = sub i64 %43, %13
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %46 = icmp ugt i64 %44, 4
-  br i1 %46, label %47, label %.lr.ph.i.i.i
+40:                                               ; preds = %37
+  %41 = ptrtoint ptr %.1.i to i64
+  %42 = sub i64 %41, %13
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %44 = icmp ugt i64 %42, 4
+  br i1 %44, label %45, label %.lr.ph.i.i.i
 
-47:                                               ; preds = %42
+45:                                               ; preds = %40
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.124) #34
   unreachable
 
-.lr.ph.i.i.i:                                     ; preds = %42, %.lr.ph.i.i.i
-  %.08.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i ], [ 0, %42 ]
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %.08.i.i.i
-  %49 = load i8, ptr %48, align 1
-  %50 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 0, i64 %.08.i.i.i
-  store i8 %49, ptr %50, align 1
-  %51 = add nuw nsw i64 %.08.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %51, %44
+.lr.ph.i.i.i:                                     ; preds = %40, %.lr.ph.i.i.i
+  %.08.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i ], [ 0, %40 ]
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %.08.i.i.i
+  %47 = load i8, ptr %46, align 1
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 0, i64 %.08.i.i.i
+  store i8 %47, ptr %48, align 1
+  %49 = add nuw nsw i64 %.08.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %49, %42
   br i1 %exitcond.not.i.i.i, label %_ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit.i, label %.lr.ph.i.i.i, !llvm.loop !1188
 
 _ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit.i: ; preds = %.lr.ph.i.i.i
-  %52 = trunc nuw nsw i64 %44 to i8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 %52, ptr %53, align 1
-  br label %54
+  %50 = trunc nuw nsw i64 %42 to i8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  store i8 %50, ptr %51, align 1
+  br label %52
 
-54:                                               ; preds = %_ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit.i, %.loopexit.i
+52:                                               ; preds = %_ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit.i, %.loopexit.i
   %.1.pn.i = phi ptr [ %.1.i, %_ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit.i ], [ %4, %.loopexit.i ]
   %.030.i = getelementptr inbounds nuw i8, ptr %.1.pn.i, i64 1
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %56 = load i16, ptr %55, align 1
-  %57 = and i16 %56, -16
-  %58 = or disjoint i16 %57, %.129.ph.i
-  store i16 %58, ptr %55, align 1
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %54 = load i16, ptr %53, align 1
+  %55 = and i16 %54, -16
+  %56 = or disjoint i16 %55, %.129.ph.i
+  store i16 %56, ptr %53, align 1
   br label %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
 
-59:                                               ; preds = %37
-  %60 = icmp eq ptr %.1.i, %4
-  br i1 %60, label %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %37, !llvm.loop !1189
+57:                                               ; preds = %35
+  %58 = icmp eq ptr %.1.i, %4
+  br i1 %58, label %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %35, !llvm.loop !1189
 
-_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit: ; preds = %59, %54
-  %.0.i = phi ptr [ %.030.i, %54 ], [ %4, %59 ]
-  %61 = icmp eq ptr %.0.i, %7
-  br i1 %61, label %99, label %62
+_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit: ; preds = %57, %52
+  %.0.i = phi ptr [ %.030.i, %52 ], [ %4, %57 ]
+  %59 = icmp eq ptr %.0.i, %7
+  br i1 %59, label %97, label %60
 
-62:                                               ; preds = %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
-  %63 = load i8, ptr %.0.i, align 1
-  switch i8 %63, label %69 [
-    i8 43, label %64
-    i8 45, label %65
-    i8 32, label %66
-    i8 35, label %67
-    i8 48, label %68
+60:                                               ; preds = %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
+  %61 = load i8, ptr %.0.i, align 1
+  switch i8 %61, label %67 [
+    i8 43, label %62
+    i8 45, label %63
+    i8 32, label %64
+    i8 35, label %65
+    i8 48, label %66
   ]
 
-64:                                               ; preds = %62
+62:                                               ; preds = %60
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.125) #34
   unreachable
 
-65:                                               ; preds = %62
+63:                                               ; preds = %60
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.125) #34
   unreachable
 
-66:                                               ; preds = %62
+64:                                               ; preds = %60
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.125) #34
   unreachable
 
-67:                                               ; preds = %62
+65:                                               ; preds = %60
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.125) #34
   unreachable
 
-68:                                               ; preds = %62
+66:                                               ; preds = %60
   tail call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.125) #34
   unreachable
 
-69:                                               ; preds = %62
-  %70 = call noundef ptr @_ZN3fmt2v96detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef nonnull %.0.i, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(28) %3)
-  %71 = icmp eq ptr %70, %7
-  br i1 %71, label %99, label %72
+67:                                               ; preds = %60
+  %68 = call noundef ptr @_ZN3fmt2v96detail11parse_widthIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef nonnull %.0.i, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(28) %3)
+  %69 = icmp eq ptr %68, %7
+  br i1 %69, label %97, label %70
 
-72:                                               ; preds = %69
-  %73 = load i8, ptr %70, align 1
-  %74 = icmp eq i8 %73, 46
-  br i1 %74, label %75, label %78
+70:                                               ; preds = %67
+  %71 = load i8, ptr %68, align 1
+  %72 = icmp eq i8 %71, 46
+  br i1 %72, label %73, label %76
 
-75:                                               ; preds = %72
-  %76 = call noundef ptr @_ZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef nonnull %70, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(28) %3)
-  %77 = icmp eq ptr %76, %7
-  br i1 %77, label %99, label %thread-pre-split116
+73:                                               ; preds = %70
+  %74 = call noundef ptr @_ZN3fmt2v96detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_(ptr noundef nonnull %68, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(28) %3)
+  %75 = icmp eq ptr %74, %7
+  br i1 %75, label %97, label %thread-pre-split116
 
-thread-pre-split116:                              ; preds = %75
-  %.pr117 = load i8, ptr %76, align 1
-  br label %78
+thread-pre-split116:                              ; preds = %73
+  %.pr117 = load i8, ptr %74, align 1
+  br label %76
 
-78:                                               ; preds = %thread-pre-split116, %72
-  %79 = phi i8 [ %.pr117, %thread-pre-split116 ], [ %73, %72 ]
-  %.3 = phi ptr [ %76, %thread-pre-split116 ], [ %70, %72 ]
-  %80 = icmp eq i8 %79, 76
-  br i1 %80, label %81, label %.thread
+76:                                               ; preds = %thread-pre-split116, %70
+  %77 = phi i8 [ %.pr117, %thread-pre-split116 ], [ %71, %70 ]
+  %.3 = phi ptr [ %74, %thread-pre-split116 ], [ %68, %70 ]
+  %78 = icmp eq i8 %77, 76
+  br i1 %78, label %79, label %.thread
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr %12, align 8
-  %83 = add i32 %82, -1
-  %84 = icmp ult i32 %83, 11
-  br i1 %84, label %86, label %85
+79:                                               ; preds = %76
+  %80 = load i32, ptr %12, align 8
+  %81 = add i32 %80, -1
+  %82 = icmp ult i32 %81, 11
+  br i1 %82, label %84, label %83
 
-85:                                               ; preds = %81
+83:                                               ; preds = %79
   call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.125) #34
   unreachable
 
-86:                                               ; preds = %81
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 9
-  %89 = load i16, ptr %88, align 1
-  %90 = or i16 %89, 256
-  store i16 %90, ptr %88, align 1
-  %91 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  %.not104 = icmp eq ptr %91, %7
-  br i1 %.not104, label %99, label %..thread_crit_edge
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %3, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 9
+  %87 = load i16, ptr %86, align 1
+  %88 = or i16 %87, 256
+  store i16 %88, ptr %86, align 1
+  %89 = getelementptr inbounds nuw i8, ptr %.3, i64 1
+  %.not104 = icmp eq ptr %89, %7
+  br i1 %.not104, label %97, label %..thread_crit_edge
 
-..thread_crit_edge:                               ; preds = %86
-  %.pre = load i8, ptr %91, align 1
+..thread_crit_edge:                               ; preds = %84
+  %.pre = load i8, ptr %89, align 1
   br label %.thread
 
-.thread:                                          ; preds = %..thread_crit_edge, %78
-  %92 = phi i8 [ %.pre, %..thread_crit_edge ], [ %79, %78 ]
-  %.4120 = phi ptr [ %91, %..thread_crit_edge ], [ %.3, %78 ]
-  %.not105 = icmp eq i8 %92, 125
-  br i1 %.not105, label %99, label %93
+.thread:                                          ; preds = %..thread_crit_edge, %76
+  %90 = phi i8 [ %.pre, %..thread_crit_edge ], [ %77, %76 ]
+  %.4120 = phi ptr [ %89, %..thread_crit_edge ], [ %.3, %76 ]
+  %.not105 = icmp eq i8 %90, 125
+  br i1 %.not105, label %97, label %91
 
-93:                                               ; preds = %.thread
-  %94 = call noundef zeroext i8 @_ZN3fmt2v96detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %92)
-  %95 = icmp eq i8 %94, 0
-  br i1 %95, label %.split87, label %.split85
+91:                                               ; preds = %.thread
+  %92 = call noundef zeroext i8 @_ZN3fmt2v96detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %90)
+  %93 = icmp eq i8 %92, 0
+  br i1 %93, label %.split87, label %.split85
 
-.split85:                                         ; preds = %93
-  %96 = getelementptr inbounds nuw i8, ptr %.4120, i64 1
-  %97 = load ptr, ptr %3, align 8
+.split85:                                         ; preds = %91
+  %94 = getelementptr inbounds nuw i8, ptr %.4120, i64 1
+  %95 = load ptr, ptr %3, align 8
   br label %.sink.split
 
-.split87:                                         ; preds = %93
+.split87:                                         ; preds = %91
   call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.97) #34
   unreachable
 
 .sink.split:                                      ; preds = %24, %.split85
-  %.sink142 = phi ptr [ %97, %.split85 ], [ %0, %24 ]
-  %.sink = phi i8 [ %94, %.split85 ], [ %25, %24 ]
-  %.0.ph = phi ptr [ %96, %.split85 ], [ %16, %24 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.sink142, i64 8
-  store i8 %.sink, ptr %98, align 4
-  br label %99
+  %.sink139 = phi ptr [ %95, %.split85 ], [ %0, %24 ]
+  %.sink = phi i8 [ %92, %.split85 ], [ %25, %24 ]
+  %.0.ph = phi ptr [ %94, %.split85 ], [ %16, %24 ]
+  %96 = getelementptr inbounds nuw i8, ptr %.sink139, i64 8
+  store i8 %.sink, ptr %96, align 4
+  br label %97
 
-99:                                               ; preds = %.sink.split, %86, %.thread, %75, %69, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
-  %.0 = phi ptr [ %7, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit ], [ %70, %69 ], [ %76, %75 ], [ %.4120, %.thread ], [ %91, %86 ], [ %.0.ph, %.sink.split ]
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %101 = load i8, ptr %100, align 8
-  switch i8 %101, label %102 [
+97:                                               ; preds = %.sink.split, %84, %.thread, %73, %67, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
+  %.0 = phi ptr [ %7, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit ], [ %68, %67 ], [ %74, %73 ], [ %.4120, %.thread ], [ %89, %84 ], [ %.0.ph, %.sink.split ]
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %99 = load i8, ptr %98, align 8
+  switch i8 %99, label %100 [
     i8 18, label %_ZN3fmt2v96detail22check_string_type_specIRNS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit
     i8 16, label %_ZN3fmt2v96detail22check_string_type_specIRNS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit
     i8 0, label %_ZN3fmt2v96detail22check_string_type_specIRNS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit
   ]
 
-102:                                              ; preds = %99
+100:                                              ; preds = %97
   call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.97) #34
   unreachable
 
-_ZN3fmt2v96detail22check_string_type_specIRNS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit: ; preds = %99, %99, %99, %2
-  %.082 = phi ptr [ %4, %2 ], [ %.0, %99 ], [ %.0, %99 ], [ %.0, %99 ]
+_ZN3fmt2v96detail22check_string_type_specIRNS1_13error_handlerEEEvNS0_17presentation_typeEOT_.exit: ; preds = %97, %97, %97, %2
+  %.082 = phi ptr [ %4, %2 ], [ %.0, %97 ], [ %.0, %97 ], [ %.0, %97 ]
   ret ptr %.082
 }
 
