@@ -1560,9 +1560,10 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
   %13 = zext i16 %11 to i32
   %14 = add nuw nsw i32 %13, %12
   %15 = lshr i32 %14, 1
-  %.sroa.0.0.i = sub nsw i32 %14, %15
-  %16 = trunc i32 %.sroa.0.0.i to i16
-  store i16 %16, ptr %8, align 2
+  %16 = and i32 %14, 1
+  %.sroa.0.0.i = add nuw nsw i32 %15, %16
+  %17 = trunc i32 %.sroa.0.0.i to i16
+  store i16 %17, ptr %8, align 2
   %exitcond.not = icmp eq i64 %7, 8
   br i1 %exitcond.not, label %5, label %6
 }
@@ -2379,9 +2380,10 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..si
   %13 = zext i8 %11 to i16
   %14 = add nuw nsw i16 %13, %12
   %15 = lshr i16 %14, 1
-  %.sroa.0.0.i = sub nsw i16 %14, %15
-  %16 = trunc i16 %.sroa.0.0.i to i8
-  store i8 %16, ptr %8, align 1
+  %16 = and i16 %14, 1
+  %.sroa.0.0.i = add nuw nsw i16 %15, %16
+  %17 = trunc i16 %.sroa.0.0.i to i8
+  store i8 %17, ptr %8, align 1
   %exitcond.not = icmp eq i64 %7, 16
   br i1 %exitcond.not, label %5, label %6
 }

@@ -43459,13 +43459,15 @@ define { i64, i64 } @_ZN14polars_compute7rolling11det_offsets17h5456261938eb85d5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i64, i64 } @_ZN14polars_compute7rolling18det_offsets_center17hba6c4a2cdee8b3deE(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %4 = lshr i64 %1, 1
-  %5 = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 %4)
-  %.sroa.0.0 = add i64 %1, %0
-  %6 = sub i64 %.sroa.0.0, %4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %6, i64 %2)
-  %7 = insertvalue { i64, i64 } poison, i64 %5, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %.sroa.0.0.sroa.speculated.i, 1
-  ret { i64, i64 } %8
+  %5 = and i64 %1, 1
+  %.sroa.0.0 = add nuw i64 %4, %5
+  %6 = sub i64 %1, %.sroa.0.0
+  %7 = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 %6)
+  %8 = add i64 %.sroa.0.0, %0
+  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %2)
+  %9 = insertvalue { i64, i64 } poison, i64 %7, 0
+  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.0.0.sroa.speculated.i, 1
+  ret { i64, i64 } %10
 }
 
 ; Function Attrs: nonlazybind uwtable

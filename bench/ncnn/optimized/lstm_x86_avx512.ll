@@ -6324,8 +6324,8 @@ define hidden noundef i32 @_ZN4ncnn15LSTM_x86_avx51220create_pipeline_int8ERKNS_
 31:                                               ; preds = %2
   %32 = add nsw i32 %27, %17
   %33 = sdiv i32 %15, 4
-  %34 = mul nsw i32 %33, -3
-  %35 = add i32 %34, %15
+  %34 = srem i32 %15, 4
+  %35 = add nsw i32 %33, %34
   tail call void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %23, i32 noundef %32, i32 noundef %35, i32 noundef range(i32 1, 3) %10, i64 noundef 16, i32 noundef 16, ptr noundef null)
   tail call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %24, i32 noundef 32, i32 noundef %35, i32 noundef range(i32 1, 3) %10, i64 noundef 4, ptr noundef null)
   tail call void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %25, i32 noundef %15, i32 noundef 1, i32 noundef range(i32 1, 3) %10, i64 noundef 16, i32 noundef 4, ptr noundef null)

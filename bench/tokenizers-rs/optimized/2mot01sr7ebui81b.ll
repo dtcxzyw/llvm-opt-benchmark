@@ -24689,15 +24689,15 @@ define void @_ZN10tokenizers5utils10truncation18truncate_encodings17h5114fa1d921
           cleanup
   br label %.body
 
-.body:                                            ; preds = %76, %16
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %77, %76 ]
+.body:                                            ; preds = %77, %16
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %78, %77 ]
   %18 = load i64, ptr %2, align 8, !range !1375, !alias.scope !7806, !noundef !4
   %19 = icmp eq i64 %18, -9223372036854775808
   br i1 %19, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit", label %20
 
 20:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr62drop_in_place$LT$tokenizers..tokenizer..encoding..Encoding$GT$17h844824817b6110e1E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %2)
-          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit" unwind label %107
+          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit" unwind label %108
 
 21:                                               ; preds = %10
   %22 = load i64, ptr %2, align 8, !range !1375, !noundef !4
@@ -24752,7 +24752,7 @@ define void @_ZN10tokenizers5utils10truncation18truncate_encodings17h5114fa1d921
   %44 = icmp eq i8 %41, 1
   %brmerge = or i1 %31, %44
   %.mux = select i1 %44, ptr %1, ptr %2
-  br i1 %brmerge, label %79, label %67
+  br i1 %brmerge, label %80, label %68
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -24772,142 +24772,143 @@ define void @_ZN10tokenizers5utils10truncation18truncate_encodings17h5114fa1d921
   %55 = add i64 %.030, %spec.select
   %56 = icmp ugt i64 %55, %8
   %57 = lshr i64 %8, 1
-  %58 = sub i64 %8, %57
-  %.131 = select i1 %56, i64 %58, i64 %.030
+  %58 = and i64 %8, 1
+  %59 = add nuw i64 %57, %58
+  %.131 = select i1 %56, i64 %59, i64 %.030
   %.1 = select i1 %56, i64 %57, i64 %spec.select
   %.2 = select i1 %52, i64 %.131, i64 %.1
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %60 = load i64, ptr %59, align 8, !noundef !4
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %62 = load i8, ptr %61, align 1, !range !1948, !noundef !4
-  %63 = trunc nuw i8 %62 to i1
-  invoke void @_ZN10tokenizers9tokenizer8encoding8Encoding8truncate17ha694338b71b9117dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %1, i64 noundef %.2, i64 noundef %60, i1 noundef zeroext %63)
-          to label %64 unwind label %16
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %61 = load i64, ptr %60, align 8, !noundef !4
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %63 = load i8, ptr %62, align 1, !range !1948, !noundef !4
+  %64 = trunc nuw i8 %63 to i1
+  invoke void @_ZN10tokenizers9tokenizer8encoding8Encoding8truncate17ha694338b71b9117dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %1, i64 noundef %.2, i64 noundef %61, i1 noundef zeroext %64)
+          to label %65 unwind label %16
 
-64:                                               ; preds = %51
+65:                                               ; preds = %51
   %.232 = select i1 %52, i64 %.1, i64 %.131
   br label %.invoke51
 
-65:                                               ; preds = %.invoke51
+66:                                               ; preds = %.invoke51
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %5, ptr noundef nonnull align 8 dereferenceable(240) %1, i64 240, i1 false)
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %66, ptr noundef nonnull align 8 dereferenceable(240) %2, i64 240, i1 false)
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 240
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %67, ptr noundef nonnull align 8 dereferenceable(240) %2, i64 240, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(480) %5, i64 480, i1 false)
   call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %5)
   br label %.critedge
 
-67:                                               ; preds = %43
-  %68 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %69 = tail call noalias noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef range(i64 1, 729) 1, i64 noundef range(i64 1, 9) 1) #47
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %.invoke, label %71
+68:                                               ; preds = %43
+  %69 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %70 = tail call noalias noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef range(i64 1, 729) 1, i64 noundef range(i64 1, 9) 1) #47
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %.invoke, label %72
 
-71:                                               ; preds = %67
-  store i8 0, ptr %69, align 1
-  %72 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %73 = tail call noalias noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef range(i64 1, 729) 8, i64 noundef range(i64 1, 9) 8) #47
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %78
+72:                                               ; preds = %68
+  store i8 0, ptr %70, align 1
+  %73 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %74 = tail call noalias noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef range(i64 1, 729) 8, i64 noundef range(i64 1, 9) 8) #47
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %76, label %79
 
-75:                                               ; preds = %71
+76:                                               ; preds = %72
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h59557ef4a43cd5a6E(i64 noundef 8, i64 noundef 8) #46
-          to label %.noexc45 unwind label %76
+          to label %.noexc45 unwind label %77
 
-.noexc45:                                         ; preds = %75
+.noexc45:                                         ; preds = %76
   unreachable
 
-76:                                               ; preds = %75
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %76
+  %78 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__rust_dealloc(ptr noundef nonnull %69, i64 noundef 1, i64 noundef 1) #47, !noalias !7814
+  tail call void @__rust_dealloc(ptr noundef nonnull %70, i64 noundef 1, i64 noundef 1) #47, !noalias !7814
   br label %.body
 
-78:                                               ; preds = %71
-  store ptr %69, ptr %73, align 8
-  br label %99
+79:                                               ; preds = %72
+  store ptr %70, ptr %74, align 8
+  br label %100
 
-79:                                               ; preds = %43
-  %80 = getelementptr inbounds nuw i8, ptr %.mux, i64 16
-  %81 = load i64, ptr %80, align 8, !alias.scope !7817, !noundef !4
-  %82 = icmp ugt i64 %81, %39
-  br i1 %82, label %87, label %83
+80:                                               ; preds = %43
+  %81 = getelementptr inbounds nuw i8, ptr %.mux, i64 16
+  %82 = load i64, ptr %81, align 8, !alias.scope !7817, !noundef !4
+  %83 = icmp ugt i64 %82, %39
+  br i1 %83, label %88, label %84
 
-83:                                               ; preds = %79
-  %84 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %85 = tail call noalias noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef range(i64 1, 729) 1, i64 noundef range(i64 1, 9) 1) #47
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %.invoke, label %98
+84:                                               ; preds = %80
+  %85 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %86 = tail call noalias noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef range(i64 1, 729) 1, i64 noundef range(i64 1, 9) 1) #47
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %.invoke, label %99
 
-.invoke:                                          ; preds = %83, %67
+.invoke:                                          ; preds = %84, %68
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h59557ef4a43cd5a6E(i64 noundef 1, i64 noundef 1) #46
           to label %.cont unwind label %16
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-87:                                               ; preds = %79
-  %88 = sub nuw i64 %81, %39
-  %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %90 = load i64, ptr %89, align 8, !noundef !4
-  %91 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %92 = load i8, ptr %91, align 1, !range !1948, !noundef !4
-  %93 = trunc nuw i8 %92 to i1
+88:                                               ; preds = %80
+  %89 = sub nuw i64 %82, %39
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %91 = load i64, ptr %90, align 8, !noundef !4
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %93 = load i8, ptr %92, align 1, !range !1948, !noundef !4
+  %94 = trunc nuw i8 %93 to i1
   br label %.invoke51
 
-.invoke51:                                        ; preds = %45, %64, %87
-  %94 = phi ptr [ %.mux, %87 ], [ %2, %64 ], [ %1, %45 ]
-  %95 = phi i64 [ %88, %87 ], [ %.232, %64 ], [ %8, %45 ]
-  %96 = phi i64 [ %90, %87 ], [ %60, %64 ], [ %47, %45 ]
-  %97 = phi i1 [ %93, %87 ], [ %63, %64 ], [ %50, %45 ]
-  invoke void @_ZN10tokenizers9tokenizer8encoding8Encoding8truncate17ha694338b71b9117dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %94, i64 noundef %95, i64 noundef %96, i1 noundef zeroext %97)
-          to label %65 unwind label %16
+.invoke51:                                        ; preds = %45, %65, %88
+  %95 = phi ptr [ %.mux, %88 ], [ %2, %65 ], [ %1, %45 ]
+  %96 = phi i64 [ %89, %88 ], [ %.232, %65 ], [ %8, %45 ]
+  %97 = phi i64 [ %91, %88 ], [ %61, %65 ], [ %47, %45 ]
+  %98 = phi i1 [ %94, %88 ], [ %64, %65 ], [ %50, %45 ]
+  invoke void @_ZN10tokenizers9tokenizer8encoding8Encoding8truncate17ha694338b71b9117dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %95, i64 noundef %96, i64 noundef %97, i1 noundef zeroext %98)
+          to label %66 unwind label %16
 
-98:                                               ; preds = %83
-  store i8 1, ptr %85, align 1
-  br label %99
+99:                                               ; preds = %84
+  store i8 1, ptr %86, align 1
+  br label %100
 
-99:                                               ; preds = %78, %98
-  %.sink = phi ptr [ %73, %78 ], [ %85, %98 ]
-  %anon.5aff903d64c0418843de3a6a2446ca2e.135.sink = phi ptr [ @anon.5aff903d64c0418843de3a6a2446ca2e.135, %78 ], [ @anon.5aff903d64c0418843de3a6a2446ca2e.137, %98 ]
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %anon.5aff903d64c0418843de3a6a2446ca2e.135.sink, ptr %101, align 8
+100:                                              ; preds = %79, %99
+  %.sink = phi ptr [ %74, %79 ], [ %86, %99 ]
+  %anon.5aff903d64c0418843de3a6a2446ca2e.135.sink = phi ptr [ @anon.5aff903d64c0418843de3a6a2446ca2e.135, %79 ], [ @anon.5aff903d64c0418843de3a6a2446ca2e.137, %99 ]
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %101, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %anon.5aff903d64c0418843de3a6a2446ca2e.135.sink, ptr %102, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  %102 = load i64, ptr %2, align 8, !range !1375, !alias.scope !7822, !noundef !4
-  %103 = icmp eq i64 %102, -9223372036854775808
-  br i1 %103, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit50", label %104
+  %103 = load i64, ptr %2, align 8, !range !1375, !alias.scope !7822, !noundef !4
+  %104 = icmp eq i64 %103, -9223372036854775808
+  br i1 %104, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit50", label %105
 
-104:                                              ; preds = %99
+105:                                              ; preds = %100
   invoke void @"_ZN4core3ptr62drop_in_place$LT$tokenizers..tokenizer..encoding..Encoding$GT$17h844824817b6110e1E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %2)
-          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit50" unwind label %105
+          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit50" unwind label %106
 
-105:                                              ; preds = %104
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %105
+  %107 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit"
 
-.critedge:                                        ; preds = %25, %36, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit50", %65
+.critedge:                                        ; preds = %25, %36, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit50", %66
   ret void
 
-"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit50": ; preds = %99, %104
+"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit50": ; preds = %100, %105
   tail call void @"_ZN4core3ptr62drop_in_place$LT$tokenizers..tokenizer..encoding..Encoding$GT$17h844824817b6110e1E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %1)
   br label %.critedge
 
-107:                                              ; preds = %20, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit"
-  %108 = landingpad { ptr, i32 }
+108:                                              ; preds = %20, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit"
+  %109 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hc8e2b17e1b6d1381E() #44
   unreachable
 
-109:                                              ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit"
+110:                                              ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit"
   resume { ptr, i32 } %.pn
 
-"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit": ; preds = %.body, %20, %105
-  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %eh.lpad-body, %20 ], [ %eh.lpad-body, %.body ]
+"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..tokenizer..encoding..Encoding$GT$$GT$17hfb8321c2a93b95a1E.exit": ; preds = %.body, %20, %106
+  %.pn = phi { ptr, i32 } [ %107, %106 ], [ %eh.lpad-body, %20 ], [ %eh.lpad-body, %.body ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$tokenizers..tokenizer..encoding..Encoding$GT$17h844824817b6110e1E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %1) #45
-          to label %109 unwind label %107
+          to label %110 unwind label %108
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
