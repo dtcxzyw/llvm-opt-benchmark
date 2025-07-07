@@ -110634,7 +110634,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEE15_M_range_insertIPKiEEv
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %.idx = sub i64 0, %8
   %22 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr nonnull align 4 %22, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr align 4 %22, i64 %8, i1 false)
   %23 = load ptr, ptr %12, align 8, !tbaa !2802
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %8
   store ptr %24, ptr %12, align 8, !tbaa !2802
@@ -111844,7 +111844,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIjSaIjEE15_M_range_insertIPKjEEv
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %.idx = sub i64 0, %8
   %22 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr nonnull align 4 %22, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr align 4 %22, i64 %8, i1 false)
   %23 = load ptr, ptr %12, align 8, !tbaa !2821
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %8
   store ptr %24, ptr %12, align 8, !tbaa !2821
@@ -113778,7 +113778,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIsSaIsEE15_M_range_insertIPKsEEv
 _ZSt22__uninitialized_move_aIPsS0_SaIsEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %.idx = sub i64 0, %8
   %22 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %13, ptr nonnull align 2 %22, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %13, ptr align 2 %22, i64 %8, i1 false)
   %23 = load ptr, ptr %12, align 8, !tbaa !2852
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %8
   store ptr %24, ptr %12, align 8, !tbaa !2852
@@ -118646,7 +118646,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorItSaItEE15_M_range_insertIPKtEEv
 _ZSt22__uninitialized_move_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %.idx = sub i64 0, %8
   %22 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %13, ptr nonnull align 2 %22, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %13, ptr align 2 %22, i64 %8, i1 false)
   %23 = load ptr, ptr %12, align 8, !tbaa !2930
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %8
   store ptr %24, ptr %12, align 8, !tbaa !2930
@@ -119683,7 +119683,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIlSaIlEE15_M_range_insertIPKlEEv
 _ZSt22__uninitialized_move_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %.idx = sub i64 0, %8
   %22 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %22, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %22, i64 %8, i1 false)
   %23 = load ptr, ptr %12, align 8, !tbaa !2947
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %8
   store ptr %24, ptr %12, align 8, !tbaa !2947
@@ -120719,7 +120719,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE15_M_range_insertIPKmEEv
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %.idx = sub i64 0, %8
   %22 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %22, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %22, i64 %8, i1 false)
   %23 = load ptr, ptr %12, align 8, !tbaa !2965
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %8
   store ptr %24, ptr %12, align 8, !tbaa !2965
@@ -121756,7 +121756,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIxSaIxEE15_M_range_insertIPKxEEv
 _ZSt22__uninitialized_move_aIPxS0_SaIxEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %.idx = sub i64 0, %8
   %22 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %22, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %22, i64 %8, i1 false)
   %23 = load ptr, ptr %12, align 8, !tbaa !2983
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %8
   store ptr %24, ptr %12, align 8, !tbaa !2983
@@ -126590,7 +126590,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIySaIyEE15_M_range_insertIPKyEEv
 _ZSt22__uninitialized_move_aIPyS0_SaIyEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %.idx = sub i64 0, %8
   %22 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %22, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %22, i64 %8, i1 false)
   %23 = load ptr, ptr %12, align 8, !tbaa !3061
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %8
   store ptr %24, ptr %12, align 8, !tbaa !3061
@@ -127742,7 +127742,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIaSaIaEE15_M_range_insertIPKaEEv
 _ZSt22__uninitialized_move_aIPaS0_SaIaEET0_T_S3_S2_RT1_.exit: ; preds = %16
   %20 = sub i64 0, %8
   %21 = getelementptr inbounds i8, ptr %12, i64 %20
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %12, ptr nonnull align 1 %21, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %12, ptr align 1 %21, i64 %8, i1 false)
   %22 = load ptr, ptr %11, align 8, !tbaa !3078
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %8
   store ptr %23, ptr %11, align 8, !tbaa !3078
@@ -127754,7 +127754,7 @@ _ZSt22__uninitialized_move_aIPaS0_SaIaEET0_T_S3_S2_RT1_.exit: ; preds = %16
   %26 = sub i64 %25, %17
   %27 = sub i64 0, %26
   %28 = getelementptr inbounds i8, ptr %12, i64 %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %1, i64 %26, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %28, ptr align 1 %1, i64 %26, i1 false)
   br label %_ZSt4copyIPKaN9__gnu_cxx17__normal_iteratorIPaSt6vectorIaSaIaEEEEET0_T_SA_S9_.exit
 
 _ZSt4copyIPKaN9__gnu_cxx17__normal_iteratorIPaSt6vectorIaSaIaEEEEET0_T_SA_S9_.exit: ; preds = %_ZSt22__uninitialized_move_aIPaS0_SaIaEET0_T_S3_S2_RT1_.exit, %24
@@ -128889,7 +128889,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEv
 _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; preds = %16
   %20 = sub i64 0, %8
   %21 = getelementptr inbounds i8, ptr %12, i64 %20
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %12, ptr nonnull align 1 %21, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %12, ptr align 1 %21, i64 %8, i1 false)
   %22 = load ptr, ptr %11, align 8, !tbaa !3109
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %8
   store ptr %23, ptr %11, align 8, !tbaa !3109
@@ -128901,7 +128901,7 @@ _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; preds = %16
   %26 = sub i64 %25, %17
   %27 = sub i64 0, %26
   %28 = getelementptr inbounds i8, ptr %12, i64 %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %1, i64 %26, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %28, ptr align 1 %1, i64 %26, i1 false)
   br label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.exit
 
 _ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.exit: ; preds = %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit, %24
@@ -130038,7 +130038,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKcEEv
 _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit: ; preds = %16
   %20 = sub i64 0, %8
   %21 = getelementptr inbounds i8, ptr %12, i64 %20
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %12, ptr nonnull align 1 %21, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %12, ptr align 1 %21, i64 %8, i1 false)
   %22 = load ptr, ptr %11, align 8, !tbaa !3140
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %8
   store ptr %23, ptr %11, align 8, !tbaa !3140
@@ -130050,7 +130050,7 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit: ; preds = %16
   %26 = sub i64 %25, %17
   %27 = sub i64 0, %26
   %28 = getelementptr inbounds i8, ptr %12, i64 %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %1, i64 %26, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %28, ptr align 1 %1, i64 %26, i1 false)
   br label %_ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit
 
 _ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit: ; preds = %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit, %24
@@ -131048,7 +131048,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIwSaIwEE15_M_range_insertIPKwEEv
 _ZSt22__uninitialized_move_aIPwS0_SaIwEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %.idx = sub i64 0, %8
   %22 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr nonnull align 4 %22, i64 %8, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %13, ptr align 4 %22, i64 %8, i1 false)
   %23 = load ptr, ptr %12, align 8, !tbaa !3171
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %8
   store ptr %24, ptr %12, align 8, !tbaa !3171

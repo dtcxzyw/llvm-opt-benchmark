@@ -37601,7 +37601,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPN4mold9InputFileINS0_6X86_64EE
 _ZSt22__uninitialized_move_aIPPN4mold9InputFileINS0_6X86_64EEES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %18
   %.idx = sub i64 0, %9
   %23 = getelementptr inbounds i8, ptr %14, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr nonnull align 8 %23, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr align 8 %23, i64 %9, i1 false)
   %24 = load ptr, ptr %13, align 8, !tbaa !1124
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %9
   store ptr %25, ptr %13, align 8, !tbaa !1124
@@ -37790,7 +37790,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPN4mold9InputFileINS0_6X86_64EE
 _ZSt22__uninitialized_move_aIPPN4mold9InputFileINS0_6X86_64EEES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %18
   %.idx = sub i64 0, %9
   %23 = getelementptr inbounds i8, ptr %14, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr nonnull align 8 %23, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr align 8 %23, i64 %9, i1 false)
   %24 = load ptr, ptr %13, align 8, !tbaa !1124
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %9
   store ptr %25, ptr %13, align 8, !tbaa !1124
@@ -44379,7 +44379,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPN4mold10ObjectFileINS0_6X86_64
 _ZSt22__uninitialized_move_aIPPN4mold10ObjectFileINS0_6X86_64EEES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %18
   %.idx = sub i64 0, %9
   %23 = getelementptr inbounds i8, ptr %14, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr nonnull align 8 %23, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr align 8 %23, i64 %9, i1 false)
   %24 = load ptr, ptr %13, align 8, !tbaa !301
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %9
   store ptr %25, ptr %13, align 8, !tbaa !301
@@ -56580,7 +56580,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPN4mold5ChunkINS0_6X86_64EEESaI
 _ZSt22__uninitialized_move_aIPPN4mold5ChunkINS0_6X86_64EEES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %18
   %.idx = sub i64 0, %9
   %23 = getelementptr inbounds i8, ptr %14, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr nonnull align 8 %23, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr align 8 %23, i64 %9, i1 false)
   %24 = load ptr, ptr %13, align 8, !tbaa !440
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %9
   store ptr %25, ptr %13, align 8, !tbaa !440
@@ -105029,7 +105029,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPN4mold6SymbolINS0_6X86_64EEESa
 _ZSt22__uninitialized_move_aIPPN4mold6SymbolINS0_6X86_64EEES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %18
   %.idx = sub i64 0, %9
   %23 = getelementptr inbounds i8, ptr %14, i64 %.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr nonnull align 8 %23, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr align 8 %23, i64 %9, i1 false)
   %24 = load ptr, ptr %13, align 8, !tbaa !316
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %9
   store ptr %25, ptr %13, align 8, !tbaa !316
@@ -128053,7 +128053,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gn
 _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %21 = sub i64 0, %9
   %22 = getelementptr inbounds i8, ptr %13, i64 %21
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %13, ptr nonnull align 1 %22, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %13, ptr align 1 %22, i64 %9, i1 false)
   %23 = load ptr, ptr %12, align 8, !tbaa !1315
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %9
   store ptr %24, ptr %12, align 8, !tbaa !1315
@@ -128065,7 +128065,7 @@ _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %27 = sub i64 %26, %18
   %28 = sub i64 0, %27
   %29 = getelementptr inbounds i8, ptr %13, i64 %28
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %1, i64 %27, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %29, ptr align 1 %1, i64 %27, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T_SB_SA_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T_SB_SA_.exit: ; preds = %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit, %25

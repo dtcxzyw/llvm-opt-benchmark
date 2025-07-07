@@ -279,26 +279,30 @@ define internal fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef %1, i3
   store i32 %15, ptr %13, align 4, !tbaa !3
   %16 = load i32, ptr %4, align 8, !tbaa !10
   %17 = icmp sgt i32 %15, %16
-  br i1 %17, label %18, label %20
+  br i1 %17, label %Vec_IntFetch.exit.thread, label %Vec_IntFetch.exit
 
-18:                                               ; preds = %5
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 -1, ptr %19, align 4, !tbaa !15
+Vec_IntFetch.exit:                                ; preds = %5
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !11
+  %20 = sext i32 %15 to i64
+  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  %22 = sext i32 %12 to i64
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i32, ptr %21, i64 %23
+  %25 = icmp eq ptr %19, null
+  br i1 %25, label %Vec_IntFetch.exit.thread, label %27
+
+Vec_IntFetch.exit.thread:                         ; preds = %5, %Vec_IntFetch.exit
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 -1, ptr %26, align 4, !tbaa !15
   br label %Kit_TruthClear.exit
 
-20:                                               ; preds = %5
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !11
-  %23 = sext i32 %15 to i64
-  %24 = getelementptr inbounds i32, ptr %22, i64 %23
-  %25 = sext i32 %12 to i64
-  %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds i32, ptr %24, i64 %26
+27:                                               ; preds = %Vec_IntFetch.exit
   %28 = zext i32 %12 to i64
   br label %select.unfold.i
 
-select.unfold.i:                                  ; preds = %31, %20
-  %indvars.iv.i = phi i64 [ %28, %20 ], [ %32, %31 ]
+select.unfold.i:                                  ; preds = %31, %27
+  %indvars.iv.i = phi i64 [ %28, %27 ], [ %32, %31 ]
   %29 = trunc nuw i64 %indvars.iv.i to i32
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %Kit_TruthIsConst0.exit
@@ -317,7 +321,7 @@ Kit_TruthIsConst0.exit:                           ; preds = %select.unfold.i
 
 select.unfold.preheader.i:                        ; preds = %Kit_TruthIsConst0.exit
   %36 = shl nuw nsw i64 %28, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %27, i8 0, i64 %36, i1 false), !tbaa !12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %24, i8 0, i64 %36, i1 false), !tbaa !12
   br label %Kit_TruthClear.exit
 
 select.unfold.i177:                               ; preds = %31, %39
@@ -350,7 +354,7 @@ select.unfold.i177:                               ; preds = %31, %39
 
 48:                                               ; preds = %43
   %49 = sext i32 %45 to i64
-  %50 = getelementptr inbounds i32, ptr %22, i64 %49
+  %50 = getelementptr inbounds i32, ptr %19, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -4
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %51, ptr %52, align 8, !tbaa !17
@@ -360,7 +364,7 @@ select.unfold.i177:                               ; preds = %31, %39
 
 select.unfold.preheader.i184:                     ; preds = %48
   %54 = shl nuw nsw i64 %28, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %27, i8 -1, i64 %54, i1 false), !tbaa !12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %24, i8 -1, i64 %54, i1 false), !tbaa !12
   br label %Kit_TruthClear.exit
 
 Kit_TruthIsConst1.exit:                           ; preds = %39, %58
@@ -392,7 +396,7 @@ Kit_TruthIsConst1.exit:                           ; preds = %39, %58
 
 .lr.ph262:                                        ; preds = %.thread, %.lr.ph262
   %indvars.iv300 = phi i64 [ %indvars.iv.next301, %.lr.ph262 ], [ 0, %.thread ]
-  %66 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv300
+  %66 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv300
   store i32 %64, ptr %66, align 4, !tbaa !12
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
   %exitcond304.not = icmp eq i64 %indvars.iv.next301, %28
@@ -404,7 +408,7 @@ Kit_TruthIsConst1.exit:                           ; preds = %39, %58
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i32, ptr %0, i64 %70
   %72 = getelementptr inbounds i32, ptr %1, i64 %70
-  %73 = getelementptr inbounds i32, ptr %27, i64 %70
+  %73 = getelementptr inbounds i32, ptr %24, i64 %70
   %.not240 = icmp eq i32 %68, 31
   br i1 %.not240, label %Kit_TruthSharp.exit.thread, label %select.unfold.preheader.i186
 
@@ -421,20 +425,20 @@ select.unfold.i187:                               ; preds = %select.unfold.i187,
   %78 = load i32, ptr %77, align 4, !tbaa !12
   %79 = xor i32 %78, -1
   %80 = and i32 %76, %79
-  %81 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.next.i
+  %81 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next.i
   store i32 %80, ptr %81, align 4, !tbaa !12
   %82 = icmp samesign ugt i64 %indvars.iv.i188, 1
   br i1 %82, label %select.unfold.i187, label %Kit_TruthSharp.exit, !llvm.loop !23
 
 Kit_TruthSharp.exit:                              ; preds = %select.unfold.i187
-  %83 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %27, ptr noundef nonnull %1, i32 noundef %.0164, ptr noundef %6, ptr noundef nonnull %4)
+  %83 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %24, ptr noundef nonnull %1, i32 noundef %.0164, ptr noundef %6, ptr noundef nonnull %4)
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %85 = load i32, ptr %84, align 4, !tbaa !15
   %86 = icmp eq i32 %85, -1
   br i1 %86, label %91, label %select.unfold.i191
 
 Kit_TruthSharp.exit.thread:                       ; preds = %67
-  %87 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %27, ptr noundef %1, i32 noundef %.0164, ptr noundef %6, ptr noundef nonnull %4)
+  %87 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %24, ptr noundef %1, i32 noundef %.0164, ptr noundef %6, ptr noundef nonnull %4)
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !15
   %90 = icmp eq i32 %89, -1
@@ -487,7 +491,7 @@ select.unfold.i197:                               ; preds = %Kit_TruthSharp.exit
   %114 = load i32, ptr %113, align 4, !tbaa !12
   %115 = xor i32 %114, -1
   %116 = and i32 %112, %115
-  %117 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.next.i199
+  %117 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next.i199
   store i32 %116, ptr %117, align 4, !tbaa !12
   %118 = icmp samesign ugt i64 %indvars.iv.i198, 1
   br i1 %118, label %select.unfold.i197, label %select.unfold.i203, !llvm.loop !23
@@ -509,7 +513,7 @@ select.unfold.i203:                               ; preds = %select.unfold.i197,
 select.unfold.i209:                               ; preds = %select.unfold.i203, %select.unfold.i209
   %indvars.iv.i210 = phi i64 [ %indvars.iv.next.i211, %select.unfold.i209 ], [ %74, %select.unfold.i203 ]
   %indvars.iv.next.i211 = add nsw i64 %indvars.iv.i210, -1
-  %127 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.next.i211
+  %127 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next.i211
   %128 = load i32, ptr %127, align 4, !tbaa !12
   %129 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.next.i211
   %130 = load i32, ptr %129, align 4, !tbaa !12
@@ -536,7 +540,7 @@ Kit_TruthAnd.exit:                                ; preds = %select.unfold.i214,
   %141 = phi ptr [ %101, %Kit_TruthSharp.exit194 ], [ %105, %select.unfold.i214 ]
   %142 = phi i32 [ %89, %Kit_TruthSharp.exit194 ], [ %85, %select.unfold.i214 ]
   %143 = phi ptr [ %87, %Kit_TruthSharp.exit194 ], [ %83, %select.unfold.i214 ]
-  %144 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %27, ptr noundef nonnull %73, i32 noundef %.0164, ptr noundef %8, ptr noundef nonnull %4)
+  %144 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %24, ptr noundef nonnull %73, i32 noundef %.0164, ptr noundef %8, ptr noundef nonnull %4)
   %145 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %146 = load i32, ptr %145, align 4, !tbaa !15
   %147 = icmp eq i32 %146, -1
@@ -577,7 +581,7 @@ Vec_IntFetch.exit218.thread:                      ; preds = %150, %161
   br label %Kit_TruthClear.exit
 
 Vec_IntFetch.exit218:                             ; preds = %161
-  %167 = load ptr, ptr %21, align 8, !tbaa !11
+  %167 = load ptr, ptr %18, align 8, !tbaa !11
   %168 = sext i32 %163 to i64
   %169 = getelementptr inbounds i32, ptr %167, i64 %168
   %170 = sext i32 %158 to i64
@@ -677,7 +681,7 @@ select.unfold.i221:                               ; preds = %select.unfold.i221,
   %207 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv.next.i223
   %208 = load i32, ptr %207, align 4, !tbaa !12
   %209 = or i32 %208, %206
-  %210 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.next.i223
+  %210 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next.i223
   store i32 %209, ptr %210, align 4, !tbaa !12
   %211 = icmp samesign ugt i64 %indvars.iv.i222, 1
   br i1 %211, label %select.unfold.i221, label %select.unfold.i227, !llvm.loop !24
@@ -711,12 +715,12 @@ Kit_TruthOr.exit230:                              ; preds = %select.unfold.i227,
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge259.us
   %indvars.iv295 = phi i64 [ 1, %.preheader.us.preheader ], [ %indvars.iv.next296, %._crit_edge259.us ]
   %224 = mul nuw nsw i64 %indvars.iv295, %223
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %27, i64 %224
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %24, i64 %224
   br label %225
 
 225:                                              ; preds = %.preheader.us, %225
   %indvars.iv290 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next291, %225 ]
-  %226 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv290
+  %226 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv290
   %227 = load i32, ptr %226, align 4, !tbaa !12
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv290
   store i32 %227, ptr %gep, align 4, !tbaa !12
@@ -729,8 +733,8 @@ Kit_TruthOr.exit230:                              ; preds = %select.unfold.i227,
   %exitcond299.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count298
   br i1 %exitcond299.not, label %Kit_TruthClear.exit, label %.preheader.us, !llvm.loop !30
 
-Kit_TruthClear.exit:                              ; preds = %._crit_edge259.us, %.lr.ph262, %Kit_TruthOr.exit230, %.thread, %select.unfold.preheader.i184, %48, %select.unfold.preheader.i, %Kit_TruthIsConst0.exit, %Vec_IntFetch.exit218.thread, %148, %109, %91, %46, %18
-  %.0 = phi ptr [ null, %18 ], [ null, %46 ], [ null, %91 ], [ null, %109 ], [ null, %148 ], [ null, %Vec_IntFetch.exit218.thread ], [ %27, %Kit_TruthIsConst0.exit ], [ %27, %select.unfold.preheader.i ], [ %27, %48 ], [ %27, %select.unfold.preheader.i184 ], [ %27, %.thread ], [ %27, %Kit_TruthOr.exit230 ], [ %27, %.lr.ph262 ], [ %27, %._crit_edge259.us ]
+Kit_TruthClear.exit:                              ; preds = %._crit_edge259.us, %.lr.ph262, %Kit_TruthOr.exit230, %.thread, %select.unfold.preheader.i184, %48, %select.unfold.preheader.i, %Kit_TruthIsConst0.exit, %Vec_IntFetch.exit218.thread, %148, %109, %91, %46, %Vec_IntFetch.exit.thread
+  %.0 = phi ptr [ null, %Vec_IntFetch.exit.thread ], [ null, %46 ], [ null, %91 ], [ null, %109 ], [ null, %148 ], [ null, %Vec_IntFetch.exit218.thread ], [ %24, %Kit_TruthIsConst0.exit ], [ %24, %select.unfold.preheader.i ], [ %24, %48 ], [ %24, %select.unfold.preheader.i184 ], [ %24, %.thread ], [ %24, %Kit_TruthOr.exit230 ], [ %24, %.lr.ph262 ], [ %24, %._crit_edge259.us ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10

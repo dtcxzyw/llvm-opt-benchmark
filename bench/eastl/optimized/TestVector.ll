@@ -3458,7 +3458,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   %sub.i.i.i.i = sub i64 %6, %5
   %idx.neg.i.i.i.i = sub i64 0, %sub.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %idx.neg.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i, i1 false)
   br label %_ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit
 
 _ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit: ; preds = %if.then, %if.then.i.i.i.i
@@ -3589,7 +3589,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then9
   %sub.i.i.i.i = sub i64 %4, %sub.ptr.rhs.cast6
   %idx.neg.i.i.i.i = sub i64 0, %sub.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %idx.neg.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i, i1 false)
   br label %if.end.sink.split
 
 if.else:                                          ; preds = %if.then3
@@ -16410,7 +16410,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   %sub.i.i.i.i.i = sub i64 %4, %3
   %idx.neg.i.i.i.i.i = sub i64 0, %sub.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds %struct.HasAddressOfOperator, ptr %1, i64 %idx.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i.i, i1 false)
   %.pre.i = load ptr, ptr %mpEnd, align 8
   %.pre.pre = load ptr, ptr %this, align 8
   br label %_ZN5eastl13move_backwardIP20HasAddressOfOperatorS2_EET0_T_S4_S3_.exit.i
@@ -16560,7 +16560,7 @@ if.end.sink.split:                                ; preds = %if.then.i.i.i.i, %i
   %add.ptr23.sink = phi ptr [ %add.ptr23, %if.end.i.i.i.i.i.i31 ], [ %2, %if.then.i.i.i.i ]
   %idx.neg24 = sub i64 0, %sub.ptr.sub7.sink45
   %add.ptr25 = getelementptr inbounds %struct.HasAddressOfOperator, ptr %add.ptr23.sink, i64 %idx.neg24
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr align 1 %position, i64 %sub.ptr.sub7.sink45, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr25, ptr align 1 %position, i64 %sub.ptr.sub7.sink45, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %if.else, %if.then9
@@ -16671,7 +16671,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i
   %sub.i.i.i.i.i = sub i64 %4, %3
   %idx.neg.i.i.i.i.i = sub i64 0, %sub.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds %struct.HasAddressOfOperator, ptr %1, i64 %idx.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i.i, i1 false)
   %.pre.i = load ptr, ptr %mpEnd, align 8
   %.pre.pre = load ptr, ptr %this, align 8
   br label %_ZN5eastl13move_backwardIP20HasAddressOfOperatorS2_EET0_T_S4_S3_.exit.i
@@ -35173,7 +35173,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   %sub.i.i.i.i = sub i64 %6, %5
   %idx.neg.i.i.i.i = sub i64 0, %sub.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %idx.neg.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i, i1 false)
   br label %_ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit
 
 _ZN5eastl13move_backwardIPbS1_EET0_T_S3_S2_.exit: ; preds = %if.then, %if.then.i.i.i.i
@@ -35281,7 +35281,7 @@ if.then4:                                         ; preds = %if.then
 if.then10:                                        ; preds = %if.then4
   %idx.neg = sub i64 0, %sub.ptr.sub.i.i
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %add.ptr, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr align 1 %add.ptr, i64 %sub.ptr.sub.i.i, i1 false)
   %2 = load ptr, ptr %mpEnd, align 8
   %add.ptr17 = getelementptr inbounds i8, ptr %2, i64 %idx.neg
   %cmp.not.i.i.i.i = icmp eq ptr %add.ptr17, %position
@@ -35292,7 +35292,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then10
   %sub.i.i.i.i = sub i64 %3, %sub.ptr.rhs.cast7
   %idx.neg.i.i.i.i = sub i64 0, %sub.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %idx.neg.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i, i1 false)
   br label %if.end.sink.split
 
 if.else:                                          ; preds = %if.then4
@@ -36792,7 +36792,7 @@ if.then4:                                         ; preds = %if.then
 if.then10:                                        ; preds = %if.then4
   %idx.neg = sub i64 0, %sub.ptr.sub.i.i
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %add.ptr, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr align 1 %add.ptr, i64 %sub.ptr.sub.i.i, i1 false)
   %2 = load ptr, ptr %mpEnd, align 8
   %add.ptr17 = getelementptr inbounds %struct.HasAddressOfOperator, ptr %2, i64 %idx.neg
   %cmp.not.i.i.i.i = icmp eq ptr %add.ptr17, %position
@@ -36803,7 +36803,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then10
   %sub.i.i.i.i = sub i64 %3, %sub.ptr.rhs.cast7
   %idx.neg.i.i.i.i = sub i64 0, %sub.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds %struct.HasAddressOfOperator, ptr %2, i64 %idx.neg.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i, i1 false)
   br label %if.end.sink.split
 
 if.else:                                          ; preds = %if.then4
