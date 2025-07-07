@@ -42657,7 +42657,7 @@ define internal fastcc void @GC_remove_protection(ptr noundef %0, i64 noundef ra
   %.035 = phi ptr [ %39, %38 ], [ %11, %.lr.ph ]
   %27 = icmp uge ptr %.035, %0
   %28 = icmp ult ptr %.035, %12
-  %or.cond32 = select i1 %27, i1 %28, i1 false
+  %or.cond32 = and i1 %28, %27
   br i1 %or.cond32, label %38, label %29
 
 29:                                               ; preds = %.lr.ph.split

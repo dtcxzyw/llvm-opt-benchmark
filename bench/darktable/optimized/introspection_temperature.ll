@@ -3362,170 +3362,168 @@ define internal fastcc void @_find_coeffs(ptr noundef readonly captures(none) %0
   br label %12
 
 11:                                               ; preds = %12
-  br i1 %or.cond, label %.preheader, label %24
+  br i1 %15, label %.preheader, label %23
 
 12:                                               ; preds = %2, %12
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !6
   %15 = tail call i1 @llvm.is.fpclass.f32(float %14, i32 264)
-  %16 = fcmp reassoc nsz arcp contract afn une float %14, 0.000000e+00
-  %or.cond = select i1 %15, i1 %16, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = icmp samesign ult i64 %indvars.iv.next, %9
-  %18 = select i1 %or.cond, i1 %17, i1 false
-  br i1 %18, label %12, label %11
+  %16 = icmp samesign ult i64 %indvars.iv.next, %9
+  %17 = select i1 %15, i1 %16, i1 false
+  br i1 %17, label %12, label %11
 
 .preheader:                                       ; preds = %11, %.preheader
-  %.05175 = phi i64 [ %23, %.preheader ], [ 0, %11 ]
-  %19 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05175
-  %20 = load float, ptr %19, align 4, !tbaa !6
-  %21 = fpext reassoc nsz arcp contract afn float %20 to double
-  %22 = getelementptr inbounds nuw double, ptr %1, i64 %.05175
-  store double %21, ptr %22, align 8, !tbaa !78
-  %23 = add nuw nsw i64 %.05175, 1
-  %exitcond82.not = icmp eq i64 %23, 4
-  br i1 %exitcond82.not, label %.loopexit, label %.preheader
+  %.05175 = phi i64 [ %22, %.preheader ], [ 0, %11 ]
+  %18 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.05175
+  %19 = load float, ptr %18, align 4, !tbaa !6
+  %20 = fpext reassoc nsz arcp contract afn float %19 to double
+  %21 = getelementptr inbounds nuw double, ptr %1, i64 %.05175
+  store double %20, ptr %21, align 8, !tbaa !78
+  %22 = add nuw nsw i64 %.05175, 1
+  %exitcond83.not = icmp eq i64 %22, 4
+  br i1 %exitcond83.not, label %.loopexit, label %.preheader
 
-24:                                               ; preds = %11
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %26 = tail call i32 @dt_image_is_matrix_correction_supported(ptr noundef nonnull %25) #24
-  %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %.loopexit.sink.split, label %27
+23:                                               ; preds = %11
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %25 = tail call i32 @dt_image_is_matrix_correction_supported(ptr noundef nonnull %24) #24
+  %.not.i = icmp eq i32 %25, 0
+  br i1 %.not.i, label %.loopexit.sink.split, label %26
 
-27:                                               ; preds = %24
+26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
-  %28 = load ptr, ptr %4, align 8, !tbaa !65
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1872
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 1728
-  %31 = call i32 @dt_colorspaces_conversion_matrices_rgb(ptr noundef nonnull %29, ptr noundef null, ptr noundef null, ptr noundef nonnull %30, ptr noundef nonnull %3) #24
-  %.not11.i.not = icmp eq i32 %31, 0
+  %27 = load ptr, ptr %4, align 8, !tbaa !65
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1872
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 1728
+  %30 = call i32 @dt_colorspaces_conversion_matrices_rgb(ptr noundef nonnull %28, ptr noundef null, ptr noundef null, ptr noundef nonnull %29, ptr noundef nonnull %3) #24
+  %.not11.i.not = icmp eq i32 %30, 0
   br i1 %.not11.i.not, label %.critedge65, label %_calculate_bogus_daylight_wb.exit
 
-_calculate_bogus_daylight_wb.exit:                ; preds = %27
-  %32 = load double, ptr %3, align 16, !tbaa !78
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %34 = load double, ptr %33, align 8, !tbaa !78
-  %35 = fdiv reassoc nsz arcp contract afn double %32, %34
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %37 = load double, ptr %36, align 16, !tbaa !78
-  %38 = fdiv reassoc nsz arcp contract afn double %37, %34
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %40 = load double, ptr %39, align 8, !tbaa !78
-  %41 = fdiv reassoc nsz arcp contract afn double %40, %34
+_calculate_bogus_daylight_wb.exit:                ; preds = %26
+  %31 = load double, ptr %3, align 16, !tbaa !78
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %33 = load double, ptr %32, align 8, !tbaa !78
+  %34 = fdiv reassoc nsz arcp contract afn double %31, %33
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %36 = load double, ptr %35, align 16, !tbaa !78
+  %37 = fdiv reassoc nsz arcp contract afn double %36, %33
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %39 = load double, ptr %38, align 8, !tbaa !78
+  %40 = fdiv reassoc nsz arcp contract afn double %39, %33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
   br label %.loopexit.sink.split
 
-.critedge65:                                      ; preds = %27
+.critedge65:                                      ; preds = %26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
-  %42 = call i32 @dt_wb_presets_count() #24
-  %.not5671 = icmp sgt i32 %42, 0
+  %41 = call i32 @dt_wb_presets_count() #24
+  %.not5671 = icmp sgt i32 %41, 0
   br i1 %.not5671, label %.lr.ph, label %.critedge60
 
 .lr.ph:                                           ; preds = %.critedge65
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 904
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 968
-  br label %45
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 904
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 968
+  br label %44
 
-45:                                               ; preds = %.lr.ph, %58
-  %.04772 = phi i32 [ 0, %.lr.ph ], [ %59, %58 ]
-  %46 = call ptr @dt_wb_preset(i32 noundef %.04772) #24
-  %47 = load ptr, ptr %46, align 8, !tbaa !127
-  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) %43) #26
-  %.not54 = icmp eq i32 %48, 0
-  br i1 %.not54, label %49, label %58
+44:                                               ; preds = %.lr.ph, %57
+  %.04772 = phi i32 [ 0, %.lr.ph ], [ %58, %57 ]
+  %45 = call ptr @dt_wb_preset(i32 noundef %.04772) #24
+  %46 = load ptr, ptr %45, align 8, !tbaa !127
+  %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %42) #26
+  %.not54 = icmp eq i32 %47, 0
+  br i1 %.not54, label %48, label %57
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !129
-  %52 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %44) #26
-  %.not55 = icmp eq i32 %52, 0
-  br i1 %.not55, label %.preheader67, label %58
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !129
+  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %43) #26
+  %.not55 = icmp eq i32 %51, 0
+  br i1 %.not55, label %.preheader67, label %57
 
-.preheader67:                                     ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  br label %54
+.preheader67:                                     ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  br label %53
 
-54:                                               ; preds = %.preheader67, %54
-  %indvars.iv79 = phi i64 [ 0, %.preheader67 ], [ %indvars.iv.next80, %54 ]
-  %55 = getelementptr inbounds nuw [4 x double], ptr %53, i64 0, i64 %indvars.iv79
-  %56 = load double, ptr %55, align 8, !tbaa !78
-  %57 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv79
-  store double %56, ptr %57, align 8, !tbaa !78
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next80, 3
-  br i1 %exitcond.not, label %.loopexit, label %54
+53:                                               ; preds = %.preheader67, %53
+  %indvars.iv80 = phi i64 [ 0, %.preheader67 ], [ %indvars.iv.next81, %53 ]
+  %54 = getelementptr inbounds nuw [4 x double], ptr %52, i64 0, i64 %indvars.iv80
+  %55 = load double, ptr %54, align 8, !tbaa !78
+  %56 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv80
+  store double %55, ptr %56, align 8, !tbaa !78
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next81, 3
+  br i1 %exitcond.not, label %.loopexit, label %53
 
-58:                                               ; preds = %49, %45
-  %59 = add nuw nsw i32 %.04772, 1
-  %60 = call i32 @dt_wb_presets_count() #24
-  %.not56 = icmp slt i32 %59, %60
-  br i1 %.not56, label %45, label %.critedge60
+57:                                               ; preds = %48, %44
+  %58 = add nuw nsw i32 %.04772, 1
+  %59 = call i32 @dt_wb_presets_count() #24
+  %.not56 = icmp slt i32 %58, %59
+  br i1 %.not56, label %44, label %.critedge60
 
-.critedge60:                                      ; preds = %58, %.critedge65
-  %61 = load ptr, ptr %4, align 8, !tbaa !65
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1228
-  %63 = call i32 @g_str_has_suffix(ptr noundef nonnull %62, ptr noundef nonnull @.str.70) #24
-  %.not.i61 = icmp eq i32 %63, 0
-  br i1 %.not.i61, label %64, label %.loopexit.sink.split
+.critedge60:                                      ; preds = %57, %.critedge65
+  %60 = load ptr, ptr %4, align 8, !tbaa !65
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1228
+  %62 = call i32 @g_str_has_suffix(ptr noundef nonnull %61, ptr noundef nonnull @.str.70) #24
+  %.not.i61 = icmp eq i32 %62, 0
+  br i1 %.not.i61, label %63, label %.loopexit.sink.split
 
-64:                                               ; preds = %.critedge60
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 1956
-  %66 = load i32, ptr %65, align 4, !tbaa !195
-  switch i32 %66, label %.loopexit.sink.split [
-    i32 0, label %67
-    i32 8, label %67
+63:                                               ; preds = %.critedge60
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 1956
+  %65 = load i32, ptr %64, align 4, !tbaa !195
+  switch i32 %65, label %.loopexit.sink.split [
+    i32 0, label %66
+    i32 8, label %66
   ]
 
-67:                                               ; preds = %64, %64
-  %68 = getelementptr inbounds nuw i8, ptr %61, i64 1096
-  br label %69
+66:                                               ; preds = %63, %63
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 1096
+  br label %68
 
-69:                                               ; preds = %69, %67
-  %indvars.iv.i = phi i64 [ 0, %67 ], [ %indvars.iv.next.i, %69 ]
-  %70 = getelementptr inbounds nuw [16 x ptr], ptr @_ignore_missing_wb.ignored_cameras, i64 0, i64 %indvars.iv.i
-  %71 = load ptr, ptr %70, align 8, !tbaa !196
-  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(1) %71) #26
-  %.not14.i = icmp eq i32 %72, 0
+68:                                               ; preds = %68, %66
+  %indvars.iv.i = phi i64 [ 0, %66 ], [ %indvars.iv.next.i, %68 ]
+  %69 = getelementptr inbounds nuw [16 x ptr], ptr @_ignore_missing_wb.ignored_cameras, i64 0, i64 %indvars.iv.i
+  %70 = load ptr, ptr %69, align 8, !tbaa !196
+  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %70) #26
+  %.not14.i = icmp eq i32 %71, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   %or.cond.i = select i1 %.not14.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %_ignore_missing_wb.exit, label %69
+  br i1 %or.cond.i, label %_ignore_missing_wb.exit, label %68
 
-_ignore_missing_wb.exit:                          ; preds = %69
-  br i1 %.not14.i, label %.loopexit.sink.split, label %73
+_ignore_missing_wb.exit:                          ; preds = %68
+  br i1 %.not14.i, label %.loopexit.sink.split, label %72
 
-73:                                               ; preds = %_ignore_missing_wb.exit
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 1224
-  %75 = load i32, ptr %74, align 8, !tbaa !197
-  %.not58 = icmp eq i32 %75, 0
-  br i1 %.not58, label %76, label %79
+72:                                               ; preds = %_ignore_missing_wb.exit
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 1224
+  %74 = load i32, ptr %73, align 8, !tbaa !197
+  %.not58 = icmp eq i32 %74, 0
+  br i1 %.not58, label %75, label %78
 
-76:                                               ; preds = %73
-  %77 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.68, i32 noundef 5) #24
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 1228
-  call void (ptr, ...) @dt_control_log(ptr noundef %77, ptr noundef nonnull %78) #24
-  br label %79
+75:                                               ; preds = %72
+  %76 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.68, i32 noundef 5) #24
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 1228
+  call void (ptr, ...) @dt_control_log(ptr noundef %76, ptr noundef nonnull %77) #24
+  br label %78
 
-79:                                               ; preds = %76, %73
-  %80 = getelementptr inbounds nuw i8, ptr %5, i64 1228
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.69, ptr noundef nonnull %80) #24
+78:                                               ; preds = %75, %72
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 1228
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.69, ptr noundef nonnull %79) #24
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %_ignore_missing_wb.exit, %79, %.critedge60, %64, %_calculate_bogus_daylight_wb.exit, %24
-  %.sink89 = phi double [ %35, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %24 ], [ 2.000000e+00, %64 ], [ 2.000000e+00, %.critedge60 ], [ 2.000000e+00, %79 ], [ 2.000000e+00, %_ignore_missing_wb.exit ]
-  %.sink86 = phi double [ %38, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %24 ], [ 1.500000e+00, %64 ], [ 1.500000e+00, %.critedge60 ], [ 1.500000e+00, %79 ], [ 1.500000e+00, %_ignore_missing_wb.exit ]
-  %.sink = phi double [ %41, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %24 ], [ 1.000000e+00, %64 ], [ 1.000000e+00, %.critedge60 ], [ 1.000000e+00, %79 ], [ 1.000000e+00, %_ignore_missing_wb.exit ]
-  store double %.sink89, ptr %1, align 8, !tbaa !78
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double 1.000000e+00, ptr %81, align 8, !tbaa !78
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double %.sink86, ptr %82, align 8, !tbaa !78
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %.sink, ptr %83, align 8, !tbaa !78
+.loopexit.sink.split:                             ; preds = %_ignore_missing_wb.exit, %78, %.critedge60, %63, %_calculate_bogus_daylight_wb.exit, %23
+  %.sink91 = phi double [ %34, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %23 ], [ 2.000000e+00, %63 ], [ 2.000000e+00, %.critedge60 ], [ 2.000000e+00, %78 ], [ 2.000000e+00, %_ignore_missing_wb.exit ]
+  %.sink88 = phi double [ %37, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %23 ], [ 1.500000e+00, %63 ], [ 1.500000e+00, %.critedge60 ], [ 1.500000e+00, %78 ], [ 1.500000e+00, %_ignore_missing_wb.exit ]
+  %.sink = phi double [ %40, %_calculate_bogus_daylight_wb.exit ], [ 1.000000e+00, %23 ], [ 1.000000e+00, %63 ], [ 1.000000e+00, %.critedge60 ], [ 1.000000e+00, %78 ], [ 1.000000e+00, %_ignore_missing_wb.exit ]
+  store double %.sink91, ptr %1, align 8, !tbaa !78
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double 1.000000e+00, ptr %80, align 8, !tbaa !78
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store double %.sink88, ptr %81, align 8, !tbaa !78
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store double %.sink, ptr %82, align 8, !tbaa !78
   br label %.loopexit
 
-.loopexit:                                        ; preds = %54, %.preheader, %.loopexit.sink.split
+.loopexit:                                        ; preds = %53, %.preheader, %.loopexit.sink.split
   ret void
 }
 

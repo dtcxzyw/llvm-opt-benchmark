@@ -1323,7 +1323,7 @@ iir_mem.exit:                                     ; preds = %._crit_edge.us.i
   %431 = call i1 @llvm.is.fpclass.f32(float %430, i32 759)
   %432 = call nsz float @llvm.fabs.f32(float %430)
   %433 = fcmp nsz olt float %432, 0x3E45798EE0000000
-  %or.cond.i = select i1 %431, i1 true, i1 %433
+  %or.cond.i = or i1 %431, %433
   br i1 %or.cond.i, label %438, label %434
 
 434:                                              ; preds = %428

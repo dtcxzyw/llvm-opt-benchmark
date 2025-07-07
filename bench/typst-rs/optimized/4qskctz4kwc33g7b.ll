@@ -6065,7 +6065,7 @@ define hidden void @"_ZN152_$LT$palette..hsl..Hsl$LT$S$C$T$GT$$u20$as$u20$palett
   %6 = load float, ptr %5, align 4, !noundef !4
   %7 = fsub float 2.000000e+00, %4
   %8 = fmul float %7, %6
-  %or.cond1.i = tail call i1 @llvm.is.fpclass.f32(float %6, i32 759)
+  %or.cond1.i = tail call noundef i1 @llvm.is.fpclass.f32(float %6, i32 759)
   br i1 %or.cond1.i, label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h111fbaeef7a2c0ddE.exit", label %9
 
 9:                                                ; preds = %2
@@ -6074,11 +6074,11 @@ define hidden void @"_ZN152_$LT$palette..hsl..Hsl$LT$S$C$T$GT$$u20$as$u20$palett
 
 11:                                               ; preds = %9
   %12 = fsub float 2.000000e+00, %8
-  %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %12, i32 264)
+  %or.cond1.i.i.i = tail call noundef i1 @llvm.is.fpclass.f32(float %12, i32 264)
   br i1 %or.cond1.i.i.i, label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i", label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h111fbaeef7a2c0ddE.exit"
 
 13:                                               ; preds = %9
-  %or.cond1.i.i3.i = tail call i1 @llvm.is.fpclass.f32(float %8, i32 264)
+  %or.cond1.i.i3.i = tail call noundef i1 @llvm.is.fpclass.f32(float %8, i32 264)
   br i1 %or.cond1.i.i3.i, label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i", label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h111fbaeef7a2c0ddE.exit"
 
 "_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i": ; preds = %13, %11

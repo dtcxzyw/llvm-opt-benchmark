@@ -620,7 +620,7 @@ define internal fastcc i32 @validate_image_dimensions(ptr noundef %0, ptr nounde
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load ptr, ptr %33, align 8, !tbaa !23
   %35 = tail call i32 (ptr, i32, ptr, ...) %34(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.31, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.6.0.copyload, i32 noundef %.sroa.9.0.copyload, i32 noundef %.sroa.12.0.copyload) #7
-  br label %91
+  br label %90
 
 36:                                               ; preds = %26
   %37 = icmp sgt i32 %.sroa.077.0.copyload, %.sroa.11.0.copyload
@@ -642,7 +642,7 @@ define internal fastcc i32 @validate_image_dimensions(ptr noundef %0, ptr nounde
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %46 = load ptr, ptr %45, align 8, !tbaa !23
   %47 = tail call i32 (ptr, i32, ptr, ...) %46(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.32, i32 noundef %.sroa.077.0.copyload, i32 noundef %.sroa.7.0.copyload, i32 noundef %.sroa.11.0.copyload, i32 noundef %.sroa.15.0.copyload) #7
-  br label %91
+  br label %90
 
 48:                                               ; preds = %38
   %49 = icmp sgt i32 %6, 0
@@ -655,7 +655,7 @@ define internal fastcc i32 @validate_image_dimensions(ptr noundef %0, ptr nounde
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %53 = load ptr, ptr %52, align 8, !tbaa !23
   %54 = tail call i32 (ptr, i32, ptr, ...) %53(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.33, i64 noundef %20, i32 noundef %6) #7
-  br label %91
+  br label %90
 
 55:                                               ; preds = %48
   %56 = icmp sgt i32 %8, 0
@@ -668,7 +668,7 @@ define internal fastcc i32 @validate_image_dimensions(ptr noundef %0, ptr nounde
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %60 = load ptr, ptr %59, align 8, !tbaa !23
   %61 = tail call i32 (ptr, i32, ptr, ...) %60(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.34, i64 noundef %24, i32 noundef %8) #7
-  br label %91
+  br label %90
 
 62:                                               ; preds = %55
   %or.cond41 = and i1 %49, %56
@@ -692,36 +692,36 @@ define internal fastcc i32 @validate_image_dimensions(ptr noundef %0, ptr nounde
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %73 = load ptr, ptr %72, align 8, !tbaa !23
   %74 = tail call i32 (ptr, i32, ptr, ...) %73(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.35, i64 noundef %70, i64 noundef %64) #7
-  br label %91
+  br label %90
 
 .thread133:                                       ; preds = %63, %67, %62
   %75 = tail call i1 @llvm.is.fpclass.f32(float %12, i32 759)
   %76 = fcmp olt float %12, 0x3EB0C6F7A0000000
+  %or.cond43 = or i1 %75, %76
   %77 = fcmp ogt float %12, 1.000000e+06
-  %78 = or i1 %76, %77
-  %or.cond45 = select i1 %75, i1 true, i1 %78
-  br i1 %or.cond45, label %79, label %84
+  %or.cond45 = or i1 %77, %or.cond43
+  br i1 %or.cond45, label %78, label %83
 
-79:                                               ; preds = %.thread133
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %81 = load ptr, ptr %80, align 8, !tbaa !23
-  %82 = fpext float %12 to double
-  %83 = tail call i32 (ptr, i32, ptr, ...) %81(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.36, double noundef %82) #7
-  br label %91
+78:                                               ; preds = %.thread133
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %80 = load ptr, ptr %79, align 8, !tbaa !23
+  %81 = fpext float %12 to double
+  %82 = tail call i32 (ptr, i32, ptr, ...) %80(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.36, double noundef %81) #7
+  br label %90
 
-84:                                               ; preds = %.thread133
-  %85 = fcmp olt float %16, 0.000000e+00
-  br i1 %85, label %86, label %91
+83:                                               ; preds = %.thread133
+  %84 = fcmp olt float %16, 0.000000e+00
+  br i1 %84, label %85, label %90
 
-86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %88 = load ptr, ptr %87, align 8, !tbaa !23
-  %89 = fpext float %16 to double
-  %90 = tail call i32 (ptr, i32, ptr, ...) %88(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.37, double noundef %89) #7
-  br label %91
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %87 = load ptr, ptr %86, align 8, !tbaa !23
+  %88 = fpext float %16 to double
+  %89 = tail call i32 (ptr, i32, ptr, ...) %87(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.37, double noundef %88) #7
+  br label %90
 
-91:                                               ; preds = %71, %84, %86, %79, %58, %51, %44, %32
-  %.0113 = phi i32 [ %35, %32 ], [ %47, %44 ], [ %54, %51 ], [ %61, %58 ], [ %83, %79 ], [ %90, %86 ], [ %74, %71 ], [ 0, %84 ]
+90:                                               ; preds = %71, %83, %85, %78, %58, %51, %44, %32
+  %.0113 = phi i32 [ %35, %32 ], [ %47, %44 ], [ %54, %51 ], [ %61, %58 ], [ %82, %78 ], [ %89, %85 ], [ %74, %71 ], [ 0, %83 ]
   ret i32 %.0113
 }
 

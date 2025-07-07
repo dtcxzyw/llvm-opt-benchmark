@@ -4170,7 +4170,7 @@ define hidden void @"_ZN154_$LT$palette..xyz..Xyz$LT$Wp$C$T$GT$$u20$as$u20$palet
   %4 = load float, ptr %3, align 4, !noundef !16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load float, ptr %5, align 4, !noundef !16
-  %or.cond1.i = tail call i1 @llvm.is.fpclass.f32(float %4, i32 264)
+  %or.cond1.i = tail call noundef i1 @llvm.is.fpclass.f32(float %4, i32 264)
   %7 = fsub float 1.000000e+00, %2
   %8 = fsub float %7, %4
   %9 = fdiv float %8, %4

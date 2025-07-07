@@ -2875,7 +2875,7 @@ define hidden void @"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$a
   %.0.i6.i.i = select i1 %5, float %.sroa.5.0.copyload, float %6
   %7 = fmul float %.sroa.4.0.copyload, %.0.i6.i.i
   %8 = fadd float %.sroa.5.0.copyload, %7
-  %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %8, i32 264)
+  %or.cond1.i.i.i = tail call noundef i1 @llvm.is.fpclass.f32(float %8, i32 264)
   %9 = fmul float %7, 2.000000e+00
   %10 = fdiv float %9, %8
   %.0.i.i.i = select i1 %or.cond1.i.i.i, float %10, float 0.000000e+00
@@ -4280,7 +4280,7 @@ define hidden void @"_ZN152_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palett
   %6 = load float, ptr %5, align 4, !noundef !7
   %7 = fmul float %6, %.0.i6
   %8 = fadd float %.val, %7
-  %or.cond1.i = tail call i1 @llvm.is.fpclass.f32(float %8, i32 264)
+  %or.cond1.i = tail call noundef i1 @llvm.is.fpclass.f32(float %8, i32 264)
   %9 = fmul float %7, 2.000000e+00
   %10 = fdiv float %9, %8
   %.0.i = select i1 %or.cond1.i, float %10, float 0.000000e+00
@@ -31373,7 +31373,7 @@ define hidden void @"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_un
   %7 = load float, ptr %6, align 4, !alias.scope !6297, !noalias !6294, !noundef !7
   %8 = fmul float %7, %.0.i6.i
   %9 = fadd float %.val.i, %8
-  %or.cond1.i.i = tail call i1 @llvm.is.fpclass.f32(float %9, i32 264)
+  %or.cond1.i.i = tail call noundef i1 @llvm.is.fpclass.f32(float %9, i32 264)
   %10 = fmul float %8, 2.000000e+00
   %11 = fdiv float %10, %9
   %.0.i.i = select i1 %or.cond1.i.i, float %11, float 0.000000e+00

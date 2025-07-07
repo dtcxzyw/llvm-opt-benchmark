@@ -66129,7 +66129,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha57e4e493c8
   %34 = load float, ptr %33, align 4, !alias.scope !18442, !noalias !18420, !noundef !4
   %35 = fmul float %26, %34
   %36 = fadd float %32, %35
-  %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %36, i32 264)
+  %or.cond1.i.i.i = tail call noundef i1 @llvm.is.fpclass.f32(float %36, i32 264)
   br i1 %or.cond1.i.i.i, label %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h2941e00db1d8e073E.exit", label %37
 
 37:                                               ; preds = %5
@@ -66284,7 +66284,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd4d8c92dddb
   %34 = load float, ptr %33, align 4, !alias.scope !18487, !noalias !18465, !noundef !4
   %35 = fmul float %26, %34
   %36 = fadd float %32, %35
-  %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %36, i32 264)
+  %or.cond1.i.i.i = tail call noundef i1 @llvm.is.fpclass.f32(float %36, i32 264)
   br i1 %or.cond1.i.i.i, label %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h191ef4c109c0ae32E.exit", label %37
 
 37:                                               ; preds = %5
@@ -101745,7 +101745,7 @@ define internal fastcc void @_ZN7palette6matrix17rgb_to_xyz_matrix17h983635fb510
   %40 = fsub float %38, %39
   %41 = fmul float %24, %37
   %42 = fadd float %41, %40
-  %or.cond1.i.i = tail call i1 @llvm.is.fpclass.f32(float %42, i32 264)
+  %or.cond1.i.i = tail call noundef i1 @llvm.is.fpclass.f32(float %42, i32 264)
   br i1 %or.cond1.i.i, label %_ZN7palette6matrix14matrix_inverse17h2a5aca64bb7d8908E.exit, label %43
 
 43:                                               ; preds = %1
