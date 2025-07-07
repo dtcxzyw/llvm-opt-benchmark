@@ -4497,7 +4497,7 @@ define internal fastcc i32 @ndisc_redirect_rcv(ptr noundef %0) unnamed_addr #1 a
   %10 = add nuw nsw i64 %7, 40
   %11 = getelementptr i8, ptr %4, i64 %10
   %12 = trunc nuw nsw i64 %10 to i32
-  %13 = sub i32 %9, %12
+  %reass.sub = sub i32 %9, %12
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %15 = load i24, ptr %14, align 1

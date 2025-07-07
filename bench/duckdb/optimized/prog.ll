@@ -3489,7 +3489,7 @@ _ZSt4sortIPN10duckdb_re211SparseArrayIiE10IndexValueEPFbRKS3_S6_EEvT_S9_T0_.exit
   br i1 %.not158, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt4sortIPN10duckdb_re211SparseArrayIiE10IndexValueEPFbRKS3_S6_EEvT_S9_T0_.exit
-  %129 = load ptr, ptr %75, align 8, !tbaa !170
+  %127 = load ptr, ptr %75, align 8, !tbaa !170
   %.038157 = getelementptr inbounds i8, ptr %129, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3582,7 +3582,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc80
 
 162:                                              ; preds = %157, %161
   %.038 = getelementptr inbounds i8, ptr %.038159, i64 -8
-  %.not = icmp eq ptr %.038, %129
+  %.not = icmp eq ptr %.038, %127
   br i1 %.not, label %._crit_edge, label %157, !llvm.loop !176
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc80, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i

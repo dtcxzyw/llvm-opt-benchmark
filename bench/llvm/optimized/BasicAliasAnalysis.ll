@@ -1427,8 +1427,8 @@ _ZN4llvm14gep_type_beginEPKNS_4UserE.exit:        ; preds = %125, %128
 
 .lr.ph315.preheader:                              ; preds = %_ZN4llvm14gep_type_beginEPKNS_4UserE.exit
   %135 = zext i32 %134 to i64
-  %136 = sub nsw i64 32, %135
-  %.0139310 = getelementptr inbounds i8, ptr %.0, i64 %136
+  %.idx316 = sub nsw i64 32, %135
+  %136 = getelementptr inbounds i8, ptr %.0, i64 %.idx316
   %137 = ptrtoint ptr %121 to i64
   %138 = and i64 %137, -7
   %139 = or disjoint i64 %138, 4

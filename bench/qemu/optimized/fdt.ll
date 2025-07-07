@@ -1137,18 +1137,18 @@ define dso_local ptr @fdt_find_string_(ptr noundef readonly captures(address, re
   %.not13 = icmp slt i64 %8, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %11
-  %.014 = phi ptr [ %12, %11 ], [ %0, %3 ]
+.lr.ph:                                           ; preds = %3, %12
+  %.014 = phi ptr [ %13, %11 ], [ %0, %3 ]
   %bcmp = tail call i32 @bcmp(ptr %.014, ptr nonnull %2, i64 %7)
-  %10 = icmp eq i32 %bcmp, 0
-  br i1 %10, label %._crit_edge, label %11
+  %11 = icmp eq i32 %bcmp, 0
+  br i1 %11, label %._crit_edge, label %12
 
-11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.014, i64 1
-  %.not = icmp ugt ptr %12, %9
+12:                                               ; preds = %.lr.ph
+  %13 = getelementptr inbounds nuw i8, ptr %.014, i64 1
+  %.not = icmp ugt ptr %13, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %11, %3
+._crit_edge:                                      ; preds = %.lr.ph, %12, %3
   %.012 = phi ptr [ null, %3 ], [ null, %11 ], [ %.014, %.lr.ph ]
   ret ptr %.012
 }

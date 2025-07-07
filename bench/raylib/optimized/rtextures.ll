@@ -57915,9 +57915,9 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   %9 = sub nsw i64 32, %8
   %10 = getelementptr inbounds i8, ptr %6, i64 %9
   %.not = icmp slt i32 %1, 8
-  br i1 %.not, label %.loopexit, label %.preheader
+  br i1 %.not, label %.loopexit, label %.preheader.preheader
 
-.preheader:                                       ; preds = %2, %.preheader
+.preheader.preheader:                             ; preds = %2, %.preheader
   %.150 = phi ptr [ %34, %.preheader ], [ %10, %2 ]
   %.1 = phi ptr [ %35, %.preheader ], [ %0, %2 ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %.150) #54, !srcloc !352
@@ -57930,7 +57930,7 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   %17 = bitcast <4 x float> %14 to <2 x i64>
   %18 = shufflevector <4 x float> %14, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 3, i32 3>
   %19 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 2>
-  %20 = shufflevector <4 x float> %14, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 2>
+  %15 = shufflevector <4 x float> %14, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 2>
   %21 = fmul <4 x float> %16, %19
   %22 = fmul <4 x float> %18, %20
   %23 = extractelement <2 x i64> %15, i64 0
@@ -57941,7 +57941,7 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   %26 = bitcast <4 x float> %12 to <2 x double>
   %27 = extractelement <2 x double> %26, i64 1
   store double %27, ptr %25, align 1
-  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %29 = extractelement <2 x i64> %17, i64 0
   store i64 %29, ptr %28, align 1
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 32
@@ -57950,35 +57950,35 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   %32 = bitcast <4 x float> %14 to <2 x double>
   %33 = extractelement <2 x double> %32, i64 1
   store double %33, ptr %31, align 1
-  %34 = getelementptr inbounds nuw i8, ptr %.150, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.150, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   %.not55 = icmp ugt ptr %34, %6
   br i1 %.not55, label %.loopexit, label %.preheader, !llvm.loop !353
 
 .loopexit:                                        ; preds = %.preheader, %2
-  %.049 = phi ptr [ %10, %2 ], [ %34, %.preheader ]
+  %35 = phi ptr [ %10, %2 ], [ %30, %.preheader ]
   %.0 = phi ptr [ %0, %2 ], [ %35, %.preheader ]
-  %36 = getelementptr inbounds i8, ptr %.049, i64 -32
+  %36 = getelementptr inbounds i8, ptr %35, i64 -32
   %37 = icmp ult ptr %36, %6
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
-  %.258 = phi ptr [ %44, %.lr.ph ], [ %.0, %.loopexit ]
-  %.25157 = phi ptr [ %45, %.lr.ph ], [ %36, %.loopexit ]
-  %38 = load float, ptr %.25157, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.25157, i64 4
-  %40 = load float, ptr %39, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.25157) #54, !srcloc !354
-  store float %38, ptr %.258, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %.258, i64 4
-  store float %40, ptr %41, align 4
-  %42 = fmul float %38, %40
-  %43 = getelementptr inbounds nuw i8, ptr %.258, i64 8
-  store float %42, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %.258, i64 12
-  %45 = getelementptr inbounds nuw i8, ptr %.25157, i64 8
-  %46 = icmp ult ptr %45, %6
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !355
+  %.257 = phi ptr [ %43, %.lr.ph ], [ %.0, %.loopexit ]
+  %.25156 = phi ptr [ %44, %.lr.ph ], [ %36, %.loopexit ]
+  %37 = load float, ptr %.25156, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %.25156, i64 4
+  %39 = load float, ptr %38, align 4
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.25156) #54, !srcloc !354
+  store float %37, ptr %.257, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %.257, i64 4
+  store float %39, ptr %40, align 4
+  %41 = fmul float %37, %39
+  %42 = getelementptr inbounds nuw i8, ptr %.257, i64 8
+  store float %41, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %.257, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %.25156, i64 8
+  %45 = icmp ult ptr %44, %6
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !355
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   ret void
