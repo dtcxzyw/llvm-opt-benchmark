@@ -3833,18 +3833,18 @@ define hidden void @"_ZN52_$LT$$RF$G$u20$as$u20$petgraph..visit..Visitable$GT$9r
   br label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i
 
 _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i: ; preds = %.lr.ph.preheader.i.i, %2
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %12 = load i64, ptr %11, align 8, !alias.scope !1092, !noalias !1095, !noundef !3
-  %13 = icmp ult i64 %12, 230584300921369396
-  tail call void @llvm.assume(i1 %13)
-  %14 = icmp ugt i64 %12, %5
-  br i1 %14, label %15, label %"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..Visitable$GT$9reset_map17h78d0aaae2bc1392cE.llvm.2437970333601430186.exit", !prof !475
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %13 = load i64, ptr %12, align 8, !alias.scope !1092, !noalias !1095, !noundef !3
+  %14 = icmp ult i64 %13, 230584300921369396
+  tail call void @llvm.assume(i1 %14)
+  %15 = icmp ugt i64 %13, %5
+  br i1 %15, label %16, label %"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..Visitable$GT$9reset_map17h78d0aaae2bc1392cE.llvm.2437970333601430186.exit", !prof !475
 
-15:                                               ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i
-  tail call void @_ZN11fixedbitset11FixedBitSet4grow7do_grow17h9d42c545361ca595E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dd36b81b9194d7464b8dc5e827f030d4.151.llvm.2437970333601430186), !noalias !1092
+16:                                               ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i
+  tail call void @_ZN11fixedbitset11FixedBitSet4grow7do_grow17h9d42c545361ca595E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dd36b81b9194d7464b8dc5e827f030d4.151.llvm.2437970333601430186), !noalias !1092
   br label %"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..Visitable$GT$9reset_map17h78d0aaae2bc1392cE.llvm.2437970333601430186.exit"
 
-"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..Visitable$GT$9reset_map17h78d0aaae2bc1392cE.llvm.2437970333601430186.exit": ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i, %15
+"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..Visitable$GT$9reset_map17h78d0aaae2bc1392cE.llvm.2437970333601430186.exit": ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i, %16
   ret void
 }
 
@@ -9960,18 +9960,18 @@ define hidden void @"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT
   br label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit
 
 _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit: ; preds = %2, %.lr.ph.preheader.i
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = icmp ult i64 %11, 230584300921369396
-  tail call void @llvm.assume(i1 %12)
-  %13 = icmp ugt i64 %11, %4
-  br i1 %13, label %14, label %15, !prof !475
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load i64, ptr %11, align 8, !noundef !3
+  %13 = icmp ult i64 %12, 230584300921369396
+  tail call void @llvm.assume(i1 %13)
+  %14 = icmp ugt i64 %12, %4
+  br i1 %14, label %15, label %16, !prof !475
 
-14:                                               ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit
-  tail call void @_ZN11fixedbitset11FixedBitSet4grow7do_grow17h9d42c545361ca595E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dd36b81b9194d7464b8dc5e827f030d4.151.llvm.2437970333601430186)
-  br label %15
+15:                                               ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit
+  tail call void @_ZN11fixedbitset11FixedBitSet4grow7do_grow17h9d42c545361ca595E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dd36b81b9194d7464b8dc5e827f030d4.151.llvm.2437970333601430186)
+  br label %16
 
-15:                                               ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit, %14
+16:                                               ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit, %15
   ret void
 }
 

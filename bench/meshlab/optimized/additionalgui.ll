@@ -579,9 +579,9 @@ _ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i: ; preds = %21, %7
   %26 = sext i32 %23 to i64
   %.idx1215.i = add nsw i64 %.pre-phi.i, 1
   %27 = add nsw i64 %.idx1215.i, %26
-  %28 = shl nsw i64 %27, 3
-  %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  %30 = getelementptr inbounds %"struct.QList<QAction *>::Node", ptr %12, i64 %26
+  %.idx13.i = shl nsw i64 %27, 3
+  %28 = getelementptr inbounds i8, ptr %25, i64 %.idx13.i
+  %29 = getelementptr inbounds %"struct.QList<QAction *>::Node", ptr %12, i64 %26
   %.not.i6.i = icmp eq ptr %30, %29
   br i1 %.not.i6.i, label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i, label %31
 

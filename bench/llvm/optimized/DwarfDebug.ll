@@ -15027,7 +15027,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11DbgValueLocELb0EE9push_backERKS1_.exit: ;
   %.idx198 = mul nuw nsw i64 %306, 24
   %307 = getelementptr inbounds nuw i8, ptr %303, i64 %.idx198
   %.not107182 = icmp eq i32 %305, 0
-  br i1 %.not107182, label %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit, label %.lr.ph185
+  br i1 %.not107182, label %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exitthread-pre-split, label %.lr.ph185
 
 .lr.ph185:                                        ; preds = %301, %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRKPNS_8MCSymbolERPKS4_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit
   %.0100183 = phi ptr [ %360, %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRKPNS_8MCSymbolERPKS4_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit ], [ %303, %301 ]
@@ -15054,7 +15054,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11DbgValueLocELb0EE9push_backERKS1_.exit: ;
 
 320:                                              ; preds = %317
   %321 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_13DebugLocEntryELb0EE18growAndEmplaceBackIJRKPNS_8MCSymbolERPKS4_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %308, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(336) %11)
-  br label %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit
+  br label %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exitthread-pre-split
 
 322:                                              ; preds = %317
   %323 = zext i32 %318 to i64
@@ -15120,7 +15120,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11DbgValueLocELb0EE9push_backERKS1_.exit: ;
 _ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRKPNS_8MCSymbolERPKS4_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit: ; preds = %342, %344
   %360 = getelementptr inbounds nuw i8, ptr %.0100183, i64 24
   %.not107 = icmp eq ptr %360, %307
-  br i1 %.not107, label %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit, label %.lr.ph185
+  br i1 %.not107, label %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exitthread-pre-split, label %.lr.ph185
 
 361:                                              ; preds = %293, %288, %._crit_edge
   %362 = load i32, ptr %30, align 8, !tbaa !26
@@ -15130,7 +15130,7 @@ _ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRKPNS_8MCSymbolERP
 
 364:                                              ; preds = %361
   %365 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_13DebugLocEntryELb0EE18growAndEmplaceBackIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(336) %11)
-  br label %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit
+  br label %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exitthread-pre-split
 
 366:                                              ; preds = %361
   %367 = zext i32 %362 to i64
@@ -15156,8 +15156,8 @@ _ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRKPNS_8MCSymbolERP
   store i32 %380, ptr %30, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit
 
-_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit: ; preds = %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRKPNS_8MCSymbolERPKS4_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit, %301, %320, %322, %366, %364
-  %381 = load ptr, ptr %1, align 8, !tbaa !25, !noalias !1520
+_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exitthread-pre-split: ; preds = %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRKPNS_8MCSymbolERPKS4_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit, %301, %320, %322, %366, %364
+  %.pr = load ptr, ptr %1, align 8, !tbaa !25, !noalias !1520
   %382 = load i32, ptr %30, align 8, !tbaa !26, !noalias !1520
   %383 = zext i32 %382 to i64
   %.idx = mul nuw nsw i64 %383, 112
@@ -15166,14 +15166,14 @@ _ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7
   %.not169 = icmp eq i64 %384, 0
   br i1 %.not169, label %_ZN4llvm23SmallVectorTemplateBaseINS_13DebugLocEntryELb0EE8pop_backEv.exit, label %386
 
-386:                                              ; preds = %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit
-  %387 = getelementptr inbounds i8, ptr %385, i64 -104
+385:                                              ; preds = %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit
+  %386 = getelementptr inbounds i8, ptr %385, i64 -104
   %388 = load ptr, ptr %387, align 8, !tbaa !1519
   %389 = load ptr, ptr %385, align 8, !tbaa !1512
   %.not.i130 = icmp eq ptr %388, %389
   br i1 %.not.i130, label %390, label %_ZN4llvm23SmallVectorTemplateBaseINS_13DebugLocEntryELb0EE8pop_backEv.exit
 
-390:                                              ; preds = %386
+390:                                              ; preds = %385
   %391 = getelementptr inbounds i8, ptr %385, i64 -96
   %392 = getelementptr inbounds i8, ptr %385, i64 -88
   %393 = load i32, ptr %392, align 8, !tbaa !26
@@ -15262,7 +15262,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11DbgValueLocELb0EE13destroy_rangeEPS1_S3_.
   call void @free(ptr noundef %425) #29
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_13DebugLocEntryELb0EE8pop_backEv.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_13DebugLocEntryELb0EE8pop_backEv.exit: ; preds = %.lr.ph.i131, %390, %386, %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit, %428, %_ZN4llvm23SmallVectorTemplateBaseINS_11DbgValueLocELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i
+_ZN4llvm23SmallVectorTemplateBaseINS_13DebugLocEntryELb0EE8pop_backEv.exit: ; preds = %.lr.ph.i131, %390, %385, %_ZN4llvm15SmallVectorImplINS_13DebugLocEntryEE12emplace_backIJRPKNS_8MCSymbolES7_RNS_11SmallVectorINS_11DbgValueLocELj4EEEEEERS1_DpOT_.exit, %428, %_ZN4llvm23SmallVectorTemplateBaseINS_11DbgValueLocELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i
   %429 = load ptr, ptr %11, align 8, !tbaa !25
   %430 = load i32, ptr %28, align 8, !tbaa !26
   %.not4.i.i = icmp eq i32 %430, 0

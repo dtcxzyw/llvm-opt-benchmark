@@ -153,82 +153,82 @@ define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32
   %gepdiff = sub nsw i64 %28, %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %23, ptr align 1 %25, i64 %gepdiff, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %4, i64 %22, i1 false)
-  %30 = icmp ugt i32 %5, %3
-  br i1 %30, label %31, label %34
+  %32 = icmp ugt i32 %5, %3
+  br i1 %32, label %33, label %36
 
-31:                                               ; preds = %11
-  %32 = sub nuw i32 %5, %3
-  %33 = tail call ptr @skb_put(ptr noundef %0, i32 noundef %32) #5
-  br label %51
+33:                                               ; preds = %11
+  %34 = sub nuw i32 %5, %3
+  %35 = tail call ptr @skb_put(ptr noundef %0, i32 noundef %34) #5
+  br label %53
 
-34:                                               ; preds = %11
-  %35 = load i32, ptr %7, align 4
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %38, label %37, !prof !5
+36:                                               ; preds = %11
+  %37 = load i32, ptr %7, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %40, label %39, !prof !5
 
-37:                                               ; preds = %34
+39:                                               ; preds = %36
   tail call void asm sideeffect "414: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 414b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 414) #5, !srcloc !8
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 3061, i32 2305, i64 12) #5, !srcloc !9
   tail call void asm sideeffect "415: nop\0A\09.pushsection .discard.instr_end\0A\09.long 415b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 415) #5, !srcloc !10
-  br label %51
+  br label %53
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %40 = load i32, ptr %39, align 8
-  %41 = sub i32 %5, %3
-  %42 = add i32 %40, %41
-  store i32 %42, ptr %39, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %12, align 8
-  %46 = ptrtoint ptr %44 to i64
-  %47 = ptrtoint ptr %45 to i64
-  %48 = sub i64 %46, %47
-  %49 = trunc i64 %48 to i32
-  %50 = add i32 %42, %49
-  store i32 %50, ptr %26, align 8
-  br label %51
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %42 = load i32, ptr %41, align 8
+  %43 = sub i32 %5, %3
+  %44 = add i32 %42, %43
+  store i32 %44, ptr %41, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %12, align 8
+  %48 = ptrtoint ptr %46 to i64
+  %49 = ptrtoint ptr %47 to i64
+  %50 = sub i64 %48, %49
+  %51 = trunc i64 %50 to i32
+  %52 = add i32 %44, %51
+  store i32 %52, ptr %26, align 8
+  br label %53
 
-51:                                               ; preds = %38, %37, %31
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %53 = load i64, ptr %52, align 8
-  %54 = and i64 %53, -8
-  %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 50
-  %57 = load i16, ptr %56, align 2
-  %58 = icmp eq i16 %57, 2
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %60 = load i32, ptr %59, align 8
-  %61 = trunc i32 %60 to i16
-  br i1 %58, label %62, label %73
+53:                                               ; preds = %40, %39, %33
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %55, -8
+  %57 = inttoptr i64 %56 to ptr
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 50
+  %59 = load i16, ptr %58, align 2
+  %60 = icmp eq i16 %59, 2
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %62 = load i32, ptr %61, align 8
+  %63 = trunc i32 %62 to i16
+  br i1 %60, label %64, label %75
 
-62:                                               ; preds = %51
-  %63 = tail call i16 @llvm.bswap.i16(i16 %61)
-  %64 = load ptr, ptr %12, align 8
-  %65 = load i16, ptr %14, align 4
-  %66 = zext i16 %65 to i64
-  %67 = getelementptr i8, ptr %64, i64 %66
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
-  store i16 %63, ptr %68, align 2
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i16, ptr %14, align 4
-  %71 = zext i16 %70 to i64
-  %72 = getelementptr i8, ptr %69, i64 %71
-  tail call void @ip_send_check(ptr noundef %72) #5
-  br label %81
+64:                                               ; preds = %53
+  %65 = tail call i16 @llvm.bswap.i16(i16 %63)
+  %66 = load ptr, ptr %12, align 8
+  %67 = load i16, ptr %14, align 4
+  %68 = zext i16 %67 to i64
+  %69 = getelementptr i8, ptr %66, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 2
+  store i16 %65, ptr %70, align 2
+  %71 = load ptr, ptr %12, align 8
+  %72 = load i16, ptr %14, align 4
+  %73 = zext i16 %72 to i64
+  %74 = getelementptr i8, ptr %71, i64 %73
+  tail call void @ip_send_check(ptr noundef %74) #5
+  br label %83
 
-73:                                               ; preds = %51
-  %74 = add i16 %61, -40
-  %75 = tail call i16 @llvm.bswap.i16(i16 %74)
-  %76 = load ptr, ptr %12, align 8
-  %77 = load i16, ptr %14, align 4
-  %78 = zext i16 %77 to i64
-  %79 = getelementptr i8, ptr %76, i64 %78
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  store i16 %75, ptr %80, align 4
-  br label %81
+75:                                               ; preds = %53
+  %76 = add i16 %63, -40
+  %77 = tail call i16 @llvm.bswap.i16(i16 %76)
+  %78 = load ptr, ptr %12, align 8
+  %79 = load i16, ptr %14, align 4
+  %80 = zext i16 %79 to i64
+  %81 = getelementptr i8, ptr %78, i64 %80
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  store i16 %77, ptr %82, align 4
+  br label %83
 
-81:                                               ; preds = %73, %62
+83:                                               ; preds = %75, %64
   ret void
 }
 

@@ -6808,24 +6808,24 @@ _ZNSt14_Function_baseD2Ev.exit111:                ; preds = %159, %156, %154
   %193 = sext i32 %191 to i64
   %194 = shl nsw i64 %193, 3
   %195 = sub nsw i64 32, %194
-  %196 = getelementptr inbounds i8, ptr %.val, i64 %195
-  %197 = icmp eq i32 %191, 4
-  %198 = icmp eq ptr %.val80, %196
-  %or.cond.i = select i1 %197, i1 true, i1 %198
-  br i1 %or.cond.i, label %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.exit, label %199
+  %195 = getelementptr inbounds i8, ptr %.val, i64 %195
+  %196 = icmp eq i32 %191, 4
+  %197 = icmp eq ptr %.val80, %195
+  %or.cond.i = select i1 %196, i1 true, i1 %197
+  br i1 %or.cond.i, label %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.exit, label %198
 
-199:                                              ; preds = %188
-  %200 = ptrtoint ptr %.val80 to i64
-  %201 = ptrtoint ptr %.val to i64
-  %202 = sub i64 %200, %201
-  %203 = ashr exact i64 %202, 3
+198:                                              ; preds = %188
+  %199 = ptrtoint ptr %.val80 to i64
+  %200 = ptrtoint ptr %.val to i64
+  %201 = sub i64 %199, %200
+  %202 = ashr exact i64 %201, 3
   %204 = ashr exact i64 %195, 3
   %205 = sub nsw i64 %203, %204
   %206 = icmp eq i64 %204, %205
   br i1 %206, label %.lr.ph.i.i.i.i, label %.preheader.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %199, %.lr.ph.i.i.i.i
-  %.sroa.0.08.i.i.i.i = phi ptr [ %210, %.lr.ph.i.i.i.i ], [ %196, %199 ]
+.lr.ph.i.i.i.i:                                   ; preds = %198, %.lr.ph.i.i.i.i
+  %.sroa.0.08.i.i.i.i = phi ptr [ %210, %.lr.ph.i.i.i.i ], [ %195, %199 ]
   %.sroa.04.07.i.i.i.i = phi ptr [ %209, %.lr.ph.i.i.i.i ], [ %.val, %199 ]
   %207 = load i64, ptr %.sroa.04.07.i.i.i.i, align 4
   %208 = load i64, ptr %.sroa.0.08.i.i.i.i, align 4
@@ -6833,11 +6833,11 @@ _ZNSt14_Function_baseD2Ev.exit111:                ; preds = %159, %156, %154
   store i64 %207, ptr %.sroa.0.08.i.i.i.i, align 4
   %209 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i, i64 8
   %210 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i, i64 8
-  %.not.i.i.i.i113 = icmp eq ptr %209, %196
+  %.not.i.i.i.i113 = icmp eq ptr %209, %195
   br i1 %.not.i.i.i.i113, label %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.exit, label %.lr.ph.i.i.i.i, !llvm.loop !236
 
-.preheader.i:                                     ; preds = %199, %.preheader.i.backedge
-  %.056.i.i.i = phi i64 [ %.056.i.i.i.be, %.preheader.i.backedge ], [ %203, %199 ]
+.preheader.i:                                     ; preds = %198, %.preheader.i.backedge
+  %.056.i.i.i = phi i64 [ %.056.i.i.i.be, %.preheader.i.backedge ], [ %202, %199 ]
   %.0.i.i.i = phi i64 [ %.0.i.i.i.be, %.preheader.i.backedge ], [ %204, %199 ]
   %.sroa.026.0.i.i.i = phi ptr [ %.sroa.026.0.i.i.i.be, %.preheader.i.backedge ], [ %.val, %199 ]
   %211 = sub nsw i64 %.056.i.i.i, %.0.i.i.i

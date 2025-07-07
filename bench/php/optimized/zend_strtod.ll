@@ -6219,69 +6219,69 @@ define internal fastcc double @b2d(ptr noundef readonly captures(address) %0, pt
   %5 = load i32, ptr %4, align 4, !tbaa !52
   %6 = sext i32 %5 to i64
   %.idx = shl nsw i64 %6, 2
-  %7 = getelementptr i8, ptr %3, i64 %.idx
-  %8 = getelementptr i8, ptr %7, i64 -4
+  %.ptr58 = getelementptr i8, ptr %3, i64 %.idx
+  %8 = getelementptr i8, ptr %.ptr58, i64 -4
   %9 = load i32, ptr %8, align 4, !tbaa !51
   %.not.i = icmp ult i32 %9, 65536
   %10 = shl nuw i32 %9, 16
   %spec.select.i = select i1 %.not.i, i32 %10, i32 %9
   %spec.select26.i = select i1 %.not.i, i32 16, i32 0
   %.not21.i = icmp ult i32 %spec.select.i, 16777216
-  %11 = or disjoint i32 %spec.select26.i, 8
-  %12 = shl nuw i32 %spec.select.i, 8
-  %.117.i = select i1 %.not21.i, i32 %12, i32 %spec.select.i
-  %.1.i = select i1 %.not21.i, i32 %11, i32 %spec.select26.i
+  %8 = or disjoint i32 %spec.select26.i, 8
+  %9 = shl nuw i32 %spec.select.i, 8
+  %.117.i = select i1 %.not21.i, i32 %9, i32 %spec.select.i
+  %.1.i = select i1 %.not21.i, i32 %8, i32 %spec.select26.i
   %.not22.i = icmp ult i32 %.117.i, 268435456
-  %13 = or disjoint i32 %.1.i, 4
-  %14 = shl nuw i32 %.117.i, 4
-  %.218.i = select i1 %.not22.i, i32 %14, i32 %.117.i
-  %.2.i = select i1 %.not22.i, i32 %13, i32 %.1.i
+  %10 = or disjoint i32 %.1.i, 4
+  %11 = shl nuw i32 %.117.i, 4
+  %.218.i = select i1 %.not22.i, i32 %11, i32 %.117.i
+  %.2.i = select i1 %.not22.i, i32 %10, i32 %.1.i
   %.not23.i = icmp ult i32 %.218.i, 1073741824
-  %15 = or disjoint i32 %.2.i, 2
-  %16 = shl nuw i32 %.218.i, 2
-  %.319.i = select i1 %.not23.i, i32 %16, i32 %.218.i
-  %.3.i = select i1 %.not23.i, i32 %15, i32 %.2.i
-  %17 = add nuw nsw i32 %.3.i, 1
+  %12 = or disjoint i32 %.2.i, 2
+  %13 = shl nuw i32 %.218.i, 2
+  %.319.i = select i1 %.not23.i, i32 %13, i32 %.218.i
+  %.3.i = select i1 %.not23.i, i32 %12, i32 %.2.i
+  %14 = add nuw nsw i32 %.3.i, 1
   %.not25.i = icmp ult i32 %.319.i, 1073741824
-  %spec.select27.i = select i1 %.not25.i, i32 32, i32 %17
+  %spec.select27.i = select i1 %.not25.i, i32 32, i32 %14
   %.not2428.i = icmp slt i32 %.319.i, 0
   %.020.i = select i1 %.not2428.i, i32 %.3.i, i32 %spec.select27.i
-  %18 = sub nuw nsw i32 32, %.020.i
-  store i32 %18, ptr %1, align 4, !tbaa !51
-  %19 = icmp samesign ult i32 %.020.i, 11
-  br i1 %19, label %20, label %33
+  %15 = sub nuw nsw i32 32, %.020.i
+  store i32 %15, ptr %1, align 4, !tbaa !51
+  %16 = icmp samesign ult i32 %.020.i, 11
+  br i1 %16, label %20, label %33
 
-20:                                               ; preds = %2
+30:                                               ; preds = %2
   %21 = sub nuw nsw i32 11, %.020.i
   %22 = lshr i32 %9, %21
   %23 = icmp ugt ptr %8, %3
   br i1 %23, label %24, label %27
 
-24:                                               ; preds = %20
-  %25 = getelementptr i8, ptr %7, i64 -8
+24: ; preds = %20
+  %25 = getelementptr i8, ptr %.ptr58, i64 -8
   %26 = load i32, ptr %25, align 4, !tbaa !51
   br label %27
 
-27:                                               ; preds = %20, %24
-  %28 = phi i32 [ %26, %24 ], [ 0, %20 ]
+27: ; preds = %30, %24
+  %35 = phi i32 [ %26, %24 ], [ 0, %20 ]
   %29 = add nuw nsw i32 %.020.i, 21
   %30 = shl i32 %9, %29
-  %31 = lshr i32 %28, %21
+  %31 = lshr i32 %35, %21
   %32 = or i32 %31, %30
   br label %55
 
-33:                                               ; preds = %2
+33:; preds = %2
   %34 = icmp sgt i32 %5, 1
   br i1 %34, label %35, label %38
 
-35:                                               ; preds = %33
+35:; preds = %33
   %36 = getelementptr i8, ptr %7, i64 -8
   %37 = load i32, ptr %36, align 4, !tbaa !51
   br label %38
 
-38:                                               ; preds = %33, %35
-  %.0 = phi ptr [ %36, %35 ], [ %8, %33 ]
-  %39 = phi i32 [ %37, %35 ], [ 0, %33 ]
+51:                                               ; preds = %33, %35
+  %.sink = phi ptr [ %36, %35 ], [ %8, %33 ]
+  %.sroa.0.4.insert.shift11.sink.in.in.in = phi i32 [ %37, %35 ], [ 0, %33 ]
   %40 = add nsw i32 %.020.i, -11
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %55, label %41

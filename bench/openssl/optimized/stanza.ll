@@ -176,7 +176,7 @@ define range(i32 0, 2) i32 @test_readstanza(ptr noundef initializes((36, 40)) %0
   br i1 %.not1825.i, label %strip_spaces.exit, label %.lr.ph27.i
 
 .lr.ph27.i:                                       ; preds = %.critedge.i
-  %.024.i = getelementptr inbounds i8, ptr %.01523.i, i64 %43
+  %43 = getelementptr inbounds i8, ptr %.01523.i, i64 %43
   br label %44
 
 44:                                               ; preds = %51, %.lr.ph27.i
@@ -247,7 +247,7 @@ strip_spaces.exit:                                ; preds = %39, %29, %.critedge
   br i1 %.not1825.i48, label %strip_spaces.exit57, label %.lr.ph27.i49
 
 .lr.ph27.i49:                                     ; preds = %.critedge.i47
-  %.024.i50 = getelementptr inbounds i8, ptr %.01523.i43, i64 %72
+  %72 = getelementptr inbounds i8, ptr %.01523.i43, i64 %72
   br label %73
 
 73:                                               ; preds = %80, %.lr.ph27.i49

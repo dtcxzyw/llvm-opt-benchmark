@@ -2115,8 +2115,8 @@ for.body.i:                                       ; preds = %invoke.cont, %call.
   %indexSystemic.0 = phi i64 [ %inc.i.i, %call.i.i.noexc ], [ 0, %invoke.cont ]
   %__first.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %call.i.i.noexc ], [ %1, %invoke.cont ]
   %__result.sroa.0.07.i = phi ptr [ %incdec.ptr.i2.i, %call.i.i.noexc ], [ %4, %invoke.cont ]
-  %8 = load double, ptr %__first.sroa.0.08.i, align 8, !tbaa !24
-  %call.i.i14 = invoke noundef double @_ZNK8QuantLib13TCopulaPolicy24inverseCumulativeDensityEdm(ptr noundef nonnull align 8 dereferenceable(96) %this, double noundef %8, i64 noundef %indexSystemic.0)
+  %7 = load double, ptr %__first.sroa.0.08.i, align 8, !tbaa !24
+  %call.i.i14 = invoke noundef double @_ZNK8QuantLib13TCopulaPolicy24inverseCumulativeDensityEdm(ptr noundef nonnull align 8 dereferenceable(96) %this, double noundef %7, i64 noundef %indexSystemic.0)
           to label %call.i.i.noexc unwind label %lpad20
 
 call.i.i.noexc:                                   ; preds = %for.body.i
@@ -2139,11 +2139,11 @@ invoke.cont21.loopexit:                           ; preds = %call.i.i.noexc
 
 invoke.cont21:                                    ; preds = %invoke.cont21.loopexit, %invoke.cont
   %sub.ptr.sub.i18.pre-phi = phi i64 [ %.pre41, %invoke.cont21.loopexit ], [ 8, %invoke.cont ]
-  %9 = phi ptr [ %.pre38, %invoke.cont21.loopexit ], [ %0, %invoke.cont ]
-  %10 = phi ptr [ %.pre, %invoke.cont21.loopexit ], [ %1, %invoke.cont ]
-  %add.ptr.i20 = getelementptr inbounds i8, ptr %10, i64 %sub.ptr.sub.i18.pre-phi
+  %8 = phi ptr [ %.pre38, %invoke.cont21.loopexit ], [ %0, %invoke.cont ]
+  %9 = phi ptr [ %.pre, %invoke.cont21.loopexit ], [ %1, %invoke.cont ]
+  %add.ptr.i20 = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub.i18.pre-phi
   %add.ptr.i21 = getelementptr inbounds i8, ptr %add.ptr.i20, i64 -8
-  %cmp.i.not5.i = icmp eq ptr %add.ptr.i21, %9
+  %cmp.i.not5.i = icmp eq ptr %add.ptr.i21, %8
   br i1 %cmp.i.not5.i, label %invoke.cont55, label %for.body.i30.preheader
 
 for.body.i30.preheader:                           ; preds = %invoke.cont21
@@ -2154,32 +2154,32 @@ for.body.i30.preheader:                           ; preds = %invoke.cont21
 for.body.i30:                                     ; preds = %for.body.i30.preheader, %call.i.i.noexc34
   %__first.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i31, %call.i.i.noexc34 ], [ %add.ptr.i21, %for.body.i30.preheader ]
   %__result.sroa.0.06.i = phi ptr [ %incdec.ptr.i1.i, %call.i.i.noexc34 ], [ %add.ptr.i29, %for.body.i30.preheader ]
-  %11 = load double, ptr %__first.sroa.0.07.i, align 8, !tbaa !24
-  %call.i.i35 = invoke noundef double @_ZNK8QuantLib13TCopulaPolicy18inverseCumulativeZEd(ptr noundef nonnull align 8 dereferenceable(96) %this, double noundef %11)
+  %10 = load double, ptr %__first.sroa.0.07.i, align 8, !tbaa !24
+  %call.i.i35 = invoke noundef double @_ZNK8QuantLib13TCopulaPolicy18inverseCumulativeZEd(ptr noundef nonnull align 8 dereferenceable(96) %this, double noundef %10)
           to label %call.i.i.noexc34 unwind label %lpad54
 
 call.i.i.noexc34:                                 ; preds = %for.body.i30
   store double %call.i.i35, ptr %__result.sroa.0.06.i, align 8, !tbaa !24
   %incdec.ptr.i.i31 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.07.i, i64 8
   %incdec.ptr.i1.i = getelementptr inbounds nuw i8, ptr %__result.sroa.0.06.i, i64 8
-  %cmp.i.not.i32 = icmp eq ptr %incdec.ptr.i.i31, %9
+  %cmp.i.not.i32 = icmp eq ptr %incdec.ptr.i.i31, %8
   br i1 %cmp.i.not.i32, label %invoke.cont55, label %for.body.i30, !llvm.loop !48
 
 invoke.cont55:                                    ; preds = %call.i.i.noexc34, %invoke.cont21
   ret void
 
 lpad20:                                           ; preds = %for.body.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad54:                                           ; preds = %for.body.i30
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad54, %lpad20
-  %.pn = phi { ptr, i32 } [ %13, %lpad54 ], [ %12, %lpad20 ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad54 ], [ %11, %lpad20 ]
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %eh.resume, label %if.then.i.i.i
 
