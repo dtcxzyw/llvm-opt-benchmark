@@ -2625,8 +2625,8 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph875, %ge
   br i1 %.not5672.i, label %.critedge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %259
-  %260 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %258
-  %.071.i = getelementptr inbounds i8, ptr %260, i64 -1
+  %260 = getelementptr i8, ptr %spec.select.i, i64 %258
+  %.071.i = getelementptr i8, ptr %260, i64 -1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %263, %.lr.ph.preheader.i
@@ -4076,31 +4076,31 @@ define internal fastcc noundef zeroext i1 @next_is_folded_header(ptr noundef non
   br i1 %23, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %20
-  %strchr = getelementptr inbounds nuw i8, ptr %22, i64 %strlen
-  %24 = getelementptr inbounds i8, ptr %strchr, i64 -1
+  %24 = getelementptr i8, ptr %22, i64 %strlen
+  %25 = getelementptr i8, ptr %24, i64 -1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
-  %25 = phi ptr [ %28, %27 ], [ %24, %.lr.ph.preheader ]
-  %26 = load i8, ptr %25, align 1, !tbaa !43
-  switch i8 %26, label %.loopexit [
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %28
+  %26 = phi ptr [ %29, %28 ], [ %25, %.lr.ph.preheader ]
+  %27 = load i8, ptr %26, align 1, !tbaa !43
+  switch i8 %27, label %.loopexit [
     i8 59, label %.loopexit.loopexit
-    i8 10, label %27
-    i8 32, label %27
-    i8 13, label %27
-    i8 9, label %27
+    i8 10, label %28
+    i8 32, label %28
+    i8 13, label %28
+    i8 9, label %28
   ]
 
-27:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %25, i64 -1
-  %29 = icmp ugt ptr %28, %22
-  br i1 %29, label %.lr.ph, label %.loopexit
+28:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %29 = getelementptr inbounds i8, ptr %26, i64 -1
+  %30 = icmp ugt ptr %29, %22
+  br i1 %30, label %.lr.ph, label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %.lr.ph, %.loopexit.loopexit, %20, %17, %8, %5, %1
-  %.012 = phi i1 [ false, %1 ], [ false, %5 ], [ true, %8 ], [ false, %17 ], [ false, %20 ], [ true, %.loopexit.loopexit ], [ false, %.lr.ph ], [ false, %27 ]
+.loopexit:                                        ; preds = %28, %.lr.ph, %.loopexit.loopexit, %20, %17, %8, %5, %1
+  %.012 = phi i1 [ false, %1 ], [ false, %5 ], [ true, %8 ], [ false, %17 ], [ false, %20 ], [ true, %.loopexit.loopexit ], [ false, %.lr.ph ], [ false, %28 ]
   ret i1 %.012
 }
 
@@ -5052,8 +5052,8 @@ define internal fastcc range(i32 0, 2) i32 @boundaryStart(ptr noundef %0, ptr no
   br i1 %.not8097, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %12
-  %.06496 = getelementptr inbounds i8, ptr %13, i64 -1
+  %13 = getelementptr i8, ptr %spec.select, i64 %12
+  %.06496 = getelementptr i8, ptr %13, i64 -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16

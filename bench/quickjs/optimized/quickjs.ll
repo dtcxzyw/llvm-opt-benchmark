@@ -213571,8 +213571,8 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %30 = load ptr, ptr %29, align 8, !tbaa !46
   %31 = zext nneg i32 %20 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
-  %.05476 = getelementptr inbounds i8, ptr %32, i64 -1
+  %32 = getelementptr i8, ptr %30, i64 %31
+  %.05476 = getelementptr i8, ptr %32, i64 -1
   br label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.lr.ph79
@@ -213596,8 +213596,8 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   %39 = load ptr, ptr %38, align 8, !tbaa !46
   %40 = shl nuw i32 %20, 1
   %.idx83 = zext i32 %40 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx83
-  %.05272 = getelementptr inbounds i8, ptr %41, i64 -2
+  %41 = getelementptr i8, ptr %39, i64 %.idx83
+  %.05272 = getelementptr i8, ptr %41, i64 -2
   br label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %.lr.ph75
@@ -213621,8 +213621,8 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   %48 = load ptr, ptr %47, align 8, !tbaa !46
   %49 = zext nneg i32 %20 to i64
   %.idx81 = shl nuw nsw i64 %49, 2
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx81
-  %.05068 = getelementptr inbounds i8, ptr %50, i64 -4
+  %50 = getelementptr i8, ptr %48, i64 %.idx81
+  %.05068 = getelementptr i8, ptr %50, i64 -4
   br label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %.lr.ph71.preheader, %.lr.ph71
@@ -213646,8 +213646,8 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   %57 = load ptr, ptr %56, align 8, !tbaa !46
   %58 = zext nneg i32 %20 to i64
   %.idx = shl nuw nsw i64 %58, 3
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx
-  %.065 = getelementptr inbounds i8, ptr %59, i64 -8
+  %59 = getelementptr i8, ptr %57, i64 %.idx
+  %.065 = getelementptr i8, ptr %59, i64 -8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

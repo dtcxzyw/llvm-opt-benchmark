@@ -3454,53 +3454,52 @@ define hidden void @_ZN11klassItableC2EP13InstanceKlass(ptr noundef nonnull writ
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %6, label %28
+  br i1 %5, label %6, label %29
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 464
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %9 = load i32, ptr %8, align 8
-  %10 = sext i32 %9 to i64
-  %.idx = shl nsw i64 %10, 3
-  %11 = getelementptr inbounds i8, ptr %7, i64 %.idx
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %8 = load i32, ptr %7, align 8
+  %9 = sext i32 %8 to i64
+  %.idx = shl nsw i64 %9, 3
+  %10 = add nsw i64 %.idx, 464
+  %11 = getelementptr inbounds i8, ptr %1, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not15 = icmp eq ptr %12, null
-  br i1 %.not15, label %28, label %13
+  br i1 %.not15, label %29, label %13
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = zext nneg i32 %4 to i64
-  %.idx16 = shl nuw nsw i64 %17, 3
-  %18 = add i32 %9, 58
+  %18 = add i32 %8, 58
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %18, ptr %19, align 8
-  %reass.sub = sub nsw i64 %16, %.idx
-  %gepdiff = add nsw i64 %reass.sub, -464
+  %gepdiff = sub nsw i64 %16, %10
   %20 = ashr exact i64 %gepdiff, 3
   %21 = sdiv i64 %20, 2
   %22 = trunc nsw i64 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %22, ptr %23, align 4
-  %24 = add nuw nsw i64 %.idx16, 464
-  %25 = add nsw i64 %24, %.idx
-  %gepdiff17 = sub nsw i64 %25, %16
-  %26 = lshr exact i64 %gepdiff17, 3
-  %27 = trunc i64 %26 to i32
-  br label %31
+  %24 = add nsw i64 %9, %17
+  %25 = shl nsw i64 %24, 3
+  %26 = add nsw i64 %25, 464
+  %gepdiff17 = sub nsw i64 %26, %16
+  %27 = lshr exact i64 %gepdiff17, 3
+  %28 = trunc i64 %27 to i32
+  br label %32
 
-28:                                               ; preds = %6, %2
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %30, align 4
-  br label %31
+29:                                               ; preds = %6, %2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 0, ptr %31, align 4
+  br label %32
 
-31:                                               ; preds = %28, %13
-  %.sink = phi i32 [ 0, %28 ], [ %27, %13 ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink, ptr %32, align 8
+32:                                               ; preds = %29, %13
+  %.sink = phi i32 [ 0, %29 ], [ %28, %13 ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sink, ptr %33, align 8
   ret void
 }
 

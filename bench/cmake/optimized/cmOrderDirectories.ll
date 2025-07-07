@@ -7328,8 +7328,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #25
   %167 = load ptr, ptr %2, align 8, !tbaa !7
   %168 = load i64, ptr %22, align 8, !tbaa !15
-  %169 = getelementptr inbounds i8, ptr %167, i64 %168
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 1
+  %169 = add nsw i64 %168, 1
+  %170 = getelementptr inbounds i8, ptr %167, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %172 = load i64, ptr %171, align 8, !tbaa !15
   %173 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -7337,8 +7337,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   %174 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %174, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
-  %.neg = xor i64 %168, -1
-  %gepdiff = add i64 %172, %.neg
+  %gepdiff = sub nsw i64 %172, %169
   store i64 %gepdiff, ptr %4, align 8, !tbaa !16
   %175 = icmp ugt i64 %gepdiff, 15
   br i1 %175, label %.noexc.i, label %._crit_edge.i.i

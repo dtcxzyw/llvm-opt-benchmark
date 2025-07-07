@@ -368,119 +368,117 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
   br i1 %.not56, label %51, label %_ZN19PosixAttachListener11write_fullyEiPcm.exit
 
 51:                                               ; preds = %50
-  %52 = sub i64 3101, %.147
+  %52 = sub i64 3100, %.147
   %53 = getelementptr inbounds i8, ptr %3, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 -1
-  %55 = load i8, ptr %3, align 16
-  %56 = icmp eq i8 %55, 0
-  br i1 %56, label %57, label %61
+  %54 = load i8, ptr %3, align 16
+  %55 = icmp eq i8 %54, 0
+  br i1 %55, label %56, label %60
 
-57:                                               ; preds = %51
-  %notsub = add i64 %.147, -3101
-  %58 = icmp slt i64 %notsub, -1
-  br i1 %58, label %59, label %_ZN19PosixAttachListener11write_fullyEiPcm.exit
+56:                                               ; preds = %51
+  %57 = icmp sgt i64 %52, 0
+  br i1 %57, label %58, label %_ZN19PosixAttachListener11write_fullyEiPcm.exit
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 1
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %_ZN16ArgumentIterator4nextEv.exit
 
-61:                                               ; preds = %51
+60:                                               ; preds = %51
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %3)
   %strchr.i = getelementptr inbounds i8, ptr %3, i64 %strlen.i
-  %62 = icmp ult ptr %strchr.i, %54
-  %spec.select.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %62 to i64
+  %61 = icmp slt i64 %strlen.i, %52
+  %spec.select.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %61 to i64
   %spec.select.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %strchr.i, i64 %spec.select.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   br label %_ZN16ArgumentIterator4nextEv.exit
 
-_ZN16ArgumentIterator4nextEv.exit:                ; preds = %59, %61
-  %.sroa.0.1.ph = phi ptr [ %spec.select.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %61 ], [ %60, %59 ]
+_ZN16ArgumentIterator4nextEv.exit:                ; preds = %58, %60
+  %.sroa.0.1.ph = phi ptr [ %spec.select.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %60 ], [ %59, %58 ]
   %.pr = load i8, ptr %.sroa.0.1.ph, align 1
-  %63 = icmp eq i8 %.pr, 0
-  br i1 %63, label %_ZN19PosixAttachListener11write_fullyEiPcm.exit, label %64
+  %62 = icmp eq i8 %.pr, 0
+  br i1 %62, label %_ZN19PosixAttachListener11write_fullyEiPcm.exit, label %63
 
-64:                                               ; preds = %_ZN16ArgumentIterator4nextEv.exit
+63:                                               ; preds = %_ZN16ArgumentIterator4nextEv.exit
   %strlen.i57 = call i64 @strlen(ptr nonnull dereferenceable(1) %.sroa.0.1.ph)
   %strchr.i58 = getelementptr inbounds i8, ptr %.sroa.0.1.ph, i64 %strlen.i57
-  %65 = icmp ult ptr %strchr.i58, %54
-  %spec.select.idx.i59.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %65 to i64
+  %64 = icmp ult ptr %strchr.i58, %53
+  %spec.select.idx.i59.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %64 to i64
   %spec.select.idx.i59.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %strchr.i58, i64 %spec.select.idx.i59.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
-  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.1.ph) #20
-  %67 = icmp ugt i64 %66, 16
-  br i1 %67, label %_ZN19PosixAttachListener11write_fullyEiPcm.exit, label %68
+  %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.1.ph) #20
+  %66 = icmp ugt i64 %65, 16
+  br i1 %66, label %_ZN19PosixAttachListener11write_fullyEiPcm.exit, label %67
 
-68:                                               ; preds = %64
-  %69 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 3104, i8 noundef zeroext 9, i32 noundef 0) #18
-  %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.1.ph) #20
-  %71 = call noundef i64 @llvm.umin.i64(i64 %70, i64 16)
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %72, ptr nonnull align 1 %.sroa.0.1.ph, i64 %71, i1 false)
-  %73 = getelementptr inbounds nuw [17 x i8], ptr %72, i64 0, i64 %71
-  store i8 0, ptr %73, align 1
-  %74 = getelementptr inbounds nuw i8, ptr %69, i64 25
-  br label %75
+67:                                               ; preds = %63
+  %68 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 3104, i8 noundef zeroext 9, i32 noundef 0) #18
+  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.1.ph) #20
+  %70 = call noundef i64 @llvm.umin.i64(i64 %69, i64 16)
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %71, ptr nonnull align 1 %.sroa.0.1.ph, i64 %70, i1 false)
+  %72 = getelementptr inbounds nuw [17 x i8], ptr %71, i64 0, i64 %70
+  store i8 0, ptr %72, align 1
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 25
+  br label %74
 
-75:                                               ; preds = %75, %68
-  %indvars.iv.i.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i.i, %75 ]
-  %76 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv.i.i
-  store i8 0, ptr %76, align 1
+74:                                               ; preds = %74, %67
+  %indvars.iv.i.i = phi i64 [ 0, %67 ], [ %indvars.iv.next.i.i, %74 ]
+  %75 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %73, i64 0, i64 %indvars.iv.i.i
+  store i8 0, ptr %75, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN20PosixAttachOperationC2EPc.exit, label %75, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %_ZN20PosixAttachOperationC2EPc.exit, label %74, !llvm.loop !13
 
-_ZN20PosixAttachOperationC2EPc.exit:              ; preds = %75
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20PosixAttachOperation, i64 16), ptr %69, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %69, i64 3100
-  store i32 -1, ptr %77, align 4
-  br label %78
+_ZN20PosixAttachOperationC2EPc.exit:              ; preds = %74
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20PosixAttachOperation, i64 16), ptr %68, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 3100
+  store i32 -1, ptr %76, align 4
+  br label %77
 
-78:                                               ; preds = %_ZN20PosixAttachOperationC2EPc.exit, %91
-  %indvars.iv = phi i64 [ 0, %_ZN20PosixAttachOperationC2EPc.exit ], [ %indvars.iv.next, %91 ]
-  %.sroa.0.099 = phi ptr [ %spec.select.idx.i59.sroa.sel.idx.sroa.sel.idx.sroa.sel, %_ZN20PosixAttachOperationC2EPc.exit ], [ %.sroa.0.393, %91 ]
-  %79 = load i8, ptr %.sroa.0.099, align 1
-  %80 = icmp eq i8 %79, 0
-  br i1 %80, label %81, label %84
+77:                                               ; preds = %_ZN20PosixAttachOperationC2EPc.exit, %90
+  %indvars.iv = phi i64 [ 0, %_ZN20PosixAttachOperationC2EPc.exit ], [ %indvars.iv.next, %90 ]
+  %.sroa.0.099 = phi ptr [ %spec.select.idx.i59.sroa.sel.idx.sroa.sel.idx.sroa.sel, %_ZN20PosixAttachOperationC2EPc.exit ], [ %.sroa.0.393, %90 ]
+  %78 = load i8, ptr %.sroa.0.099, align 1
+  %79 = icmp eq i8 %78, 0
+  br i1 %79, label %80, label %83
 
-81:                                               ; preds = %78
-  %82 = icmp ult ptr %.sroa.0.099, %54
-  %spec.select.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %82 to i64
+80:                                               ; preds = %77
+  %81 = icmp ult ptr %.sroa.0.099, %53
+  %spec.select.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %81 to i64
   %spec.select.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.0.099, i64 %spec.select.idx.sroa.sel.idx.sroa.sel.idx
-  %83 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv
-  store i8 0, ptr %83, align 1
-  br label %91
+  %82 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %73, i64 0, i64 %indvars.iv
+  store i8 0, ptr %82, align 1
+  br label %90
 
-84:                                               ; preds = %78
-  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.099) #20
-  %86 = icmp ugt i64 %85, 1024
-  br i1 %86, label %87, label %_ZN15AttachOperation7set_argEiPc.exit
+83:                                               ; preds = %77
+  %84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.099) #20
+  %85 = icmp ugt i64 %84, 1024
+  br i1 %85, label %86, label %_ZN15AttachOperation7set_argEiPc.exit
 
-87:                                               ; preds = %84
-  call void @_Z8FreeHeapPv(ptr noundef nonnull %69) #18
+86:                                               ; preds = %83
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %68) #18
   br label %_ZN19PosixAttachListener11write_fullyEiPcm.exit
 
-_ZN15AttachOperation7set_argEiPc.exit:            ; preds = %84
+_ZN15AttachOperation7set_argEiPc.exit:            ; preds = %83
   %strlen.i66 = call i64 @strlen(ptr nonnull dereferenceable(1) %.sroa.0.099)
   %strchr.i67 = getelementptr inbounds i8, ptr %.sroa.0.099, i64 %strlen.i66
-  %88 = icmp ult ptr %strchr.i67, %54
-  %spec.select.idx.i68.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %88 to i64
+  %87 = icmp ult ptr %strchr.i67, %53
+  %spec.select.idx.i68.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %87 to i64
   %spec.select.idx.i68.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %strchr.i67, i64 %spec.select.idx.i68.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
-  %89 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull align 1 %.sroa.0.099, i64 %85, i1 false)
-  %90 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv, i64 %85
-  store i8 0, ptr %90, align 1
-  br label %91
+  %88 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %73, i64 0, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull align 1 %.sroa.0.099, i64 %84, i1 false)
+  %89 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %73, i64 0, i64 %indvars.iv, i64 %84
+  store i8 0, ptr %89, align 1
+  br label %90
 
-91:                                               ; preds = %81, %_ZN15AttachOperation7set_argEiPc.exit
-  %.sroa.0.393 = phi ptr [ %spec.select.idx.sroa.sel.idx.sroa.sel, %81 ], [ %spec.select.idx.i68.sroa.sel.idx.sroa.sel.idx.sroa.sel, %_ZN15AttachOperation7set_argEiPc.exit ]
+90:                                               ; preds = %80, %_ZN15AttachOperation7set_argEiPc.exit
+  %.sroa.0.393 = phi ptr [ %spec.select.idx.sroa.sel.idx.sroa.sel, %80 ], [ %spec.select.idx.i68.sroa.sel.idx.sroa.sel.idx.sroa.sel, %_ZN15AttachOperation7set_argEiPc.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond104.not, label %92, label %78, !llvm.loop !14
+  br i1 %exitcond104.not, label %91, label %77, !llvm.loop !14
 
-92:                                               ; preds = %91
-  store i32 %0, ptr %77, align 4
+91:                                               ; preds = %90
+  store i32 %0, ptr %76, align 4
   br label %_ZN19PosixAttachListener11write_fullyEiPcm.exit
 
-_ZN19PosixAttachListener11write_fullyEiPcm.exit:  ; preds = %.critedge, %42, %36, %_ZN16ArgumentIterator4nextEv.exit, %57, %64, %50, %92, %87
-  %.0 = phi ptr [ null, %87 ], [ %69, %92 ], [ null, %50 ], [ null, %64 ], [ null, %57 ], [ null, %_ZN16ArgumentIterator4nextEv.exit ], [ null, %36 ], [ null, %42 ], [ null, %.critedge ]
+_ZN19PosixAttachListener11write_fullyEiPcm.exit:  ; preds = %.critedge, %42, %36, %_ZN16ArgumentIterator4nextEv.exit, %56, %63, %50, %91, %86
+  %.0 = phi ptr [ null, %86 ], [ %68, %91 ], [ null, %50 ], [ null, %63 ], [ null, %56 ], [ null, %_ZN16ArgumentIterator4nextEv.exit ], [ null, %36 ], [ null, %42 ], [ null, %.critedge ]
   ret ptr %.0
 }
 
