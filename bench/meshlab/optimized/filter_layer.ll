@@ -864,7 +864,7 @@ $_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVe
 @.str.175 = private unnamed_addr constant [48 x i8] c"cannot create std::deque larger than max_size()\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_filter_layer.cpp, ptr null }]
 @switch.table._ZThn16_NK17FilterLayerPlugin8getClassEPK7QAction = private unnamed_addr constant [13 x i32] [i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 1024, i32 512, i32 512, i32 1024, i32 1024, i32 1024, i32 263168], align 4
-@switch.table._ZThn16_NK17FilterLayerPlugin11filterArityEPK7QAction = private unnamed_addr constant [13 x i32] [i32 3, i32 1, i32 1, i32 1, i32 1, i32 1, i32 0, i32 1, i32 3, i32 0, i32 0, i32 0, i32 0], align 4
+@switch.table._ZThn16_NK17FilterLayerPlugin11filterArityEPK7QAction = private unnamed_addr constant [9 x i32] [i32 3, i32 1, i32 1, i32 1, i32 1, i32 1, i32 0, i32 1, i32 3], align 4
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -33547,12 +33547,12 @@ define noundef range(i32 0, 4) i32 @_ZNK17FilterLayerPlugin11filterArityEPK7QAct
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
-  %8 = icmp ult i32 %7, 13
+  %8 = icmp ult i32 %7, 9
   br i1 %8, label %switch.lookup, label %10
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZThn16_NK17FilterLayerPlugin11filterArityEPK7QAction, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZThn16_NK17FilterLayerPlugin11filterArityEPK7QAction, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 
@@ -33567,12 +33567,12 @@ define noundef range(i32 0, 4) i32 @_ZThn16_NK17FilterLayerPlugin11filterArityEP
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  %7 = icmp ult i32 %6, 13
+  %7 = icmp ult i32 %6, 9
   br i1 %7, label %switch.lookup, label %_ZNK17FilterLayerPlugin11filterArityEPK7QAction.exit
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZThn16_NK17FilterLayerPlugin11filterArityEPK7QAction, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZThn16_NK17FilterLayerPlugin11filterArityEPK7QAction, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK17FilterLayerPlugin11filterArityEPK7QAction.exit
 
@@ -33590,8 +33590,8 @@ define noundef range(i32 0, 1126071272) i32 @_ZNK17FilterLayerPlugin13postCondit
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
   %.off = add i32 %7, -1
   %switch = icmp ult i32 %.off, 2
-  %spec.select = select i1 %switch, i32 1126071271, i32 0
-  ret i32 %spec.select
+  %. = select i1 %switch, i32 1126071271, i32 0
+  ret i32 %.
 }
 
 ; Function Attrs: uwtable
@@ -33602,8 +33602,8 @@ define noundef range(i32 0, 1126071272) i32 @_ZThn16_NK17FilterLayerPlugin13post
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
   %.off.i = add i32 %6, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  %spec.select.i = select i1 %switch.i, i32 1126071271, i32 0
-  ret i32 %spec.select.i
+  %..i = select i1 %switch.i, i32 1126071271, i32 0
+  ret i32 %..i
 }
 
 ; Function Attrs: uwtable

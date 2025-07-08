@@ -410,16 +410,16 @@ pmix_bfrops_base_tma_embed_payload.exit:          ; preds = %9, %pmix_bfrops_bas
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_std_copy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2) local_unnamed_addr #4 {
-  switch i16 %2, label %13 [
-    i16 1, label %9
+  switch i16 %2, label %12 [
+    i16 1, label %8
     i16 6, label %4
     i16 11, label %4
     i16 4, label %5
     i16 5, label %4
-    i16 2, label %9
-    i16 7, label %9
-    i16 12, label %9
-    i16 51, label %9
+    i16 2, label %8
+    i16 7, label %8
+    i16 12, label %8
+    i16 51, label %8
     i16 8, label %6
     i16 13, label %6
     i16 45, label %6
@@ -427,57 +427,54 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_std_copy(ptr noundef writeonly ca
     i16 69, label %6
     i16 9, label %4
     i16 14, label %4
-    i16 10, label %7
-    i16 15, label %7
-    i16 57, label %7
-    i16 66, label %7
-    i16 67, label %7
-    i16 68, label %7
+    i16 10, label %5
+    i16 15, label %5
+    i16 57, label %5
+    i16 66, label %5
+    i16 67, label %5
+    i16 68, label %5
     i16 16, label %4
-    i16 18, label %8
+    i16 18, label %7
     i16 19, label %5
     i16 20, label %4
     i16 40, label %4
-    i16 30, label %9
+    i16 30, label %8
     i16 31, label %5
-    i16 32, label %9
-    i16 33, label %9
-    i16 34, label %9
+    i16 32, label %8
+    i16 33, label %8
+    i16 34, label %8
     i16 35, label %4
-    i16 37, label %9
-    i16 43, label %9
-    i16 71, label %9
-    i16 50, label %9
+    i16 37, label %8
+    i16 43, label %8
+    i16 71, label %8
+    i16 50, label %8
   ]
 
 4:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3
-  br label %9
+  br label %8
 
-5:                                                ; preds = %3, %3, %3
-  br label %9
+5:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3
+  br label %8
 
 6:                                                ; preds = %3, %3, %3, %3, %3
-  br label %9
+  br label %8
 
-7:                                                ; preds = %3, %3, %3, %3, %3, %3
-  br label %9
+7:                                                ; preds = %3
+  br label %8
 
-8:                                                ; preds = %3
-  br label %9
+8:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %7, %6, %5, %4
+  %.0 = phi i64 [ 4, %4 ], [ 8, %5 ], [ 2, %6 ], [ 16, %7 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
+  %9 = tail call noalias ptr @malloc(i64 noundef %.0) #25
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %12, label %11
 
-9:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %8, %7, %6, %5, %4
-  %.0 = phi i64 [ 4, %4 ], [ 8, %5 ], [ 2, %6 ], [ 8, %7 ], [ 16, %8 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
-  %10 = tail call noalias ptr @malloc(i64 noundef %.0) #25
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %13, label %12
+11:                                               ; preds = %8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %.0, i1 false)
+  store ptr %9, ptr %0, align 8, !tbaa !15
+  br label %12
 
-12:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %.0, i1 false)
-  store ptr %10, ptr %0, align 8, !tbaa !15
-  br label %13
-
-13:                                               ; preds = %9, %3, %12
-  %.08 = phi i32 [ 0, %12 ], [ -16, %3 ], [ -29, %9 ]
+12:                                               ; preds = %8, %3, %11
+  %.08 = phi i32 [ 0, %11 ], [ -16, %3 ], [ -29, %8 ]
   ret i32 %.08
 }
 

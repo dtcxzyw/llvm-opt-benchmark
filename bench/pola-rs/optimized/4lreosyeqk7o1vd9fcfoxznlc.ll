@@ -178710,16 +178710,16 @@ define noundef zeroext i1 @_ZN11polars_plan5plans9functions10FunctionIR13is_stre
   tail call void @llvm.assume(i1 %5)
   %6 = select i1 %4, i64 %3, i64 2
   switch i64 %6, label %7 [
-    i64 0, label %16
+    i64 0, label %15
     i64 1, label %8
     i64 2, label %11
     i64 3, label %11
-    i64 4, label %16
+    i64 4, label %15
     i64 5, label %11
     i64 6, label %11
-    i64 7, label %12
-    i64 8, label %13
-    i64 9, label %16
+    i64 7, label %11
+    i64 8, label %12
+    i64 9, label %15
   ]
 
 7:                                                ; preds = %1
@@ -178728,23 +178728,20 @@ define noundef zeroext i1 @_ZN11polars_plan5plans9functions10FunctionIR13is_stre
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %10 = load i8, ptr %9, align 2, !range !430, !noundef !8
-  br label %16
+  br label %15
 
-11:                                               ; preds = %1, %1, %1, %1
-  br label %16
+11:                                               ; preds = %1, %1, %1, %1, %1
+  br label %15
 
 12:                                               ; preds = %1
-  br label %16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 66
+  %14 = load i8, ptr %13, align 2, !range !430, !noundef !8
+  br label %15
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  %15 = load i8, ptr %14, align 2, !range !430, !noundef !8
-  br label %16
-
-16:                                               ; preds = %1, %1, %1, %13, %12, %11, %8
-  %.sroa.0.0 = phi i8 [ %10, %8 ], [ 1, %11 ], [ 1, %12 ], [ %15, %13 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
-  %17 = trunc nuw i8 %.sroa.0.0 to i1
-  ret i1 %17
+15:                                               ; preds = %1, %1, %1, %12, %11, %8
+  %.sroa.0.0 = phi i8 [ %10, %8 ], [ 1, %11 ], [ %14, %12 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
+  %16 = trunc nuw i8 %.sroa.0.0 to i1
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
@@ -178766,16 +178763,16 @@ define hidden noundef zeroext i1 @_ZN11polars_plan5plans9functions10FunctionIR18
   tail call void @llvm.assume(i1 %5)
   %6 = select i1 %4, i64 %3, i64 2
   switch i64 %6, label %7 [
-    i64 0, label %17
+    i64 0, label %16
     i64 1, label %8
-    i64 2, label %17
+    i64 2, label %16
     i64 3, label %11
     i64 4, label %11
     i64 5, label %11
     i64 6, label %11
-    i64 7, label %12
-    i64 8, label %13
-    i64 9, label %16
+    i64 7, label %11
+    i64 8, label %12
+    i64 9, label %15
   ], !prof !27829
 
 7:                                                ; preds = %1
@@ -178784,27 +178781,24 @@ define hidden noundef zeroext i1 @_ZN11polars_plan5plans9functions10FunctionIR18
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i8, ptr %9, align 8, !range !430, !noundef !8
-  br label %17
+  br label %16
 
-11:                                               ; preds = %1, %1, %1, %1
-  br label %17
+11:                                               ; preds = %1, %1, %1, %1, %1
+  br label %16
 
 12:                                               ; preds = %1
-  br label %17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %14 = load i8, ptr %13, align 8, !range !430, !noundef !8
+  br label %16
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %15 = load i8, ptr %14, align 8, !range !430, !noundef !8
-  br label %17
-
-16:                                               ; preds = %1
+15:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.31516ede0bfaf38948cc5915f43ef47e.994, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.31516ede0bfaf38948cc5915f43ef47e.996) #40
   unreachable
 
-17:                                               ; preds = %1, %1, %13, %12, %11, %8
-  %.sroa.0.0 = phi i8 [ %10, %8 ], [ 1, %11 ], [ 1, %12 ], [ %15, %13 ], [ 0, %1 ], [ 0, %1 ]
-  %18 = trunc nuw i8 %.sroa.0.0 to i1
-  ret i1 %18
+16:                                               ; preds = %1, %1, %12, %11, %8
+  %.sroa.0.0 = phi i8 [ %10, %8 ], [ 1, %11 ], [ %14, %12 ], [ 0, %1 ], [ 0, %1 ]
+  %17 = trunc nuw i8 %.sroa.0.0 to i1
+  ret i1 %17
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -10000,82 +10000,73 @@ _ZNK3app13get_family_idEv.exit:                   ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !10
   %.not = icmp eq i32 %10, -1
-  br i1 %.not, label %_ZNK3app13get_decl_kindEv.exit.thread, label %43
+  br i1 %.not, label %_ZNK3app13get_decl_kindEv.exit.thread, label %42
 
 _ZNK3app13get_family_idEv.exit.thread:            ; preds = %2
   %11 = load i32, ptr %7, align 8, !tbaa !91
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !10
   %.not9 = icmp eq i32 %11, %13
-  br i1 %.not9, label %_ZNK3app13get_decl_kindEv.exit, label %43
+  br i1 %.not9, label %_ZNK3app13get_decl_kindEv.exit, label %42
 
 _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_family_idEv.exit.thread
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !188
   switch i32 %15, label %_ZNK3app13get_decl_kindEv.exit.thread [
-    i32 0, label %43
-    i32 1, label %43
-    i32 2, label %43
-    i32 3, label %43
-    i32 4, label %43
-    i32 6, label %16
-    i32 7, label %16
-    i32 9, label %16
-    i32 10, label %16
-    i32 8, label %16
-    i32 5, label %16
-    i32 37, label %17
+    i32 0, label %42
+    i32 1, label %42
+    i32 2, label %42
+    i32 3, label %42
+    i32 4, label %42
+    i32 37, label %16
   ]
 
-16:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit
-  br label %43
+16:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %20 = load ptr, ptr %19, align 8, !tbaa !199
+  %21 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %18, ptr noundef %20)
+  br i1 %21, label %22, label %42
 
-17:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !199
-  %22 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %19, ptr noundef %21)
-  br i1 %22, label %23, label %43
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %17, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !199
+  %26 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %23, ptr noundef %25)
+  br i1 %26, label %27, label %42
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %18, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !199
-  %27 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %24, ptr noundef %26)
-  br i1 %27, label %28, label %43
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %17, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %30 = load ptr, ptr %29, align 8, !tbaa !199
+  %31 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %28, ptr noundef %30)
+  br i1 %31, label %32, label %42
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %18, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !199
-  %32 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %29, ptr noundef %31)
-  br i1 %32, label %33, label %43
-
-33:                                               ; preds = %28
+32:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #21
-  %34 = load ptr, ptr %18, align 8, !tbaa !3
-  call void @_ZN7bv_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(976) %34)
-  %35 = load ptr, ptr %25, align 8, !tbaa !199
-  %36 = call noundef zeroext i1 @_ZNK14bv_recognizers9is_alloneEPK4expr(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef %35)
-  br i1 %36, label %41, label %37
+  %33 = load ptr, ptr %17, align 8, !tbaa !3
+  call void @_ZN7bv_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(976) %33)
+  %34 = load ptr, ptr %24, align 8, !tbaa !199
+  %35 = call noundef zeroext i1 @_ZNK14bv_recognizers9is_alloneEPK4expr(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef %34)
+  br i1 %35, label %40, label %36
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %25, align 8, !tbaa !199
-  %39 = call noundef zeroext i1 @_ZNK14bv_recognizers7is_zeroEPK4expr(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef %38)
-  %40 = xor i1 %39, true
-  br label %41
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %24, align 8, !tbaa !199
+  %38 = call noundef zeroext i1 @_ZNK14bv_recognizers7is_zeroEPK4expr(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef %37)
+  %39 = xor i1 %38, true
+  br label %40
 
-41:                                               ; preds = %37, %33
-  %42 = phi i1 [ false, %33 ], [ %40, %37 ]
+40:                                               ; preds = %36, %32
+  %41 = phi i1 [ false, %32 ], [ %39, %36 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
-  br label %43
+  br label %42
 
 _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %_ZNK3app13get_family_idEv.exit, %_ZNK3app13get_decl_kindEv.exit
-  br label %43
+  br label %42
 
-43:                                               ; preds = %_ZNK3app13get_family_idEv.exit.thread, %17, %23, %28, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_family_idEv.exit, %_ZNK3app13get_decl_kindEv.exit.thread, %41, %16
-  %.0 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit.thread ], [ false, %16 ], [ %42, %41 ], [ false, %_ZNK3app13get_family_idEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ false, %28 ], [ false, %23 ], [ false, %17 ], [ false, %_ZNK3app13get_family_idEv.exit.thread ]
+42:                                               ; preds = %_ZNK3app13get_family_idEv.exit.thread, %16, %22, %27, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_family_idEv.exit, %_ZNK3app13get_decl_kindEv.exit.thread, %40
+  %.0 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit.thread ], [ %41, %40 ], [ false, %_ZNK3app13get_family_idEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ false, %27 ], [ false, %22 ], [ false, %16 ], [ false, %_ZNK3app13get_family_idEv.exit.thread ]
   ret i1 %.0
 }
 

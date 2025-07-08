@@ -7117,7 +7117,7 @@ define dso_local noundef i32 @_ZNK4llvm19AArch64RegisterInfo19getRegPressureLimi
   %10 = load ptr, ptr %1, align 8, !tbaa !41
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i16, ptr %11, align 8, !tbaa !45
-  switch i16 %12, label %74 [
+  switch i16 %12, label %73 [
     i16 41, label %13
     i16 42, label %13
     i16 39, label %13
@@ -7133,16 +7133,16 @@ define dso_local noundef i32 @_ZNK4llvm19AArch64RegisterInfo19getRegPressureLimi
     i16 92, label %69
     i16 47, label %70
     i16 46, label %70
-    i16 75, label %71
-    i16 110, label %71
-    i16 117, label %71
-    i16 128, label %71
-    i16 206, label %71
-    i16 297, label %71
-    i16 94, label %72
-    i16 65, label %72
-    i16 10, label %72
-    i16 98, label %73
+    i16 75, label %69
+    i16 110, label %69
+    i16 117, label %69
+    i16 128, label %69
+    i16 206, label %69
+    i16 297, label %69
+    i16 94, label %71
+    i16 65, label %71
+    i16 10, label %71
+    i16 98, label %72
   ]
 
 13:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3
@@ -7245,25 +7245,22 @@ _ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.
 _ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit: ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.i, %55, %61, %.critedge.i
   %.0.i = phi i32 [ -1, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.i ], [ %67, %.critedge.i ], [ -1, %55 ], [ -1, %61 ], [ 0, %_ZNK4llvm6Triple10isOSDarwinEv.exit ]
   %68 = add i32 %29, %.0.i
-  br label %74
+  br label %73
 
-69:                                               ; preds = %3, %3, %3, %3, %3
-  br label %74
+69:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  br label %73
 
 70:                                               ; preds = %3, %3
-  br label %74
+  br label %73
 
-71:                                               ; preds = %3, %3, %3, %3, %3, %3
-  br label %74
+71:                                               ; preds = %3, %3, %3
+  br label %73
 
-72:                                               ; preds = %3, %3, %3
-  br label %74
+72:                                               ; preds = %3
+  br label %73
 
-73:                                               ; preds = %3
-  br label %74
-
-74:                                               ; preds = %3, %73, %72, %71, %70, %69, %_ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit
-  %.0 = phi i32 [ %68, %_ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit ], [ 32, %69 ], [ 4, %70 ], [ 32, %71 ], [ 16, %72 ], [ 8, %73 ], [ 0, %3 ]
+73:                                               ; preds = %3, %72, %71, %70, %69, %_ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit
+  %.0 = phi i32 [ %68, %_ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit ], [ 32, %69 ], [ 4, %70 ], [ 16, %71 ], [ 8, %72 ], [ 0, %3 ]
   ret i32 %.0
 }
 

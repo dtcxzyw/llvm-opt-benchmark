@@ -12180,122 +12180,119 @@ define hidden void @_ZN18wasmtime_cranelift12func_environ15FuncEnvironment14fuel
   %6 = alloca { ptr, i32, [1 x i32] }, align 8
   br i1 %3, label %7, label %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit1
 
-_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit1: ; preds = %47, %45, %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit, %11, %4
+_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit1: ; preds = %46, %44, %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit, %10, %4
   ret void
 
 7:                                                ; preds = %4
   %8 = load i16, ptr %1, align 8, !range !1445, !noundef !4
-  switch i16 %8, label %11 [
+  switch i16 %8, label %10 [
     i16 0, label %9
-    i16 1, label %10
+    i16 1, label %9
     i16 2, label %9
     i16 3, label %9
     i16 5, label %9
     i16 14, label %9
     i16 18, label %9
-    i16 23, label %10
+    i16 23, label %9
   ]
 
-9:                                                ; preds = %7, %7, %7, %7, %7, %7
-  br label %11
+9:                                                ; preds = %7, %7, %7, %7, %7, %7, %7, %7
+  br label %10
 
-10:                                               ; preds = %7, %7
-  br label %11
-
-11:                                               ; preds = %7, %10, %9
-  %.0 = phi i64 [ 0, %9 ], [ 0, %10 ], [ 1, %7 ]
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = add i64 %13, %.0
-  store i64 %14, ptr %12, align 8
+10:                                               ; preds = %7, %9
+  %.0 = phi i64 [ 0, %9 ], [ 1, %7 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %12 = load i64, ptr %11, align 8, !noundef !4
+  %13 = add i64 %12, %.0
+  store i64 %13, ptr %11, align 8
   switch i16 %8, label %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit1 [
-    i16 0, label %15
-    i16 3, label %45
-    i16 4, label %45
-    i16 5, label %45
-    i16 14, label %45
-    i16 15, label %45
-    i16 16, label %45
-    i16 17, label %45
-    i16 18, label %15
-    i16 19, label %15
-    i16 20, label %15
-    i16 21, label %15
-    i16 22, label %15
+    i16 0, label %14
+    i16 3, label %44
+    i16 4, label %44
+    i16 5, label %44
+    i16 14, label %44
+    i16 15, label %44
+    i16 16, label %44
+    i16 17, label %44
+    i16 18, label %14
+    i16 19, label %14
+    i16 20, label %14
+    i16 21, label %14
+    i16 22, label %14
   ]
 
-15:                                               ; preds = %11, %11, %11, %11, %11, %11
+14:                                               ; preds = %10, %10, %10, %10, %10, %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1446)
-  store i64 0, ptr %12, align 8, !alias.scope !1446, !noalias !1449
-  %16 = icmp eq i64 %14, 0
+  store i64 0, ptr %11, align 8, !alias.scope !1446, !noalias !1449
+  %15 = icmp eq i64 %13, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 504
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !noalias !4
-  br i1 %16, label %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit, label %17
+  br i1 %15, label %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit, label %16
 
-17:                                               ; preds = %15
-  %18 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder7use_var17h7ab07a03444b3a73E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.pre), !noalias !1446
-  %19 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2), !noalias !1446
-  %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = extractvalue { ptr, i32 } %19, 1
-  %22 = tail call noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder8iadd_imm17h483975dfab6e31c0E(ptr noalias noundef align 8 dereferenceable(24) %20, i32 noundef %21, i32 noundef %18, i64 noundef %14), !noalias !1446
-  tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder7def_var17h551242ce31db95b0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.pre, i32 noundef %22), !noalias !1446
+16:                                               ; preds = %14
+  %17 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder7use_var17h7ab07a03444b3a73E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.pre), !noalias !1446
+  %18 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2), !noalias !1446
+  %19 = extractvalue { ptr, i32 } %18, 0
+  %20 = extractvalue { ptr, i32 } %18, 1
+  %21 = tail call noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder8iadd_imm17h483975dfab6e31c0E(ptr noalias noundef align 8 dereferenceable(24) %19, i32 noundef %20, i32 noundef %17, i64 noundef %13), !noalias !1446
+  tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder7def_var17h551242ce31db95b0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.pre, i32 noundef %21), !noalias !1446
   br label %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit
 
-_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit: ; preds = %15, %17
+_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit: ; preds = %14, %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1451)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1454)
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 508
-  %24 = load i32, ptr %23, align 4, !alias.scope !1457, !noalias !1458, !noundef !4
-  %25 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder7use_var17h7ab07a03444b3a73E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %24), !noalias !1457
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 492
-  %27 = load i8, ptr %26, align 4, !alias.scope !1457, !noalias !1458, !noundef !4
-  %28 = zext i8 %27 to i32
-  %29 = tail call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %28), !noalias !1457
-  %30 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder7use_var17h7ab07a03444b3a73E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.pre), !noalias !1451
-  %31 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2), !noalias !1451
-  %32 = extractvalue { ptr, i32 } %31, 0
-  %33 = extractvalue { ptr, i32 } %31, 1
-  %34 = tail call noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags7trusted17h2b2827b34ed60931E(), !noalias !1451
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 508
+  %23 = load i32, ptr %22, align 4, !alias.scope !1457, !noalias !1458, !noundef !4
+  %24 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder7use_var17h7ab07a03444b3a73E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %23), !noalias !1457
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 492
+  %26 = load i8, ptr %25, align 4, !alias.scope !1457, !noalias !1458, !noundef !4
+  %27 = zext i8 %26 to i32
+  %28 = tail call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %27), !noalias !1457
+  %29 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder7use_var17h7ab07a03444b3a73E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.pre), !noalias !1451
+  %30 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2), !noalias !1451
+  %31 = extractvalue { ptr, i32 } %30, 0
+  %32 = extractvalue { ptr, i32 } %30, 1
+  %33 = tail call noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags7trusted17h2b2827b34ed60931E(), !noalias !1451
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1461
-  store ptr %32, ptr %6, align 8, !noalias !1462
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %33, ptr %35, align 8, !noalias !1462
-  %36 = call noundef align 8 dereferenceable(416) ptr @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$15data_flow_graph17h837c0f80df8160fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !1451
-  %37 = call noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %36, i32 noundef %30), !noalias !1451
-  %38 = load ptr, ptr %6, align 8, !noalias !1462, !nonnull !4, !align !11, !noundef !4
-  %39 = load i32, ptr %35, align 8, !noalias !1462, !noundef !4
+  store ptr %31, ptr %6, align 8, !noalias !1462
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %32, ptr %34, align 8, !noalias !1462
+  %35 = call noundef align 8 dereferenceable(416) ptr @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$15data_flow_graph17h837c0f80df8160fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !1451
+  %36 = call noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %35, i32 noundef %29), !noalias !1451
+  %37 = load ptr, ptr %6, align 8, !noalias !1462, !nonnull !4, !align !11, !noundef !4
+  %38 = load i32, ptr %34, align 8, !noalias !1462, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1462
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 31, ptr %40, align 1, !noalias !1465
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %30, ptr %41, align 4, !noalias !1465
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 31, ptr %39, align 1, !noalias !1465
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %29, ptr %40, align 4, !noalias !1465
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %25, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !1465
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i16 %34, ptr %42, align 2, !noalias !1465
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %29, ptr %43, align 4, !noalias !1465
+  store i32 %24, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !1465
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i16 %33, ptr %41, align 2, !noalias !1465
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 %28, ptr %42, align 4, !noalias !1465
   store i8 25, ptr %5, align 8, !noalias !1465
-  %44 = call { i32, ptr } @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17h4da45ded74cc4ea2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %38, i32 noundef %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5, i16 noundef %37), !noalias !1451
+  %43 = call { i32, ptr } @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17h4da45ded74cc4ea2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37, i32 noundef %38, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5, i16 noundef %36), !noalias !1451
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1462
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1461
   br label %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit1
 
-45:                                               ; preds = %11, %11, %11, %11, %11, %11, %11
+44:                                               ; preds = %10, %10, %10, %10, %10, %10, %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1468)
-  store i64 0, ptr %12, align 8, !alias.scope !1468, !noalias !1471
-  %46 = icmp eq i64 %14, 0
-  br i1 %46, label %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit1, label %47
+  store i64 0, ptr %11, align 8, !alias.scope !1468, !noalias !1471
+  %45 = icmp eq i64 %13, 0
+  br i1 %45, label %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit1, label %46
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %49 = load i32, ptr %48, align 8, !alias.scope !1468, !noalias !1471, !noundef !4
-  %50 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder7use_var17h7ab07a03444b3a73E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %49), !noalias !1468
-  %51 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2), !noalias !1468
-  %52 = extractvalue { ptr, i32 } %51, 0
-  %53 = extractvalue { ptr, i32 } %51, 1
-  %54 = tail call noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder8iadd_imm17h483975dfab6e31c0E(ptr noalias noundef align 8 dereferenceable(24) %52, i32 noundef %53, i32 noundef %50, i64 noundef %14), !noalias !1468
-  tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder7def_var17h551242ce31db95b0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %49, i32 noundef %54), !noalias !1468
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %48 = load i32, ptr %47, align 8, !alias.scope !1468, !noalias !1471, !noundef !4
+  %49 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder7use_var17h7ab07a03444b3a73E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %48), !noalias !1468
+  %50 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2), !noalias !1468
+  %51 = extractvalue { ptr, i32 } %50, 0
+  %52 = extractvalue { ptr, i32 } %50, 1
+  %53 = tail call noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder8iadd_imm17h483975dfab6e31c0E(ptr noalias noundef align 8 dereferenceable(24) %51, i32 noundef %52, i32 noundef %49, i64 noundef %13), !noalias !1468
+  tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder7def_var17h551242ce31db95b0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %48, i32 noundef %53), !noalias !1468
   br label %_ZN18wasmtime_cranelift12func_environ15FuncEnvironment18fuel_increment_var17h52366411047f0f46E.llvm.7808069312437652055.exit1
 }
 

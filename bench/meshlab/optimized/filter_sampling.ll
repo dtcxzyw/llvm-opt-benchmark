@@ -2343,7 +2343,7 @@ $_ZTIN3vcg14SimpleTempDataISt6vectorI8CVertexOSaIS2_EENS_3tri8GeodesicI6CMeshOE8
 @_ZTIN3vcg14SimpleTempDataISt6vectorI8CVertexOSaIS2_EENS_3tri8GeodesicI6CMeshOE8TempDataEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3vcg14SimpleTempDataISt6vectorI8CVertexOSaIS2_EENS_3tri8GeodesicI6CMeshOE8TempDataEEE, ptr @_ZTIN3vcg18SimpleTempDataBaseE }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_filter_sampling.cpp, ptr null }]
 @str = private unnamed_addr constant [32 x i8] c"Similar Triangles face sampling\00", align 1
-@switch.table._ZThn16_N17FilterDocSampling15getRequirementsEPK7QAction = private unnamed_addr constant [14 x i32] [i32 0, i32 0, i32 131072, i32 0, i32 0, i32 131072, i32 0, i32 10, i32 131072, i32 131072, i32 88, i32 88, i32 0, i32 0], align 4
+@switch.table._ZThn16_N17FilterDocSampling15getRequirementsEPK7QAction = private unnamed_addr constant [10 x i32] [i32 131072, i32 0, i32 0, i32 131072, i32 0, i32 10, i32 131072, i32 131072, i32 88, i32 88], align 4
 @switch.table._ZThn16_NK17FilterDocSampling8getClassEPK7QAction = private unnamed_addr constant [14 x i32] [i32 4096, i32 4096, i32 4096, i32 4096, i32 4096, i32 4096, i32 4096, i32 4096, i32 4096, i32 4, i32 4112, i32 4112, i32 4096, i32 36864], align 4
 @switch.table._ZThn16_NK17FilterDocSampling13postConditionEPK7QAction = private unnamed_addr constant [14 x i32] [i32 0, i32 0, i32 -1, i32 0, i32 0, i32 -1, i32 -1, i32 0, i32 -1, i32 0, i32 24, i32 24, i32 0, i32 0], align 4
 @switch.table._ZThn16_NK17FilterDocSampling11filterArityEPK7QAction = private unnamed_addr constant [14 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 0, i32 1, i32 1, i32 2, i32 2, i32 2, i32 1], align 4
@@ -3633,12 +3633,13 @@ define noundef range(i32 0, 131073) i32 @_ZN17FilterDocSampling15getRequirements
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
-  %8 = icmp ult i32 %7, 14
+  %switch.tableidx = add i32 %7, -2
+  %8 = icmp ult i32 %switch.tableidx, 10
   br i1 %8, label %switch.lookup, label %10
 
 switch.lookup:                                    ; preds = %2
-  %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZThn16_N17FilterDocSampling15getRequirementsEPK7QAction, i64 0, i64 %9
+  %9 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZThn16_N17FilterDocSampling15getRequirementsEPK7QAction, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 
@@ -3653,12 +3654,13 @@ define noundef range(i32 0, 131073) i32 @_ZThn16_N17FilterDocSampling15getRequir
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  %7 = icmp ult i32 %6, 14
+  %switch.tableidx = add i32 %6, -2
+  %7 = icmp ult i32 %switch.tableidx, 10
   br i1 %7, label %switch.lookup, label %_ZN17FilterDocSampling15getRequirementsEPK7QAction.exit
 
 switch.lookup:                                    ; preds = %2
-  %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZThn16_N17FilterDocSampling15getRequirementsEPK7QAction, i64 0, i64 %8
+  %8 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZThn16_N17FilterDocSampling15getRequirementsEPK7QAction, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN17FilterDocSampling15getRequirementsEPK7QAction.exit
 

@@ -2196,17 +2196,17 @@ define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noun
   br i1 %.not233, label %report_parse_error.exitthread-pre-split, label %report_parse_error.exit.thread
 
 201:                                              ; preds = %72
-  switch i8 %54, label %216 [
+  switch i8 %54, label %215 [
     i8 1, label %202
-    i8 35, label %215
-    i8 36, label %207
-    i8 33, label %214
-    i8 34, label %206
-    i8 12, label %213
-    i8 8, label %212
-    i8 6, label %206
-    i8 4, label %207
-    i8 7, label %208
+    i8 35, label %214
+    i8 36, label %206
+    i8 33, label %213
+    i8 34, label %216
+    i8 12, label %212
+    i8 8, label %211
+    i8 6, label %216
+    i8 4, label %206
+    i8 7, label %207
   ]
 
 202:                                              ; preds = %201
@@ -2219,14 +2219,14 @@ define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noun
 206:                                              ; preds = %201, %201
   br label %216
 
-207:                                              ; preds = %201, %201
+207:                                              ; preds = %201
+  %208 = getelementptr i8, ptr %53, i64 -1
+  %209 = load i8, ptr %208, align 1
+  %210 = icmp eq i8 %209, 1
+  %.259 = select i1 %210, i64 6, i64 3
   br label %216
 
-208:                                              ; preds = %201
-  %209 = getelementptr i8, ptr %53, i64 -1
-  %210 = load i8, ptr %209, align 1
-  %211 = icmp eq i8 %210, 1
-  %.259 = select i1 %211, i64 6, i64 3
+211:                                              ; preds = %201
   br label %216
 
 212:                                              ; preds = %201
@@ -2241,8 +2241,8 @@ define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noun
 215:                                              ; preds = %201
   br label %216
 
-216:                                              ; preds = %201, %208, %202, %215, %214, %213, %212, %207, %206
-  %.0186 = phi i64 [ 3, %206 ], [ 6, %207 ], [ 5, %212 ], [ 8, %213 ], [ 2, %214 ], [ 4, %215 ], [ %.258, %202 ], [ %.259, %208 ], [ 0, %201 ]
+216:                                              ; preds = %207, %201, %201, %202, %215, %214, %213, %212, %211, %206
+  %.0186 = phi i64 [ 0, %215 ], [ 6, %206 ], [ 5, %211 ], [ 8, %212 ], [ 2, %213 ], [ 4, %214 ], [ %.258, %202 ], [ 3, %201 ], [ 3, %201 ], [ %.259, %207 ]
   %217 = load ptr, ptr %38, align 8
   %218 = icmp eq ptr %217, null
   br i1 %218, label %report_parse_error.exit.thread, label %219

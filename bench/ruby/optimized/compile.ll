@@ -114072,14 +114072,14 @@ tailrecurse.outer38:                              ; preds = %tailrecurse.outer38
   %.tr34.ph40 = phi i1 [ %.tr34.ph, %tailrecurse.outer ], [ false, %tailrecurse.outer38.backedge ]
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %tailrecurse.outer38, %461
-  %.tr28 = phi ptr [ %463, %461 ], [ %.tr28.ph39, %tailrecurse.outer38 ]
+tailrecurse:                                      ; preds = %tailrecurse.outer38, %460
+  %.tr28 = phi ptr [ %462, %460 ], [ %.tr28.ph39, %tailrecurse.outer38 ]
   %10 = load i16, ptr %.tr28, align 8, !tbaa !413
   switch i16 %10, label %.thread.loopexit37 [
-    i16 108, label %.thread.loopexit167
+    i16 108, label %.thread.loopexit163
     i16 79, label %14
-    i16 96, label %.thread.loopexit294
-    i16 88, label %.thread.loopexit294
+    i16 96, label %.thread.loopexit286
+    i16 88, label %.thread.loopexit286
     i16 62, label %31
     i16 30, label %45
     i16 42, label %59
@@ -114087,7 +114087,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer38
     i16 142, label %88
     i16 58, label %104
     i16 133, label %.thread.loopexit3
-    i16 144, label %.thread.loopexit120
+    i16 144, label %.thread.loopexit116
     i16 51, label %.thread
     i16 18, label %116
     i16 20, label %116
@@ -114180,61 +114180,61 @@ tailrecurse:                                      ; preds = %tailrecurse.outer38
     i16 69, label %292
     i16 19, label %294
     i16 5, label %.preheader
-    i16 12, label %441
-    i16 56, label %441
-    i16 139, label %442
-    i16 134, label %461
-    i16 13, label %464
-    i16 15, label %464
-    i16 16, label %464
-    i16 57, label %464
-    i16 70, label %464
-    i16 89, label %464
-    i16 115, label %464
-    i16 91, label %464
-    i16 109, label %464
-    i16 110, label %464
-    i16 112, label %464
-    i16 113, label %464
-    i16 126, label %464
-    i16 127, label %464
-    i16 130, label %464
-    i16 3, label %464
-    i16 7, label %464
-    i16 23, label %464
-    i16 52, label %464
-    i16 66, label %464
-    i16 117, label %464
-    i16 118, label %464
-    i16 22, label %464
-    i16 31, label %464
-    i16 40, label %464
-    i16 43, label %464
-    i16 63, label %464
-    i16 75, label %464
-    i16 80, label %464
-    i16 97, label %464
-    i16 105, label %464
-    i16 47, label %464
-    i16 50, label %464
-    i16 71, label %464
-    i16 129, label %464
-    i16 148, label %464
-    i16 14, label %464
-    i16 48, label %464
-    i16 49, label %464
-    i16 103, label %464
-    i16 120, label %464
-    i16 121, label %464
-    i16 152, label %464
-    i16 140, label %464
+    i16 12, label %117
+    i16 56, label %117
+    i16 139, label %441
+    i16 134, label %460
+    i16 13, label %463
+    i16 15, label %463
+    i16 16, label %463
+    i16 57, label %463
+    i16 70, label %463
+    i16 89, label %463
+    i16 115, label %463
+    i16 91, label %463
+    i16 109, label %463
+    i16 110, label %463
+    i16 112, label %463
+    i16 113, label %463
+    i16 126, label %463
+    i16 127, label %463
+    i16 130, label %463
+    i16 3, label %463
+    i16 7, label %463
+    i16 23, label %463
+    i16 52, label %463
+    i16 66, label %463
+    i16 117, label %463
+    i16 118, label %463
+    i16 22, label %463
+    i16 31, label %463
+    i16 40, label %463
+    i16 43, label %463
+    i16 63, label %463
+    i16 75, label %463
+    i16 80, label %463
+    i16 97, label %463
+    i16 105, label %463
+    i16 47, label %463
+    i16 50, label %463
+    i16 71, label %463
+    i16 129, label %463
+    i16 148, label %463
+    i16 14, label %463
+    i16 48, label %463
+    i16 49, label %463
+    i16 103, label %463
+    i16 120, label %463
+    i16 121, label %463
+    i16 152, label %463
+    i16 140, label %463
   ]
 
 .preheader:                                       ; preds = %tailrecurse
   %11 = getelementptr inbounds nuw i8, ptr %.tr28, i64 24
   %12 = load i64, ptr %11, align 8, !tbaa !1173
-  %.not162 = icmp eq i64 %12, 0
-  br i1 %.not162, label %.thread, label %.lr.ph
+  %.not158 = icmp eq i64 %12, 0
+  br i1 %.not158, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %.tr28, i64 40
@@ -114418,7 +114418,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer38
 116:                                              ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %.thread
 
-117:                                              ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+117:                                              ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %.thread
 
 118:                                              ; preds = %tailrecurse
@@ -114488,11 +114488,11 @@ tailrecurse:                                      ; preds = %tailrecurse.outer38
 156:                                              ; preds = %154
   %157 = tail call fastcc ptr @new_label_body(ptr noundef %0)
   store ptr %157, ptr %8, align 8, !tbaa !976
-  %.pre283 = load ptr, ptr %152, align 8, !tbaa !1201
+  %.pre275 = load ptr, ptr %152, align 8, !tbaa !1201
   br label %158
 
 158:                                              ; preds = %156, %154
-  %159 = phi ptr [ %.pre283, %156 ], [ %153, %154 ]
+  %159 = phi ptr [ %.pre275, %156 ], [ %153, %154 ]
   tail call fastcc void @pm_compile_defined_expr0(ptr noundef %0, ptr noundef %159, i32 %.0.val, i32 %.4.val, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true, ptr noundef %5, i1 noundef zeroext false)
   %160 = load ptr, ptr %8, align 8, !tbaa !976
   %161 = ptrtoint ptr %160 to i64
@@ -114607,23 +114607,23 @@ tailrecurse.outer38.backedge:                     ; preds = %204, %218, %292
 224:                                              ; preds = %221
   %225 = load ptr, ptr %8, align 8, !tbaa !976
   %.not473 = icmp eq ptr %225, null
-  br i1 %.not473, label %226, label %.lr.ph161
+  br i1 %.not473, label %226, label %.lr.ph157
 
 226:                                              ; preds = %224
   %227 = tail call fastcc ptr @new_label_body(ptr noundef %0)
   store ptr %227, ptr %8, align 8, !tbaa !976
-  %.pre282 = load i64, ptr %222, align 8, !tbaa !1437
-  %228 = icmp eq i64 %.pre282, 0
-  br i1 %228, label %.thread, label %.lr.ph161
+  %.pre274 = load i64, ptr %222, align 8, !tbaa !1437
+  %228 = icmp eq i64 %.pre274, 0
+  br i1 %228, label %.thread, label %.lr.ph157
 
-.lr.ph161:                                        ; preds = %224, %226
+.lr.ph157:                                        ; preds = %224, %226
   %229 = getelementptr inbounds nuw i8, ptr %.tr28, i64 40
   br label %230
 
-230:                                              ; preds = %.lr.ph161, %230
-  %.0446160 = phi i64 [ 0, %.lr.ph161 ], [ %244, %230 ]
+230:                                              ; preds = %.lr.ph157, %230
+  %.0446156 = phi i64 [ 0, %.lr.ph157 ], [ %244, %230 ]
   %231 = load ptr, ptr %229, align 8, !tbaa !1439
-  %232 = getelementptr ptr, ptr %231, i64 %.0446160
+  %232 = getelementptr ptr, ptr %231, i64 %.0446156
   %233 = load ptr, ptr %232, align 8, !tbaa !481
   tail call fastcc void @pm_compile_defined_expr0(ptr noundef %0, ptr noundef %233, i32 %.0.val, i32 %.4.val, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true, ptr noundef %5, i1 noundef zeroext false)
   %234 = load ptr, ptr %8, align 8, !tbaa !976
@@ -114640,7 +114640,7 @@ tailrecurse.outer38.backedge:                     ; preds = %204, %218, %292
   %242 = load i32, ptr %241, align 8, !tbaa !189
   %243 = add i32 %242, 1
   store i32 %243, ptr %241, align 8, !tbaa !189
-  %244 = add nuw i64 %.0446160, 1
+  %244 = add nuw i64 %.0446156, 1
   %245 = load i64, ptr %222, align 8, !tbaa !1437
   %246 = icmp ult i64 %244, %245
   br i1 %246, label %230, label %.thread, !llvm.loop !1445
@@ -114656,23 +114656,23 @@ tailrecurse.outer38.backedge:                     ; preds = %204, %218, %292
 250:                                              ; preds = %247
   %251 = load ptr, ptr %8, align 8, !tbaa !976
   %.not471 = icmp eq ptr %251, null
-  br i1 %.not471, label %252, label %.lr.ph159
+  br i1 %.not471, label %252, label %.lr.ph155
 
 252:                                              ; preds = %250
   %253 = tail call fastcc ptr @new_label_body(ptr noundef %0)
   store ptr %253, ptr %8, align 8, !tbaa !976
   %.pre = load i64, ptr %.0447, align 8, !tbaa !479
   %254 = icmp eq i64 %.pre, 0
-  br i1 %254, label %.thread, label %.lr.ph159
+  br i1 %254, label %.thread, label %.lr.ph155
 
-.lr.ph159:                                        ; preds = %250, %252
+.lr.ph155:                                        ; preds = %250, %252
   %255 = getelementptr inbounds nuw i8, ptr %.0447, i64 16
   br label %256
 
-256:                                              ; preds = %.lr.ph159, %256
-  %.0448158 = phi i64 [ 0, %.lr.ph159 ], [ %270, %256 ]
+256:                                              ; preds = %.lr.ph155, %256
+  %.0448154 = phi i64 [ 0, %.lr.ph155 ], [ %270, %256 ]
   %257 = load ptr, ptr %255, align 8, !tbaa !480
-  %258 = getelementptr ptr, ptr %257, i64 %.0448158
+  %258 = getelementptr ptr, ptr %257, i64 %.0448154
   %259 = load ptr, ptr %258, align 8, !tbaa !481
   tail call fastcc void @pm_compile_defined_expr0(ptr noundef %0, ptr noundef %259, i32 %.0.val, i32 %.4.val, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true, ptr noundef %5, i1 noundef zeroext false)
   %260 = load ptr, ptr %8, align 8, !tbaa !976
@@ -114689,7 +114689,7 @@ tailrecurse.outer38.backedge:                     ; preds = %204, %218, %292
   %268 = load i32, ptr %267, align 8, !tbaa !189
   %269 = add i32 %268, 1
   store i32 %269, ptr %267, align 8, !tbaa !189
-  %270 = add nuw i64 %.0448158, 1
+  %270 = add nuw i64 %.0448154, 1
   %271 = load i64, ptr %.0447, align 8, !tbaa !479
   %272 = icmp ult i64 %270, %271
   br i1 %272, label %256, label %.thread, !llvm.loop !1446
@@ -114965,9 +114965,9 @@ tailrecurse.outer.backedge:                       ; preds = %273, %288
   br label %.thread25
 
 424:                                              ; preds = %.lr.ph, %424
-  %.0439157 = phi i64 [ 0, %.lr.ph ], [ %438, %424 ]
+  %.0439153 = phi i64 [ 0, %.lr.ph ], [ %438, %424 ]
   %425 = load ptr, ptr %13, align 8, !tbaa !1175
-  %426 = getelementptr ptr, ptr %425, i64 %.0439157
+  %426 = getelementptr ptr, ptr %425, i64 %.0439153
   %427 = load ptr, ptr %426, align 8, !tbaa !481
   tail call fastcc void @pm_compile_defined_expr0(ptr noundef %0, ptr noundef %427, i32 %.0.val, i32 %.4.val, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %.tr32.ph, ptr noundef %5, i1 noundef zeroext false)
   %428 = load ptr, ptr %8, align 8, !tbaa !976
@@ -114984,94 +114984,91 @@ tailrecurse.outer.backedge:                       ; preds = %273, %288
   %436 = load i32, ptr %435, align 8, !tbaa !189
   %437 = add i32 %436, 1
   store i32 %437, ptr %435, align 8, !tbaa !189
-  %438 = add nuw i64 %.0439157, 1
+  %438 = add nuw i64 %.0439153, 1
   %439 = load i64, ptr %11, align 8, !tbaa !1173
   %440 = icmp ult i64 %438, %439
   br i1 %440, label %424, label %.thread, !llvm.loop !1447
 
-441:                                              ; preds = %tailrecurse, %tailrecurse
+441:                                              ; preds = %tailrecurse
+  %442 = getelementptr inbounds nuw i8, ptr %.tr28, i64 40
+  %443 = load ptr, ptr %442, align 8, !tbaa !646
+  %444 = icmp eq ptr %443, null
+  br i1 %444, label %.thread, label %445
+
+445:                                              ; preds = %441
+  tail call fastcc void @pm_compile_defined_expr0(ptr noundef %0, ptr noundef nonnull %443, i32 %.0.val, i32 %.4.val, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %.tr32.ph, ptr noundef %5, i1 noundef zeroext false)
+  %446 = load ptr, ptr %8, align 8, !tbaa !976
+  %.not = icmp eq ptr %446, null
+  br i1 %.not, label %447, label %449
+
+447:                                              ; preds = %445
+  %448 = tail call fastcc ptr @new_label_body(ptr noundef %0)
+  store ptr %448, ptr %8, align 8, !tbaa !976
+  br label %449
+
+449:                                              ; preds = %447, %445
+  %450 = phi ptr [ %448, %447 ], [ %446, %445 ]
+  %451 = ptrtoint ptr %450 to i64
+  %452 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %.0.val, i32 noundef %.4.val, i32 noundef 73, i32 noundef 1, i64 noundef %451)
+  %453 = load ptr, ptr %9, align 8, !tbaa !7
+  %454 = getelementptr inbounds nuw i8, ptr %452, i64 16
+  store ptr %453, ptr %454, align 8, !tbaa !35
+  %455 = getelementptr inbounds nuw i8, ptr %453, i64 8
+  store ptr %452, ptr %455, align 8, !tbaa !36
+  store ptr %452, ptr %9, align 8, !tbaa !7
+  %456 = load ptr, ptr %8, align 8, !tbaa !976
+  %457 = getelementptr inbounds nuw i8, ptr %456, i64 40
+  %458 = load i32, ptr %457, align 8, !tbaa !189
+  %459 = add i32 %458, 1
+  store i32 %459, ptr %457, align 8, !tbaa !189
   br label %.thread
 
-442:                                              ; preds = %tailrecurse
-  %443 = getelementptr inbounds nuw i8, ptr %.tr28, i64 40
-  %444 = load ptr, ptr %443, align 8, !tbaa !646
-  %445 = icmp eq ptr %444, null
-  br i1 %445, label %.thread, label %446
-
-446:                                              ; preds = %442
-  tail call fastcc void @pm_compile_defined_expr0(ptr noundef %0, ptr noundef nonnull %444, i32 %.0.val, i32 %.4.val, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %.tr32.ph, ptr noundef %5, i1 noundef zeroext false)
-  %447 = load ptr, ptr %8, align 8, !tbaa !976
-  %.not = icmp eq ptr %447, null
-  br i1 %.not, label %448, label %450
-
-448:                                              ; preds = %446
-  %449 = tail call fastcc ptr @new_label_body(ptr noundef %0)
-  store ptr %449, ptr %8, align 8, !tbaa !976
-  br label %450
-
-450:                                              ; preds = %448, %446
-  %451 = phi ptr [ %449, %448 ], [ %447, %446 ]
-  %452 = ptrtoint ptr %451 to i64
-  %453 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %.0.val, i32 noundef %.4.val, i32 noundef 73, i32 noundef 1, i64 noundef %452)
-  %454 = load ptr, ptr %9, align 8, !tbaa !7
-  %455 = getelementptr inbounds nuw i8, ptr %453, i64 16
-  store ptr %454, ptr %455, align 8, !tbaa !35
-  %456 = getelementptr inbounds nuw i8, ptr %454, i64 8
-  store ptr %453, ptr %456, align 8, !tbaa !36
-  store ptr %453, ptr %9, align 8, !tbaa !7
-  %457 = load ptr, ptr %8, align 8, !tbaa !976
-  %458 = getelementptr inbounds nuw i8, ptr %457, i64 40
-  %459 = load i32, ptr %458, align 8, !tbaa !189
-  %460 = add i32 %459, 1
-  store i32 %460, ptr %458, align 8, !tbaa !189
-  br label %.thread
-
-461:                                              ; preds = %tailrecurse
-  %462 = getelementptr inbounds nuw i8, ptr %.tr28, i64 24
-  %463 = load ptr, ptr %462, align 8, !tbaa !644
+460:                                              ; preds = %tailrecurse
+  %461 = getelementptr inbounds nuw i8, ptr %.tr28, i64 24
+  %462 = load ptr, ptr %461, align 8, !tbaa !644
   br label %tailrecurse
 
-464:                                              ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
-  %465 = tail call ptr @pm_node_type_to_str(i16 noundef zeroext %10) #38
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.273, ptr noundef %465) #39
+463:                                              ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+  %464 = tail call ptr @pm_node_type_to_str(i16 noundef zeroext %10) #38
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.273, ptr noundef %464) #39
   unreachable
 
 .thread.loopexit37:                               ; preds = %tailrecurse
   br label %.thread
 
-.thread.loopexit167:                              ; preds = %tailrecurse
+.thread.loopexit163:                              ; preds = %tailrecurse
   br label %.thread
 
-.thread.loopexit294:                              ; preds = %tailrecurse, %tailrecurse
+.thread.loopexit286:                              ; preds = %tailrecurse, %tailrecurse
   br label %.thread
 
 .thread.loopexit3:                                ; preds = %tailrecurse
   br label %.thread
 
-.thread.loopexit120:                              ; preds = %tailrecurse
+.thread.loopexit116:                              ; preds = %tailrecurse
   br label %.thread
 
-.thread:                                          ; preds = %288, %207, %214, %211, %196, %200, %192, %188, %184, %424, %256, %230, %tailrecurse, %.thread.loopexit120, %.thread.loopexit3, %.thread.loopexit294, %247, %221, %.thread.loopexit167, %.preheader, %252, %226, %.thread.loopexit37, %91, %297, %104, %450, %442, %441, %117, %116
-  %.0 = phi i32 [ 14, %442 ], [ 14, %450 ], [ 14, %104 ], [ 14, %297 ], [ 14, %91 ], [ 14, %226 ], [ 14, %252 ], [ 14, %.preheader ], [ 0, %.thread.loopexit37 ], [ 1, %.thread.loopexit167 ], [ 14, %221 ], [ 14, %247 ], [ 13, %116 ], [ 14, %117 ], [ 14, %441 ], [ 3, %.thread.loopexit294 ], [ 10, %.thread.loopexit3 ], [ 11, %.thread.loopexit120 ], [ 12, %tailrecurse ], [ 14, %230 ], [ 14, %256 ], [ 14, %424 ], [ 1, %207 ], [ 14, %214 ], [ 14, %211 ], [ 1, %196 ], [ 14, %200 ], [ 14, %192 ], [ 14, %188 ], [ 14, %184 ], [ 14, %288 ]
-  br i1 %.tr32.ph, label %468, label %466
+.thread:                                          ; preds = %288, %207, %214, %211, %196, %200, %192, %188, %184, %424, %256, %230, %tailrecurse, %.thread.loopexit116, %.thread.loopexit3, %.thread.loopexit286, %247, %221, %.thread.loopexit163, %.preheader, %252, %226, %.thread.loopexit37, %91, %297, %104, %449, %441, %117, %116
+  %.0 = phi i32 [ 14, %441 ], [ 14, %449 ], [ 14, %104 ], [ 14, %297 ], [ 14, %91 ], [ 14, %226 ], [ 14, %252 ], [ 14, %.preheader ], [ 0, %.thread.loopexit37 ], [ 1, %.thread.loopexit163 ], [ 14, %221 ], [ 14, %247 ], [ 13, %116 ], [ 14, %117 ], [ 3, %.thread.loopexit286 ], [ 10, %.thread.loopexit3 ], [ 11, %.thread.loopexit116 ], [ 12, %tailrecurse ], [ 14, %230 ], [ 14, %256 ], [ 14, %424 ], [ 1, %207 ], [ 14, %214 ], [ 14, %211 ], [ 1, %196 ], [ 14, %200 ], [ 14, %192 ], [ 14, %188 ], [ 14, %184 ], [ 14, %288 ]
+  br i1 %.tr32.ph, label %467, label %465
 
-466:                                              ; preds = %.thread
-  %467 = tail call i64 @rb_iseq_defined_string(i32 noundef %.0) #38
-  br label %468
+465:                                              ; preds = %.thread
+  %466 = tail call i64 @rb_iseq_defined_string(i32 noundef %.0) #38
+  br label %467
 
-468:                                              ; preds = %.thread, %466
-  %469 = phi i64 [ %467, %466 ], [ 20, %.thread ]
-  %470 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %.0.val, i32 noundef %.4.val, i32 noundef 19, i32 noundef 1, i64 noundef %469)
+467:                                              ; preds = %.thread, %465
+  %468 = phi i64 [ %466, %465 ], [ 20, %.thread ]
+  %469 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %.0.val, i32 noundef %.4.val, i32 noundef 19, i32 noundef 1, i64 noundef %468)
   br label %.thread25
 
-.thread25:                                        ; preds = %401, %421, %.thread13, %101, %468, %181, %145, %130, %85, %70, %56, %42, %28
-  %.sink414 = phi ptr [ %403, %401 ], [ %423, %421 ], [ %115, %.thread13 ], [ %103, %101 ], [ %470, %468 ], [ %183, %181 ], [ %147, %145 ], [ %132, %130 ], [ %87, %85 ], [ %72, %70 ], [ %58, %56 ], [ %44, %42 ], [ %30, %28 ]
-  %471 = load ptr, ptr %9, align 8, !tbaa !7
-  %472 = getelementptr inbounds nuw i8, ptr %.sink414, i64 16
-  store ptr %471, ptr %472, align 8, !tbaa !35
-  %473 = getelementptr inbounds nuw i8, ptr %471, i64 8
-  store ptr %.sink414, ptr %473, align 8, !tbaa !36
-  store ptr %.sink414, ptr %9, align 8, !tbaa !7
+.thread25:                                        ; preds = %401, %421, %.thread13, %101, %467, %181, %145, %130, %85, %70, %56, %42, %28
+  %.sink402 = phi ptr [ %403, %401 ], [ %423, %421 ], [ %115, %.thread13 ], [ %103, %101 ], [ %469, %467 ], [ %183, %181 ], [ %147, %145 ], [ %132, %130 ], [ %87, %85 ], [ %72, %70 ], [ %58, %56 ], [ %44, %42 ], [ %30, %28 ]
+  %470 = load ptr, ptr %9, align 8, !tbaa !7
+  %471 = getelementptr inbounds nuw i8, ptr %.sink402, i64 16
+  store ptr %470, ptr %471, align 8, !tbaa !35
+  %472 = getelementptr inbounds nuw i8, ptr %470, i64 8
+  store ptr %.sink402, ptr %472, align 8, !tbaa !36
+  store ptr %.sink402, ptr %9, align 8, !tbaa !7
   ret void
 }
 

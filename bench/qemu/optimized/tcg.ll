@@ -17001,11 +17001,11 @@ define internal fastcc nonnull ptr @opcode_args_ct(i32 %.0.val) unnamed_addr #13
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 32
   %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %68
+  br i1 %.not, label %7, label %67
 
 7:                                                ; preds = %0
   %trunc.i = trunc i32 %.0.val to i8
-  switch i8 %trunc.i, label %54 [
+  switch i8 %trunc.i, label %53 [
     i8 -124, label %tcg_target_op_def.exit
     i8 9, label %8
     i8 67, label %8
@@ -17066,117 +17066,117 @@ define internal fastcc nonnull ptr @opcode_args_ct(i32 %.0.val) unnamed_addr #13
     i8 104, label %23
     i8 49, label %23
     i8 107, label %23
-    i8 48, label %24
-    i8 105, label %24
-    i8 50, label %24
-    i8 108, label %24
-    i8 106, label %24
-    i8 109, label %24
-    i8 99, label %24
-    i8 100, label %24
-    i8 101, label %24
-    i8 35, label %24
-    i8 96, label %24
-    i8 36, label %24
-    i8 97, label %24
-    i8 62, label %24
-    i8 122, label %24
-    i8 37, label %25
-    i8 98, label %25
-    i8 34, label %26
-    i8 95, label %26
-    i8 6, label %27
-    i8 64, label %27
-    i8 7, label %27
-    i8 65, label %27
-    i8 8, label %28
-    i8 66, label %28
-    i8 24, label %29
-    i8 85, label %29
-    i8 25, label %29
-    i8 86, label %29
-    i8 41, label %30
-    i8 125, label %30
-    i8 42, label %30
-    i8 126, label %30
-    i8 39, label %31
-    i8 123, label %31
-    i8 40, label %31
-    i8 124, label %31
-    i8 61, label %32
-    i8 121, label %32
-    i8 60, label %36
-    i8 120, label %36
-    i8 -121, label %40
-    i8 -117, label %40
-    i8 -120, label %41
-    i8 -116, label %41
-    i8 -113, label %42
-    i8 -112, label %42
-    i8 -119, label %40
-    i8 -115, label %40
-    i8 -118, label %41
-    i8 -114, label %41
-    i8 -111, label %43
-    i8 -110, label %43
-    i8 -109, label %44
-    i8 -108, label %44
-    i8 45, label %45
-    i8 46, label %46
-    i8 -104, label %47
-    i8 -102, label %47
-    i8 -103, label %48
-    i8 -101, label %49
-    i8 -100, label %49
-    i8 -99, label %49
-    i8 -88, label %49
-    i8 -87, label %49
-    i8 -86, label %49
-    i8 -85, label %49
-    i8 -84, label %49
-    i8 -83, label %49
-    i8 -82, label %49
-    i8 -81, label %49
-    i8 -96, label %49
-    i8 -95, label %49
-    i8 -94, label %49
-    i8 -93, label %49
-    i8 -92, label %49
-    i8 -91, label %49
-    i8 -90, label %49
-    i8 -89, label %49
-    i8 -71, label %49
-    i8 -70, label %49
-    i8 -69, label %49
-    i8 -68, label %49
-    i8 -67, label %49
-    i8 -75, label %49
-    i8 -74, label %49
-    i8 -73, label %49
-    i8 -66, label %49
-    i8 -62, label %49
-    i8 -61, label %49
-    i8 -60, label %49
-    i8 -59, label %49
-    i8 -57, label %49
-    i8 -56, label %49
-    i8 -55, label %49
-    i8 -54, label %49
-    i8 -97, label %50
-    i8 -106, label %50
-    i8 -80, label %50
-    i8 -79, label %50
-    i8 -78, label %50
-    i8 -77, label %50
-    i8 -76, label %50
-    i8 -58, label %50
-    i8 -53, label %51
-    i8 -52, label %51
-    i8 -65, label %52
-    i8 -64, label %53
+    i8 48, label %8
+    i8 105, label %8
+    i8 50, label %8
+    i8 108, label %8
+    i8 106, label %8
+    i8 109, label %8
+    i8 99, label %8
+    i8 100, label %8
+    i8 101, label %8
+    i8 35, label %8
+    i8 96, label %8
+    i8 36, label %8
+    i8 97, label %8
+    i8 62, label %8
+    i8 122, label %8
+    i8 37, label %24
+    i8 98, label %24
+    i8 34, label %25
+    i8 95, label %25
+    i8 6, label %26
+    i8 64, label %26
+    i8 7, label %26
+    i8 65, label %26
+    i8 8, label %27
+    i8 66, label %27
+    i8 24, label %28
+    i8 85, label %28
+    i8 25, label %28
+    i8 86, label %28
+    i8 41, label %29
+    i8 125, label %29
+    i8 42, label %29
+    i8 126, label %29
+    i8 39, label %30
+    i8 123, label %30
+    i8 40, label %30
+    i8 124, label %30
+    i8 61, label %31
+    i8 121, label %31
+    i8 60, label %35
+    i8 120, label %35
+    i8 -121, label %39
+    i8 -117, label %39
+    i8 -120, label %40
+    i8 -116, label %40
+    i8 -113, label %41
+    i8 -112, label %41
+    i8 -119, label %39
+    i8 -115, label %39
+    i8 -118, label %40
+    i8 -114, label %40
+    i8 -111, label %42
+    i8 -110, label %42
+    i8 -109, label %43
+    i8 -108, label %43
+    i8 45, label %44
+    i8 46, label %45
+    i8 -104, label %46
+    i8 -102, label %46
+    i8 -103, label %47
+    i8 -101, label %48
+    i8 -100, label %48
+    i8 -99, label %48
+    i8 -88, label %48
+    i8 -87, label %48
+    i8 -86, label %48
+    i8 -85, label %48
+    i8 -84, label %48
+    i8 -83, label %48
+    i8 -82, label %48
+    i8 -81, label %48
+    i8 -96, label %48
+    i8 -95, label %48
+    i8 -94, label %48
+    i8 -93, label %48
+    i8 -92, label %48
+    i8 -91, label %48
+    i8 -90, label %48
+    i8 -89, label %48
+    i8 -71, label %48
+    i8 -70, label %48
+    i8 -69, label %48
+    i8 -68, label %48
+    i8 -67, label %48
+    i8 -75, label %48
+    i8 -74, label %48
+    i8 -73, label %48
+    i8 -66, label %48
+    i8 -62, label %48
+    i8 -61, label %48
+    i8 -60, label %48
+    i8 -59, label %48
+    i8 -57, label %48
+    i8 -56, label %48
+    i8 -55, label %48
+    i8 -54, label %48
+    i8 -97, label %49
+    i8 -106, label %49
+    i8 -80, label %49
+    i8 -79, label %49
+    i8 -78, label %49
+    i8 -77, label %49
+    i8 -76, label %49
+    i8 -58, label %49
+    i8 -53, label %50
+    i8 -52, label %50
+    i8 -65, label %51
+    i8 -64, label %52
   ]
 
-8:                                                ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
+8:                                                ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
   br label %tcg_target_op_def.exit
 
 9:                                                ; preds = %7, %7
@@ -17219,19 +17219,19 @@ define internal fastcc nonnull ptr @opcode_args_ct(i32 %.0.val) unnamed_addr #13
 23:                                               ; preds = %7, %7, %7, %7
   br label %tcg_target_op_def.exit
 
-24:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
+24:                                               ; preds = %7, %7
   br label %tcg_target_op_def.exit
 
 25:                                               ; preds = %7, %7
   br label %tcg_target_op_def.exit
 
-26:                                               ; preds = %7, %7
+26:                                               ; preds = %7, %7, %7, %7
   br label %tcg_target_op_def.exit
 
-27:                                               ; preds = %7, %7, %7, %7
+27:                                               ; preds = %7, %7
   br label %tcg_target_op_def.exit
 
-28:                                               ; preds = %7, %7
+28:                                               ; preds = %7, %7, %7, %7
   br label %tcg_target_op_def.exit
 
 29:                                               ; preds = %7, %7, %7, %7
@@ -17240,27 +17240,27 @@ define internal fastcc nonnull ptr @opcode_args_ct(i32 %.0.val) unnamed_addr #13
 30:                                               ; preds = %7, %7, %7, %7
   br label %tcg_target_op_def.exit
 
-31:                                               ; preds = %7, %7, %7, %7
+31:                                               ; preds = %7, %7
+  %32 = load i32, ptr @cpuinfo, align 4
+  %33 = and i32 %32, 32
+  %.not2.i = icmp eq i32 %33, 0
+  %34 = select i1 %.not2.i, i32 31, i32 32
   br label %tcg_target_op_def.exit
 
-32:                                               ; preds = %7, %7
-  %33 = load i32, ptr @cpuinfo, align 4
-  %34 = and i32 %33, 32
-  %.not2.i = icmp eq i32 %34, 0
-  %35 = select i1 %.not2.i, i32 31, i32 32
+35:                                               ; preds = %7, %7
+  %36 = load i32, ptr @cpuinfo, align 4
+  %37 = and i32 %36, 8
+  %.not.i = icmp eq i32 %37, 0
+  %38 = select i1 %.not.i, i32 31, i32 32
   br label %tcg_target_op_def.exit
 
-36:                                               ; preds = %7, %7
-  %37 = load i32, ptr @cpuinfo, align 4
-  %38 = and i32 %37, 8
-  %.not.i = icmp eq i32 %38, 0
-  %39 = select i1 %.not.i, i32 31, i32 32
+39:                                               ; preds = %7, %7, %7, %7
   br label %tcg_target_op_def.exit
 
 40:                                               ; preds = %7, %7, %7, %7
   br label %tcg_target_op_def.exit
 
-41:                                               ; preds = %7, %7, %7, %7
+41:                                               ; preds = %7, %7
   br label %tcg_target_op_def.exit
 
 42:                                               ; preds = %7, %7
@@ -17269,28 +17269,28 @@ define internal fastcc nonnull ptr @opcode_args_ct(i32 %.0.val) unnamed_addr #13
 43:                                               ; preds = %7, %7
   br label %tcg_target_op_def.exit
 
-44:                                               ; preds = %7, %7
+44:                                               ; preds = %7
   br label %tcg_target_op_def.exit
 
 45:                                               ; preds = %7
   br label %tcg_target_op_def.exit
 
-46:                                               ; preds = %7
+46:                                               ; preds = %7, %7
   br label %tcg_target_op_def.exit
 
-47:                                               ; preds = %7, %7
+47:                                               ; preds = %7
   br label %tcg_target_op_def.exit
 
-48:                                               ; preds = %7
+48:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
   br label %tcg_target_op_def.exit
 
-49:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
+49:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7
   br label %tcg_target_op_def.exit
 
-50:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7
+50:                                               ; preds = %7, %7
   br label %tcg_target_op_def.exit
 
-51:                                               ; preds = %7, %7
+51:                                               ; preds = %7
   br label %tcg_target_op_def.exit
 
 52:                                               ; preds = %7
@@ -17299,31 +17299,28 @@ define internal fastcc nonnull ptr @opcode_args_ct(i32 %.0.val) unnamed_addr #13
 53:                                               ; preds = %7
   br label %tcg_target_op_def.exit
 
-54:                                               ; preds = %7
-  br label %tcg_target_op_def.exit
+tcg_target_op_def.exit:                           ; preds = %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %35, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53
+  %.0.i = phi i32 [ -1, %53 ], [ 15, %8 ], [ 2, %9 ], [ 4, %10 ], [ 3, %11 ], [ 27, %12 ], [ 22, %13 ], [ 23, %14 ], [ 29, %15 ], [ %19, %16 ], [ 20, %20 ], [ 5, %21 ], [ 12, %22 ], [ 14, %23 ], [ 21, %24 ], [ 18, %25 ], [ 19, %26 ], [ 36, %27 ], [ 41, %28 ], [ 39, %29 ], [ 42, %30 ], [ %34, %31 ], [ %38, %35 ], [ 13, %39 ], [ 1, %40 ], [ 6, %41 ], [ 38, %42 ], [ 8, %43 ], [ 11, %44 ], [ 37, %45 ], [ 16, %46 ], [ 7, %47 ], [ 30, %48 ], [ 17, %49 ], [ 33, %50 ], [ 34, %51 ], [ 35, %52 ], [ 0, %7 ]
+  %54 = zext nneg i32 %.0.i to i64
+  %55 = icmp ult i32 %.0.i, 43
+  tail call void @llvm.assume(i1 %55)
+  %56 = getelementptr inbounds nuw [43 x %struct.TCGConstraintSet], ptr @constraint_sets, i64 0, i64 %54
+  %57 = load i8, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %59 = load i8, ptr %58, align 8
+  %60 = icmp eq i8 %57, %59
+  tail call void @llvm.assume(i1 %60)
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  %62 = load i8, ptr %61, align 1
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %64 = load i8, ptr %63, align 1
+  %65 = icmp eq i8 %62, %64
+  tail call void @llvm.assume(i1 %65)
+  %66 = getelementptr inbounds nuw [43 x [16 x %struct.TCGArgConstraint]], ptr @all_cts, i64 0, i64 %54
+  br label %67
 
-tcg_target_op_def.exit:                           ; preds = %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %36, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54
-  %.0.i = phi i32 [ -1, %54 ], [ 15, %8 ], [ 2, %9 ], [ 4, %10 ], [ 3, %11 ], [ 27, %12 ], [ 22, %13 ], [ 23, %14 ], [ 29, %15 ], [ %19, %16 ], [ 20, %20 ], [ 5, %21 ], [ 12, %22 ], [ 14, %23 ], [ 15, %24 ], [ 21, %25 ], [ 18, %26 ], [ 19, %27 ], [ 36, %28 ], [ 41, %29 ], [ 39, %30 ], [ 42, %31 ], [ %35, %32 ], [ %39, %36 ], [ 13, %40 ], [ 1, %41 ], [ 6, %42 ], [ 38, %43 ], [ 8, %44 ], [ 11, %45 ], [ 37, %46 ], [ 16, %47 ], [ 7, %48 ], [ 30, %49 ], [ 17, %50 ], [ 33, %51 ], [ 34, %52 ], [ 35, %53 ], [ 0, %7 ]
-  %55 = zext nneg i32 %.0.i to i64
-  %56 = icmp ult i32 %.0.i, 43
-  tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw [43 x %struct.TCGConstraintSet], ptr @constraint_sets, i64 0, i64 %55
-  %58 = load i8, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %60 = load i8, ptr %59, align 8
-  %61 = icmp eq i8 %58, %60
-  tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i8, ptr %57, i64 1
-  %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %65 = load i8, ptr %64, align 1
-  %66 = icmp eq i8 %63, %65
-  tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw [43 x [16 x %struct.TCGArgConstraint]], ptr @all_cts, i64 0, i64 %55
-  br label %68
-
-68:                                               ; preds = %0, %tcg_target_op_def.exit
-  %.0 = phi ptr [ %67, %tcg_target_op_def.exit ], [ @empty_cts, %0 ]
+67:                                               ; preds = %0, %tcg_target_op_def.exit
+  %.0 = phi ptr [ %66, %tcg_target_op_def.exit ], [ @empty_cts, %0 ]
   ret ptr %.0
 }
 

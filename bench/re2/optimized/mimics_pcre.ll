@@ -369,22 +369,22 @@ _ZN3re26Regexp6WalkerIbED2Ev.exit:                ; preds = %invoke.cont.i, %_ZN
 define noundef zeroext i1 @_ZN3re217EmptyStringWalker9PostVisitEPNS_6RegexpEbbPbi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %re, i1 zeroext %parent_arg, i1 zeroext %pre_arg, ptr noundef readonly captures(none) %child_args, i32 noundef %nchild_args) unnamed_addr #2 align 2 {
 entry:
   %0 = load i8, ptr %re, align 8
-  switch i8 %0, label %return [
+  switch i8 %0, label %sw.epilog [
     i8 10, label %sw.bb21
     i8 11, label %sw.bb18
     i8 8, label %sw.bb18
     i8 6, label %for.cond7.preheader
     i8 5, label %for.cond.preheader
-    i8 21, label %sw.bb3
-    i8 2, label %sw.bb3
-    i8 14, label %sw.bb3
-    i8 15, label %sw.bb3
-    i8 17, label %sw.bb3
-    i8 16, label %sw.bb3
-    i8 18, label %sw.bb3
-    i8 19, label %sw.bb3
-    i8 7, label %sw.bb3
-    i8 9, label %sw.bb3
+    i8 21, label %return
+    i8 2, label %return
+    i8 14, label %return
+    i8 15, label %return
+    i8 17, label %return
+    i8 16, label %return
+    i8 18, label %return
+    i8 19, label %return
+    i8 7, label %return
+    i8 9, label %return
   ]
 
 for.cond.preheader:                               ; preds = %entry
@@ -402,9 +402,6 @@ for.cond7.preheader:                              ; preds = %entry
 for.body9.preheader:                              ; preds = %for.cond7.preheader
   %wide.trip.count25 = zext nneg i32 %nchild_args to i64
   br label %for.body9
-
-sw.bb3:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  br label %return
 
 for.body:                                         ; preds = %for.body, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
@@ -442,8 +439,11 @@ lor.rhs:                                          ; preds = %sw.bb21
   %cmp25 = icmp eq i32 %5, 0
   br label %return
 
-return:                                           ; preds = %for.body, %for.body9, %for.cond.preheader, %for.cond7.preheader, %entry, %sw.bb21, %lor.rhs, %sw.bb18, %sw.bb3
-  %retval.0 = phi i1 [ true, %sw.bb3 ], [ %tobool20, %sw.bb18 ], [ true, %sw.bb21 ], [ %cmp25, %lor.rhs ], [ false, %entry ], [ false, %for.cond7.preheader ], [ true, %for.cond.preheader ], [ %tobool12, %for.body9 ], [ %tobool, %for.body ]
+sw.epilog:                                        ; preds = %entry
+  br label %return
+
+return:                                           ; preds = %for.body, %for.body9, %for.cond.preheader, %for.cond7.preheader, %sw.bb21, %lor.rhs, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.epilog, %sw.bb18
+  %retval.0 = phi i1 [ false, %sw.epilog ], [ %tobool20, %sw.bb18 ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %sw.bb21 ], [ %cmp25, %lor.rhs ], [ false, %for.cond7.preheader ], [ true, %for.cond.preheader ], [ %tobool12, %for.body9 ], [ %tobool, %for.body ]
   ret i1 %retval.0
 }
 

@@ -2728,7 +2728,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.loopexit.sink.split.i.i
 
 181:                                              ; preds = %162, %154, %146, %135, %135, %135, %135, %135, %135
-  %.sink158.i.i = phi i64 [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 2, %146 ], [ 3, %154 ], [ 4, %162 ], [ 1, %135 ]
+  %.sink158.i.i = phi i64 [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 2, %146 ], [ 3, %154 ], [ 4, %162 ]
   %182 = getelementptr i8, ptr %.1123.i.i, i64 %.sink158.i.i
   %183 = ptrtoint ptr %182 to i64
   %184 = sub i64 %13, %183

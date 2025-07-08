@@ -546,19 +546,8 @@ land.rhs:                                         ; preds = %entry
     i32 34, label %land.end
     i32 35, label %land.end
     i32 36, label %land.end
-    i32 16, label %sw.bb2.i
-    i32 17, label %sw.bb2.i
-    i32 30, label %sw.bb2.i
-    i32 26, label %sw.bb2.i
-    i32 27, label %sw.bb2.i
-    i32 28, label %sw.bb2.i
-    i32 29, label %sw.bb2.i
-    i32 31, label %sw.bb2.i
     i32 6, label %sw.bb3.i
   ]
-
-sw.bb2.i:                                         ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs
-  br label %land.end
 
 sw.bb3.i:                                         ; preds = %land.rhs
   %StencilBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 1232
@@ -569,8 +558,8 @@ sw.bb3.i:                                         ; preds = %land.rhs
 sw.default.i:                                     ; preds = %land.rhs
   br label %land.end
 
-land.end:                                         ; preds = %sw.default.i, %sw.bb3.i, %sw.bb2.i, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ false, %sw.default.i ], [ %tobool.i, %sw.bb3.i ], [ false, %sw.bb2.i ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ]
+land.end:                                         ; preds = %sw.default.i, %sw.bb3.i, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %entry
+  %2 = phi i1 [ false, %entry ], [ false, %sw.default.i ], [ %tobool.i, %sw.bb3.i ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ], [ true, %land.rhs ]
   ret i1 %2
 }
 

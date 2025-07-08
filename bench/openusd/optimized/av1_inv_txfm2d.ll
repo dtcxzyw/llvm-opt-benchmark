@@ -447,9 +447,9 @@ switch.lookup:                                    ; preds = %3
   %switch.load32 = load i32, ptr %switch.gep31, align 4
   br label %set_flip_cfg.exit
 
-set_flip_cfg.exit:                                ; preds = %switch.lookup, %3
-  %.sink12.i.i = phi i32 [ 0, %3 ], [ %switch.load, %switch.lookup ]
-  %.sink.i.i = phi i32 [ 0, %3 ], [ %switch.load32, %switch.lookup ]
+set_flip_cfg.exit:                                ; preds = %3, %switch.lookup
+  %.sink12.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %3 ]
+  %.sink.i.i = phi i32 [ %switch.load32, %switch.lookup ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %.sink12.i.i, ptr %10, align 4

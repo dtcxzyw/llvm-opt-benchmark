@@ -994,7 +994,6 @@ $_ZTIN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE = comdat any
 @_ZTIN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEfEE, ptr @_ZTIN3vcg18SimpleTempDataBaseE }, comdat, align 8
 @_ZTIf = external constant ptr
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_meshselect.cpp, ptr null }]
-@switch.table._ZThn16_NK21SelectionFilterPlugin8getClassEPK7QAction = private unnamed_addr constant [25 x i32] [i32 1, i32 1, i32 16385, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 257, i32 257, i32 1, i32 1, i32 3, i32 8193, i32 1, i32 1, i32 1, i32 1], align 4
 @switch.table._ZThn16_NK21SelectionFilterPlugin13postConditionEPK7QAction = private unnamed_addr constant [25 x i32] [i32 50331648, i32 50331648, i32 -1, i32 50331648, i32 50331648, i32 50331648, i32 50331648, i32 50331648, i32 1126071271, i32 1126071271, i32 1126071271, i32 1126071271, i32 50331648, i32 50331648, i32 50331648, i32 50331648, i32 50331648, i32 -1, i32 50331648, i32 50331648, i32 50331648, i32 50331648, i32 50331648, i32 50331648, i32 50331648], align 4
 @switch.table._ZThn16_NK21SelectionFilterPlugin16getPreConditionsEPK7QAction = private unnamed_addr constant [19 x i32] [i32 524288, i32 524288, i32 0, i32 0, i32 0, i32 0, i32 0, i32 524288, i32 524288, i32 524288, i32 65536, i32 16, i32 0, i32 8, i32 524288, i32 2097152, i32 524288, i32 524288, i32 524288], align 4
 
@@ -33118,17 +33117,28 @@ define noundef range(i32 1, 16386) i32 @_ZNK21SelectionFilterPlugin8getClassEPK7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
-  %8 = icmp ult i32 %7, 25
-  br i1 %8, label %switch.lookup, label %10
+  switch i32 %7, label %11 [
+    i32 19, label %12
+    i32 20, label %8
+    i32 15, label %9
+    i32 16, label %9
+    i32 2, label %10
+  ]
 
-switch.lookup:                                    ; preds = %2
-  %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [25 x i32], ptr @switch.table._ZThn16_NK21SelectionFilterPlugin8getClassEPK7QAction, i64 0, i64 %9
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %10
+8:                                                ; preds = %2
+  br label %12
 
-10:                                               ; preds = %2, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 1, %2 ]
+9:                                                ; preds = %2, %2
+  br label %12
+
+10:                                               ; preds = %2
+  br label %12
+
+11:                                               ; preds = %2
+  br label %12
+
+12:                                               ; preds = %2, %11, %10, %9, %8
+  %.0 = phi i32 [ 1, %11 ], [ 8193, %8 ], [ 257, %9 ], [ 16385, %10 ], [ 3, %2 ]
   ret i32 %.0
 }
 
@@ -33138,17 +33148,28 @@ define noundef range(i32 1, 16386) i32 @_ZThn16_NK21SelectionFilterPlugin8getCla
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  %7 = icmp ult i32 %6, 25
-  br i1 %7, label %switch.lookup, label %_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit
+  switch i32 %6, label %10 [
+    i32 19, label %_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit
+    i32 20, label %7
+    i32 15, label %8
+    i32 16, label %8
+    i32 2, label %9
+  ]
 
-switch.lookup:                                    ; preds = %2
-  %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [25 x i32], ptr @switch.table._ZThn16_NK21SelectionFilterPlugin8getClassEPK7QAction, i64 0, i64 %8
-  %switch.load = load i32, ptr %switch.gep, align 4
+7:                                                ; preds = %2
   br label %_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit
 
-_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit: ; preds = %2, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 1, %2 ]
+8:                                                ; preds = %2, %2
+  br label %_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit
+
+9:                                                ; preds = %2
+  br label %_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit
+
+10:                                               ; preds = %2
+  br label %_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit
+
+_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit: ; preds = %2, %7, %8, %9, %10
+  %.0.i = phi i32 [ 1, %10 ], [ 8193, %7 ], [ 257, %8 ], [ 16385, %9 ], [ 3, %2 ]
   ret i32 %.0.i
 }
 

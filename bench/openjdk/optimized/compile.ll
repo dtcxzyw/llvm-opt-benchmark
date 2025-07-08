@@ -16445,17 +16445,17 @@ define hidden void @_ZN7Compile33final_graph_reshaping_main_switchEP4NodeR20Fina
     i32 50, label %32
     i32 49, label %32
     i32 326, label %64
-    i32 222, label %574
-    i32 143, label %566
-    i32 145, label %566
-    i32 141, label %566
-    i32 203, label %566
-    i32 449, label %559
-    i32 447, label %559
-    i32 448, label %559
-    i32 446, label %559
-    i32 445, label %559
     i32 444, label %559
+    i32 445, label %559
+    i32 446, label %559
+    i32 448, label %559
+    i32 447, label %559
+    i32 449, label %559
+    i32 203, label %566
+    i32 141, label %566
+    i32 145, label %566
+    i32 143, label %566
+    i32 222, label %574
     i32 217, label %574
     i32 213, label %581
     i32 233, label %529

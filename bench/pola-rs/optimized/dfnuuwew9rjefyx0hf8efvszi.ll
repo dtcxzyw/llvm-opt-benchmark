@@ -12885,37 +12885,31 @@ default.unreachable:                              ; preds = %9, %3
     i64 1, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i64 2, label %11
     i64 3, label %11
-    i64 4, label %12
-    i64 5, label %12
-    i64 6, label %12
-    i64 7, label %12
+    i64 4, label %11
+    i64 5, label %11
+    i64 6, label %11
+    i64 7, label %11
     i64 8, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i64 9, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i64 10, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i64 11, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
-    i64 12, label %13
-    i64 13, label %13
-    i64 14, label %13
-    i64 15, label %13
+    i64 12, label %11
+    i64 13, label %11
+    i64 14, label %11
+    i64 15, label %11
     i64 16, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i64 17, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
-    i64 18, label %14
+    i64 18, label %12
   ]
 
-_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit: ; preds = %switch.lookup, %3, %3, %3, %3, %3, %3, %9, %9, %9, %9, %9, %9, %9, %9, %14, %13, %12, %11, %8, %6, %5
-  %.sroa.0.0 = phi i8 [ 0, %5 ], [ 2, %8 ], [ %..i, %6 ], [ 0, %11 ], [ 0, %12 ], [ 0, %13 ], [ 2, %14 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ %switch.masked, %switch.lookup ]
+_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit: ; preds = %switch.lookup, %3, %3, %3, %3, %3, %3, %9, %9, %9, %9, %9, %9, %9, %9, %12, %11, %8, %6, %5
+  %.sroa.0.0 = phi i8 [ 0, %5 ], [ 2, %8 ], [ %..i, %6 ], [ 0, %11 ], [ 2, %12 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ %switch.masked, %switch.lookup ]
   ret i8 %.sroa.0.0
 
-11:                                               ; preds = %9, %9
+11:                                               ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
   br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
 
-12:                                               ; preds = %9, %9, %9, %9
-  br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
-
-13:                                               ; preds = %9, %9, %9, %9
-  br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
-
-14:                                               ; preds = %9
+12:                                               ; preds = %9
   br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
 
 switch.lookup:                                    ; preds = %9

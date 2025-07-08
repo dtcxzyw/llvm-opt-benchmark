@@ -186,25 +186,11 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN19OpenColorIO_v2_5dev22GetInterpolation1DNameENS_13InterpolationE(i32 noundef %0) local_unnamed_addr #6 {
-  switch i32 %0, label %3 [
-    i32 2, label %4
-    i32 255, label %4
-    i32 4, label %2
-    i32 254, label %2
-    i32 1, label %2
-    i32 3, label %2
-    i32 0, label %2
-  ]
-
-2:                                                ; preds = %1, %1, %1, %1, %1
-  br label %4
-
-3:                                                ; preds = %1
-  br label %4
-
-4:                                                ; preds = %1, %1, %3, %2
-  %.0 = phi ptr [ null, %3 ], [ null, %2 ], [ @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123INTERPOLATION_1D_LINEARE, %1 ], [ @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123INTERPOLATION_1D_LINEARE, %1 ]
-  ret ptr %.0
+  %switch.selectcmp.case1 = icmp eq i32 %0, 2
+  %switch.selectcmp.case2 = icmp eq i32 %0, 255
+  %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
+  %2 = select i1 %switch.selectcmp, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123INTERPOLATION_1D_LINEARE, ptr null
+  ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -334,27 +320,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN19OpenColorIO_v2_5dev22GetInterpolation3DNameENS_13InterpolationE(i32 noundef %0) local_unnamed_addr #6 {
-  switch i32 %0, label %4 [
-    i32 2, label %5
+  switch i32 %0, label %3 [
+    i32 2, label %4
     i32 3, label %2
     i32 255, label %2
-    i32 254, label %3
-    i32 1, label %3
-    i32 4, label %3
-    i32 0, label %3
   ]
 
 2:                                                ; preds = %1, %1
-  br label %5
+  br label %4
 
-3:                                                ; preds = %1, %1, %1, %1
-  br label %5
+3:                                                ; preds = %1
+  br label %4
 
-4:                                                ; preds = %1
-  br label %5
-
-5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ null, %4 ], [ @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_128INTERPOLATION_3D_TETRAHEDRALE, %2 ], [ null, %3 ], [ @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123INTERPOLATION_3D_LINEARE, %1 ]
+4:                                                ; preds = %1, %3, %2
+  %.0 = phi ptr [ null, %3 ], [ @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_128INTERPOLATION_3D_TETRAHEDRALE, %2 ], [ @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123INTERPOLATION_3D_LINEARE, %1 ]
   ret ptr %.0
 }
 
