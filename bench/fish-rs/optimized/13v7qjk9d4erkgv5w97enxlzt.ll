@@ -5032,7 +5032,7 @@ switch.lookup:                                    ; preds = %20
   br label %_ZN4fish5wutil8dir_iter23stat_mode_to_entry_type17h1b36ec53fae36fc7E.exit
 
 _ZN4fish5wutil8dir_iter23stat_mode_to_entry_type17h1b36ec53fae36fc7E.exit: ; preds = %switch.lookup, %20, %41
-  %.sink = phi i8 [ %., %41 ], [ 0, %20 ], [ %switch.load, %switch.lookup ]
+  %.sink = phi i8 [ %spec.select, %41 ], [ 0, %20 ], [ %switch.load, %switch.lookup ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 65
   store i8 %.sink, ptr %38, align 1
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
@@ -5046,7 +5046,7 @@ _ZN4fish5wutil8dir_iter23stat_mode_to_entry_type17h1b36ec53fae36fc7E.exit: ; pre
 
 41:                                               ; preds = %30
   %cond = icmp eq i32 %31, 40
-  %. = select i1 %cond, i8 6, i8 0
+  %spec.select = select i1 %cond, i8 6, i8 0
   br label %_ZN4fish5wutil8dir_iter23stat_mode_to_entry_type17h1b36ec53fae36fc7E.exit
 
 "_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit6": ; preds = %40, %_ZN4fish5wutil8dir_iter23stat_mode_to_entry_type17h1b36ec53fae36fc7E.exit, %1

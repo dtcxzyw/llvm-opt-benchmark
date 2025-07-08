@@ -128,7 +128,7 @@ define range(i32 1, 21) i32 @sqlda_dynamic_type(i32 noundef %0, i32 noundef %1) 
   %9 = select i1 %8, i32 17, i32 16
   br label %15
 
-10:                                               ; preds = %2
+7:                                                ; preds = %2
   br label %15
 
 11:                                               ; preds = %2, %2
@@ -143,7 +143,7 @@ define range(i32 1, 21) i32 @sqlda_dynamic_type(i32 noundef %0, i32 noundef %1) 
 14:                                               ; preds = %2
   br label %15
 
-15:                                               ; preds = %2, %14, %13, %12, %11, %10, %6, %5, %4, %3
+15:                                               ; preds = %2, %14, %13, %12, %11, %7, %6, %5, %4, %3
   %.0 = phi i32 [ 1, %14 ], [ 5, %3 ], [ 13, %4 ], [ 12, %5 ], [ %9, %6 ], [ 18, %10 ], [ 19, %11 ], [ 20, %12 ], [ 7, %13 ], [ 3, %2 ]
   ret i32 %.0
 }

@@ -3152,21 +3152,21 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 1, 4) i32 @GetCommandLogLevel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  br label %tailrecurse120
+  br label %tailrecurse122
 
-tailrecurse120:                                   ; preds = %46, %1
-  %.tr121 = phi ptr [ %0, %1 ], [ %48, %46 ]
+tailrecurse122:                                   ; preds = %46, %1
+  %.tr123 = phi ptr [ %0, %1 ], [ %48, %46 ]
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %tailrecurse.backedge, %tailrecurse120
-  %.tr = phi ptr [ %.tr121, %tailrecurse120 ], [ %.tr.be, %tailrecurse.backedge ]
+tailrecurse:                                      ; preds = %tailrecurse.backedge, %tailrecurse122
+  %.tr = phi ptr [ %.tr123, %tailrecurse120 ], [ %.tr.be, %tailrecurse.backedge ]
   %2 = load i32, ptr %.tr, align 4
   switch i32 %2, label %71 [
     i32 136, label %3
-    i32 137, label %.critedge.loopexit94
-    i32 138, label %.critedge.loopexit94
-    i32 139, label %.critedge.loopexit94
-    i32 140, label %.critedge.loopexit94
+    i32 137, label %.critedge.loopexit96
+    i32 138, label %.critedge.loopexit96
+    i32 139, label %.critedge.loopexit96
+    i32 140, label %.critedge.loopexit96
     i32 141, label %5
     i32 144, label %.critedge.loopexit
     i32 224, label %.critedge.loopexit
@@ -3191,7 +3191,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 175, label %.critedge
     i32 176, label %.critedge
     i32 196, label %.critedge
-    i32 197, label %.critedge.loopexit94
+    i32 197, label %.critedge.loopexit96
     i32 198, label %.critedge
     i32 199, label %.critedge
     i32 156, label %8
@@ -3312,7 +3312,7 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @FetchPreparedStatement(ptr noundef %16, i1 noundef zeroext false) #11
   %.not43 = icmp eq ptr %17, null
-  br i1 %.not43, label %.critedge.loopexit94, label %18
+  br i1 %.not43, label %.critedge.loopexit96, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -3320,7 +3320,7 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not44 = icmp eq ptr %22, null
-  br i1 %.not44, label %.critedge.loopexit94, label %23
+  br i1 %.not44, label %.critedge.loopexit96, label %23
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -3337,15 +3337,15 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph71, label %.critedge
+  br i1 %31, label %.lr.ph72, label %.critedge
 
 ._crit_edge:                                      ; preds = %42
   br i1 %.137, label %46, label %.critedge
 
-.lr.ph71:                                         ; preds = %.lr.ph, %42
+.lr.ph72:                                         ; preds = %.lr.ph, %42
   %32 = phi i32 [ %43, %42 ], [ %30, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph ]
-  %.0366569 = phi i1 [ %.137, %42 ], [ false, %.lr.ph ]
+  %.0366670 = phi i1 [ %.137, %42 ], [ false, %.lr.ph ]
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
@@ -3355,29 +3355,29 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %42
 
-40:                                               ; preds = %.lr.ph71
+40:                                               ; preds = %.lr.ph72
   %41 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %35) #11
   %.pre = load i32, ptr %28, align 4
   br label %42
 
-42:                                               ; preds = %40, %.lr.ph71
+42:                                               ; preds = %40, %.lr.ph72
   %43 = phi i32 [ %.pre, %40 ], [ %32, %.lr.ph71 ]
-  %.137 = phi i1 [ %41, %40 ], [ %.0366569, %.lr.ph71 ]
+  %.137 = phi i1 [ %41, %40 ], [ %.0366670, %.lr.ph71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph71, label %._crit_edge
+  br i1 %45, label %.lr.ph72, label %._crit_edge
 
 46:                                               ; preds = %._crit_edge
   %47 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %48 = load ptr, ptr %47, align 8
-  br label %tailrecurse120
+  br label %tailrecurse122
 
 49:                                               ; preds = %tailrecurse
   %50 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %51 = load i32, ptr %50, align 4
   switch i32 %51, label %54 [
-    i32 1, label %.critedge.loopexit94
+    i32 1, label %.critedge.loopexit96
     i32 2, label %.critedge.loopexit
     i32 3, label %.critedge.loopexit
     i32 4, label %.critedge.loopexit
@@ -3404,7 +3404,7 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   %61 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %62 = load i32, ptr %61, align 4
   switch i32 %62, label %65 [
-    i32 1, label %.critedge.loopexit94
+    i32 1, label %.critedge.loopexit96
     i32 2, label %.critedge.loopexit
     i32 3, label %.critedge.loopexit
     i32 4, label %.critedge.loopexit
@@ -3437,16 +3437,16 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3764, ptr noundef nonnull @__func__.GetCommandLogLevel) #11
   br label %.critedge
 
-.critedge.loopexit94:                             ; preds = %60, %49, %18, %14, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+.critedge.loopexit96:                             ; preds = %60, %49, %18, %14, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   %.1.ph = phi i32 [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 3, %18 ], [ 3, %14 ], [ 3, %49 ], [ 3, %60 ]
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %49, %49, %49, %49, %60, %60, %60, %60
-  %.1.ph103 = phi i32 [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ]
+  %.1.ph105 = phi i32 [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ], [ 2, %60 ]
   br label %.critedge
 
-.critedge:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.critedge.loopexit, %.critedge.loopexit94, %25, %.lr.ph, %._crit_edge, %5, %8, %54, %56, %65, %67, %73, %71
-  %.1 = phi i32 [ %., %5 ], [ %.46, %8 ], [ 3, %56 ], [ 3, %54 ], [ 3, %67 ], [ 3, %65 ], [ 3, %73 ], [ 3, %71 ], [ 3, %._crit_edge ], [ 3, %.lr.ph ], [ 3, %25 ], [ %.1.ph, %.critedge.loopexit94 ], [ %.1.ph103, %.critedge.loopexit ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ]
+.critedge:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.critedge.loopexit, %.critedge.loopexit96, %25, %.lr.ph, %._crit_edge, %5, %8, %54, %56, %65, %67, %73, %71
+  %.1 = phi i32 [ %., %5 ], [ %.46, %8 ], [ 3, %56 ], [ 3, %54 ], [ 3, %67 ], [ 3, %65 ], [ 3, %73 ], [ 3, %71 ], [ 3, %._crit_edge ], [ 3, %.lr.ph ], [ 3, %25 ], [ %.1.ph, %.critedge.loopexit94 ], [ %.1.ph105, %.critedge.loopexit ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ]
   ret i32 %.1
 }
 

@@ -12259,19 +12259,19 @@ define { ptr, ptr } @"_ZN62_$LT$uv_build_backend..Error$u20$as$u20$core..error..
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %27
 
-21:                                               ; preds = %1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+20:                                               ; preds = %1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %27
 
-23:                                               ; preds = %1
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+22:                                               ; preds = %1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %27
 
-25:                                               ; preds = %1
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+24:                                               ; preds = %1
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %27
 
-27:                                               ; preds = %1, %25, %23, %21, %19, %17, %15, %14, %12, %7
+26:                                               ; preds = %1, %25, %23, %21, %19, %17, %15, %14, %12, %7
   %.sroa.18.0 = phi ptr [ %11, %7 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.199, %12 ], [ undef, %14 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.203, %15 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.205, %17 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.207, %19 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.209, %21 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.211, %23 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.86, %25 ], [ @anon.26b6992726cacd096e0ad0eb8d3d53f4.197, %1 ]
   %.sroa.0.0 = phi ptr [ %10, %7 ], [ %13, %12 ], [ null, %14 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %0, %1 ]
   %28 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0

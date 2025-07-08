@@ -23462,7 +23462,7 @@ define noundef range(i32 1, 0) i32 @"_ZN162_$LT$ty_python_semantic..semantic_ind
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN18ty_python_semantic14semantic_index6symbol7ScopeId16is_function_like17h7bdcb5ae9575053bE(i32 noundef range(i32 1, 0) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(224) %2) unnamed_addr #0 {
-_ZN18ty_python_semantic14semantic_index6symbol9ScopeKind16is_function_like17h5cd483ea0776fc13E.exit:
+switch.lookup:
   %3 = tail call noundef i32 @"_ZN18ty_python_semantic14semantic_index6symbol1_69_$LT$impl$u20$ty_python_semantic..semantic_index..symbol..ScopeId$GT$4file17hd2bc54445d032555E"(i32 noundef range(i32 1, 0) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   %4 = tail call noundef align 8 dereferenceable(408) ptr @_ZN18ty_python_semantic14semantic_index14semantic_index17he123d3a1dc05d5eaE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, i32 noundef %3)
   %5 = tail call noundef i32 @"_ZN18ty_python_semantic14semantic_index6symbol1_69_$LT$impl$u20$ty_python_semantic..semantic_index..symbol..ScopeId$GT$13file_scope_id17hb16cae4ee98251a2E"(i32 noundef range(i32 1, 0) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)

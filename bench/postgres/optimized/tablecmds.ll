@@ -8646,12 +8646,12 @@ define dso_local range(i32 4, -2147483648) i32 @AlterTableGetLockLevel(ptr nound
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph34, label %._crit_edge
 
-._crit_edge:                                      ; preds = %36, %.lr.ph, %1
+._crit_edge:                                      ; preds = %37, %.lr.ph, %1
   %.017.lcssa = phi i32 [ 4, %1 ], [ 4, %.lr.ph ], [ %spec.select, %36 ]
   ret i32 %.017.lcssa
 
-.lr.ph34:                                         ; preds = %.lr.ph, %36
-  %6 = phi i32 [ %37, %36 ], [ %4, %.lr.ph ]
+.lr.ph34:                                         ; preds = %.lr.ph, %37
+  %6 = phi i32 [ %38, %36 ], [ %4, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph ]
   %.0172732 = phi i32 [ %spec.select, %36 ], [ 4, %.lr.ph ]
   %7 = load ptr, ptr %3, align 8
@@ -8660,23 +8660,23 @@ define dso_local range(i32 4, -2147483648) i32 @AlterTableGetLockLevel(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %.split [
-    i32 0, label %36
-    i32 32, label %36
-    i32 33, label %36
-    i32 24, label %36
-    i32 11, label %36
-    i32 22, label %36
-    i32 4, label %36
-    i32 13, label %36
-    i32 1, label %36
-    i32 31, label %36
-    i32 46, label %36
-    i32 47, label %36
-    i32 45, label %36
-    i32 48, label %36
-    i32 26, label %36
-    i32 58, label %36
-    i32 25, label %36
+    i32 0, label %37
+    i32 32, label %37
+    i32 33, label %37
+    i32 24, label %37
+    i32 11, label %37
+    i32 22, label %37
+    i32 4, label %37
+    i32 13, label %37
+    i32 1, label %37
+    i32 31, label %37
+    i32 46, label %37
+    i32 47, label %37
+    i32 45, label %37
+    i32 48, label %37
+    i32 26, label %37
+    i32 58, label %37
+    i32 25, label %37
     i32 37, label %12
     i32 38, label %12
     i32 39, label %12
@@ -8685,99 +8685,99 @@ define dso_local range(i32 4, -2147483648) i32 @AlterTableGetLockLevel(ptr nound
     i32 40, label %12
     i32 42, label %12
     i32 44, label %12
-    i32 2, label %36
-    i32 3, label %36
-    i32 19, label %36
-    i32 14, label %36
-    i32 21, label %36
-    i32 53, label %36
-    i32 5, label %36
-    i32 54, label %36
-    i32 55, label %36
-    i32 56, label %36
-    i32 57, label %36
-    i32 62, label %36
-    i32 64, label %36
-    i32 63, label %36
-    i32 6, label %36
-    i32 7, label %36
-    i32 12, label %36
+    i32 2, label %37
+    i32 3, label %37
+    i32 19, label %37
+    i32 14, label %37
+    i32 21, label %37
+    i32 53, label %37
+    i32 5, label %37
+    i32 54, label %37
+    i32 55, label %37
+    i32 56, label %37
+    i32 57, label %37
+    i32 62, label %37
+    i32 64, label %37
+    i32 63, label %37
+    i32 6, label %37
+    i32 7, label %37
+    i32 12, label %37
     i32 16, label %13
     i32 17, label %13
     i32 18, label %13
-    i32 49, label %36
-    i32 50, label %36
-    i32 51, label %36
-    i32 52, label %36
-    i32 36, label %36
+    i32 49, label %37
+    i32 50, label %37
+    i32 51, label %37
+    i32 52, label %37
+    i32 36, label %37
     i32 8, label %21
     i32 27, label %21
     i32 28, label %21
     i32 9, label %21
     i32 10, label %21
-    i32 29, label %36
-    i32 30, label %36
-    i32 20, label %21
-    i32 34, label %22
-    i32 35, label %22
-    i32 59, label %21
-    i32 60, label %26
-    i32 61, label %21
+    i32 29, label %37
+    i32 30, label %37
+    i32 20, label %22
+    i32 34, label %23
+    i32 35, label %23
+    i32 59, label %22
+    i32 60, label %27
+    i32 61, label %22
   ]
 
 12:                                               ; preds = %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34
-  br label %36
+  br label %37
 
 13:                                               ; preds = %.lr.ph34, %.lr.ph34, %.lr.ph34
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 160
-  br i1 %17, label %18, label %36
+  br i1 %17, label %18, label %37
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
   %cond = icmp eq i32 %20, 9
   %. = select i1 %cond, i32 6, i32 8
-  br label %36
+  br label %37
 
-21:                                               ; preds = %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34
-  br label %36
+22:                                               ; preds = %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34
+  br label %37
 
-22:                                               ; preds = %.lr.ph34, %.lr.ph34
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @AlterTableGetRelOptionsLockLevel(ptr noundef %24) #15
+23:                                               ; preds = %.lr.ph34, %.lr.ph34
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i32 @AlterTableGetRelOptionsLockLevel(ptr noundef %25) #15
   %.pre = load i32, ptr %2, align 4
-  br label %36
+  br label %37
 
-26:                                               ; preds = %.lr.ph34
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = load i8, ptr %29, align 8, !range !6, !noundef !7
-  %31 = trunc nuw i8 %30 to i1
-  %.21 = select i1 %31, i32 4, i32 8
-  br label %36
+27:                                               ; preds = %.lr.ph34
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %31 = load i8, ptr %30, align 8, !range !6, !noundef !7
+  %32 = trunc nuw i8 %31 to i1
+  %.21 = select i1 %32, i32 4, i32 8
+  br label %37
 
 .split:                                           ; preds = %.lr.ph34
-  %32 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %33)
-  %34 = load i32, ptr %32, align 4
-  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %34) #15
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %34)
+  %35 = load i32, ptr %33, align 4
+  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %35) #15
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4812, ptr noundef nonnull @__func__.AlterTableGetLockLevel) #15
   unreachable
 
-36:                                               ; preds = %26, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %13, %18, %22, %21, %12
-  %37 = phi i32 [ %6, %12 ], [ %6, %18 ], [ %6, %13 ], [ %6, %21 ], [ %.pre, %22 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %26 ]
-  %.016 = phi i32 [ 6, %12 ], [ %., %18 ], [ 8, %13 ], [ 4, %21 ], [ %25, %22 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ %.21, %26 ]
+37:                                               ; preds = %27, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %.lr.ph34, %13, %18, %22, %21, %12
+  %38 = phi i32 [ %6, %12 ], [ %6, %18 ], [ %6, %13 ], [ %6, %21 ], [ %.pre, %22 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %.lr.ph34 ], [ %6, %26 ]
+  %.016 = phi i32 [ 6, %12 ], [ %., %18 ], [ 8, %13 ], [ 4, %21 ], [ %26, %22 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ 8, %.lr.ph34 ], [ %.21, %26 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.016, i32 %.0172732)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = sext i32 %37 to i64
-  %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph34, label %._crit_edge
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next, %39
+  br i1 %40, label %.lr.ph34, label %._crit_edge
 }
 
 declare void @EventTriggerAlterTableRelid(i32 noundef) local_unnamed_addr #5

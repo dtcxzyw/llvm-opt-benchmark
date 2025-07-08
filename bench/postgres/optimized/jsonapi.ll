@@ -2226,7 +2226,7 @@ define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noun
   %.259 = select i1 %210, i64 6, i64 3
   br label %216
 
-211:                                              ; preds = %201
+208:                                              ; preds = %201
   br label %216
 
 212:                                              ; preds = %201
@@ -2241,7 +2241,7 @@ define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noun
 215:                                              ; preds = %201
   br label %216
 
-216:                                              ; preds = %207, %201, %201, %202, %215, %214, %213, %212, %211, %206
+216:                                              ; preds = %207, %201, %201, %202, %215, %214, %213, %212, %208, %206
   %.0186 = phi i64 [ 0, %215 ], [ 6, %206 ], [ 5, %211 ], [ 8, %212 ], [ 2, %213 ], [ 4, %214 ], [ %.258, %202 ], [ 3, %201 ], [ 3, %201 ], [ %.259, %207 ]
   %217 = load ptr, ptr %38, align 8
   %218 = icmp eq ptr %217, null

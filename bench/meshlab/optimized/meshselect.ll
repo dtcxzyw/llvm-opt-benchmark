@@ -33125,10 +33125,10 @@ define noundef range(i32 1, 16386) i32 @_ZNK21SelectionFilterPlugin8getClassEPK7
     i32 2, label %10
   ]
 
-8:                                                ; preds = %2
+switch.lookup:                                    ; preds = %2
   br label %12
 
-9:                                                ; preds = %2, %2
+10:                                               ; preds = %2, %2
   br label %12
 
 10:                                               ; preds = %2
@@ -33156,10 +33156,10 @@ define noundef range(i32 1, 16386) i32 @_ZThn16_NK21SelectionFilterPlugin8getCla
     i32 2, label %9
   ]
 
-7:                                                ; preds = %2
+switch.lookup:                                    ; preds = %2
   br label %_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit
 
-8:                                                ; preds = %2, %2
+switch.lookup:; preds = %2, %2
   br label %_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit
 
 9:                                                ; preds = %2
@@ -33168,8 +33168,8 @@ define noundef range(i32 1, 16386) i32 @_ZThn16_NK21SelectionFilterPlugin8getCla
 10:                                               ; preds = %2
   br label %_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit
 
-_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit: ; preds = %2, %7, %8, %9, %10
-  %.0.i = phi i32 [ 1, %10 ], [ 8193, %7 ], [ 257, %8 ], [ 16385, %9 ], [ 3, %2 ]
+_ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit: ; preds = %2, %7, %switch.lookup, %9, %10
+  %.0.i = phi i32 [ 1, %10 ], [ 8193, %7 ], [ 25switch.lookup, %8 ], [ 16385, %9 ], [ 3, %2 ]
   ret i32 %.0.i
 }
 

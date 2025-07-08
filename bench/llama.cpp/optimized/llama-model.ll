@@ -4849,7 +4849,7 @@ define range(i32 -1, 9) i32 @llama_model_rope_type(ptr noundef readonly captures
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.70, i32 noundef 3933, ptr noundef nonnull @.str.99) #38
   unreachable
 
-7:                                                ; preds = %1
+8:                                                ; preds = %1
   br label %8
 
 8:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %7, %5, %4

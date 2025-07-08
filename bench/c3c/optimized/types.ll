@@ -6834,7 +6834,7 @@ define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) l
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2361) #13
   unreachable
 
-24:                                               ; preds = %2
+25:                                               ; preds = %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2363) #13
   unreachable
 

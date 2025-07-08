@@ -28546,8 +28546,8 @@ _ZNK4llvm15concat_iteratorIPN5clang11BindingDeclEJPKS3_NS_15mapped_iteratorIPKPN
   %84 = extractvalue { ptr, i8 } %81, 0
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #28
   %85 = call noundef ptr @_ZNK5clang11BindingDecl13getHoldingVarEv(ptr noundef nonnull align 8 dereferenceable(72) %84) #28
-  %.not180 = icmp eq ptr %85, null
-  br i1 %.not180, label %88, label %86
+  %.not178 = icmp eq ptr %85, null
+  br i1 %.not178, label %88, label %86
 
 86:                                               ; preds = %_ZNK4llvm15concat_iteratorIPN5clang11BindingDeclEJPKS3_NS_15mapped_iteratorIPKPNS1_4ExprEZNKS1_17DecompositionDecl13flat_bindingsEvEUlS8_E_S3_EES5_EEdeEv.exit
   %87 = ptrtoint ptr %85 to i64
@@ -28606,8 +28606,8 @@ _ZN4llvm15concat_iteratorIPN5clang11BindingDeclEJPKS3_NS_15mapped_iteratorIPKPNS
 104:                                              ; preds = %22
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %106 = load ptr, ptr %105, align 8, !tbaa !904
-  %.not172 = icmp eq ptr %106, null
-  br i1 %.not172, label %120, label %107
+  %.not173 = icmp eq ptr %106, null
+  br i1 %.not173, label %120, label %107
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 180
@@ -28638,8 +28638,8 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread: ; preds = %112, %_ZNK5cl
 120:                                              ; preds = %104, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit, %107, %22
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %122 = load ptr, ptr %121, align 8, !tbaa !904
-  %.not173 = icmp eq ptr %122, null
-  br i1 %.not173, label %145, label %123
+  %.not174 = icmp eq ptr %122, null
+  br i1 %.not174, label %145, label %123
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -28667,8 +28667,8 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit189.thread: ; preds = %123, %_ZNK
   %135 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #32
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 18200
   %137 = load ptr, ptr %136, align 8, !tbaa !1936
-  %.not174 = icmp eq ptr %137, null
-  br i1 %.not174, label %145, label %138
+  %.not175 = icmp eq ptr %137, null
+  br i1 %.not175, label %145, label %138
 
 138:                                              ; preds = %134
   %139 = load ptr, ptr %137, align 8, !tbaa !3
@@ -28721,8 +28721,8 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit189.thread: ; preds = %123, %_ZNK
 156:                                              ; preds = %22
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %158 = load ptr, ptr %157, align 8, !tbaa !904
-  %.not166 = icmp eq ptr %158, null
-  br i1 %.not166, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %159
+  %.not163 = icmp eq ptr %158, null
+  br i1 %.not163, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %159
 
 159:                                              ; preds = %156
   tail call void @_ZN5clang7CodeGen11CGDebugInfo13EmitUsingDeclERKNS_9UsingDeclE(ptr noundef nonnull align 8 dereferenceable(2480) %158, ptr noundef nonnull align 8 dereferenceable(88) %1) #28
@@ -28731,8 +28731,8 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit189.thread: ; preds = %123, %_ZNK
 160:                                              ; preds = %22
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %162 = load ptr, ptr %161, align 8, !tbaa !904
-  %.not165 = icmp eq ptr %162, null
-  br i1 %.not165, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %163
+  %.not162 = icmp eq ptr %162, null
+  br i1 %.not162, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %163
 
 163:                                              ; preds = %160
   tail call void @_ZN5clang7CodeGen11CGDebugInfo17EmitUsingEnumDeclERKNS_13UsingEnumDeclE(ptr noundef nonnull align 8 dereferenceable(2480) %162, ptr noundef nonnull align 8 dereferenceable(72) %1) #28
@@ -28741,8 +28741,8 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit189.thread: ; preds = %123, %_ZNK
 164:                                              ; preds = %22
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %166 = load ptr, ptr %165, align 8, !tbaa !904
-  %.not164 = icmp eq ptr %166, null
-  br i1 %.not164, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %167
+  %.not161 = icmp eq ptr %166, null
+  br i1 %.not161, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %167
 
 167:                                              ; preds = %164
   %168 = tail call noundef ptr @_ZN5clang7CodeGen11CGDebugInfo18EmitNamespaceAliasERKNS_18NamespaceAliasDeclE(ptr noundef nonnull align 8 dereferenceable(2480) %166, ptr noundef nonnull align 8 dereferenceable(96) %1) #28
@@ -28751,8 +28751,8 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit189.thread: ; preds = %123, %_ZNK
 169:                                              ; preds = %22
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %171 = load ptr, ptr %170, align 8, !tbaa !904
-  %.not163 = icmp eq ptr %171, null
-  br i1 %.not163, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %172
+  %.not160 = icmp eq ptr %171, null
+  br i1 %.not160, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %172
 
 172:                                              ; preds = %169
   tail call void @_ZN5clang7CodeGen11CGDebugInfo18EmitUsingDirectiveERKNS_18UsingDirectiveDeclE(ptr noundef nonnull align 8 dereferenceable(2480) %171, ptr noundef nonnull align 8 dereferenceable(88) %1) #28
@@ -28896,29 +28896,29 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit189.thread: ; preds = %123, %_ZNK
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 56
   %254 = load i64, ptr %253, align 8
   %255 = and i64 %254, 68719476736
-  %.not175 = icmp eq i64 %255, 0
-  br i1 %.not175, label %260, label %256
+  %.not164 = icmp eq i64 %255, 0
+  br i1 %.not164, label %260, label %256
 
 256:                                              ; preds = %250
   %257 = getelementptr inbounds nuw i8, ptr %252, i64 88
   %258 = load i64, ptr %257, align 8
   %259 = and i64 %258, 1024
-  %.not176 = icmp eq i64 %259, 0
-  br i1 %.not176, label %260, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread
+  %.not165 = icmp eq i64 %259, 0
+  br i1 %.not165, label %260, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread
 
 260:                                              ; preds = %256, %250
   %261 = getelementptr inbounds nuw i8, ptr %252, i64 64
   %262 = load i64, ptr %261, align 8
   %263 = and i64 %262, 34359738368
-  %.not177 = icmp eq i64 %263, 0
-  br i1 %.not177, label %264, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread
+  %.not166 = icmp eq i64 %263, 0
+  br i1 %.not166, label %264, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread
 
 264:                                              ; preds = %260
   %265 = getelementptr inbounds nuw i8, ptr %252, i64 96
   %266 = load i64, ptr %265, align 8
   %267 = and i64 %266, 16
-  %.not178 = icmp eq i64 %267, 0
-  br i1 %.not178, label %268, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread
+  %.not167 = icmp eq i64 %267, 0
+  br i1 %.not167, label %268, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread
 
 268:                                              ; preds = %264
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -28969,14 +28969,14 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit189.thread: ; preds = %123, %_ZNK
 
 _ZNK5clang4Decl23getImportedOwningModuleEv.exit:  ; preds = %294
   %297 = call noundef ptr @_ZNK5clang4Decl19getOwningModuleSlowEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #28
-  %.not158 = icmp eq ptr %297, null
-  br i1 %.not158, label %_ZNK5clang4Decl23getImportedOwningModuleEv.exit.thread, label %301
+  %.not168 = icmp eq ptr %297, null
+  br i1 %.not168, label %_ZNK5clang4Decl23getImportedOwningModuleEv.exit.thread, label %301
 
 _ZNK5clang4Decl23getImportedOwningModuleEv.exit.thread: ; preds = %291, %294, %_ZNK5clang4Decl23getImportedOwningModuleEv.exit
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %299 = load ptr, ptr %298, align 8, !tbaa !904
-  %.not159 = icmp eq ptr %299, null
-  br i1 %.not159, label %301, label %300
+  %.not169 = icmp eq ptr %299, null
+  br i1 %.not169, label %301, label %300
 
 300:                                              ; preds = %_ZNK5clang4Decl23getImportedOwningModuleEv.exit.thread
   call void @_ZN5clang7CodeGen11CGDebugInfo14EmitImportDeclERKNS_10ImportDeclE(ptr noundef nonnull align 8 dereferenceable(2480) %299, ptr noundef nonnull align 8 dereferenceable(56) %1) #28
@@ -28987,8 +28987,8 @@ _ZNK5clang4Decl23getImportedOwningModuleEv.exit.thread: ; preds = %291, %294, %_
   %303 = load i8, ptr %302, align 8, !tbaa !844, !range !48, !noundef !49
   %304 = trunc nuw i8 %303 to i1
   %.pre300 = load ptr, ptr %288, align 8, !tbaa !1948
-  %.not160 = icmp ne ptr %.pre300, null
-  %or.cond306.not = select i1 %304, i1 %.not160, i1 false
+  %.not170 = icmp ne ptr %.pre300, null
+  %or.cond306.not = select i1 %304, i1 %.not170, i1 false
   br i1 %or.cond306.not, label %305, label %_ZNK5clang6Module13isNamedModuleEv.exit
 
 305:                                              ; preds = %301
@@ -29095,8 +29095,8 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %350 = extractvalue { ptr, i64 } %348, 1
   %.idx = shl nuw nsw i64 %350, 3
   %351 = getelementptr inbounds nuw i8, ptr %349, i64 %.idx
-  %.not161283 = icmp eq i64 %350, 0
-  br i1 %.not161283, label %._crit_edge, label %.lr.ph
+  %.not171283 = icmp eq i64 %350, 0
+  br i1 %.not171283, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %346
   %352 = getelementptr inbounds nuw i8, ptr %329, i64 256
@@ -29111,8 +29111,8 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %356 = load ptr, ptr %.0140284, align 8, !tbaa !1379
   call void @_ZN5clang7CodeGen13CodeGenModule16EmitTopLevelDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(3608) %0, ptr noundef %356)
   %357 = getelementptr inbounds nuw i8, ptr %.0140284, i64 8
-  %.not161 = icmp eq ptr %357, %351
-  br i1 %.not161, label %._crit_edge, label %.lr.ph
+  %.not171 = icmp eq ptr %357, %351
+  br i1 %.not171, label %._crit_edge, label %.lr.ph
 
 .lr.ph288:                                        ; preds = %._crit_edge, %.critedge309
   %.sroa.0241.0286 = phi ptr [ %391, %.critedge309 ], [ %353, %._crit_edge ]
@@ -29120,8 +29120,8 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 904
   %360 = load i16, ptr %359, align 8
   %361 = and i16 %360, 32
-  %.not162 = icmp eq i16 %361, 0
-  br i1 %.not162, label %362, label %.critedge309
+  %.not172 = icmp eq i16 %361, 0
+  br i1 %.not172, label %362, label %.critedge309
 
 362:                                              ; preds = %.lr.ph288
   %363 = load i8, ptr %312, align 4, !tbaa !32, !range !48, !noalias !1956, !noundef !49
@@ -29252,8 +29252,8 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
 407:                                              ; preds = %22, %22
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %409 = load ptr, ptr %408, align 8, !tbaa !904
-  %.not167 = icmp eq ptr %409, null
-  br i1 %.not167, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %410
+  %.not176 = icmp eq ptr %409, null
+  br i1 %.not176, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %410
 
 410:                                              ; preds = %407
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -29265,13 +29265,13 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
 414:                                              ; preds = %22
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %416 = load ptr, ptr %415, align 8, !tbaa !904
-  %.not168 = icmp eq ptr %416, null
-  br i1 %.not168, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %417
+  %.not179 = icmp eq ptr %416, null
+  br i1 %.not179, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %417
 
 417:                                              ; preds = %414
   %418 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %1) #28
-  %.not169 = icmp eq ptr %418, null
-  br i1 %.not169, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %419
+  %.not180 = icmp eq ptr %418, null
+  br i1 %.not180, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %419
 
 419:                                              ; preds = %417
   %420 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -29283,13 +29283,13 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
 423:                                              ; preds = %22
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %425 = load ptr, ptr %424, align 8, !tbaa !904
-  %.not170 = icmp eq ptr %425, null
-  br i1 %.not170, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %426
+  %.not158 = icmp eq ptr %425, null
+  br i1 %.not158, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %426
 
 426:                                              ; preds = %423
   %427 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(156) %1) #28
-  %.not171 = icmp eq ptr %427, null
-  br i1 %.not171, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %428
+  %.not159 = icmp eq ptr %427, null
+  br i1 %.not159, label %_ZNK5clang6Module13isNamedModuleEv.exit.thread, label %428
 
 428:                                              ; preds = %426
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 144

@@ -1375,7 +1375,7 @@ _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairIN
   %516 = trunc nuw i8 %.5176.ph.i to i1
   br label %519
 
-517:                                              ; preds = %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i
+517:                                              ; preds = %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.thread.i
   %518 = getelementptr inbounds nuw i8, ptr %.sroa.0385.0686.i, i64 4
   %.not498.i = icmp eq ptr %518, %515
   br i1 %.not498.i, label %.critedge216.i, label %519
@@ -1391,11 +1391,11 @@ _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairIN
   %524 = load i32, ptr %523, align 8
   %525 = icmp eq i32 %524, -1
   %or.cond9.not.i = select i1 %516, i1 true, i1 %525
-  br i1 %or.cond9.not.i, label %._ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit_crit_edge.i, label %526
+  br i1 %or.cond9.not.i, label %._ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.thread_crit_edge.i, label %526
 
-._ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit_crit_edge.i: ; preds = %522
+._ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.thread_crit_edge.i: ; preds = %522
   %.pre.i = load i32, ptr %521, align 8
-  br label %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i
+  br label %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.thread.i
 
 526:                                              ; preds = %522
   %527 = getelementptr inbounds nuw i8, ptr %521, i64 8
@@ -1429,7 +1429,7 @@ _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairIN
           cleanup
   br label %.body.i
 
-_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i: ; preds = %532, %._ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit_crit_edge.i
+_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.thread.i: ; preds = %532, %._ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.thread_crit_edge.i
   %535 = phi i32 [ %.pre.i, %._ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit_crit_edge.i ], [ %.val.i.i, %532 ]
   %.not500.i = icmp eq i32 %535, 16
   br i1 %.not500.i, label %_ZN3ue2L17triggerFloodsPuffERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit.i, label %517
@@ -2517,7 +2517,7 @@ _ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit375.i: ; preds = %899, 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #20
   br label %.body.i
 
-_ZN3ue2L17triggerFloodsPuffERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit.i: ; preds = %_ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit.i.i, %.noexc310.i, %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i, %532, %532, %532, %532, %532, %532, %532, %532, %532, %532, %532, %532, %526, %.critedge24.i.i.i298.i, %.critedge.i.i.i302.i, %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit.i, %.critedge6.i, %.critedge.i
+_ZN3ue2L17triggerFloodsPuffERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit.i: ; preds = %_ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit.i.i, %.noexc310.i, %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.thread.i, %532, %532, %532, %532, %532, %532, %532, %532, %532, %532, %532, %532, %526, %.critedge24.i.i.i298.i, %.critedge.i.i.i302.i, %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit.i, %.critedge6.i, %.critedge.i
   %.not.i.i.i376.i = icmp eq ptr %.sroa.0395.5.i, null
   br i1 %.not.i.i.i376.i, label %_ZN3ue2L11doComponentERNS_9RoseBuildERNS_13ReportManagerERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS4_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERSt3setISC_St4lessISC_ESaISC_EERKNS_14CompileContextEb.exit, label %900
 

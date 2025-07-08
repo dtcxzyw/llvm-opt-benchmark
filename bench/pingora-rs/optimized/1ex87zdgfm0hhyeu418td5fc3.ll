@@ -4761,13 +4761,13 @@ define void @_ZN13pingora_cache9HttpCache18release_write_lock17h64045cf15d0c0a17
   %switch.not = icmp samesign ugt i8 %12, 1
   br i1 %switch.not, label %14, label %16
 
-13:                                               ; preds = %2, %47
+13:                                               ; preds = %2, %48
   ret void
 
-14:                                               ; preds = %9, %39
+14:                                               ; preds = %9, %40
   %15 = phi i8 [ %12, %9 ], [ %.pr, %39 ]
   switch i8 %15, label %48 [
-    i8 3, label %47
+    i8 3, label %48
     i8 2, label %"_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE.exit"
   ]
 
@@ -4787,8 +4787,8 @@ define void @_ZN13pingora_cache9HttpCache18release_write_lock17h64045cf15d0c0a17
     i64 5, label %22
     i64 6, label %22
     i64 7, label %22
-    i64 8, label %23
-    i64 9, label %23
+    i64 8, label %24
+    i64 9, label %24
     i64 10, label %25
   ], !prof !413
 
@@ -4800,7 +4800,7 @@ default.unreachable20:                            ; preds = %16
   store ptr @anon.b7f70d23add93711b34b30bf71ab012b.123, ptr %4, align 8
   br label %.invoke
 
-.invoke:                                          ; preds = %23, %20
+.invoke:                                          ; preds = %24, %20
   %.sink26.sroa.phi = phi ptr [ %.sink26.sroa.gep, %23 ], [ %.sink26.sroa.gep27, %20 ]
   %.sink26.sroa.phi28 = phi ptr [ %.sink26.sroa.gep29, %23 ], [ %.sink26.sroa.gep30, %20 ]
   %.sink26.sroa.phi31 = phi ptr [ %.sink26.sroa.gep32, %23 ], [ %.sink26.sroa.gep33, %20 ]
@@ -4812,7 +4812,7 @@ default.unreachable20:                            ; preds = %16
   store ptr inttoptr (i64 8 to ptr), ptr %.sink26.sroa.phi31, align 8
   store i64 0, ptr %.sink26.sroa.phi34, align 8
   invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink26, ptr noalias noundef readonly align 8 dereferenceable(24) %21) #25
-          to label %.cont unwind label %42
+          to label %.cont unwind label %43
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -4820,18 +4820,18 @@ default.unreachable20:                            ; preds = %16
 22:                                               ; preds = %16, %16, %16, %16, %16
   br label %25
 
-23:                                               ; preds = %16, %16
+24:                                               ; preds = %16, %16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.b7f70d23add93711b34b30bf71ab012b.126, ptr %3, align 8
   br label %.invoke
 
-24:                                               ; preds = %34
+25:                                               ; preds = %34
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %40
+  br label %41
 
-25:                                               ; preds = %16, %16, %16, %22
-  %.sroa.04.0 = phi i8 [ 2, %22 ], [ 3, %16 ], [ 3, %16 ], [ 3, %16 ]
+.invoke21:                                        ; preds = %16, %16, %16, %22
+  %39 = phi i8 [ 2, %22 ], [ 3, %16 ], [ 3, %16 ], [ 3, %16 ]
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 904
   %27 = load ptr, ptr %26, align 8, !align !240, !noundef !3
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 912
@@ -4862,50 +4862,50 @@ default.unreachable20:                            ; preds = %16
 .cont22:                                          ; preds = %.invoke21
   unreachable
 
-39:                                               ; preds = %34
+40:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.pr = load i8, ptr %11, align 8
   br label %14
 
-40:                                               ; preds = %24, %42
+41:                                               ; preds = %25, %43
   %lpad.phi18 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %lpad.thr_comm.split-lp, %24 ]
-  %41 = load i8, ptr %11, align 8, !range !68, !noundef !3
-  %cond = icmp eq i8 %41, 2
-  br i1 %cond, label %46, label %45
+  %42 = load i8, ptr %11, align 8, !range !68, !noundef !3
+  %cond = icmp eq i8 %42, 2
+  br i1 %cond, label %47, label %46
 
-42:                                               ; preds = %.invoke21, %.invoke
+43:                                               ; preds = %.invoke21, %.invoke
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #26
-          to label %40 unwind label %43
+          to label %40 unwind label %44
 
-43:                                               ; preds = %46, %42
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %47, %43
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #27
   unreachable
 
-45:                                               ; preds = %40, %46
+46:                                               ; preds = %41, %47
   resume { ptr, i32 } %lpad.phi18
 
-46:                                               ; preds = %40
+47:                                               ; preds = %41
   invoke fastcc void @"_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE"(ptr noalias noundef align 8 dereferenceable(16) %6) #26
-          to label %45 unwind label %43
+          to label %45 unwind label %44
 
-47:                                               ; preds = %14, %49, %48, %"_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE.exit"
+48:                                               ; preds = %14, %50, %49, %"_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %13
 
 "_ZN4core3ptr48drop_in_place$LT$pingora_cache..lock..Locked$GT$17h31809667027b26abE.exit": ; preds = %14
   call void @"_ZN4core3ptr50drop_in_place$LT$pingora_cache..lock..ReadLock$GT$17hc026b38c6b4cb042E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-  br label %47
+  br label %48
 
-48:                                               ; preds = %14
-  br i1 %switch.not, label %49, label %47
+49:                                               ; preds = %14
+  br i1 %switch.not, label %50, label %48
 
-49:                                               ; preds = %48
+50:                                               ; preds = %49
   call void @"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-  br label %47
+  br label %48
 }
 
 ; Function Attrs: nonlazybind uwtable

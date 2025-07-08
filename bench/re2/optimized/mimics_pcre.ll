@@ -439,7 +439,7 @@ lor.rhs:                                          ; preds = %sw.bb21
   %cmp25 = icmp eq i32 %5, 0
   br label %return
 
-sw.epilog:                                        ; preds = %entry
+return:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %for.body, %for.body9, %for.cond.preheader, %for.cond7.preheader, %sw.bb21, %lor.rhs, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.epilog, %sw.bb18

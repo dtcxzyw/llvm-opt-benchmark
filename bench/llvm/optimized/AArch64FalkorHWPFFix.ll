@@ -6455,8 +6455,8 @@ define internal fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on
   %.012 = phi i64 [ 4294967295, %2 ], [ 0, %3 ], [ 4294967295, %4 ], [ 1, %5 ], [ 4294967295, %6 ], [ 1, %7 ], [ 4294967295, %8 ], [ 0, %9 ], [ 4294967295, %10 ], [ 0, %11 ], [ 4294967295, %12 ], [ 1, %13 ], [ 0, %1 ], [ 0, %1 ]
   %.011 = phi i32 [ 3, %2 ], [ 1, %3 ], [ 1, %4 ], [ 4, %5 ], [ 4, %6 ], [ 2, %7 ], [ 2, %8 ], [ 1, %9 ], [ 2, %10 ], [ 2, %11 ], [ 3, %12 ], [ 3, %13 ], [ 3, %1 ], [ 3, %1 ]
   %16 = phi i1 [ true, %2 ], [ true, %3 ], [ true, %4 ], [ false, %5 ], [ false, %6 ], [ false, %7 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ true, %1 ], [ true, %1 ]
-  %.010 = phi i64 [ 4294967295, %2 ], [ 4294967295, %3 ], [ 4294967295, %4 ], [ 5, %5 ], [ 5, %6 ], [ 3, %7 ], [ 3, %8 ], [ 2, %9 ], [ 3, %10 ], [ 3, %11 ], [ 4, %12 ], [ 4, %13 ], [ 4294967295, %1 ], [ 4294967295, %1 ]
-  %.0 = phi i8 [ 0, %2 ], [ 0, %3 ], [ 0, %4 ], [ 1, %5 ], [ 1, %6 ], [ 1, %7 ], [ 1, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %11 ], [ 1, %12 ], [ 1, %13 ], [ 0, %1 ], [ 0, %1 ]
+  %.012 = phi i64 [ 4294967295, %2 ], [ 4294967295, %3 ], [ 4294967295, %4 ], [ 5, %5 ], [ 5, %6 ], [ 3, %7 ], [ 3, %8 ], [ 2, %9 ], [ 3, %10 ], [ 3, %11 ], [ 4, %12 ], [ 4, %13 ], [ 4294967295, %1 ], [ 4294967295, %1 ]
+  %.011 = phi i8 [ 0, %2 ], [ 0, %3 ], [ 0, %4 ], [ 1, %5 ], [ 1, %6 ], [ 1, %7 ], [ 1, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %11 ], [ 1, %12 ], [ 1, %13 ], [ 0, %1 ], [ 0, %1 ]
   %17 = zext nneg i32 %.011 to i64
   %18 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.32.val, i64 %17, i32 1
   %19 = load i32, ptr %18, align 4, !tbaa !13
@@ -6465,33 +6465,33 @@ define internal fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on
     i32 10, label %27
   ]
 
-20:                                               ; preds = %14
-  br i1 %15, label %24, label %21
+21:                                               ; preds = %14
+  br i1 %15, label %25, label %22
 
-21:                                               ; preds = %20
-  %22 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.32.val, i64 %.012, i32 1
-  %23 = load i32, ptr %22, align 4, !tbaa !13
-  br label %24
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.32.val, i64 %.012, i32 1
+  %24 = load i32, ptr %23, align 4, !tbaa !13
+  br label %25
 
-24:                                               ; preds = %20, %21
-  %.sroa.0.0 = phi i32 [ %23, %21 ], [ 0, %20 ]
-  %25 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.32.val, i64 %.010
-  %26 = select i1 %16, ptr null, ptr %25
+25:                                               ; preds = %21, %22
+  %.sroa.0.0 = phi i32 [ %24, %21 ], [ 0, %20 ]
+  %26 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.32.val, i64 %.010
+  %27 = select i1 %16, ptr null, ptr %26
   store i32 %.sroa.0.0, ptr %0, align 8, !tbaa !34
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %19, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !34
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.011, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !34
   %.sroa.92.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %26, ptr %.sroa.92.0..sroa_idx, align 8, !tbaa !519
+  store ptr %27, ptr %.sroa.92.0..sroa_idx, align 8, !tbaa !519
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.0, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !520
-  br label %27
+  br label %28
 
-27:                                               ; preds = %14, %14, %1, %24
+28:                                               ; preds = %14, %14, %1, %25
   %.sink = phi i8 [ 1, %24 ], [ 0, %1 ], [ 0, %14 ], [ 0, %14 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink, ptr %28, align 8, !tbaa !501
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sink, ptr %29, align 8, !tbaa !501
   ret void
 }
 

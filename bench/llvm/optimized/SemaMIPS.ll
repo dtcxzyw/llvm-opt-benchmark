@@ -408,8 +408,8 @@ define dso_local noundef zeroext i1 @_ZN5clang8SemaMIPS24CheckMipsBuiltinArgumen
   %31 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %30, ptr noundef %2, i32 noundef %.016.ph, i32 noundef %.015.ph, i32 noundef %.014.ph, i1 noundef zeroext true) #16
   br label %38
 
-32:                                               ; preds = %3, %22, %23, %24, %25, %26, %27, %28
-  %.016 = phi i32 [ 1, %22 ], [ 1, %23 ], [ 1, %24 ], [ 2, %25 ], [ 2, %26 ], [ 2, %27 ], [ 2, %28 ], [ 1, %3 ]
+32:; preds = %3, %22, %23, %24, %25, %26, %27, %28
+  %.014.ph = phi i32 [ 1, %22 ], [ 1, %23 ], [ 1, %24 ], [ 2, %25 ], [ 2, %26 ], [ 2, %27 ], [ 2, %28 ], [ 1, %3 ]
   %.015 = phi i32 [ -1024, %22 ], [ -2048, %23 ], [ -4096, %24 ], [ -512, %25 ], [ -1024, %26 ], [ -2048, %27 ], [ -4096, %28 ], [ -512, %3 ]
   %.014 = phi i32 [ 1022, %22 ], [ 2044, %23 ], [ 4088, %24 ], [ 511, %25 ], [ 1022, %26 ], [ 2044, %27 ], [ 4088, %28 ], [ 511, %3 ]
   %.0 = phi i32 [ 2, %22 ], [ 4, %23 ], [ 8, %24 ], [ 1, %25 ], [ 2, %26 ], [ 4, %27 ], [ 8, %28 ], [ 1, %3 ]
@@ -417,7 +417,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8SemaMIPS24CheckMipsBuiltinArgumen
   %34 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %33, ptr noundef %2, i32 noundef %.016, i32 noundef %.015, i32 noundef %.014, i1 noundef zeroext true) #16
   br i1 %34, label %38, label %35
 
-35:                                               ; preds = %32
+35:; preds = %32
   %36 = load ptr, ptr %0, align 8, !tbaa !12
   %37 = tail call noundef zeroext i1 @_ZN5clang4Sema26BuiltinConstantArgMultipleEPNS_8CallExprEij(ptr noundef nonnull align 8 dereferenceable(17504) %36, ptr noundef %2, i32 noundef %.016, i32 noundef %.0) #16
   br label %38

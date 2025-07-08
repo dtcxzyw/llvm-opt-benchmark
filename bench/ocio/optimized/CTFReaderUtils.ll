@@ -321,18 +321,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %24
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN19OpenColorIO_v2_5dev22GetInterpolation3DNameENS_13InterpolationE(i32 noundef %0) local_unnamed_addr #6 {
   switch i32 %0, label %3 [
-    i32 2, label %4
+    i32 2, label %5
     i32 3, label %2
     i32 255, label %2
   ]
 
 2:                                                ; preds = %1, %1
-  br label %4
+  br label %5
 
-3:                                                ; preds = %1
-  br label %4
+4:                                                ; preds = %1
+  br label %5
 
-4:                                                ; preds = %1, %3, %2
+5:                                                ; preds = %1, %3, %2
   %.0 = phi ptr [ null, %3 ], [ @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_128INTERPOLATION_3D_TETRAHEDRALE, %2 ], [ @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123INTERPOLATION_3D_LINEARE, %1 ]
   ret ptr %.0
 }

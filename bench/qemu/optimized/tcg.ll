@@ -17001,7 +17001,7 @@ define internal fastcc nonnull ptr @opcode_args_ct(i32 %.0.val) unnamed_addr #13
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 32
   %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %67
+  br i1 %.not, label %7, label %68
 
 7:                                                ; preds = %0
   %trunc.i = trunc i32 %.0.val to i8
@@ -17247,14 +17247,14 @@ define internal fastcc nonnull ptr @opcode_args_ct(i32 %.0.val) unnamed_addr #13
   %34 = select i1 %.not2.i, i32 31, i32 32
   br label %tcg_target_op_def.exit
 
-35:                                               ; preds = %7, %7
-  %36 = load i32, ptr @cpuinfo, align 4
-  %37 = and i32 %36, 8
-  %.not.i = icmp eq i32 %37, 0
-  %38 = select i1 %.not.i, i32 31, i32 32
+32:                                               ; preds = %7, %7
+  %33 = load i32, ptr @cpuinfo, align 4
+  %34 = and i32 %33, 8
+  %.not2.i = icmp eq i32 %34, 0
+  %35 = select i1 %.not2.i, i32 31, i32 32
   br label %tcg_target_op_def.exit
 
-39:                                               ; preds = %7, %7, %7, %7
+36:                                               ; preds = %7, %7, %7, %7
   br label %tcg_target_op_def.exit
 
 40:                                               ; preds = %7, %7, %7, %7
@@ -17299,7 +17299,7 @@ define internal fastcc nonnull ptr @opcode_args_ct(i32 %.0.val) unnamed_addr #13
 53:                                               ; preds = %7
   br label %tcg_target_op_def.exit
 
-tcg_target_op_def.exit:                           ; preds = %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %35, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53
+54:                                               ; preds = %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %35, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53
   %.0.i = phi i32 [ -1, %53 ], [ 15, %8 ], [ 2, %9 ], [ 4, %10 ], [ 3, %11 ], [ 27, %12 ], [ 22, %13 ], [ 23, %14 ], [ 29, %15 ], [ %19, %16 ], [ 20, %20 ], [ 5, %21 ], [ 12, %22 ], [ 14, %23 ], [ 21, %24 ], [ 18, %25 ], [ 19, %26 ], [ 36, %27 ], [ 41, %28 ], [ 39, %29 ], [ 42, %30 ], [ %34, %31 ], [ %38, %35 ], [ 13, %39 ], [ 1, %40 ], [ 6, %41 ], [ 38, %42 ], [ 8, %43 ], [ 11, %44 ], [ 37, %45 ], [ 16, %46 ], [ 7, %47 ], [ 30, %48 ], [ 17, %49 ], [ 33, %50 ], [ 34, %51 ], [ 35, %52 ], [ 0, %7 ]
   %54 = zext nneg i32 %.0.i to i64
   %55 = icmp ult i32 %.0.i, 43
@@ -17319,7 +17319,7 @@ tcg_target_op_def.exit:                           ; preds = %7, %8, %9, %10, %11
   %66 = getelementptr inbounds nuw [43 x [16 x %struct.TCGArgConstraint]], ptr @all_cts, i64 0, i64 %54
   br label %67
 
-67:                                               ; preds = %0, %tcg_target_op_def.exit
+68:                                               ; preds = %0, %tcg_target_op_def.exit
   %.0 = phi ptr [ %66, %tcg_target_op_def.exit ], [ @empty_cts, %0 ]
   ret ptr %.0
 }

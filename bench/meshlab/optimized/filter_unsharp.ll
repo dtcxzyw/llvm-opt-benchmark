@@ -3263,10 +3263,10 @@ define noundef range(i32 0, 262145) i32 @_ZN13FilterUnsharp15getRequirementsEPK7
     i32 8, label %8
   ]
 
-8:                                                ; preds = %2, %2, %2, %2
+switch.lookup:                                    ; preds = %2, %2, %2, %2
   br label %10
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   br label %10
 
 10:                                               ; preds = %2, %9, %8
@@ -3288,10 +3288,10 @@ define noundef range(i32 0, 262145) i32 @_ZThn16_N13FilterUnsharp15getRequiremen
     i32 8, label %7
   ]
 
-7:                                                ; preds = %2, %2, %2, %2
+switch.lookup:                                    ; preds = %2, %2, %2, %2
   br label %_ZN13FilterUnsharp15getRequirementsEPK7QAction.exit
 
-8:                                                ; preds = %2
+_ZN13FilterUnsharp15getRequirementsEPK7QAction.exit: ; preds = %2
   br label %_ZN13FilterUnsharp15getRequirementsEPK7QAction.exit
 
 _ZN13FilterUnsharp15getRequirementsEPK7QAction.exit: ; preds = %2, %7, %8

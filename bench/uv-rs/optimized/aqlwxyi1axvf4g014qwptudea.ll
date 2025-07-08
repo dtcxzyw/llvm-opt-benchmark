@@ -45351,12 +45351,12 @@ define { ptr, ptr } @"_ZN74_$LT$uv..commands..build_frontend..Error$u20$as$u20$c
     i64 9, label %53
     i64 10, label %58
     i64 11, label %62
-    i64 12, label %71
+    i64 12, label %72
     i64 13, label %47
     i64 14, label %47
     i64 15, label %47
     i64 16, label %67
-    i64 17, label %69
+    i64 17, label %70
     i64 18, label %47
   ]
 
@@ -45368,28 +45368,28 @@ define { ptr, ptr } @"_ZN74_$LT$uv..commands..build_frontend..Error$u20$as$u20$c
   %9 = tail call { ptr, ptr } @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..error..Error$GT$6source17h50268c757257c912E"(ptr noundef nonnull align 1 %8)
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = extractvalue { ptr, ptr } %9, 1
-  br label %71
+  br label %72
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = tail call { ptr, ptr } @"_ZN55_$LT$uv_python..Error$u20$as$u20$core..error..Error$GT$6source17h0225e7de30067e4bE"(ptr noundef nonnull align 1 %13)
   %15 = extractvalue { ptr, ptr } %14, 0
   %16 = extractvalue { ptr, ptr } %14, 1
-  br label %71
+  br label %72
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = tail call { ptr, ptr } @"_ZN72_$LT$uv_types..hash..HashStrategyError$u20$as$u20$core..error..Error$GT$6source17h2bec19aa311d9c4dE"(ptr noundef nonnull align 1 %18)
   %20 = extractvalue { ptr, ptr } %19, 0
   %21 = extractvalue { ptr, ptr } %19, 1
-  br label %71
+  br label %72
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = tail call { ptr, ptr } @"_ZN76_$LT$uv_client..flat_index..FlatIndexError$u20$as$u20$core..error..Error$GT$6source17h9698b72a0625ac95E"(ptr noundef nonnull align 1 %23)
   %25 = extractvalue { ptr, ptr } %24, 0
   %26 = extractvalue { ptr, ptr } %24, 1
-  br label %71
+  br label %72
 
 27:                                               ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -45401,66 +45401,66 @@ define { ptr, ptr } @"_ZN74_$LT$uv..commands..build_frontend..Error$u20$as$u20$c
   %34 = tail call { ptr, ptr } %33(ptr noundef align 1 %30)
   %35 = extractvalue { ptr, ptr } %34, 0
   %36 = extractvalue { ptr, ptr } %34, 1
-  br label %71
+  br label %72
 
 37:                                               ; preds = %1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = tail call { ptr, ptr } @"_ZN63_$LT$uv_extract..error..Error$u20$as$u20$core..error..Error$GT$6source17h6dc0934db6d97061E"(ptr noundef nonnull align 1 %38)
   %40 = extractvalue { ptr, ptr } %39, 0
   %41 = extractvalue { ptr, ptr } %39, 1
-  br label %71
+  br label %72
 
 42:                                               ; preds = %1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = tail call { ptr, ptr } @"_ZN75_$LT$uv..commands..pip..operations..Error$u20$as$u20$core..error..Error$GT$6source17h0927e3570a7f5e6eE"(ptr noundef nonnull align 1 %43)
   %45 = extractvalue { ptr, ptr } %44, 0
   %46 = extractvalue { ptr, ptr } %44, 1
-  br label %71
+  br label %72
 
 47:                                               ; preds = %1, %1, %1, %1, %1
-  br label %71
+  br label %72
 
 48:                                               ; preds = %1
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = tail call { ptr, ptr } @"_ZN62_$LT$uv_build_backend..Error$u20$as$u20$core..error..Error$GT$6source17h756fe9a2c3a738f1E"(ptr noundef nonnull align 1 %49)
   %51 = extractvalue { ptr, ptr } %50, 0
   %52 = extractvalue { ptr, ptr } %50, 1
-  br label %71
+  br label %72
 
 53:                                               ; preds = %1
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = tail call { ptr, ptr } @"_ZN70_$LT$uv_types..traits..AnyErrorBuild$u20$as$u20$core..error..Error$GT$6source17h42252ffb7f14d921E"(ptr noundef nonnull align 1 %54)
   %56 = extractvalue { ptr, ptr } %55, 0
   %57 = extractvalue { ptr, ptr } %55, 1
-  br label %71
+  br label %72
 
 58:                                               ; preds = %1
   %59 = tail call { ptr, ptr } @"_ZN70_$LT$uv_build_frontend..error..Error$u20$as$u20$core..error..Error$GT$6source17h5d080a8cd05c560bE"(ptr noundef nonnull align 1 %0)
   %60 = extractvalue { ptr, ptr } %59, 0
   %61 = extractvalue { ptr, ptr } %59, 1
-  br label %71
+  br label %72
 
 62:                                               ; preds = %1
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = tail call { ptr, ptr } @"_ZN74_$LT$uv..commands..project..ProjectError$u20$as$u20$core..error..Error$GT$6source17hd3eeef23c1349096E"(ptr noundef nonnull align 1 %63)
   %65 = extractvalue { ptr, ptr } %64, 0
   %66 = extractvalue { ptr, ptr } %64, 1
-  br label %71
+  br label %72
 
 67:                                               ; preds = %1
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %71
 
-69:                                               ; preds = %1
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %71
+70:                                               ; preds = %1
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %72
 
-71:                                               ; preds = %1, %69, %67, %62, %58, %53, %48, %47, %42, %37, %27, %22, %17, %12, %7
+72:                                               ; preds = %1, %70, %67, %62, %58, %53, %48, %47, %42, %37, %27, %22, %17, %12, %7
   %.sroa.20.0 = phi ptr [ %11, %7 ], [ %16, %12 ], [ %21, %17 ], [ %26, %22 ], [ %36, %27 ], [ %41, %37 ], [ %46, %42 ], [ undef, %47 ], [ %52, %48 ], [ %57, %53 ], [ %61, %58 ], [ %66, %62 ], [ @anon.843c81918eb1485fc30317f1ee53348c.945, %67 ], [ @anon.843c81918eb1485fc30317f1ee53348c.947, %69 ], [ @anon.843c81918eb1485fc30317f1ee53348c.494, %1 ]
   %.sroa.0.0 = phi ptr [ %10, %7 ], [ %15, %12 ], [ %20, %17 ], [ %25, %22 ], [ %35, %27 ], [ %40, %37 ], [ %45, %42 ], [ null, %47 ], [ %51, %48 ], [ %56, %53 ], [ %60, %58 ], [ %65, %62 ], [ %68, %67 ], [ %70, %69 ], [ %0, %1 ]
-  %72 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %73 = insertvalue { ptr, ptr } %72, ptr %.sroa.20.0, 1
-  ret { ptr, ptr } %73
+  %73 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %74 = insertvalue { ptr, ptr } %73, ptr %.sroa.20.0, 1
+  ret { ptr, ptr } %74
 }
 
 ; Function Attrs: nonlazybind uwtable

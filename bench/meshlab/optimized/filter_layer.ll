@@ -33590,8 +33590,8 @@ define noundef range(i32 0, 1126071272) i32 @_ZNK17FilterLayerPlugin13postCondit
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
   %.off = add i32 %7, -1
   %switch = icmp ult i32 %.off, 2
-  %. = select i1 %switch, i32 1126071271, i32 0
-  ret i32 %.
+  %spec.select = select i1 %switch, i32 1126071271, i32 0
+  ret i32 %spec.select
 }
 
 ; Function Attrs: uwtable
@@ -33602,8 +33602,8 @@ define noundef range(i32 0, 1126071272) i32 @_ZThn16_NK17FilterLayerPlugin13post
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
   %.off.i = add i32 %6, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  %..i = select i1 %switch.i, i32 1126071271, i32 0
-  ret i32 %..i
+  %spec.select.i = select i1 %switch.i, i32 1126071271, i32 0
+  ret i32 %spec.select.i
 }
 
 ; Function Attrs: uwtable

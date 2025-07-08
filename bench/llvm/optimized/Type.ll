@@ -16623,7 +16623,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang8QualType14isCXX98PODTypeERKNS_10
   %4 = alloca %"class.clang::QualType", align 8
   %.0.copyload.i.i.i.i = load i64, ptr %0, align 8
   %.not.i.i = icmp ult i64 %.0.copyload.i.i.i.i, 16
-  br i1 %.not.i.i, label %59, label %5
+  br i1 %.not.i.i, label %60, label %5
 
 5:                                                ; preds = %2
   %6 = and i64 %.0.copyload.i.i.i.i, -16
@@ -16645,11 +16645,11 @@ define dso_local noundef zeroext i1 @_ZNK5clang8QualType14isCXX98PODTypeERKNS_10
   store i64 %17, ptr %3, align 8
   %18 = call noundef zeroext i1 @_ZNK5clang8QualType14isCXX98PODTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(23216) %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
-  br label %59
+  br label %60
 
 19:                                               ; preds = %5
   %20 = tail call noundef zeroext i1 @_ZNK5clang4Type16isIncompleteTypeEPPNS_9NamedDeclE(ptr noundef nonnull align 16 dereferenceable(24) %8, ptr noundef null)
-  br i1 %20, label %59, label %21
+  br i1 %20, label %60, label %21
 
 21:                                               ; preds = %19
   %.0.copyload.i.i.i.i.i12 = load i64, ptr %0, align 8
@@ -16668,7 +16668,7 @@ _ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit: ; preds = %21
   %.sroa.0.0.copyload.i.i.i.i13 = load i64, ptr %28, align 8, !tbaa !437
   %29 = and i64 %.sroa.0.0.copyload.i.i.i.i13, 384
   %.not18 = icmp eq i64 %29, 0
-  br i1 %.not18, label %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, label %59
+  br i1 %.not18, label %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, label %60
 
 _ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread: ; preds = %21, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit
   %30 = load ptr, ptr %23, align 16, !tbaa !371
@@ -16701,10 +16701,10 @@ _ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread: ; preds = %21, %_Z
   store i64 %39, ptr %4, align 8
   %40 = call noundef zeroext i1 @_ZNK5clang8QualType14isCXX98PODTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(23216) %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
-  br label %59
+  br label %60
 
 41:                                               ; preds = %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread
-  br label %59
+  br label %60
 
 42:                                               ; preds = %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread
   %43 = tail call noundef ptr @_ZNK5clang10RecordType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %35)
@@ -16717,7 +16717,7 @@ _ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread: ; preds = %21, %_Z
   %.not = or i1 %.not19, %48
   br i1 %.not, label %59, label %49
 
-49:                                               ; preds = %42
+43:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %51 = load ptr, ptr %50, align 8, !tbaa !423
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
@@ -16729,7 +16729,7 @@ _ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread: ; preds = %21, %_Z
   %58 = icmp ne i64 %57, 0
   br label %59
 
-59:                                               ; preds = %49, %42, %38, %41, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit, %19, %2, %16
+60:                                               ; preds = %43, %42, %38, %41, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit, %19, %2, %16
   %.0 = phi i1 [ %18, %16 ], [ false, %2 ], [ false, %19 ], [ false, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit ], [ %40, %38 ], [ true, %41 ], [ false, %_ZNK5clang8QualType25hasNonTrivialObjCLifetimeEv.exit.thread ], [ %58, %49 ], [ true, %42 ]
   ret i1 %.0
 }

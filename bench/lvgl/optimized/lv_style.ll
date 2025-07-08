@@ -649,8 +649,8 @@ declare i32 @lv_anim_path_linear(ptr noundef) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @lv_style_prop_get_default(i8 noundef zeroext %0) local_unnamed_addr #4 {
   switch i8 %0, label %7 [
-    i8 108, label %8
-    i8 109, label %8
+    i8 108, label %10
+    i8 109, label %10
     i8 28, label %2
     i8 116, label %8
     i8 7, label %6
@@ -673,24 +673,24 @@ define noundef ptr @lv_style_prop_get_default(i8 noundef zeroext %0) local_unnam
   ]
 
 2:                                                ; preds = %1
-  br label %8
+  br label %10
 
 3:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %8
+  br label %10
 
 4:                                                ; preds = %1
-  br label %8
+  br label %10
 
 5:                                                ; preds = %1
-  br label %8
+  br label %10
 
 6:                                                ; preds = %1, %1
-  br label %8
+  br label %10
 
 7:                                                ; preds = %1
-  br label %8
+  br label %10
 
-8:                                                ; preds = %1, %1, %1, %7, %6, %5, %4, %3, %2
+10:                                               ; preds = %1, %1, %1, %7, %6, %5, %4, %3, %2
   %.sroa.0.0 = phi ptr [ null, %7 ], [ inttoptr (i64 16777215 to ptr), %2 ], [ inttoptr (i64 255 to ptr), %3 ], [ inttoptr (i64 15 to ptr), %4 ], [ @lv_font_montserrat_14, %5 ], [ inttoptr (i64 536870911 to ptr), %6 ], [ inttoptr (i64 256 to ptr), %1 ], [ inttoptr (i64 256 to ptr), %1 ], [ inttoptr (i64 256 to ptr), %1 ]
   ret ptr %.sroa.0.0
 }

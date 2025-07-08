@@ -1148,13 +1148,13 @@ define internal i64 @sg_read(ptr noundef readonly captures(none) %0, ptr noundef
   %272 = icmp eq i8 %271, 0
   br i1 %272, label %273, label %278
 
-273:                                              ; preds = %269
+273:; preds = %269
   %274 = load i8, ptr %233, align 1
   %275 = icmp eq i8 %274, 0
   %276 = select i1 %275, i32 0, i32 5
   br label %278
 
-277:                                              ; preds = %266
+277:; preds = %266
   br label %278
 
 278:                                              ; preds = %277, %273, %269, %268, %266, %266, %266
@@ -1163,19 +1163,19 @@ define internal i64 @sg_read(ptr noundef readonly captures(none) %0, ptr noundef
   store i32 %279, ptr %280, align 4
   br i1 %32, label %281, label %295
 
-281:                                              ; preds = %278
+281:; preds = %278
   %282 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %210, i64 noundef 36) #17
   %283 = icmp eq i64 %282, 0
   br i1 %283, label %284, label %303
 
-284:                                              ; preds = %281
+284:; preds = %281
   %285 = load i32, ptr %215, align 4
   %286 = sext i32 %285 to i64
   %287 = call i64 @llvm.umin.i64(i64 %286, i64 %2)
   %288 = icmp ugt i64 %287, 36
   br i1 %288, label %289, label %298
 
-289:                                              ; preds = %284
+289:; preds = %284
   %290 = getelementptr i8, ptr %1, i64 36
   %291 = trunc i64 %287 to i32
   %292 = add i32 %291, -36
@@ -1183,28 +1183,28 @@ define internal i64 @sg_read(ptr noundef readonly captures(none) %0, ptr noundef
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %298, label %303
 
-295:                                              ; preds = %278
+295:; preds = %278
   %296 = icmp eq i32 %279, 0
   %297 = select i1 %296, i64 0, i64 -5
   br label %298
 
-298:                                              ; preds = %295, %289, %284
+298:; preds = %295, %289, %284
   %299 = phi i64 [ %287, %289 ], [ %287, %284 ], [ %297, %295 ]
   %300 = call fastcc i32 @sg_finish_rem_req(ptr noundef nonnull %202)
   call fastcc void @sg_remove_request(ptr noundef nonnull %22, ptr noundef nonnull %202)
-  %301 = shl i64 %299, 32
-  %302 = ashr exact i64 %301, 32
-  br label %303
+  %302 = shl i64 %299, 32
+  %303 = ashr exact i64 %302, 32
+  br label %304
 
-303:                                              ; preds = %298, %289, %281
-  %304 = phi i64 [ %302, %298 ], [ -14, %281 ], [ -14, %289 ]
+304:                                              ; preds = %298, %289, %281
+  %305 = phi i64 [ %303, %298 ], [ -14, %281 ], [ -14, %289 ]
   call void @kfree(ptr noundef nonnull %210) #17
   br label %.thread
 
-.thread:                                          ; preds = %14, %16, %303, %208, %206, %199, %117, %.thread20, %24, %20
-  %305 = phi i64 [ %76, %.thread20 ], [ %207, %206 ], [ %304, %303 ], [ %201, %199 ], [ -6, %24 ], [ -6, %20 ], [ -11, %117 ], [ -12, %208 ], [ -1, %16 ], [ -1, %14 ]
+.thread:                                          ; preds = %14, %16, %304, %208, %206, %199, %117, %.thread20, %24, %20
+  %306 = phi i64 [ %76, %.thread20 ], [ %207, %206 ], [ %305, %303 ], [ %201, %199 ], [ -6, %24 ], [ -6, %20 ], [ -11, %117 ], [ -12, %208 ], [ -1, %16 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #17
-  ret i64 %305
+  ret i64 %306
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

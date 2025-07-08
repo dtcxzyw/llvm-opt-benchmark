@@ -402,7 +402,7 @@ declare void @_ZN4llvm8codeview19discoverTypeIndicesERKNS0_8CVRecordINS0_12TypeL
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i64 0, 33) i64 @_ZN4llvm8codeview26getSizeInBytesForTypeIndexENS0_9TypeIndexE(i32 %0) local_unnamed_addr #3 {
   %2 = icmp ult i32 %0, 4096
-  br i1 %2, label %3, label %20
+  br i1 %2, label %3, label %24
 
 3:                                                ; preds = %1
   %4 = and i32 %0, 1792
@@ -419,17 +419,17 @@ define dso_local noundef range(i64 0, 33) i64 @_ZN4llvm8codeview26getSizeInBytes
   switch i8 %trunc, label %17 [
     i8 83, label %16
     i8 82, label %15
-    i8 8, label %20
+    i8 8, label %24
     i8 104, label %9
     i8 105, label %9
     i8 17, label %10
     i8 33, label %10
     i8 114, label %10
     i8 115, label %10
-    i8 18, label %20
-    i8 34, label %20
-    i8 116, label %20
-    i8 117, label %20
+    i8 18, label %24
+    i8 34, label %24
+    i8 116, label %24
+    i8 117, label %24
     i8 19, label %11
     i8 35, label %11
     i8 118, label %11
@@ -444,58 +444,58 @@ define dso_local noundef range(i64 0, 33) i64 @_ZN4llvm8codeview26getSizeInBytes
     i8 112, label %9
     i8 113, label %10
     i8 122, label %10
-    i8 123, label %20
+    i8 123, label %24
     i8 70, label %10
-    i8 64, label %20
+    i8 64, label %24
     i8 68, label %13
     i8 65, label %11
     i8 66, label %14
     i8 67, label %12
     i8 48, label %9
     i8 49, label %10
-    i8 50, label %20
+    i8 50, label %24
     i8 51, label %11
     i8 52, label %12
-    i8 86, label %20
+    i8 86, label %24
     i8 80, label %11
     i8 81, label %12
   ]
 
 9:                                                ; preds = %8, %8, %8, %8, %8, %8, %8
-  br label %20
+  br label %24
 
 10:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8
-  br label %20
+  br label %24
 
 11:                                               ; preds = %8, %8, %8, %8, %8, %8, %8
-  br label %20
+  br label %24
 
 12:                                               ; preds = %8, %8, %8, %8, %8, %8, %8
-  br label %20
+  br label %24
 
 13:                                               ; preds = %8
-  br label %20
+  br label %24
 
 14:                                               ; preds = %8
-  br label %20
+  br label %24
 
 15:                                               ; preds = %8
-  br label %20
+  br label %24
 
 16:                                               ; preds = %8
-  br label %20
+  br label %24
 
 17:                                               ; preds = %8
-  br label %20
+  br label %24
 
 switch.lookup:                                    ; preds = %5
-  %18 = lshr exact i32 %6, 8
-  %19 = zext nneg i32 %18 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN4llvm8codeview26getSizeInBytesForTypeIndexENS0_9TypeIndexE, i64 0, i64 %19
+  %22 = lshr exact i32 %6, 8
+  %23 = zext nneg i32 %22 to i64
+  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN4llvm8codeview26getSizeInBytesForTypeIndexENS0_9TypeIndexE, i64 0, i64 %23
   %switch.load = load i64, ptr %switch.gep, align 8
-  br label %20
+  br label %24
 
-20:                                               ; preds = %switch.lookup, %8, %8, %8, %8, %8, %8, %8, %8, %8, %1, %17, %16, %15, %14, %13, %12, %11, %10, %9
+24:                                               ; preds = %switch.lookup, %8, %8, %8, %8, %8, %8, %8, %8, %8, %1, %17, %16, %15, %14, %13, %12, %11, %10, %9
   %.0 = phi i64 [ 0, %17 ], [ 1, %9 ], [ 2, %10 ], [ 8, %11 ], [ 16, %12 ], [ 6, %13 ], [ 10, %14 ], [ 20, %15 ], [ 32, %16 ], [ 0, %1 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ %switch.load, %switch.lookup ]
   ret i64 %.0
 }

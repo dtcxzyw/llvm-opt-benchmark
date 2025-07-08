@@ -62,7 +62,7 @@ define hidden range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %0) local
   %.not = icmp eq i32 %3, 0
   %5 = select i1 %.not, i32 %0, i32 %4
   switch i32 %5, label %18 [
-    i32 0, label %19
+    i32 0, label %20
     i32 -32, label %6
     i32 -34, label %6
     i32 -33, label %7
@@ -148,45 +148,45 @@ define hidden range(i32 -151, 1) i32 @mbedtls_to_psa_error(i32 noundef %0) local
   ]
 
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %19
+  br label %20
 
 7:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %19
+  br label %20
 
 8:                                                ; preds = %1, %1, %1, %1, %1, %1
-  br label %19
+  br label %20
 
 9:                                                ; preds = %1, %1, %1, %1, %1, %1
-  br label %19
+  br label %20
 
 10:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1
-  br label %19
+  br label %20
 
 11:                                               ; preds = %1
-  br label %19
+  br label %20
 
 12:                                               ; preds = %1, %1
-  br label %19
+  br label %20
 
 13:                                               ; preds = %1, %1, %1, %1
-  br label %19
+  br label %20
 
 14:                                               ; preds = %1, %1, %1, %1, %1, %1, %1
-  br label %19
+  br label %20
 
 15:                                               ; preds = %1, %1, %1
-  br label %19
+  br label %20
 
 16:                                               ; preds = %1, %1
-  br label %19
+  br label %20
 
 17:                                               ; preds = %1, %1
-  br label %19
+  br label %20
 
-18:                                               ; preds = %1
-  br label %19
+19:                                               ; preds = %1
+  br label %20
 
-19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
+20:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
   %.0 = phi i32 [ -132, %18 ], [ -134, %6 ], [ -135, %7 ], [ -141, %8 ], [ -138, %9 ], [ -149, %10 ], [ -137, %11 ], [ -150, %12 ], [ -151, %13 ], [ -148, %14 ], [ -146, %15 ], [ -133, %16 ], [ -147, %17 ], [ %5, %1 ]
   ret i32 %.0
 }
