@@ -26482,28 +26482,14 @@ define noundef range(i8 0, 7) i8 @"_ZN110_$LT$wasmi..module..utils..WasmiValueTy
 define noundef range(i8 5, 7) i8 @"_ZN126_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..HeapType$GT$$GT$4from17hc8d62bfb2f683873E"(i64 %0) unnamed_addr #0 {
   %2 = alloca [16 x i8], align 8
   %3 = alloca [48 x i8], align 8
-  %4 = alloca [8 x i8], align 4
-  %.sroa.010.0.extract.trunc = trunc i64 %0 to i32
-  %.sroa.411.0.extract.shift = lshr i64 %0, 32
-  %.sroa.512.0.extract.shift = lshr i64 %0, 40
-  %5 = icmp ne i32 %.sroa.010.0.extract.trunc, 3
-  %6 = trunc i64 %.sroa.411.0.extract.shift to i1
-  %or.cond = or i1 %5, %6
-  %.pre = trunc i64 %.sroa.512.0.extract.shift to i8
-  br i1 %or.cond, label %._crit_edge, label %11, !prof !572
+  %4 = alloca [8 x i8], align 8
+  %5 = and i64 %0, 8589934591
+  %or.cond.not = icmp eq i64 %5, 3
+  br i1 %or.cond.not, label %11, label %6, !prof !567
 
-._crit_edge:                                      ; preds = %1, %11
-  %.sroa.411.0.extract.trunc = trunc i64 %.sroa.411.0.extract.shift to i8
-  %.sroa.6.0.extract.shift = lshr i64 %0, 48
-  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i16
+6:                                                ; preds = %11, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store i32 %.sroa.010.0.extract.trunc, ptr %4, align 4
-  %.sroa.3.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %.sroa.411.0.extract.trunc, ptr %.sroa.3.0..sroa_idx4, align 4
-  %.sroa.4.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  store i8 %.pre, ptr %.sroa.4.0..sroa_idx6, align 1
-  %.sroa.5.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  store i16 %.sroa.6.0.extract.trunc, ptr %.sroa.5.0..sroa_idx8, align 2
+  store i64 %0, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %4, ptr %2, align 8
@@ -26522,7 +26508,9 @@ define noundef range(i8 5, 7) i8 @"_ZN126_$LT$wasmi..module..utils..WasmiValueTy
   unreachable
 
 11:                                               ; preds = %1
-  switch i8 %.pre, label %._crit_edge [
+  %.sroa.512.0.extract.shift = lshr i64 %0, 40
+  %trunc = trunc i64 %.sroa.512.0.extract.shift to i8
+  switch i8 %trunc, label %6 [
     i8 0, label %13
     i8 1, label %12
   ], !prof !571
@@ -28930,4 +28918,3 @@ attributes #20 = { cold noreturn nounwind }
 !569 = distinct !{!569, !570, !"_ZN4core4iter6traits8iterator8Iterator7collect17hd05939a8f21593bfE: argument 0"}
 !570 = distinct !{!570, !"_ZN4core4iter6traits8iterator8Iterator7collect17hd05939a8f21593bfE"}
 !571 = !{!"branch_weights", i32 1, i32 2000, i32 2000}
-!572 = !{!"branch_weights", i32 4001, i32 4000000}

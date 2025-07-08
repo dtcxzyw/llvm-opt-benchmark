@@ -9587,10 +9587,10 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit169: ; p
   br i1 %.not132, label %63, label %66
 
 63:                                               ; preds = %58, %.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit214, %117
-  %.sroa.15.0 = phi i32 [ %109, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit214 ], [ %121, %117 ], [ undef, %.thread ], [ undef, %58 ]
-  %.sroa.13.0 = phi i32 [ %.sroa.425.1289, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit214 ], [ %119, %117 ], [ undef, %.thread ], [ undef, %58 ]
-  %.sroa.11.0 = phi i32 [ %.sroa.0238.4.extract.trunc, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit214 ], [ %.sroa.059.sroa.5.0, %117 ], [ undef, %.thread ], [ undef, %58 ]
-  %.sroa.8.0 = phi i32 [ %.sroa.0238.0.extract.trunc, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit214 ], [ %.sroa.059.sroa.0.0, %117 ], [ undef, %.thread ], [ undef, %58 ]
+  %.sroa.8.sroa.6.0 = phi i64 [ %.sroa.8.sroa.6.0.extract.shift, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit214 ], [ %.sroa.8.sroa.6.0.extract.shift286, %117 ], [ 0, %.thread ], [ 0, %58 ]
+  %.sroa.8.sroa.0.0 = phi i32 [ %.sroa.8.sroa.0.0.extract.trunc, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit214 ], [ %.sroa.8.sroa.0.0.extract.trunc285, %117 ], [ undef, %.thread ], [ undef, %58 ]
+  %.sroa.13.0 = phi i32 [ %109, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit214 ], [ %121, %117 ], [ undef, %.thread ], [ undef, %58 ]
+  %.sroa.11.0 = phi i32 [ %.sroa.425.1292, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit214 ], [ %119, %117 ], [ undef, %.thread ], [ undef, %58 ]
   %.sroa.0.0 = phi i32 [ 1, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit214 ], [ 1, %117 ], [ 0, %.thread ], [ 0, %58 ]
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %65 = load i64, ptr %64, align 8, !noundef !3
@@ -9607,9 +9607,9 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit169: ; p
   %72 = getelementptr i8, ptr %71, i64 -64
   %.not135282 = icmp ne ptr %72, null
   %.not135.not = select i1 %.not134, i1 %.not135282, i1 false
-  br i1 %.not135.not, label %.thread286, label %75
+  br i1 %.not135.not, label %.thread289, label %75
 
-.thread286:                                       ; preds = %66
+.thread289:                                       ; preds = %66
   %73 = getelementptr i8, ptr %71, i64 -60
   %74 = load i32, ptr %73, align 4, !noundef !3
   br label %76
@@ -9617,11 +9617,11 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit169: ; p
 75:                                               ; preds = %66
   br i1 %.not127.not.not.not, label %76, label %79
 
-76:                                               ; preds = %.thread286, %75
-  %.sroa.425.1289 = phi i32 [ %74, %.thread286 ], [ %.sroa.9.0, %75 ]
+76:                                               ; preds = %.thread289, %75
+  %.sroa.425.1292 = phi i32 [ %74, %.thread289 ], [ %.sroa.9.0, %75 ]
   %77 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Parameters$GT$5range17h9b0c6d050dd07aa9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %3)
   %78 = extractvalue { i32, i32 } %77, 1
-  %.not139 = icmp ugt i32 %.sroa.425.1289, %78
+  %.not139 = icmp ugt i32 %.sroa.425.1292, %78
   br i1 %.not139, label %92, label %93, !prof !34
 
 79:                                               ; preds = %75
@@ -9693,7 +9693,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit169: ; p
 93:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25)
-  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %25, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i32 noundef %.sroa.425.1289, i32 noundef %78)
+  call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %25, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i32 noundef %.sroa.425.1292, i32 noundef %78)
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17hca0ed0e62c4c0e97E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %25)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25)
   %94 = getelementptr inbounds nuw i8, ptr %26, i64 48
@@ -9786,11 +9786,10 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit214.thre
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit214: ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h671feeb53bf8207dE.exit.i208"
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !790
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %.sroa.0238.4.extract.shift = lshr i64 %.sroa.07.0.copyload.i209, 32
-  %.sroa.0238.4.extract.trunc = trunc nuw i64 %.sroa.0238.4.extract.shift to i32
-  %.sroa.0238.0.extract.trunc = trunc i64 %.sroa.07.0.copyload.i209 to i32
   %108 = call { i32, i32 } @"_ZN15ruff_python_ast9generated105_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..ParameterWithDefault$GT$5range17h4b075e197fa1361dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %62)
   %109 = extractvalue { i32, i32 } %108, 0
+  %.sroa.8.sroa.0.0.extract.trunc = trunc i64 %.sroa.07.0.copyload.i209 to i32
+  %.sroa.8.sroa.6.0.extract.shift = and i64 %.sroa.07.0.copyload.i209, -4294967296
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26)
   br label %63
 
@@ -9847,13 +9846,12 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit229: ; p
 
 117:                                              ; preds = %91, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit229
   %.sroa.059.sroa.5.0.in.in = phi i64 [ %.sroa.07.0.copyload.i179, %91 ], [ %.sroa.07.0.copyload.i224, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit229 ]
-  %.sroa.059.sroa.0.0 = trunc i64 %.sroa.059.sroa.5.0.in.in to i32
-  %.sroa.059.sroa.5.0.in = lshr i64 %.sroa.059.sroa.5.0.in.in, 32
-  %.sroa.059.sroa.5.0 = trunc nuw i64 %.sroa.059.sroa.5.0.in to i32
   %118 = call { i32, i32 } @"_ZN15ruff_python_ast9generated95_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Parameters$GT$5range17h9b0c6d050dd07aa9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %3)
   %119 = extractvalue { i32, i32 } %118, 0
   %120 = call { i32, i32 } @"_ZN15ruff_python_ast9generated105_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..ParameterWithDefault$GT$5range17h4b075e197fa1361dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %62)
   %121 = extractvalue { i32, i32 } %120, 0
+  %.sroa.8.sroa.0.0.extract.trunc285 = trunc i64 %.sroa.059.sroa.5.0.in.in to i32
+  %.sroa.8.sroa.6.0.extract.shift286 = and i64 %.sroa.059.sroa.5.0.in.in, -4294967296
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24)
   br label %63
 
@@ -9882,7 +9880,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit229: ; p
 131:                                              ; preds = %127, %128
   %.sroa.577.0 = phi i32 [ %130, %128 ], [ undef, %127 ]
   %132 = trunc nuw i32 %.sroa.0.0 to i1
-  %.sroa.5117.0 = select i1 %132, i32 %.sroa.8.0, i32 undef
+  %.sroa.5117.0 = select i1 %132, i32 %.sroa.8.sroa.0.0, i32 undef
   %133 = or i1 %.not131, %.not142.not
   %spec.select150 = select i1 %.not131, i32 %.sroa.577.0, i32 %.sroa.5117.0
   %spec.select152 = select i1 %.not142.not, i32 %.sroa.4114.0, i32 %spec.select150
@@ -9913,6 +9911,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit229: ; p
   %.sroa.390.sroa.0.0 = phi i32 [ undef, %143 ], [ %.sroa.787.0, %139 ]
   %.sroa.390.sroa.2.0 = phi i32 [ undef, %143 ], [ %.sroa.9.0, %139 ]
   %.sroa.390.sroa.4.0 = phi i32 [ undef, %143 ], [ %.sroa.072.0, %139 ]
+  %.sroa.8.sroa.0.0.insert.ext = zext i32 %.sroa.8.sroa.0.0 to i64
+  %.sroa.8.sroa.0.0.insert.insert = or disjoint i64 %.sroa.8.sroa.6.0, %.sroa.8.sroa.0.0.insert.ext
   store i32 %.sroa.089.0, ptr %0, align 4
   %.sroa.390.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.390.sroa.0.0, ptr %.sroa.390.0..sroa_idx, align 4
@@ -9925,13 +9925,11 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h16378a7211f09c5eE.exit229: ; p
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sroa.0.0, ptr %145, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.8.0, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i64 %.sroa.8.sroa.0.0.insert.insert, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sroa.13.0, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %.sroa.15.0, ptr %.sroa.7.0..sroa_idx, align 4
   ret void
 }
 

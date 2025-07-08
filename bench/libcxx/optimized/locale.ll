@@ -63553,8 +63553,8 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNKSt3__115__codecvt_utf16IDsLb1E
   br label %25
 
 25:                                               ; preds = %35, %.lr.ph.i
-  %.022 = phi ptr [ %2, %.lr.ph.i ], [ %41, %35 ]
-  %.1 = phi ptr [ %.0, %.lr.ph.i ], [ %40, %35 ]
+  %.022 = phi ptr [ %2, %.lr.ph.i ], [ %37, %35 ]
+  %.1 = phi ptr [ %.0, %.lr.ph.i ], [ %36, %35 ]
   %26 = load i16, ptr %.022, align 2, !tbaa !70
   %27 = and i16 %26, -2048
   %28 = icmp eq i16 %27, -10240
@@ -63570,31 +63570,26 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNKSt3__115__codecvt_utf16IDsLb1E
   br i1 %34, label %_ZNSt3__1L15ucs2_to_utf16leEPKtS1_RS1_PhS3_RS3_mNS_12codecvt_modeE.exit, label %35
 
 35:                                               ; preds = %31
-  %36 = trunc i16 %26 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  store i8 %36, ptr %.1, align 1, !tbaa !4
-  %38 = lshr i16 %26, 8
-  %39 = trunc nuw i16 %38 to i8
-  %40 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  store i8 %39, ptr %37, align 1, !tbaa !4
-  %41 = getelementptr inbounds nuw i8, ptr %.022, i64 2
-  %42 = icmp ult ptr %41, %3
-  br i1 %42, label %25, label %_ZNSt3__1L15ucs2_to_utf16leEPKtS1_RS1_PhS3_RS3_mNS_12codecvt_modeE.exit, !llvm.loop !466
+  store i16 %26, ptr %.1, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %.1, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.022, i64 2
+  %38 = icmp ult ptr %37, %3
+  br i1 %38, label %25, label %_ZNSt3__1L15ucs2_to_utf16leEPKtS1_RS1_PhS3_RS3_mNS_12codecvt_modeE.exit, !llvm.loop !466
 
 _ZNSt3__1L15ucs2_to_utf16leEPKtS1_RS1_PhS3_RS3_mNS_12codecvt_modeE.exit: ; preds = %25, %31, %35, %14, %22
-  %.123 = phi ptr [ %2, %22 ], [ %2, %14 ], [ %41, %35 ], [ %.022, %31 ], [ %.022, %25 ]
-  %.2 = phi ptr [ %.0, %22 ], [ %5, %14 ], [ %40, %35 ], [ %.1, %31 ], [ %.1, %25 ]
+  %.123 = phi ptr [ %2, %22 ], [ %2, %14 ], [ %37, %35 ], [ %.022, %31 ], [ %.022, %25 ]
+  %.2 = phi ptr [ %.0, %22 ], [ %5, %14 ], [ %36, %35 ], [ %.1, %31 ], [ %.1, %25 ]
   %.023.i = phi i32 [ 0, %22 ], [ 1, %14 ], [ 0, %35 ], [ 1, %31 ], [ 2, %25 ]
-  %43 = ptrtoint ptr %.123 to i64
-  %44 = ptrtoint ptr %2 to i64
+  %39 = ptrtoint ptr %.123 to i64
+  %40 = ptrtoint ptr %2 to i64
+  %41 = sub i64 %39, %40
+  %42 = getelementptr inbounds i8, ptr %2, i64 %41
+  store ptr %42, ptr %4, align 8, !tbaa !420
+  %43 = ptrtoint ptr %.2 to i64
+  %44 = ptrtoint ptr %5 to i64
   %45 = sub i64 %43, %44
-  %46 = getelementptr inbounds i8, ptr %2, i64 %45
-  store ptr %46, ptr %4, align 8, !tbaa !420
-  %47 = ptrtoint ptr %.2 to i64
-  %48 = ptrtoint ptr %5 to i64
-  %49 = sub i64 %47, %48
-  %50 = getelementptr inbounds i8, ptr %5, i64 %49
-  store ptr %50, ptr %7, align 8, !tbaa !72
+  %46 = getelementptr inbounds i8, ptr %5, i64 %45
+  store ptr %46, ptr %7, align 8, !tbaa !72
   ret i32 %.023.i
 }
 

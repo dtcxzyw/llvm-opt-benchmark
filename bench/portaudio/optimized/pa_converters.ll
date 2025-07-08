@@ -1690,20 +1690,15 @@ define internal void @Int16_To_Int24(ptr noundef writeonly captures(none) %0, i3
 
 10:                                               ; preds = %.lr.ph, %10
   %.017 = phi i32 [ %4, %.lr.ph ], [ %11, %10 ]
-  %.01216 = phi ptr [ %0, %.lr.ph ], [ %19, %10 ]
-  %.01315 = phi ptr [ %2, %.lr.ph ], [ %18, %10 ]
+  %.01216 = phi ptr [ %0, %.lr.ph ], [ %15, %10 ]
+  %.01315 = phi ptr [ %2, %.lr.ph ], [ %14, %10 ]
   %11 = add i32 %.017, -1
   %12 = load i16, ptr %.01315, align 2, !tbaa !81
   store i8 0, ptr %.01216, align 1, !tbaa !76
-  %13 = trunc i16 %12 to i8
-  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 1
-  store i8 %13, ptr %14, align 1, !tbaa !76
-  %15 = lshr i16 %12, 8
-  %16 = trunc nuw i16 %15 to i8
-  %17 = getelementptr inbounds nuw i8, ptr %.01216, i64 2
-  store i8 %16, ptr %17, align 1, !tbaa !76
-  %18 = getelementptr inbounds i16, ptr %.01315, i64 %7
-  %19 = getelementptr inbounds i8, ptr %.01216, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %.01216, i64 1
+  store i16 %12, ptr %13, align 1
+  %14 = getelementptr inbounds i16, ptr %.01315, i64 %7
+  %15 = getelementptr inbounds i8, ptr %.01216, i64 %9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !111
 

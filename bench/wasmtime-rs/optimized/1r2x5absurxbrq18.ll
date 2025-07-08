@@ -19046,7 +19046,7 @@ define hidden void @"_ZN16wasmtime_environ4fact9signature75_$LT$impl$u20$wasmtim
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { ptr, [5 x i64] }, align 8
   %7 = alloca i64, align 8
-  %8 = alloca { i32, [1 x i32] }, align 4
+  %8 = alloca { i32, [1 x i32] }, align 8
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store i64 0, ptr %9, align 8
@@ -19054,37 +19054,33 @@ define hidden void @"_ZN16wasmtime_environ4fact9signature75_$LT$impl$u20$wasmtim
   store ptr inttoptr (i64 4 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %11, align 8
-  %.sroa.8.16.extract.trunc = trunc i64 %4 to i32
-  %12 = icmp eq i32 %.sroa.8.16.extract.trunc, 23
-  br i1 %12, label %.thread, label %14
+  %12 = and i64 %4, 4294967295
+  %13 = icmp eq i64 %12, 23
+  br i1 %13, label %.thread, label %15
 
 .loopexit29:                                      ; preds = %38
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %13
+  br label %14
 
-.loopexit.split-lp:                               ; preds = %14, %23
+.loopexit.split-lp:                               ; preds = %15, %23
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %13
+  br label %14
 
-13:                                               ; preds = %.loopexit.split-lp, %.loopexit29
+14:                                               ; preds = %.loopexit.split-lp, %.loopexit29
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit29 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$wasm_encoder..core..types..ValType$GT$$GT$17h62affc85714df0e5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #49
           to label %56 unwind label %54
 
-14:                                               ; preds = %.critedge
-  %.sroa.8.20.extract.shift = lshr i64 %4, 32
-  %.sroa.8.20.extract.trunc = trunc nuw i64 %.sroa.8.20.extract.shift to i32
+15:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store i32 %.sroa.8.16.extract.trunc, ptr %8, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %.sroa.8.20.extract.trunc, ptr %15, align 4
+  store i64 %4, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4219)
   %16 = invoke noundef align 4 dereferenceable(40) ptr @_ZN16wasmtime_environ9component5types21ComponentTypesBuilder16type_information17h51378c5e64d84cf3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1256) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8)
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %14
+.noexc:                                           ; preds = %15
   call void @llvm.experimental.noalias.scope.decl(metadata !4222)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !4225
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
@@ -19193,13 +19189,13 @@ switch.lookup:                                    ; preds = %"_ZN91_$LT$core..sl
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !4240
   br label %24
 
-54:                                               ; preds = %13
+54:                                               ; preds = %14
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #50
   unreachable
 
-56:                                               ; preds = %13
+56:                                               ; preds = %14
   resume { ptr, i32 } %lpad.phi
 }
 

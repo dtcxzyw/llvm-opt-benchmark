@@ -35,36 +35,10 @@ define void @DES_ecb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   store i32 %8, ptr %9, align 4, !tbaa !3
   call void @DES_encrypt1(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3) #3
   %10 = load i32, ptr %5, align 4, !tbaa !3
-  %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %11, ptr %1, align 1, !tbaa !7
-  %13 = lshr i32 %10, 8
-  %14 = trunc i32 %13 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %14, ptr %12, align 1, !tbaa !7
-  %16 = lshr i32 %10, 16
-  %17 = trunc i32 %16 to i8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %17, ptr %15, align 1, !tbaa !7
-  %19 = lshr i32 %10, 24
-  %20 = trunc nuw i32 %19 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 %20, ptr %18, align 1, !tbaa !7
-  %22 = load i32, ptr %9, align 4, !tbaa !3
-  %23 = trunc i32 %22 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  store i8 %23, ptr %21, align 1, !tbaa !7
-  %25 = lshr i32 %22, 8
-  %26 = trunc i32 %25 to i8
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  store i8 %26, ptr %24, align 1, !tbaa !7
-  %28 = lshr i32 %22, 16
-  %29 = trunc i32 %28 to i8
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  store i8 %29, ptr %27, align 1, !tbaa !7
-  %31 = lshr i32 %22, 24
-  %32 = trunc nuw i32 %31 to i8
-  store i8 %32, ptr %30, align 1, !tbaa !7
+  store i32 %10, ptr %1, align 1
+  %11 = load i32, ptr %9, align 4, !tbaa !3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %11, ptr %12, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   ret void
 }
@@ -91,4 +65,3 @@ attributes #3 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!5, !5, i64 0}

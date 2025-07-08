@@ -16151,7 +16151,6 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he06ba68ae42ccb61E.exit.i.i.i
   %368 = getelementptr inbounds nuw i8, ptr %54, i64 248
   %369 = getelementptr inbounds nuw i8, ptr %54, i64 252
   %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %52, i64 5
-  %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %52, i64 6
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %371 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %372 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -16466,13 +16465,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h5155de4c13d080e3E.exit24.i.i
   br label %308
 
 468:                                              ; preds = %456
-  %.sroa.6401.4.extract.trunc = trunc i64 %.sroa.6401.6 to i40
-  %.sroa.6401.10.extract.shift = lshr i64 %.sroa.6401.6, 48
-  %.sroa.6401.10.extract.trunc = trunc nuw i64 %.sroa.6401.10.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52)
-  store i40 %.sroa.6401.4.extract.trunc, ptr %52, align 8
-  store i8 %.sroa.6401.9.extract.trunc, ptr %.sroa.5.0..sroa_idx3, align 1
-  store i16 %.sroa.6401.10.extract.trunc, ptr %.sroa.6.0..sroa_idx5, align 2
+  store i64 %.sroa.6401.6, ptr %52, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !2987)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
   %469 = load ptr, ptr %370, align 8, !alias.scope !2987, !noalias !2990, !noundef !4
@@ -17282,7 +17276,6 @@ default.unreachable.i.i:                          ; preds = %685
   %707 = getelementptr inbounds nuw i8, ptr %50, i64 248
   %708 = getelementptr inbounds nuw i8, ptr %50, i64 252
   %.sroa.511.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %48, i64 5
-  %.sroa.614.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %48, i64 6
   %709 = getelementptr inbounds nuw i8, ptr %1, i64 712
   %710 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %711 = getelementptr inbounds nuw i8, ptr %1, i64 720
@@ -17573,13 +17566,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h5155de4c13d080e3E.exit24.i.i
   br label %78
 
 802:                                              ; preds = %796
-  %.sroa.6466.4.extract.trunc = trunc i64 %.sroa.6466.6 to i40
-  %.sroa.6466.10.extract.shift = lshr i64 %.sroa.6466.6, 48
-  %.sroa.6466.10.extract.trunc = trunc nuw i64 %.sroa.6466.10.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
-  store i40 %.sroa.6466.4.extract.trunc, ptr %48, align 8
-  store i8 %.sroa.6466.9.extract.trunc, ptr %.sroa.511.0..sroa_idx12, align 1
-  store i16 %.sroa.6466.10.extract.trunc, ptr %.sroa.614.0..sroa_idx15, align 2
+  store i64 %.sroa.6466.6, ptr %48, align 8
   %.promoted = load i64, ptr %710, align 8
   %803 = trunc nuw i64 %.promoted to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !3260)

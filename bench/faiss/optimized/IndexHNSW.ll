@@ -5888,12 +5888,8 @@ _ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12emplace_backIJfRiEEERS2_DpO
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %102, %_ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12emplace_backIJfRiEEERS2_DpOT_.exit.i
   %.0.lcssa.i.i.i = phi i64 [ %96, %_ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12emplace_backIJfRiEEERS2_DpOT_.exit.i ], [ %.020.i.i.i, %.lr.ph.i.i.i ], [ 0, %102 ]
-  %.sroa.3.0.extract.shift.i.i.i = lshr i64 %.sroa.02.0.copyload.i.i, 32
-  %.sroa.3.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i to i32
   %105 = getelementptr inbounds %"struct.faiss::HNSW::NodeDistFarther", ptr %90, i64 %.0.lcssa.i.i.i
-  store i32 %.sroa.012.0.extract.trunc.i.i.i, ptr %105, align 4
-  %.sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %105, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i.i.i, ptr %.sroa.0.0..sroa_idx.i.i.i, align 4
+  store i64 %.sroa.02.0.copyload.i.i, ptr %105, align 4
   %106 = add nuw i64 %.02540, 1
   %107 = load i64, ptr %10, align 8, !tbaa !50
   %108 = icmp ult i64 %106, %107
@@ -6879,12 +6875,8 @@ _ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12emplace_backIJRKfRiEEERS2_D
 
 _ZNSt14priority_queueIN5faiss4HNSW15NodeDistFartherESt6vectorIS2_SaIS2_EESt4lessIS2_EE7emplaceIJRKfRiEEEvDpOT_.exit: ; preds = %.lr.ph.i.i.i, %130, %_ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12emplace_backIJRKfRiEEERS2_DpOT_.exit.i
   %.0.lcssa.i.i.i = phi i64 [ %124, %_ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12emplace_backIJRKfRiEEERS2_DpOT_.exit.i ], [ %.020.i.i.i, %.lr.ph.i.i.i ], [ 0, %130 ]
-  %.sroa.3.0.extract.shift.i.i.i = lshr i64 %.sroa.02.0.copyload.i.i, 32
-  %.sroa.3.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i to i32
   %133 = getelementptr inbounds %"struct.faiss::HNSW::NodeDistFarther", ptr %118, i64 %.0.lcssa.i.i.i
-  store i32 %.sroa.012.0.extract.trunc.i.i.i, ptr %133, align 4
-  %.sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %133, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i.i.i, ptr %.sroa.0.0..sroa_idx.i.i.i, align 4
+  store i64 %.sroa.02.0.copyload.i.i, ptr %133, align 4
   %.pre = load i32, ptr %3, align 4, !tbaa !62
   br label %134
 

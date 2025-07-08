@@ -119465,15 +119465,16 @@ _ZN10duckdb_fmt2v68internal13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds 
   %115 = load ptr, ptr %64, align 8, !tbaa !2004
   %116 = load i64, ptr %66, align 8, !tbaa !2015
   %117 = trunc i64 %116 to i32
+  %.sroa.014.0.insert.ext = zext i32 %spec.select82 to i64
+  %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift22, %.sroa.014.0.insert.ext
   store ptr %115, ptr %8, align 8, !tbaa !2478
   %118 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %117, ptr %118, align 8, !tbaa !2482
   %119 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %102, ptr %119, align 4, !tbaa !2483
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %spec.select82, ptr %120, align 8, !tbaa !66
+  store i64 %.sroa.014.0.insert.insert, ptr %120, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %100, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !65
   %121 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 %.056, ptr %121, align 8, !tbaa !2484
   %122 = and i32 %.sroa.8.1, 255
@@ -121174,15 +121175,16 @@ _ZN10duckdb_fmt2v68internal13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds 
   %113 = load ptr, ptr %64, align 8, !tbaa !2004
   %114 = load i64, ptr %66, align 8, !tbaa !2015
   %115 = trunc i64 %114 to i32
+  %.sroa.014.0.insert.ext = zext i32 %spec.select82 to i64
+  %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift22, %.sroa.014.0.insert.ext
   store ptr %113, ptr %8, align 8, !tbaa !2478
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %115, ptr %116, align 8, !tbaa !2482
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %100, ptr %117, align 4, !tbaa !2483
   %118 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %spec.select82, ptr %118, align 8, !tbaa !66
+  store i64 %.sroa.014.0.insert.insert, ptr %118, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %99, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !65
   %119 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 %.056, ptr %119, align 8, !tbaa !2484
   %120 = and i32 %.sroa.8.1, 255
@@ -121495,15 +121497,16 @@ _ZN10duckdb_fmt2v68internal13decimal_pointIcEET_NS1_10locale_refE.exit: ; preds 
   %113 = load ptr, ptr %64, align 8, !tbaa !2004
   %114 = load i64, ptr %66, align 8, !tbaa !2015
   %115 = trunc i64 %114 to i32
+  %.sroa.014.0.insert.ext = zext i32 %spec.select82 to i64
+  %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift22, %.sroa.014.0.insert.ext
   store ptr %113, ptr %8, align 8, !tbaa !2478
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %115, ptr %116, align 8, !tbaa !2482
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %100, ptr %117, align 4, !tbaa !2483
   %118 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %spec.select82, ptr %118, align 8, !tbaa !66
+  store i64 %.sroa.014.0.insert.insert, ptr %118, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %99, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !65
   %119 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 %.056, ptr %119, align 8, !tbaa !2484
   %120 = and i32 %.sroa.8.1, 255

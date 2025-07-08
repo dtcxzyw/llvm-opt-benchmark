@@ -507,38 +507,35 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb26d43449a02
   %.sroa.42.0.extract.shift = lshr i40 %1, 8
   %.sroa.42.0.extract.trunc = trunc i40 %.sroa.42.0.extract.shift to i8
   %trunc = trunc i40 %1 to i1
-  br i1 %trunc, label %5, label %3
+  br i1 %trunc, label %6, label %3
 
 3:                                                ; preds = %2
-  %.sroa.5.0.extract.shift = lshr i40 %1, 16
-  %.sroa.5.0.extract.trunc = trunc nuw i40 %.sroa.5.0.extract.shift to i24
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.42.0.extract.trunc, ptr %4, align 1
-  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i24 %.sroa.5.0.extract.trunc, ptr %.sroa.24.0..sroa_idx, align 2
+  %4 = trunc nuw i40 %.sroa.42.0.extract.shift to i32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i32 %4, ptr %5, align 1
   store i8 8, ptr %0, align 8
-  br label %10
+  br label %11
 
-5:                                                ; preds = %2
-  %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !58
-  %7 = tail call noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef 1, i64 noundef range(i64 1, -9223372036854775807) 1) #20, !noalias !58
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit"
+6:                                                ; preds = %2
+  %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !58
+  %8 = tail call noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef 1, i64 noundef range(i64 1, -9223372036854775807) 1) #20, !noalias !58
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit"
 
-9:                                                ; preds = %5
+10:                                               ; preds = %6
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 1, i64 noundef 1) #17, !noalias !58
   unreachable
 
-"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit": ; preds = %5
-  store i8 %.sroa.42.0.extract.trunc, ptr %7, align 1, !noalias !58
+"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit": ; preds = %6
+  store i8 %.sroa.42.0.extract.trunc, ptr %8, align 1, !noalias !58
   store i8 7, ptr %0, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %7, ptr %.sroa.45.0..sroa_idx, align 8
+  store ptr %8, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @anon.3459e9c811a6d28c77b5d7b0f168ab32.9.llvm.9114549357374491183, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %10
+  br label %11
 
-10:                                               ; preds = %3, %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit"
+11:                                               ; preds = %3, %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit"
   ret void
 }
 
@@ -634,42 +631,43 @@ define noundef nonnull align 1 dereferenceable(4) ptr @"_ZN71_$LT$ockam_multiadd
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str17h87ecdcc5527600a0E"(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = tail call i40 @"_ZN4core3net6parser85_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$core..net..ip_addr..Ipv4Addr$GT$8from_str17hd014e4729a619195E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  %trunc.i = trunc i40 %4 to i1
+  %sum.shift.i = and i40 %4, -65536
+  %.sroa.5.0.insert.ext.i = select i1 %trunc.i, i40 0, i40 %sum.shift.i
+  %5 = and i40 %4, 65280
+  %.sroa.03.0.insert.insert.i = or disjoint i40 %.sroa.5.0.insert.ext.i, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %.sroa.42.0.extract.shift.i = lshr i40 %4, 8
+  %.sroa.42.0.extract.shift.i = lshr exact i40 %.sroa.03.0.insert.insert.i, 8
   %.sroa.42.0.extract.trunc.i = trunc i40 %.sroa.42.0.extract.shift.i to i8
-  %trunc.i4 = trunc i40 %4 to i1
-  br i1 %trunc.i4, label %8, label %5
+  br i1 %trunc.i, label %9, label %6
 
-5:                                                ; preds = %3
-  %6 = lshr i40 %4, 16
-  %.sroa.5.0.extract.trunc.i = trunc nuw i40 %6 to i24
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.42.0.extract.trunc.i, ptr %7, align 1, !alias.scope !64
-  %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i24 %.sroa.5.0.extract.trunc.i, ptr %.sroa.24.0..sroa_idx.i, align 2, !alias.scope !64
+6:                                                ; preds = %3
+  %7 = trunc nuw i40 %.sroa.42.0.extract.shift.i to i32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i32 %7, ptr %8, align 1, !alias.scope !64
   store i8 8, ptr %0, align 8, !alias.scope !64
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb26d43449a02b856E.llvm.9114549357374491183.exit"
 
-8:                                                ; preds = %3
-  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !67
-  %10 = tail call noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef 1, i64 noundef range(i64 1, -9223372036854775807) 1) #20, !noalias !67
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i"
+9:                                                ; preds = %3
+  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !67
+  %11 = tail call noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef 1, i64 noundef range(i64 1, -9223372036854775807) 1) #20, !noalias !67
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i"
 
-12:                                               ; preds = %8
+13:                                               ; preds = %9
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 1, i64 noundef 1) #17, !noalias !67
   unreachable
 
-"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i": ; preds = %8
-  store i8 %.sroa.42.0.extract.trunc.i, ptr %10, align 1, !noalias !67
+"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i": ; preds = %9
+  store i8 %.sroa.42.0.extract.trunc.i, ptr %11, align 1, !noalias !67
   store i8 7, ptr %0, align 8, !alias.scope !64
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %.sroa.45.0..sroa_idx.i, align 8, !alias.scope !64
+  store ptr %11, ptr %.sroa.45.0..sroa_idx.i, align 8, !alias.scope !64
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @anon.3459e9c811a6d28c77b5d7b0f168ab32.9.llvm.9114549357374491183, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !64
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb26d43449a02b856E.llvm.9114549357374491183.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb26d43449a02b856E.llvm.9114549357374491183.exit": ; preds = %5, %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i"
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb26d43449a02b856E.llvm.9114549357374491183.exit": ; preds = %6, %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i"
   ret void
 }
 

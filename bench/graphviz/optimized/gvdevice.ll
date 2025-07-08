@@ -983,7 +983,7 @@ define void @gvdevice_finalize(ptr noundef %0) local_unnamed_addr #0 {
   %6 = load i32, ptr %5, align 8, !tbaa !61
   %7 = and i32 %6, 1024
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %62, label %8
+  br i1 %.not, label %44, label %8
 
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
@@ -1050,109 +1050,85 @@ define void @gvdevice_finalize(ptr noundef %0) local_unnamed_addr #0 {
 
 37:                                               ; preds = %24
   %38 = load i64, ptr @crc, align 8, !tbaa !67
-  %39 = trunc i64 %38 to i8
-  store i8 %39, ptr %2, align 8, !tbaa !54
-  %40 = lshr i64 %38, 8
-  %41 = trunc i64 %40 to i8
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %41, ptr %42, align 1, !tbaa !54
-  %43 = lshr i64 %38, 16
-  %44 = trunc i64 %43 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %44, ptr %45, align 2, !tbaa !54
-  %46 = lshr i64 %38, 24
-  %47 = trunc i64 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 %47, ptr %48, align 1, !tbaa !54
-  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @z_strm, i64 16), align 8, !tbaa !79
-  %50 = trunc i64 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i8 %50, ptr %51, align 4, !tbaa !54
-  %52 = lshr i64 %49, 8
-  %53 = trunc i64 %52 to i8
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  store i8 %53, ptr %54, align 1, !tbaa !54
-  %55 = lshr i64 %49, 16
-  %56 = trunc i64 %55 to i8
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  store i8 %56, ptr %57, align 2, !tbaa !54
-  %58 = lshr i64 %49, 24
-  %59 = trunc i64 %58 to i8
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 7
-  store i8 %59, ptr %60, align 1, !tbaa !54
-  %61 = call fastcc i64 @gvwrite_no_z(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 8)
+  %39 = trunc i64 %38 to i32
+  store i32 %39, ptr %2, align 8
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @z_strm, i64 16), align 8, !tbaa !79
+  %41 = trunc i64 %40 to i32
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %41, ptr %42, align 4
+  %43 = call fastcc i64 @gvwrite_no_z(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
-  br label %62
+  br label %44
 
-62:                                               ; preds = %37, %1
+44:                                               ; preds = %37, %1
   %.not41 = icmp eq ptr %4, null
-  br i1 %.not41, label %66, label %63
+  br i1 %.not41, label %48, label %45
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !80
-  %.not42 = icmp eq ptr %65, null
-  br i1 %.not42, label %66, label %.critedge44
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %47 = load ptr, ptr %46, align 8, !tbaa !80
+  %.not42 = icmp eq ptr %47, null
+  br i1 %.not42, label %48, label %.critedge44
 
-.critedge44:                                      ; preds = %63
-  call void %65(ptr noundef %0) #21
+.critedge44:                                      ; preds = %45
+  call void %47(ptr noundef %0) #21
   br label %gvdevice_close.exit
 
-66:                                               ; preds = %62, %63
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %68 = load ptr, ptr %67, align 8, !tbaa !34
-  %.not.i = icmp eq ptr %68, null
-  br i1 %.not.i, label %gvflush.exit, label %69
+48:                                               ; preds = %44, %45
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %50 = load ptr, ptr %49, align 8, !tbaa !34
+  %.not.i = icmp eq ptr %50, null
+  br i1 %.not.i, label %gvflush.exit, label %51
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %71 = load i8, ptr %70, align 8, !tbaa !76, !range !50, !noundef !51
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %gvflush.exit, label %73
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %53 = load i8, ptr %52, align 8, !tbaa !76, !range !50, !noundef !51
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %gvflush.exit, label %55
 
-73:                                               ; preds = %69
-  %74 = load ptr, ptr %0, align 8, !tbaa !30
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 208
-  %76 = load ptr, ptr %75, align 8, !tbaa !68
-  %.not5.i = icmp eq ptr %76, null
-  br i1 %.not5.i, label %77, label %gvflush.exit
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %0, align 8, !tbaa !30
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 208
+  %58 = load ptr, ptr %57, align 8, !tbaa !68
+  %.not5.i = icmp eq ptr %58, null
+  br i1 %.not5.i, label %59, label %gvflush.exit
 
-77:                                               ; preds = %73
-  %78 = call i32 @fflush(ptr noundef nonnull %68)
+59:                                               ; preds = %55
+  %60 = call i32 @fflush(ptr noundef nonnull %50)
   br label %gvflush.exit
 
-gvflush.exit:                                     ; preds = %66, %69, %73, %77
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %80 = load ptr, ptr %79, align 8, !tbaa !52
-  %.not.i45 = icmp eq ptr %80, null
-  br i1 %.not.i45, label %gvdevice_close.exit, label %81
+gvflush.exit:                                     ; preds = %48, %51, %55, %59
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %62 = load ptr, ptr %61, align 8, !tbaa !52
+  %.not.i45 = icmp eq ptr %62, null
+  br i1 %.not.i45, label %gvdevice_close.exit, label %63
 
-81:                                               ; preds = %gvflush.exit
-  %82 = load ptr, ptr %67, align 8, !tbaa !34
-  %83 = load ptr, ptr @stdout, align 8, !tbaa !60
-  %.not7.i = icmp eq ptr %82, %83
-  br i1 %.not7.i, label %gvdevice_close.exit, label %84
+63:                                               ; preds = %gvflush.exit
+  %64 = load ptr, ptr %49, align 8, !tbaa !34
+  %65 = load ptr, ptr @stdout, align 8, !tbaa !60
+  %.not7.i = icmp eq ptr %64, %65
+  br i1 %.not7.i, label %gvdevice_close.exit, label %66
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %86 = load i8, ptr %85, align 8, !tbaa !76, !range !50, !noundef !51
-  %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %gvdevice_close.exit, label %88
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %68 = load i8, ptr %67, align 8, !tbaa !76, !range !50, !noundef !51
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %gvdevice_close.exit, label %70
 
-88:                                               ; preds = %84
-  %.not8.i = icmp eq ptr %82, null
-  br i1 %.not8.i, label %91, label %89
+70:                                               ; preds = %66
+  %.not8.i = icmp eq ptr %64, null
+  br i1 %.not8.i, label %73, label %71
 
-89:                                               ; preds = %88
-  %90 = call i32 @fclose(ptr noundef nonnull %82)
-  store ptr null, ptr %67, align 8, !tbaa !34
-  br label %91
+71:                                               ; preds = %70
+  %72 = call i32 @fclose(ptr noundef nonnull %64)
+  store ptr null, ptr %49, align 8, !tbaa !34
+  br label %73
 
-91:                                               ; preds = %89, %88
-  store ptr null, ptr %79, align 8, !tbaa !52
+73:                                               ; preds = %71, %70
+  store ptr null, ptr %61, align 8, !tbaa !52
   br label %gvdevice_close.exit
 
-gvdevice_close.exit:                              ; preds = %91, %84, %81, %gvflush.exit, %.critedge44
+gvdevice_close.exit:                              ; preds = %73, %66, %63, %gvflush.exit, %.critedge44
   ret void
 }
 

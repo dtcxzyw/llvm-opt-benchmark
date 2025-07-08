@@ -2752,7 +2752,7 @@ define internal fastcc void @_ZN19ruff_python_literal6format12FormatString10pars
 .body:                                            ; preds = %.loopexit.split-lp, %.loopexit.loopexit.split-lp, %.loopexit.loopexit, %167
   %eh.lpad-body = phi { ptr, i32 } [ %.pn45.i, %167 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit63, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp64, %.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc483a8d0bb0116fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #13
-          to label %235 unwind label %233
+          to label %236 unwind label %234
 
 63:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79604e485271331dE.exit12.i.i", %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79604e485271331dE.exit14.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79604e485271331dE.exit16.i.i"
   %.sroa.0.1 = phi ptr [ %28, %41 ], [ %54, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79604e485271331dE.exit16.i.i" ], [ %44, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79604e485271331dE.exit14.i.i" ], [ %34, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79604e485271331dE.exit12.i.i" ]
@@ -3226,10 +3226,10 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit41: ; preds = %.noexc39, %"
 228:                                              ; preds = %223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !238
   %229 = icmp eq i64 %.sroa.052.0, -9223372036854775807
-  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0 to i8
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %228
+  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0 to i8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12)
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.6.0.extract.trunc, ptr %231, align 8
@@ -3237,16 +3237,12 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit41: ; preds = %.noexc39, %"
   br label %82
 
 232:                                              ; preds = %228
-  %.sroa.6.1.extract.shift = lshr i64 %.sroa.6.0, 8
-  %.sroa.6.1.extract.trunc = trunc nuw i64 %.sroa.6.1.extract.shift to i56
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12)
   store i64 %.sroa.052.0, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.6.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.6.1.extract.trunc, ptr %.sroa.5.0..sroa_idx, align 1
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.6.0, ptr %233, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %196, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3257,13 +3253,13 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit41: ; preds = %.noexc39, %"
   store i64 %154, ptr %.sroa.719.0..sroa_idx, align 8
   br label %82
 
-233:                                              ; preds = %.body
-  %234 = landingpad { ptr, i32 }
+234:                                              ; preds = %.body
+  %235 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #14
   unreachable
 
-235:                                              ; preds = %.body
+236:                                              ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

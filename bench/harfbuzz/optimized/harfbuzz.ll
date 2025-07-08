@@ -84452,13 +84452,8 @@ define internal void @_ZL17setup_masks_indicPK18hb_ot_shape_plan_tP11hb_buffer_t
   %11 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %10, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !214
   %13 = tail call noundef zeroext i16 @_Z23hb_indic_get_categoriesj(i32 noundef %12)
-  %14 = trunc i16 %13 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 18
-  store i8 %14, ptr %15, align 2, !tbaa !219
-  %16 = lshr i16 %13, 8
-  %17 = trunc nuw i16 %16 to i8
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 19
-  store i8 %17, ptr %18, align 1, !tbaa !219
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 18
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1812

@@ -17,13 +17,8 @@ define hidden void @_mi_random_split(ptr noundef readonly captures(none) %0, ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %1, ptr noundef nonnull readonly align 1 dereferenceable(64) %0, i64 48, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 0, ptr %4, align 4, !tbaa !3
-  %5 = trunc i64 %3 to i32
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %5, ptr %6, align 4, !tbaa !3
-  %7 = lshr i64 %3, 32
-  %8 = trunc nuw i64 %7 to i32
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store i32 %8, ptr %9, align 4, !tbaa !3
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i64 %3, ptr %5, align 4
   tail call fastcc void @chacha_block(ptr noundef nonnull %1)
   ret void
 }
@@ -268,13 +263,8 @@ _mi_os_random_weak.exit:                          ; preds = %40
   store i32 0, ptr %71, align 4, !tbaa !3
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %72, align 4, !tbaa !3
-  %73 = trunc i64 %70 to i32
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %73, ptr %74, align 4, !tbaa !3
-  %75 = lshr i64 %70, 32
-  %76 = trunc nuw i64 %75 to i32
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %76, ptr %77, align 4, !tbaa !3
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %70, ptr %73, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
   ret void
 }

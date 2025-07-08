@@ -6210,7 +6210,7 @@ define internal i32 @emit_bb_start_parent_no_preempt_mid_batch(ptr noundef %0, i
 20:                                               ; preds = %4
   %21 = ptrtoint ptr %12 to i64
   %22 = trunc i64 %21 to i32
-  br label %79
+  br label %75
 
 23:                                               ; preds = %23, %17
   %24 = phi i32 [ 0, %17 ], [ %44, %23 ]
@@ -6275,21 +6275,16 @@ define internal i32 @emit_bb_start_parent_no_preempt_mid_batch(ptr noundef %0, i
   %70 = shl i32 %3, 8
   %71 = and i32 %70, 256
   %72 = xor i32 %71, 411042049
-  %73 = getelementptr i8, ptr %48, i64 28
   store i32 %72, ptr %69, align 4
-  %74 = trunc i64 %1 to i32
-  %75 = getelementptr i8, ptr %48, i64 32
-  store i32 %74, ptr %73, align 4
-  %76 = lshr i64 %1, 32
-  %77 = trunc nuw i64 %76 to i32
-  %78 = getelementptr i8, ptr %48, i64 36
-  store i32 %77, ptr %75, align 4
-  store i32 0, ptr %78, align 4
-  br label %79
+  %73 = getelementptr inbounds nuw i8, ptr %48, i64 28
+  store i64 %1, ptr %73, align 4
+  %74 = getelementptr i8, ptr %48, i64 36
+  store i32 0, ptr %74, align 4
+  br label %75
 
-79:                                               ; preds = %.loopexit, %20
-  %80 = phi i32 [ %22, %20 ], [ 0, %.loopexit ]
-  ret i32 %80
+75:                                               ; preds = %.loopexit, %20
+  %76 = phi i32 [ %22, %20 ], [ 0, %.loopexit ]
+  ret i32 %76
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -10848,7 +10843,7 @@ define internal i32 @emit_bb_start_child_no_preempt_mid_batch(ptr noundef %0, i6
 11:                                               ; preds = %4
   %12 = ptrtoint ptr %9 to i64
   %13 = trunc i64 %12 to i32
-  br label %66
+  br label %62
 
 14:                                               ; preds = %4
   %15 = icmp eq ptr %8, null
@@ -10906,19 +10901,14 @@ define internal i32 @emit_bb_start_child_no_preempt_mid_batch(ptr noundef %0, i6
   %58 = shl i32 %3, 8
   %59 = and i32 %58, 256
   %60 = xor i32 %59, 411042049
-  %61 = getelementptr i8, ptr %9, i64 40
   store i32 %60, ptr %57, align 4
-  %62 = trunc i64 %1 to i32
-  %63 = getelementptr i8, ptr %9, i64 44
-  store i32 %62, ptr %61, align 4
-  %64 = lshr i64 %1, 32
-  %65 = trunc nuw i64 %64 to i32
-  store i32 %65, ptr %63, align 4
-  br label %66
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i64 %1, ptr %61, align 4
+  br label %62
 
-66:                                               ; preds = %14, %11
-  %67 = phi i32 [ %13, %11 ], [ 0, %14 ]
-  ret i32 %67
+62:                                               ; preds = %14, %11
+  %63 = phi i32 [ %13, %11 ], [ 0, %14 ]
+  ret i32 %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)

@@ -4013,8 +4013,6 @@ define hidden void @_ZN12GraphBuilder13load_constantEv(ptr noundef nonnull align
   %6 = extractvalue { i8, i64 } %5, 0
   %7 = extractvalue { i8, i64 } %5, 1
   %.sroa.3.sroa.0.0.extract.trunc = trunc i64 %7 to i32
-  %.sroa.3.sroa.10.0.extract.shift = lshr i64 %7, 32
-  %.sroa.3.sroa.10.0.extract.trunc = trunc nuw i64 %.sroa.3.sroa.10.0.extract.shift to i32
   switch i8 %6, label %291 [
     i8 99, label %506
     i8 4, label %8
@@ -4284,9 +4282,7 @@ _ZN22CompilationResourceObjnwEm.exit56:           ; preds = %147, %149
   store i32 1, ptr %154, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTV12LongConstant, i64 16), ptr %.0.i.i.i55, align 8
   %155 = getelementptr inbounds nuw i8, ptr %.0.i.i.i55, i64 16
-  store i32 %.sroa.3.sroa.0.0.extract.trunc, ptr %155, align 8
-  %.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i55, i64 20
-  store i32 %.sroa.3.sroa.10.0.extract.trunc, ptr %.sroa_idx, align 4
+  store i64 %7, ptr %155, align 8
   br label %.thread
 
 156:                                              ; preds = %1

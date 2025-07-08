@@ -3189,22 +3189,17 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16le(ptr noundef
 .lr.ph.split.us.i:                                ; preds = %12, %.lr.ph.split.us.i
   %.in = phi i64 [ %16, %.lr.ph.split.us.i ], [ %2, %12 ]
   %.0244.us.i = phi i32 [ %spec.select.us.i, %.lr.ph.split.us.i ], [ 0, %12 ]
-  %.0263.us.i = phi ptr [ %25, %.lr.ph.split.us.i ], [ %15, %12 ]
+  %.0263.us.i = phi ptr [ %21, %.lr.ph.split.us.i ], [ %15, %12 ]
   %.0272.us.i = phi ptr [ %17, %.lr.ph.split.us.i ], [ %1, %12 ]
   %16 = add i64 %.in, -1
   %17 = getelementptr inbounds nuw i8, ptr %.0272.us.i, i64 1
   %18 = load i8, ptr %.0272.us.i, align 1, !tbaa !12
-  %19 = sext i8 %18 to i32
-  %20 = icmp slt i8 %18, 0
-  %spec.select.us.i = select i1 %20, i32 -1, i32 %.0244.us.i
-  %spec.select31.us.i = select i1 %20, i32 65533, i32 %19
-  %21 = trunc i32 %spec.select31.us.i to i8
-  store i8 %21, ptr %.0263.us.i, align 1, !tbaa !12
-  %22 = lshr i32 %spec.select31.us.i, 8
-  %23 = trunc i32 %22 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %.0263.us.i, i64 1
-  store i8 %23, ptr %24, align 1, !tbaa !12
-  %25 = getelementptr inbounds nuw i8, ptr %.0263.us.i, i64 2
+  %19 = icmp slt i8 %18, 0
+  %spec.select.us.i = select i1 %19, i32 -1, i32 %.0244.us.i
+  %narrow.i = select i1 %19, i8 -3, i8 %18
+  %20 = sext i8 %narrow.i to i16
+  store i16 %20, ptr %.0263.us.i, align 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0263.us.i, i64 2
   %.not.us.i = icmp eq i64 %16, 0
   br i1 %.not.us.i, label %._crit_edge.i.loopexit, label %.lr.ph.split.us.i, !llvm.loop !69
 
@@ -3213,20 +3208,20 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16le(ptr noundef
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %12
-  %26 = phi ptr [ %13, %12 ], [ %.pre, %._crit_edge.i.loopexit ]
-  %.026.lcssa.i = phi ptr [ %15, %12 ], [ %25, %._crit_edge.i.loopexit ]
+  %22 = phi ptr [ %13, %12 ], [ %.pre, %._crit_edge.i.loopexit ]
+  %.026.lcssa.i = phi ptr [ %15, %12 ], [ %21, %._crit_edge.i.loopexit ]
   %.024.lcssa.i = phi i32 [ 0, %12 ], [ %spec.select.us.i, %._crit_edge.i.loopexit ]
-  %27 = ptrtoint ptr %.026.lcssa.i to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  store i64 %29, ptr %5, align 8, !tbaa !4
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
+  %23 = ptrtoint ptr %.026.lcssa.i to i64
+  %24 = ptrtoint ptr %22 to i64
+  %25 = sub i64 %23, %24
+  store i64 %25, ptr %5, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
+  store i8 0, ptr %26, align 1, !tbaa !12
+  %27 = load ptr, ptr %0, align 8, !tbaa !11
+  %28 = load i64, ptr %5, align 8, !tbaa !4
+  %29 = getelementptr i8, ptr %27, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 1
   store i8 0, ptr %30, align 1, !tbaa !12
-  %31 = load ptr, ptr %0, align 8, !tbaa !11
-  %32 = load i64, ptr %5, align 8, !tbaa !4
-  %33 = getelementptr i8, ptr %31, i64 %32
-  %34 = getelementptr i8, ptr %33, i64 1
-  store i8 0, ptr %34, align 1, !tbaa !12
   br label %best_effort_strncat_to_utf16.exit
 
 best_effort_strncat_to_utf16.exit:                ; preds = %4, %._crit_edge.i
@@ -7223,53 +7218,37 @@ define internal range(i64 0, 5) i64 @unicode_to_utf16be(ptr noundef writeonly ca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal range(i64 0, 5) i64 @unicode_to_utf16le(ptr noundef writeonly captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #19 {
   %4 = icmp ugt i32 %2, 65535
-  br i1 %4, label %5, label %22
+  br i1 %4, label %5, label %17
 
 5:                                                ; preds = %3
   %6 = icmp ult i64 %1, 4
-  br i1 %6, label %29, label %7
+  br i1 %6, label %21, label %7
 
 7:                                                ; preds = %5
   %8 = add i32 %2, 983040
   %9 = lshr i32 %8, 10
-  %10 = trunc i32 %9 to i8
-  store i8 %10, ptr %0, align 1, !tbaa !12
-  %11 = lshr i32 %8, 18
-  %12 = trunc i32 %11 to i8
-  %13 = and i8 %12, 3
-  %14 = or disjoint i8 %13, -40
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %14, ptr %15, align 1, !tbaa !12
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %17 = trunc i32 %2 to i8
-  store i8 %17, ptr %16, align 1, !tbaa !12
-  %18 = lshr i32 %2, 8
-  %19 = trunc i32 %18 to i8
-  %20 = and i8 %19, 3
-  %21 = or disjoint i8 %20, -36
-  br label %.sink.split
+  %10 = trunc i32 %9 to i16
+  %11 = and i16 %10, 1023
+  %12 = or disjoint i16 %11, -10240
+  store i16 %12, ptr %0, align 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %14 = trunc i32 %2 to i16
+  %15 = and i16 %14, 1023
+  %16 = or disjoint i16 %15, -9216
+  store i16 %16, ptr %13, align 1
+  br label %21
 
-22:                                               ; preds = %3
-  %23 = icmp ult i64 %1, 2
-  br i1 %23, label %29, label %24
+17:                                               ; preds = %3
+  %18 = icmp ult i64 %1, 2
+  br i1 %18, label %21, label %19
 
-24:                                               ; preds = %22
-  %25 = trunc i32 %2 to i8
-  store i8 %25, ptr %0, align 1, !tbaa !12
-  %26 = lshr i32 %2, 8
-  %27 = trunc nuw i32 %26 to i8
-  br label %.sink.split
+19:                                               ; preds = %17
+  %20 = trunc nuw i32 %2 to i16
+  store i16 %20, ptr %0, align 1
+  br label %21
 
-.sink.split:                                      ; preds = %7, %24
-  %.sink13 = phi i64 [ 1, %24 ], [ 3, %7 ]
-  %.sink = phi i8 [ %27, %24 ], [ %21, %7 ]
-  %.0.ph = phi i64 [ 2, %24 ], [ 4, %7 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13
-  store i8 %.sink, ptr %28, align 1, !tbaa !12
-  br label %29
-
-29:                                               ; preds = %.sink.split, %22, %5
-  %.0 = phi i64 [ 0, %5 ], [ 0, %22 ], [ %.0.ph, %.sink.split ]
+21:                                               ; preds = %17, %5, %19, %7
+  %.0 = phi i64 [ 4, %7 ], [ 2, %19 ], [ 0, %5 ], [ 0, %17 ]
   ret i64 %.0
 }
 

@@ -28,36 +28,12 @@ define void @RC2_ecb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
 
 14:                                               ; preds = %13, %12
   %15 = load i64, ptr %5, align 16, !tbaa !3
-  %16 = trunc i64 %15 to i8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %16, ptr %1, align 1, !tbaa !7
-  %18 = lshr i64 %15, 8
-  %19 = trunc i64 %18 to i8
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %19, ptr %17, align 1, !tbaa !7
-  %21 = lshr i64 %15, 16
-  %22 = trunc i64 %21 to i8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %22, ptr %20, align 1, !tbaa !7
-  %24 = lshr i64 %15, 24
-  %25 = trunc i64 %24 to i8
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 %25, ptr %23, align 1, !tbaa !7
-  %27 = load i64, ptr %11, align 8, !tbaa !3
-  %28 = trunc i64 %27 to i8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  store i8 %28, ptr %26, align 1, !tbaa !7
-  %30 = lshr i64 %27, 8
-  %31 = trunc i64 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  store i8 %31, ptr %29, align 1, !tbaa !7
-  %33 = lshr i64 %27, 16
-  %34 = trunc i64 %33 to i8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  store i8 %34, ptr %32, align 1, !tbaa !7
-  %36 = lshr i64 %27, 24
-  %37 = trunc i64 %36 to i8
-  store i8 %37, ptr %35, align 1, !tbaa !7
+  %16 = trunc i64 %15 to i32
+  store i32 %16, ptr %1, align 1
+  %17 = load i64, ptr %11, align 8, !tbaa !3
+  %18 = trunc i64 %17 to i32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %18, ptr %19, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #3
   ret void
 }
@@ -86,4 +62,3 @@ attributes #3 = { nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!5, !5, i64 0}

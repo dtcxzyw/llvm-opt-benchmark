@@ -4200,26 +4200,21 @@ define hidden void @_ZN7dotenvy14from_path_iter17h61f302d5d60a83aaE(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @"_ZN7dotenvy4iter13Iter$LT$R$GT$3new17h8ea90a019a30f680E"(ptr noalias noundef nonnull sret({ { { { { { { { ptr, i64 } }, {} }, {} }, i64, i64, i64 }, i32, [1 x i32] } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 captures(none) dereferenceable(96) %6, i32 noundef %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
-  br label %16
+  br label %17
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !1022, !noalias !1025, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %14 = ptrtoint ptr %13 to i64
-  %.sroa.4.0.extract.trunc = trunc i64 %14 to i32
-  %.sroa.4.4.extract.shift = lshr i64 %14, 32
-  %.sroa.4.4.extract.trunc = trunc nuw i64 %.sroa.4.4.extract.shift to i32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775808, ptr %15, align 8
-  %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.4.0.extract.trunc, ptr %.sroa.211.0..sroa_idx, align 8
-  %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.4.4.extract.trunc, ptr %.sroa.312.0..sroa_idx, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %14, ptr %16, align 8
   store ptr null, ptr %0, align 8
-  br label %16
+  br label %17
 
-16:                                               ; preds = %11, %8
+17:                                               ; preds = %11, %8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
   ret void
 }

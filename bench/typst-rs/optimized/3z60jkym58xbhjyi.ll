@@ -3292,16 +3292,8 @@ define hidden void @"_ZN88_$LT$png..text_metadata..ZTXtChunk$u20$as$u20$png..tex
 
 109:                                              ; preds = %"_ZN6flate24zlib5write20ZlibEncoder$LT$W$GT$6finish17hdbc3bfaf5674c680E.exit"
   %110 = ptrtoint ptr %.sroa.6138.0 to i64
-  %.sroa.6138.0.extract.trunc = trunc i64 %110 to i8
-  %.sroa.6138.1.extract.shift = lshr i64 %110, 8
-  %.sroa.6138.1.extract.trunc = trunc i64 %.sroa.6138.1.extract.shift to i8
-  %.sroa.6138.2.extract.shift = lshr i64 %110, 16
-  %.sroa.6138.2.extract.trunc = trunc nuw i64 %.sroa.6138.2.extract.shift to i48
   store i64 %.sroa.0136.0, ptr %15, align 8
-  store i8 %.sroa.6138.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 8
-  store i8 %.sroa.6138.1.extract.trunc, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.4157.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 10
-  store i48 %.sroa.6138.2.extract.trunc, ptr %.sroa.4157.0..sroa_idx, align 2
+  store i64 %110, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 %.sroa.12.0, ptr %25, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11)
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)

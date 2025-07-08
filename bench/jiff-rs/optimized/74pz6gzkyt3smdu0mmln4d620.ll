@@ -876,17 +876,8 @@ _ZN4jiff6shared4util5itime5IDate24from_day_of_year_no_leap17hdd77fb19b37c8b94E.e
 134:                                              ; preds = %88
   %.sroa.074.0.copyload = load i32, ptr %92, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %.sroa.075.0.extract.trunc146 = trunc i32 %.sroa.074.0.copyload to i16
-  %.sroa.476.0.extract.shift147 = lshr i32 %.sroa.074.0.copyload, 16
-  %.sroa.476.0.extract.trunc148 = trunc i32 %.sroa.476.0.extract.shift147 to i8
-  %.sroa.577.0.extract.shift149 = lshr i32 %.sroa.074.0.copyload, 24
-  %.sroa.577.0.extract.trunc150 = trunc nuw i32 %.sroa.577.0.extract.shift149 to i8
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 %.sroa.075.0.extract.trunc146, ptr %135, align 2
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.476.0.extract.trunc148, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %.sroa.577.0.extract.trunc150, ptr %.sroa.551.0..sroa_idx, align 1
+  store i32 %.sroa.074.0.copyload, ptr %135, align 2
   br label %_ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit
 
 136:                                              ; preds = %_ZN4jiff6shared4util5itime5IDate24from_day_of_year_no_leap17hdd77fb19b37c8b94E.exit
@@ -897,17 +888,9 @@ _ZN4jiff6shared4util5itime5IDate24from_day_of_year_no_leap17hdd77fb19b37c8b94E.e
 
 139:                                              ; preds = %_ZN4jiff6shared4util5itime5IDate24from_day_of_year_no_leap17hdd77fb19b37c8b94E.exit, %_ZN4jiff6shared4util5itime5IDate24from_day_of_year_no_leap17hdd77fb19b37c8b94E.exit.thread
   %.sroa.5.0140 = phi i64 [ %.sroa.5.8.insert.ext, %_ZN4jiff6shared4util5itime5IDate24from_day_of_year_no_leap17hdd77fb19b37c8b94E.exit.thread ], [ %126, %_ZN4jiff6shared4util5itime5IDate24from_day_of_year_no_leap17hdd77fb19b37c8b94E.exit ]
-  %.sroa.080.0.extract.trunc161 = trunc i64 %.sroa.5.0140 to i16
-  %.sroa.481.0.extract.shift162172 = lshr i64 %.sroa.5.0140, 16
-  %.sroa.481.0.extract.trunc163 = trunc i64 %.sroa.481.0.extract.shift162172 to i8
-  %.sroa.582.0.extract.shift164173 = lshr i64 %.sroa.5.0140, 24
-  %.sroa.582.0.extract.trunc165 = trunc i64 %.sroa.582.0.extract.shift164173 to i8
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 %.sroa.080.0.extract.trunc161, ptr %140, align 2
-  %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.481.0.extract.trunc163, ptr %.sroa.465.0..sroa_idx, align 4
-  %.sroa.566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %.sroa.582.0.extract.trunc165, ptr %.sroa.566.0..sroa_idx, align 1
+  %140 = trunc i64 %.sroa.5.0140 to i32
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i32 %140, ptr %141, align 2
   br label %_ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit
 }
 

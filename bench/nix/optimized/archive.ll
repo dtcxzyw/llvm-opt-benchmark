@@ -18857,7 +18857,7 @@ declare void @_ZN3nix12writePaddingEmRNS_4SinkE(i64 noundef, ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvmEZZN3nix14SourceAccessor8dumpPathERKNS1_9CanonPathERNS1_4SinkERSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENK3$_0clES5_EUlmE_E9_M_invokeERKSt9_Any_dataOm"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca [8 x i8], align 1
+  %3 = alloca [8 x i8], align 8
   %.val = load i64, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   store i64 %.val, ptr %4, align 8
@@ -18866,40 +18866,11 @@ define internal void @"_ZNSt17_Function_handlerIFvmEZZN3nix14SourceAccessor8dump
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %7 = trunc i64 %.val to i8
-  store i8 %7, ptr %3, align 1
-  %8 = lshr i64 %.val, 8
-  %9 = trunc i64 %8 to i8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %9, ptr %10, align 1
-  %11 = lshr i64 %.val, 16
-  %12 = trunc i64 %11 to i8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %12, ptr %13, align 1
-  %14 = lshr i64 %.val, 24
-  %15 = trunc i64 %14 to i8
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %15, ptr %16, align 1
-  %17 = lshr i64 %.val, 32
-  %18 = trunc i64 %17 to i8
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %18, ptr %19, align 1
-  %20 = lshr i64 %.val, 40
-  %21 = trunc i64 %20 to i8
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %21, ptr %22, align 1
-  %23 = lshr i64 %.val, 48
-  %24 = trunc i64 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %24, ptr %25, align 1
-  %26 = lshr i64 %.val, 56
-  %27 = trunc nuw i64 %26 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %27, ptr %28, align 1
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 8, ptr nonnull %3)
+  store i64 %.val, ptr %3, align 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }

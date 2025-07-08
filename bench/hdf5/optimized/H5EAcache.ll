@@ -3486,7 +3486,7 @@ define internal range(i32 -1, 1) i32 @H5EA__cache_dblk_page_serialize(ptr readno
   %8 = trunc nuw i8 %7 to i1
   %9 = xor i1 %8, true
   %10 = select i1 %6, i1 true, i1 %9
-  br i1 %10, label %11, label %50, !prof !9
+  br i1 %10, label %11, label %40, !prof !9
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 256
@@ -3509,7 +3509,7 @@ define internal range(i32 -1, 1) i32 @H5EA__cache_dblk_page_serialize(ptr readno
   %27 = load i64, ptr @H5E_EARRAY_g, align 8, !tbaa !15
   %28 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !15
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.H5EA__cache_dblk_page_serialize, i32 noundef 2023, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.46) #6
-  br label %50
+  br label %40
 
 30:                                               ; preds = %11
   %31 = load ptr, ptr %12, align 8, !tbaa !155
@@ -3521,23 +3521,10 @@ define internal range(i32 -1, 1) i32 @H5EA__cache_dblk_page_serialize(ptr readno
   %37 = mul i64 %33, %36
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 %37
   %39 = tail call i32 @H5_checksum_metadata(ptr noundef %1, i64 noundef %37, i32 noundef 0) #6
-  %40 = trunc i32 %39 to i8
-  store i8 %40, ptr %38, align 1, !tbaa !39
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  %42 = lshr i32 %39, 8
-  %43 = trunc i32 %42 to i8
-  store i8 %43, ptr %41, align 1, !tbaa !39
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  %45 = lshr i32 %39, 16
-  %46 = trunc i32 %45 to i8
-  store i8 %46, ptr %44, align 1, !tbaa !39
-  %47 = getelementptr inbounds nuw i8, ptr %38, i64 3
-  %48 = lshr i32 %39, 24
-  %49 = trunc nuw i32 %48 to i8
-  store i8 %49, ptr %47, align 1, !tbaa !39
-  br label %50
+  store i32 %39, ptr %38, align 1
+  br label %40
 
-50:                                               ; preds = %26, %30, %4
+40:                                               ; preds = %26, %30, %4
   %.0 = phi i32 [ -1, %26 ], [ 0, %30 ], [ 0, %4 ]
   ret i32 %.0
 }

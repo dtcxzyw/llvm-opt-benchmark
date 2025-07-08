@@ -1943,8 +1943,6 @@ define hidden void @"_ZN12rustc_errors7emitter7Emitter30fix_multispan_in_extern_
   %.sroa.021.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.4.0.extract.shift = lshr i64 %2, 32
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i16
-  %.sroa.5.0.extract.shift = lshr i64 %2, 48
-  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i16
   %.not.i = icmp eq i16 %.sroa.4.0.extract.trunc, -1
   br i1 %.not.i, label %7, label %15
 
@@ -1979,7 +1977,7 @@ define hidden void @"_ZN12rustc_errors7emitter7Emitter30fix_multispan_in_extern_
   %17 = and i16 %.sroa.4.0.extract.trunc, 32767
   %18 = icmp eq i16 %17, 0
   %or.cond55 = and i1 %16, %18
-  br i1 %or.cond55, label %35, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
+  br i1 %or.cond55, label %36, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd33dd31eca47a831E.llvm.17476841346288807550.exit.i.i"
   call void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17h710a0edc6b87c277E.llvm.17476841346288807550"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32 }) align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 %11), !noalias !299
@@ -1992,45 +1990,36 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit: ; pred
   %.0.i = select i1 %21, i1 %24, i1 false
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br i1 %.0.i, label %35, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
+  br i1 %.0.i, label %36, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread: ; preds = %15, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit
   %25 = load ptr, ptr %1, align 8, !nonnull !5, !align !71, !noundef !5
   %26 = load ptr, ptr %25, align 8, !nonnull !5, !noundef !5
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = call noundef zeroext i1 @_RNvMs_NtCsdF516cSs19B_10rustc_span10source_mapNtB4_9SourceMap11is_imported(ptr noundef nonnull align 8 %27, i64 %2)
-  br i1 %28, label %29, label %35
+  br i1 %28, label %29, label %36
 
 29:                                               ; preds = %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
   %30 = call i64 @_RNvMsb_CsdF516cSs19B_10rustc_spanNtNtB5_13span_encoding4Span15source_callsite(i64 %2)
   %.sroa.049.0.extract.trunc = trunc i64 %30 to i32
   %.sroa.450.0.extract.shift = lshr i64 %30, 32
   %.sroa.450.0.extract.trunc = trunc i64 %.sroa.450.0.extract.shift to i16
-  %.sroa.551.0.extract.shift = lshr i64 %30, 48
   %31 = icmp ne i32 %.sroa.021.0.extract.trunc, %.sroa.049.0.extract.trunc
   %32 = icmp ne i16 %.sroa.4.0.extract.trunc, %.sroa.450.0.extract.trunc
   %or.cond.not57 = or i1 %31, %32
-  %33 = icmp ne i64 %.sroa.5.0.extract.shift, %.sroa.551.0.extract.shift
+  %.unshifted = xor i64 %2, %30
+  %33 = icmp ugt i64 %.unshifted, 281474976710655
   %or.cond52 = or i1 %33, %or.cond.not57
-  br i1 %or.cond52, label %.critedge, label %35
+  br i1 %or.cond52, label %.critedge, label %36
 
 .critedge:                                        ; preds = %29
-  %.sroa.551.0.extract.trunc = trunc nuw i64 %.sroa.551.0.extract.shift to i16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.021.0.extract.trunc, ptr %34, align 4
-  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.443.0..sroa_idx, align 4
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %.sroa.5.0.extract.trunc, ptr %.sroa.544.0..sroa_idx, align 2
-  %.sroa.645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.049.0.extract.trunc, ptr %.sroa.645.0..sroa_idx, align 4
-  %.sroa.645.sroa.4.0..sroa.645.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.sroa.450.0.extract.trunc, ptr %.sroa.645.sroa.4.0..sroa.645.0..sroa_idx.sroa_idx, align 4
-  %.sroa.645.sroa.5.0..sroa.645.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %.sroa.551.0.extract.trunc, ptr %.sroa.645.sroa.5.0..sroa.645.0..sroa_idx.sroa_idx, align 2
-  br label %35
+  store i64 %2, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i64 %30, ptr %35, align 4
+  br label %36
 
-35:                                               ; preds = %15, %29, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread, %.critedge
+36:                                               ; preds = %15, %29, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread, %.critedge
   %storemerge = phi i32 [ 1, %.critedge ], [ 0, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread ], [ 0, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit ], [ 0, %29 ], [ 0, %15 ]
   store i32 %storemerge, ptr %0, align 4
   ret void
@@ -2044,8 +2033,6 @@ define hidden void @"_ZN12rustc_errors7emitter7Emitter30fix_multispan_in_extern_
   %.sroa.021.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.4.0.extract.shift = lshr i64 %2, 32
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i16
-  %.sroa.5.0.extract.shift = lshr i64 %2, 48
-  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i16
   %.not.i = icmp eq i16 %.sroa.4.0.extract.trunc, -1
   br i1 %.not.i, label %7, label %15
 
@@ -2080,7 +2067,7 @@ define hidden void @"_ZN12rustc_errors7emitter7Emitter30fix_multispan_in_extern_
   %17 = and i16 %.sroa.4.0.extract.trunc, 32767
   %18 = icmp eq i16 %17, 0
   %or.cond55 = and i1 %16, %18
-  br i1 %or.cond55, label %35, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
+  br i1 %or.cond55, label %36, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd33dd31eca47a831E.llvm.17476841346288807550.exit.i.i"
   call void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17h710a0edc6b87c277E.llvm.17476841346288807550"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32 }) align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 %11), !noalias !306
@@ -2093,45 +2080,36 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit: ; pred
   %.0.i = select i1 %21, i1 %24, i1 false
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br i1 %.0.i, label %35, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
+  br i1 %.0.i, label %36, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread: ; preds = %15, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit
   %25 = load ptr, ptr %1, align 8, !nonnull !5, !align !71, !noundef !5
   %26 = load ptr, ptr %25, align 8, !nonnull !5, !noundef !5
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = call noundef zeroext i1 @_RNvMs_NtCsdF516cSs19B_10rustc_span10source_mapNtB4_9SourceMap11is_imported(ptr noundef nonnull align 8 %27, i64 %2)
-  br i1 %28, label %29, label %35
+  br i1 %28, label %29, label %36
 
 29:                                               ; preds = %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
   %30 = call i64 @_RNvMsb_CsdF516cSs19B_10rustc_spanNtNtB5_13span_encoding4Span15source_callsite(i64 %2)
   %.sroa.049.0.extract.trunc = trunc i64 %30 to i32
   %.sroa.450.0.extract.shift = lshr i64 %30, 32
   %.sroa.450.0.extract.trunc = trunc i64 %.sroa.450.0.extract.shift to i16
-  %.sroa.551.0.extract.shift = lshr i64 %30, 48
   %31 = icmp ne i32 %.sroa.021.0.extract.trunc, %.sroa.049.0.extract.trunc
   %32 = icmp ne i16 %.sroa.4.0.extract.trunc, %.sroa.450.0.extract.trunc
   %or.cond.not57 = or i1 %31, %32
-  %33 = icmp ne i64 %.sroa.5.0.extract.shift, %.sroa.551.0.extract.shift
+  %.unshifted = xor i64 %2, %30
+  %33 = icmp ugt i64 %.unshifted, 281474976710655
   %or.cond52 = or i1 %33, %or.cond.not57
-  br i1 %or.cond52, label %.critedge, label %35
+  br i1 %or.cond52, label %.critedge, label %36
 
 .critedge:                                        ; preds = %29
-  %.sroa.551.0.extract.trunc = trunc nuw i64 %.sroa.551.0.extract.shift to i16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.021.0.extract.trunc, ptr %34, align 4
-  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.443.0..sroa_idx, align 4
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %.sroa.5.0.extract.trunc, ptr %.sroa.544.0..sroa_idx, align 2
-  %.sroa.645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.049.0.extract.trunc, ptr %.sroa.645.0..sroa_idx, align 4
-  %.sroa.645.sroa.4.0..sroa.645.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.sroa.450.0.extract.trunc, ptr %.sroa.645.sroa.4.0..sroa.645.0..sroa_idx.sroa_idx, align 4
-  %.sroa.645.sroa.5.0..sroa.645.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %.sroa.551.0.extract.trunc, ptr %.sroa.645.sroa.5.0..sroa.645.0..sroa_idx.sroa_idx, align 2
-  br label %35
+  store i64 %2, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i64 %30, ptr %35, align 4
+  br label %36
 
-35:                                               ; preds = %15, %29, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread, %.critedge
+36:                                               ; preds = %15, %29, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread, %.critedge
   %storemerge = phi i32 [ 1, %.critedge ], [ 0, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread ], [ 0, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit ], [ 0, %29 ], [ 0, %15 ]
   store i32 %storemerge, ptr %0, align 4
   ret void
@@ -2145,8 +2123,6 @@ define hidden void @"_ZN12rustc_errors7emitter7Emitter30fix_multispan_in_extern_
   %.sroa.021.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.4.0.extract.shift = lshr i64 %2, 32
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i16
-  %.sroa.5.0.extract.shift = lshr i64 %2, 48
-  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i16
   %.not.i = icmp eq i16 %.sroa.4.0.extract.trunc, -1
   br i1 %.not.i, label %7, label %15
 
@@ -2181,7 +2157,7 @@ define hidden void @"_ZN12rustc_errors7emitter7Emitter30fix_multispan_in_extern_
   %17 = and i16 %.sroa.4.0.extract.trunc, 32767
   %18 = icmp eq i16 %17, 0
   %or.cond55 = and i1 %16, %18
-  br i1 %or.cond55, label %35, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
+  br i1 %or.cond55, label %36, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd33dd31eca47a831E.llvm.17476841346288807550.exit.i.i"
   call void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17h710a0edc6b87c277E.llvm.17476841346288807550"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32 }) align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 %11), !noalias !313
@@ -2194,45 +2170,36 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit: ; pred
   %.0.i = select i1 %21, i1 %24, i1 false
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br i1 %.0.i, label %35, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
+  br i1 %.0.i, label %36, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread: ; preds = %15, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit
   %25 = load ptr, ptr %1, align 8, !nonnull !5, !align !71, !noundef !5
   %26 = load ptr, ptr %25, align 8, !nonnull !5, !noundef !5
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = call noundef zeroext i1 @_RNvMs_NtCsdF516cSs19B_10rustc_span10source_mapNtB4_9SourceMap11is_imported(ptr noundef nonnull align 8 %27, i64 %2)
-  br i1 %28, label %29, label %35
+  br i1 %28, label %29, label %36
 
 29:                                               ; preds = %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread
   %30 = call i64 @_RNvMsb_CsdF516cSs19B_10rustc_spanNtNtB5_13span_encoding4Span15source_callsite(i64 %2)
   %.sroa.049.0.extract.trunc = trunc i64 %30 to i32
   %.sroa.450.0.extract.shift = lshr i64 %30, 32
   %.sroa.450.0.extract.trunc = trunc i64 %.sroa.450.0.extract.shift to i16
-  %.sroa.551.0.extract.shift = lshr i64 %30, 48
   %31 = icmp ne i32 %.sroa.021.0.extract.trunc, %.sroa.049.0.extract.trunc
   %32 = icmp ne i16 %.sroa.4.0.extract.trunc, %.sroa.450.0.extract.trunc
   %or.cond.not57 = or i1 %31, %32
-  %33 = icmp ne i64 %.sroa.5.0.extract.shift, %.sroa.551.0.extract.shift
+  %.unshifted = xor i64 %2, %30
+  %33 = icmp ugt i64 %.unshifted, 281474976710655
   %or.cond52 = or i1 %33, %or.cond.not57
-  br i1 %or.cond52, label %.critedge, label %35
+  br i1 %or.cond52, label %.critedge, label %36
 
 .critedge:                                        ; preds = %29
-  %.sroa.551.0.extract.trunc = trunc nuw i64 %.sroa.551.0.extract.shift to i16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.021.0.extract.trunc, ptr %34, align 4
-  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.443.0..sroa_idx, align 4
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %.sroa.5.0.extract.trunc, ptr %.sroa.544.0..sroa_idx, align 2
-  %.sroa.645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.049.0.extract.trunc, ptr %.sroa.645.0..sroa_idx, align 4
-  %.sroa.645.sroa.4.0..sroa.645.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.sroa.450.0.extract.trunc, ptr %.sroa.645.sroa.4.0..sroa.645.0..sroa_idx.sroa_idx, align 4
-  %.sroa.645.sroa.5.0..sroa.645.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %.sroa.551.0.extract.trunc, ptr %.sroa.645.sroa.5.0..sroa.645.0..sroa_idx.sroa_idx, align 2
-  br label %35
+  store i64 %2, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i64 %30, ptr %35, align 4
+  br label %36
 
-35:                                               ; preds = %15, %29, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread, %.critedge
+36:                                               ; preds = %15, %29, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread, %.critedge
   %storemerge = phi i32 [ 1, %.critedge ], [ 0, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit.thread ], [ 0, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span8is_dummy.exit ], [ 0, %29 ], [ 0, %15 ]
   store i32 %storemerge, ptr %0, align 4
   ret void

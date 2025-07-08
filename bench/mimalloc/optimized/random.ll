@@ -13,13 +13,8 @@ define hidden void @_mi_random_split(ptr noundef readonly captures(none) %0, ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %1, ptr noundef nonnull readonly align 1 dereferenceable(64) %0, i64 48, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 0, ptr %4, align 4, !tbaa !3
-  %5 = trunc i64 %3 to i32
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 %5, ptr %6, align 4, !tbaa !3
-  %7 = lshr i64 %3, 32
-  %8 = trunc nuw i64 %7 to i32
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store i32 %8, ptr %9, align 4, !tbaa !3
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i64 %3, ptr %5, align 4
   tail call fastcc void @chacha_block(ptr noundef nonnull %1) #7
   ret void
 }
@@ -199,13 +194,8 @@ _mi_os_random_weak.exit:                          ; preds = %12, %_mi_os_random_
   store i32 0, ptr %42, align 4, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %43, align 4, !tbaa !3
-  %44 = trunc i64 %41 to i32
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %44, ptr %45, align 4, !tbaa !3
-  %46 = lshr i64 %41, 32
-  %47 = trunc nuw i64 %46 to i32
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %47, ptr %48, align 4, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %41, ptr %44, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
   ret void
 }
@@ -281,13 +271,8 @@ mi_random_init_ex.exit:                           ; preds = %32
   store i32 0, ptr %39, align 4, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %40, align 4, !tbaa !3
-  %41 = trunc i64 %38 to i32
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %41, ptr %42, align 4, !tbaa !3
-  %43 = lshr i64 %38, 32
-  %44 = trunc nuw i64 %43 to i32
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %44, ptr %45, align 4, !tbaa !3
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %38, ptr %41, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #9
   ret void
 }

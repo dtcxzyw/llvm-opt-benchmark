@@ -903,8 +903,6 @@ _ZN17GUIFileSelectMenuD0Ev.exit:                  ; preds = %if.then.i.i4.i.i.i,
 define dso_local void @_ZN17GUIFileSelectMenu13regenerateGuiEN3irr4core8vector2dIjEE(ptr noundef nonnull align 8 dereferenceable(473) %this, i64 %screensize.coerce) unnamed_addr #5 align 2 {
 entry:
   %screensize.sroa.0.0.extract.trunc = trunc i64 %screensize.coerce to i32
-  %screensize.sroa.3.0.extract.shift = lshr i64 %screensize.coerce, 32
-  %screensize.sroa.3.0.extract.trunc = trunc nuw i64 %screensize.sroa.3.0.extract.shift to i32
   %vtable = load ptr, ptr %this, align 8, !tbaa !12
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
@@ -921,47 +919,46 @@ entry:
   store i32 0, ptr %DesiredRect, align 8, !tbaa !54
   %rect.sroa.4.0.DesiredRect.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 100
   store i32 0, ptr %rect.sroa.4.0.DesiredRect.sroa_idx, align 4, !tbaa !54
-  %rect.sroa.5.0.DesiredRect.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store i32 %screensize.sroa.0.0.extract.trunc, ptr %rect.sroa.5.0.DesiredRect.sroa_idx, align 8, !tbaa !54
-  %rect.sroa.6.0.DesiredRect.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 108
-  store i32 %screensize.sroa.3.0.extract.trunc, ptr %rect.sroa.6.0.DesiredRect.sroa_idx, align 4, !tbaa !54
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  store i64 %screensize.coerce, ptr %2, align 8
   tail call void @_ZN3irr3gui11IGUIElement27recalculateAbsolutePositionEb(ptr noundef nonnull align 8 dereferenceable(308) %this, i1 noundef zeroext false)
   %Environment = getelementptr inbounds nuw i8, ptr %this, i64 296
-  %2 = load ptr, ptr %Environment, align 8, !tbaa !55
+  %3 = load ptr, ptr %Environment, align 8, !tbaa !55
   %m_title = getelementptr inbounds nuw i8, ptr %this, i64 384
-  %3 = load ptr, ptr %m_title, align 8, !tbaa !47
-  %vtable6 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = load ptr, ptr %m_title, align 8, !tbaa !47
+  %vtable6 = load ptr, ptr %3, align 8, !tbaa !12
   %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 232
-  %4 = load ptr, ptr %vfn7, align 8
-  %call8 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %this, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
+  %5 = load ptr, ptr %vfn7, align 8
+  %call8 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, i1 noundef zeroext false, ptr noundef nonnull %this, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   store ptr %call8, ptr %m_fileOpenDialog, align 8, !tbaa !52
   %div20 = lshr i32 %screensize.sroa.0.0.extract.trunc, 1
   %div1121 = lshr i32 %conv, 1
   %sub = sub nsw i32 %div20, %div1121
-  %div1322 = lshr i32 %screensize.sroa.3.0.extract.trunc, 1
+  %sum.shift = lshr i64 %screensize.coerce, 33
+  %div13221 = trunc nuw nsw i64 %sum.shift to i32
   %div1423 = lshr i32 %conv5, 1
-  %sub15 = sub nsw i32 %div1322, %div1423
+  %sub15 = sub nsw i32 %div13221, %div1423
   %RelativeRect.i = getelementptr inbounds nuw i8, ptr %call8, i64 48
   %LowerRightCorner.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 56
-  %5 = load i32, ptr %LowerRightCorner.i.i.i, align 4, !tbaa !56
-  %6 = load i32, ptr %RelativeRect.i, align 4, !tbaa !57
-  %sub.i.i.i = sub nsw i32 %5, %6
+  %6 = load i32, ptr %LowerRightCorner.i.i.i, align 4, !tbaa !56
+  %7 = load i32, ptr %RelativeRect.i, align 4, !tbaa !57
+  %sub.i.i.i = sub nsw i32 %6, %7
   %Y.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 60
-  %7 = load i32, ptr %Y.i.i.i, align 4, !tbaa !58
+  %8 = load i32, ptr %Y.i.i.i, align 4, !tbaa !58
   %Y2.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 52
-  %8 = load i32, ptr %Y2.i.i.i, align 4, !tbaa !59
-  %sub.i4.i.i = sub nsw i32 %7, %8
+  %9 = load i32, ptr %Y2.i.i.i, align 4, !tbaa !59
+  %sub.i4.i.i = sub nsw i32 %8, %9
   %add.i = add nsw i32 %sub.i.i.i, %sub
   %add4.i = add nsw i32 %sub.i4.i.i, %sub15
   %Parent.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 32
-  %9 = load ptr, ptr %Parent.i.i, align 8, !tbaa !60
-  %tobool.not.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %Parent.i.i, align 8, !tbaa !60
+  %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %_ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core8vector2dIiEE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %AbsoluteRect.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %AbsoluteRect.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 64
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %AbsoluteRect.i.i.i, align 8, !tbaa.struct !61
-  %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 72
   %retval.sroa.2.0.copyload.i.i.i = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i.i.i, align 8, !tbaa.struct !62
   %sub.i.i.i.i = sub i64 %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.0.0.copyload.i.i.i
   %ref.tmp.sroa.7.12.extract.shift.i.i = lshr i64 %retval.sroa.2.0.copyload.i.i.i, 32
@@ -973,8 +970,8 @@ if.then.i.i:                                      ; preds = %entry
   %conv.i.i = sitofp i32 %ref.tmp4.sroa.0.0.extract.trunc.i.i to float
   %conv9.i.i = sitofp i32 %sub.i4.i.i.i to float
   %AlignLeft.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 280
-  %10 = load i32, ptr %AlignLeft.i.i, align 8, !tbaa !63
-  %cmp.i.i = icmp eq i32 %10, 3
+  %11 = load i32, ptr %AlignLeft.i.i, align 8, !tbaa !63
+  %cmp.i.i = icmp eq i32 %11, 3
   br i1 %cmp.i.i, label %if.then10.i.i, label %if.end.i.i
 
 if.then10.i.i:                                    ; preds = %if.then.i.i
@@ -986,8 +983,8 @@ if.then10.i.i:                                    ; preds = %if.then.i.i
 
 if.end.i.i:                                       ; preds = %if.then10.i.i, %if.then.i.i
   %AlignRight.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 284
-  %11 = load i32, ptr %AlignRight.i.i, align 4, !tbaa !65
-  %cmp15.i.i = icmp eq i32 %11, 3
+  %12 = load i32, ptr %AlignRight.i.i, align 4, !tbaa !65
+  %cmp15.i.i = icmp eq i32 %12, 3
   br i1 %cmp15.i.i, label %if.then16.i.i, label %if.end24.i.i
 
 if.then16.i.i:                                    ; preds = %if.end.i.i
@@ -999,8 +996,8 @@ if.then16.i.i:                                    ; preds = %if.end.i.i
 
 if.end24.i.i:                                     ; preds = %if.then16.i.i, %if.end.i.i
   %AlignTop.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 288
-  %12 = load i32, ptr %AlignTop.i.i, align 8, !tbaa !67
-  %cmp25.i.i = icmp eq i32 %12, 3
+  %13 = load i32, ptr %AlignTop.i.i, align 8, !tbaa !67
+  %cmp25.i.i = icmp eq i32 %13, 3
   br i1 %cmp25.i.i, label %if.then26.i.i, label %if.end34.i.i
 
 if.then26.i.i:                                    ; preds = %if.end24.i.i
@@ -1012,8 +1009,8 @@ if.then26.i.i:                                    ; preds = %if.end24.i.i
 
 if.end34.i.i:                                     ; preds = %if.then26.i.i, %if.end24.i.i
   %AlignBottom.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 292
-  %13 = load i32, ptr %AlignBottom.i.i, align 4, !tbaa !69
-  %cmp35.i.i = icmp eq i32 %13, 3
+  %14 = load i32, ptr %AlignBottom.i.i, align 4, !tbaa !69
+  %cmp35.i.i = icmp eq i32 %14, 3
   br i1 %cmp35.i.i, label %if.then36.i.i, label %_ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core8vector2dIiEE.exit
 
 if.then36.i.i:                                    ; preds = %if.end34.i.i
@@ -1034,14 +1031,14 @@ _ZN3irr3gui11IGUIElement19setRelativePositionERKNS_4core8vector2dIiEE.exit: ; pr
   store i32 %add4.i, ptr %rectangle.sroa.9.0.DesiredRect.i.sroa_idx.i, align 4, !tbaa !54
   %vtable.i.i = load ptr, ptr %call8, align 8, !tbaa !12
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 24
-  %14 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(308) %call8)
-  %15 = load ptr, ptr %m_fileOpenDialog, align 8, !tbaa !52
+  %15 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(308) %call8)
+  %16 = load ptr, ptr %m_fileOpenDialog, align 8, !tbaa !52
   %size.sroa.5.0.insert.ext = zext i32 %conv5 to i64
   %size.sroa.5.0.insert.shift = shl nuw i64 %size.sroa.5.0.insert.ext, 32
   %size.sroa.0.0.insert.ext = zext i32 %conv to i64
   %size.sroa.0.0.insert.insert = or disjoint i64 %size.sroa.5.0.insert.shift, %size.sroa.0.0.insert.ext
-  %MinSize.i = getelementptr inbounds nuw i8, ptr %15, i64 152
+  %MinSize.i = getelementptr inbounds nuw i8, ptr %16, i64 152
   store i64 %size.sroa.0.0.insert.insert, ptr %MinSize.i, align 8, !tbaa.struct !62
   %cmp.i = icmp eq i32 %conv, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1055,15 +1052,15 @@ if.end.i:                                         ; preds = %if.then.i, %_ZN3irr
   br i1 %cmp6.i, label %if.then7.i, label %_ZN3irr3gui11IGUIElement10setMinSizeENS_4core11dimension2dIjEE.exit
 
 if.then7.i:                                       ; preds = %if.end.i
-  %Height.i25 = getelementptr inbounds nuw i8, ptr %15, i64 156
+  %Height.i25 = getelementptr inbounds nuw i8, ptr %16, i64 156
   store i32 1, ptr %Height.i25, align 4, !tbaa !72
   br label %_ZN3irr3gui11IGUIElement10setMinSizeENS_4core11dimension2dIjEE.exit
 
 _ZN3irr3gui11IGUIElement10setMinSizeENS_4core11dimension2dIjEE.exit: ; preds = %if.then7.i, %if.end.i
-  %vtable.i = load ptr, ptr %15, align 8, !tbaa !12
+  %vtable.i = load ptr, ptr %16, align 8, !tbaa !12
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
-  %16 = load ptr, ptr %vfn.i, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(308) %15)
+  %17 = load ptr, ptr %vfn.i, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(308) %16)
   ret void
 }
 

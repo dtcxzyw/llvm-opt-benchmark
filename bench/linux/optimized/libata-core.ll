@@ -5761,23 +5761,19 @@ define dso_local range(i32 -34, 1) i32 @ata_build_rw_tf(ptr noundef %0, i64 noun
   %285 = add nuw i8 %284, 1
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 49
   store i8 %285, ptr %286, align 1
-  %287 = trunc i32 %273 to i8
+  %287 = trunc nuw i32 %273 to i16
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  store i8 %287, ptr %288, align 2
-  %289 = lshr i32 %273, 8
-  %290 = trunc nuw i32 %289 to i8
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  store i8 %290, ptr %291, align 1
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %293 = load i8, ptr %292, align 4
-  %294 = trunc nuw nsw i32 %274 to i8
-  %295 = or i8 %293, %294
-  store i8 %295, ptr %292, align 4
+  store i16 %287, ptr %288, align 2
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %290 = load i8, ptr %289, align 4
+  %291 = trunc nuw nsw i32 %274 to i8
+  %292 = or i8 %290, %291
+  store i8 %292, ptr %289, align 4
   br label %.thread
 
 .thread:                                          ; preds = %253, %261, %216, %72, %78, %199, %281, %191, %140, %133, %18
-  %296 = phi i32 [ -34, %18 ], [ -34, %140 ], [ -34, %133 ], [ -22, %191 ], [ 0, %281 ], [ 0, %199 ], [ 0, %78 ], [ 0, %72 ], [ -22, %253 ], [ -34, %261 ], [ -34, %216 ]
-  ret i32 %296
+  %293 = phi i32 [ -34, %18 ], [ -34, %140 ], [ -34, %133 ], [ -22, %191 ], [ 0, %281 ], [ 0, %199 ], [ 0, %78 ], [ 0, %72 ], [ -22, %253 ], [ -34, %261 ], [ -34, %216 ]
+  ret i32 %293
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

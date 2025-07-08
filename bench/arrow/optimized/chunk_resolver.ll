@@ -854,13 +854,8 @@ _ZN5arrow12_GLOBAL__N_116ResolveOneInlineIhEENS_18TypedChunkLocationIT_EEjPKmS3_
   call void @_ZN5arrow18TypedChunkLocationIhEC1Ehh(ptr noundef nonnull align 1 dereferenceable(2) %6, i8 noundef zeroext %38, i8 noundef zeroext %40)
   %41 = load i16, ptr %6, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  %.sroa.0.0.extract.trunc.i = trunc i16 %41 to i8
-  %.sroa.5.0.extract.shift.i = lshr i16 %41, 8
-  %.sroa.5.0.extract.trunc.i = trunc nuw i16 %.sroa.5.0.extract.shift.i to i8
   %42 = getelementptr inbounds nuw %"struct.arrow::TypedChunkLocation.2", ptr %3, i64 %.01314.i
-  store i8 %.sroa.0.0.extract.trunc.i, ptr %42, align 1, !tbaa !102
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store i8 %.sroa.5.0.extract.trunc.i, ptr %.sroa.5.0..sroa_idx.i, align 1, !tbaa !102
+  store i16 %41, ptr %42, align 1
   %.sroa.0.0.extract.trunc.mask.i = and i16 %41, 255
   %43 = zext nneg i16 %.sroa.0.0.extract.trunc.mask.i to i32
   %44 = add nuw nsw i64 %.01314.i, 1
@@ -942,13 +937,8 @@ _ZN5arrow12_GLOBAL__N_116ResolveOneInlineItEENS_18TypedChunkLocationIT_EEjPKmS3_
   call void @_ZN5arrow18TypedChunkLocationItEC1Ett(ptr noundef nonnull align 2 dereferenceable(4) %6, i16 noundef zeroext %38, i16 noundef zeroext %40)
   %41 = load i32, ptr %6, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %.sroa.0.0.extract.trunc.i = trunc i32 %41 to i16
-  %.sroa.5.0.extract.shift.i = lshr i32 %41, 16
-  %.sroa.5.0.extract.trunc.i = trunc nuw i32 %.sroa.5.0.extract.shift.i to i16
   %42 = getelementptr inbounds nuw %"struct.arrow::TypedChunkLocation.3", ptr %3, i64 %.01314.i
-  store i16 %.sroa.0.0.extract.trunc.i, ptr %42, align 2, !tbaa !105
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 2
-  store i16 %.sroa.5.0.extract.trunc.i, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !105
+  store i32 %41, ptr %42, align 2
   %43 = and i32 %41, 65535
   %44 = add nuw nsw i64 %.01314.i, 1
   %exitcond.not.i = icmp eq i64 %44, %1
@@ -1029,12 +1019,8 @@ _ZN5arrow12_GLOBAL__N_116ResolveOneInlineIjEENS_18TypedChunkLocationIT_EEjPKmS3_
   %40 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.sroa.0.0.extract.trunc.i = trunc i64 %40 to i32
-  %.sroa.5.0.extract.shift.i = lshr i64 %40, 32
-  %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
   %41 = getelementptr inbounds nuw %"struct.arrow::TypedChunkLocation.4", ptr %3, i64 %.01314.i
-  store i32 %.sroa.0.0.extract.trunc.i, ptr %41, align 4, !tbaa !107
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store i32 %.sroa.5.0.extract.trunc.i, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !107
+  store i64 %40, ptr %41, align 4
   %42 = add nuw nsw i64 %.01314.i, 1
   %exitcond.not.i = icmp eq i64 %42, %1
   br i1 %exitcond.not.i, label %_ZN5arrow12_GLOBAL__N_117ResolveManyInlineIjEEvjPKllPKT_PNS_18TypedChunkLocationIS4_EEi.exit, label %.lr.ph.i, !llvm.loop !108

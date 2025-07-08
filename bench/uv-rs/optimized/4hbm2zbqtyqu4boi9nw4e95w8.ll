@@ -696,7 +696,7 @@ define noundef zeroext i1 @_ZN13uv_globfilter15glob_dir_filter13GlobDirFilter15m
   %6 = alloca [64 x i8], align 8
   %.sroa.5.i = alloca [39 x i8], align 1
   %.sroa.517.i = alloca [39 x i8], align 1
-  %7 = alloca [8 x i8], align 4
+  %7 = alloca [8 x i8], align 8
   %8 = alloca [64 x i8], align 8
   %9 = alloca [64 x i8], align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -896,9 +896,7 @@ define noundef zeroext i1 @_ZN13uv_globfilter15glob_dir_filter13GlobDirFilter15m
 
 "_ZN102_$LT$regex_automata..dfa..dense..DFA$LT$T$GT$$u20$as$u20$regex_automata..dfa..automaton..Automaton$GT$11start_state17h425a5d37f42153feE.exit.thread": ; preds = %77
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store i32 1, ptr %7, align 4
-  %.sroa.3.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 0, ptr %.sroa.3.0..sroa_idx2.i, align 4
+  store i64 1, ptr %7, align 8
   call void @_ZN4core6result13unwrap_failed17h3ff7104a9ace307aE(ptr noalias noundef nonnull readonly align 1 @anon.461257a70bffcdd2ab3373ba48408130.19, i64 noundef 43, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.461257a70bffcdd2ab3373ba48408130.20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.461257a70bffcdd2ab3373ba48408130.48) #15
   unreachable
 

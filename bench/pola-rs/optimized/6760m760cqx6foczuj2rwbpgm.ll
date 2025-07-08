@@ -12120,12 +12120,7 @@ _ZN10rayon_core5sleep5Sleep8new_jobs17h38f8451edb6088d3E.exit: ; preds = %31, %.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(135) %.sroa.718.sroa.4.0..sroa.718.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(135) %.sroa.18.0..sroa_idx, i64 135, i1 false)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
   %55 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.extract.trunc = trunc i64 %55 to i8
-  %.sroa.0.1.extract.shift = lshr i64 %55, 8
-  %.sroa.0.1.extract.trunc = trunc nuw i64 %.sroa.0.1.extract.shift to i56
-  store i8 %.sroa.0.0.extract.trunc, ptr %11, align 16
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i56 %.sroa.0.1.extract.trunc, ptr %.sroa.415.0..sroa_idx, align 1
+  store i64 %55, ptr %11, align 16
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.1057.0.copyload, ptr %.sroa.516.0..sroa_idx, align 8
   %.sroa.617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -20414,12 +20409,7 @@ _ZN10rayon_core5sleep5Sleep8new_jobs17h38f8451edb6088d3E.exit: ; preds = %31, %.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(135) %.sroa.718.sroa.4.0..sroa.718.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(135) %.sroa.18.0..sroa_idx, i64 135, i1 false)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
   %55 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.extract.trunc = trunc i64 %55 to i8
-  %.sroa.0.1.extract.shift = lshr i64 %55, 8
-  %.sroa.0.1.extract.trunc = trunc nuw i64 %.sroa.0.1.extract.shift to i56
-  store i8 %.sroa.0.0.extract.trunc, ptr %11, align 16
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i56 %.sroa.0.1.extract.trunc, ptr %.sroa.415.0..sroa_idx, align 1
+  store i64 %55, ptr %11, align 16
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.1057.0.copyload, ptr %.sroa.516.0..sroa_idx, align 8
   %.sroa.617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -35130,12 +35120,7 @@ _ZN10rayon_core5sleep5Sleep8new_jobs17h38f8451edb6088d3E.exit: ; preds = %31, %.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(135) %.sroa.718.sroa.4.0..sroa.718.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(135) %.sroa.18.0..sroa_idx, i64 135, i1 false)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
   %55 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.extract.trunc = trunc i64 %55 to i8
-  %.sroa.0.1.extract.shift = lshr i64 %55, 8
-  %.sroa.0.1.extract.trunc = trunc nuw i64 %.sroa.0.1.extract.shift to i56
-  store i8 %.sroa.0.0.extract.trunc, ptr %11, align 16
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i56 %.sroa.0.1.extract.trunc, ptr %.sroa.415.0..sroa_idx, align 1
+  store i64 %55, ptr %11, align 16
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.1057.0.copyload, ptr %.sroa.516.0..sroa_idx, align 8
   %.sroa.617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -35430,12 +35415,7 @@ _ZN10rayon_core5sleep5Sleep8new_jobs17h38f8451edb6088d3E.exit: ; preds = %31, %.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(135) %.sroa.718.sroa.4.0..sroa.718.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(135) %.sroa.18.0..sroa_idx, i64 135, i1 false)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
   %55 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.extract.trunc = trunc i64 %55 to i8
-  %.sroa.0.1.extract.shift = lshr i64 %55, 8
-  %.sroa.0.1.extract.trunc = trunc nuw i64 %.sroa.0.1.extract.shift to i56
-  store i8 %.sroa.0.0.extract.trunc, ptr %11, align 16
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i56 %.sroa.0.1.extract.trunc, ptr %.sroa.415.0..sroa_idx, align 1
+  store i64 %55, ptr %11, align 16
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.1057.0.copyload, ptr %.sroa.516.0..sroa_idx, align 8
   %.sroa.617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -40761,12 +40741,7 @@ _ZN10rayon_core5sleep5Sleep8new_jobs17h38f8451edb6088d3E.exit: ; preds = %31, %.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(135) %.sroa.718.sroa.4.0..sroa.718.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(135) %.sroa.18.0..sroa_idx, i64 135, i1 false)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
   %55 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.extract.trunc = trunc i64 %55 to i8
-  %.sroa.0.1.extract.shift = lshr i64 %55, 8
-  %.sroa.0.1.extract.trunc = trunc nuw i64 %.sroa.0.1.extract.shift to i56
-  store i8 %.sroa.0.0.extract.trunc, ptr %11, align 16
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i56 %.sroa.0.1.extract.trunc, ptr %.sroa.415.0..sroa_idx, align 1
+  store i64 %55, ptr %11, align 16
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.1057.0.copyload, ptr %.sroa.516.0..sroa_idx, align 8
   %.sroa.617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16

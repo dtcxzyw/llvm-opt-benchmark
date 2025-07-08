@@ -27777,22 +27777,21 @@ for.body.i691:                                    ; preds = %for.inc.i, %if.then
   %arrayidx144.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer.i, i64 0, i64 %i.01.i
   %118 = load i32, ptr %arrayidx144.i, align 4
   %cmp145.i = icmp ugt i32 %118, 62914560
-  br i1 %cmp145.i, label %if.then146.i, label %for.inc.i
+  br i1 %cmp145.i, label %if.then146.i, label %if.else155.i
 
 if.then146.i:                                     ; preds = %for.body.i691
   %arrayidx147.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %119 = load i32, ptr %arrayidx147.i, align 4
-  %shr.i692 = lshr i32 %119, 16
-  %conv152.i = trunc nuw i32 %shr.i692 to i16
-  %arrayidx153.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 2
-  store i16 %conv152.i, ptr %arrayidx153.i, align 2
+  store i32 %119, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %for.body.i691, %if.then146.i
-  %conv157.i.sink.in = phi i32 [ %119, %if.then146.i ], [ %118, %for.body.i691 ]
-  %.sink2.i = phi i64 [ 4, %if.then146.i ], [ 2, %for.body.i691 ]
-  %conv157.i.sink = trunc i32 %conv157.i.sink.in to i16
-  store i16 %conv157.i.sink, ptr %utf16_output.addr.i.5, align 2
+if.else155.i:                                     ; preds = %for.body.i691
+  %conv157.i = trunc i32 %118 to i16
+  store i16 %conv157.i, ptr %utf16_output.addr.i.5, align 2
+  br label %for.inc.i
+
+for.inc.i:                                        ; preds = %if.else155.i, %if.then146.i
+  %.sink2.i = phi i64 [ 4, %if.then146.i ], [ 2, %if.else155.i ]
   %add.ptr154.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 %.sink2.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
@@ -28195,22 +28194,18 @@ for.body.i697:                                    ; preds = %for.inc.i, %if.then
 if.then157.i:                                     ; preds = %for.body.i697
   %arrayidx158.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %139 = load i32, ptr %arrayidx158.i, align 4
-  %shr.i698 = lshr i32 %139, 16
-  %conv163.i = trunc nuw i32 %shr.i698 to i16
-  %arrayidx164.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 2
-  store i16 %conv163.i, ptr %arrayidx164.i, align 2
+  store i32 %139, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
 if.else166.i:                                     ; preds = %for.body.i697
   %arrayidx167.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer_swap.i, i64 0, i64 %i.01.i
   %140 = load i32, ptr %arrayidx167.i, align 4
+  %conv168.i = trunc i32 %140 to i16
+  store i16 %conv168.i, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else166.i, %if.then157.i
-  %conv168.i.sink.in = phi i32 [ %139, %if.then157.i ], [ %140, %if.else166.i ]
   %.sink2.i = phi i64 [ 4, %if.then157.i ], [ 2, %if.else166.i ]
-  %conv168.i.sink = trunc i32 %conv168.i.sink.in to i16
-  store i16 %conv168.i.sink, ptr %utf16_output.addr.i.5, align 2
   %add.ptr165.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 %.sink2.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
@@ -28601,22 +28596,21 @@ for.body.i712:                                    ; preds = %for.inc.i, %if.then
   %arrayidx144.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer.i, i64 0, i64 %i.01.i
   %121 = load i32, ptr %arrayidx144.i, align 4
   %cmp145.i = icmp ugt i32 %121, 62914560
-  br i1 %cmp145.i, label %if.then146.i, label %for.inc.i
+  br i1 %cmp145.i, label %if.then146.i, label %if.else155.i
 
 if.then146.i:                                     ; preds = %for.body.i712
   %arrayidx147.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %122 = load i32, ptr %arrayidx147.i, align 4
-  %shr.i713 = lshr i32 %122, 16
-  %conv152.i = trunc nuw i32 %shr.i713 to i16
-  %arrayidx153.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 2
-  store i16 %conv152.i, ptr %arrayidx153.i, align 2
+  store i32 %122, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %for.body.i712, %if.then146.i
-  %conv157.i.sink.in = phi i32 [ %122, %if.then146.i ], [ %121, %for.body.i712 ]
-  %.sink2.i = phi i64 [ 4, %if.then146.i ], [ 2, %for.body.i712 ]
-  %conv157.i.sink = trunc i32 %conv157.i.sink.in to i16
-  store i16 %conv157.i.sink, ptr %utf16_output.addr.i.5, align 2
+if.else155.i:                                     ; preds = %for.body.i712
+  %conv157.i = trunc i32 %121 to i16
+  store i16 %conv157.i, ptr %utf16_output.addr.i.5, align 2
+  br label %for.inc.i
+
+for.inc.i:                                        ; preds = %if.else155.i, %if.then146.i
+  %.sink2.i = phi i64 [ 4, %if.then146.i ], [ 2, %if.else155.i ]
   %add.ptr154.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 %.sink2.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
@@ -29050,22 +29044,18 @@ for.body.i716:                                    ; preds = %for.inc.i, %if.then
 if.then157.i:                                     ; preds = %for.body.i716
   %arrayidx158.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %142 = load i32, ptr %arrayidx158.i, align 4
-  %shr.i717 = lshr i32 %142, 16
-  %conv163.i = trunc nuw i32 %shr.i717 to i16
-  %arrayidx164.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 2
-  store i16 %conv163.i, ptr %arrayidx164.i, align 2
+  store i32 %142, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
 if.else166.i:                                     ; preds = %for.body.i716
   %arrayidx167.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer_swap.i, i64 0, i64 %i.01.i
   %143 = load i32, ptr %arrayidx167.i, align 4
+  %conv168.i = trunc i32 %143 to i16
+  store i16 %conv168.i, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else166.i, %if.then157.i
-  %conv168.i.sink.in = phi i32 [ %142, %if.then157.i ], [ %143, %if.else166.i ]
   %.sink2.i = phi i64 [ 4, %if.then157.i ], [ 2, %if.else166.i ]
-  %conv168.i.sink = trunc i32 %conv168.i.sink.in to i16
-  store i16 %conv168.i.sink, ptr %utf16_output.addr.i.5, align 2
   %add.ptr165.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 %.sink2.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
@@ -29377,22 +29367,21 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.th
   %arrayidx144.i.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer.i.i, i64 0, i64 %i.01.i.i
   %85 = load i32, ptr %arrayidx144.i.i, align 4
   %cmp145.i.i = icmp ugt i32 %85, 62914560
-  br i1 %cmp145.i.i, label %if.then146.i.i, label %for.inc.i.i
+  br i1 %cmp145.i.i, label %if.then146.i.i, label %if.else155.i.i
 
 if.then146.i.i:                                   ; preds = %for.body.i.i
   %arrayidx147.i.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i.i, i64 0, i64 %i.01.i.i
   %86 = load i32, ptr %arrayidx147.i.i, align 4
-  %shr.i.i = lshr i32 %86, 16
-  %conv152.i.i = trunc nuw i32 %shr.i.i to i16
-  %arrayidx153.i.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.4.i, i64 2
-  store i16 %conv152.i.i, ptr %arrayidx153.i.i, align 2
+  store i32 %86, ptr %utf16_output.addr.4.i, align 2
   br label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %if.then146.i.i, %for.body.i.i
-  %conv157.i.sink.in.i = phi i32 [ %86, %if.then146.i.i ], [ %85, %for.body.i.i ]
-  %.sink2.i.i = phi i64 [ 4, %if.then146.i.i ], [ 2, %for.body.i.i ]
-  %conv157.i.sink.i = trunc i32 %conv157.i.sink.in.i to i16
-  store i16 %conv157.i.sink.i, ptr %utf16_output.addr.4.i, align 2
+if.else155.i.i:                                   ; preds = %for.body.i.i
+  %conv157.i.i = trunc i32 %85 to i16
+  store i16 %conv157.i.i, ptr %utf16_output.addr.4.i, align 2
+  br label %for.inc.i.i
+
+for.inc.i.i:                                      ; preds = %if.else155.i.i, %if.then146.i.i
+  %.sink2.i.i = phi i64 [ 4, %if.then146.i.i ], [ 2, %if.else155.i.i ]
   %add.ptr154.i.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.4.i, i64 %.sink2.i.i
   %inc.i.i = add nuw nsw i64 %i.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3
@@ -29688,22 +29677,18 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.th
 if.then157.i.i:                                   ; preds = %for.body.i.i
   %arrayidx158.i.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i.i, i64 0, i64 %i.01.i.i
   %106 = load i32, ptr %arrayidx158.i.i, align 4
-  %shr.i.i = lshr i32 %106, 16
-  %conv163.i.i = trunc nuw i32 %shr.i.i to i16
-  %arrayidx164.i.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.4.i, i64 2
-  store i16 %conv163.i.i, ptr %arrayidx164.i.i, align 2
+  store i32 %106, ptr %utf16_output.addr.4.i, align 2
   br label %for.inc.i.i
 
 if.else166.i.i:                                   ; preds = %for.body.i.i
   %arrayidx167.i.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer_swap.i.i, i64 0, i64 %i.01.i.i
   %107 = load i32, ptr %arrayidx167.i.i, align 4
+  %conv168.i.i = trunc i32 %107 to i16
+  store i16 %conv168.i.i, ptr %utf16_output.addr.4.i, align 2
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else166.i.i, %if.then157.i.i
-  %conv168.i.sink.in.i = phi i32 [ %106, %if.then157.i.i ], [ %107, %if.else166.i.i ]
   %.sink2.i.i = phi i64 [ 4, %if.then157.i.i ], [ 2, %if.else166.i.i ]
-  %conv168.i.sink.i = trunc i32 %conv168.i.sink.in.i to i16
-  store i16 %conv168.i.sink.i, ptr %utf16_output.addr.4.i, align 2
   %add.ptr165.i.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.4.i, i64 %.sink2.i.i
   %inc.i.i = add nuw nsw i64 %i.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3
@@ -41103,22 +41088,21 @@ for.body.i562:                                    ; preds = %for.inc.i, %if.then
   %arrayidx146.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer.i, i64 0, i64 %i.01.i
   %147 = load i32, ptr %arrayidx146.i, align 4
   %cmp147.i = icmp ugt i32 %147, 62914560
-  br i1 %cmp147.i, label %if.then148.i, label %for.inc.i
+  br i1 %cmp147.i, label %if.then148.i, label %if.else157.i
 
 if.then148.i:                                     ; preds = %for.body.i562
   %arrayidx149.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %148 = load i32, ptr %arrayidx149.i, align 4
-  %shr.i563 = lshr i32 %148, 16
-  %conv154.i = trunc nuw i32 %shr.i563 to i16
-  %arrayidx155.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 2
-  store i16 %conv154.i, ptr %arrayidx155.i, align 2
+  store i32 %148, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %for.body.i562, %if.then148.i
-  %conv159.i.sink.in = phi i32 [ %148, %if.then148.i ], [ %147, %for.body.i562 ]
-  %.sink2.i = phi i64 [ 4, %if.then148.i ], [ 2, %for.body.i562 ]
-  %conv159.i.sink = trunc i32 %conv159.i.sink.in to i16
-  store i16 %conv159.i.sink, ptr %utf16_output.addr.i.5, align 2
+if.else157.i:                                     ; preds = %for.body.i562
+  %conv159.i = trunc i32 %147 to i16
+  store i16 %conv159.i, ptr %utf16_output.addr.i.5, align 2
+  br label %for.inc.i
+
+for.inc.i:                                        ; preds = %if.else157.i, %if.then148.i
+  %.sink2.i = phi i64 [ 4, %if.then148.i ], [ 2, %if.else157.i ]
   %add.ptr156.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 %.sink2.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
@@ -41620,22 +41604,18 @@ for.body.i572:                                    ; preds = %for.inc.i, %if.then
 if.then157.i:                                     ; preds = %for.body.i572
   %arrayidx158.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %178 = load i32, ptr %arrayidx158.i, align 4
-  %shr.i573 = lshr i32 %178, 16
-  %conv163.i = trunc nuw i32 %shr.i573 to i16
-  %arrayidx164.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 2
-  store i16 %conv163.i, ptr %arrayidx164.i, align 2
+  store i32 %178, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
 if.else166.i:                                     ; preds = %for.body.i572
   %arrayidx167.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer_swap.i, i64 0, i64 %i.01.i
   %179 = load i32, ptr %arrayidx167.i, align 4
+  %conv168.i = trunc i32 %179 to i16
+  store i16 %conv168.i, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else166.i, %if.then157.i
-  %conv168.i.sink.in = phi i32 [ %178, %if.then157.i ], [ %179, %if.else166.i ]
   %.sink2.i = phi i64 [ 4, %if.then157.i ], [ 2, %if.else166.i ]
-  %conv168.i.sink = trunc i32 %conv168.i.sink.in to i16
-  store i16 %conv168.i.sink, ptr %utf16_output.addr.i.5, align 2
   %add.ptr165.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 %.sink2.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
@@ -42115,22 +42095,21 @@ for.body.i582:                                    ; preds = %for.inc.i, %if.then
   %arrayidx146.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer.i, i64 0, i64 %i.01.i
   %150 = load i32, ptr %arrayidx146.i, align 4
   %cmp147.i = icmp ugt i32 %150, 62914560
-  br i1 %cmp147.i, label %if.then148.i, label %for.inc.i
+  br i1 %cmp147.i, label %if.then148.i, label %if.else157.i
 
 if.then148.i:                                     ; preds = %for.body.i582
   %arrayidx149.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %151 = load i32, ptr %arrayidx149.i, align 4
-  %shr.i583 = lshr i32 %151, 16
-  %conv154.i = trunc nuw i32 %shr.i583 to i16
-  %arrayidx155.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 2
-  store i16 %conv154.i, ptr %arrayidx155.i, align 2
+  store i32 %151, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %for.body.i582, %if.then148.i
-  %conv159.i.sink.in = phi i32 [ %151, %if.then148.i ], [ %150, %for.body.i582 ]
-  %.sink2.i = phi i64 [ 4, %if.then148.i ], [ 2, %for.body.i582 ]
-  %conv159.i.sink = trunc i32 %conv159.i.sink.in to i16
-  store i16 %conv159.i.sink, ptr %utf16_output.addr.i.5, align 2
+if.else157.i:                                     ; preds = %for.body.i582
+  %conv159.i = trunc i32 %150 to i16
+  store i16 %conv159.i, ptr %utf16_output.addr.i.5, align 2
+  br label %for.inc.i
+
+for.inc.i:                                        ; preds = %if.else157.i, %if.then148.i
+  %.sink2.i = phi i64 [ 4, %if.then148.i ], [ 2, %if.else157.i ]
   %add.ptr156.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 %.sink2.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
@@ -42663,22 +42642,18 @@ for.body.i592:                                    ; preds = %for.inc.i, %if.then
 if.then157.i:                                     ; preds = %for.body.i592
   %arrayidx158.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
   %181 = load i32, ptr %arrayidx158.i, align 4
-  %shr.i593 = lshr i32 %181, 16
-  %conv163.i = trunc nuw i32 %shr.i593 to i16
-  %arrayidx164.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 2
-  store i16 %conv163.i, ptr %arrayidx164.i, align 2
+  store i32 %181, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
 if.else166.i:                                     ; preds = %for.body.i592
   %arrayidx167.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer_swap.i, i64 0, i64 %i.01.i
   %182 = load i32, ptr %arrayidx167.i, align 4
+  %conv168.i = trunc i32 %182 to i16
+  store i16 %conv168.i, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else166.i, %if.then157.i
-  %conv168.i.sink.in = phi i32 [ %181, %if.then157.i ], [ %182, %if.else166.i ]
   %.sink2.i = phi i64 [ 4, %if.then157.i ], [ 2, %if.else166.i ]
-  %conv168.i.sink = trunc i32 %conv168.i.sink.in to i16
-  store i16 %conv168.i.sink, ptr %utf16_output.addr.i.5, align 2
   %add.ptr165.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 %.sink2.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
@@ -43030,22 +43005,21 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.th
   %arrayidx146.i.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer.i.i, i64 0, i64 %i.01.i.i
   %89 = load i32, ptr %arrayidx146.i.i, align 4
   %cmp147.i.i = icmp ugt i32 %89, 62914560
-  br i1 %cmp147.i.i, label %if.then148.i.i, label %for.inc.i.i
+  br i1 %cmp147.i.i, label %if.then148.i.i, label %if.else157.i.i
 
 if.then148.i.i:                                   ; preds = %for.body.i.i
   %arrayidx149.i.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i.i, i64 0, i64 %i.01.i.i
   %90 = load i32, ptr %arrayidx149.i.i, align 4
-  %shr.i.i = lshr i32 %90, 16
-  %conv154.i.i = trunc nuw i32 %shr.i.i to i16
-  %arrayidx155.i.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.4.i, i64 2
-  store i16 %conv154.i.i, ptr %arrayidx155.i.i, align 2
+  store i32 %90, ptr %utf16_output.addr.4.i, align 2
   br label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %if.then148.i.i, %for.body.i.i
-  %conv159.i.sink.in.i = phi i32 [ %90, %if.then148.i.i ], [ %89, %for.body.i.i ]
-  %.sink2.i.i = phi i64 [ 4, %if.then148.i.i ], [ 2, %for.body.i.i ]
-  %conv159.i.sink.i = trunc i32 %conv159.i.sink.in.i to i16
-  store i16 %conv159.i.sink.i, ptr %utf16_output.addr.4.i, align 2
+if.else157.i.i:                                   ; preds = %for.body.i.i
+  %conv159.i.i = trunc i32 %89 to i16
+  store i16 %conv159.i.i, ptr %utf16_output.addr.4.i, align 2
+  br label %for.inc.i.i
+
+for.inc.i.i:                                      ; preds = %if.else157.i.i, %if.then148.i.i
+  %.sink2.i.i = phi i64 [ 4, %if.then148.i.i ], [ 2, %if.else157.i.i ]
   %add.ptr156.i.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.4.i, i64 %.sink2.i.i
   %inc.i.i = add nuw nsw i64 %i.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3
@@ -43391,22 +43365,18 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.th
 if.then157.i.i:                                   ; preds = %for.body.i.i
   %arrayidx158.i.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i.i, i64 0, i64 %i.01.i.i
   %120 = load i32, ptr %arrayidx158.i.i, align 4
-  %shr.i.i = lshr i32 %120, 16
-  %conv163.i.i = trunc nuw i32 %shr.i.i to i16
-  %arrayidx164.i.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.4.i, i64 2
-  store i16 %conv163.i.i, ptr %arrayidx164.i.i, align 2
+  store i32 %120, ptr %utf16_output.addr.4.i, align 2
   br label %for.inc.i.i
 
 if.else166.i.i:                                   ; preds = %for.body.i.i
   %arrayidx167.i.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer_swap.i.i, i64 0, i64 %i.01.i.i
   %121 = load i32, ptr %arrayidx167.i.i, align 4
+  %conv168.i.i = trunc i32 %121 to i16
+  store i16 %conv168.i.i, ptr %utf16_output.addr.4.i, align 2
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else166.i.i, %if.then157.i.i
-  %conv168.i.sink.in.i = phi i32 [ %120, %if.then157.i.i ], [ %121, %if.else166.i.i ]
   %.sink2.i.i = phi i64 [ 4, %if.then157.i.i ], [ 2, %if.else166.i.i ]
-  %conv168.i.sink.i = trunc i32 %conv168.i.sink.in.i to i16
-  store i16 %conv168.i.sink.i, ptr %utf16_output.addr.4.i, align 2
   %add.ptr165.i.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.4.i, i64 %.sink2.i.i
   %inc.i.i = add nuw nsw i64 %i.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3

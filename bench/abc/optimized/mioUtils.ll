@@ -3767,12 +3767,7 @@ Exp_Truth6Lit.exit34.thread.i:                    ; preds = %Exp_Truth6Lit.exit3
 
 Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit34.i, %Exp_Truth6Lit.exit34.thread.i
   %.0.i3238.i = phi i64 [ %.0.i32.i, %Exp_Truth6Lit.exit34.i ], [ %.0.i3237.i, %Exp_Truth6Lit.exit34.thread.i ]
-  %121 = trunc i64 %.0.i3238.i to i32
-  store i32 %121, ptr %4, align 4, !tbaa !72
-  %122 = lshr i64 %.0.i3238.i, 32
-  %123 = trunc nuw i64 %122 to i32
-  %124 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %123, ptr %124, align 4, !tbaa !72
+  store i64 %.0.i3238.i, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #30
   ret void
 }

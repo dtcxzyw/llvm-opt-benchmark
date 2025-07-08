@@ -223,7 +223,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
   %5 = alloca [2 x %"class.std::vector.3"], align 16
   %6 = alloca %"class.std::vector.8", align 8
   %7 = alloca %"class.std::vector", align 8
-  %8 = alloca %"class.cv::Size_", align 4
+  %8 = alloca %"class.cv::Size_", align 8
   %9 = alloca %"class.cv::aruco::Dictionary", align 8
   %10 = alloca %"class.cv::aruco::Dictionary", align 8
   %11 = alloca %"class.cv::FileStorage", align 8
@@ -1666,6 +1666,10 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc283
   br label %.body214
 
 572:                                              ; preds = %541
+  %.sroa.6.0.insert.ext = zext i32 %283 to i64
+  %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
+  %.sroa.0295.0.insert.ext = zext i32 %274 to i64
+  %.sroa.0295.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %.sroa.0295.0.insert.ext
   %573 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store ptr %573, ptr %163, align 8, !tbaa !4
   %574 = load ptr, ptr %154, align 8, !tbaa !15
@@ -1820,7 +1824,7 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit563.i: ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #27
-  store i32 0, ptr %8, align 4, !tbaa !69
+  store i32 0, ptr %8, align 8, !tbaa !69
   %629 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %629, align 4, !tbaa !71
   %630 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %163, ptr noundef nonnull @.str.49) #27
@@ -1831,7 +1835,7 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit563.i: ; preds = %6
   %633 = add nsw i32 %283, 1
   store i32 %633, ptr %629, align 4, !tbaa !71
   %634 = add nsw i32 %274, 1
-  store i32 %634, ptr %8, align 4, !tbaa !69
+  store i32 %634, ptr %8, align 8, !tbaa !69
   br label %651
 
 635:                                              ; preds = %_ZNKSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i707.i, %_ZNKSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i.i, %621
@@ -1850,8 +1854,7 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit563.i: ; preds = %6
   br i1 %641, label %642, label %645
 
 642:                                              ; preds = %639
-  store i32 %274, ptr %8, align 4, !tbaa !19
-  store i32 %283, ptr %629, align 4, !tbaa !19
+  store i64 %.sroa.0295.0.insert.insert, ptr %8, align 8
   %643 = add nsw i32 %274, -1
   %644 = add nsw i32 %283, -1
   br label %651

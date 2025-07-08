@@ -8650,11 +8650,6 @@ default.unreachable:                              ; preds = %804
   %.sroa.13.sroa.17.sroa.0.0.in.in = phi i64 [ %.sroa.13.sroa.17.sroa.0.1.in.in, %1005 ], [ %1018, %1017 ]
   %.sroa.31.3 = phi ptr [ %.sroa.31.4, %1005 ], [ %1019, %1017 ]
   %.sroa.43.0 = phi i64 [ %.sroa.43.1, %1005 ], [ 40, %1017 ]
-  %.sroa.13.sroa.0.0 = trunc i64 %.sroa.13.sroa.17.sroa.0.0.in.in to i8
-  %.sroa.13.sroa.14.0.in = lshr i64 %.sroa.13.sroa.17.sroa.0.0.in.in, 8
-  %.sroa.13.sroa.14.0 = trunc i64 %.sroa.13.sroa.14.0.in to i8
-  %.sroa.13.sroa.17.sroa.0.0.in = lshr i64 %.sroa.13.sroa.17.sroa.0.0.in.in, 16
-  %.sroa.13.sroa.17.sroa.0.0 = trunc nuw i64 %.sroa.13.sroa.17.sroa.0.0.in to i48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !878
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h915c00e7147b9794E.llvm.16845035774076767816"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44)
           to label %.noexc442.i unwind label %.thread.i.loopexit.split-lp, !noalias !768
@@ -8715,11 +8710,7 @@ default.unreachable:                              ; preds = %804
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   %1026 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.13.sroa.0.0, ptr %1026, align 8
-  %.sroa.2350.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %.sroa.13.sroa.14.0, ptr %.sroa.2350.0..sroa_idx, align 1
-  %.sroa.3351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i48 %.sroa.13.sroa.17.sroa.0.0, ptr %.sroa.3351.0..sroa_idx, align 2
+  store i64 %.sroa.13.sroa.17.sroa.0.0.in.in, ptr %1026, align 8
   %.sroa.3351.sroa.2.0..sroa.3351.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.31.3, ptr %.sroa.3351.sroa.2.0..sroa.3351.0..sroa_idx.sroa_idx, align 8
   %.sroa.3351.sroa.3.0..sroa.3351.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9862,7 +9853,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h46c7
   %17 = icmp samesign ult i64 %indvars.iv, 64
   br i1 %17, label %19, label %24, !prof !29
 
-18:                                               ; preds = %39, %71, %79, %53, %._crit_edge
+18:                                               ; preds = %39, %71, %80, %53, %._crit_edge
   ret void
 
 19:                                               ; preds = %16
@@ -9964,7 +9955,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h46c7
   %61 = tail call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %27, i16 %7)
   %62 = extractvalue { i16, i1 } %61, 0
   %63 = extractvalue { i16, i1 } %61, 1
-  br i1 %63, label %72, label %.thread133
+  br i1 %63, label %73, label %.thread133
 
 64:                                               ; preds = %56
   %65 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6a68132a218671f8E"(i64 noundef 20, i1 noundef zeroext false)
@@ -9984,42 +9975,34 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h46c7
   br label %44
 
 71:                                               ; preds = %64
-  %.sroa.488.2.extract.shift = lshr i64 %69, 16
-  %.sroa.488.2.extract.trunc = trunc nuw i64 %.sroa.488.2.extract.shift to i48
   store i64 %66, ptr %0, align 8
-  %.sroa.299.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %.sroa.488.0.extract.trunc, ptr %.sroa.299.0..sroa_idx, align 8
-  %.sroa.3100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i48 %.sroa.488.2.extract.trunc, ptr %.sroa.3100.0..sroa_idx, align 2
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %69, ptr %72, align 8
   %.sroa.4101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 20, ptr %.sroa.4101.0..sroa_idx, align 8
   br label %18
 
-72:                                               ; preds = %60
-  %73 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6a68132a218671f8E"(i64 noundef 20, i1 noundef zeroext false)
-  %74 = extractvalue { i64, ptr } %73, 0
-  %75 = extractvalue { i64, ptr } %73, 1
-  %76 = icmp ne ptr %75, null
-  tail call void @llvm.assume(i1 %76)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %75, ptr noundef nonnull align 1 dereferenceable(20) @anon.53fe85e3a453dfbf0ab1e8743506e67c.132, i64 20, i1 false)
-  %77 = ptrtoint ptr %75 to i64
-  %.sroa.464.0.extract.trunc = trunc i64 %77 to i16
-  %78 = icmp eq i64 %74, -9223372036854775805
-  br i1 %78, label %.thread133, label %79
+73:                                               ; preds = %60
+  %74 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6a68132a218671f8E"(i64 noundef 20, i1 noundef zeroext false)
+  %75 = extractvalue { i64, ptr } %74, 0
+  %76 = extractvalue { i64, ptr } %74, 1
+  %77 = icmp ne ptr %76, null
+  tail call void @llvm.assume(i1 %77)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %76, ptr noundef nonnull align 1 dereferenceable(20) @anon.53fe85e3a453dfbf0ab1e8743506e67c.132, i64 20, i1 false)
+  %78 = ptrtoint ptr %76 to i64
+  %.sroa.464.0.extract.trunc = trunc i64 %78 to i16
+  %79 = icmp eq i64 %75, -9223372036854775805
+  br i1 %79, label %.thread133, label %80
 
-.thread133:                                       ; preds = %60, %72
-  %.sroa.6.0139 = phi i16 [ %.sroa.464.0.extract.trunc, %72 ], [ %62, %60 ]
+.thread133:                                       ; preds = %60, %73
+  %.sroa.6.0139 = phi i16 [ %.sroa.464.0.extract.trunc, %73 ], [ %62, %60 ]
   store i16 %.sroa.6.0139, ptr %26, align 2
   br label %44
 
-79:                                               ; preds = %72
-  %.sroa.464.2.extract.shift = lshr i64 %77, 16
-  %.sroa.464.2.extract.trunc = trunc nuw i64 %.sroa.464.2.extract.shift to i48
-  store i64 %74, ptr %0, align 8
-  %.sroa.275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %.sroa.464.0.extract.trunc, ptr %.sroa.275.0..sroa_idx, align 8
-  %.sroa.376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i48 %.sroa.464.2.extract.trunc, ptr %.sroa.376.0..sroa_idx, align 2
+80:                                               ; preds = %73
+  store i64 %75, ptr %0, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %78, ptr %81, align 8
   %.sroa.477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 20, ptr %.sroa.477.0..sroa_idx, align 8
   br label %18

@@ -5,31 +5,29 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN8wasmi_ir4enum11Instruction29filter_register_and_offset_hi17h73aefbdfde34194fE(ptr dead_on_unwind noalias noundef writable writeonly sret([12 x i8]) align 4 captures(none) dereferenceable(12) initializes((0, 6), (8, 12)) %0, i64 %1) unnamed_addr #0 {
-  %.sroa.06.0.extract.trunc = trunc i64 %1 to i16
-  %.sroa.47.0.extract.shift = lshr i64 %1, 16
-  %.sroa.47.0.extract.trunc = trunc i64 %.sroa.47.0.extract.shift to i16
+  %3 = and i64 %1, 65535
+  %4 = icmp eq i64 %3, 517
+  br i1 %4, label %5, label %9
+
+5:                                                ; preds = %2
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %3 = icmp eq i16 %.sroa.06.0.extract.trunc, 517
-  br i1 %3, label %4, label %6
+  %.sroa.47.0.extract.shift = lshr i64 %1, 16
+  %.sroa.47.0.extract.trunc = trunc i64 %.sroa.47.0.extract.shift to i16
+  %6 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.5.0.extract.trunc)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 %.sroa.47.0.extract.trunc, ptr %7, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %6, ptr %8, align 4
+  br label %11
 
-4:                                                ; preds = %2
-  %5 = tail call noundef i32 @"_ZN8wasmi_ir10immeditate93_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..AnyConst32$GT$$u20$for$u20$u32$GT$4from17hd9e4f92e0ccd2258E"(i32 noundef %.sroa.5.0.extract.trunc)
-  br label %7
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %1, ptr %10, align 4
+  br label %11
 
-6:                                                ; preds = %2
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 %.sroa.47.0.extract.trunc, ptr %.sroa.3.0..sroa_idx2, align 2
-  br label %7
-
-7:                                                ; preds = %6, %4
-  %.sroa.06.0.extract.trunc.sink = phi i16 [ %.sroa.47.0.extract.trunc, %4 ], [ %.sroa.06.0.extract.trunc, %6 ]
-  %.sroa.5.0.extract.trunc.sink = phi i32 [ %5, %4 ], [ %.sroa.5.0.extract.trunc, %6 ]
-  %storemerge = phi i32 [ 0, %4 ], [ 1, %6 ]
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 %.sroa.06.0.extract.trunc.sink, ptr %8, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.5.0.extract.trunc.sink, ptr %9, align 4
+11:                                               ; preds = %9, %5
+  %storemerge = phi i32 [ 1, %9 ], [ 0, %5 ]
   store i32 %storemerge, ptr %0, align 4
   ret void
 }

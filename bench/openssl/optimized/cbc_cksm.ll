@@ -133,44 +133,18 @@ default.unreachable:                              ; preds = %19
   %.093.lcssa = phi i32 [ %7, %5 ], [ %62, %59 ]
   %.092.lcssa = phi i32 [ %9, %5 ], [ %63, %59 ]
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %88, label %66
+  br i1 %.not, label %68, label %66
 
 66:                                               ; preds = %._crit_edge
-  %67 = trunc i32 %.093.lcssa to i8
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %67, ptr %1, align 1, !tbaa !3
-  %69 = lshr i32 %.093.lcssa, 8
-  %70 = trunc i32 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %70, ptr %68, align 1, !tbaa !3
-  %72 = lshr i32 %.093.lcssa, 16
-  %73 = trunc i32 %72 to i8
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %73, ptr %71, align 1, !tbaa !3
-  %75 = lshr i32 %.093.lcssa, 24
-  %76 = trunc nuw i32 %75 to i8
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 %76, ptr %74, align 1, !tbaa !3
-  %78 = trunc i32 %.092.lcssa to i8
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  store i8 %78, ptr %77, align 1, !tbaa !3
-  %80 = lshr i32 %.092.lcssa, 8
-  %81 = trunc i32 %80 to i8
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  store i8 %81, ptr %79, align 1, !tbaa !3
-  %83 = lshr i32 %.092.lcssa, 16
-  %84 = trunc i32 %83 to i8
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  store i8 %84, ptr %82, align 1, !tbaa !3
-  %86 = lshr i32 %.092.lcssa, 24
-  %87 = trunc nuw i32 %86 to i8
-  store i8 %87, ptr %85, align 1, !tbaa !3
-  br label %88
+  store i32 %.093.lcssa, ptr %1, align 1
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %.092.lcssa, ptr %67, align 1
+  br label %68
 
-88:                                               ; preds = %66, %._crit_edge
-  %89 = call i32 @llvm.bswap.i32(i32 %.092.lcssa)
+68:                                               ; preds = %66, %._crit_edge
+  %69 = call i32 @llvm.bswap.i32(i32 %.092.lcssa)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  ret i32 %89
+  ret i32 %69
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

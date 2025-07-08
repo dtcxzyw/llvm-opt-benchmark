@@ -2530,10 +2530,6 @@ define void @_ZN5folly11IPAddressV6C2ENS0_12LinkLocalTagENS_10MacAddressE(ptr no
 define void @_ZN5folly11IPAddressV614AddressStorageC2ENS_10MacAddressE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, i64 %1) unnamed_addr #24 align 2 {
   %.sroa.1.0.extract.shift = lshr i64 %1, 16
   %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i8
-  %.sroa.2.0.extract.shift = lshr i64 %1, 24
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i8
-  %.sroa.3.0.extract.shift = lshr i64 %1, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i64 %1, 40
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i8
   %.sroa.5.0.extract.shift = lshr i64 %1, 48
@@ -2544,20 +2540,20 @@ define void @_ZN5folly11IPAddressV614AddressStorageC2ENS_10MacAddressE(ptr nound
   %3 = xor i8 %.sroa.1.0.extract.trunc, 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %3, ptr %4, align 4, !tbaa !9
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %.sroa.2.0.extract.trunc, ptr %5, align 1, !tbaa !9
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %.sroa.3.0.extract.trunc, ptr %6, align 2, !tbaa !9
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 -1, ptr %7, align 1, !tbaa !9
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 -2, ptr %8, align 4, !tbaa !9
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %.sroa.4.0.extract.trunc, ptr %9, align 1, !tbaa !9
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %.sroa.5.0.extract.trunc, ptr %10, align 2, !tbaa !9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 %.sroa.6.0.extract.trunc, ptr %11, align 1, !tbaa !9
+  %5 = lshr i64 %1, 24
+  %6 = trunc i64 %5 to i16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i16 %6, ptr %7, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  store i8 -1, ptr %8, align 1, !tbaa !9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 -2, ptr %9, align 4, !tbaa !9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store i8 %.sroa.4.0.extract.trunc, ptr %10, align 1, !tbaa !9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i8 %.sroa.5.0.extract.trunc, ptr %11, align 2, !tbaa !9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  store i8 %.sroa.6.0.extract.trunc, ptr %12, align 1, !tbaa !9
   ret void
 }
 

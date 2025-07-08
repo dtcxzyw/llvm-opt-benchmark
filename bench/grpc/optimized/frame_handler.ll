@@ -31,7 +31,7 @@ define noundef zeroext i1 @_Z23alts_reset_frame_writerP17alts_frame_writerPKhm(p
   %4 = alloca i64, align 8
   %5 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %34, label %7
+  br i1 %6, label %21, label %7
 
 7:                                                ; preds = %3
   %8 = icmp ult i64 %2, -4
@@ -53,7 +53,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  br label %34
+  br label %21
 
 12:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit, %9
   %13 = landingpad { ptr, i32 }
@@ -70,32 +70,13 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit: ; pr
   %17 = trunc i64 %2 to i32
   %18 = add i32 %17, 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = lshr i32 %18, 24
-  %21 = trunc nuw i32 %20 to i8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  store i8 %21, ptr %22, align 1, !tbaa !12
-  %23 = lshr i32 %18, 16
-  %24 = trunc i32 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %24, ptr %25, align 1, !tbaa !12
-  %26 = lshr i32 %18, 8
-  %27 = trunc i32 %26 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %27, ptr %28, align 1, !tbaa !12
-  %29 = trunc i32 %18 to i8
-  store i8 %29, ptr %19, align 1, !tbaa !12
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 0, ptr %31, align 1, !tbaa !12
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 0, ptr %32, align 1, !tbaa !12
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 0, ptr %33, align 1, !tbaa !12
-  store i8 6, ptr %30, align 1, !tbaa !12
-  br label %34
+  store i32 %18, ptr %19, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 6, ptr %20, align 1
+  br label %21
 
-34:                                               ; preds = %11, %14, %3
+21:                                               ; preds = %11, %14, %3
   %.0 = phi i1 [ false, %3 ], [ true, %14 ], [ false, %11 ]
   ret i1 %.0
 }
@@ -130,13 +111,13 @@ _Z25alts_is_frame_writer_doneP17alts_frame_writer.exit: ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !13
+  %12 = load i64, ptr %11, align 8, !tbaa !12
   %13 = icmp eq i64 %10, %12
   br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !14
+  %16 = load i64, ptr %15, align 8, !tbaa !13
   %.not = icmp eq i64 %16, 8
   br i1 %.not, label %.critedge, label %17
 
@@ -150,16 +131,16 @@ _Z25alts_is_frame_writer_doneP17alts_frame_writer.exit: ; preds = %6
   %22 = load i64, ptr %2, align 8, !tbaa !3
   %23 = sub i64 %22, %.sroa.speculated49
   store i64 %23, ptr %2, align 8, !tbaa !3
-  %24 = load i64, ptr %15, align 8, !tbaa !14
+  %24 = load i64, ptr %15, align 8, !tbaa !13
   %25 = add i64 %24, %.sroa.speculated49
-  store i64 %25, ptr %15, align 8, !tbaa !14
+  store i64 %25, ptr %15, align 8, !tbaa !13
   %.not43 = icmp eq i64 %25, 8
   br i1 %.not43, label %..critedge_crit_edge, label %.sink.split
 
 ..critedge_crit_edge:                             ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.speculated49
   %.pre = load i64, ptr %9, align 8, !tbaa !11
-  %.pre52 = load i64, ptr %11, align 8, !tbaa !13
+  %.pre52 = load i64, ptr %11, align 8, !tbaa !12
   %.pre53 = load ptr, ptr %0, align 8, !tbaa !7
   br label %.critedge
 
@@ -177,9 +158,9 @@ _Z25alts_is_frame_writer_doneP17alts_frame_writer.exit: ; preds = %6
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.sroa.speculated
   store ptr %33, ptr %0, align 8, !tbaa !7
   %34 = add i64 %.sroa.speculated, %.040
-  %35 = load i64, ptr %11, align 8, !tbaa !13
+  %35 = load i64, ptr %11, align 8, !tbaa !12
   %36 = add i64 %35, %.sroa.speculated
-  store i64 %36, ptr %11, align 8, !tbaa !13
+  store i64 %36, ptr %11, align 8, !tbaa !12
   br label %.sink.split
 
 .sink.split:                                      ; preds = %17, %_Z25alts_is_frame_writer_doneP17alts_frame_writer.exit, %6, %.critedge
@@ -201,7 +182,7 @@ define noundef zeroext i1 @_Z25alts_is_frame_writer_doneP17alts_frame_writer(ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !13
+  %8 = load i64, ptr %7, align 8, !tbaa !12
   %9 = icmp eq i64 %6, %8
   br label %10
 
@@ -216,11 +197,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_Z35alts_get_num_writer_bytes_remainingP17alts_frame_writer(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8, !tbaa !14
+  %3 = load i64, ptr %2, align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !13
+  %7 = load i64, ptr %6, align 8, !tbaa !12
   %8 = add i64 %5, 8
   %9 = add i64 %3, %7
   %10 = sub i64 %8, %9
@@ -243,19 +224,19 @@ define noundef ptr @_Z24alts_create_frame_readerv() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_Z25alts_is_frame_reader_doneP17alts_frame_reader(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !15
+  %2 = load ptr, ptr %0, align 8, !tbaa !14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !17
+  %6 = load i64, ptr %5, align 8, !tbaa !16
   %7 = icmp eq i64 %6, 8
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i64, ptr %9, align 8, !tbaa !18
+  %10 = load i64, ptr %9, align 8, !tbaa !17
   %11 = icmp eq i64 %10, 0
   br label %12
 
@@ -267,7 +248,7 @@ define noundef zeroext i1 @_Z25alts_is_frame_reader_doneP17alts_frame_reader(ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_Z26alts_has_read_frame_lengthP17alts_frame_reader(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !17
+  %3 = load i64, ptr %2, align 8, !tbaa !16
   %4 = icmp eq i64 %3, 8
   ret i1 %4
 }
@@ -275,13 +256,13 @@ define noundef zeroext i1 @_Z26alts_has_read_frame_lengthP17alts_frame_reader(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_Z31alts_get_reader_bytes_remainingP17alts_frame_reader(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !17
+  %3 = load i64, ptr %2, align 8, !tbaa !16
   %4 = icmp eq i64 %3, 8
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i64, ptr %6, align 8, !tbaa !18
+  %7 = load i64, ptr %6, align 8, !tbaa !17
   br label %8
 
 8:                                                ; preds = %1, %5
@@ -291,7 +272,7 @@ define noundef i64 @_Z31alts_get_reader_bytes_remainingP17alts_frame_reader(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z31alts_reset_reader_output_bufferP17alts_frame_readerPh(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #8 {
-  store ptr %1, ptr %0, align 8, !tbaa !15
+  store ptr %1, ptr %0, align 8, !tbaa !14
   ret void
 }
 
@@ -301,7 +282,7 @@ define noundef zeroext i1 @_Z23alts_reset_frame_readerP17alts_frame_readerPh(ptr
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  store ptr %1, ptr %0, align 8, !tbaa !15
+  store ptr %1, ptr %0, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %6
@@ -326,19 +307,19 @@ define noundef zeroext i1 @_Z21alts_read_frame_bytesP17alts_frame_readerPKhPm(pt
   br i1 %12, label %.critedge.sink.split, label %13
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr %0, align 8, !tbaa !15
+  %14 = load ptr, ptr %0, align 8, !tbaa !14
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.critedge.sink.split, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !17
+  %18 = load i64, ptr %17, align 8, !tbaa !16
   %19 = icmp eq i64 %18, 8
   br i1 %19, label %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit, label %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73
 
 _Z25alts_is_frame_reader_doneP17alts_frame_reader.exit: ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load i64, ptr %20, align 8, !tbaa !18
+  %21 = load i64, ptr %20, align 8, !tbaa !17
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %.critedge.sink.split, label %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73._crit_edge
 
@@ -354,14 +335,14 @@ _Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73: ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %1, i64 %.sroa.speculated, i1 false)
-  %27 = load i64, ptr %17, align 8, !tbaa !17
+  %27 = load i64, ptr %17, align 8, !tbaa !16
   %28 = add i64 %27, %.sroa.speculated
-  store i64 %28, ptr %17, align 8, !tbaa !17
+  store i64 %28, ptr %17, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.speculated
   %30 = load i64, ptr %2, align 8, !tbaa !3
   %31 = sub i64 %30, %.sroa.speculated
   store i64 %31, ptr %2, align 8, !tbaa !3
-  %32 = load i64, ptr %17, align 8, !tbaa !17
+  %32 = load i64, ptr %17, align 8, !tbaa !16
   %.not63.not = icmp eq i64 %32, 8
   br i1 %.not63.not, label %33, label %.critedge.sink.split
 
@@ -457,7 +438,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; pr
 .thread:                                          ; preds = %44
   %55 = add nsw i64 %35, -4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %55, ptr %56, align 8, !tbaa !18
+  store i64 %55, ptr %56, align 8, !tbaa !17
   br label %59
 
 57:                                               ; preds = %52
@@ -477,17 +458,17 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; pr
   %62 = load i64, ptr %2, align 8, !tbaa !3
   %63 = tail call i64 @llvm.umin.i64(i64 %60, i64 %62)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %.052, i64 %63, i1 false)
-  %64 = load ptr, ptr %0, align 8, !tbaa !15
+  %64 = load ptr, ptr %0, align 8, !tbaa !14
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 %63
-  store ptr %65, ptr %0, align 8, !tbaa !15
+  store ptr %65, ptr %0, align 8, !tbaa !14
   %66 = add i64 %63, %.055
-  %67 = load i64, ptr %61, align 8, !tbaa !18
+  %67 = load i64, ptr %61, align 8, !tbaa !17
   %68 = sub i64 %67, %63
-  store i64 %68, ptr %61, align 8, !tbaa !18
+  store i64 %68, ptr %61, align 8, !tbaa !17
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %70 = load i64, ptr %69, align 8, !tbaa !19
+  %70 = load i64, ptr %69, align 8, !tbaa !18
   %71 = add i64 %70, %63
-  store i64 %71, ptr %69, align 8, !tbaa !19
+  store i64 %71, ptr %69, align 8, !tbaa !18
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit, %13, %11, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit, %59, %57
@@ -504,13 +485,13 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; pr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8, !tbaa !19
+  %3 = load i64, ptr %2, align 8, !tbaa !18
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_Z22alts_get_output_bufferP17alts_frame_reader(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !15
+  %2 = load ptr, ptr %0, align 8, !tbaa !14
   ret ptr %2
 }
 
@@ -561,11 +542,10 @@ attributes #13 = { cold nounwind }
 !9 = !{!"p1 omnipotent char", !10, i64 0}
 !10 = !{!"any pointer", !5, i64 0}
 !11 = !{!8, !4, i64 32}
-!12 = !{!5, !5, i64 0}
-!13 = !{!8, !4, i64 16}
-!14 = !{!8, !4, i64 24}
-!15 = !{!16, !9, i64 0}
-!16 = !{!"_ZTS17alts_frame_reader", !9, i64 0, !5, i64 8, !4, i64 16, !4, i64 24, !4, i64 32}
-!17 = !{!16, !4, i64 16}
-!18 = !{!16, !4, i64 32}
-!19 = !{!16, !4, i64 24}
+!12 = !{!8, !4, i64 16}
+!13 = !{!8, !4, i64 24}
+!14 = !{!15, !9, i64 0}
+!15 = !{!"_ZTS17alts_frame_reader", !9, i64 0, !5, i64 8, !4, i64 16, !4, i64 24, !4, i64 32}
+!16 = !{!15, !4, i64 16}
+!17 = !{!15, !4, i64 32}
+!18 = !{!15, !4, i64 24}

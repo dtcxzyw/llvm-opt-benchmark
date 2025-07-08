@@ -29991,15 +29991,16 @@ _ZN10duckdb_fmt2v68internal6bufferIcE9push_backERKc.exit: ; preds = %70
   %108 = load ptr, ptr %64, align 8, !tbaa !17
   %109 = load i64, ptr %66, align 8, !tbaa !8
   %110 = trunc i64 %109 to i32
+  %.sroa.014.0.insert.ext = zext i32 %spec.select80 to i64
+  %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift22, %.sroa.014.0.insert.ext
   store ptr %108, ptr %8, align 8, !tbaa !611
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %110, ptr %111, align 8, !tbaa !615
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %102, ptr %112, align 4, !tbaa !616
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %spec.select80, ptr %113, align 8, !tbaa !11
+  store i64 %.sroa.014.0.insert.insert, ptr %113, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %100, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !18
   %114 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 %.056, ptr %114, align 8, !tbaa !617
   %115 = and i32 %.sroa.8.1, 255
@@ -31674,15 +31675,16 @@ _ZN10duckdb_fmt2v68internal6bufferIcE9push_backERKc.exit: ; preds = %70
   %106 = load ptr, ptr %64, align 8, !tbaa !17
   %107 = load i64, ptr %66, align 8, !tbaa !8
   %108 = trunc i64 %107 to i32
+  %.sroa.014.0.insert.ext = zext i32 %spec.select80 to i64
+  %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift22, %.sroa.014.0.insert.ext
   store ptr %106, ptr %8, align 8, !tbaa !611
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %108, ptr %109, align 8, !tbaa !615
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %100, ptr %110, align 4, !tbaa !616
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %spec.select80, ptr %111, align 8, !tbaa !11
+  store i64 %.sroa.014.0.insert.insert, ptr %111, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %99, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !18
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 %.056, ptr %112, align 8, !tbaa !617
   %113 = and i32 %.sroa.8.1, 255
@@ -31956,6 +31958,7 @@ _ZN10duckdb_fmt2v68internal6bufferIcE9push_backERKc.exit: ; preds = %70
   %spec.select80 = add nsw i32 %96, %98
   %99 = and i32 %.sroa.8.1, -268435457
   %.sroa.8.0.insert.ext21 = zext i32 %99 to i64
+  %.sroa.8.0.insert.shift22 = shl nuw i64 %.sroa.8.0.insert.ext21, 32
   %100 = fcmp ugt x86_fp80 %.0, 0xK00000000000000000000
   br i1 %100, label %111, label %101
 
@@ -31994,7 +31997,6 @@ _ZSt20uninitialized_fill_nIPcicET_S1_T0_RKT1_.exit.i: ; preds = %._ZSt20uninitia
   br label %116
 
 111:                                              ; preds = %89
-  %.sroa.8.0.insert.shift22 = shl nuw i64 %.sroa.8.0.insert.ext21, 32
   %.sroa.014.0.insert.ext15 = and i64 %9, 4294967295
   %.sroa.014.0.insert.insert17 = or disjoint i64 %.sroa.8.0.insert.shift22, %.sroa.014.0.insert.ext15
   %112 = invoke noundef i32 @_ZN10duckdb_fmt2v68internal14snprintf_floatIeEEiT_iNS1_11float_specsERNS1_6bufferIcEE(x86_fp80 noundef %.0, i32 noundef %spec.select80, i64 %.sroa.014.0.insert.insert17, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -32019,15 +32021,16 @@ _ZSt20uninitialized_fill_nIPcicET_S1_T0_RKT1_.exit.i: ; preds = %._ZSt20uninitia
   %120 = icmp eq i32 %119, 3014656
   %.056 = select i1 %120, i8 44, i8 46
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #25
+  %.sroa.014.0.insert.ext = zext i32 %spec.select80 to i64
+  %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift22, %.sroa.014.0.insert.ext
   store ptr %118, ptr %8, align 8, !tbaa !611
   %121 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %117, ptr %121, align 8, !tbaa !615
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %.0.i, ptr %122, align 4, !tbaa !616
   %123 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %spec.select80, ptr %123, align 8, !tbaa !11
+  store i64 %.sroa.014.0.insert.insert, ptr %123, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %99, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !18
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 %.056, ptr %124, align 8, !tbaa !617
   %125 = and i32 %.sroa.8.1, 255
@@ -65731,15 +65734,16 @@ _ZN10duckdb_fmt2v68internal6bufferIcE9push_backERKc.exit: ; preds = %71
   %109 = load ptr, ptr %65, align 8, !tbaa !17
   %110 = load i64, ptr %67, align 8, !tbaa !8
   %111 = trunc i64 %110 to i32
+  %.sroa.014.0.insert.ext = zext i32 %spec.select80 to i64
+  %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift22, %.sroa.014.0.insert.ext
   store ptr %109, ptr %8, align 8, !tbaa !1183
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %111, ptr %112, align 8, !tbaa !1185
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %103, ptr %113, align 4, !tbaa !1186
   %114 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %spec.select80, ptr %114, align 8, !tbaa !11
+  store i64 %.sroa.014.0.insert.insert, ptr %114, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %101, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !18
   %115 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %.056, ptr %115, align 8, !tbaa !1187
   %116 = and i32 %.sroa.8.1, 255
@@ -67554,15 +67558,16 @@ _ZN10duckdb_fmt2v68internal6bufferIcE9push_backERKc.exit: ; preds = %71
   %107 = load ptr, ptr %65, align 8, !tbaa !17
   %108 = load i64, ptr %67, align 8, !tbaa !8
   %109 = trunc i64 %108 to i32
+  %.sroa.014.0.insert.ext = zext i32 %spec.select80 to i64
+  %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift22, %.sroa.014.0.insert.ext
   store ptr %107, ptr %8, align 8, !tbaa !1183
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %109, ptr %110, align 8, !tbaa !1185
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %101, ptr %111, align 4, !tbaa !1186
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %spec.select80, ptr %112, align 8, !tbaa !11
+  store i64 %.sroa.014.0.insert.insert, ptr %112, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %100, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !18
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %.056, ptr %113, align 8, !tbaa !1187
   %114 = and i32 %.sroa.8.1, 255
@@ -67837,6 +67842,7 @@ _ZN10duckdb_fmt2v68internal6bufferIcE9push_backERKc.exit: ; preds = %71
   %spec.select80 = add nsw i32 %97, %99
   %100 = and i32 %.sroa.8.1, -268435457
   %.sroa.8.0.insert.ext21 = zext i32 %100 to i64
+  %.sroa.8.0.insert.shift22 = shl nuw i64 %.sroa.8.0.insert.ext21, 32
   %101 = fcmp ugt x86_fp80 %.0, 0xK00000000000000000000
   br i1 %101, label %112, label %102
 
@@ -67875,7 +67881,6 @@ _ZSt20uninitialized_fill_nIPcicET_S1_T0_RKT1_.exit.i: ; preds = %._ZSt20uninitia
   br label %117
 
 112:                                              ; preds = %90
-  %.sroa.8.0.insert.shift22 = shl nuw i64 %.sroa.8.0.insert.ext21, 32
   %.sroa.014.0.insert.ext15 = and i64 %9, 4294967295
   %.sroa.014.0.insert.insert17 = or disjoint i64 %.sroa.8.0.insert.shift22, %.sroa.014.0.insert.ext15
   %113 = invoke noundef i32 @_ZN10duckdb_fmt2v68internal14snprintf_floatIeEEiT_iNS1_11float_specsERNS1_6bufferIcEE(x86_fp80 noundef %.0, i32 noundef %spec.select80, i64 %.sroa.014.0.insert.insert17, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -67900,15 +67905,16 @@ _ZSt20uninitialized_fill_nIPcicET_S1_T0_RKT1_.exit.i: ; preds = %._ZSt20uninitia
   %121 = icmp eq i32 %120, 3014656
   %.056 = select i1 %121, i32 44, i32 46
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #25
+  %.sroa.014.0.insert.ext = zext i32 %spec.select80 to i64
+  %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift22, %.sroa.014.0.insert.ext
   store ptr %119, ptr %8, align 8, !tbaa !1183
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %118, ptr %122, align 8, !tbaa !1185
   %123 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %.0.i, ptr %123, align 4, !tbaa !1186
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %spec.select80, ptr %124, align 8, !tbaa !11
+  store i64 %.sroa.014.0.insert.insert, ptr %124, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %100, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !18
   %125 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %.056, ptr %125, align 8, !tbaa !1187
   %126 = and i32 %.sroa.8.1, 255

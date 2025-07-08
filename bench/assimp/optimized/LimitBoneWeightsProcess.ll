@@ -969,20 +969,17 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN6Assimp23LimitBoneWeightsProc
   %44 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.0.lcssa.i.i.i.i
   %45 = load i64, ptr %43, align 4
   store i64 %45, ptr %44, align 4
-  %.sroa.2.0.extract.shift.i.i11.i.i.i = lshr i64 %.sroa.01.0.copyload.i.i.i, 32
-  %.sroa.2.0.extract.trunc.i.i12.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i11.i.i.i to i32
   br label %.lr.ph.i.i.preheader.i.i.i
 
 46:                                               ; preds = %37, %._crit_edge.i.i.i.i
-  %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.01.0.copyload.i.i.i, 32
-  %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i.i.i to i32
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_RT0_.exit.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %46, %.thread.i.i.i
-  %.sroa.2.0.extract.trunc.i.i15.i.i.i = phi i32 [ %.sroa.2.0.extract.trunc.i.i12.i.i.i, %.thread.i.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %46 ]
   %.1.i14.i.i.i = phi i64 [ %42, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %46 ]
-  %47 = bitcast i32 %.sroa.2.0.extract.trunc.i.i15.i.i.i to float
+  %.in.in.i.i.i = lshr i64 %.sroa.01.0.copyload.i.i.i, 32
+  %.in.i.i.i = trunc nuw i64 %.in.in.i.i.i to i32
+  %47 = bitcast i32 %.in.i.i.i to float
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %52, %.lr.ph.i.i.preheader.i.i.i
@@ -1003,13 +1000,9 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN6Assimp23LimitBoneWeightsProc
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !19
 
 _ZSt10__pop_heapIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_RT0_.exit.i.i: ; preds = %52, %.lr.ph.i.i.i.i.i, %46
-  %.sroa.2.0.extract.trunc.i.i16.i.i.i = phi i32 [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %46 ], [ %.sroa.2.0.extract.trunc.i.i15.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.2.0.extract.trunc.i.i15.i.i.i, %52 ]
-  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %46 ], [ 0, %52 ], [ %.01318.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.01.0.copyload.i.i.i to i32
+  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %46 ], [ %.01318.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %52 ]
   %55 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i32 %.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %55, align 4
-  %.sroa_idx14.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i32 %.sroa.2.0.extract.trunc.i.i16.i.i.i, ptr %.sroa_idx14.i.i.i.i.i, align 4
+  store i64 %.sroa.01.0.copyload.i.i.i, ptr %55, align 4
   %56 = icmp sgt i64 %19, 8
   br i1 %56, label %15, label %_ZSt14__partial_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_.exit, !llvm.loop !20
 
@@ -1320,12 +1313,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN6Assimp23LimitBoneWeightsProcess6W
   %20 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.013.us
   %.sroa.01.0.copyload.us = load i64, ptr %20, align 4
   %21 = icmp slt i64 %.013.us, %13
-  br i1 %21, label %.lr.ph.i.us, label %._crit_edge.i.us.thread
-
-._crit_edge.i.us.thread:                          ; preds = %.split.us
-  %.sroa.2.0.extract.shift.i.i.us18 = lshr i64 %.sroa.01.0.copyload.us, 32
-  %.sroa.2.0.extract.trunc.i.i.us19 = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.us18 to i32
-  br label %_ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit.us
+  br i1 %21, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit.us
 
 .lr.ph.i.us:                                      ; preds = %.split.us, %.lr.ph.i.us
   %.029.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.us ], [ %.013.us, %.split.us ]
@@ -1369,14 +1357,10 @@ define linkonce_odr void @_ZSt11__make_heapIPN6Assimp23LimitBoneWeightsProcess6W
   %42 = icmp sgt i64 %.019.i.i.us, %.013.us
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit.us, !llvm.loop !19
 
-_ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %._crit_edge.i.us.thread, %._crit_edge.i.us
-  %.sroa.2.0.extract.trunc.i.i.us20 = phi i32 [ %.sroa.2.0.extract.trunc.i.i.us, %._crit_edge.i.us ], [ %.sroa.2.0.extract.trunc.i.i.us19, %._crit_edge.i.us.thread ], [ %.sroa.2.0.extract.trunc.i.i.us, %39 ], [ %.sroa.2.0.extract.trunc.i.i.us, %.lr.ph.i.i.us ]
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %._crit_edge.i.us.thread ], [ %.01318.i.i.us, %.lr.ph.i.i.us ], [ %.019.i.i.us, %39 ]
-  %.sroa.0.0.extract.trunc.i.i.us = trunc i64 %.sroa.01.0.copyload.us to i32
+_ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.019.i.i.us, %39 ], [ %.01318.i.i.us, %.lr.ph.i.i.us ]
   %43 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.013.lcssa.i.i.us
-  store i32 %.sroa.0.0.extract.trunc.i.i.us, ptr %43, align 4
-  %.sroa_idx14.i.i.us = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store i32 %.sroa.2.0.extract.trunc.i.i.us20, ptr %.sroa_idx14.i.i.us, align 4
+  store i64 %.sroa.01.0.copyload.us, ptr %43, align 4
   %.not.us = icmp eq i64 %.013.us, 0
   %44 = add nsw i64 %.013.us, -1
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !28
@@ -1443,11 +1427,8 @@ _ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__
 
 _ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit: ; preds = %.lr.ph.i.i, %68, %61
   %.013.lcssa.i.i = phi i64 [ %.1.i, %61 ], [ %.019.i.i, %68 ], [ %.01318.i.i, %.lr.ph.i.i ]
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.01.0.copyload to i32
   %72 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.013.lcssa.i.i
-  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %72, align 4
-  %.sroa_idx14.i.i = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa_idx14.i.i, align 4
+  store i64 %.sroa.01.0.copyload, ptr %72, align 4
   %.not = icmp eq i64 %.013, 0
   %73 = add nsw i64 %.013, -1
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !28

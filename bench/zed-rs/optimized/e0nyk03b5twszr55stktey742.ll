@@ -19764,10 +19764,9 @@ default.unreachable50:                            ; preds = %20, %3
   %.sroa.5.8.extract.trunc.i = trunc i64 %30 to i8
   %.sroa.5.9.extract.shift.i = lshr i64 %30, 8
   %.sroa.5.9.extract.trunc.i = trunc i64 %.sroa.5.9.extract.shift.i to i8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 416
-  store i8 %.sroa.5.8.extract.trunc.i, ptr %31, align 8, !alias.scope !4097, !noalias !4100
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 417
-  store i8 %.sroa.5.9.extract.trunc.i, ptr %32, align 1, !alias.scope !4097, !noalias !4100
+  %31 = trunc i64 %30 to i16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 416
+  store i16 %31, ptr %32, align 8, !alias.scope !4097, !noalias !4100
   store ptr null, ptr %25, align 8, !alias.scope !4097, !noalias !4100
   %33 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h37fa8adff5230395E"(i8 noundef range(i8 0, 7) %.sroa.5.8.extract.trunc.i, i8 %.sroa.5.9.extract.trunc.i)
           to label %164 unwind label %34, !noalias !4102
