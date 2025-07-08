@@ -5482,7 +5482,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_frames(ptr noundef %0
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 156
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 180
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %22 = load i32, ptr %10, align 8, !tbaa !384
@@ -5840,7 +5840,7 @@ av_ts_make_string.exit.i:                         ; preds = %130, %129
 
 173:                                              ; preds = %172
   store i32 25, ptr %4, align 8, !tbaa !118
-  store i32 1, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !tbaa !118
+  store i32 1, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !tbaa !118
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %85, i32 noundef 24, ptr noundef nonnull @.str.144) #17
   %.pre = load i32, ptr %94, align 4, !tbaa !396
   br label %174
@@ -5911,7 +5911,7 @@ av_ts_make_string.exit.i:                         ; preds = %130, %129
   %210 = sext i32 %207 to i64
   %211 = sext i32 %206 to i64
   %212 = sext i32 %208 to i64
-  %213 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %.sroa.2.0..sroa_idx.i.i, i64 noundef %210, i64 noundef %211, i64 noundef %212) #17
+  %213 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %.sroa.5.0..sroa_idx.i.i, i64 noundef %210, i64 noundef %211, i64 noundef %212) #17
   br label %214
 
 214:                                              ; preds = %209, %205, %189

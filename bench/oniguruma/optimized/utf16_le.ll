@@ -123,7 +123,7 @@ define internal range(i32 2, 5) i32 @utf16le_code_to_mbc(i32 noundef %0, ptr nou
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %12, ptr %1, align 1, !tbaa !4
   %14 = lshr i32 %6, 2
-  %15 = trunc i32 %14 to i8
+  %16 = trunc i32 %14 to i8
   %16 = add i8 %15, -40
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %16, ptr %13, align 1, !tbaa !4
@@ -141,7 +141,7 @@ define internal range(i32 2, 5) i32 @utf16le_code_to_mbc(i32 noundef %0, ptr nou
   store i16 %24, ptr %1, align 1
   br label %25
 
-25:                                               ; preds = %23, %4
+25:; preds = %23, %4
   %.0 = phi i32 [ 4, %4 ], [ 2, %23 ]
   ret i32 %.0
 }

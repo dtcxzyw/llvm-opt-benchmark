@@ -60,7 +60,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305Final(ptr noundef captures(address_is_
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %83, label %5
+  br i1 %or.cond, label %124, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -161,9 +161,9 @@ define range(i32 -173, 1) i32 @wc_Poly1305Final(ptr noundef captures(address_is_
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %81, ptr %82, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
-  br label %83
+  br label %124
 
-83:                                               ; preds = %2, %15
+124:                                              ; preds = %2, %15
   %.0100 = phi i32 [ 0, %15 ], [ -173, %2 ]
   ret i32 %.0100
 }

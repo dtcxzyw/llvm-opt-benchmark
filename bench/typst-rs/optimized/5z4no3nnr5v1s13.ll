@@ -9853,7 +9853,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h46c7
   %17 = icmp samesign ult i64 %indvars.iv, 64
   br i1 %17, label %19, label %24, !prof !29
 
-18:                                               ; preds = %39, %71, %80, %53, %._crit_edge
+18:                                               ; preds = %39, %71, %79, %53, %._crit_edge
   ret void
 
 19:                                               ; preds = %16
@@ -9955,7 +9955,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h46c7
   %61 = tail call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %27, i16 %7)
   %62 = extractvalue { i16, i1 } %61, 0
   %63 = extractvalue { i16, i1 } %61, 1
-  br i1 %63, label %73, label %.thread133
+  br i1 %63, label %72, label %.thread133
 
 64:                                               ; preds = %56
   %65 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6a68132a218671f8E"(i64 noundef 20, i1 noundef zeroext false)
@@ -9976,30 +9976,30 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h46c7
 
 71:                                               ; preds = %64
   store i64 %66, ptr %0, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %69, ptr %72, align 8
+  %.sroa.299.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %69, ptr %.sroa.299.0..sroa_idx, align 8
   %.sroa.4101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 20, ptr %.sroa.4101.0..sroa_idx, align 8
   br label %18
 
-73:                                               ; preds = %60
-  %74 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6a68132a218671f8E"(i64 noundef 20, i1 noundef zeroext false)
-  %75 = extractvalue { i64, ptr } %74, 0
-  %76 = extractvalue { i64, ptr } %74, 1
-  %77 = icmp ne ptr %76, null
-  tail call void @llvm.assume(i1 %77)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %76, ptr noundef nonnull align 1 dereferenceable(20) @anon.53fe85e3a453dfbf0ab1e8743506e67c.132, i64 20, i1 false)
-  %78 = ptrtoint ptr %76 to i64
-  %.sroa.464.0.extract.trunc = trunc i64 %78 to i16
-  %79 = icmp eq i64 %75, -9223372036854775805
-  br i1 %79, label %.thread133, label %80
+72:                                               ; preds = %60
+  %73 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6a68132a218671f8E"(i64 noundef 20, i1 noundef zeroext false)
+  %74 = extractvalue { i64, ptr } %73, 0
+  %75 = extractvalue { i64, ptr } %73, 1
+  %76 = icmp ne ptr %75, null
+  tail call void @llvm.assume(i1 %76)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %75, ptr noundef nonnull align 1 dereferenceable(20) @anon.53fe85e3a453dfbf0ab1e8743506e67c.132, i64 20, i1 false)
+  %77 = ptrtoint ptr %75 to i64
+  %.sroa.464.0.extract.trunc = trunc i64 %77 to i16
+  %78 = icmp eq i64 %74, -9223372036854775805
+  br i1 %78, label %.thread133, label %79
 
-.thread133:                                       ; preds = %60, %73
+.thread133:                                       ; preds = %60, %72
   %.sroa.6.0139 = phi i16 [ %.sroa.464.0.extract.trunc, %73 ], [ %62, %60 ]
   store i16 %.sroa.6.0139, ptr %26, align 2
   br label %44
 
-80:                                               ; preds = %73
+79:                                               ; preds = %72
   store i64 %75, ptr %0, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %78, ptr %81, align 8

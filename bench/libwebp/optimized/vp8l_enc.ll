@@ -3217,7 +3217,7 @@ define internal fastcc i32 @WriteImage(ptr noundef nonnull %0, ptr noundef nonnu
 
 26:                                               ; preds = %3
   %27 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 1) #8
-  br label %49
+  br label %67
 
 28:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4) #8
@@ -3229,50 +3229,50 @@ define internal fastcc i32 @WriteImage(ptr noundef nonnull %0, ptr noundef nonnu
   %32 = trunc i64 %20 to i32
   store i32 %32, ptr %31, align 16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %34 = load ptr, ptr %33, align 8, !tbaa !147
+  %34 = load ptr, ptr %33, align 8, !tbaa !165
   %35 = call i32 %34(ptr noundef nonnull %4, i64 noundef 21, ptr noundef nonnull %0) #8
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %4) #8
   %.not25 = icmp eq i32 %35, 0
-  br i1 %.not25, label %39, label %36
+  br i1 %.not25, label %57, label %54
 
-36:                                               ; preds = %28
-  %37 = load ptr, ptr %33, align 8, !tbaa !147
-  %38 = call i32 %37(ptr noundef %6, i64 noundef %19, ptr noundef nonnull %0) #8
-  %.not26 = icmp eq i32 %38, 0
-  br i1 %.not26, label %39, label %41
+54:                                               ; preds = %28
+  %55 = load ptr, ptr %33, align 8, !tbaa !147
+  %56 = call i32 %37(ptr noundef %6, i64 noundef %19, ptr noundef nonnull %0) #8
+  %.not26 = icmp eq i32 %56, 0
+  br i1 %.not26, label %57, label %59
 
-39:                                               ; preds = %36, %28
-  %40 = call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 8) #8
-  br label %49
+57:                                               ; preds = %54, %28
+  %58 = call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 8) #8
+  br label %67
 
-41:                                               ; preds = %36
+59:                                               ; preds = %54
   %.not27 = icmp eq i64 %21, 0
-  br i1 %.not27, label %47, label %42
+  br i1 %.not27, label %65, label %60
 
-42:                                               ; preds = %41
+60:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #8
   store i8 0, ptr %5, align 1
-  %43 = load ptr, ptr %33, align 8, !tbaa !147
-  %44 = call i32 %43(ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull %0) #8
-  %.not28.not = icmp eq i32 %44, 0
-  br i1 %.not28.not, label %.thread, label %46
+  %61 = load ptr, ptr %33, align 8, !tbaa !147
+  %62 = call i32 %43(ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull %0) #8
+  %.not28.not = icmp eq i32 %62, 0
+  br i1 %.not28.not, label %.thread, label %64
 
-.thread:                                          ; preds = %42
-  %45 = call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 8) #8
+.thread:                                          ; preds = %60
+  %63 = call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 8) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #8
-  br label %49
+  br label %67
 
-46:                                               ; preds = %42
+64:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #8
-  br label %47
+  br label %65
 
-47:                                               ; preds = %46, %41
-  %48 = add i64 %23, 8
-  store i64 %48, ptr %2, align 8, !tbaa !40
-  br label %49
+65:                                               ; preds = %64, %59
+  %66 = add i64 %23, 8
+  store i64 %66, ptr %2, align 8, !tbaa !40
+  br label %67
 
-49:                                               ; preds = %.thread, %47, %39, %26
-  %.024 = phi i32 [ %27, %26 ], [ 1, %47 ], [ %40, %39 ], [ %45, %.thread ]
+67:                                               ; preds = %.thread, %65, %57, %26
+  %.024 = phi i32 [ %27, %26 ], [ 1, %47 ], [ %58, %39 ], [ %63, %.thread ]
   ret i32 %.024
 }
 

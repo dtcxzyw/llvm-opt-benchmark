@@ -3524,7 +3524,7 @@ define internal range(i32 -1, 1) i32 @H5EA__cache_dblk_page_serialize(ptr readno
   store i32 %39, ptr %38, align 1
   br label %40
 
-40:                                               ; preds = %26, %30, %4
+40:; preds = %26, %30, %4
   %.0 = phi i32 [ -1, %26 ], [ 0, %30 ], [ 0, %4 ]
   ret i32 %.0
 }

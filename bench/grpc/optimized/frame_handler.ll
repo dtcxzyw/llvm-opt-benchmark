@@ -76,7 +76,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit: ; pr
   store i32 6, ptr %20, align 1
   br label %21
 
-21:                                               ; preds = %11, %14, %3
+21:; preds = %11, %14, %3
   %.0 = phi i1 [ false, %3 ], [ true, %14 ], [ false, %11 ]
   ret i1 %.0
 }

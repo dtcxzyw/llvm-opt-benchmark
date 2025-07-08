@@ -2542,18 +2542,18 @@ define void @_ZN5folly11IPAddressV614AddressStorageC2ENS_10MacAddressE(ptr nound
   store i8 %3, ptr %4, align 4, !tbaa !9
   %5 = lshr i64 %1, 24
   %6 = trunc i64 %5 to i16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i16 %6, ptr %7, align 1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 -1, ptr %8, align 1, !tbaa !9
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 -2, ptr %9, align 4, !tbaa !9
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %.sroa.4.0.extract.trunc, ptr %10, align 1, !tbaa !9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %.sroa.5.0.extract.trunc, ptr %11, align 2, !tbaa !9
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 %.sroa.6.0.extract.trunc, ptr %12, align 1, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i16 %6, ptr %6, align 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  store i8 -1, ptr %7, align 1, !tbaa !9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 -2, ptr %8, align 4, !tbaa !9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store i8 %.sroa.4.0.extract.trunc, ptr %9, align 1, !tbaa !9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i8 %.sroa.5.0.extract.trunc, ptr %10, align 2, !tbaa !9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  store i8 %.sroa.6.0.extract.trunc, ptr %11, align 1, !tbaa !9
   ret void
 }
 

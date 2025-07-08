@@ -629,7 +629,7 @@ define internal i32 @archive_compressor_xz_close(ptr noundef readonly captures(n
   %38 = tail call i32 @__archive_write_filter(ptr noundef %36, ptr noundef %37, i64 noundef 20) #13
   br label %39
 
-39:                                               ; preds = %6, %24, %1
+39: ; preds = %6, %24, %1
   %.0 = phi i32 [ %38, %24 ], [ %19, %6 ], [ %4, %1 ]
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @lzma_end(ptr noundef nonnull %40) #13

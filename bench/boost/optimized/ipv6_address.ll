@@ -134,8 +134,8 @@ define void @_ZN5boost4urls12ipv6_addressC2ERKNS0_12ipv4_addressE(ptr noundef no
   store i8 -1, ptr %.sroa.13.0..sroa_idx, align 1
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 11
   store i8 -1, ptr %.sroa.14.0..sroa_idx, align 1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %3, ptr %4, align 1
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %3, ptr %.sroa.15.0..sroa_idx, align 1
   ret void
 }
 

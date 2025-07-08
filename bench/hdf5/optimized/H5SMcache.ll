@@ -907,7 +907,7 @@ define internal range(i32 -1, 1) i32 @H5SM__cache_list_serialize(ptr noundef %0,
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %57, i8 0, i64 %62, i1 false)
   br label %63
 
-63:                                               ; preds = %32, %.critedge, %4
+63:; preds = %32, %.critedge, %4
   %.0 = phi i32 [ -1, %32 ], [ 0, %.critedge ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
   ret i32 %.0

@@ -2934,7 +2934,7 @@ define dso_local void @pfcountCommand(ptr noundef %0) local_unnamed_addr #5 {
 
 .thread:                                          ; preds = %18, %23, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 16400, ptr nonnull %2) #20
-  br label %87
+  br label %107
 
 29:                                               ; preds = %1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2950,12 +2950,12 @@ define dso_local void @pfcountCommand(ptr noundef %0) local_unnamed_addr #5 {
 38:                                               ; preds = %29
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !85
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %39) #20
-  br label %87
+  br label %107
 
 40:                                               ; preds = %29
   %41 = tail call i32 @isHLLObjectOrReply(ptr noundef nonnull %0, ptr noundef nonnull %36)
   %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %42, label %87
+  br i1 %.not, label %42, label %107
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %30, align 8, !tbaa !66
@@ -2970,7 +2970,7 @@ define dso_local void @pfcountCommand(ptr noundef %0) local_unnamed_addr #5 {
   %52 = icmp sgt i8 %51, -1
   br i1 %52, label %53, label %75
 
-53:                                               ; preds = %42
+54:                                               ; preds = %42
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %55 = load i32, ptr %54, align 1
   %56 = zext i32 %55 to i64
@@ -2992,7 +2992,7 @@ define dso_local void @pfcountCommand(ptr noundef %0) local_unnamed_addr #5 {
   %72 = or disjoint i64 %71, %60
   %73 = or disjoint i64 %72, %64
   %74 = or disjoint i64 %73, %68
-  br label %86
+  br label %106
 
 75:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
@@ -3000,7 +3000,7 @@ define dso_local void @pfcountCommand(ptr noundef %0) local_unnamed_addr #5 {
   %76 = call i64 @hllCount(ptr noundef nonnull %49, ptr noundef nonnull %3)
   %77 = load i32, ptr %3, align 4, !tbaa !12
   %.not70 = icmp eq i32 %77, 0
-  br i1 %.not70, label %.thread73, label %85
+  br i1 %.not70, label %.thread73, label %105
 
 .thread73:                                        ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -3014,19 +3014,19 @@ define dso_local void @pfcountCommand(ptr noundef %0) local_unnamed_addr #5 {
   %84 = add nsw i64 %83, 1
   store i64 %84, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
-  br label %86
+  br label %106
 
-85:                                               ; preds = %75
+105:                                              ; preds = %75
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
-  br label %87
+  br label %107
 
-86:                                               ; preds = %.thread73, %53
+106:                                              ; preds = %.thread73, %54
   %.067 = phi i64 [ %74, %53 ], [ %76, %.thread73 ]
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.067) #20
-  br label %87
+  br label %107
 
-87:                                               ; preds = %85, %38, %86, %40, %.thread
+107:                                              ; preds = %105, %38, %106, %40, %.thread
   ret void
 }
 

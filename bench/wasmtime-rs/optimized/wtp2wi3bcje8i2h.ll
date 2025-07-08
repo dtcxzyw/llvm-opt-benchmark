@@ -193,19 +193,19 @@ define i48 @"_ZN4core6option15Option$LT$T$GT$6filter17h63526039e81cfa11E"(i48 %0
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
-  %6 = lshr i48 %0, 16
-  %7 = trunc nuw i48 %6 to i32
-  store i32 %7, ptr %2, align 4
+  %.sroa.36.0.extract.shift = lshr i48 %0, 16
+  %.sroa.36.0.extract.trunc = trunc nuw i48 %.sroa.36.0.extract.shift to i32
+  store i32 %.sroa.36.0.extract.trunc, ptr %2, align 4
   %8 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set28_$u7b$$u7b$closure$u7d$$u7d$17h5574a22993f65a00E"(ptr nonnull align 2 %2)
   br i1 %8, label %9, label %13
 
-9:                                                ; preds = %5
+9:  ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %11 = load i16, ptr %2, align 4, !noundef !3
   %12 = load i16, ptr %10, align 2, !noundef !3
   br label %13
 
-13:                                               ; preds = %1, %5, %9
+13:; preds = %1, %5, %9
   %.sroa.07.0 = phi i16 [ 1, %9 ], [ 0, %5 ], [ 0, %1 ]
   %.sroa.38.0 = phi i16 [ %11, %9 ], [ undef, %5 ], [ undef, %1 ]
   %.sroa.4.0 = phi i16 [ %12, %9 ], [ undef, %5 ], [ undef, %1 ]

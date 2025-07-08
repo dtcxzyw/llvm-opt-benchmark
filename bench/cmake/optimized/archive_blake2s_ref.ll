@@ -1474,19 +1474,19 @@ define dso_local range(i32 -1, 1) i32 @blake2s_final(ptr noundef captures(none) 
   %4 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %33, label %6
+  br i1 %5, label %50, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load i64, ptr %7, align 8, !tbaa !13
   %9 = icmp ult i64 %2, %8
-  br i1 %9, label %33, label %10
+  br i1 %9, label %50, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr i8, ptr %0, i64 40
   %.val = load i32, ptr %11, align 8, !tbaa !4
   %.not22 = icmp eq i32 %.val, 0
-  br i1 %.not22, label %12, label %33
+  br i1 %.not22, label %12, label %50
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1521,11 +1521,11 @@ blake2s_set_lastblock.exit:                       ; preds = %12, %26
   tail call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 16 %4, i64 %2, i1 false)
-  %31 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8, !tbaa !20
-  %32 = call ptr %31(ptr noundef nonnull %4, i32 noundef 0, i64 noundef 32) #7
-  br label %33
+  %48 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8, !tbaa !20
+  %49 = call ptr %31(ptr noundef nonnull %4, i32 noundef 0, i64 noundef 32) #7
+  br label %50
 
-33:                                               ; preds = %10, %3, %6, %blake2s_set_lastblock.exit
+50:                                               ; preds = %10, %3, %6, %blake2s_set_lastblock.exit
   %.019 = phi i32 [ 0, %blake2s_set_lastblock.exit ], [ -1, %6 ], [ -1, %3 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
   ret i32 %.019
@@ -1544,7 +1544,7 @@ define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly captures(ad
   %or.cond = and i1 %12, %13
   %14 = icmp eq ptr %0, null
   %or.cond25 = or i1 %14, %or.cond
-  br i1 %or.cond25, label %120, label %15
+  br i1 %or.cond25, label %137, label %15
 
 15:                                               ; preds = %6
   %16 = icmp eq ptr %4, null
@@ -1555,7 +1555,7 @@ define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly captures(ad
   %or.cond26 = or i1 %or.cond5, %or.cond3
   %19 = icmp ugt i64 %5, 32
   %or.cond27 = or i1 %19, %or.cond26
-  br i1 %or.cond27, label %120, label %20
+  br i1 %or.cond27, label %137, label %20
 
 20:                                               ; preds = %15
   br i1 %17, label %21, label %47
@@ -1566,7 +1566,7 @@ define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly captures(ad
 
 blake2s_init_key.exit.thread:                     ; preds = %21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #7
-  br label %120
+  br label %137
 
 22:                                               ; preds = %21
   %23 = trunc nuw nsw i64 %1 to i8
@@ -1761,15 +1761,15 @@ blake2s_set_lastblock.exit.i:                     ; preds = %113, %101
   call fastcc void @blake2s_compress(ptr noundef nonnull %11, ptr noundef nonnull %115)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 16 %7, i64 %1, i1 false)
-  %118 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8, !tbaa !20
-  %119 = call ptr %118(ptr noundef nonnull %7, i32 noundef 0, i64 noundef 32) #7
+  %135 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8, !tbaa !20
+  %136 = call ptr %118(ptr noundef nonnull %7, i32 noundef 0, i64 noundef 32) #7
   br label %blake2s_final.exit
 
 blake2s_final.exit:                               ; preds = %.loopexit, %98, %blake2s_set_lastblock.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
-  br label %120
+  br label %137
 
-120:                                              ; preds = %blake2s_init_key.exit.thread, %15, %6, %blake2s_final.exit
+137:                                              ; preds = %blake2s_init_key.exit.thread, %15, %6, %blake2s_final.exit
   %.0 = phi i32 [ 0, %blake2s_final.exit ], [ -1, %6 ], [ -1, %15 ], [ -1, %blake2s_init_key.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %11) #7
   ret i32 %.0

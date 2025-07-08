@@ -5550,10 +5550,10 @@ define internal fastcc void @FindAndDropRelationBuffers(i64 %0, i32 %1, i32 noun
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  br label %17
+  br label %18
 
-17:                                               ; preds = %.lr.ph, %52
-  %.024 = phi i32 [ %4, %.lr.ph ], [ %53, %52 ]
+18:                                               ; preds = %.lr.ph, %53
+  %.024 = phi i32 [ %4, %.lr.ph ], [ %54, %52 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #16
   store i64 %0, ptr %7, align 8
   store i32 %1, ptr %9, align 8
@@ -5582,28 +5582,28 @@ define internal fastcc void @FindAndDropRelationBuffers(i64 %0, i32 %1, i32 noun
   store ptr @.str.3, ptr %14, align 8
   store i32 5707, ptr %15, align 8
   store ptr @__func__.LockBufHdr, ptr %16, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = atomicrmw or ptr %31, i32 4194304 seq_cst, align 4
-  %33 = and i32 %32, 4194304
-  %.not2.i = icmp eq i32 %33, 0
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %33 = atomicrmw or ptr %32, i32 4194304 seq_cst, align 4
+  %34 = and i32 %33, 4194304
+  %.not2.i = icmp eq i32 %34, 0
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
   call void @perform_spin_delay(ptr noundef nonnull %6) #16
-  %34 = atomicrmw or ptr %31, i32 4194304 seq_cst, align 4
-  %35 = and i32 %34, 4194304
-  %.not.i = icmp eq i32 %35, 0
+  %35 = atomicrmw or ptr %32, i32 4194304 seq_cst, align 4
+  %36 = and i32 %35, 4194304
+  %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %27
-  %.lcssa.i = phi i32 [ %32, %27 ], [ %34, %.lr.ph.i ]
+  %.lcssa.i = phi i32 [ %33, %27 ], [ %35, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
-  %36 = load i32, ptr %30, align 4
-  %37 = icmp eq i32 %36, %.sroa.0.0.extract.trunc
-  br i1 %37, label %38, label %BufTagMatchesRelFileLocator.exit.thread
+  %37 = load i32, ptr %30, align 4
+  %38 = icmp eq i32 %37, %.sroa.0.0.extract.trunc
+  br i1 %38, label %38, label %BufTagMatchesRelFileLocator.exit.thread
 
-38:                                               ; preds = %LockBufHdr.exit
+51:                                               ; preds = %LockBufHdr.exit
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, %.sroa.3.0.extract.trunc
@@ -5627,23 +5627,23 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %38
   %.not = icmp ult i32 %49, %4
   br i1 %.not, label %BufTagMatchesRelFileLocator.exit.thread, label %50
 
-50:                                               ; preds = %47
+BufTagMatchesRelFileLocator.exit.thread:          ; preds = %47
   call fastcc void @InvalidateBuffer(ptr noundef nonnull %30)
   br label %52
 
 BufTagMatchesRelFileLocator.exit.thread:          ; preds = %LockBufHdr.exit, %38, %47, %44, %BufTagMatchesRelFileLocator.exit
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
-  %51 = and i32 %.lcssa.i, -4194305
-  store volatile i32 %51, ptr %31, align 4
-  br label %52
+  %52 = and i32 %.lcssa.i, -4194305
+  store volatile i32 %52, ptr %32, align 4
+  br label %53
 
-52:                                               ; preds = %50, %BufTagMatchesRelFileLocator.exit.thread, %17
+53:                                               ; preds = %50, %BufTagMatchesRelFileLocator.exit.thread, %18
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #16
-  %53 = add i32 %.024, 1
-  %exitcond.not = icmp eq i32 %53, %3
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !34
+  %54 = add i32 %.024, 1
+  %exitcond.not = icmp eq i32 %54, %3
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %52, %5
+._crit_edge:                                      ; preds = %53, %5
   ret void
 }
 

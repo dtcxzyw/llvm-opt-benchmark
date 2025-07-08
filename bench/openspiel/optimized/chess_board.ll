@@ -4900,7 +4900,7 @@ define void @_ZN10open_spiel5chess10ChessBoard10set_squareENS_12chess_common6Squ
   %33 = load ptr, ptr %21, align 8
   %34 = getelementptr inbounds %"class.open_spiel::chess_common::ZobristTable.69", ptr %33, i64 %32
   %sext10 = shl nuw i64 %.sroa.3.0.extract.trunc, 56
-  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %34, align 8
   %36 = ashr exact i64 %sext10, 53
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = load i64, ptr %37, align 8

@@ -342,7 +342,7 @@ define internal zeroext i1 @HIDAPI_DriverStadia_RumbleJoystick(ptr noundef %0, p
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 1, !range !5, !noundef !6
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %17
+  br i1 %9, label %10, label %25
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #9
@@ -355,21 +355,21 @@ define internal zeroext i1 @HIDAPI_DriverStadia_RumbleJoystick(ptr noundef %0, p
   %.not = icmp eq i32 %13, 5
   br i1 %.not, label %16, label %14
 
-14:                                               ; preds = %10
+14: ; preds = %10
   %15 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #9
   br label %16
 
-16:                                               ; preds = %10, %14
+16: ; preds = %10, %14
   %.0 = phi i1 [ %15, %14 ], [ true, %10 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #9
-  br label %19
+  br label %27
 
-17:                                               ; preds = %4
-  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #9
-  br label %19
+25:                                               ; preds = %4
+  %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #9
+  br label %27
 
-19:                                               ; preds = %17, %16
-  %.1 = phi i1 [ %.0, %16 ], [ %18, %17 ]
+27:                                               ; preds = %25, %16
+  %.1 = phi i1 [ %.0, %16 ], [ %26, %17 ]
   ret i1 %.1
 }
 

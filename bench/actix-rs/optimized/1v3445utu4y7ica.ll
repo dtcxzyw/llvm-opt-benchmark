@@ -11433,48 +11433,48 @@ define hidden noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$10try_finish1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %17
+  br label %23
 
-17:                                               ; preds = %.lr.ph, %42
-  %18 = tail call noundef i32 @_ZN6flate23crc3Crc3sum17h7ea9de04926fc2b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-  %19 = load i32, ptr %12, align 8, !noundef !4
+23:                                               ; preds = %.lr.ph, %42
+  %24 = tail call noundef i32 @_ZN6flate23crc3Crc3sum17h7ea9de04926fc2b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  %25 = load i32, ptr %12, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store i32 %18, ptr %2, align 4
-  store i32 %19, ptr %13, align 4
+  store i32 %24, ptr %2, align 4
+  store i32 %25, ptr %13, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1449)
-  %20 = load ptr, ptr %14, align 8, !alias.scope !1449, !noundef !4
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$7get_mut17h1644a275cdccaf31E.exit"
+  %40 = load ptr, ptr %14, align 8, !alias.scope !1449, !noundef !4
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %"_ZN6flate23zio19Writer$LT$W$C$D$GT$7get_mut17h1644a275cdccaf31E.exit"
 
-22:                                               ; preds = %17
+42:                                               ; preds = %23
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e62561108cfc6d712b0bd37578c1a8bd.159.llvm.18201515360013843308) #26, !noalias !1449
   unreachable
 
-"_ZN6flate23zio19Writer$LT$W$C$D$GT$7get_mut17h1644a275cdccaf31E.exit": ; preds = %17
-  %23 = load i64, ptr %8, align 8, !noundef !4
-  %24 = icmp ugt i64 %23, 8
-  br i1 %24, label %41, label %25
+"_ZN6flate23zio19Writer$LT$W$C$D$GT$7get_mut17h1644a275cdccaf31E.exit": ; preds = %23
+  %43 = load i64, ptr %8, align 8, !noundef !4
+  %44 = icmp ugt i64 %43, 8
+  br i1 %44, label %41, label %45
 
 .loopexit:                                        ; preds = %42, %.preheader, %5, %1
   %.0 = phi ptr [ %3, %1 ], [ %6, %5 ], [ null, %.preheader ], [ null, %42 ]
   ret ptr %.0
 
-25:                                               ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$7get_mut17h1644a275cdccaf31E.exit"
-  %26 = sub nuw nsw i64 8, %23
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %23
-  %28 = load i64, ptr %15, align 8, !alias.scope !1452, !noalias !1457, !noundef !4
-  %29 = load i64, ptr %16, align 8, !alias.scope !1452, !noalias !1457, !noundef !4
-  %30 = sub i64 %29, %28
-  %.not.i.i = icmp ugt i64 %26, %30
+45:                                               ; preds = %"_ZN6flate23zio19Writer$LT$W$C$D$GT$7get_mut17h1644a275cdccaf31E.exit"
+  %46 = sub nuw nsw i64 8, %43
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 %43
+  %48 = load i64, ptr %15, align 8, !alias.scope !1452, !noalias !1457, !noundef !4
+  %49 = load i64, ptr %16, align 8, !alias.scope !1452, !noalias !1457, !noundef !4
+  %50 = sub i64 %49, %48
+  %.not.i.i = icmp ugt i64 %46, %50
   br i1 %.not.i.i, label %31, label %32
 
-31:                                               ; preds = %25
+61:                                               ; preds = %25
   tail call void @_ZN5bytes9bytes_mut8BytesMut13reserve_inner17h32ec46cc31f523baE(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %26), !noalias !1457
   %.pre.i.i = load i64, ptr %15, align 8, !alias.scope !1452, !noalias !1457
   %.pre = load ptr, ptr %14, align 8, !alias.scope !1452, !noalias !1457
   br label %32
 
-32:                                               ; preds = %31, %25
+32:; preds = %31, %25
   %33 = phi ptr [ %20, %25 ], [ %.pre, %31 ]
   %34 = phi i64 [ %28, %25 ], [ %.pre.i.i, %31 ]
   %35 = getelementptr inbounds i8, ptr %33, i64 %34
@@ -11500,8 +11500,8 @@ define hidden noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$10try_finish1
   %45 = add i64 %44, %26
   store i64 %45, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %46 = icmp ult i64 %45, 8
-  br i1 %46, label %17, label %.loopexit
+  %66 = icmp ult i64 %45, 8
+  br i1 %66, label %23, label %.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable

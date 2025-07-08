@@ -3196,8 +3196,8 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16le(ptr noundef
   %18 = load i8, ptr %.0272.us.i, align 1, !tbaa !12
   %19 = icmp slt i8 %18, 0
   %spec.select.us.i = select i1 %19, i32 -1, i32 %.0244.us.i
-  %narrow.i = select i1 %19, i8 -3, i8 %18
-  %20 = sext i8 %narrow.i to i16
+  %spec.select.us.i = select i1 %19, i8 -3, i8 %18
+  %20 = sext i8 %spec.select.us.i to i16
   store i16 %20, ptr %.0263.us.i, align 1
   %21 = getelementptr inbounds nuw i8, ptr %.0263.us.i, i64 2
   %.not.us.i = icmp eq i64 %16, 0
@@ -3208,14 +3208,14 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16le(ptr noundef
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %12
-  %22 = phi ptr [ %13, %12 ], [ %.pre, %._crit_edge.i.loopexit ]
+  %26 = phi ptr [ %13, %12 ], [ %.pre, %._crit_edge.i.loopexit ]
   %.026.lcssa.i = phi ptr [ %15, %12 ], [ %21, %._crit_edge.i.loopexit ]
   %.024.lcssa.i = phi i32 [ 0, %12 ], [ %spec.select.us.i, %._crit_edge.i.loopexit ]
-  %23 = ptrtoint ptr %.026.lcssa.i to i64
-  %24 = ptrtoint ptr %22 to i64
-  %25 = sub i64 %23, %24
-  store i64 %25, ptr %5, align 8, !tbaa !4
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
+  %27 = ptrtoint ptr %.026.lcssa.i to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  store i64 %29, ptr %5, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
   store i8 0, ptr %26, align 1, !tbaa !12
   %27 = load ptr, ptr %0, align 8, !tbaa !11
   %28 = load i64, ptr %5, align 8, !tbaa !4
@@ -7218,11 +7218,11 @@ define internal range(i64 0, 5) i64 @unicode_to_utf16be(ptr noundef writeonly ca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal range(i64 0, 5) i64 @unicode_to_utf16le(ptr noundef writeonly captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #19 {
   %4 = icmp ugt i32 %2, 65535
-  br i1 %4, label %5, label %17
+  br i1 %4, label %5, label %24
 
 5:                                                ; preds = %3
   %6 = icmp ult i64 %1, 4
-  br i1 %6, label %21, label %7
+  br i1 %6, label %29, label %7
 
 7:                                                ; preds = %5
   %8 = add i32 %2, 983040
@@ -7238,16 +7238,16 @@ define internal range(i64 0, 5) i64 @unicode_to_utf16le(ptr noundef writeonly ca
   store i16 %16, ptr %13, align 1
   br label %21
 
-17:                                               ; preds = %3
+24:                                               ; preds = %3
   %18 = icmp ult i64 %1, 2
   br i1 %18, label %21, label %19
 
-19:                                               ; preds = %17
+.sink.split:                                      ; preds = %24
   %20 = trunc nuw i32 %2 to i16
   store i16 %20, ptr %0, align 1
   br label %21
 
-21:                                               ; preds = %17, %5, %19, %7
+29:                                               ; preds = %24, %5, %.sink.split, %7
   %.0 = phi i64 [ 4, %7 ], [ 2, %19 ], [ 0, %5 ], [ 0, %17 ]
   ret i64 %.0
 }

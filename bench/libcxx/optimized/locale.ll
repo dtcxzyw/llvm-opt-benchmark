@@ -63571,7 +63571,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNKSt3__115__codecvt_utf16IDsLb1E
 
 35:                                               ; preds = %31
   store i16 %26, ptr %.1, align 1
-  %36 = getelementptr inbounds nuw i8, ptr %.1, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %37 = getelementptr inbounds nuw i8, ptr %.022, i64 2
   %38 = icmp ult ptr %37, %3
   br i1 %38, label %25, label %_ZNSt3__1L15ucs2_to_utf16leEPKtS1_RS1_PhS3_RS3_mNS_12codecvt_modeE.exit, !llvm.loop !466
@@ -63580,8 +63580,8 @@ _ZNSt3__1L15ucs2_to_utf16leEPKtS1_RS1_PhS3_RS3_mNS_12codecvt_modeE.exit: ; preds
   %.123 = phi ptr [ %2, %22 ], [ %2, %14 ], [ %37, %35 ], [ %.022, %31 ], [ %.022, %25 ]
   %.2 = phi ptr [ %.0, %22 ], [ %5, %14 ], [ %36, %35 ], [ %.1, %31 ], [ %.1, %25 ]
   %.023.i = phi i32 [ 0, %22 ], [ 1, %14 ], [ 0, %35 ], [ 1, %31 ], [ 2, %25 ]
-  %39 = ptrtoint ptr %.123 to i64
-  %40 = ptrtoint ptr %2 to i64
+  %43 = ptrtoint ptr %.123 to i64
+  %44 = ptrtoint ptr %2 to i64
   %41 = sub i64 %39, %40
   %42 = getelementptr inbounds i8, ptr %2, i64 %41
   store ptr %42, ptr %4, align 8, !tbaa !420

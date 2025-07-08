@@ -42374,9 +42374,9 @@ define void @"_ZN148_$LT$cranelift_codegen..isa..unwind..systemv..CallFrameInstr
   br label %33
 
 24:                                               ; preds = %2
-  %25 = trunc i64 %.sroa.5.0.extract.shift to i32
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i32 %25, ptr %26, align 2
+  %.sroa.11.4.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i32 %.sroa.11.4.extract.trunc, ptr %25, align 2
   store i16 9, ptr %0, align 8
   br label %33
 
@@ -42510,8 +42510,8 @@ define void @_ZN17cranelift_codegen3isa6unwind7systemv10UnwindInfo6to_fde17hbaf5
     i8 8, label %.thread149
     i8 9, label %56
     i8 10, label %56
-    i8 11, label %.thread166
-    i8 12, label %.thread183
+    i8 11, label %.thread167
+    i8 12, label %.thread184
   ]
 
 default.unreachable:                              ; preds = %21
@@ -42595,14 +42595,14 @@ default.unreachable:                              ; preds = %21
   store i16 9, ptr %5, align 8, !alias.scope !7892
   br label %"_ZN148_$LT$cranelift_codegen..isa..unwind..systemv..CallFrameInstruction$u20$as$u20$core..convert..Into$LT$gimli..write..cfi..CallFrameInstruction$GT$$GT$4into17h6f96a8b09ba7584dE.exit"
 
-.thread166:                                       ; preds = %21
+.thread167:                                       ; preds = %21
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.010, i64 8
   %53 = load i32, ptr %52, align 4, !alias.scope !7889, !noundef !4
   store i32 %53, ptr %18, align 4, !alias.scope !7892
   store i16 14, ptr %5, align 8, !alias.scope !7892
   br label %"_ZN148_$LT$cranelift_codegen..isa..unwind..systemv..CallFrameInstruction$u20$as$u20$core..convert..Into$LT$gimli..write..cfi..CallFrameInstruction$GT$$GT$4into17h6f96a8b09ba7584dE.exit"
 
-.thread183:                                       ; preds = %21
+.thread184:                                       ; preds = %21
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.010, i64 5
   %55 = load i8, ptr %54, align 1, !range !7895, !alias.scope !7889, !noundef !4
   %.not.i = icmp eq i8 %55, 0
@@ -42627,13 +42627,13 @@ default.unreachable:                              ; preds = %21
   store i16 13, ptr %5, align 8, !alias.scope !7892
   br label %"_ZN148_$LT$cranelift_codegen..isa..unwind..systemv..CallFrameInstruction$u20$as$u20$core..convert..Into$LT$gimli..write..cfi..CallFrameInstruction$GT$$GT$4into17h6f96a8b09ba7584dE.exit"
 
-59:                                               ; preds = %.thread183
+59:                                               ; preds = %.thread184
   %60 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr49drop_in_place$LT$gimli..write..op..Expression$GT$17h99c1a59261d51628E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #65
           to label %.body unwind label %62, !noalias !7892
 
-61:                                               ; preds = %.thread183
+61:                                               ; preds = %.thread184
   store i16 34, ptr %16, align 2, !alias.scope !7892
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i16 11, ptr %5, align 8, !alias.scope !7892
@@ -42646,7 +42646,7 @@ default.unreachable:                              ; preds = %21
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #66, !noalias !7892
   unreachable
 
-"_ZN148_$LT$cranelift_codegen..isa..unwind..systemv..CallFrameInstruction$u20$as$u20$core..convert..Into$LT$gimli..write..cfi..CallFrameInstruction$GT$$GT$4into17h6f96a8b09ba7584dE.exit": ; preds = %61, %.thread166, %58, %57, %.thread149, %.thread131, %.thread113, %.thread96, %.thread79, %.thread62, %.thread45, %.thread28, %.thread
+"_ZN148_$LT$cranelift_codegen..isa..unwind..systemv..CallFrameInstruction$u20$as$u20$core..convert..Into$LT$gimli..write..cfi..CallFrameInstruction$GT$$GT$4into17h6f96a8b09ba7584dE.exit": ; preds = %61, %.thread167, %58, %57, %.thread149, %.thread131, %.thread113, %.thread96, %.thread79, %.thread62, %.thread45, %.thread28, %.thread
   invoke void @_ZN5gimli5write3cfi21FrameDescriptionEntry15add_instruction17h96c91c72d6d10297E(ptr noalias noundef nonnull align 8 dereferenceable(80) %6, i32 noundef %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5)
           to label %64 unwind label %19
 

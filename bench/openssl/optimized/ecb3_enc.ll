@@ -28,7 +28,7 @@ define void @DES_ecb3_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %15 = load i32, ptr %7, align 4, !tbaa !3
   %16 = load i32, ptr %11, align 4, !tbaa !3
   store i32 %15, ptr %1, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %16, ptr %17, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
   ret void

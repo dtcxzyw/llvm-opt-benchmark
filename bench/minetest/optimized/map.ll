@@ -7101,10 +7101,10 @@ if.then43:                                        ; preds = %if.end
   store i32 %6, ptr %check, align 2
   %ref.tmp.sroa.5.0.check.sroa_idx = getelementptr inbounds nuw i8, ptr %check, i64 4
   store i16 0, ptr %ref.tmp.sroa.5.0.check.sroa_idx, align 2, !tbaa !52
-  %7 = load i16, ptr %Z, align 2, !tbaa !257
-  %cmp51.not = icmp slt i16 %7, %pos_camera.sroa.17.0.extract.trunc
-  %8 = load i16, ptr %Z32, align 2
-  %cond = select i1 %cmp51.not, i16 %8, i16 %7
+  %6 = load i16, ptr %Z, align 2, !tbaa !257
+  %cmp51.not = icmp slt i16 %6, %pos_camera.sroa.17.0.extract.trunc
+  %7 = load i16, ptr %Z32, align 2
+  %cond = select i1 %cmp51.not, i16 %7, i16 %6
   store i16 %cond, ptr %ref.tmp.sroa.5.0.check.sroa_idx, align 2, !tbaa !129
   br label %cleanup
 
@@ -7134,10 +7134,10 @@ if.then83:                                        ; preds = %if.else79
   store i16 0, ptr %ref.tmp84.sroa.4.0.check.sroa_idx, align 2, !tbaa !52
   %ref.tmp84.sroa.5.0.check.sroa_idx = getelementptr inbounds nuw i8, ptr %check, i64 4
   store i16 %pos_camera.sroa.17.0.extract.trunc, ptr %ref.tmp84.sroa.5.0.check.sroa_idx, align 2, !tbaa !52
-  %13 = load i16, ptr %Y, align 2, !tbaa !256
-  %cmp92.not = icmp slt i16 %13, %pos_camera.sroa.9.0.extract.trunc
-  %14 = load i16, ptr %Y18, align 2
-  %cond100 = select i1 %cmp92.not, i16 %14, i16 %13
+  %10 = load i16, ptr %Y, align 2, !tbaa !256
+  %cmp92.not = icmp slt i16 %10, %pos_camera.sroa.9.0.extract.trunc
+  %11 = load i16, ptr %Y18, align 2
+  %cond100 = select i1 %cmp92.not, i16 %11, i16 %10
   store i16 %cond100, ptr %ref.tmp84.sroa.4.0.check.sroa_idx, align 2, !tbaa !128
   br label %cleanup
 
@@ -7150,15 +7150,15 @@ if.then106:                                       ; preds = %if.end104
   store i16 0, ptr %ref.tmp107.sroa.4.0.check.sroa_idx, align 2, !tbaa !52
   %ref.tmp107.sroa.5.0.check.sroa_idx = getelementptr inbounds nuw i8, ptr %check, i64 4
   store i16 0, ptr %ref.tmp107.sroa.5.0.check.sroa_idx, align 2, !tbaa !52
-  %15 = load i16, ptr %Y, align 2, !tbaa !256
-  %cmp114.not = icmp slt i16 %15, %pos_camera.sroa.9.0.extract.trunc
-  %16 = load i16, ptr %Y18, align 2
-  %cond122 = select i1 %cmp114.not, i16 %16, i16 %15
+  %12 = load i16, ptr %Y, align 2, !tbaa !256
+  %cmp114.not = icmp slt i16 %12, %pos_camera.sroa.9.0.extract.trunc
+  %13 = load i16, ptr %Y18, align 2
+  %cond122 = select i1 %cmp114.not, i16 %13, i16 %12
   store i16 %cond122, ptr %ref.tmp107.sroa.4.0.check.sroa_idx, align 2, !tbaa !128
-  %17 = load i16, ptr %Z, align 2, !tbaa !257
-  %cmp129.not = icmp slt i16 %17, %pos_camera.sroa.17.0.extract.trunc
-  %18 = load i16, ptr %Z32, align 2
-  %cond137 = select i1 %cmp129.not, i16 %18, i16 %17
+  %14 = load i16, ptr %Z, align 2, !tbaa !257
+  %cmp129.not = icmp slt i16 %14, %pos_camera.sroa.17.0.extract.trunc
+  %15 = load i16, ptr %Z32, align 2
+  %cond137 = select i1 %cmp129.not, i16 %15, i16 %14
   store i16 %cond137, ptr %ref.tmp107.sroa.5.0.check.sroa_idx, align 2, !tbaa !129
   br label %cleanup
 
@@ -7171,15 +7171,15 @@ if.then141:                                       ; preds = %if.else139
   store i16 %pos_camera.sroa.9.0.extract.trunc, ptr %ref.tmp142.sroa.4.0.check.sroa_idx, align 2, !tbaa !52
   %ref.tmp142.sroa.5.0.check.sroa_idx = getelementptr inbounds nuw i8, ptr %check, i64 4
   store i16 0, ptr %ref.tmp142.sroa.5.0.check.sroa_idx, align 2, !tbaa !52
-  %19 = load i16, ptr %block_bounds, align 2, !tbaa !254
-  %cmp149.not = icmp slt i16 %19, %pos_camera.sroa.0.0.extract.trunc
-  %20 = load i16, ptr %MaxEdge, align 2
-  %cond157 = select i1 %cmp149.not, i16 %20, i16 %19
+  %16 = load i16, ptr %block_bounds, align 2, !tbaa !254
+  %cmp149.not = icmp slt i16 %16, %pos_camera.sroa.0.0.extract.trunc
+  %17 = load i16, ptr %MaxEdge, align 2
+  %cond157 = select i1 %cmp149.not, i16 %17, i16 %16
   store i16 %cond157, ptr %check, align 2, !tbaa !127
-  %21 = load i16, ptr %Z, align 2, !tbaa !257
-  %cmp164.not = icmp slt i16 %21, %pos_camera.sroa.17.0.extract.trunc
-  %22 = load i16, ptr %Z32, align 2
-  %cond172 = select i1 %cmp164.not, i16 %22, i16 %21
+  %18 = load i16, ptr %Z, align 2, !tbaa !257
+  %cmp164.not = icmp slt i16 %18, %pos_camera.sroa.17.0.extract.trunc
+  %19 = load i16, ptr %Z32, align 2
+  %cond172 = select i1 %cmp164.not, i16 %19, i16 %18
   store i16 %cond172, ptr %ref.tmp142.sroa.5.0.check.sroa_idx, align 2, !tbaa !129
   br label %cleanup
 
@@ -7192,15 +7192,15 @@ if.then176:                                       ; preds = %if.else174
   store i16 0, ptr %ref.tmp177.sroa.4.0.check.sroa_idx, align 2, !tbaa !52
   %ref.tmp177.sroa.5.0.check.sroa_idx = getelementptr inbounds nuw i8, ptr %check, i64 4
   store i16 %pos_camera.sroa.17.0.extract.trunc, ptr %ref.tmp177.sroa.5.0.check.sroa_idx, align 2, !tbaa !52
-  %23 = load i16, ptr %block_bounds, align 2, !tbaa !254
-  %cmp184.not = icmp slt i16 %23, %pos_camera.sroa.0.0.extract.trunc
-  %24 = load i16, ptr %MaxEdge, align 2
-  %cond192 = select i1 %cmp184.not, i16 %24, i16 %23
+  %20 = load i16, ptr %block_bounds, align 2, !tbaa !254
+  %cmp184.not = icmp slt i16 %20, %pos_camera.sroa.0.0.extract.trunc
+  %21 = load i16, ptr %MaxEdge, align 2
+  %cond192 = select i1 %cmp184.not, i16 %21, i16 %20
   store i16 %cond192, ptr %check, align 2, !tbaa !127
-  %25 = load i16, ptr %Y, align 2, !tbaa !256
-  %cmp199.not = icmp slt i16 %25, %pos_camera.sroa.9.0.extract.trunc
-  %26 = load i16, ptr %Y18, align 2
-  %cond207 = select i1 %cmp199.not, i16 %26, i16 %25
+  %22 = load i16, ptr %Y, align 2, !tbaa !256
+  %cmp199.not = icmp slt i16 %22, %pos_camera.sroa.9.0.extract.trunc
+  %23 = load i16, ptr %Y18, align 2
+  %cond207 = select i1 %cmp199.not, i16 %23, i16 %22
   store i16 %cond207, ptr %ref.tmp177.sroa.4.0.check.sroa_idx, align 2, !tbaa !128
   br label %cleanup
 

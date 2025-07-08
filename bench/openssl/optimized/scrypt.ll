@@ -448,7 +448,7 @@ scryptROMix.exit.loopexit.us.i:                   ; preds = %.split.i.us.i
   br i1 %exitcond97.not.i, label %.split.us.i, label %.preheader69.i.us.i, !llvm.loop !25
 
 .lr.ph.i.preheader.i:                             ; preds = %.preheader.i, %scryptROMix.exit.loopexit94.i
-  %.07195.i = phi i64 [ %148, %scryptROMix.exit.loopexit94.i ], [ 0, %.preheader.i ]
+  %.07195.i = phi i64 [ %158, %scryptROMix.exit.loopexit94.i ], [ 0, %.preheader.i ]
   %105 = mul i64 %.07195.i, %93
   %106 = getelementptr inbounds nuw i8, ptr %82, i64 %105
   br label %.lr.ph.i.i
@@ -533,34 +533,34 @@ scryptROMix.exit.loopexit.us.i:                   ; preds = %.split.i.us.i
   %144 = getelementptr inbounds nuw i32, ptr %85, i64 %.380.i.i
   %145 = load i32, ptr %144, align 4, !tbaa !27
   store i32 %145, ptr %.181.i.i, align 1
-  %146 = getelementptr inbounds nuw i8, ptr %.181.i.i, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %.181.i.i, i64 4
   %147 = add nuw i64 %.380.i.i, 1
   %exitcond90.not.i.i = icmp eq i64 %147, %69
   br i1 %exitcond90.not.i.i, label %scryptROMix.exit.loopexit94.i, label %.lr.ph82.i.i, !llvm.loop !31
 
 scryptROMix.exit.loopexit94.i:                    ; preds = %.lr.ph82.i.i
-  %148 = add nuw i64 %.07195.i, 1
-  %exitcond.not.i = icmp eq i64 %148, %40
+  %158 = add nuw i64 %.07195.i, 1
+  %exitcond.not.i = icmp eq i64 %158, %40
   br i1 %exitcond.not.i, label %.split.us.i, label %.lr.ph.i.preheader.i, !llvm.loop !25
 
 .split.us.i:                                      ; preds = %scryptROMix.exit.loopexit94.i, %scryptROMix.exit.loopexit.us.i
-  %149 = trunc i64 %2 to i32
-  %150 = tail call i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %30, i32 noundef %88, ptr noundef nonnull %82, i32 noundef %90, i32 noundef 1, ptr noundef nonnull %28, i32 noundef %149, ptr noundef nonnull %1, ptr noundef %43, ptr noundef %45) #7
-  %151 = icmp eq i32 %150, 0
-  br i1 %151, label %.thread.i, label %152
+  %159 = trunc i64 %2 to i32
+  %160 = tail call i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %30, i32 noundef %88, ptr noundef nonnull %82, i32 noundef %90, i32 noundef 1, ptr noundef nonnull %28, i32 noundef %159, ptr noundef nonnull %1, ptr noundef %43, ptr noundef %45) #7
+  %161 = icmp eq i32 %160, 0
+  br i1 %161, label %.thread.i, label %162
 
 .thread.i:                                        ; preds = %.split.us.i, %84
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 543, ptr noundef nonnull @__func__.scrypt_alg) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 181, ptr noundef null) #7
-  br label %152
+  br label %162
 
-152:                                              ; preds = %.thread.i, %.split.us.i
+162:                                              ; preds = %.thread.i, %.split.us.i
   %.07287.i = phi i32 [ 0, %.thread.i ], [ 1, %.split.us.i ]
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %82, i64 noundef %76, ptr noundef nonnull @.str, i32 noundef 545) #7
   br label %scrypt_alg.exit
 
-scrypt_alg.exit:                                  ; preds = %152, %81, %79, %78, %74, %67, %62, %57, %53, %set_digest.exit, %set_digest.exit.thread, %4, %6, %17, %12
+scrypt_alg.exit:                                  ; preds = %162, %81, %79, %78, %74, %67, %62, %57, %53, %set_digest.exit, %set_digest.exit.thread, %4, %6, %17, %12
   %.0 = phi i32 [ 0, %12 ], [ 0, %17 ], [ 0, %6 ], [ 0, %4 ], [ 0, %set_digest.exit.thread ], [ 0, %53 ], [ 0, %57 ], [ 0, %62 ], [ 0, %67 ], [ 0, %74 ], [ 0, %78 ], [ %.07287.i, %152 ], [ 0, %set_digest.exit ], [ 1, %79 ], [ 0, %81 ]
   ret i32 %.0
 }

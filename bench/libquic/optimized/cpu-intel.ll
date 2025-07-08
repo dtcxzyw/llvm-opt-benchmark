@@ -122,7 +122,7 @@ define hidden void @OPENSSL_cpuid_setup() local_unnamed_addr #0 {
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 12), align 4, !tbaa !8
   %60 = tail call ptr @getenv(ptr noundef nonnull @.str) #5
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %102, label %62
+  br i1 %61, label %108, label %62
 
 62:                                               ; preds = %59
   %63 = load i8, ptr %60, align 1, !tbaa !12
@@ -158,48 +158,48 @@ define hidden void @OPENSSL_cpuid_setup() local_unnamed_addr #0 {
 
 handle_cpu_env.exit:                              ; preds = %62, %70, %80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
-  %81 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %60, i32 noundef 58) #6
-  %.not32 = icmp eq ptr %81, null
-  br i1 %.not32, label %102, label %82
+  %84 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %60, i32 noundef 58) #6
+  %.not32 = icmp eq ptr %84, null
+  br i1 %.not32, label %108, label %85
 
-82:                                               ; preds = %handle_cpu_env.exit
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 1
-  %84 = load i8, ptr %83, align 1, !tbaa !12
-  %85 = icmp eq i8 %84, 126
+85:                                               ; preds = %handle_cpu_env.exit
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 1
+  %87 = load i8, ptr %86, align 1, !tbaa !12
+  %88 = icmp eq i8 %87, 126
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
-  %86 = zext i1 %85 to i64
-  %87 = getelementptr inbounds nuw i8, ptr %83, i64 %86
-  %88 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %87, ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #5
-  %.not.i33 = icmp eq i32 %88, 0
-  br i1 %.not.i33, label %handle_cpu_env.exit34, label %89
+  %89 = zext i1 %88 to i64
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 %89
+  %91 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %90, ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #5
+  %.not.i33 = icmp eq i32 %91, 0
+  br i1 %.not.i33, label %handle_cpu_env.exit34, label %92
 
-89:                                               ; preds = %82
-  %90 = load i64, ptr %1, align 8, !tbaa !13
-  br i1 %85, label %91, label %101
+92:                                               ; preds = %85
+  %93 = load i64, ptr %1, align 8, !tbaa !13
+  br i1 %88, label %94, label %101
 
-91:                                               ; preds = %89
-  %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8, !tbaa !8
-  %93 = trunc i64 %90 to i32
-  %94 = xor i32 %93, -1
-  %95 = and i32 %92, %94
-  store i32 %95, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8, !tbaa !8
-  %96 = lshr i64 %90, 32
-  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 12), align 4, !tbaa !8
-  %98 = trunc nuw i64 %96 to i32
-  %99 = xor i32 %98, -1
-  %100 = and i32 %97, %99
+94:                                               ; preds = %92
+  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8, !tbaa !8
+  %96 = trunc i64 %93 to i32
+  %97 = xor i32 %96, -1
+  %98 = and i32 %95, %97
+  store i32 %98, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8, !tbaa !8
+  %99 = lshr i64 %93, 32
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 12), align 4, !tbaa !8
+  %101 = trunc nuw i64 %99 to i32
+  %102 = xor i32 %101, -1
+  %103 = and i32 %100, %102
   store i32 %100, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 12), align 4, !tbaa !8
   br label %handle_cpu_env.exit34
 
-101:                                              ; preds = %89
+101:; preds = %92
   store i64 %90, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 8), align 8
   br label %handle_cpu_env.exit34
 
 handle_cpu_env.exit34:                            ; preds = %82, %91, %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #5
-  br label %102
+  br label %108
 
-102:                                              ; preds = %handle_cpu_env.exit, %handle_cpu_env.exit34, %59
+108:                                              ; preds = %handle_cpu_env.exit, %handle_cpu_env.exit34, %59
   ret void
 }
 

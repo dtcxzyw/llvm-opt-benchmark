@@ -26048,10 +26048,10 @@ _ZN8bitflags6parser10ParseError18invalid_named_flag17h69025a20a17e40ecE.exit.i: 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h69025a20a17e40ecE.exit.i, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6b720f67829a70a5E.exit.i"
-  %.sroa.9.sroa.8.sroa.0.0 = phi i64 [ %.sroa.9.sroa.8.0.extract.shift2, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6b720f67829a70a5E.exit.i" ], [ %.sroa.9.sroa.8.0.extract.shift, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h69025a20a17e40ecE.exit.i ], [ 0, %33 ]
-  %.sroa.9.sroa.0.0 = phi i64 [ %53, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6b720f67829a70a5E.exit.i" ], [ %77, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h69025a20a17e40ecE.exit.i ], [ 0, %33 ]
-  %.sroa.16.0 = phi i64 [ %42, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6b720f67829a70a5E.exit.i" ], [ %36, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h69025a20a17e40ecE.exit.i ], [ undef, %33 ]
-  %.sroa.14.0 = phi ptr [ %62, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6b720f67829a70a5E.exit.i" ], [ %81, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h69025a20a17e40ecE.exit.i ], [ undef, %33 ]
+  %.sroa.18.0 = phi i64 [ %.sroa.9.sroa.8.0.extract.shift2, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6b720f67829a70a5E.exit.i" ], [ %.sroa.9.sroa.8.0.extract.shift, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h69025a20a17e40ecE.exit.i ], [ 0, %33 ]
+  %.sroa.16.0 = phi i64 [ %53, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6b720f67829a70a5E.exit.i" ], [ %77, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h69025a20a17e40ecE.exit.i ], [ 0, %33 ]
+  %.sroa.14.0 = phi i64 [ %42, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6b720f67829a70a5E.exit.i" ], [ %36, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h69025a20a17e40ecE.exit.i ], [ undef, %33 ]
+  %.sroa.9.0 = phi ptr [ %62, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6b720f67829a70a5E.exit.i" ], [ %81, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h69025a20a17e40ecE.exit.i ], [ undef, %33 ]
   %.sroa.0.0 = phi i64 [ 2, %"_ZN8bitflags6parser8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h6b720f67829a70a5E.exit.i" ], [ 1, %_ZN8bitflags6parser10ParseError18invalid_named_flag17h69025a20a17e40ecE.exit.i ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9), !noalias !3325
   %.sroa.9.sroa.0.0.insert.ext = and i64 %.sroa.9.sroa.0.0, 255
@@ -26066,9 +26066,9 @@ _ZN8bitflags6parser10ParseError18invalid_named_flag17h69025a20a17e40ecE.exit.i: 
   br label %85
 
 83:                                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17he7782f1881406654E.exit.thread.i", %3
-  %.sroa.9.sroa.0.1.ph = phi i8 [ 0, %3 ], [ %.sroa.0.0111.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17he7782f1881406654E.exit.thread.i" ]
+  %.sroa.9.1.ph = phi i8 [ 0, %3 ], [ %.sroa.0.0111.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17he7782f1881406654E.exit.thread.i" ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.9.sroa.0.1.ph, ptr %84, align 8
+  store i8 %.sroa.9.1.ph, ptr %84, align 8
   store i64 3, ptr %0, align 8
   br label %85
 

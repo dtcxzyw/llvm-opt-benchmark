@@ -9662,52 +9662,52 @@ get_param_attributes.exit:                        ; preds = %41, %get_string_con
   %.sroa.0.0.insert.insert.i = phi i64 [ 26, %47 ], [ 26, %get_string_config.exit.i ], [ %131, %get_base_type_config.exit.thread.i ], [ 26, %41 ]
   %132 = icmp eq ptr %0, null
   %133 = and i64 %.sroa.0.0.insert.insert.i, 4294967295
-  %134 = icmp eq i64 %133, 0
-  %or.cond = select i1 %132, i1 true, i1 %134
-  br i1 %or.cond, label %get_param_attributes.exit.thread, label %135
+  %133 = icmp eq i64 %133, 0
+  %or.cond = select i1 %132, i1 true, i1 %133
+  br i1 %or.cond, label %get_param_attributes.exit.thread, label %134
 
-135:                                              ; preds = %get_param_attributes.exit
-  %136 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #22
-  store i32 0, ptr %136, align 4
-  %137 = sext i32 %1 to i64
-  %138 = getelementptr %struct.hf_register_info, ptr %0, i64 %137
-  store ptr %136, ptr %138, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 32
-  %141 = icmp eq ptr %.sroa.28.1.i, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
-  br i1 %141, label %142, label %144
+134:                                              ; preds = %get_param_attributes.exit
+  %135 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #22
+  store i32 0, ptr %135, align 4
+  %136 = sext i32 %1 to i64
+  %137 = getelementptr %struct.hf_register_info, ptr %0, i64 %136
+  store ptr %135, ptr %137, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 32
+  %140 = icmp eq ptr %.sroa.28.1.i, null
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, i8 0, i64 24, i1 false)
+  br i1 %140, label %141, label %143
 
-142:                                              ; preds = %135
-  %143 = tail call noalias ptr @g_strdup(ptr noundef %4)
-  br label %146
+141:                                              ; preds = %134
+  %142 = tail call noalias ptr @g_strdup(ptr noundef %4)
+  br label %145
 
-144:                                              ; preds = %135
-  %145 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.360, ptr noundef %4, ptr noundef nonnull %.sroa.28.1.i)
-  br label %146
+143:                                              ; preds = %134
+  %144 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.360, ptr noundef %4, ptr noundef nonnull %.sroa.28.1.i)
+  br label %145
 
-146:                                              ; preds = %144, %142
-  %storemerge = phi ptr [ %145, %144 ], [ %143, %142 ]
-  store ptr %storemerge, ptr %139, align 8
-  %147 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.431, ptr noundef nonnull @.str.397, ptr noundef %5)
-  %148 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  store ptr %147, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  store i64 %.sroa.0.0.insert.insert.i, ptr %149, align 8
+145:                                              ; preds = %143, %141
+  %storemerge = phi ptr [ %144, %144 ], [ %142, %142 ]
+  store ptr %storemerge, ptr %138, align 8
+  %146 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.431, ptr noundef nonnull @.str.397, ptr noundef %5)
+  %147 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  store ptr %146, ptr %147, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %137, i64 24
+  store i64 %.sroa.0.0.insert.insert.i, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %138, i64 56
   store i32 -1, ptr %150, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %138, i64 60
+  %151 = getelementptr inbounds nuw i8, ptr %137, i64 60
   store i32 0, ptr %151, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %138, i64 64
+  %152 = getelementptr inbounds nuw i8, ptr %137, i64 64
   store i32 0, ptr %152, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %138, i64 68
+  %153 = getelementptr inbounds nuw i8, ptr %137, i64 68
   store i32 -1, ptr %153, align 4
-  %154 = getelementptr inbounds nuw i8, ptr %138, i64 72
+  %154 = getelementptr inbounds nuw i8, ptr %137, i64 72
   store ptr null, ptr %154, align 8
   br label %get_param_attributes.exit.thread
 
-get_param_attributes.exit.thread:                 ; preds = %.lr.ph.i, %28, %get_enum_config.exit.i, %40, %get_param_attributes.exit, %146
-  %.0 = phi ptr [ %136, %146 ], [ null, %get_param_attributes.exit ], [ null, %40 ], [ null, %get_enum_config.exit.i ], [ null, %28 ], [ null, %.lr.ph.i ]
+get_param_attributes.exit.thread:                 ; preds = %.lr.ph.i, %28, %get_enum_config.exit.i, %40, %get_param_attributes.exit, %145
+  %.0 = phi ptr [ %135, %146 ], [ null, %get_param_attributes.exit ], [ null, %40 ], [ null, %get_enum_config.exit.i ], [ null, %28 ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 

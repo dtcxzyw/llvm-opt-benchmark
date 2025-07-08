@@ -1874,8 +1874,8 @@ _ZN6duckdb8string_tC2EPKcj.exit:                  ; preds = %_ZNSt6vectorIjSaIjE
   store i64 %.sroa.0.0.copyload, ptr %123, align 1
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 185
   %125 = load i8, ptr %124, align 1, !tbaa !177
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i8 %125, ptr %126, align 8, !tbaa !176
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i8 %125, ptr %125, align 8, !tbaa !176
   %127 = call noundef ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = atomicrmw add ptr %128, i64 1 seq_cst, align 8
@@ -2352,37 +2352,37 @@ _ZN6duckdb11NumericCastIjmvEET_T0_.exit40:        ; preds = %_ZN6duckdb11Numeric
   %95 = udiv i64 %94, 5
   %96 = shl nuw i64 %95, 2
   %.not = icmp ult i64 %43, %96
-  br i1 %.not, label %105, label %128
+  br i1 %.not, label %105, label %129
 
 97:                                               ; preds = %23, %1
   %98 = landingpad { ptr, i32 }
           cleanup
-  br label %129
+  br label %130
 
 99:                                               ; preds = %27
   %100 = landingpad { ptr, i32 }
           cleanup
-  br label %129
+  br label %130
 
 .loopexit:                                        ; preds = %61
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %129
+  br label %130
 
 .loopexit.split-lp:                               ; preds = %45, %68
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %129
+  br label %130
 
 101:                                              ; preds = %_ZN6duckdb20BitpackingPrimitives10PackBufferIjLb0EEEvPhPT_mh.exit
   %102 = landingpad { ptr, i32 }
           cleanup
-  br label %129
+  br label %130
 
 103:                                              ; preds = %_ZN6duckdb11NumericCastIjmvEET_T0_.exit
   %104 = landingpad { ptr, i32 }
           cleanup
-  br label %129
+  br label %130
 
 105:                                              ; preds = %_ZN6duckdb11NumericCastIjmvEET_T0_.exit40
   %.neg = sub i64 %43, %94
@@ -2401,12 +2401,12 @@ _ZN6duckdb11NumericCastIjmvEET_T0_.exit40:        ; preds = %_ZN6duckdb11Numeric
   %117 = add i32 %115, %116
   store i32 %117, ptr %107, align 4, !tbaa !178
   %118 = invoke noundef nonnull align 8 dereferenceable(224) ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %119 unwind label %126
+          to label %119 unwind label %127
 
 119:                                              ; preds = %105
   %.sroa.0.0.copyload = load i64, ptr %40, align 8
   invoke void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %44)
-          to label %_ZN6duckdb21DictionaryCompression13SetDictionaryERNS_13ColumnSegmentERNS_12BufferHandleENS_25StringDictionaryContainerE.exit unwind label %126
+          to label %_ZN6duckdb21DictionaryCompression13SetDictionaryERNS_13ColumnSegmentERNS_12BufferHandleENS_25StringDictionaryContainerE.exit unwind label %127
 
 _ZN6duckdb21DictionaryCompression13SetDictionaryERNS_13ColumnSegmentERNS_12BufferHandleENS_25StringDictionaryContainerE.exit: ; preds = %119
   %120 = load ptr, ptr %44, align 8, !tbaa !3
@@ -2418,19 +2418,19 @@ _ZN6duckdb21DictionaryCompression13SetDictionaryERNS_13ColumnSegmentERNS_12Buffe
   store i64 %.sroa.0.0.copyload, ptr %125, align 1
   br label %128
 
-126:                                              ; preds = %119, %105
-  %127 = landingpad { ptr, i32 }
+127:                                              ; preds = %119, %105
+  %128 = landingpad { ptr, i32 }
           cleanup
-  br label %129
+  br label %130
 
-128:                                              ; preds = %_ZN6duckdb11NumericCastIjmvEET_T0_.exit40, %_ZN6duckdb21DictionaryCompression13SetDictionaryERNS_13ColumnSegmentERNS_12BufferHandleENS_25StringDictionaryContainerE.exit
+129:                                              ; preds = %_ZN6duckdb11NumericCastIjmvEET_T0_.exit40, %_ZN6duckdb21DictionaryCompression13SetDictionaryERNS_13ColumnSegmentERNS_12BufferHandleENS_25StringDictionaryContainerE.exit
   %.0 = phi i64 [ %43, %_ZN6duckdb21DictionaryCompression13SetDictionaryERNS_13ColumnSegmentERNS_12BufferHandleENS_25StringDictionaryContainerE.exit ], [ %94, %_ZN6duckdb11NumericCastIjmvEET_T0_.exit40 ]
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
   ret i64 %.0
 
-129:                                              ; preds = %.loopexit, %.loopexit.split-lp, %99, %126, %103, %101, %97
-  %.pn.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %100, %99 ], [ %127, %126 ], [ %104, %103 ], [ %102, %101 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+130:                                              ; preds = %.loopexit, %.loopexit.split-lp, %99, %127, %103, %101, %97
+  %.pn.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %100, %99 ], [ %128, %126 ], [ %104, %103 ], [ %102, %101 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
   resume { ptr, i32 } %.pn.pn.pn

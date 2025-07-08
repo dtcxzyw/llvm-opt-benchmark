@@ -34423,10 +34423,10 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h7ac2d0619182
 44:                                               ; preds = %40
   %45 = lshr exact i64 %30, 2
   %46 = trunc i64 %.sroa.4.0.i.i.i.i.i.i.i to i48
-  %.sroa.11.32.insert.ext.i.i.i = and i48 %46, 255
+  %.sroa.12.32.insert.ext.i.i.i = and i48 %46, 255
   %sh.diff.i.i.i = lshr i64 %.sroa.4.0.insert.insert.i.i.i.i.i.i.i, 16
   %tr.sh.diff.i.i.i = trunc nuw i64 %sh.diff.i.i.i to i48
-  %.sroa.11.33.insert.insert.i.i.i = or disjoint i48 %.sroa.11.32.insert.ext.i.i.i, %tr.sh.diff.i.i.i
+  %.sroa.12.33.insert.insert.i.i.i = or disjoint i48 %.sroa.12.32.insert.ext.i.i.i, %tr.sh.diff.i.i.i
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4), !noalias !5873
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !5873
   store i64 %37, ptr %3, align 8, !noalias !5873

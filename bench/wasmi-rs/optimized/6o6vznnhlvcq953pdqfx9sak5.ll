@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN8wasmi_ir4enum11Instruction29filter_register_and_offset_hi17h73aefbdfde34194fE(ptr dead_on_unwind noalias noundef writable writeonly sret([12 x i8]) align 4 captures(none) dereferenceable(12) initializes((0, 6), (8, 12)) %0, i64 %1) unnamed_addr #0 {
   %3 = and i64 %1, 65535
   %4 = icmp eq i64 %3, 517
-  br i1 %4, label %5, label %9
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
@@ -21,13 +21,13 @@ define void @_ZN8wasmi_ir4enum11Instruction29filter_register_and_offset_hi17h73a
   store i32 %6, ptr %8, align 4
   br label %11
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %1, ptr %10, align 4
-  br label %11
+6:                                                ; preds = %2
+  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %1, ptr %.sroa.3.0..sroa_idx2, align 4
+  br label %7
 
-11:                                               ; preds = %9, %5
-  %storemerge = phi i32 [ 1, %9 ], [ 0, %5 ]
+7:                                                ; preds = %6, %5
+  %.sroa.06.0.extract.trunc.sink = phi i32 [ 1, %9 ], [ 0, %5 ]
   store i32 %storemerge, ptr %0, align 4
   ret void
 }

@@ -6210,7 +6210,7 @@ define internal i32 @emit_bb_start_parent_no_preempt_mid_batch(ptr noundef %0, i
 20:                                               ; preds = %4
   %21 = ptrtoint ptr %12 to i64
   %22 = trunc i64 %21 to i32
-  br label %75
+  br label %79
 
 23:                                               ; preds = %23, %17
   %24 = phi i32 [ 0, %17 ], [ %44, %23 ]
@@ -6282,9 +6282,9 @@ define internal i32 @emit_bb_start_parent_no_preempt_mid_batch(ptr noundef %0, i
   store i32 0, ptr %74, align 4
   br label %75
 
-75:                                               ; preds = %.loopexit, %20
-  %76 = phi i32 [ %22, %20 ], [ 0, %.loopexit ]
-  ret i32 %76
+79:                                               ; preds = %.loopexit, %20
+  %80 = phi i32 [ %22, %20 ], [ 0, %.loopexit ]
+  ret i32 %80
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -10843,7 +10843,7 @@ define internal i32 @emit_bb_start_child_no_preempt_mid_batch(ptr noundef %0, i6
 11:                                               ; preds = %4
   %12 = ptrtoint ptr %9 to i64
   %13 = trunc i64 %12 to i32
-  br label %62
+  br label %66
 
 14:                                               ; preds = %4
   %15 = icmp eq ptr %8, null
@@ -10906,9 +10906,9 @@ define internal i32 @emit_bb_start_child_no_preempt_mid_batch(ptr noundef %0, i6
   store i64 %1, ptr %61, align 4
   br label %62
 
-62:                                               ; preds = %14, %11
-  %63 = phi i32 [ %13, %11 ], [ 0, %14 ]
-  ret i32 %63
+66:                                               ; preds = %14, %11
+  %67 = phi i32 [ %13, %11 ], [ 0, %14 ]
+  ret i32 %67
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)

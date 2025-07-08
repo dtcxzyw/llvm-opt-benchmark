@@ -27777,7 +27777,7 @@ for.body.i691:                                    ; preds = %for.inc.i, %if.then
   %arrayidx144.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer.i, i64 0, i64 %i.01.i
   %118 = load i32, ptr %arrayidx144.i, align 4
   %cmp145.i = icmp ugt i32 %118, 62914560
-  br i1 %cmp145.i, label %if.then146.i, label %if.else155.i
+  br i1 %cmp145.i, label %if.then146.i, label %for.inc.i
 
 if.then146.i:                                     ; preds = %for.body.i691
   %arrayidx147.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
@@ -27785,7 +27785,7 @@ if.then146.i:                                     ; preds = %for.body.i691
   store i32 %119, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
-if.else155.i:                                     ; preds = %for.body.i691
+for.inc.i:                                        ; preds = %for.body.i691
   %conv157.i = trunc i32 %118 to i16
   store i16 %conv157.i, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
@@ -28596,7 +28596,7 @@ for.body.i712:                                    ; preds = %for.inc.i, %if.then
   %arrayidx144.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer.i, i64 0, i64 %i.01.i
   %121 = load i32, ptr %arrayidx144.i, align 4
   %cmp145.i = icmp ugt i32 %121, 62914560
-  br i1 %cmp145.i, label %if.then146.i, label %if.else155.i
+  br i1 %cmp145.i, label %if.then146.i, label %for.inc.i
 
 if.then146.i:                                     ; preds = %for.body.i712
   %arrayidx147.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
@@ -28604,13 +28604,13 @@ if.then146.i:                                     ; preds = %for.body.i712
   store i32 %122, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
-if.else155.i:                                     ; preds = %for.body.i712
+if.else155.i:; preds = %for.body.i712
   %conv157.i = trunc i32 %121 to i16
   store i16 %conv157.i, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.else155.i, %if.then146.i
-  %.sink2.i = phi i64 [ 4, %if.then146.i ], [ 2, %if.else155.i ]
+for.inc.i:                                        ; preds = %for.inc.i, %if.then146.i
+  %conv157.i.sink.in = phi i64 [ 4, %if.then146.i ], [ 2, %if.else155.i ]
   %add.ptr154.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 %.sink2.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
@@ -29375,13 +29375,13 @@ if.then146.i.i:                                   ; preds = %for.body.i.i
   store i32 %86, ptr %utf16_output.addr.4.i, align 2
   br label %for.inc.i.i
 
-if.else155.i.i:                                   ; preds = %for.body.i.i
+if.else155.i.i:; preds = %for.body.i.i
   %conv157.i.i = trunc i32 %85 to i16
   store i16 %conv157.i.i, ptr %utf16_output.addr.4.i, align 2
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else155.i.i, %if.then146.i.i
-  %.sink2.i.i = phi i64 [ 4, %if.then146.i.i ], [ 2, %if.else155.i.i ]
+  %conv157.i.sink.in.i = phi i64 [ 4, %if.then146.i.i ], [ 2, %if.else155.i.i ]
   %add.ptr154.i.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.4.i, i64 %.sink2.i.i
   %inc.i.i = add nuw nsw i64 %i.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3
@@ -41088,7 +41088,7 @@ for.body.i562:                                    ; preds = %for.inc.i, %if.then
   %arrayidx146.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer.i, i64 0, i64 %i.01.i
   %147 = load i32, ptr %arrayidx146.i, align 4
   %cmp147.i = icmp ugt i32 %147, 62914560
-  br i1 %cmp147.i, label %if.then148.i, label %if.else157.i
+  br i1 %cmp147.i, label %if.then148.i, label %for.inc.i
 
 if.then148.i:                                     ; preds = %for.body.i562
   %arrayidx149.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
@@ -41096,7 +41096,7 @@ if.then148.i:                                     ; preds = %for.body.i562
   store i32 %148, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
-if.else157.i:                                     ; preds = %for.body.i562
+for.inc.i:                                        ; preds = %for.body.i562
   %conv159.i = trunc i32 %147 to i16
   store i16 %conv159.i, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
@@ -42095,7 +42095,7 @@ for.body.i582:                                    ; preds = %for.inc.i, %if.then
   %arrayidx146.i = getelementptr inbounds nuw [4 x i32], ptr %basic_buffer.i, i64 0, i64 %i.01.i
   %150 = load i32, ptr %arrayidx146.i, align 4
   %cmp147.i = icmp ugt i32 %150, 62914560
-  br i1 %cmp147.i, label %if.then148.i, label %if.else157.i
+  br i1 %cmp147.i, label %if.then148.i, label %for.inc.i
 
 if.then148.i:                                     ; preds = %for.body.i582
   %arrayidx149.i = getelementptr inbounds nuw [4 x i32], ptr %surrogate_buffer.i, i64 0, i64 %i.01.i
@@ -42103,13 +42103,13 @@ if.then148.i:                                     ; preds = %for.body.i582
   store i32 %151, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
-if.else157.i:                                     ; preds = %for.body.i582
+if.else157.i:; preds = %for.body.i582
   %conv159.i = trunc i32 %150 to i16
   store i16 %conv159.i, ptr %utf16_output.addr.i.5, align 2
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.else157.i, %if.then148.i
-  %.sink2.i = phi i64 [ 4, %if.then148.i ], [ 2, %if.else157.i ]
+for.inc.i:                                        ; preds = %for.inc.i, %if.then148.i
+  %conv159.i.sink.in = phi i64 [ 4, %if.then148.i ], [ 2, %if.else157.i ]
   %add.ptr156.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.i.5, i64 %.sink2.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
@@ -43013,13 +43013,13 @@ if.then148.i.i:                                   ; preds = %for.body.i.i
   store i32 %90, ptr %utf16_output.addr.4.i, align 2
   br label %for.inc.i.i
 
-if.else157.i.i:                                   ; preds = %for.body.i.i
+if.else157.i.i:; preds = %for.body.i.i
   %conv159.i.i = trunc i32 %89 to i16
   store i16 %conv159.i.i, ptr %utf16_output.addr.4.i, align 2
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else157.i.i, %if.then148.i.i
-  %.sink2.i.i = phi i64 [ 4, %if.then148.i.i ], [ 2, %if.else157.i.i ]
+  %conv159.i.sink.in.i = phi i64 [ 4, %if.then148.i.i ], [ 2, %if.else157.i.i ]
   %add.ptr156.i.i = getelementptr inbounds nuw i8, ptr %utf16_output.addr.4.i, i64 %.sink2.i.i
   %inc.i.i = add nuw nsw i64 %i.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3

@@ -301,8 +301,8 @@ default.unreachable:                              ; preds = %._crit_edge
   %100 = load i32, ptr %99, align 4, !tbaa !8
   %101 = or i32 %95, %100
   %102 = or i32 %101, %56
-  %103 = trunc i32 %102 to i16
-  store i16 %103, ptr %.0121.lcssa, align 1
+  %.sroa.0.0.extract.trunc27 = trunc i32 %102 to i16
+  store i16 %.sroa.0.0.extract.trunc27, ptr %.0121.lcssa, align 1
   br label %104
 
 104:                                              ; preds = %90, %83, %82
@@ -310,16 +310,16 @@ default.unreachable:                              ; preds = %._crit_edge
   %105 = icmp ugt i32 %.sroa.21.0.in.in, 33554430
   br i1 %105, label %.loopexit, label %106
 
-106:                                              ; preds = %104
-  %107 = mul nuw i64 %21, 3
-  %108 = mul nuw nsw i32 %19, 6
-  %109 = lshr i32 %108, 3
-  %110 = zext nneg i32 %109 to i64
-  %111 = add nuw i64 %107, %110
+107:                                              ; preds = %104
+  %108 = mul nuw i64 %21, 3
+  %109 = mul nuw nsw i32 %19, 6
+  %110 = lshr i32 %109, 3
+  %111 = zext nneg i32 %110 to i64
+  %112 = add nuw i64 %108, %111
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %77, %106, %57, %104, %5, %3
-  %.0122 = phi i64 [ 0, %3 ], [ -1, %5 ], [ %111, %106 ], [ %81, %77 ], [ -1, %57 ], [ -1, %104 ], [ -1, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %77, %107, %57, %104, %5, %3
+  %.0122 = phi i64 [ 0, %3 ], [ -1, %5 ], [ %112, %106 ], [ %81, %77 ], [ -1, %57 ], [ -1, %104 ], [ -1, %.lr.ph ]
   ret i64 %.0122
 }
 

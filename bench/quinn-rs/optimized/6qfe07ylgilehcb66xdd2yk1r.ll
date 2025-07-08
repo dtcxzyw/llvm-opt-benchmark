@@ -8859,26 +8859,26 @@ define void @"_ZN137_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u2
   store ptr %8, ptr %0, align 8, !alias.scope !966
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val.i.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !966
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %34, ptr %35, align 8, !alias.scope !966
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %34, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !966
   %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %33, ptr %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx.i, align 8, !alias.scope !966
   br label %"_ZN161_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$$GT$8try_from17h09d99ae68a135b4bE.exit"
 
 .loopexit.i:                                      ; preds = %"_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i.i", %29
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %36, align 8, !alias.scope !966
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %35, align 8, !alias.scope !966
   store ptr null, ptr %0, align 8, !alias.scope !966
-  %37 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !979
-  %38 = icmp eq i64 %37, 1
-  br i1 %38, label %39, label %"_ZN161_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$$GT$8try_from17h09d99ae68a135b4bE.exit"
+  %36 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !979
+  %37 = icmp eq i64 %36, 1
+  br i1 %37, label %38, label %"_ZN161_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$$GT$8try_from17h09d99ae68a135b4bE.exit"
 
-39:                                               ; preds = %.loopexit.i
+38:                                               ; preds = %.loopexit.i
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3bd3b41a1aa969edE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !966
   br label %"_ZN161_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$$GT$8try_from17h09d99ae68a135b4bE.exit"
 
-"_ZN161_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$$GT$8try_from17h09d99ae68a135b4bE.exit": ; preds = %31, %.loopexit.i, %39
+"_ZN161_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$$GT$8try_from17h09d99ae68a135b4bE.exit": ; preds = %31, %.loopexit.i, %38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -8921,26 +8921,26 @@ define void @"_ZN161_$LT$quinn_proto..crypto..rustls..QuicClientConfig$u20$as$u2
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val.i.i, ptr %.sroa.5.0..sroa_idx, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %23, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %22, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %21, ptr %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
   br label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17hd97384e2e3b4e37aE.exit24"
 
 .loopexit:                                        ; preds = %"_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i", %17
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %24, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %23, align 8
   store ptr null, ptr %0, align 8
-  %25 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !994
-  %26 = icmp eq i64 %25, 1
-  br i1 %26, label %27, label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17hd97384e2e3b4e37aE.exit24"
+  %24 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !994
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %26, label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17hd97384e2e3b4e37aE.exit24"
 
-27:                                               ; preds = %.loopexit
+26:                                               ; preds = %.loopexit
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3bd3b41a1aa969edE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   br label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17hd97384e2e3b4e37aE.exit24"
 
-"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17hd97384e2e3b4e37aE.exit24": ; preds = %27, %.loopexit, %19
+"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17hd97384e2e3b4e37aE.exit24": ; preds = %26, %.loopexit, %19
   ret void
 }
 
@@ -9340,26 +9340,26 @@ define void @"_ZN137_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u2
   store ptr %8, ptr %0, align 8, !alias.scope !1040
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val.i.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1040
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %34, ptr %35, align 8, !alias.scope !1040
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %34, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1040
   %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %33, ptr %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx.i, align 8, !alias.scope !1040
   br label %"_ZN161_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$$GT$8try_from17hadb9f02648dbfaf2E.exit"
 
 .loopexit.i:                                      ; preds = %"_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i.i", %29
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %36, align 8, !alias.scope !1040
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %35, align 8, !alias.scope !1040
   store ptr null, ptr %0, align 8, !alias.scope !1040
-  %37 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !1053
-  %38 = icmp eq i64 %37, 1
-  br i1 %38, label %39, label %"_ZN161_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$$GT$8try_from17hadb9f02648dbfaf2E.exit"
+  %36 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !1053
+  %37 = icmp eq i64 %36, 1
+  br i1 %37, label %38, label %"_ZN161_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$$GT$8try_from17hadb9f02648dbfaf2E.exit"
 
-39:                                               ; preds = %.loopexit.i
+38:                                               ; preds = %.loopexit.i
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1fe70c8fd99e12d3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !1040
   br label %"_ZN161_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$$GT$8try_from17hadb9f02648dbfaf2E.exit"
 
-"_ZN161_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$$GT$8try_from17hadb9f02648dbfaf2E.exit": ; preds = %31, %.loopexit.i, %39
+"_ZN161_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u20$core..convert..TryFrom$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$$GT$8try_from17hadb9f02648dbfaf2E.exit": ; preds = %31, %.loopexit.i, %38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -9402,26 +9402,26 @@ define void @"_ZN161_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u20$as$u2
   store ptr %1, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val.i.i, ptr %.sroa.5.0..sroa_idx, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %22, ptr %23, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %22, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %21, ptr %.sroa.5.sroa.6.sroa.5.0..sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
   br label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17hace1a45d5ccfa03bE.exit24"
 
 .loopexit:                                        ; preds = %"_ZN11quinn_proto6crypto6rustls27initial_suite_from_provider28_$u7b$$u7b$closure$u7d$$u7d$17h6e5d3a28e74227d6E.exit.i.i", %17
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %24, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %23, align 8
   store ptr null, ptr %0, align 8
-  %25 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !1068
-  %26 = icmp eq i64 %25, 1
-  br i1 %26, label %27, label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17hace1a45d5ccfa03bE.exit24"
+  %24 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !1068
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %26, label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17hace1a45d5ccfa03bE.exit24"
 
-27:                                               ; preds = %.loopexit
+26:                                               ; preds = %.loopexit
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1fe70c8fd99e12d3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   br label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17hace1a45d5ccfa03bE.exit24"
 
-"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17hace1a45d5ccfa03bE.exit24": ; preds = %27, %.loopexit, %19
+"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..server..server_conn..ServerConfig$GT$$GT$17hace1a45d5ccfa03bE.exit24": ; preds = %26, %.loopexit, %19
   ret void
 }
 

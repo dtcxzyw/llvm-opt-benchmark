@@ -1359,63 +1359,63 @@ define internal fastcc void @aegis256_declast(ptr noundef %0, ptr noundef readon
   %41 = sub nuw nsw i64 16, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %40, i8 noundef 0, i64 noundef %41, i1 noundef false) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 16 dereferenceable(1) %5, i64 noundef range(i64 1, 16) %2, i1 noundef false) #7
-  %42 = load i64, ptr %5, align 16
-  %43 = load i64, ptr %8, align 8
+  %44 = load i64, ptr %5, align 16
+  %45 = load i64, ptr %8, align 8
   %.sroa.012.0.copyload.i = load i64, ptr %10, align 4
   %.sroa.413.0.copyload.i = load i64, ptr %12, align 4
-  %44 = load i64, ptr %16, align 4
-  %45 = load i64, ptr %18, align 4
-  %46 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %44, i64 %45, i64 %.sroa.012.0.copyload.i, i64 %.sroa.413.0.copyload.i) #7
-  %47 = extractvalue { i64, i64 } %46, 0
-  %48 = extractvalue { i64, i64 } %46, 1
-  store i64 %47, ptr %10, align 4
-  store i64 %48, ptr %12, align 4
-  %49 = load i64, ptr %29, align 4
-  %50 = load i64, ptr %34, align 4
-  %51 = load i64, ptr %16, align 4
-  %52 = load i64, ptr %18, align 4
-  %53 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %49, i64 %50, i64 %51, i64 %52) #7
-  %54 = extractvalue { i64, i64 } %53, 0
-  %55 = extractvalue { i64, i64 } %53, 1
-  store i64 %54, ptr %16, align 4
-  store i64 %55, ptr %18, align 4
-  %56 = load i64, ptr %28, align 4
-  %57 = load i64, ptr %31, align 4
-  %58 = load i64, ptr %29, align 4
-  %59 = load i64, ptr %34, align 4
-  %60 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %56, i64 %57, i64 %58, i64 %59) #7
-  %61 = extractvalue { i64, i64 } %60, 0
-  %62 = extractvalue { i64, i64 } %60, 1
-  store i64 %61, ptr %29, align 4
-  store i64 %62, ptr %34, align 4
-  %63 = load i64, ptr %22, align 4
-  %64 = load i64, ptr %24, align 4
-  %65 = load i64, ptr %28, align 4
-  %66 = load i64, ptr %31, align 4
-  %67 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %63, i64 %64, i64 %65, i64 %66) #7
-  %68 = extractvalue { i64, i64 } %67, 0
-  %69 = extractvalue { i64, i64 } %67, 1
-  store i64 %68, ptr %28, align 4
-  store i64 %69, ptr %31, align 4
-  %70 = load i64, ptr %3, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %72 = load i64, ptr %71, align 4
-  %73 = load i64, ptr %22, align 4
-  %74 = load i64, ptr %24, align 4
-  %75 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %70, i64 %72, i64 %73, i64 %74) #7
-  %76 = extractvalue { i64, i64 } %75, 0
-  %77 = extractvalue { i64, i64 } %75, 1
-  store i64 %76, ptr %22, align 4
-  store i64 %77, ptr %24, align 4
-  %78 = load i64, ptr %3, align 4
-  %79 = load i64, ptr %71, align 4
-  %80 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %.sroa.012.0.copyload.i, i64 %.sroa.413.0.copyload.i, i64 %78, i64 %79) #7
-  %81 = extractvalue { i64, i64 } %80, 0
-  %82 = extractvalue { i64, i64 } %80, 1
-  %83 = xor i64 %81, %42
-  %84 = xor i64 %82, %43
-  store i64 %83, ptr %3, align 4
-  store i64 %84, ptr %71, align 4
+  %46 = load i64, ptr %16, align 4
+  %47 = load i64, ptr %18, align 4
+  %48 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %46, i64 %47, i64 %.sroa.012.0.copyload.i, i64 %.sroa.413.0.copyload.i) #7
+  %49 = extractvalue { i64, i64 } %48, 0
+  %50 = extractvalue { i64, i64 } %48, 1
+  store i64 %49, ptr %10, align 4
+  store i64 %50, ptr %12, align 4
+  %51 = load i64, ptr %29, align 4
+  %52 = load i64, ptr %34, align 4
+  %53 = load i64, ptr %16, align 4
+  %54 = load i64, ptr %18, align 4
+  %55 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %51, i64 %52, i64 %53, i64 %54) #7
+  %56 = extractvalue { i64, i64 } %55, 0
+  %57 = extractvalue { i64, i64 } %55, 1
+  store i64 %56, ptr %16, align 4
+  store i64 %57, ptr %18, align 4
+  %58 = load i64, ptr %28, align 4
+  %59 = load i64, ptr %31, align 4
+  %60 = load i64, ptr %29, align 4
+  %61 = load i64, ptr %34, align 4
+  %62 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %58, i64 %59, i64 %60, i64 %61) #7
+  %63 = extractvalue { i64, i64 } %62, 0
+  %64 = extractvalue { i64, i64 } %62, 1
+  store i64 %63, ptr %29, align 4
+  store i64 %64, ptr %34, align 4
+  %65 = load i64, ptr %22, align 4
+  %66 = load i64, ptr %24, align 4
+  %67 = load i64, ptr %28, align 4
+  %68 = load i64, ptr %31, align 4
+  %69 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %65, i64 %66, i64 %67, i64 %68) #7
+  %70 = extractvalue { i64, i64 } %69, 0
+  %71 = extractvalue { i64, i64 } %69, 1
+  store i64 %70, ptr %28, align 4
+  store i64 %71, ptr %31, align 4
+  %72 = load i64, ptr %3, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %74 = load i64, ptr %73, align 4
+  %75 = load i64, ptr %22, align 4
+  %76 = load i64, ptr %24, align 4
+  %77 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %72, i64 %74, i64 %75, i64 %76) #7
+  %78 = extractvalue { i64, i64 } %77, 0
+  %79 = extractvalue { i64, i64 } %77, 1
+  store i64 %78, ptr %22, align 4
+  store i64 %79, ptr %24, align 4
+  %80 = load i64, ptr %3, align 4
+  %81 = load i64, ptr %73, align 4
+  %82 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %.sroa.012.0.copyload.i, i64 %.sroa.413.0.copyload.i, i64 %80, i64 %81) #7
+  %83 = extractvalue { i64, i64 } %82, 0
+  %84 = extractvalue { i64, i64 } %82, 1
+  %85 = xor i64 %83, %44
+  %86 = xor i64 %84, %45
+  store i64 %85, ptr %3, align 4
+  store i64 %86, ptr %73, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
   ret void
 }

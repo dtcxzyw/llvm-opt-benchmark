@@ -14262,10 +14262,10 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner17fixup_slot_range
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7e15f71bba407408E.exit"
-  %.sroa.035.0107 = phi ptr [ %17, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7e15f71bba407408E.exit" ], [ %11, %.lr.ph.preheader ]
-  %.sroa.8.0106 = phi i64 [ %19, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7e15f71bba407408E.exit" ], [ %16, %.lr.ph.preheader ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.035.0107, i64 8
-  %.not.i.i.not.i = icmp ult i64 %.sroa.8.0106, %14
+  %.sroa.035.0113 = phi ptr [ %17, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7e15f71bba407408E.exit" ], [ %11, %.lr.ph.preheader ]
+  %.sroa.8.0112 = phi i64 [ %19, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7e15f71bba407408E.exit" ], [ %16, %.lr.ph.preheader ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.035.0113, i64 8
+  %.not.i.i.not.i = icmp ult i64 %.sroa.8.0112, %14
   br i1 %.not.i.i.not.i, label %18, label %"_ZN106_$LT$regex_automata..util..primitives..PatternIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb476d50b7744b674E.exit.i"
 
 "_ZN106_$LT$regex_automata..util..primitives..PatternIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb476d50b7744b674E.exit.i": ; preds = %.lr.ph
@@ -14277,11 +14277,11 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner17fixup_slot_range
   br label %27
 
 18:                                               ; preds = %.lr.ph
-  %19 = add nuw i64 %.sroa.8.0106, 1
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.035.0107, i64 4
+  %19 = add nuw i64 %.sroa.8.0112, 1
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.035.0113, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !12
   %22 = zext i32 %21 to i64
-  %23 = load i32, ptr %.sroa.035.0107, align 4, !noundef !12
+  %23 = load i32, ptr %.sroa.035.0113, align 4, !noundef !12
   %24 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %22, i64 %6)
   %25 = extractvalue { i64, i1 } %24, 1
   %26 = extractvalue { i64, i1 } %24, 0
@@ -14291,7 +14291,7 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner17fixup_slot_range
   ret void
 
 28:                                               ; preds = %18
-  %29 = trunc i64 %.sroa.8.0106 to i32
+  %29 = trunc i64 %.sroa.8.0112 to i32
   %30 = zext i32 %23 to i64
   %31 = sub nsw i64 %22, %30
   %32 = lshr i64 %31, 1
@@ -14323,19 +14323,19 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner17fixup_slot_range
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7e15f71bba407408E.exit": ; preds = %36
   %42 = trunc nuw nsw i64 %39 to i32
-  store i32 %42, ptr %.sroa.035.0107, align 4
+  store i32 %42, ptr %.sroa.035.0113, align 4
   %43 = icmp eq ptr %17, %12
   br i1 %43, label %._crit_edge, label %.lr.ph
 
 44:                                               ; preds = %34
-  %45 = trunc i64 %.sroa.8.0106 to i32
+  %45 = trunc i64 %.sroa.8.0112 to i32
   %46 = zext i32 %23 to i64
   %47 = sub nsw i64 %22, %46
   %48 = lshr i64 %47, 1
   %49 = add nuw i64 %48, 1
   store i64 -9223372036854775807, ptr %0, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %49, ptr %50, align 8
+  %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %49, ptr %.sroa.225.0..sroa_idx, align 8
   %.sroa.326.sroa.2.0..sroa.326.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %45, ptr %.sroa.326.sroa.2.0..sroa.326.0..sroa_idx.sroa_idx, align 8
   br label %27

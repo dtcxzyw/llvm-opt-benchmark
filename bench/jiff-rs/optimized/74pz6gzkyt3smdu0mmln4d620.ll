@@ -888,9 +888,9 @@ _ZN4jiff6shared4util5itime5IDate24from_day_of_year_no_leap17hdd77fb19b37c8b94E.e
 
 139:                                              ; preds = %_ZN4jiff6shared4util5itime5IDate24from_day_of_year_no_leap17hdd77fb19b37c8b94E.exit, %_ZN4jiff6shared4util5itime5IDate24from_day_of_year_no_leap17hdd77fb19b37c8b94E.exit.thread
   %.sroa.5.0140 = phi i64 [ %.sroa.5.8.insert.ext, %_ZN4jiff6shared4util5itime5IDate24from_day_of_year_no_leap17hdd77fb19b37c8b94E.exit.thread ], [ %126, %_ZN4jiff6shared4util5itime5IDate24from_day_of_year_no_leap17hdd77fb19b37c8b94E.exit ]
-  %140 = trunc i64 %.sroa.5.0140 to i32
+  %.sroa.080.0.extract.trunc161 = trunc i64 %.sroa.5.0140 to i32
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i32 %140, ptr %141, align 2
+  store i32 %.sroa.080.0.extract.trunc161, ptr %141, align 2
   br label %_ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit
 }
 

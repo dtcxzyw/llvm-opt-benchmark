@@ -3910,24 +3910,24 @@ define internal fastcc void @_ZN6uucore8features4mode8parse_op17h9053c48dd3b952a
   %.sroa.6.049 = phi i32 [ %.sroa.426.0.extract.trunc, %.thread ], [ %44, %34 ], [ %23, %22 ], [ %32, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h768176926c7dfe8eE.exit15.i" ], [ %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h768176926c7dfe8eE.exit13.i" ]
   store i32 %.sroa.6.049, ptr %7, align 4
   switch i32 %.sroa.6.049, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit [
-    i32 43, label %55
-    i32 45, label %55
-    i32 61, label %55
+    i32 43, label %54
+    i32 45, label %54
+    i32 61, label %54
   ]
 
 52:                                               ; preds = %.thread
   store i64 %47, ptr %0, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %50, ptr %53, align 8
+  %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %50, ptr %.sroa.235.0..sroa_idx, align 8
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 22, ptr %.sroa.437.0..sroa_idx, align 8
-  br label %58
+  br label %57
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %.thread45
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %7, ptr %5, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17h522b74b1e908963bE", ptr %54, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17h522b74b1e908963bE", ptr %53, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !592
   store ptr @anon.cbb7d0e693f74b45c4df53aa3040d056.159, ptr %4, align 8, !noalias !603
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3942,17 +3942,17 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %.thread45
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !592
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  br label %58
+  br label %57
 
-55:                                               ; preds = %.thread45, %.thread45, %.thread45
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.6.049, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %57, align 8
+54:                                               ; preds = %.thread45, %.thread45, %.thread45
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sroa.6.049, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 1, ptr %56, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %58
+  br label %57
 
-58:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %55, %52
+57:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %54, %52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   ret void
 }

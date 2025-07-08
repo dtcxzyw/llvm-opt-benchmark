@@ -91,7 +91,7 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   store i32 %.060.lcssa, ptr %6, align 4
   br label %40
 
-40:                                               ; preds = %._crit_edge, %57
+40:; preds = %._crit_edge, %57
   %indvars.iv91 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next92, %57 ]
   %.183 = phi ptr [ %.054.lcssa, %._crit_edge ], [ %58, %57 ]
   %.382 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %42, %57 ]
@@ -111,21 +111,21 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   %50 = load i8, ptr %49, align 1
   %51 = load i8, ptr %44, align 1
   %.narrow = add i8 %51, %45
-  %52 = zext i8 %.narrow to i64
-  %53 = getelementptr [256 x i8], ptr %5, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1
-  %55 = xor i8 %54, %50
+  %53 = zext i8 %.narrow to i64
+  %54 = getelementptr [256 x i8], ptr %5, i64 0, i64 %53
+  %55 = load i8, ptr %54, align 1
+  %55 = xor i8 %55, %50
   %56 = load i8, ptr %.183, align 1
   %.not = icmp eq i8 %55, %56
   br i1 %.not, label %57, label %59
 
-57:                                               ; preds = %40
-  %58 = getelementptr i8, ptr %.183, i64 1
+57:; preds = %40
+  %59 = getelementptr i8, ptr %.183, i64 1
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next92, 4
-  br i1 %exitcond93.not, label %59, label %40, !llvm.loop !10
+  br i1 %exitcond93.not, label %69, label %40, !llvm.loop !10
 
-59:                                               ; preds = %57, %40
+69:                                               ; preds = %57, %40
   %.0 = phi i32 [ 1, %40 ], [ 0, %57 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #3

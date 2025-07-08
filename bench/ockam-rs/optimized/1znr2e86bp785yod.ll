@@ -507,35 +507,35 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb26d43449a02
   %.sroa.42.0.extract.shift = lshr i40 %1, 8
   %.sroa.42.0.extract.trunc = trunc i40 %.sroa.42.0.extract.shift to i8
   %trunc = trunc i40 %1 to i1
-  br i1 %trunc, label %6, label %3
+  br i1 %trunc, label %5, label %3
 
 3:                                                ; preds = %2
   %4 = trunc nuw i40 %.sroa.42.0.extract.shift to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i32 %4, ptr %5, align 1
   store i8 8, ptr %0, align 8
-  br label %11
+  br label %10
 
-6:                                                ; preds = %2
-  %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !58
-  %8 = tail call noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef 1, i64 noundef range(i64 1, -9223372036854775807) 1) #20, !noalias !58
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit"
+5:                                                ; preds = %2
+  %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !58
+  %7 = tail call noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef 1, i64 noundef range(i64 1, -9223372036854775807) 1) #20, !noalias !58
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit"
 
-10:                                               ; preds = %6
+9:                                                ; preds = %5
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 1, i64 noundef 1) #17, !noalias !58
   unreachable
 
-"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit": ; preds = %6
-  store i8 %.sroa.42.0.extract.trunc, ptr %8, align 1, !noalias !58
+"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit": ; preds = %5
+  store i8 %.sroa.42.0.extract.trunc, ptr %7, align 1, !noalias !58
   store i8 7, ptr %0, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %.sroa.45.0..sroa_idx, align 8
+  store ptr %7, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @anon.3459e9c811a6d28c77b5d7b0f168ab32.9.llvm.9114549357374491183, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %11
+  br label %10
 
-11:                                               ; preds = %3, %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit"
+10:                                               ; preds = %3, %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit"
   ret void
 }
 
@@ -644,30 +644,30 @@ define void @"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..
 6:                                                ; preds = %3
   %7 = trunc nuw i40 %.sroa.42.0.extract.shift.i to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i32 %7, ptr %8, align 1, !alias.scope !64
+  store i32 %6, ptr %8, align 1, !alias.scope !64
   store i8 8, ptr %0, align 8, !alias.scope !64
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb26d43449a02b856E.llvm.9114549357374491183.exit"
 
-9:                                                ; preds = %3
-  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !67
-  %11 = tail call noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef 1, i64 noundef range(i64 1, -9223372036854775807) 1) #20, !noalias !67
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i"
+8:                                                ; preds = %3
+  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !67
+  %10 = tail call noundef dereferenceable_or_null(1) ptr @__rust_alloc(i64 noundef 1, i64 noundef range(i64 1, -9223372036854775807) 1) #20, !noalias !67
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i"
 
-13:                                               ; preds = %9
+12:                                               ; preds = %8
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 1, i64 noundef 1) #17, !noalias !67
   unreachable
 
-"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i": ; preds = %9
-  store i8 %.sroa.42.0.extract.trunc.i, ptr %11, align 1, !noalias !67
+"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i": ; preds = %8
+  store i8 %.sroa.42.0.extract.trunc.i, ptr %10, align 1, !noalias !67
   store i8 7, ptr %0, align 8, !alias.scope !64
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %11, ptr %.sroa.45.0..sroa_idx.i, align 8, !alias.scope !64
+  store ptr %10, ptr %.sroa.45.0..sroa_idx.i, align 8, !alias.scope !64
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @anon.3459e9c811a6d28c77b5d7b0f168ab32.9.llvm.9114549357374491183, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !64
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb26d43449a02b856E.llvm.9114549357374491183.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb26d43449a02b856E.llvm.9114549357374491183.exit": ; preds = %6, %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i"
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb26d43449a02b856E.llvm.9114549357374491183.exit": ; preds = %5, %"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..Protocol$GT$8read_str28_$u7b$$u7b$closure$u7d$$u7d$17h3956692fbb037947E.llvm.9114549357374491183.exit.i"
   ret void
 }
 

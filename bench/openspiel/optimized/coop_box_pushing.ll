@@ -978,7 +978,7 @@ define void @_ZN10open_spiel16coop_box_pushing19CoopBoxPushingStateC2ESt10shared
 
 _ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit: ; preds = %4, %14, %17
   invoke void @_ZN10open_spiel12SimMoveStateC2ESt10shared_ptrIKNS_4GameEE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %5)
-          to label %19 unwind label %81
+          to label %19 unwind label %83
 
 19:                                               ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit
   %20 = zext i1 %3 to i8
@@ -1077,7 +1077,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
   store i8 46, ptr %6, align 1
   invoke void @_ZNSt6vectorIcSaIcEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPcS1_EEmRKc(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr null, i64 noundef 64, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %._crit_edge46 unwind label %83
+          to label %._crit_edge46 unwind label %85
 
 ._crit_edge46:                                    ; preds = %56
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1108,21 +1108,21 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i32 3, ptr %80, align 4
   ret void
 
-81:                                               ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit
-  %82 = landingpad { ptr, i32 }
+83:                                               ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit
+  %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #28
-  br label %85
+  br label %87
 
-83:                                               ; preds = %56
-  %84 = landingpad { ptr, i32 }
+85:                                               ; preds = %56
+  %86 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #28
   call void @_ZN10open_spiel12SimMoveStateD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #28
-  br label %85
+  br label %87
 
-85:                                               ; preds = %83, %81
-  %.pn.pn = phi { ptr, i32 } [ %84, %83 ], [ %82, %81 ]
+87:                                               ; preds = %85, %83
+  %.pn.pn = phi { ptr, i32 } [ %86, %83 ], [ %84, %81 ]
   resume { ptr, i32 } %.pn.pn
 }
 

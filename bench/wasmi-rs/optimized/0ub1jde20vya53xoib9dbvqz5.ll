@@ -26487,7 +26487,7 @@ define noundef range(i8 5, 7) i8 @"_ZN126_$LT$wasmi..module..utils..WasmiValueTy
   %or.cond.not = icmp eq i64 %5, 3
   br i1 %or.cond.not, label %11, label %6, !prof !567
 
-6:                                                ; preds = %11, %1
+6:; preds = %11, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %0, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)

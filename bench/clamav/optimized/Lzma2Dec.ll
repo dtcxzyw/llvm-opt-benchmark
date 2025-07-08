@@ -620,27 +620,27 @@ define i32 @Lzma2Decode(ptr noundef %0, ptr noundef captures(none) %1, ptr nound
   %.not33 = icmp eq i32 %29, 0
   br i1 %.not33, label %30, label %Lzma2Dec_GetOldProps.exit
 
-30:                                               ; preds = %26
+30:; preds = %26
   store i64 %12, ptr %3, align 8, !tbaa !18
-  %31 = call i32 @Lzma2Dec_DecodeToDic(ptr noundef nonnull %9, i64 noundef %11, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %5, ptr noundef nonnull %6)
-  %32 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %33 = load i64, ptr %32, align 8, !tbaa !20
-  store i64 %33, ptr %1, align 8, !tbaa !18
-  %34 = icmp eq i32 %31, 0
-  br i1 %34, label %35, label %38
+  %41 = call i32 @Lzma2Dec_DecodeToDic(ptr noundef nonnull %9, i64 noundef %11, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %5, ptr noundef nonnull %6)
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %43 = load i64, ptr %42, align 8, !tbaa !20
+  store i64 %43, ptr %1, align 8, !tbaa !18
+  %44 = icmp eq i32 %41, 0
+  br i1 %44, label %45, label %48
 
-35:                                               ; preds = %30
-  %36 = load i32, ptr %6, align 4, !tbaa !19
-  %37 = icmp eq i32 %36, 3
-  %spec.select = select i1 %37, i32 6, i32 0
-  br label %38
+45:                                               ; preds = %30
+  %46 = load i32, ptr %6, align 4, !tbaa !19
+  %47 = icmp eq i32 %46, 3
+  %spec.select = select i1 %47, i32 6, i32 0
+  br label %48
 
-38:                                               ; preds = %35, %30
-  %.030 = phi i32 [ %31, %30 ], [ %spec.select, %35 ]
+48:                                               ; preds = %45, %30
+  %.030 = phi i32 [ %41, %30 ], [ %spec.select, %35 ]
   call void @LzmaDec_FreeProbs(ptr noundef nonnull %9, ptr noundef %7) #5
   br label %Lzma2Dec_GetOldProps.exit
 
-Lzma2Dec_GetOldProps.exit:                        ; preds = %8, %26, %38
+Lzma2Dec_GetOldProps.exit:                        ; preds = %8, %26, %48
   %.1 = phi i32 [ %.030, %38 ], [ %29, %26 ], [ 4, %8 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %9) #5

@@ -5772,8 +5772,8 @@ define dso_local range(i32 -34, 1) i32 @ata_build_rw_tf(ptr noundef %0, i64 noun
   br label %.thread
 
 .thread:                                          ; preds = %253, %261, %216, %72, %78, %199, %281, %191, %140, %133, %18
-  %293 = phi i32 [ -34, %18 ], [ -34, %140 ], [ -34, %133 ], [ -22, %191 ], [ 0, %281 ], [ 0, %199 ], [ 0, %78 ], [ 0, %72 ], [ -22, %253 ], [ -34, %261 ], [ -34, %216 ]
-  ret i32 %293
+  %296 = phi i32 [ -34, %18 ], [ -34, %140 ], [ -34, %133 ], [ -22, %191 ], [ 0, %281 ], [ 0, %199 ], [ 0, %78 ], [ 0, %72 ], [ -22, %253 ], [ -34, %261 ], [ -34, %216 ]
+  ret i32 %296
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

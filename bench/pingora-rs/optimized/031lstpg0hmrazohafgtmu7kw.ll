@@ -12129,7 +12129,7 @@ define hidden noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$10try_finish1
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %30
 
-30:                                               ; preds = %.lr.ph, %36
+30: ; preds = %.lr.ph, %36
   %31 = phi i64 [ %23, %.lr.ph ], [ %39, %36 ]
   %32 = load i32, ptr %25, align 4, !noundef !3
   %33 = load i32, ptr %26, align 8, !noundef !3
@@ -12140,24 +12140,24 @@ define hidden noundef ptr @"_ZN6flate22gz5write18GzEncoder$LT$W$GT$10try_finish1
   %.not22 = icmp eq i64 %34, -9223372036854775808
   br i1 %.not22, label %35, label %36, !prof !11
 
-.loopexit:                                        ; preds = %36, %.preheader, %"_ZN6flate22gz5write18GzEncoder$LT$W$GT$12write_header17hf4a0d2daf06b9dcbE.exit"
+.loopexit:; preds = %36, %.preheader, %"_ZN6flate22gz5write18GzEncoder$LT$W$GT$12write_header17hf4a0d2daf06b9dcbE.exit"
   %.sroa.0.0 = phi ptr [ %21, %"_ZN6flate22gz5write18GzEncoder$LT$W$GT$12write_header17hf4a0d2daf06b9dcbE.exit" ], [ null, %.preheader ], [ null, %36 ]
   ret ptr %.sroa.0.0
 
-35:                                               ; preds = %30
+55:                                               ; preds = %30
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.362) #20
   unreachable
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %31
-  call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he7d0b4d87673464fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull readonly align 1 %37, ptr noundef nonnull readonly %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.49)
-  %38 = load i64, ptr %22, align 8, !noundef !3
-  %reass.sub23 = sub i64 %38, %31
-  %39 = add i64 %reass.sub23, 8
-  store i64 %39, ptr %22, align 8
+56:                                               ; preds = %30
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 %31
+  call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he7d0b4d87673464fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull readonly align 1 %57, ptr noundef nonnull readonly %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.49)
+  %58 = load i64, ptr %22, align 8, !noundef !3
+  %reass.sub23 = sub i64 %58, %31
+  %59 = add i64 %reass.sub23, 8
+  store i64 %59, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %40 = icmp ugt i64 %reass.sub23, -9
-  br i1 %40, label %30, label %.loopexit
+  %60 = icmp ugt i64 %reass.sub23, -9
+  br i1 %60, label %30, label %.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable

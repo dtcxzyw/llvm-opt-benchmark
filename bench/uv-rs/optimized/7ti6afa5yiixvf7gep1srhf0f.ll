@@ -55385,14 +55385,14 @@ define void @_ZN11uv_resolver10resolution6output14ResolverOutput10from_state17h3
   invoke void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.180df14042c8a25df4f03a7d1b77e543.167) #52
           to label %149 unwind label %.thread
 
-146:                                              ; preds = %1893, %"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit239"
+146:                                              ; preds = %1892, %"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit239"
   %147 = trunc nuw i8 %.sroa.033.2 to i1
-  br i1 %147, label %1895, label %1894
+  br i1 %147, label %1894, label %1893
 
 .thread:                                          ; preds = %142, %145, %"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit241"
   %148 = landingpad { ptr, i32 }
           cleanup
-  br label %1895
+  br label %1894
 
 149:                                              ; preds = %942, %145
   unreachable
@@ -55404,14 +55404,14 @@ define void @_ZN11uv_resolver10resolution6output14ResolverOutput10from_state17h3
   invoke void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h88db8e20e53b6ba3E.llvm.9433694377343827264(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %111, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef 56, i64 noundef 16, i64 noundef %144, i1 noundef zeroext true)
           to label %154 unwind label %152
 
-"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit239": ; preds = %1886, %152
+"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit239": ; preds = %1885, %152
   %.sroa.032.1 = phi i8 [ %.sroa.033.1, %152 ], [ %.sroa.032.4, %1886 ]
   %.sroa.033.2 = phi i8 [ %.sroa.033.1, %152 ], [ %.sroa.033.5, %1886 ]
   %.pn88 = phi { ptr, i32 } [ %153, %152 ], [ %.pn85.pn, %1886 ]
   %151 = trunc nuw i8 %.sroa.032.1 to i1
-  br i1 %151, label %1893, label %146
+  br i1 %151, label %1892, label %146
 
-152:                                              ; preds = %1890, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit167", %150
+152:                                              ; preds = %1889, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit167", %150
   %.sroa.033.1 = phi i8 [ 1, %150 ], [ 0, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit167" ], [ 1, %1890 ]
   %153 = landingpad { ptr, i32 }
           cleanup
@@ -55441,9 +55441,9 @@ define void @_ZN11uv_resolver10resolution6output14ResolverOutput10from_state17h3
   %.sroa.033.4 = phi i8 [ %.sroa.033.3, %160 ], [ %.sroa.033.7, %.body227 ]
   %.pn85 = phi { ptr, i32 } [ %161, %160 ], [ %.pn83, %.body227 ]
   %159 = trunc nuw i8 %.sroa.032.3 to i1
-  br i1 %159, label %1892, label %1886
+  br i1 %159, label %1891, label %1885
 
-160:                                              ; preds = %1884, %"_ZN4core3ptr201drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionDependencyEdge$C$uv_resolver..universal_marker..UniversalMarker$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h84db248615e8ac04E.exit165", %165, %154
+160:                                              ; preds = %1883, %"_ZN4core3ptr201drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionDependencyEdge$C$uv_resolver..universal_marker..UniversalMarker$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h84db248615e8ac04E.exit165", %165, %154
   %.sroa.033.3 = phi i8 [ 1, %154 ], [ 1, %165 ], [ 0, %"_ZN4core3ptr201drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionDependencyEdge$C$uv_resolver..universal_marker..UniversalMarker$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h84db248615e8ac04E.exit165" ], [ 1, %1884 ]
   %161 = landingpad { ptr, i32 }
           cleanup
@@ -57491,7 +57491,7 @@ _ZN11uv_resolver16universal_marker15UniversalMarker11is_disjoint17h489378266a1c5
   unreachable
 
 .loopexit.split-lp52.loopexit.split-lp.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %743, %912, %775, %.body71.i, %738, %.body59.i
-  %lpad.loopexit.split-lp2105 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp2108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   br label %.body.i
 
@@ -57751,10 +57751,10 @@ _ZN11uv_resolver16universal_marker15UniversalMarker11is_disjoint17h489378266a1c5
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %141)
   br label %955
 
-955:                                              ; preds = %1891, %"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit"
+955:                                              ; preds = %1890, %"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit"
   ret void
 
-956:                                              ; preds = %1886, %.body141, %.body, %.loopexit.split-lp362, %.body227, %1895, %1893, %1892, %983, %982, %959, %958, %918, %.body162, %.body136, %.body133
+956:                                              ; preds = %1885, %.body141, %.body, %.loopexit.split-lp362, %.body227, %1894, %1892, %1891, %983, %982, %959, %958, %918, %.body162, %.body136, %.body133
   %957 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #51
@@ -60399,25 +60399,25 @@ _ZN11uv_resolver10resolution6output14ResolverOutput11add_version17ha3bdc5f738159
   %.sroa.6243.2 = phi i8 [ %.sroa.11.0154.i, %1683 ], [ %.sroa.6243.1.ph868, %1873 ]
   %1879 = ptrtoint ptr %.sroa.0242.2 to i64
   %1880 = and i64 %1879, 255
-  %1881 = icmp eq i64 %1880, 20
-  br i1 %1881, label %.outer, label %1884
+  %1880 = icmp eq i64 %1880, 20
+  br i1 %1880, label %.outer, label %1883
 
 .outer:                                           ; preds = %_ZN11uv_resolver10resolution6output14ResolverOutput11add_version17ha3bdc5f738159d4dE.exit
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.12)
-  %1882 = load i64, ptr %.sroa.9265.0..sroa_idx, align 8, !alias.scope !9420, !noundef !6
-  %1883 = icmp eq i64 %1882, 0
-  br i1 %1883, label %.outer._crit_edge, label %.lr.ph
+  %1881 = load i64, ptr %.sroa.9265.0..sroa_idx, align 8, !alias.scope !9420, !noundef !6
+  %1882 = icmp eq i64 %1881, 0
+  br i1 %1882, label %.outer._crit_edge, label %.lr.ph
 
-1884:                                             ; preds = %_ZN11uv_resolver10resolution6output14ResolverOutput11add_version17ha3bdc5f738159d4dE.exit
+1883:                                             ; preds = %_ZN11uv_resolver10resolution6output14ResolverOutput11add_version17ha3bdc5f738159d4dE.exit
   %.sroa.240.sroa.4.0..sroa.240.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.240.sroa.4.0..sroa.240.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.8, i64 6, i1 false)
   %.sroa.240.sroa.8.0..sroa.240.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.240.sroa.8.0..sroa.240.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.12, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.12)
-  %1885 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1879, ptr %1885, align 8
+  %1884 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1879, ptr %1884, align 8
   %.sroa.240.sroa.2.0..sroa.240.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sroa.6243.2, ptr %.sroa.240.sroa.2.0..sroa.240.0..sroa_idx.sroa_idx, align 8
   %.sroa.240.sroa.3.0..sroa.240.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
@@ -60433,52 +60433,52 @@ _ZN11uv_resolver10resolution6output14ResolverOutput11add_version17ha3bdc5f738159
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h003bd5559164668bE(ptr noalias noundef nonnull align 8 dereferenceable(32) %137, ptr noalias noundef nonnull readonly align 1 %173, i64 noundef 16, i64 noundef 16)
           to label %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit237" unwind label %160
 
-"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit237": ; preds = %1884
+"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit237": ; preds = %1883
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %137)
   invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..resolution..ResolutionDiagnostic$GT$$GT$17h1b3a16be1afbe35cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %139)
-          to label %1890 unwind label %1888
+          to label %1890 unwind label %1887
 
-1886:                                             ; preds = %1892, %1888, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit"
+1885:                                             ; preds = %1891, %1887, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit"
   %.sroa.032.4 = phi i8 [ 1, %1892 ], [ 0, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit" ], [ 1, %1888 ]
   %.sroa.033.5 = phi i8 [ %.sroa.033.4, %1892 ], [ %.sroa.033.4, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit" ], [ 1, %1888 ]
-  %.pn85.pn = phi { ptr, i32 } [ %.pn85, %1892 ], [ %.pn85, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit" ], [ %1889, %1888 ]
-  %1887 = getelementptr inbounds nuw i8, ptr %140, i64 32
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17ha09fdc494061491aE(ptr noalias noundef nonnull align 8 dereferenceable(32) %140, ptr noalias noundef nonnull readonly align 1 %1887, i64 noundef 56, i64 noundef 16)
+  %.pn85.pn = phi { ptr, i32 } [ %.pn85, %1892 ], [ %.pn85, %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit" ], [ %1888, %1888 ]
+  %1886 = getelementptr inbounds nuw i8, ptr %140, i64 32
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17ha09fdc494061491aE(ptr noalias noundef nonnull align 8 dereferenceable(32) %140, ptr noalias noundef nonnull readonly align 1 %1886, i64 noundef 56, i64 noundef 16)
           to label %"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit239" unwind label %956
 
-1888:                                             ; preds = %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit237"
-  %1889 = landingpad { ptr, i32 }
+1887:                                             ; preds = %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit237"
+  %1888 = landingpad { ptr, i32 }
           cleanup
-  br label %1886
+  br label %1885
 
-1890:                                             ; preds = %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit237"
+1889:                                             ; preds = %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit237"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %139)
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17ha09fdc494061491aE(ptr noalias noundef nonnull align 8 dereferenceable(32) %140, ptr noalias noundef nonnull readonly align 1 %248, i64 noundef 56, i64 noundef 16)
           to label %"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit241" unwind label %152
 
-"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit241": ; preds = %1890
+"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit241": ; preds = %1889
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %140)
   invoke void @"_ZN4core3ptr157drop_in_place$LT$petgraph..graph_impl..Graph$LT$uv_resolver..resolution..output..ResolutionGraphNode$C$uv_resolver..universal_marker..UniversalMarker$GT$$GT$17h4223b3fd238d670cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %141)
           to label %1891 unwind label %.thread
 
-1891:                                             ; preds = %"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit241"
+1890:                                             ; preds = %"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit241"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %141)
   call void @"_ZN4core3ptr50drop_in_place$LT$uv_resolver..options..Options$GT$17h2e153f05f48c2bdbE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %13)
   br label %955
 
-1892:                                             ; preds = %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit"
+1891:                                             ; preds = %"_ZN4core3ptr179drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$$RF$uv_resolver..resolver..ResolutionPackage$C$$RF$uv_pep440..version..Version$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h98597def189c2ea9E.exit"
   invoke void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..resolution..ResolutionDiagnostic$GT$$GT$17h1b3a16be1afbe35cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %139) #53
           to label %1886 unwind label %956
 
-1893:                                             ; preds = %"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit239"
+1892:                                             ; preds = %"_ZN4core3ptr170drop_in_place$LT$std..collections..hash..map..HashMap$LT$uv_resolver..resolution..output..PackageRef$C$petgraph..graph_impl..NodeIndex$C$rustc_hash..FxBuildHasher$GT$$GT$17hf37387e7a4db8f55E.exit239"
   invoke void @"_ZN4core3ptr157drop_in_place$LT$petgraph..graph_impl..Graph$LT$uv_resolver..resolution..output..ResolutionGraphNode$C$uv_resolver..universal_marker..UniversalMarker$GT$$GT$17h4223b3fd238d670cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %141) #53
           to label %146 unwind label %956
 
-1894:                                             ; preds = %1895, %146
+1893:                                             ; preds = %1894, %146
   %.pn88.pn268 = phi { ptr, i32 } [ %.pn88.pn269, %1895 ], [ %.pn88, %146 ]
   resume { ptr, i32 } %.pn88.pn268
 
-1895:                                             ; preds = %.thread, %146
+1894:                                             ; preds = %.thread, %146
   %.pn88.pn269 = phi { ptr, i32 } [ %148, %.thread ], [ %.pn88, %146 ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$uv_resolver..options..Options$GT$17h2e153f05f48c2bdbE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %13) #53
           to label %1894 unwind label %956

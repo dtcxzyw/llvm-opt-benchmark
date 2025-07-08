@@ -36433,8 +36433,8 @@ hufEncode.exit.thread:                            ; preds = %384, %400, %407, %.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %417 = ptrtoint ptr %12 to i64
-  %418 = sub i64 %409, %417
+  %416 = ptrtoint ptr %12 to i64
+  %417 = sub i64 %409, %416
   %419 = trunc i64 %418 to i32
   %420 = add nuw nsw i64 %413, 7
   %421 = lshr i64 %420, 3
@@ -36445,8 +36445,8 @@ hufEncode.exit.thread:                            ; preds = %384, %400, %407, %.
   store i32 %419, ptr %423, align 1
   %424 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %416, ptr %424, align 1
-  %425 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 0, ptr %425, align 1
+  %426 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 0, ptr %426, align 1
   %426 = and i64 %421, 536870911
   %427 = ptrtoint ptr %1 to i64
   %428 = sub i64 %409, %427

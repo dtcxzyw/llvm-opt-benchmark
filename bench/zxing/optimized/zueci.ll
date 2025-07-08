@@ -2893,16 +2893,16 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal range(i32 2, 5) i32 @zueci_u_utf16le(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1) #2 {
   %3 = icmp ult i32 %0, 65536
-  br i1 %3, label %4, label %6
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = trunc nuw i32 %0 to i16
   store i16 %5, ptr %1, align 1
-  br label %21
+  br label %20
 
-6:                                                ; preds = %2
-  %7 = add i32 %0, -65536
-  %8 = lshr i32 %7, 10
+7:                                                ; preds = %2
+  %8 = add i32 %0, -65536
+  %9 = lshr i32 %8, 10
   %9 = trunc i32 %8 to i8
   store i8 %9, ptr %1, align 1, !tbaa !3
   %10 = lshr i32 %7, 18
@@ -2921,8 +2921,8 @@ define internal range(i32 2, 5) i32 @zueci_u_utf16le(i32 noundef %0, ptr noundef
   store i8 %19, ptr %20, align 1, !tbaa !3
   br label %21
 
-21:                                               ; preds = %6, %4
-  %.0 = phi i32 [ 2, %4 ], [ 4, %6 ]
+20:                                               ; preds = %7, %4
+  %.sink17.in = phi i32 [ 2, %4 ], [ 4, %6 ]
   ret i32 %.0
 }
 

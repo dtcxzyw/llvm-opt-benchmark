@@ -137,11 +137,11 @@ default.unreachable:                              ; preds = %19
 
 66:                                               ; preds = %._crit_edge
   store i32 %.093.lcssa, ptr %1, align 1
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.092.lcssa, ptr %67, align 1
   br label %68
 
-68:                                               ; preds = %66, %._crit_edge
+68: ; preds = %66, %._crit_edge
   %69 = call i32 @llvm.bswap.i32(i32 %.092.lcssa)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   ret i32 %69

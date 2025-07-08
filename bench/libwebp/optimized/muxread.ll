@@ -1138,7 +1138,7 @@ define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr noundef rea
   %19 = add nuw nsw i64 %18, %17
   %20 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %19) #5
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %50, label %22
+  br i1 %21, label %65, label %22
 
 22:                                               ; preds = %10
   %23 = tail call ptr @MuxEmitRiffHeader(ptr noundef nonnull %20, i64 noundef %19) #5
@@ -1160,31 +1160,31 @@ define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr noundef rea
   store i16 %33, ptr %31, align 1
   %34 = lshr i32 %32, 16
   %35 = trunc i32 %34 to i8
-  %36 = getelementptr inbounds nuw i8, ptr %23, i64 14
-  store i8 %35, ptr %36, align 1, !tbaa !29
-  %37 = getelementptr inbounds nuw i8, ptr %23, i64 15
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 14
+  store i8 %35, ptr %34, align 1, !tbaa !29
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 15
   %38 = add nsw i32 %28, -1
   %39 = trunc i32 %38 to i16
   store i16 %39, ptr %37, align 1
   %40 = lshr i32 %38, 16
   %41 = trunc i32 %40 to i8
-  %42 = getelementptr inbounds nuw i8, ptr %23, i64 17
-  store i8 %41, ptr %42, align 1, !tbaa !29
-  %43 = getelementptr inbounds nuw i8, ptr %23, i64 18
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 17
+  store i8 %41, ptr %38, align 1, !tbaa !29
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 18
   %44 = load ptr, ptr %3, align 8, !tbaa !21
   %45 = tail call ptr @ChunkListEmit(ptr noundef %44, ptr noundef nonnull %43) #5
   br label %46
 
-46:                                               ; preds = %24, %22
+46:; preds = %24, %22
   %.023 = phi ptr [ %45, %24 ], [ %23, %22 ]
   %47 = load ptr, ptr %13, align 8, !tbaa !3
   %48 = tail call ptr @ChunkListEmit(ptr noundef %47, ptr noundef %.023) #5
   store ptr %20, ptr %1, align 8, !tbaa !19
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %19, ptr %49, align 8, !tbaa !20
-  br label %50
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %19, ptr %64, align 8, !tbaa !20
+  br label %65
 
-50:                                               ; preds = %10, %46
+65:                                               ; preds = %10, %46
   %.0 = phi i32 [ 1, %46 ], [ -3, %10 ]
   ret i32 %.0
 }

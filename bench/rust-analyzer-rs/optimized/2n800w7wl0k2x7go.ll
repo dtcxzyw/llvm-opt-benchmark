@@ -18829,7 +18829,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.threa
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h367e26154f99d1a7E.exit.thread.i.i.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h367e26154f99d1a7E.exit.us.i.i.i", %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.thread.us.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.thread.i.i.i
   %21 = load i32, ptr %7, align 4, !range !1560, !alias.scope !6212, !noalias !6215, !noundef !25
   %22 = icmp eq i32 %21, 2
-  br i1 %22, label %40, label %23
+  br i1 %22, label %41, label %23
 
 23:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h367e26154f99d1a7E.exit.thread.i.i.i"
   %.sroa.6.0.copyload7.i2.i.i.i = load i64, ptr %.sroa.6.0..05.sroa_idx.i1.i.i.i, align 8, !alias.scope !6217, !noalias !6215
@@ -18842,19 +18842,19 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.threa
   %.sroa.5.1.i = phi i64 [ %.sroa.6.0..05.sroa_idx.i.promoted.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.i.i.i ], [ %.sroa.6.0.copyload7.i2.i.i.i, %23 ], [ %.sroa.6.0.copyload7.i26.us.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.us.i.i.i ]
   %.sroa.0.0.i = phi i32 [ %.promoted.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.i.i.i ], [ %21, %23 ], [ %.sroa.09.0.copyload1025.us.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.us.i.i.i ]
   %trunc.i = trunc nuw i32 %.sroa.0.0.i to i1
-  br i1 %trunc.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb83912c42b8e7eaaE.exit", label %40
+  br i1 %trunc.i, label %26, label %41
 
-24:                                               ; preds = %32
+24:                                               ; preds = %33
   %25 = invoke { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17h40921c8b240bab95E.llvm.273501356006530532"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
-          to label %"_ZN4core3ptr286drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$text_size..range..TextRange$GT$$C$2_usize$GT$$GT$$C$ide..highlight_related..highlight_exit_points..hl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf8a5ee2e419ffb94E.exit" unwind label %44
+          to label %"_ZN4core3ptr286drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$text_size..range..TextRange$GT$$C$2_usize$GT$$GT$$C$ide..highlight_related..highlight_exit_points..hl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf8a5ee2e419ffb94E.exit" unwind label %45
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb83912c42b8e7eaaE.exit": ; preds = %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc393182b19f09bd2E.exit.i"
+26:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc393182b19f09bd2E.exit.i"
   %26 = load i64, ptr %8, align 8, !noundef !25
   %27 = load i64, ptr %0, align 8, !noundef !25
   %28 = icmp eq i64 %26, %27
   br i1 %28, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2e3b0afbcc55ecb2E.exit", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h61cc4ba9b3b757a2E.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h61cc4ba9b3b757a2E.exit": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2e3b0afbcc55ecb2E.exit", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb83912c42b8e7eaaE.exit"
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h61cc4ba9b3b757a2E.exit":; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2e3b0afbcc55ecb2E.exit", %26
   %29 = load ptr, ptr %9, align 8, !nonnull !25, !noundef !25
   %30 = getelementptr inbounds { { i32, i32 }, i8, [3 x i8] }, ptr %29, i64 %26
   store i64 %.sroa.5.1.i, ptr %30, align 4
@@ -18864,41 +18864,41 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17heb831ff7a42c32ebE.exit.threa
   store i64 %31, ptr %8, align 8
   br label %10
 
-32:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2e3b0afbcc55ecb2E.exit"
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2e3b0afbcc55ecb2E.exit"
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %34 = load i64, ptr %1, align 8, !range !9, !alias.scope !6224, !noundef !25
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %"_ZN4core3ptr286drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$text_size..range..TextRange$GT$$C$2_usize$GT$$GT$$C$ide..highlight_related..highlight_exit_points..hl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf8a5ee2e419ffb94E.exit", label %24
+  %35 = load i64, ptr %1, align 8, !range !9, !alias.scope !6224, !noundef !25
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %"_ZN4core3ptr286drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$text_size..range..TextRange$GT$$C$2_usize$GT$$GT$$C$ide..highlight_related..highlight_exit_points..hl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf8a5ee2e419ffb94E.exit", label %24
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2e3b0afbcc55ecb2E.exit": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb83912c42b8e7eaaE.exit"
-  %36 = load i32, ptr %7, align 4, !range !1560, !alias.scope !6235, !noalias !6242, !noundef !25
-  %37 = icmp eq i32 %36, 2
-  %38 = add nuw nsw i32 %36, 1
-  %narrow63.i.i.i = select i1 %37, i32 1, i32 %38
-  %39 = zext nneg i32 %narrow63.i.i.i to i64
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h68c6a541dfd5955eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %26, i64 noundef %39)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h61cc4ba9b3b757a2E.exit" unwind label %32
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2e3b0afbcc55ecb2E.exit": ; preds = %26
+  %37 = load i32, ptr %7, align 4, !range !1560, !alias.scope !6235, !noalias !6242, !noundef !25
+  %38 = icmp eq i32 %37, 2
+  %39 = add nuw nsw i32 %37, 1
+  %narrow63.i.i.i = select i1 %38, i32 1, i32 %39
+  %40 = zext nneg i32 %narrow63.i.i.i to i64
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h68c6a541dfd5955eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %26, i64 noundef %40)
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h61cc4ba9b3b757a2E.exit" unwind label %33
 
-40:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h367e26154f99d1a7E.exit.thread.i.i.i", %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc393182b19f09bd2E.exit.i"
-  %41 = icmp eq i64 %.fr.i.i.i, 0
-  br i1 %41, label %"_ZN4core3ptr286drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$text_size..range..TextRange$GT$$C$2_usize$GT$$GT$$C$ide..highlight_related..highlight_exit_points..hl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf8a5ee2e419ffb94E.exit4", label %42
+41:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h367e26154f99d1a7E.exit.thread.i.i.i", %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc393182b19f09bd2E.exit.i"
+  %42 = icmp eq i64 %.fr.i.i.i, 0
+  br i1 %42, label %"_ZN4core3ptr286drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$text_size..range..TextRange$GT$$C$2_usize$GT$$GT$$C$ide..highlight_related..highlight_exit_points..hl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf8a5ee2e419ffb94E.exit4", label %43
 
-42:                                               ; preds = %40
-  %43 = tail call { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17h40921c8b240bab95E.llvm.273501356006530532"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
+43:                                               ; preds = %41
+  %44 = tail call { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17h40921c8b240bab95E.llvm.273501356006530532"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
   br label %"_ZN4core3ptr286drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$text_size..range..TextRange$GT$$C$2_usize$GT$$GT$$C$ide..highlight_related..highlight_exit_points..hl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf8a5ee2e419ffb94E.exit4"
 
-"_ZN4core3ptr286drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$text_size..range..TextRange$GT$$C$2_usize$GT$$GT$$C$ide..highlight_related..highlight_exit_points..hl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf8a5ee2e419ffb94E.exit4": ; preds = %40, %42
+"_ZN4core3ptr286drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$text_size..range..TextRange$GT$$C$2_usize$GT$$GT$$C$ide..highlight_related..highlight_exit_points..hl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf8a5ee2e419ffb94E.exit4": ; preds = %41, %43
   ret void
 
-44:                                               ; preds = %24
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %24
+  %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #19
   unreachable
 
-"_ZN4core3ptr286drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$text_size..range..TextRange$GT$$C$2_usize$GT$$GT$$C$ide..highlight_related..highlight_exit_points..hl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf8a5ee2e419ffb94E.exit": ; preds = %32, %24
-  resume { ptr, i32 } %33
+"_ZN4core3ptr286drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$text_size..range..TextRange$GT$$C$2_usize$GT$$GT$$C$ide..highlight_related..highlight_exit_points..hl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf8a5ee2e419ffb94E.exit": ; preds = %33, %24
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: nonlazybind uwtable

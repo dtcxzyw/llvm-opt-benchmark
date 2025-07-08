@@ -117,13 +117,13 @@ define void @_ZNK7Imf_2_514TypedAttributeINS_4BlobEE12writeValueToERNS_7OStreamE
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !21
-  %12 = load i32, ptr %5, align 8, !tbaa !6
-  %13 = load ptr, ptr %1, align 8, !tbaa !19
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %11, i32 noundef %12)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = load ptr, ptr %20, align 8, !tbaa !21
+  %22 = load i32, ptr %5, align 8, !tbaa !6
+  %23 = load ptr, ptr %1, align 8, !tbaa !19
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load ptr, ptr %24, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %21, i32 noundef %22)
   ret void
 }
 
