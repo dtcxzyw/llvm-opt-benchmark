@@ -912,7 +912,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   %68 = sitofp i32 %67 to float
   %69 = fdiv float 0x418FFFE000000000, %68
   %70 = fptosi float %69 to i32
-  %71 = xor i32 %39, 3
+  %71 = or disjoint i32 %48, 2
   %72 = icmp samesign ult i32 %71, %30
   tail call void @llvm.assume(i1 %72)
   %73 = zext nneg i32 %71 to i64

@@ -421,7 +421,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   br i1 %169, label %.preheader.lr.ph, label %.loopexit469.preheader
 
 .preheader.lr.ph:                                 ; preds = %167
-  %170 = xor i32 %100, 7
+  %170 = or disjoint i32 %spec.select586, 6
   %171 = sext i32 %45 to i64
   %172 = getelementptr inbounds [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -573,7 +573,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   br i1 %exitcond547.not, label %.loopexit, label %231, !llvm.loop !12
 
 243:                                              ; preds = %221
-  %244 = xor i32 %100, 7
+  %244 = or disjoint i32 %spec.select586, 6
   %245 = sext i32 %45 to i64
   %246 = getelementptr inbounds [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 20
