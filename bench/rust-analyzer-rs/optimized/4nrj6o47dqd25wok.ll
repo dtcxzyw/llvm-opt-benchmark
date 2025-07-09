@@ -69059,8 +69059,8 @@ define hidden void @_ZN8smallvec10deallocate17h0295eeedb1fe9942E.llvm.1467502555
 _ZN8smallvec12layout_array17h8687a3deb9c6503cE.llvm.14675025554980555382.exit.thread: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !19475
   store i64 0, ptr %3, align 8, !noalias !19475
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %4, ptr %5, align 8, !noalias !19475
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %4, ptr %8, align 8, !noalias !19475
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.5b47fb01172ce3642f26b4239355f179.196.llvm.14675025554980555382, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.197.llvm.14675025554980555382, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.266.llvm.14675025554980555382) #43, !noalias !19479
   unreachable
 
@@ -69763,12 +69763,12 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$13shrink_to_fit17h0579a24dde
   %10 = icmp ult i64 %9, 2
   br i1 %10, label %13, label %11
 
-_ZN8smallvec10infallible17had1d3a994b7d55c0E.exit: ; preds = %17, %_ZN8smallvec10deallocate17h0295eeedb1fe9942E.llvm.14675025554980555382.exit, %11, %1
+_ZN8smallvec10infallible17had1d3a994b7d55c0E.exit: ; preds = %20, %_ZN8smallvec10deallocate17h0295eeedb1fe9942E.llvm.14675025554980555382.exit, %11, %1
   ret void
 
 11:                                               ; preds = %5
   %12 = icmp ugt i64 %3, %9
-  br i1 %12, label %17, label %_ZN8smallvec10infallible17had1d3a994b7d55c0E.exit
+  br i1 %12, label %20, label %_ZN8smallvec10infallible17had1d3a994b7d55c0E.exit
 
 13:                                               ; preds = %5
   %14 = mul nuw nsw i64 %9, 24
@@ -69780,8 +69780,8 @@ _ZN8smallvec10infallible17had1d3a994b7d55c0E.exit: ; preds = %17, %_ZN8smallvec1
 _ZN8smallvec12layout_array17h8687a3deb9c6503cE.llvm.14675025554980555382.exit.thread.i: ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !19485
   store i64 0, ptr %2, align 8, !noalias !19485
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %15, ptr %16, align 8, !noalias !19485
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %15, ptr %19, align 8, !noalias !19485
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.5b47fb01172ce3642f26b4239355f179.196.llvm.14675025554980555382, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.197.llvm.14675025554980555382, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.266.llvm.14675025554980555382) #43, !noalias !19489
   unreachable
 
@@ -69790,21 +69790,21 @@ _ZN8smallvec10deallocate17h0295eeedb1fe9942E.llvm.14675025554980555382.exit: ; p
   store i64 %9, ptr %0, align 8
   br label %_ZN8smallvec10infallible17had1d3a994b7d55c0E.exit
 
-17:                                               ; preds = %11
-  %18 = tail call { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h8344133f5469c2b6E.llvm.14675025554980555382"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %9)
-  %19 = extractvalue { i64, i64 } %18, 0
-  switch i64 %19, label %21 [
+20:                                               ; preds = %11
+  %21 = tail call { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h8344133f5469c2b6E.llvm.14675025554980555382"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %9)
+  %22 = extractvalue { i64, i64 } %21, 0
+  switch i64 %22, label %21 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17had1d3a994b7d55c0E.exit
-    i64 0, label %20
+    i64 0, label %23
   ]
 
-20:                                               ; preds = %17
+23:                                               ; preds = %20
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.5b47fb01172ce3642f26b4239355f179.267.llvm.14675025554980555382, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.268.llvm.14675025554980555382) #43
   unreachable
 
-21:                                               ; preds = %17
-  %22 = extractvalue { i64, i64 } %18, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %19, i64 noundef %22) #43
+24:                                               ; preds = %20
+  %25 = extractvalue { i64, i64 } %21, 1
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %22, i64 noundef %25) #43
   unreachable
 }
 
@@ -72230,21 +72230,21 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
 _ZN8smallvec12layout_array17h4d3de5e441c5aaa0E.exit.thread.i: ; preds = %37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !19753
   store i64 0, ptr %3, align 8, !noalias !19753
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %39, ptr %40, align 8, !noalias !19753
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %42, ptr %43, align 8, !noalias !19753
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.5b47fb01172ce3642f26b4239355f179.196.llvm.14675025554980555382, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.197.llvm.14675025554980555382, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.266.llvm.14675025554980555382) #43, !noalias !19757
   unreachable
 
 _ZN8smallvec10deallocate17h2b5d7202061dd167E.exit: ; preds = %37
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %39, i64 noundef 8) #46
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %42, i64 noundef 8) #46
   br label %_ZN8smallvec12layout_array17h4d3de5e441c5aaa0E.exit.thread
 
 _ZN8smallvec12layout_array17h4d3de5e441c5aaa0E.exit.thread: ; preds = %23, %27, %16, %20, %15, %_ZN8smallvec10deallocate17h2b5d7202061dd167E.exit, %34, %14, %29, %32
   %.sroa.7.1 = phi i64 [ %18, %32 ], [ %18, %29 ], [ undef, %14 ], [ undef, %34 ], [ undef, %_ZN8smallvec10deallocate17h2b5d7202061dd167E.exit ], [ undef, %15 ], [ undef, %20 ], [ %18, %16 ], [ undef, %27 ], [ %25, %23 ]
   %.sroa.0.1 = phi i64 [ 8, %32 ], [ 8, %29 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %34 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h2b5d7202061dd167E.exit ], [ -9223372036854775807, %15 ], [ 0, %20 ], [ 0, %16 ], [ 0, %27 ], [ 0, %23 ]
-  %41 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %42 = insertvalue { i64, i64 } %41, i64 %.sroa.7.1, 1
-  ret { i64, i64 } %42
+  %44 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %45 = insertvalue { i64, i64 } %44, i64 %.sroa.7.1, 1
+  ret { i64, i64 } %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -72438,21 +72438,21 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
 _ZN8smallvec12layout_array17h3ddc4f6434259296E.exit.thread.i: ; preds = %37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !19773
   store i64 0, ptr %3, align 8, !noalias !19773
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %39, ptr %40, align 8, !noalias !19773
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %42, ptr %43, align 8, !noalias !19773
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.5b47fb01172ce3642f26b4239355f179.196.llvm.14675025554980555382, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.197.llvm.14675025554980555382, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.266.llvm.14675025554980555382) #43, !noalias !19777
   unreachable
 
 _ZN8smallvec10deallocate17hd65c368d61dcd54aE.exit: ; preds = %37
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %39, i64 noundef 16) #46
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %42, i64 noundef 16) #46
   br label %_ZN8smallvec12layout_array17h3ddc4f6434259296E.exit.thread
 
 _ZN8smallvec12layout_array17h3ddc4f6434259296E.exit.thread: ; preds = %23, %27, %16, %20, %15, %_ZN8smallvec10deallocate17hd65c368d61dcd54aE.exit, %34, %14, %29, %32
   %.sroa.7.1 = phi i64 [ %18, %32 ], [ %18, %29 ], [ undef, %14 ], [ undef, %34 ], [ undef, %_ZN8smallvec10deallocate17hd65c368d61dcd54aE.exit ], [ undef, %15 ], [ undef, %20 ], [ %18, %16 ], [ undef, %27 ], [ %25, %23 ]
   %.sroa.0.1 = phi i64 [ 16, %32 ], [ 16, %29 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %34 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17hd65c368d61dcd54aE.exit ], [ -9223372036854775807, %15 ], [ 0, %20 ], [ 0, %16 ], [ 0, %27 ], [ 0, %23 ]
-  %41 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %42 = insertvalue { i64, i64 } %41, i64 %.sroa.7.1, 1
-  ret { i64, i64 } %42
+  %44 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %45 = insertvalue { i64, i64 } %44, i64 %.sroa.7.1, 1
+  ret { i64, i64 } %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -72751,8 +72751,8 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
 _ZN8smallvec12layout_array17h4dc0b54596ec5c63E.exit.thread.i: ; preds = %36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !19803
   store i64 0, ptr %3, align 8, !noalias !19803
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %38, ptr %39, align 8, !noalias !19803
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %38, ptr %42, align 8, !noalias !19803
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.5b47fb01172ce3642f26b4239355f179.196.llvm.14675025554980555382, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.197.llvm.14675025554980555382, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.266.llvm.14675025554980555382) #43, !noalias !19807
   unreachable
 
@@ -72763,9 +72763,9 @@ _ZN8smallvec10deallocate17h07b6727e2622d9d1E.exit: ; preds = %36
 _ZN8smallvec12layout_array17h4dc0b54596ec5c63E.exit.thread: ; preds = %22, %26, %15, %19, %14, %_ZN8smallvec10deallocate17h07b6727e2622d9d1E.exit, %33, %13, %28, %31
   %.sroa.7.1 = phi i64 [ %17, %31 ], [ %17, %28 ], [ undef, %13 ], [ undef, %33 ], [ undef, %_ZN8smallvec10deallocate17h07b6727e2622d9d1E.exit ], [ undef, %14 ], [ undef, %19 ], [ %17, %15 ], [ undef, %26 ], [ %24, %22 ]
   %.sroa.0.1 = phi i64 [ 8, %31 ], [ 8, %28 ], [ -9223372036854775807, %13 ], [ -9223372036854775807, %33 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h07b6727e2622d9d1E.exit ], [ -9223372036854775807, %14 ], [ 0, %19 ], [ 0, %15 ], [ 0, %26 ], [ 0, %22 ]
-  %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.1, 1
-  ret { i64, i64 } %41
+  %43 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %44 = insertvalue { i64, i64 } %43, i64 %.sroa.7.1, 1
+  ret { i64, i64 } %44
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -73169,8 +73169,8 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h72d45868
 _ZN8smallvec12layout_array17h4d3de5e441c5aaa0E.exit.thread.i: ; preds = %36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !19843
   store i64 0, ptr %3, align 8, !noalias !19843
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %38, ptr %39, align 8, !noalias !19843
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %38, ptr %42, align 8, !noalias !19843
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.5b47fb01172ce3642f26b4239355f179.196.llvm.14675025554980555382, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.197.llvm.14675025554980555382, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.266.llvm.14675025554980555382) #43, !noalias !19847
   unreachable
 
@@ -73181,9 +73181,9 @@ _ZN8smallvec10deallocate17h2b5d7202061dd167E.exit: ; preds = %36
 _ZN8smallvec12layout_array17h4d3de5e441c5aaa0E.exit.thread: ; preds = %22, %26, %15, %19, %14, %_ZN8smallvec10deallocate17h2b5d7202061dd167E.exit, %33, %13, %28, %31
   %.sroa.7.1 = phi i64 [ %17, %31 ], [ %17, %28 ], [ undef, %13 ], [ undef, %33 ], [ undef, %_ZN8smallvec10deallocate17h2b5d7202061dd167E.exit ], [ undef, %14 ], [ undef, %19 ], [ %17, %15 ], [ undef, %26 ], [ %24, %22 ]
   %.sroa.0.1 = phi i64 [ 8, %31 ], [ 8, %28 ], [ -9223372036854775807, %13 ], [ -9223372036854775807, %33 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h2b5d7202061dd167E.exit ], [ -9223372036854775807, %14 ], [ 0, %19 ], [ 0, %15 ], [ 0, %26 ], [ 0, %22 ]
-  %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.1, 1
-  ret { i64, i64 } %41
+  %43 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %44 = insertvalue { i64, i64 } %43, i64 %.sroa.7.1, 1
+  ret { i64, i64 } %44
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -73274,8 +73274,8 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h8344133f
 _ZN8smallvec12layout_array17h8687a3deb9c6503cE.llvm.14675025554980555382.exit.thread.i: ; preds = %36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !19853
   store i64 0, ptr %3, align 8, !noalias !19853
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %38, ptr %39, align 8, !noalias !19853
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %38, ptr %42, align 8, !noalias !19853
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.5b47fb01172ce3642f26b4239355f179.196.llvm.14675025554980555382, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.197.llvm.14675025554980555382, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.266.llvm.14675025554980555382) #43, !noalias !19857
   unreachable
 
@@ -73286,9 +73286,9 @@ _ZN8smallvec10deallocate17h0295eeedb1fe9942E.llvm.14675025554980555382.exit: ; p
 _ZN8smallvec12layout_array17h8687a3deb9c6503cE.llvm.14675025554980555382.exit.thread: ; preds = %22, %26, %15, %19, %14, %_ZN8smallvec10deallocate17h0295eeedb1fe9942E.llvm.14675025554980555382.exit, %33, %13, %28, %31
   %.sroa.7.1 = phi i64 [ %17, %31 ], [ %17, %28 ], [ undef, %13 ], [ undef, %33 ], [ undef, %_ZN8smallvec10deallocate17h0295eeedb1fe9942E.llvm.14675025554980555382.exit ], [ undef, %14 ], [ undef, %19 ], [ %17, %15 ], [ undef, %26 ], [ %24, %22 ]
   %.sroa.0.1 = phi i64 [ 8, %31 ], [ 8, %28 ], [ -9223372036854775807, %13 ], [ -9223372036854775807, %33 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h0295eeedb1fe9942E.llvm.14675025554980555382.exit ], [ -9223372036854775807, %14 ], [ 0, %19 ], [ 0, %15 ], [ 0, %26 ], [ 0, %22 ]
-  %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.1, 1
-  ret { i64, i64 } %41
+  %43 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %44 = insertvalue { i64, i64 } %43, i64 %.sroa.7.1, 1
+  ret { i64, i64 } %44
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -73988,8 +73988,8 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17hd8530752
 _ZN8smallvec12layout_array17h6cec61530e942c5cE.exit.thread.i: ; preds = %36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !19923
   store i64 0, ptr %3, align 8, !noalias !19923
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %38, ptr %39, align 8, !noalias !19923
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %38, ptr %42, align 8, !noalias !19923
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.5b47fb01172ce3642f26b4239355f179.196.llvm.14675025554980555382, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.197.llvm.14675025554980555382, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.266.llvm.14675025554980555382) #43, !noalias !19927
   unreachable
 
@@ -74000,9 +74000,9 @@ _ZN8smallvec10deallocate17h591b597805b5d3bdE.exit: ; preds = %36
 _ZN8smallvec12layout_array17h6cec61530e942c5cE.exit.thread: ; preds = %22, %26, %15, %19, %14, %_ZN8smallvec10deallocate17h591b597805b5d3bdE.exit, %33, %13, %28, %31
   %.sroa.7.1 = phi i64 [ %17, %31 ], [ %17, %28 ], [ undef, %13 ], [ undef, %33 ], [ undef, %_ZN8smallvec10deallocate17h591b597805b5d3bdE.exit ], [ undef, %14 ], [ undef, %19 ], [ %17, %15 ], [ undef, %26 ], [ %24, %22 ]
   %.sroa.0.1 = phi i64 [ 8, %31 ], [ 8, %28 ], [ -9223372036854775807, %13 ], [ -9223372036854775807, %33 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h591b597805b5d3bdE.exit ], [ -9223372036854775807, %14 ], [ 0, %19 ], [ 0, %15 ], [ 0, %26 ], [ 0, %22 ]
-  %40 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %41 = insertvalue { i64, i64 } %40, i64 %.sroa.7.1, 1
-  ret { i64, i64 } %41
+  %43 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %44 = insertvalue { i64, i64 } %43, i64 %.sroa.7.1, 1
+  ret { i64, i64 } %44
 }
 
 ; Function Attrs: nonlazybind uwtable

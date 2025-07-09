@@ -16481,8 +16481,8 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
 _ZN8smallvec12layout_array17he210620a59a14c53E.exit.thread6.i: ; preds = %44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3378
   store i64 0, ptr %3, align 8, !noalias !3378
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %47, ptr %48, align 8, !noalias !3378
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %47, ptr %51, align 8, !noalias !3378
   call void @_ZN4core6result13unwrap_failed17hed0fccbe07e724fcE(ptr noalias noundef nonnull readonly align 1 @anon.9d4b1f91d5f9b92837f9106e48e7665f.72, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d4b1f91d5f9b92837f9106e48e7665f.73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d4b1f91d5f9b92837f9106e48e7665f.90) #46, !noalias !3378
   unreachable
 
@@ -16493,9 +16493,9 @@ _ZN8smallvec10deallocate17h2eee4e79c1ac2541E.exit: ; preds = %44
 _ZN8smallvec12layout_array17he210620a59a14c53E.exit.thread: ; preds = %30, %34, %23, %27, %22, %_ZN8smallvec10deallocate17h2eee4e79c1ac2541E.exit, %41, %21, %36, %39
   %.sroa.7.0 = phi i64 [ %25, %39 ], [ %25, %36 ], [ undef, %21 ], [ undef, %41 ], [ undef, %_ZN8smallvec10deallocate17h2eee4e79c1ac2541E.exit ], [ undef, %22 ], [ undef, %27 ], [ %25, %23 ], [ undef, %34 ], [ %32, %30 ]
   %.sroa.0.0 = phi i64 [ 8, %39 ], [ 8, %36 ], [ -9223372036854775807, %21 ], [ -9223372036854775807, %41 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h2eee4e79c1ac2541E.exit ], [ -9223372036854775807, %22 ], [ 0, %27 ], [ 0, %23 ], [ 0, %34 ], [ 0, %30 ]
-  %49 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %50 = insertvalue { i64, i64 } %49, i64 %.sroa.7.0, 1
-  ret { i64, i64 } %50
+  %52 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %53 = insertvalue { i64, i64 } %52, i64 %.sroa.7.0, 1
+  ret { i64, i64 } %53
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

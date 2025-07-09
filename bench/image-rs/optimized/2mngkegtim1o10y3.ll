@@ -32355,8 +32355,8 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
 _ZN8smallvec12layout_array17h9a8f6a0efe54aaf7E.exit.thread6.i: ; preds = %44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !4178
   store i64 0, ptr %3, align 8, !noalias !4178
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %47, ptr %48, align 8, !noalias !4178
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %47, ptr %51, align 8, !noalias !4178
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.ac22d30623b4aa6a7590c0e28ed98fa6.151, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac22d30623b4aa6a7590c0e28ed98fa6.152, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac22d30623b4aa6a7590c0e28ed98fa6.178) #49, !noalias !4178
   unreachable
 
@@ -32367,9 +32367,9 @@ _ZN8smallvec10deallocate17ha8ce661a038632f5E.exit: ; preds = %44
 _ZN8smallvec12layout_array17h9a8f6a0efe54aaf7E.exit.thread: ; preds = %30, %34, %23, %27, %22, %_ZN8smallvec10deallocate17ha8ce661a038632f5E.exit, %41, %21, %36, %39
   %.sroa.7.1 = phi i64 [ %25, %39 ], [ %25, %36 ], [ undef, %21 ], [ undef, %41 ], [ undef, %_ZN8smallvec10deallocate17ha8ce661a038632f5E.exit ], [ undef, %22 ], [ undef, %27 ], [ %25, %23 ], [ undef, %34 ], [ %32, %30 ]
   %.sroa.0.1 = phi i64 [ 8, %39 ], [ 8, %36 ], [ -9223372036854775807, %21 ], [ -9223372036854775807, %41 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17ha8ce661a038632f5E.exit ], [ -9223372036854775807, %22 ], [ 0, %27 ], [ 0, %23 ], [ 0, %34 ], [ 0, %30 ]
-  %49 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %50 = insertvalue { i64, i64 } %49, i64 %.sroa.7.1, 1
-  ret { i64, i64 } %50
+  %52 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %53 = insertvalue { i64, i64 } %52, i64 %.sroa.7.1, 1
+  ret { i64, i64 } %53
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -32481,8 +32481,8 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
 _ZN8smallvec12layout_array17h07cbdbf3a3fff68aE.exit.thread6.i: ; preds = %44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !4186
   store i64 0, ptr %3, align 8, !noalias !4186
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %47, ptr %48, align 8, !noalias !4186
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %47, ptr %51, align 8, !noalias !4186
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.ac22d30623b4aa6a7590c0e28ed98fa6.151, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac22d30623b4aa6a7590c0e28ed98fa6.152, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac22d30623b4aa6a7590c0e28ed98fa6.178) #49, !noalias !4186
   unreachable
 
@@ -32493,9 +32493,9 @@ _ZN8smallvec10deallocate17h165f075c5f74e29dE.exit: ; preds = %44
 _ZN8smallvec12layout_array17h07cbdbf3a3fff68aE.exit.thread: ; preds = %30, %34, %23, %27, %22, %_ZN8smallvec10deallocate17h165f075c5f74e29dE.exit, %41, %21, %36, %39
   %.sroa.7.1 = phi i64 [ %25, %39 ], [ %25, %36 ], [ undef, %21 ], [ undef, %41 ], [ undef, %_ZN8smallvec10deallocate17h165f075c5f74e29dE.exit ], [ undef, %22 ], [ undef, %27 ], [ %25, %23 ], [ undef, %34 ], [ %32, %30 ]
   %.sroa.0.1 = phi i64 [ 8, %39 ], [ 8, %36 ], [ -9223372036854775807, %21 ], [ -9223372036854775807, %41 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h165f075c5f74e29dE.exit ], [ -9223372036854775807, %22 ], [ 0, %27 ], [ 0, %23 ], [ 0, %34 ], [ 0, %30 ]
-  %49 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %50 = insertvalue { i64, i64 } %49, i64 %.sroa.7.1, 1
-  ret { i64, i64 } %50
+  %52 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %53 = insertvalue { i64, i64 } %52, i64 %.sroa.7.1, 1
+  ret { i64, i64 } %53
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
