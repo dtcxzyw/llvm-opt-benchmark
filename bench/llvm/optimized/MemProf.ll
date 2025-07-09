@@ -380,11 +380,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
   %80 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !32
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load i32, ptr %81, align 8, !tbaa !12, !noalias !32
-  %83 = zext i32 %82 to i64
-  %.idx83 = shl nuw nsw i64 %83, 3
-  %.neg = mul nsw i64 %32, -8
-  %84 = sub nsw i64 0, %.neg
-  %.not7172 = icmp eq i64 %.idx83, %84
+  %.not7172 = icmp eq i32 %82, %.0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not7172, label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.._crit_edge_crit_edge, label %.lr.ph
 
@@ -395,8 +391,10 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.._crit_edge_crit_edge: ; preds = %_ZNSt6v
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
-  %85 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx83
-  %86 = getelementptr inbounds i8, ptr %85, i64 %.neg
+  %83 = zext i32 %82 to i64
+  %84 = sub nsw i64 %83, %32
+  %85 = shl nsw i64 %84, 3
+  %86 = getelementptr inbounds i8, ptr %80, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not20 = icmp eq ptr %3, null
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1347,11 +1345,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
   %81 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !89
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %83 = load i32, ptr %82, align 8, !tbaa !12, !noalias !89
-  %84 = zext i32 %83 to i64
-  %.idx71 = shl nuw nsw i64 %84, 2
-  %.neg = mul nsw i64 %33, -4
-  %85 = sub nsw i64 0, %.neg
-  %.not5960 = icmp eq i64 %.idx71, %85
+  %.not5960 = icmp eq i32 %83, %.0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not5960, label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.._crit_edge_crit_edge, label %.lr.ph
 
@@ -1362,8 +1356,10 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.._crit_edge_crit_edge: ; preds = %_ZNSt6v
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
-  %86 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx71
-  %87 = getelementptr inbounds i8, ptr %86, i64 %.neg
+  %84 = zext i32 %83 to i64
+  %85 = sub nsw i64 %84, %33
+  %86 = shl nsw i64 %85, 2
+  %87 = getelementptr inbounds i8, ptr %81, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not20 = icmp eq ptr %3, null
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 16

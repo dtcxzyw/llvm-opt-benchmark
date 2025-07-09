@@ -612,8 +612,8 @@ split.i.i:                                        ; preds = %17
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i, %split.i.i
   %.pre-phi.i79.i = phi i64 [ %.pre19.i.i, %split.i.i ], [ 241, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.sroa.gep.i, i64 %.pre-phi.i79.i
-  %.012.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 -1
+  %23 = getelementptr i8, ptr %.0.lcssa.i.sroa.gep.i, i64 %.pre-phi.i79.i
+  %.012.i.i.i.i = getelementptr i8, ptr %23, i64 -1
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i
@@ -715,8 +715,8 @@ split.i13.i:                                      ; preds = %43, %._crit_edge.i2
   br i1 %53, label %.lr.ph.i.i.preheader.i16.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit27.i
 
 .lr.ph.i.i.preheader.i16.i:                       ; preds = %split.i13.i
-  %54 = getelementptr inbounds nuw i8, ptr %.ptr55.ptr.i, i64 %.pre-phi.i14.i
-  %.012.i.i.i17.i = getelementptr inbounds i8, ptr %54, i64 -1
+  %54 = getelementptr i8, ptr %.ptr55.ptr.i, i64 %.pre-phi.i14.i
+  %.012.i.i.i17.i = getelementptr i8, ptr %54, i64 -1
   br label %.lr.ph.i.i.i18.i
 
 .lr.ph.i.i.i18.i:                                 ; preds = %.lr.ph.i.i.i18.i, %.lr.ph.i.i.preheader.i16.i
@@ -887,8 +887,8 @@ split.i.i16:                                      ; preds = %99
 
 .lr.ph.i.i.preheader.i.i17:                       ; preds = %98, %split.i.i16
   %.1.i.in.i104 = phi i64 [ %indvars.iv.next.i, %split.i.i16 ], [ 245, %98 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 %.1.i.in.i104
-  %.012.i.i.i.i18 = getelementptr inbounds i8, ptr %106, i64 -1
+  %106 = getelementptr i8, ptr %.ptr.ptr.i, i64 %.1.i.in.i104
+  %.012.i.i.i.i18 = getelementptr i8, ptr %106, i64 -1
   br label %.lr.ph.i.i.i.i19
 
 .lr.ph.i.i.i.i19:                                 ; preds = %.lr.ph.i.i.i.i19, %.lr.ph.i.i.preheader.i.i17
@@ -968,8 +968,8 @@ split.i36.i:                                      ; preds = %121, %123
   br i1 %.not, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit50.i, label %.lr.ph.i.i.preheader.i39.i
 
 .lr.ph.i.i.preheader.i39.i:                       ; preds = %split.i36.i
-  %133 = getelementptr inbounds nuw i8, ptr %.ptr.ptr209.i, i64 %.pre-phi.i37.i
-  %.012.i.i.i40.i = getelementptr inbounds i8, ptr %133, i64 -1
+  %133 = getelementptr i8, ptr %.ptr.ptr209.i, i64 %.pre-phi.i37.i
+  %.012.i.i.i40.i = getelementptr i8, ptr %133, i64 -1
   br label %.lr.ph.i.i.i41.i
 
 .lr.ph.i.i.i41.i:                                 ; preds = %.lr.ph.i.i.i41.i, %.lr.ph.i.i.preheader.i39.i
@@ -1056,8 +1056,8 @@ split.i63.i:                                      ; preds = %149, %._crit_edge.i
   br i1 %159, label %.lr.ph.i.i.preheader.i66.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit77.i
 
 .lr.ph.i.i.preheader.i66.i:                       ; preds = %split.i63.i
-  %160 = getelementptr inbounds nuw i8, ptr %.ptr217.ptr.i, i64 %.pre-phi.i64.i
-  %.012.i.i.i67.i = getelementptr inbounds i8, ptr %160, i64 -1
+  %160 = getelementptr i8, ptr %.ptr217.ptr.i, i64 %.pre-phi.i64.i
+  %.012.i.i.i67.i = getelementptr i8, ptr %160, i64 -1
   br label %.lr.ph.i.i.i68.i
 
 .lr.ph.i.i.i68.i:                                 ; preds = %.lr.ph.i.i.i68.i, %.lr.ph.i.i.preheader.i66.i
@@ -1282,8 +1282,8 @@ split.i98.i:                                      ; preds = %237, %._crit_edge.i
   br i1 %247, label %.lr.ph.i.i.preheader.i101.i, label %.loopexit249.i
 
 .lr.ph.i.i.preheader.i101.i:                      ; preds = %split.i98.i
-  %248 = getelementptr inbounds nuw i8, ptr %.ptr231.ptr.i, i64 %.pre-phi.i99.i
-  %.012.i.i.i102.i = getelementptr inbounds i8, ptr %248, i64 -1
+  %248 = getelementptr i8, ptr %.ptr231.ptr.i, i64 %.pre-phi.i99.i
+  %.012.i.i.i102.i = getelementptr i8, ptr %248, i64 -1
   br label %.lr.ph.i.i.i103.i
 
 .lr.ph.i.i.i103.i:                                ; preds = %.lr.ph.i.i.i103.i, %.lr.ph.i.i.preheader.i101.i
@@ -1383,8 +1383,8 @@ split.i125.i:                                     ; preds = %269, %._crit_edge.i
   br i1 %279, label %.lr.ph.i.i.preheader.i128.i, label %.loopexit.i
 
 .lr.ph.i.i.preheader.i128.i:                      ; preds = %split.i125.i
-  %280 = getelementptr inbounds nuw i8, ptr %.ptr.ptr244.i, i64 %.pre-phi.i126.i
-  %.012.i.i.i129.i = getelementptr inbounds i8, ptr %280, i64 -1
+  %280 = getelementptr i8, ptr %.ptr.ptr244.i, i64 %.pre-phi.i126.i
+  %.012.i.i.i129.i = getelementptr i8, ptr %280, i64 -1
   br label %.lr.ph.i.i.i130.i
 
 .lr.ph.i.i.i130.i:                                ; preds = %.lr.ph.i.i.i130.i, %.lr.ph.i.i.preheader.i128.i
@@ -1682,8 +1682,8 @@ split.i.i:                                        ; preds = %29, %31
   br i1 %.not, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %split.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 %.pre-phi.i.i
-  %.012.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 -1
+  %41 = getelementptr i8, ptr %.ptr.ptr, i64 %.pre-phi.i.i
+  %.012.i.i.i.i = getelementptr i8, ptr %41, i64 -1
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i

@@ -3005,147 +3005,151 @@ define dso_local noundef ptr @sdstrim(ptr noundef returned %0, ptr noundef reado
   %5 = load i8, ptr %4, align 1, !tbaa !13
   %6 = zext i8 %5 to i32
   %7 = and i32 %6, 7
-  switch i32 %7, label %.critedge2.thread [
-    i32 0, label %8
-    i32 1, label %11
-    i32 2, label %15
-    i32 3, label %19
-    i32 4, label %23
+  switch i32 %7, label %sdslen.exit.thread [
+    i32 0, label %9
+    i32 1, label %12
+    i32 2, label %16
+    i32 3, label %20
+    i32 4, label %24
   ]
 
-8:                                                ; preds = %2
-  %9 = lshr i32 %6, 3
-  %10 = zext nneg i32 %9 to i64
+sdslen.exit.thread:                               ; preds = %2
+  %8 = getelementptr i8, ptr %0, i64 -1
+  br label %.critedge
+
+9:                                                ; preds = %2
+  %10 = lshr i32 %6, 3
+  %11 = zext nneg i32 %10 to i64
   br label %sdslen.exit
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 -3
-  %13 = load i8, ptr %12, align 1, !tbaa !13
-  %14 = zext i8 %13 to i64
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %0, i64 -3
+  %14 = load i8, ptr %13, align 1, !tbaa !13
+  %15 = zext i8 %14 to i64
   br label %sdslen.exit
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 -5
-  %17 = load i16, ptr %16, align 1, !tbaa !14
-  %18 = zext i16 %17 to i64
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds i8, ptr %0, i64 -5
+  %18 = load i16, ptr %17, align 1, !tbaa !14
+  %19 = zext i16 %18 to i64
   br label %sdslen.exit
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 -9
-  %21 = load i32, ptr %20, align 1, !tbaa !16
-  %22 = zext i32 %21 to i64
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds i8, ptr %0, i64 -9
+  %22 = load i32, ptr %21, align 1, !tbaa !16
+  %23 = zext i32 %22 to i64
   br label %sdslen.exit
 
-23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %0, i64 -17
-  %25 = load i64, ptr %24, align 1, !tbaa !11
+24:                                               ; preds = %2
+  %25 = getelementptr inbounds i8, ptr %0, i64 -17
+  %26 = load i64, ptr %25, align 1, !tbaa !11
   br label %sdslen.exit
 
-sdslen.exit:                                      ; preds = %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i
-  %27 = getelementptr inbounds i8, ptr %26, i64 -1
+sdslen.exit:                                      ; preds = %9, %12, %16, %20, %24
+  %.0.i = phi i64 [ %11, %9 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %26, %24 ]
+  %27 = getelementptr i8, ptr %0, i64 %.0.i
+  %28 = getelementptr i8, ptr %27, i64 -1
   %.not31 = icmp slt i64 %.0.i, 1
   br i1 %.not31, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %sdslen.exit, %31
-  %.032 = phi ptr [ %32, %31 ], [ %0, %sdslen.exit ]
-  %28 = load i8, ptr %.032, align 1, !tbaa !13
-  %29 = sext i8 %28 to i32
-  %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef %29) #27
-  %.not28 = icmp eq ptr %30, null
-  br i1 %.not28, label %.critedge.loopexit, label %31
+.lr.ph:                                           ; preds = %sdslen.exit, %32
+  %.032 = phi ptr [ %33, %32 ], [ %0, %sdslen.exit ]
+  %29 = load i8, ptr %.032, align 1, !tbaa !13
+  %30 = sext i8 %29 to i32
+  %31 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef %30) #27
+  %.not28 = icmp eq ptr %31, null
+  br i1 %.not28, label %.critedge.loopexit, label %32
 
-31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %.032, i64 1
-  %.not = icmp ugt ptr %32, %27
+32:                                               ; preds = %.lr.ph
+  %33 = getelementptr inbounds nuw i8, ptr %.032, i64 1
+  %.not = icmp ugt ptr %33, %28
   br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !24
 
-.critedge.loopexit:                               ; preds = %31, %.lr.ph
-  %.0.lcssa.ph = phi ptr [ %.032, %.lr.ph ], [ %32, %31 ]
+.critedge.loopexit:                               ; preds = %32, %.lr.ph
+  %.0.lcssa.ph = phi ptr [ %.032, %.lr.ph ], [ %33, %32 ]
   %.pre = ptrtoint ptr %.0.lcssa.ph to i64
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %sdslen.exit
-  %.0.lcssa40.pre-phi = phi i64 [ %.pre, %.critedge.loopexit ], [ %3, %sdslen.exit ]
-  %.0.lcssa = phi ptr [ %.0.lcssa.ph, %.critedge.loopexit ], [ %0, %sdslen.exit ]
-  %33 = icmp ugt ptr %27, %.0.lcssa
-  br i1 %33, label %.lr.ph36.preheader, label %.critedge2
+.critedge:                                        ; preds = %sdslen.exit.thread, %.critedge.loopexit, %sdslen.exit
+  %34 = phi ptr [ %28, %.critedge.loopexit ], [ %28, %sdslen.exit ], [ %8, %sdslen.exit.thread ]
+  %.0.lcssa40.pre-phi = phi i64 [ %.pre, %.critedge.loopexit ], [ %3, %sdslen.exit ], [ %3, %sdslen.exit.thread ]
+  %.0.lcssa = phi ptr [ %.0.lcssa.ph, %.critedge.loopexit ], [ %0, %sdslen.exit ], [ %0, %sdslen.exit.thread ]
+  %35 = icmp ugt ptr %34, %.0.lcssa
+  br i1 %35, label %.lr.ph36.preheader, label %.critedge2
 
 .lr.ph36.preheader:                               ; preds = %.critedge
-  %34 = sub i64 %.0.lcssa40.pre-phi, %3
-  %scevgep = getelementptr i8, ptr %0, i64 %34
+  %36 = sub i64 %.0.lcssa40.pre-phi, %3
+  %scevgep = getelementptr i8, ptr %0, i64 %36
   br label %.lr.ph36
 
-.lr.ph36:                                         ; preds = %.lr.ph36.preheader, %38
-  %.02635 = phi ptr [ %39, %38 ], [ %27, %.lr.ph36.preheader ]
-  %35 = load i8, ptr %.02635, align 1, !tbaa !13
-  %36 = sext i8 %35 to i32
-  %37 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef %36) #27
-  %.not29 = icmp eq ptr %37, null
-  br i1 %.not29, label %.critedge2, label %38
+.lr.ph36:                                         ; preds = %.lr.ph36.preheader, %40
+  %.02635 = phi ptr [ %41, %40 ], [ %34, %.lr.ph36.preheader ]
+  %37 = load i8, ptr %.02635, align 1, !tbaa !13
+  %38 = sext i8 %37 to i32
+  %39 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef %38) #27
+  %.not29 = icmp eq ptr %39, null
+  br i1 %.not29, label %.critedge2, label %40
 
-38:                                               ; preds = %.lr.ph36
-  %39 = getelementptr inbounds i8, ptr %.02635, i64 -1
-  %40 = icmp ugt ptr %39, %.0.lcssa
-  br i1 %40, label %.lr.ph36, label %.critedge2, !llvm.loop !25
+40:                                               ; preds = %.lr.ph36
+  %41 = getelementptr inbounds i8, ptr %.02635, i64 -1
+  %42 = icmp ugt ptr %41, %.0.lcssa
+  br i1 %42, label %.lr.ph36, label %.critedge2, !llvm.loop !25
 
-.critedge2:                                       ; preds = %.lr.ph36, %38, %.critedge
-  %.026.lcssa = phi ptr [ %27, %.critedge ], [ %scevgep, %38 ], [ %.02635, %.lr.ph36 ]
-  %41 = ptrtoint ptr %.026.lcssa to i64
-  %42 = sub i64 %41, %.0.lcssa40.pre-phi
-  %43 = add nsw i64 %42, 1
+.critedge2:                                       ; preds = %.lr.ph36, %40, %.critedge
+  %.026.lcssa = phi ptr [ %34, %.critedge ], [ %scevgep, %40 ], [ %.02635, %.lr.ph36 ]
+  %43 = ptrtoint ptr %.026.lcssa to i64
+  %44 = sub i64 %43, %.0.lcssa40.pre-phi
+  %45 = add nsw i64 %44, 1
   %.not30 = icmp eq ptr %0, %.0.lcssa
-  br i1 %.not30, label %.critedge2.thread, label %44
+  br i1 %.not30, label %47, label %46
 
-44:                                               ; preds = %.critedge2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %.0.lcssa, i64 %43, i1 false)
-  br label %.critedge2.thread
+46:                                               ; preds = %.critedge2
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %.0.lcssa, i64 %45, i1 false)
+  br label %47
 
-.critedge2.thread:                                ; preds = %2, %44, %.critedge2
-  %45 = phi i64 [ %43, %44 ], [ %43, %.critedge2 ], [ 0, %2 ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
-  store i8 0, ptr %46, align 1, !tbaa !13
-  %47 = load i8, ptr %4, align 1, !tbaa !13
-  %48 = and i8 %47, 7
-  switch i8 %48, label %sdssetlen.exit [
-    i8 0, label %49
-    i8 1, label %51
-    i8 2, label %54
-    i8 3, label %57
-    i8 4, label %60
+47:                                               ; preds = %46, %.critedge2
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %45
+  store i8 0, ptr %48, align 1, !tbaa !13
+  %49 = load i8, ptr %4, align 1, !tbaa !13
+  %50 = and i8 %49, 7
+  switch i8 %50, label %sdssetlen.exit [
+    i8 0, label %51
+    i8 1, label %53
+    i8 2, label %56
+    i8 3, label %59
+    i8 4, label %62
   ]
 
-49:                                               ; preds = %.critedge2.thread
+51:                                               ; preds = %47
   %.tr.i = trunc i64 %45 to i8
-  %50 = shl i8 %.tr.i, 3
-  store i8 %50, ptr %4, align 1, !tbaa !13
+  %52 = shl i8 %.tr.i, 3
+  store i8 %52, ptr %4, align 1, !tbaa !13
   br label %sdssetlen.exit
 
-51:                                               ; preds = %.critedge2.thread
-  %52 = trunc i64 %45 to i8
-  %53 = getelementptr inbounds i8, ptr %0, i64 -3
-  store i8 %52, ptr %53, align 1, !tbaa !13
+53:                                               ; preds = %47
+  %54 = trunc i64 %45 to i8
+  %55 = getelementptr inbounds i8, ptr %0, i64 -3
+  store i8 %54, ptr %55, align 1, !tbaa !13
   br label %sdssetlen.exit
 
-54:                                               ; preds = %.critedge2.thread
-  %55 = trunc i64 %45 to i16
-  %56 = getelementptr inbounds i8, ptr %0, i64 -5
-  store i16 %55, ptr %56, align 1, !tbaa !14
+56:                                               ; preds = %47
+  %57 = trunc i64 %45 to i16
+  %58 = getelementptr inbounds i8, ptr %0, i64 -5
+  store i16 %57, ptr %58, align 1, !tbaa !14
   br label %sdssetlen.exit
 
-57:                                               ; preds = %.critedge2.thread
-  %58 = trunc i64 %45 to i32
-  %59 = getelementptr inbounds i8, ptr %0, i64 -9
-  store i32 %58, ptr %59, align 1, !tbaa !16
+59:                                               ; preds = %47
+  %60 = trunc i64 %45 to i32
+  %61 = getelementptr inbounds i8, ptr %0, i64 -9
+  store i32 %60, ptr %61, align 1, !tbaa !16
   br label %sdssetlen.exit
 
-60:                                               ; preds = %.critedge2.thread
-  %61 = getelementptr inbounds i8, ptr %0, i64 -17
-  store i64 %45, ptr %61, align 1, !tbaa !11
+62:                                               ; preds = %47
+  %63 = getelementptr inbounds i8, ptr %0, i64 -17
+  store i64 %45, ptr %63, align 1, !tbaa !11
   br label %sdssetlen.exit
 
-sdssetlen.exit:                                   ; preds = %.critedge2.thread, %49, %51, %54, %57, %60
+sdssetlen.exit:                                   ; preds = %47, %51, %53, %56, %59, %62
   ret ptr %0
 }
 
