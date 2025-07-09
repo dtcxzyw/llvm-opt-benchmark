@@ -1071,14 +1071,14 @@ define dso_local void @CheckPointLogicalRewriteHeap() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 1044, ptr nonnull %1) #13
   %8 = tail call i64 @GetRedoRecPtr() #13
   %9 = tail call i64 @ReplicationSlotsComputeLogicalRestartLSN() #13
-  %.not = icmp ne i64 %9, 0
   %10 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.4) #13
   %11 = tail call ptr @ReadDir(ptr noundef %10, ptr noundef nonnull @.str.4) #13
-  %.not2740 = icmp eq ptr %11, null
-  br i1 %.not2740, label %._crit_edge, label %sub_0.lr.ph
+  %.not2739 = icmp eq ptr %11, null
+  br i1 %.not2739, label %._crit_edge, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %0
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 %9)
+  %.fr = freeze i64 %8
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %.fr, i64 %9)
   %12 = add i64 %spec.select, -1
   br label %sub_0
 
@@ -1092,35 +1092,35 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %75
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 19
   %15 = load i8, ptr %14, align 1
-  %.not41 = icmp eq i8 %15, 46
-  br i1 %.not41, label %.tail, label %.tail33.thread
+  %.not = icmp eq i8 %15, 46
+  br i1 %.not, label %.tail, label %.tail32.thread
 
 .tail:                                            ; preds = %sub_0
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %75, label %sub_135, !llvm.loop !9
+  br i1 %18, label %75, label %sub_134, !llvm.loop !9
 
-sub_135:                                          ; preds = %.tail
+sub_134:                                          ; preds = %.tail
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %20 = load i8, ptr %19, align 1
-  %.not43 = icmp eq i8 %20, 46
-  br i1 %.not43, label %.tail33, label %.tail33.thread
+  %.not41 = icmp eq i8 %20, 46
+  br i1 %.not41, label %.tail32, label %.tail32.thread
 
-.tail33:                                          ; preds = %sub_135
+.tail32:                                          ; preds = %sub_134
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 21
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %75, label %.tail33.thread, !llvm.loop !9
+  br i1 %23, label %75, label %.tail32.thread, !llvm.loop !9
 
-.tail33.thread:                                   ; preds = %sub_0, %sub_135, %.tail33
+.tail32.thread:                                   ; preds = %sub_0, %sub_134, %.tail32
   %24 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1044, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.4, ptr noundef nonnull %14) #13
   %25 = call i32 @get_dirent_type(ptr noundef nonnull %1, ptr noundef nonnull %13, i1 noundef zeroext false, i32 noundef 14) #13
   %26 = and i32 %25, -3
   %or.cond.not = icmp eq i32 %26, 0
   br i1 %or.cond.not, label %27, label %75, !llvm.loop !9
 
-27:                                               ; preds = %.tail33.thread
+27:                                               ; preds = %.tail32.thread
   %28 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.14, i64 noundef 4) #16
   %.not28 = icmp eq i32 %28, 0
   br i1 %.not28, label %29, label %75, !llvm.loop !9
@@ -1144,8 +1144,7 @@ sub_135:                                          ; preds = %.tail
   %38 = load i32, ptr %7, align 4
   %39 = zext i32 %38 to i64
   %40 = or disjoint i64 %37, %39
-  %or.cond3.not32 = icmp ult i64 %12, %40
-  %or.cond3.not = select i1 %.not, i1 %or.cond3.not32, i1 false
+  %or.cond3.not = icmp ult i64 %12, %40
   br i1 %or.cond3.not, label %52, label %41
 
 41:                                               ; preds = %34
@@ -1216,7 +1215,7 @@ sub_135:                                          ; preds = %.tail
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1246, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
   unreachable
 
-75:                                               ; preds = %45, %68, %27, %.tail33.thread, %.tail, %.tail33
+75:                                               ; preds = %45, %68, %27, %.tail32.thread, %.tail, %.tail32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
