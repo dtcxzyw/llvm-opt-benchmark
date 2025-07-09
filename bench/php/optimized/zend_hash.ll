@@ -16162,7 +16162,7 @@ _zend_hash_get_valid_pos.exit:                    ; preds = %_zend_hash_get_vali
   %28 = icmp uge i32 %.1.i, %8
   %brmerge = or i1 %.not.i, %28
   %.mux = select i1 %28, i32 3, i32 2
-  br i1 %brmerge, label %_zend_hash_get_valid_pos.exit.thread, label %29
+  br i1 %brmerge, label %35, label %29
 
 29:                                               ; preds = %_zend_hash_get_valid_pos.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16172,9 +16172,9 @@ _zend_hash_get_valid_pos.exit:                    ; preds = %_zend_hash_get_vali
   %34 = load ptr, ptr %33, align 8, !tbaa !18
   %.not9 = icmp eq ptr %34, null
   %. = select i1 %.not9, i32 2, i32 1
-  br label %_zend_hash_get_valid_pos.exit.thread
+  br label %35
 
-_zend_hash_get_valid_pos.exit.thread:             ; preds = %25, %20, %.preheader, %_zend_hash_get_valid_pos.exit, %29
+35:                                               ; preds = %25, %20, %.preheader, %_zend_hash_get_valid_pos.exit, %29
   %.0 = phi i32 [ %., %29 ], [ %.mux, %_zend_hash_get_valid_pos.exit ], [ 3, %.preheader ], [ 3, %20 ], [ 3, %25 ]
   ret i32 %.0
 }

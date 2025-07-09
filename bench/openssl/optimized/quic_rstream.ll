@@ -140,7 +140,7 @@ ring_buf_push.exit:                               ; preds = %.lr.ph.i
   %46 = icmp eq i64 %42, %spec.select.i
   br i1 %46, label %21, label %ring_buf_push.exit.thread
 
-ring_buf_push.exit.thread:                        ; preds = %31, %ring_buf_push.exit
+46:                                               ; preds = %31, %ring_buf_push.exit
   tail call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str.1, i32 noundef 262) #10
   br label %49
 
@@ -164,7 +164,7 @@ ring_buf_destroy.exit:                            ; preds = %47, %48
   store i64 %.val23, ptr %9, align 8
   br label %49
 
-49:                                               ; preds = %12, %7, %3, %ring_buf_destroy.exit, %ring_buf_push.exit.thread, %._crit_edge
+49:                                               ; preds = %12, %7, %3, %ring_buf_destroy.exit, %46, %._crit_edge
   %.016 = phi i32 [ 1, %ring_buf_destroy.exit ], [ 0, %ring_buf_push.exit.thread ], [ 0, %._crit_edge ], [ 1, %3 ], [ 0, %7 ], [ 0, %12 ]
   ret i32 %.016
 }

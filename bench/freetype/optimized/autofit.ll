@@ -4405,14 +4405,14 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
   %48 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %42, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !44
   %.not66 = icmp eq i32 %47, %49
-  br i1 %.not66, label %50, label %._crit_edge76
+  br i1 %.not66, label %50, label %._crit_edge76.loopexit
 
 50:                                               ; preds = %.lr.ph75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge76.thread, label %.lr.ph75, !llvm.loop !309
 
-._crit_edge76:                                    ; preds = %.lr.ph75
+._crit_edge76.loopexit:                           ; preds = %.lr.ph75
   %51 = trunc nuw i64 %indvars.iv to i32
   %52 = icmp eq i32 %43, %51
   br i1 %52, label %._crit_edge76.thread, label %53

@@ -221,10 +221,10 @@ switch.early.test.i:                              ; preds = %22
 Curl_sasl_decode_mech.exit:                       ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %31 = load i16, ptr %30, align 8, !tbaa !16
-  %.not19.not = icmp eq i16 %31, 0
-  br i1 %.not19.not, label %Curl_sasl_decode_mech.exit.thread, label %32
+  %.not19 = icmp eq i16 %31, 0
+  br i1 %.not19, label %Curl_sasl_decode_mech.exit.thread, label %32
 
-32:                                               ; preds = %Curl_sasl_decode_mech.exit
+32:; preds = %Curl_sasl_decode_mech.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %34 = load i16, ptr %33, align 2, !tbaa !17
   %35 = or i16 %34, %31

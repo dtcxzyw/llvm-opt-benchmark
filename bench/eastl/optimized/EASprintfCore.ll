@@ -6466,9 +6466,9 @@ if.end99:                                         ; preds = %for.body, %if.then9
   %16 = phi i16 [ %14, %for.body ], [ %15, %if.then97 ]
   %pCurrent.5 = phi ptr [ %pCurrent.4146, %for.body ], [ %incdec.ptr98, %if.then97 ]
   %cmp87 = icmp samesign ugt i64 %pTemp.0.idx147, 4
-  br i1 %cmp87, label %for.body, label %for.end.loopexit, !llvm.loop !109
+  br i1 %cmp87, label %for.body, label %for.end, !llvm.loop !109
 
-for.end.loopexit:                                 ; preds = %if.end99
+for.end:                                          ; preds = %if.end99
   %17 = icmp eq i16 %16, %conv81
   br label %for.end
 
@@ -8444,14 +8444,14 @@ if.end95:                                         ; preds = %for.body, %if.then9
   %15 = phi i32 [ %13, %for.body ], [ %14, %if.then93 ]
   %pCurrent.5 = phi ptr [ %pCurrent.4146, %for.body ], [ %incdec.ptr94, %if.then93 ]
   %cmp85 = icmp samesign ugt i64 %pTemp.0.idx147, 8
-  br i1 %cmp85, label %for.body, label %for.end.loopexit, !llvm.loop !143
+  br i1 %cmp85, label %for.body, label %for.end, !llvm.loop !143
 
 for.end.loopexit:                                 ; preds = %if.end95
   %16 = icmp eq i32 %15, %nType.0161186
   br label %for.end
 
-for.end:                                          ; preds = %for.end.loopexit, %if.end73
-  %cmp96 = phi i1 [ true, %if.end73 ], [ %16, %for.end.loopexit ]
+for.end:                                          ; preds = %for.end, %if.end73
+  %16 = phi i1 [ true, %if.end73 ], [ %16, %for.end.loopexit ]
   %pCurrent.4.lcssa = phi ptr [ %incdec.ptr80, %if.end73 ], [ %pCurrent.5, %for.end.loopexit ]
   %or.cond1 = and i1 %bStripPointlessDecimal.1163182, %cmp96
   br i1 %or.cond1, label %if.end107, label %if.then99

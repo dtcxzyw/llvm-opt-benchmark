@@ -3037,13 +3037,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %7
   %712 = sub i64 %710, %711
   %713 = sdiv exact i64 %712, 96
   %714 = icmp ugt i64 %713, %709
-  br i1 %714, label %.lr.ph444, label %.loopexit.loopexit, !llvm.loop !72
+  br i1 %714, label %.lr.ph444, label %.loopexit, !llvm.loop !72
 
-.loopexit.loopexit:                               ; preds = %705
+.loopexit:                                        ; preds = %705
   %715 = icmp eq ptr %707, %706
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge441, %._crit_edge433
+.loopexit:; preds = %.loopexit, %._crit_edge441, %._crit_edge433
   %.pre-phi497 = phi i64 [ %.mux, %._crit_edge441 ], [ 0, %._crit_edge433 ], [ %713, %.loopexit.loopexit ]
   %716 = phi ptr [ %448, %._crit_edge441 ], [ %448, %._crit_edge433 ], [ %706, %.loopexit.loopexit ]
   %.not455 = phi i1 [ false, %._crit_edge441 ], [ true, %._crit_edge433 ], [ %715, %.loopexit.loopexit ]

@@ -7220,7 +7220,7 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139: ; preds = %
   %270 = icmp eq i32 %269, %.075.ph.ph
   br i1 %270, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139.thread, label %.critedge
 
-.critedge:                                        ; preds = %264, %266
+.critedge: ; preds = %264, %266
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 153
   %272 = load i16, ptr %271, align 1
   %273 = and i16 %272, 7
@@ -7230,44 +7230,44 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139: ; preds = %
     i16 2, label %280
   ]
 
-274:                                              ; preds = %.critedge
-  %275 = icmp sgt i32 %265, 0
-  br i1 %275, label %276, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139.thread
+275:                                              ; preds = %.critedge
+  %276 = icmp sgt i32 %265, 0
+  br i1 %276, label %277, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139.thread
 
-276:                                              ; preds = %274
+277:                                              ; preds = %275
   tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %251, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139.thread
 
-277:                                              ; preds = %.critedge
-  %278 = icmp slt i32 %265, 0
-  br i1 %278, label %279, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139.thread
+278:                                              ; preds = %.critedge
+  %279 = icmp slt i32 %265, 0
+  br i1 %279, label %280, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139.thread
 
-279:                                              ; preds = %277
+280:                                              ; preds = %278
   tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %251, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139.thread
 
-280:                                              ; preds = %.critedge
-  %281 = icmp sgt i32 %265, 0
-  %282 = load double, ptr %250, align 8
-  %283 = select i1 %281, double %282, double %251
+281:                                              ; preds = %.critedge
+  %282 = icmp sgt i32 %265, 0
+  %283 = load double, ptr %250, align 8
+  %284 = select i1 %282, double %283, double %251
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
-  %284 = call noundef signext i8 @_ZNK6icu_778Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %283, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %285 = load i32, ptr %3, align 4, !tbaa !13
-  %286 = icmp slt i32 %285, 1
-  %287 = icmp ne i8 %284, 0
-  %or.cond3 = and i1 %287, %286
-  br i1 %or.cond3, label %288, label %290
+  %285 = call noundef signext i8 @_ZNK6icu_778Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %284, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %286 = load i32, ptr %3, align 4, !tbaa !13
+  %287 = icmp slt i32 %286, 1
+  %288 = icmp ne i8 %285, 0
+  %or.cond3 = and i1 %288, %287
+  br i1 %or.cond3, label %289, label %291
 
-288:                                              ; preds = %280
-  %289 = load double, ptr %8, align 8, !tbaa !76
-  tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %289, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br label %290
+289:                                              ; preds = %281
+  %290 = load double, ptr %8, align 8, !tbaa !76
+  tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %290, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %291
 
-290:                                              ; preds = %288, %280
+291:                                              ; preds = %289, %281
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139.thread
 
-_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139.thread: ; preds = %103, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i93, %116, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i100, %157, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i115, %170, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i122, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i111, %143, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i104, %130, %212, %211, %208, %203, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit.thread, %29, %40, %97, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139, %266, %277, %279, %274, %276, %290, %.critedge, %249, %13, %4, %12
+_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139.thread: ; preds = %103, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i93, %116, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i100, %157, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i115, %170, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i122, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i111, %143, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i104, %130, %212, %211, %208, %203, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit.thread, %29, %40, %97, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit139, %266, %278, %280, %275, %277, %291, %.critedge, %249, %13, %4, %12
   ret void
 }
 

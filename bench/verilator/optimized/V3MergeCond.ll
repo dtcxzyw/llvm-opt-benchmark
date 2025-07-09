@@ -7579,7 +7579,7 @@ _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit: ; preds = %36
   %.not64 = icmp eq i32 %29, 0
   %30 = icmp eq ptr %32, %21
   %or.cond = or i1 %30, %.not64
-  br i1 %or.cond, label %.thread, label %.lr.ph, !llvm.loop !273
+  br i1 %or.cond, label %.thread.loopexit, label %.lr.ph, !llvm.loop !273
 
 .lr.ph:                                           ; preds = %25, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit
   %.052111 = phi i32 [ %29, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit ], [ 500, %25 ]
@@ -7587,20 +7587,20 @@ _ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit: ; preds = %36
   %31 = getelementptr inbounds nuw i8, ptr %.053110, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !122
   %.not.i76 = icmp eq ptr %32, null
-  br i1 %.not.i76, label %.thread, label %33
+  br i1 %.not.i76, label %.thread.loopexit, label %33
 
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %.sroa.0.0.copyload.i.i.i77 = load i16, ptr %34, align 8, !tbaa !162
   %35 = add i16 %.sroa.0.0.copyload.i.i.i77, -348
   %spec.select.i.i78 = icmp ult i16 %35, 70
-  br i1 %spec.select.i.i78, label %36, label %.thread
+  br i1 %spec.select.i.i78, label %36, label %.thread.loopexit
 
 36:                                               ; preds = %33
   %37 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_125CodeMotionOptimizeVisitor12areSwappableEPK11AstNodeStmtS3_(ptr noundef %.053110, ptr noundef nonnull %1)
-  br i1 %37, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit, label %.thread
+  br i1 %37, label %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit, label %.thread.loopexit
 
-.thread:                                          ; preds = %36, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit, %33, %.lr.ph
+.thread.loopexit:                                 ; preds = %36, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit, %33, %.lr.ph
   %.053.lcssa.ph = phi ptr [ %.053110, %36 ], [ %32, %_ZN7AstNode11privateCastI11AstNodeStmtPS_EEPT_S2_.exit ], [ %.053110, %33 ], [ %.053110, %.lr.ph ]
   %.pre = load ptr, ptr %23, align 8, !tbaa !122
   %38 = icmp eq ptr %.pre, %.053.lcssa.ph

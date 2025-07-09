@@ -5599,14 +5599,14 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backEOS2_.exit: ; preds = %47, %_ZNSt6vect
 
 76:                                               ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backEOS2_.exit
   %77 = icmp ugt i64 %75, 9223372036854775800
-  br i1 %77, label %.noexc.i.i, label %78, !prof !38
+  br i1 %77, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i, !prof !38
 
 .noexc.i.i:                                       ; preds = %76
   call void @_ZSt28__throw_bad_array_new_lengthv() #23
   unreachable
 
-78:                                               ; preds = %76
-  %79 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #24
+_ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i: ; preds = %76
+  %78 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #24
   %.pre = load ptr, ptr %69, align 8, !tbaa !39
   %.pre45 = load ptr, ptr %70, align 8, !tbaa !39
   %.pre47 = ptrtoint ptr %.pre45 to i64
@@ -5619,11 +5619,11 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backEOS2_.exit: ; preds = %47, %_ZNSt6vect
   store ptr %81, ptr %11, align 8, !tbaa !10
   br i1 %80, label %_ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_.exit, label %82
 
-82:                                               ; preds = %78
+82:; preds = %78
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %79, ptr align 8 %.pre, i64 %.pre50, i1 false)
   br label %_ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_.exit
 
-_ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_.exit:    ; preds = %78, %82
+_ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_.exit:; preds = %78, %82
   %83 = getelementptr inbounds i8, ptr %79, i64 %.pre50
   store ptr %83, ptr %10, align 8, !tbaa !18
   %84 = load ptr, ptr %12, align 8, !tbaa !14
@@ -5639,14 +5639,14 @@ _ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_.exit.thread: ; preds = %_ZNSt6vectorIPK
   store ptr %87, ptr %10, align 8, !tbaa !18
   %88 = load ptr, ptr %12, align 8, !tbaa !14
   %89 = load ptr, ptr %13, align 8, !tbaa !17
-  %.not.i58 = icmp eq ptr %88, %89
-  br i1 %.not.i58, label %108, label %.thread61
+  %.not.i52 = icmp eq ptr %88, %89
+  br i1 %.not.i52, label %108, label %91
 
-.thread61:                                        ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_.exit.thread
+90:                                               ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_.exit.thread
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
   br label %.noexc28
 
-90:                                               ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_.exit
+91:                                               ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EEC2ERKS4_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
   br i1 %80, label %.noexc28, label %91
 
@@ -5665,9 +5665,9 @@ _ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i.i.i: ; pr
   %93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.pre50) #24
           to label %.noexc28 unwind label %.loopexit38
 
-.noexc28:                                         ; preds = %.thread61, %_ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i.i.i, %90
-  %.pre-phi51546064 = phi i64 [ %.pre50, %90 ], [ %.pre50, %_ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i.i.i ], [ 0, %.thread61 ]
-  %94 = phi ptr [ %84, %90 ], [ %84, %_ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i.i.i ], [ %88, %.thread61 ]
+.noexc28:                                         ; preds = %90, %_ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i.i.i, %90
+  %94 = phi i64 [ %.pre50, %90 ], [ %.pre50, %_ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i.i.i ], [ 0, %.thread61 ]
+  %95 = phi ptr [ %84, %90 ], [ %84, %_ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i.i.i ], [ %88, %.thread61 ]
   %95 = phi ptr [ null, %90 ], [ %93, %_ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i.i.i.i ], [ null, %.thread61 ]
   store ptr %95, ptr %94, align 8, !tbaa !4
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8

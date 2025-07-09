@@ -25986,7 +25986,7 @@ _ZN8rationalD2Ev.exit39:                          ; preds = %.noexc.i38
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #30
-  br label %168
+  br label %167
 
 149:                                              ; preds = %.lr.ph
   %150 = landingpad { ptr, i32 }
@@ -26034,7 +26034,7 @@ _ZN8rationalD2Ev.exit39:                          ; preds = %.noexc.i38
 
 _ZN8rationalD2Ev.exit41:                          ; preds = %.noexc.i40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #30
-  br i1 %.not, label %163, label %_ZN8rationalD2Ev.exit41._crit_edge
+  br i1 %.not, label %163, label %_ZN8rationalD2Ev.exit41._crit_edge.loopexit
 
 163:                                              ; preds = %_ZN8rationalD2Ev.exit41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -26049,9 +26049,9 @@ _ZN8rationalD2Ev.exit41:                          ; preds = %.noexc.i40
 165:                                              ; preds = %164, %149
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %164 ], [ %150, %149 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #30
-  br label %168
+  br label %167
 
-_ZN8rationalD2Ev.exit41._crit_edge:               ; preds = %_ZN8rationalD2Ev.exit41
+_ZN8rationalD2Ev.exit41._crit_edge.loopexit:      ; preds = %_ZN8rationalD2Ev.exit41
   %166 = trunc nuw i64 %indvars.iv to i32
   %167 = icmp eq i32 %.0.i, %166
   br i1 %167, label %.loopexit, label %90, !llvm.loop !598
@@ -26059,7 +26059,7 @@ _ZN8rationalD2Ev.exit41._crit_edge:               ; preds = %_ZN8rationalD2Ev.ex
 .loopexit:                                        ; preds = %_ZNSt13unordered_setI8rationalSt4hashIS0_ESt8equal_toIS0_ESaIS0_EE5clearEv.exit, %_ZN8rationalD2Ev.exit41._crit_edge, %163, %1
   ret i1 %or.cond44
 
-168:                                              ; preds = %165, %147
+167:                                              ; preds = %165, %147
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %165 ], [ %148, %147 ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 }

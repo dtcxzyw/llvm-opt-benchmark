@@ -17539,32 +17539,32 @@ select.unfold:                                    ; preds = %631, %628
   br label %.thread345
 
 .thread351:                                       ; preds = %419, %410, %444, %439, %436
-  %657 = getelementptr inbounds nuw i8, ptr %18, i64 848
-  %658 = load ptr, ptr %657, align 8, !tbaa !86
+  %658 = getelementptr inbounds nuw i8, ptr %18, i64 848
+  %659 = load ptr, ptr %658, align 8, !tbaa !86
   call void %658(ptr noundef nonnull %0) #22
   br label %.thread345
 
 .thread345:                                       ; preds = %.loopexit, %.thread332, %643, %592, %653, %647, %645, %tt_get_metrics.exit.thread, %162, %418, %414, %398, %336, %397, %tt_get_metrics.exit, %168, %163, %.thread351
-  br i1 %.not285, label %.thread345.thread, label %659
+  br i1 %.not285, label %.thread345.thread, label %660
 
-659:                                              ; preds = %.thread345
-  %660 = load ptr, ptr %44, align 8, !tbaa !675
-  %661 = getelementptr inbounds nuw i8, ptr %660, i64 104
-  %662 = load ptr, ptr %661, align 8, !tbaa !74
-  %663 = load ptr, ptr %662, align 8, !tbaa !676
-  %664 = getelementptr inbounds nuw i8, ptr %663, i64 8
-  %665 = load ptr, ptr %664, align 8, !tbaa !731
-  %666 = getelementptr inbounds nuw i8, ptr %662, i64 8
-  %667 = load ptr, ptr %666, align 8, !tbaa !682
-  call void %665(ptr noundef %667, ptr noundef nonnull %12) #22
+660:                                              ; preds = %.thread345
+  %661 = load ptr, ptr %44, align 8, !tbaa !675
+  %662 = getelementptr inbounds nuw i8, ptr %661, i64 104
+  %663 = load ptr, ptr %662, align 8, !tbaa !74
+  %664 = load ptr, ptr %663, align 8, !tbaa !676
+  %665 = getelementptr inbounds nuw i8, ptr %664, i64 8
+  %666 = load ptr, ptr %665, align 8, !tbaa !731
+  %667 = getelementptr inbounds nuw i8, ptr %663, i64 8
+  %668 = load ptr, ptr %667, align 8, !tbaa !682
+  call void %665(ptr noundef %668, ptr noundef nonnull %12) #22
   br label %.thread345.thread
 
-.thread345.thread:                                ; preds = %48, %659, %.thread345
-  %668 = load i32, ptr %10, align 4, !tbaa !204
+.thread345.thread:                                ; preds = %48, %660, %.thread345
+  %669 = load i32, ptr %10, align 4, !tbaa !204
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #22
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #22
-  ret i32 %668
+  ret i32 %669
 }
 
 declare void @FT_Outline_Translate(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4

@@ -1479,8 +1479,8 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
   %20 = load i16, ptr %19, align 2
   tail call void @PageIndexTupleDelete(ptr noundef nonnull %0, i16 noundef zeroext %20)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not135 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not135, label %.loopexit, label %.lr.ph122, !llvm.loop !21
+  %.not131 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not131, label %.loopexit, label %.lr.ph122, !llvm.loop !21
 
 21:                                               ; preds = %3
   %22 = icmp ult i16 %7, 24
@@ -1609,9 +1609,9 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
 
 ._crit_edge:                                      ; preds = %83
   %85 = icmp eq i32 %.179, %2
-  br i1 %85, label %88, label %._crit_edge.thread
+  br i1 %85, label %88, label %85
 
-._crit_edge.thread:                               ; preds = %35, %._crit_edge
+85:                                               ; preds = %35, %._crit_edge
   %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %86)
   %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12

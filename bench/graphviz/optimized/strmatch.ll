@@ -352,7 +352,7 @@ define range(i32 0, 2) i32 @strmatch(ptr noundef %0, ptr noundef %1) local_unnam
   %not.or.cond = xor i1 %or.cond, true
   br i1 %brmerge, label %strgrpmatch.exit, label %16
 
-16:                                               ; preds = %2
+.split64.us.i:                                    ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(176) %17, i64 176, i1 false), !tbaa.struct !14
   %.pre = load ptr, ptr %9, align 8, !tbaa !17
@@ -360,7 +360,7 @@ define range(i32 0, 2) i32 @strmatch(ptr noundef %0, ptr noundef %1) local_unnam
   br label %strgrpmatch.exit
 
 strgrpmatch.exit:                                 ; preds = %2, %16
-  %.0.i.in = phi i1 [ %not.or.cond, %2 ], [ %18, %16 ]
+  %.0.i = phi i1 [ %not.or.cond, %2 ], [ %18, %16 ]
   %.0.i = zext i1 %.0.i.in to i32
   call void @llvm.lifetime.end.p0(i64 368, ptr nonnull %3) #7
   ret i32 %.0.i

@@ -1309,7 +1309,7 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %334, %_ZN8nanobind6
 345:                                              ; preds = %341
   %346 = load ptr, ptr %342, align 8
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 892
-  br i1 %.0259.shrunk352, label %348, label %380
+  br i1 %.0259.shrunk352, label %348, label %382
 
 348:                                              ; preds = %345
   %349 = load i32, ptr %347, align 4
@@ -1385,95 +1385,95 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %334, %_ZN8nanobind6
   %376 = add nuw nsw i32 %374, 1
   %exitcond386.not = icmp ne i32 %376, %356
   %brmerge = select i1 %375, i1 true, i1 %exitcond386.not
-  br i1 %brmerge, label %.loopexit, label %.critedge
+  br i1 %brmerge, label %.loopexit, label %378
 
-377:                                              ; preds = %348
+377:; preds = %348
   %378 = getelementptr inbounds nuw i8, ptr %346, i64 928
   store ptr %115, ptr %378, align 8
   br label %.loopexit
 
-.critedge:                                        ; preds = %372, %363, %.lr.ph380.split.split, %.preheader
+378:                                              ; preds = %372, %363, %.lr.ph380.split.split, %.preheader
   %379 = or i32 %349, 33554432
   store i32 %379, ptr %347, align 4
   br label %.loopexit
 
-380:                                              ; preds = %345
-  br i1 %.0260.shrunk351, label %381, label %.loopexit
+382:                                              ; preds = %345
+  br i1 %.0260.shrunk351, label %383, label %.loopexit
 
-381:                                              ; preds = %380
-  %382 = getelementptr inbounds nuw i8, ptr %346, i64 928
-  store ptr %115, ptr %382, align 8
-  %383 = load i32, ptr %347, align 4
-  %384 = or i32 %383, 16777216
-  store i32 %384, ptr %347, align 4
+383:                                              ; preds = %382
+  %384 = getelementptr inbounds nuw i8, ptr %346, i64 928
+  store ptr %115, ptr %384, align 8
+  %385 = load i32, ptr %347, align 4
+  %386 = or i32 %385, 16777216
+  store i32 %386, ptr %347, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %368, %360, %.lr.ph380.split.split, %.lr.ph380.split, %377, %381, %380, %.critedge, %.loopexit367, %341
-  %385 = icmp ne ptr %.0262350, null
-  %or.cond17 = select i1 %11, i1 %385, i1 false
-  br i1 %or.cond17, label %386, label %392
+.loopexit:                                        ; preds = %368, %360, %.lr.ph380.split.split, %.lr.ph380.split, %377, %383, %382, %.critedge, %.loopexit367, %341
+  %387 = icmp ne ptr %.0262350, null
+  %or.cond17 = select i1 %11, i1 %387, i1 false
+  br i1 %or.cond17, label %388, label %394
 
-386:                                              ; preds = %.loopexit
-  %387 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %388 = load ptr, ptr %387, align 8
-  %389 = invoke i32 @PyObject_SetAttr(ptr noundef %388, ptr noundef nonnull %.0262350, ptr noundef nonnull %115)
+388:                                              ; preds = %.loopexit
+  %389 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %390 = load ptr, ptr %389, align 8
+  %391 = invoke i32 @PyObject_SetAttr(ptr noundef %390, ptr noundef nonnull %.0262350, ptr noundef nonnull %115)
           to label %390 unwind label %.loopexit.split-lp
 
-390:                                              ; preds = %386
-  %.not304 = icmp eq i32 %389, 0
-  br i1 %.not304, label %.thread359, label %391, !prof !8
+392:                                              ; preds = %388
+  %.not304 = icmp eq i32 %391, 0
+  br i1 %.not304, label %.thread359, label %393, !prof !8
 
-391:                                              ; preds = %390
+393:                                              ; preds = %392
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #26
   unreachable
 
-392:                                              ; preds = %.loopexit
+394:                                              ; preds = %.loopexit
   %.not.i331 = icmp eq ptr %.0262350, null
   br i1 %.not.i331, label %_ZL11_Py_XDECREFP7_object.exit, label %.thread359
 
-.thread359:                                       ; preds = %390, %392
-  %393 = load i64, ptr %.0262350, align 8
-  %394 = add nsw i64 %393, -1
-  store i64 %394, ptr %.0262350, align 8
-  %.not.i.i = icmp eq i64 %394, 0
-  br i1 %.not.i.i, label %395, label %_ZL11_Py_XDECREFP7_object.exit
+.thread359:                                       ; preds = %392, %394
+  %395 = load i64, ptr %.0262350, align 8
+  %396 = add nsw i64 %395, -1
+  store i64 %396, ptr %.0262350, align 8
+  %.not.i.i = icmp eq i64 %396, 0
+  br i1 %.not.i.i, label %397, label %_ZL11_Py_XDECREFP7_object.exit
 
-395:                                              ; preds = %.thread359
+397:                                              ; preds = %.thread359
   invoke void @_Py_Dealloc(ptr noundef nonnull %.0262350)
           to label %_ZL11_Py_XDECREFP7_object.exit unwind label %.loopexit.split-lp
 
-_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %.thread359, %392, %395
-  br i1 %.not283, label %396, label %_ZL10_Py_DECREFP7_object.exit335
+_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %.thread359, %394, %397
+  br i1 %.not283, label %398, label %_ZL10_Py_DECREFP7_object.exit335
 
-396:                                              ; preds = %_ZL11_Py_XDECREFP7_object.exit
-  %397 = load i64, ptr %115, align 8
-  %398 = add nsw i64 %397, -1
-  store i64 %398, ptr %115, align 8
-  %.not.i333 = icmp eq i64 %398, 0
-  br i1 %.not.i333, label %399, label %_ZL10_Py_DECREFP7_object.exit335
+398:                                              ; preds = %_ZL11_Py_XDECREFP7_object.exit
+  %399 = load i64, ptr %115, align 8
+  %400 = add nsw i64 %399, -1
+  store i64 %400, ptr %115, align 8
+  %.not.i333 = icmp eq i64 %400, 0
+  br i1 %.not.i333, label %401, label %_ZL10_Py_DECREFP7_object.exit335
 
-399:                                              ; preds = %396
+401:                                              ; preds = %398
   invoke void @_Py_Dealloc(ptr noundef nonnull %115)
           to label %_ZL10_Py_DECREFP7_object.exit335 unwind label %.loopexit.split-lp
 
-_ZL10_Py_DECREFP7_object.exit335:                 ; preds = %396, %399, %_ZL11_Py_XDECREFP7_object.exit
+_ZL10_Py_DECREFP7_object.exit335:                 ; preds = %398, %401, %_ZL11_Py_XDECREFP7_object.exit
   %.0 = phi ptr [ %115, %_ZL11_Py_XDECREFP7_object.exit ], [ null, %399 ], [ null, %396 ]
   ret ptr %.0
 
 .loopexit368:                                     ; preds = %311, %313
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %400
+  br label %402
 
-.loopexit.split-lp:                               ; preds = %.invoke, %21, %40, %44, %80, %.thread340, %386, %165, %183, %193, %395, %399
+.loopexit.split-lp:                               ; preds = %.invoke, %21, %40, %44, %80, %.thread340, %388, %165, %183, %193, %397, %401
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %400
+  br label %402
 
-400:                                              ; preds = %.loopexit.split-lp, %.loopexit368
+402:                                              ; preds = %.loopexit.split-lp, %.loopexit368
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit368 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %401 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %401) #26
+  %403 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %403) #26
   unreachable
 }
 

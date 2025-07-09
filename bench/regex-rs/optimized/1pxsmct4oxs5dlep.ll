@@ -5558,7 +5558,7 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax7unicode16SimpleCaseFolder8ov
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i.loopexit:                           ; preds = %15
+._crit_edge.i:                                    ; preds = %15
   %9 = icmp ule i64 %.022.i, %8
   br label %._crit_edge.i
 
@@ -5590,7 +5590,7 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax7unicode16SimpleCaseFolder8ov
   %.022.i = select i1 %16, i64 %17, i64 %.01927.i
   %18 = sub i64 %.021.i, %.022.i
   %19 = icmp ult i64 %.022.i, %.021.i
-  br i1 %19, label %.lr.ph.i, label %._crit_edge.i.loopexit
+  br i1 %19, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit": ; preds = %.lr.ph.i, %._crit_edge.i
   %20 = phi i1 [ false, %._crit_edge.i ], [ true, %.lr.ph.i ]
@@ -6179,13 +6179,13 @@ common.resume:                                    ; preds = %444, %396, %353, %9
   %.022.i.i.i = select i1 %187, i64 %188, i64 %.01927.i.i.i
   %189 = sub i64 %.021.i.i.i, %.022.i.i.i
   %190 = icmp ult i64 %.022.i.i.i, %.021.i.i.i
-  br i1 %190, label %.lr.ph.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i"
+  br i1 %190, label %.lr.ph.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i": ; preds = %185
   %191 = icmp ule i64 %.022.i.i.i, %170
   br label %_ZN12regex_syntax7unicode15canonical_value17h2f8e1d41e115dc76E.exit.thread
 
-_ZN12regex_syntax7unicode15canonical_value17h2f8e1d41e115dc76E.exit.thread: ; preds = %166, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i"
+_ZN12regex_syntax7unicode15canonical_value17h2f8e1d41e115dc76E.exit.thread: ; preds = %166, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.i"
   %.019.lcssa.i.i.i = phi i1 [ true, %166 ], [ %191, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i" ]
   tail call void @llvm.assume(i1 %.019.lcssa.i.i.i), !noalias !143
   br label %.loopexit
@@ -7422,9 +7422,9 @@ define internal fastcc void @_ZN12regex_syntax7unicode16canonical_gencat17hda57f
   %.022.i.i.i = select i1 %41, i64 %42, i64 %.01927.i.i.i
   %43 = sub i64 %.021.i.i.i, %.022.i.i.i
   %44 = icmp ult i64 %.022.i.i.i, %.021.i.i.i
-  br i1 %44, label %.lr.ph.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i"
+  br i1 %44, label %.lr.ph.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.i"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i": ; preds = %39
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.i": ; preds = %39
   %45 = icmp ule i64 %.022.i.i.i, %28
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.i"
 
@@ -7530,13 +7530,13 @@ define internal fastcc void @_ZN12regex_syntax7unicode16canonical_script17hb0626
   %.022.i.i.i = select i1 %39, i64 %40, i64 %.01927.i.i.i
   %41 = sub i64 %.021.i.i.i, %.022.i.i.i
   %42 = icmp ult i64 %.022.i.i.i, %.021.i.i.i
-  br i1 %42, label %.lr.ph.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i"
+  br i1 %42, label %.lr.ph.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i": ; preds = %37
   %43 = icmp ule i64 %.022.i.i.i, %26
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.i"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i", %22
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.i", %22
   %.019.lcssa.i.i.i = phi i1 [ true, %22 ], [ %43, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h7dcc5307302235a2E.exit.loopexit.i" ]
   tail call void @llvm.assume(i1 %.019.lcssa.i.i.i)
   br label %49

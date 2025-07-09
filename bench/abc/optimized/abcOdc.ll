@@ -980,15 +980,15 @@ define void @Abc_NtkDontCareWinCollectRoots_rec(ptr noundef %0, ptr noundef capt
   %14 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %13)
   %.not = icmp eq i32 %14, 0
   %.val18.pre.pre = load i32, ptr %3, align 4, !tbaa !94
-  br i1 %.not, label %.critedge, label %15
+  br i1 %.not, label %.critedge.loopexit, label %15
 
 15:                                               ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %.val18.pre.pre to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %6, label %.critedge, !llvm.loop !102
+  br i1 %17, label %6, label %.critedge.loopexit, !llvm.loop !102
 
-.critedge:                                        ; preds = %6, %15
+.critedge.loopexit:                               ; preds = %6, %15
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv, %6 ], [ %indvars.iv.next, %15 ]
   %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
   %18 = icmp sgt i32 %.val18.pre.pre, %.0.lcssa.ph

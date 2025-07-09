@@ -328,8 +328,8 @@ _ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt1
   br label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit
 
 _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit: ; preds = %37, %27
-  %41 = phi i1 [ false, %27 ], [ %40, %37 ]
-  %42 = icmp eq i32 %15, 32769
+  %.sroa.0.0.i.i.i = phi i1 [ false, %27 ], [ %40, %37 ]
+  %.not165 = icmp eq i32 %15, 32769
   %or.cond9 = or i1 %42, %41
   br i1 %or.cond9, label %._crit_edge.i.i, label %.critedge
 

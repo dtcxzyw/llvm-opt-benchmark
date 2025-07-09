@@ -1187,9 +1187,9 @@ define { ptr, i64 } @_ZN6parser9lexed_str8LexedStr5error17hbfd0fd7560cda079E(ptr
   %.022.i.i = select i1 %21, i64 %22, i64 %.01926.i.i
   %23 = sub i64 %.021.i.i, %.022.i.i
   %24 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %24, label %.lr.ph.i.i, label %.loopexit.loopexit
+  br i1 %24, label %.lr.ph.i.i, label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %19
+.loopexit:                                        ; preds = %19
   %25 = icmp ule i64 %.022.i.i, %12
   br label %.loopexit
 

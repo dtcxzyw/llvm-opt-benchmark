@@ -464,13 +464,13 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_20240
   %134 = add i64 %133, %.078.i
   %135 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %135, %5
-  br i1 %exitcond.not.i, label %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit, label %.lr.ph.i, !llvm.loop !14
 
-_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit: ; preds = %.lr.ph.i
+_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit: ; preds = %.lr.ph.i
   %136 = icmp eq i64 %126, %134
   br label %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit
 
-_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit: ; preds = %56, %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit
+_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit:; preds = %56, %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit
   %.not.not76 = phi i1 [ %136, %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit ], [ true, %56 ]
   %.068.lcssa116120 = phi i64 [ %110, %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit ], [ %60, %56 ]
   br i1 %.not.not76, label %.critedge83, label %137, !prof !69

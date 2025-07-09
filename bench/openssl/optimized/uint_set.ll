@@ -664,10 +664,10 @@ define range(i32 0, 2) i32 @ossl_uint_set_query(ptr noundef readonly captures(no
   %.not13 = icmp ugt i64 %6, %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !21
-  br i1 %.not13, label %8, label %7
+  br i1 %.not13, label %8, label %._crit_edge
 
-7:                                                ; preds = %4
-  %.not14 = icmp uge i64 %.pre, %1
+._crit_edge:                                      ; preds = %4
+  %7 = icmp uge i64 %.pre, %1
   %spec.select = zext i1 %.not14 to i32
   br label %.loopexit
 
@@ -675,7 +675,7 @@ define range(i32 0, 2) i32 @ossl_uint_set_query(ptr noundef readonly captures(no
   %9 = icmp ult i64 %.pre, %1
   br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !30
 
-.loopexit:                                        ; preds = %.preheader, %8, %7, %2
+.loopexit:                                        ; preds = %.preheader, %8, %._crit_edge, %2
   %.010 = phi i32 [ 0, %2 ], [ %spec.select, %7 ], [ 0, %8 ], [ 0, %.preheader ]
   ret i32 %.010
 }

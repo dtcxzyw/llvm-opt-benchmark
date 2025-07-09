@@ -1621,12 +1621,12 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   %wide.trip.count532.i = zext nneg i32 %564 to i64
   br label %565
 
-565:                                              ; preds = %._crit_edge493.thread.i, %.lr.ph497.i
+565:                                              ; preds = %594, %.lr.ph497.i
   %indvars.iv529.i = phi i64 [ 1, %.lr.ph497.i ], [ %indvars.iv.next530.i, %._crit_edge493.thread.i ]
   %566 = getelementptr inbounds nuw i32, ptr %556, i64 %indvars.iv529.i
   %567 = load i32, ptr %566, align 4, !tbaa !32
   %568 = icmp eq i32 %567, %1
-  br i1 %568, label %569, label %._crit_edge493.thread.i
+  br i1 %568, label %569, label %594
 
 569:                                              ; preds = %565
   %570 = load i32, ptr %563, align 4, !tbaa !33
@@ -1663,9 +1663,9 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
 
 ._crit_edge493.i:                                 ; preds = %.lr.ph492.i
   %594 = icmp eq i32 %589, %532
-  br i1 %594, label %.loopexit.sink.split.i, label %._crit_edge493.thread.i
+  br i1 %594, label %.loopexit.sink.split.i, label %594
 
-._crit_edge493.thread.i:                          ; preds = %._crit_edge493.i, %579, %565
+594:                                              ; preds = %._crit_edge493.i, %579, %565
   %indvars.iv.next530.i = add nuw nsw i64 %indvars.iv529.i, 1
   %exitcond533.not.i = icmp eq i64 %indvars.iv.next530.i, %wide.trip.count532.i
   br i1 %exitcond533.not.i, label %.loopexit.i, label %565
@@ -1688,7 +1688,7 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   store i32 %519, ptr %599, align 4, !tbaa !32
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %595, %._crit_edge493.thread.i, %.loopexit.sink.split.i, %.preheader.i108, %.preheader439.i
+.loopexit.i:                                      ; preds = %595, %594, %.loopexit.sink.split.i, %.preheader.i108, %.preheader439.i
   %.not405.i = icmp eq i32 %554, -1
   br i1 %.not405.i, label %._crit_edge503.loopexit513.i, label %548
 

@@ -5168,8 +5168,8 @@ _ZN3gmxL17imd_send_energiesEPNS_9IMDSocketEPKNS_14IMDEnergyBlockEPc.exit.thread:
   br i1 %.not18.i.i, label %_ZN3gmxL14imd_send_rvecsEPNS_9IMDSocketEiPA3_fPc.exit.thread, label %.lr.ph.i.i3
 
 .lr.ph.i.i3:                                      ; preds = %._crit_edge.i, %62
-  %.01320.i.i4 = phi i32 [ %63, %62 ], [ %55, %._crit_edge.i ]
-  %.01519.i.i5 = phi ptr [ %65, %62 ], [ %36, %._crit_edge.i ]
+  %.01320.i.i4 = phi i32 [ %65, %62 ], [ %55, %._crit_edge.i ]
+  %.01519.i.i5 = phi ptr [ %67, %62 ], [ %36, %._crit_edge.i ]
   %56 = tail call noundef i32 @_ZN3gmx13imdsock_writeEPNS_9IMDSocketEPKci(ptr noundef %30, ptr noundef %.01519.i.i5, i32 noundef %.01320.i.i4)
   %57 = icmp slt i32 %56, 1
   br i1 %57, label %58, label %62
@@ -5182,10 +5182,10 @@ _ZN3gmxL17imd_send_energiesEPNS_9IMDSocketEPKNS_14IMDEnergyBlockEPc.exit.thread:
 
 62:                                               ; preds = %58, %.lr.ph.i.i3
   %.0.i.i6 = phi i32 [ %56, %.lr.ph.i.i3 ], [ 0, %58 ]
-  %63 = sub nsw i32 %.01320.i.i4, %.0.i.i6
-  %64 = zext nneg i32 %.0.i.i6 to i64
-  %65 = getelementptr inbounds nuw i8, ptr %.01519.i.i5, i64 %64
-  %.not.i.i7 = icmp eq i32 %63, 0
+  %65 = sub nsw i32 %.01320.i.i4, %.0.i.i6
+  %66 = zext nneg i32 %.0.i.i6 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %.01519.i.i5, i64 %66
+  %.not.i.i7 = icmp eq i32 %65, 0
   br i1 %.not.i.i7, label %_ZN3gmxL14imd_send_rvecsEPNS_9IMDSocketEiPA3_fPc.exit.thread, label %.lr.ph.i.i3, !llvm.loop !162
 
 _ZN3gmxL14imd_send_rvecsEPNS_9IMDSocketEiPA3_fPc.exit: ; preds = %58

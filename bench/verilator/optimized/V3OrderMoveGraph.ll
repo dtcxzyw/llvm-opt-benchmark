@@ -4327,28 +4327,28 @@ _ZZN21OrderMoveGraphBuilder14getOrigSenItemEP10AstSenTreeENKUlvE_clEv.exit: ; pr
   %or.cond = or i1 %58, %.not.i6
   br i1 %or.cond, label %_ZN7AstNode9privateAsI10AstSenItemPS_EEPT_S2_.exit, label %59
 
-59:                                               ; preds = %55
+59:; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %60, align 8, !tbaa !214
   %.not6.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 39
-  br i1 %.not6.i, label %_ZN7AstNode9privateAsI10AstSenItemPS_EEPT_S2_.exit, label %61, !prof !63
+  br i1 %.not6.i, label %_ZN7AstNode9privateAsI10AstSenItemPS_EEPT_S2_.exit, label %63, !prof !63
 
-61:                                               ; preds = %59
-  %62 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.4, i32 noundef 2618)
-  %63 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull @.str.19)
+63:                                               ; preds = %59
+  %64 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.4, i32 noundef 2618)
+  %65 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %66 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull @.str.19)
   %.sroa.0.0.copyload.i.i5.i = load i16, ptr %60, align 8, !tbaa !214
-  %65 = zext i16 %.sroa.0.0.copyload.i.i5.i to i64
-  %66 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %65
-  %67 = load ptr, ptr %66, align 8, !tbaa !250
-  %68 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %67)
-  %69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull @.str.20)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %57, ptr noundef nonnull align 8 dereferenceable(112) %69) #27
+  %67 = zext i16 %.sroa.0.0.copyload.i.i5.i to i64
+  %68 = getelementptr inbounds nuw [427 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %67
+  %69 = load ptr, ptr %68, align 8, !tbaa !250
+  %70 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef %69)
+  %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.20)
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %57, ptr noundef nonnull align 8 dereferenceable(112) %71) #27
   unreachable
 
 _ZN7AstNode9privateAsI10AstSenItemPS_EEPT_S2_.exit: ; preds = %59, %55
-  %70 = phi ptr [ null, %55 ], [ %57, %59 ]
-  ret ptr %70
+  %72 = phi ptr [ null, %55 ], [ %57, %59 ]
+  ret ptr %72
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -7520,7 +7520,7 @@ define noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantityeqERKS2_(ptr 
 .split.us:                                        ; preds = %53
   br i1 %62, label %.split.us.split.us, label %.split.us.split
 
-.split.us.split.us:                               ; preds = %.split.us, %.split.us.split.us.backedge
+.split.us.split.us:                               ; preds = %.split.us, %68
   %.0.in.us.us = phi i32 [ %.0.us.us, %.split.us.split.us.backedge ], [ %..i, %.split.us ]
   %.0.us.us = add nsw i32 %.0.in.us.us, -1
   %.not18.not.us.us.not.not = icmp sle i32 %.0.in.us.us, %..i20
@@ -7531,7 +7531,7 @@ define noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantityeqERKS2_(ptr 
   %67 = icmp sgt i32 %66, -1
   %.not.i.i.us.us = icmp slt i32 %66, %10
   %or.cond10.i.i.us.us = and i1 %67, %.not.i.i.us.us
-  br i1 %or.cond10.i.i.us.us, label %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us, label %.split.us.split.us.backedge
+  br i1 %or.cond10.i.i.us.us, label %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us, label %68
 
 _ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us: ; preds = %65
   %68 = zext nneg i32 %66 to i64
@@ -7543,7 +7543,7 @@ _ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us: ; preds = %65
   %74 = icmp eq i8 %70, %73
   br i1 %74, label %.split.us.split.us.backedge, label %.critedge
 
-.split.us.split.us.backedge:                      ; preds = %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us, %65
+68:                                               ; preds = %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit25.us.us, %65
   br label %.split.us.split.us, !llvm.loop !97
 
 .split.us.split:                                  ; preds = %.split.us, %_ZNK6icu_776number4impl15DecimalQuantity8getDigitEi.exit.us

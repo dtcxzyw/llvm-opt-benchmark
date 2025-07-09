@@ -1189,7 +1189,7 @@ HIDAPI_SerialIsEmpty.exit.thread:                 ; preds = %.preheader.i, %HIDA
   br i1 %.not10.i65, label %HIDAPI_SetDeviceSerialW.exit, label %64
 
 64:                                               ; preds = %62
-  br i1 %.not.i62, label %wcstrcmp.exit.thread.i, label %65
+  br i1 %.not.i62, label %74, label %65
 
 65:                                               ; preds = %64
   %66 = load i8, ptr %.val, align 1
@@ -1214,7 +1214,7 @@ wcstrcmp.exit.i:                                  ; preds = %.lr.ph.i.i
   %74 = icmp eq i32 %70, %72
   br i1 %74, label %HIDAPI_SetDeviceSerialW.exit, label %wcstrcmp.exit.thread.i
 
-wcstrcmp.exit.thread.i:                           ; preds = %wcstrcmp.exit.i, %65, %64
+74:                                               ; preds = %wcstrcmp.exit.i, %65, %64
   tail call void @SDL_free_REAL(ptr noundef %.val) #9
   %75 = tail call i64 @SDL_wcslen_REAL(ptr noundef nonnull %61) #9
   %76 = shl i64 %75, 2
@@ -1223,14 +1223,14 @@ wcstrcmp.exit.thread.i:                           ; preds = %wcstrcmp.exit.i, %6
   %.not9.i.i = icmp eq ptr %78, null
   br i1 %.not9.i.i, label %79, label %HIDAPI_ConvertString.exit.i
 
-79:                                               ; preds = %wcstrcmp.exit.thread.i
+79:                                               ; preds = %74
   %80 = tail call i64 @SDL_wcslen_REAL(ptr noundef nonnull %61) #9
   %81 = shl i64 %80, 2
   %82 = add i64 %81, 4
   %83 = tail call ptr @SDL_iconv_string_REAL(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.18, ptr noundef nonnull %61, i64 noundef %82) #9
   br label %HIDAPI_ConvertString.exit.i
 
-HIDAPI_ConvertString.exit.i:                      ; preds = %79, %wcstrcmp.exit.thread.i
+HIDAPI_ConvertString.exit.i:                      ; preds = %79, %74
   %.0.i.i = phi ptr [ %78, %wcstrcmp.exit.thread.i ], [ %83, %79 ]
   store ptr %.0.i.i, ptr %57, align 8
   tail call void @SDL_AssertJoysticksLocked() #9

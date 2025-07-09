@@ -1563,12 +1563,12 @@ while.end.i.i:                                    ; preds = %sw.epilog40.i.i, %s
   store i32 3, ptr %error.i9.i, align 8
   br label %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand14array_iteratorEEppEv.exit
 
-if.end6.i.loopexit:                               ; preds = %sw.bb31.i.i
+if.end6.i.sink.split:                             ; preds = %sw.bb31.i.i
   %49 = icmp eq i32 %dec33.i.i, %ref.tmp3.i.sroa.0.sroa.2.0.copyload
   br label %if.end6.i
 
-if.end6.i:                                        ; preds = %if.end6.i.loopexit, %sw.default.i.i, %sw.bb4.i.i
-  %cmp5.i123 = phi i1 [ true, %sw.bb4.i.i ], [ true, %sw.default.i.i ], [ %49, %if.end6.i.loopexit ]
+if.end6.i:                                        ; preds = %if.end6.i.sink.split, %sw.default.i.i, %sw.bb4.i.i
+  %49 = phi i1 [ true, %sw.bb4.i.i ], [ true, %sw.default.i.i ], [ %49, %if.end6.i.loopexit ]
   %50 = phi ptr [ %incdec.ptr.i.i.i, %sw.bb4.i.i ], [ %incdec.ptr.i.i.i, %sw.default.i.i ], [ %incdec.ptr.i84.i.i, %if.end6.i.loopexit ]
   %cmp.i120 = icmp ugt ptr %50, %ref.tmp3.i.sroa.0.sroa.4.0.copyload
   call void @llvm.assume(i1 %cmp.i120)

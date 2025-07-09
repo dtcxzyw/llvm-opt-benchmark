@@ -35156,7 +35156,7 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module17has_memories_warnEv(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %5 = load ptr, ptr %4, align 8, !tbaa !442
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %11, label %7
+  br i1 %6, label %10, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -35167,8 +35167,8 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module17has_memories_warnEv(ptr noun
   %10 = icmp ne ptr %.pre, %.pre1
   br label %11
 
-11:                                               ; preds = %7, %1
-  %12 = phi i1 [ %10, %7 ], [ false, %1 ]
+10:                                               ; preds = %7, %1
+  %11 = phi i1 [ %10, %7 ], [ false, %1 ]
   ret i1 %12
 }
 
@@ -35179,7 +35179,7 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module18has_processes_warnEv(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %5 = load ptr, ptr %4, align 8, !tbaa !444
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %11, label %7
+  br i1 %6, label %10, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -35190,8 +35190,8 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module18has_processes_warnEv(ptr nou
   %10 = icmp ne ptr %.pre, %.pre1
   br label %11
 
-11:                                               ; preds = %7, %1
-  %12 = phi i1 [ %10, %7 ], [ false, %1 ]
+10:                                               ; preds = %7, %1
+  %11 = phi i1 [ %10, %7 ], [ false, %1 ]
   ret i1 %12
 }
 
@@ -150801,7 +150801,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   %184 = sub i64 %182, %183
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i164 = icmp eq ptr %180, %181
-  br i1 %.not.i.i.i.i.i164, label %.noexc167.thread, label %186
+  br i1 %.not.i.i.i.i.i164, label %.noexc167.thread, label %185
 
 .noexc167.thread:                                 ; preds = %177
   %185 = getelementptr inbounds nuw i8, ptr null, i64 %184
@@ -150809,22 +150809,22 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   store ptr %185, ptr %106, align 8, !tbaa !69
   br label %192
 
-186:                                              ; preds = %177
-  %187 = icmp slt i64 %184, 0
-  br i1 %187, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i, !prof !78
+185:                                              ; preds = %177
+  %186 = icmp slt i64 %184, 0
+  br i1 %186, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i, !prof !78
 
-.noexc.i.i.i:                                     ; preds = %186
+.noexc.i.i.i:                                     ; preds = %185
   invoke void @_ZSt17__throw_bad_allocv() #40
           to label %.noexc166 unwind label %.loopexit.split-lp336
 
 .noexc166:                                        ; preds = %.noexc.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %186
-  %188 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %184) #41
+_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %185
+  %187 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %184) #41
           to label %.noexc167 unwind label %.loopexit335
 
-.noexc167:                                        ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i
+_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc167_crit_edge: ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i
   %.pre570 = load ptr, ptr %178, align 8, !tbaa !79
   %.pre571 = load ptr, ptr %179, align 8, !tbaa !79
   %189 = icmp eq ptr %.pre571, %.pre570
@@ -150841,10 +150841,10 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i:
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %188, ptr align 1 %.pre570, i64 %.pre577, i1 false)
   br label %192
 
-192:                                              ; preds = %.noexc167.thread, %191, %.noexc167
-  %193 = phi ptr [ null, %.noexc167.thread ], [ %188, %191 ], [ %188, %.noexc167 ]
-  %.pre-phi578582 = phi i64 [ 0, %.noexc167.thread ], [ %.pre577, %191 ], [ 0, %.noexc167 ]
-  %194 = getelementptr inbounds i8, ptr %193, i64 %.pre-phi578582
+192:; preds = %.noexc167.thread, %191, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc167_crit_edge
+  %188 = phi ptr [ null, %.noexc167.thread ], [ %188, %191 ], [ %187, %.noexc167 ]
+  %189 = phi i64 [ 0, %.noexc167.thread ], [ %.pre577, %191 ], [ 0, %.noexc167 ]
+  %194 = getelementptr inbounds i8, ptr %188, i64 %.pre-phi578582
   store ptr %194, ptr %105, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #39
   invoke void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(40) %17)

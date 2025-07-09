@@ -28505,15 +28505,15 @@ _ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.i:      ; preds = %17, %_ZNSt8_Rb_tree
   br label %_ZNK4i18n12phonenumbers15PhoneNumberUtil20IsNumberGeographicalENS1_15PhoneNumberTypeEi.exit
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil20IsNumberGeographicalENS1_15PhoneNumberTypeEi.exit: ; preds = %2, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.i
-  %23 = phi i1 [ true, %2 ], [ %22, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.i ]
-  ret i1 %23
+  %24 = phi i1 [ true, %2 ], [ %23, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit.i ]
+  ret i1 %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil20IsNumberGeographicalENS1_15PhoneNumberTypeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #15 align 2 {
   %4 = and i32 %1, -3
   %or.cond = icmp eq i32 %4, 0
-  br i1 %or.cond, label %21, label %5
+  br i1 %or.cond, label %22, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -28553,9 +28553,9 @@ _ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit:        ; preds = %5, %_ZNSt8_Rb_treeI
   %20 = and i1 %19, %.sroa.0.0.i.i
   br label %21
 
-21:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit, %3
-  %22 = phi i1 [ true, %3 ], [ %20, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit ]
-  ret i1 %22
+22:                                               ; preds = %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit, %3
+  %23 = phi i1 [ true, %3 ], [ %20, %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit ]
+  ret i1 %23
 }
 
 ; Function Attrs: mustprogress uwtable

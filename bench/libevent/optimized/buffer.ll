@@ -1932,62 +1932,62 @@ define internal fastcc ptr @evbuffer_expand_singlechain(ptr noundef captures(non
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %14
   %18 = icmp eq i64 %12, %17
-  br i1 %18, label %19, label %.thread95
+  br i1 %18, label %19, label %.thread94
 
 19:                                               ; preds = %10, %6
   %.pr.pre = load ptr, ptr %5, align 8
   %20 = icmp eq ptr %.pr.pre, null
-  br i1 %20, label %.thread, label %.thread95
+  br i1 %20, label %.thread, label %.thread94
 
-.thread95:                                        ; preds = %10, %19
-  %.062.ph99 = phi ptr [ %5, %19 ], [ %4, %10 ]
-  %.pr98 = phi ptr [ %.pr.pre, %19 ], [ %5, %10 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.pr98, i64 32
+.thread94:                                        ; preds = %10, %19
+  %.062.ph98 = phi ptr [ %5, %19 ], [ %4, %10 ]
+  %.pr97 = phi ptr [ %.pr.pre, %19 ], [ %5, %10 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.pr97, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 56
   %.not71 = icmp eq i32 %23, 0
   br i1 %.not71, label %24, label %.thread
 
-24:                                               ; preds = %.thread95
-  %25 = getelementptr inbounds nuw i8, ptr %.pr98, i64 8
+24:                                               ; preds = %.thread94
+  %25 = getelementptr inbounds nuw i8, ptr %.pr97, i64 8
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %.pr98, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.pr97, i64 16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.pr98, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.pr97, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %28, %30
   %32 = sub i64 %26, %31
-  %33 = icmp ult i64 %32, %1
-  br i1 %33, label %34, label %evbuffer_chain_insert_new.exit
+  %.not72 = icmp ult i64 %32, %1
+  br i1 %.not72, label %33, label %evbuffer_chain_insert_new.exit
 
-34:                                               ; preds = %24
-  %35 = icmp eq i64 %30, 0
-  br i1 %35, label %.thread, label %36
+33:                                               ; preds = %24
+  %34 = icmp eq i64 %30, 0
+  br i1 %34, label %.thread, label %35
 
-36:                                               ; preds = %34
-  %37 = sub i64 %26, %30
-  %.not.i = icmp ult i64 %37, %1
-  %38 = lshr i64 %26, 1
-  %39 = icmp uge i64 %30, %38
-  %or.cond.i.not83 = or i1 %39, %.not.i
-  %40 = icmp ugt i64 %30, 2048
-  %narrow.i.not = or i1 %40, %or.cond.i.not83
-  br i1 %narrow.i.not, label %45, label %41
+35:                                               ; preds = %33
+  %36 = sub i64 %26, %30
+  %.not.i = icmp ult i64 %36, %1
+  %37 = lshr i64 %26, 1
+  %38 = icmp uge i64 %30, %37
+  %or.cond.i.not83 = or i1 %38, %.not.i
+  %39 = icmp ugt i64 %30, 2048
+  %narrow.i.not = or i1 %39, %or.cond.i.not83
+  br i1 %narrow.i.not, label %44, label %40
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %.pr98, i64 40
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 %28
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %43, ptr align 1 %44, i64 %30, i1 false)
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %.pr97, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 %28
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %42, ptr align 1 %43, i64 %30, i1 false)
   store i64 0, ptr %27, align 8
   br label %evbuffer_chain_insert_new.exit
 
-45:                                               ; preds = %36
-  %46 = lshr i64 %26, 3
-  %47 = icmp ult i64 %32, %46
-  br i1 %47, label %51, label %48
+44:                                               ; preds = %35
+  %45 = lshr i64 %26, 3
+  %46 = icmp ult i64 %32, %45
+  br i1 %46, label %51, label %48
 
-48:                                               ; preds = %45
+65:                                               ; preds = %45
   %49 = icmp ult i64 %30, 4097
   %50 = sub nuw nsw i64 9223372036854775807, %30
   %.not75 = icmp ult i64 %1, %50
@@ -2030,15 +2030,15 @@ define internal fastcc ptr @evbuffer_expand_singlechain(ptr noundef captures(non
   store i64 %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %.pr98, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %.pr97, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = load i64, ptr %27, align 8
   %79 = getelementptr inbounds i8, ptr %77, i64 %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 1 %79, i64 %72, i1 false)
-  store ptr %69, ptr %.062.ph99, align 8
+  store ptr %69, ptr %.062.ph98, align 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %81 = load ptr, ptr %80, align 8
-  %82 = icmp eq ptr %81, %.pr98
+  %82 = icmp eq ptr %81, %.pr97
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %71
@@ -2046,12 +2046,12 @@ define internal fastcc ptr @evbuffer_expand_singlechain(ptr noundef captures(non
   br label %84
 
 84:                                               ; preds = %83, %71
-  %85 = load ptr, ptr %.pr98, align 8
+  %85 = load ptr, ptr %.pr97, align 8
   store ptr %85, ptr %69, align 8
-  tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.pr98)
+  tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.pr97)
   br label %evbuffer_chain_insert_new.exit
 
-.thread:                                          ; preds = %53, %2, %51, %57, %34, %19, %.thread95
+.thread:                                          ; preds = %53, %2, %51, %57, %33, %19, %.thread94
   %86 = icmp ugt i64 %1, 9223372036854775759
   br i1 %86, label %evbuffer_chain_insert_new.exit, label %87
 
@@ -2155,8 +2155,8 @@ evbuffer_chain_insert.exit.i:                     ; preds = %118, %105
   store i64 %124, ptr %122, align 8
   br label %evbuffer_chain_insert_new.exit
 
-evbuffer_chain_insert_new.exit:                   ; preds = %evbuffer_chain_insert.exit.i, %.loopexit.thread.i.i, %.loopexit.i.i, %.thread, %57, %41, %24, %67, %84
-  %.1 = phi ptr [ %.pr98, %41 ], [ %.pr98, %24 ], [ %69, %84 ], [ null, %67 ], [ %52, %57 ], [ %95, %evbuffer_chain_insert.exit.i ], [ null, %.thread ], [ null, %.loopexit.i.i ], [ null, %.loopexit.thread.i.i ]
+evbuffer_chain_insert_new.exit:                   ; preds = %evbuffer_chain_insert.exit.i, %.loopexit.thread.i.i, %.loopexit.i.i, %.thread, %57, %40, %24, %67, %84
+  %.1 = phi ptr [ %.pr97, %41 ], [ %.pr97, %24 ], [ %69, %84 ], [ null, %67 ], [ %52, %57 ], [ %95, %evbuffer_chain_insert.exit.i ], [ null, %.thread ], [ null, %.loopexit.i.i ], [ null, %.loopexit.thread.i.i ]
   ret ptr %.1
 }
 

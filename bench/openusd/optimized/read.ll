@@ -1124,7 +1124,7 @@ avifDecoderItemShouldBeSkipped.exit.thread.i453:  ; preds = %240, %avifDecoderIt
 .preheader115.i:                                  ; preds = %252
   %256 = load i32, ptr %216, align 4
   %.not138.i = icmp eq i32 %256, 0
-  br i1 %.not138.i, label %._crit_edge130.thread.i, label %.lr.ph129.i
+  br i1 %.not138.i, label %._crit_edge130.i, label %.lr.ph129.i
 
 .lr.ph129.i:                                      ; preds = %.preheader115.i, %.loopexit.i
   %257 = phi i32 [ %291, %.loopexit.i ], [ %256, %.preheader115.i ]
@@ -1217,27 +1217,27 @@ avifDecoderItemIsAlphaAux.exit102.thread.i:       ; preds = %277, %avifDecoderIt
   %indvars.iv.next151.i = add nuw nsw i64 %indvars.iv150.i, 1
   %292 = zext i32 %291 to i64
   %293 = icmp samesign ult i64 %indvars.iv.next151.i, %292
-  br i1 %293, label %.lr.ph129.i, label %._crit_edge130.i, !llvm.loop !15
+  br i1 %293, label %.lr.ph129.i, label %._crit_edge130.loopexit.i, !llvm.loop !15
 
-._crit_edge130.i:                                 ; preds = %.loopexit.i
+._crit_edge130.loopexit.i:                        ; preds = %.loopexit.i
   %294 = icmp eq i32 %.3.i, %250
-  br i1 %294, label %295, label %._crit_edge130.thread.i
+  br i1 %294, label %295, label %._crit_edge130.i
 
-._crit_edge130.thread.i:                          ; preds = %._crit_edge130.i, %.preheader115.i
+._crit_edge130.i:                                 ; preds = %._crit_edge130.loopexit.i, %.preheader115.i
   tail call void @avifFree(ptr noundef nonnull %255) #13
   br label %.thread.sink.split
 
-295:                                              ; preds = %._crit_edge130.i
+296:                                              ; preds = %._crit_edge130.i
   %296 = add i32 %spec.select.i, 1
   %297 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef nonnull %214, i32 noundef %296, ptr noundef nonnull %215)
   %.not83.i = icmp eq i32 %297, 0
   br i1 %.not83.i, label %.lr.ph135.preheader.i, label %298
 
-298:                                              ; preds = %295
+298:                                              ; preds = %296
   tail call void @avifFree(ptr noundef nonnull %255) #13
   br label %avifMetaFindAlphaItem.exit
 
-.lr.ph135.preheader.i:                            ; preds = %295
+.lr.ph135.preheader.i:                            ; preds = %296
   %299 = load ptr, ptr %215, align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
   store i32 1684632167, ptr %300, align 8
@@ -1284,7 +1284,7 @@ avifDecoderItemIsAlphaAux.exit102.thread.i:       ; preds = %277, %avifDecoderIt
   %.not375 = icmp eq i32 %318, 0
   br i1 %.not375, label %.thread, label %avifMetaFindAlphaItem.exit
 
-.thread.sink.split:                               ; preds = %246, %._crit_edge.i, %._crit_edge130.thread.i
+.thread.sink.split:                               ; preds = %246, %._crit_edge.i, %._crit_edge130.i
   store ptr null, ptr %215, align 8
   br label %.thread
 

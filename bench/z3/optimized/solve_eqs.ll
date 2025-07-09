@@ -5605,7 +5605,7 @@ _ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i:       ; preds = %20, %28
   br label %_ZNK7obj_mapI4exprjE4findEPS0_Rj.exit
 
 _ZNK7obj_mapI4exprjE4findEPS0_Rj.exit:            ; preds = %.lr.ph.i.i.i, %33, %.lr.ph39.i.i.i, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i, %.preheader.i.i.i, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %.preheader.i.i.i ], [ %37, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i ], [ true, %.lr.ph39.i.i.i ], [ true, %33 ], [ true, %.lr.ph.i.i.i ]
+  %.03 = phi i1 [ true, %2 ], [ true, %.preheader.i.i.i ], [ %37, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i ], [ true, %.lr.ph39.i.i.i ], [ true, %33 ], [ true, %.lr.ph.i.i.i ]
   ret i1 %.0
 }
 

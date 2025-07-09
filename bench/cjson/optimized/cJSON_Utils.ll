@@ -1899,7 +1899,7 @@ sort_object.exit68.split.us:                      ; preds = %sort_object.exit68,
   %91 = icmp eq i32 %86, %90
   br i1 %91, label %.lr.ph.i.us, label %.thread
 
-compare_strings.exit.thread.us:                   ; preds = %.lr.ph.i.us, %65
+._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us, %65
   %92 = tail call fastcc i32 @compare_json(ptr noundef nonnull %.152.us, ptr noundef nonnull %.154.us, i32 noundef 0)
   %.not59.not.us = icmp eq i32 %92, 0
   br i1 %.not59.not.us, label %.thread, label %sort_object.exit68.split.us

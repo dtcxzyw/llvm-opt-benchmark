@@ -143,11 +143,11 @@ define noundef range(i32 0, 10) i32 @_Z22alts_counter_incrementP12alts_counterPb
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %23, %.lr.ph
-  %.0.lcssa.ph = phi i64 [ %24, %23 ], [ %.021, %.lr.ph ]
-  %26 = icmp eq i64 %.0.lcssa.ph, %.pre25.pre
+  %26 = phi i64 [ %24, %23 ], [ %.021, %.lr.ph ]
+  %26 = icmp eq i64 %26, %.pre25.pre
   %cond.fr = freeze i1 %26
   %. = zext i1 %cond.fr to i8
-  %spec.select = select i1 %cond.fr, i32 9, i32 0
+  %.18 = select i1 %cond.fr, i32 9, i32 0
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader

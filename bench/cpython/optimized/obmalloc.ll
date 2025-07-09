@@ -9954,7 +9954,7 @@ _mi_clock_start.exit:                             ; preds = %55, %59
   %77 = add nuw i64 %2, 1
   br label %78
 
-78:                                               ; preds = %.lr.ph, %149
+78:                                               ; preds = %.lr.ph, %148
   %.050109 = phi i64 [ 0, %.lr.ph ], [ %115, %149 ]
   %.052108 = phi i8 [ 1, %.lr.ph ], [ %spec.select, %149 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #55
@@ -10074,7 +10074,7 @@ _mi_stat_increase.exit:                           ; preds = %119, %121
 
 _mi_stat_increase.exit76:                         ; preds = %129, %131
   %135 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 1073741824 monotonic, align 8
-  br i1 %74, label %136, label %149
+  br i1 %74, label %136, label %148
 
 136:                                              ; preds = %_mi_stat_increase.exit76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
@@ -10094,8 +10094,8 @@ _mi_stat_increase.exit76:                         ; preds = %129, %131
   %146 = mul i64 %145, %0
   %147 = icmp sgt i64 %146, %76
   %spec.select73 = select i1 %147, i64 %77, i64 %143
-  %148 = icmp sgt i64 %spec.select73, %2
-  br i1 %148, label %.thread, label %149
+  %.not70 = icmp sgt i64 %spec.select73, %2
+  br i1 %.not70, label %.thread, label %148
 
 .thread:                                          ; preds = %136
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.29, i64 noundef %115)
@@ -10107,34 +10107,34 @@ _mi_stat_increase.exit76:                         ; preds = %129, %131
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #55
   br label %.loopexit
 
-149:                                              ; preds = %_mi_stat_increase.exit76, %136
+148:                                              ; preds = %_mi_stat_increase.exit76, %136
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #55
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #55
   %exitcond.not = icmp eq i64 %115, %0
   br i1 %exitcond.not, label %.loopexit, label %78
 
-.loopexit:                                        ; preds = %149, %_mi_clock_start.exit, %.thread79
+.loopexit:                                        ; preds = %148, %_mi_clock_start.exit, %.thread79
   %.153 = phi i8 [ %spec.select, %.thread79 ], [ 1, %_mi_clock_start.exit ], [ %spec.select, %149 ]
   %.151 = phi i64 [ %.2.ph, %.thread79 ], [ 0, %_mi_clock_start.exit ], [ %0, %149 ]
-  br i1 %.not66, label %151, label %150
+  br i1 %.not66, label %150, label %149
 
-150:                                              ; preds = %.loopexit
+149:                                              ; preds = %.loopexit
   store i64 %.151, ptr %3, align 8, !tbaa !99
-  br label %151
+  br label %150
 
-151:                                              ; preds = %150, %.loopexit
-  br i1 %.not, label %154, label %152
+150:                                              ; preds = %149, %.loopexit
+  br i1 %.not, label %153, label %151
 
-152:                                              ; preds = %151
-  %153 = shl i64 %.151, 30
-  store i64 %153, ptr %4, align 8, !tbaa !99
-  br label %154
+151:                                              ; preds = %150
+  %152 = shl i64 %.151, 30
+  store i64 %152, ptr %4, align 8, !tbaa !99
+  br label %153
 
-154:                                              ; preds = %152, %151
+153:                                              ; preds = %151, %150
   %.not72 = icmp eq i64 %.151, 0
-  br i1 %.not72, label %156, label %155
+  br i1 %.not72, label %155, label %154
 
-155:                                              ; preds = %154
+154:                                              ; preds = %153
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !117
@@ -10146,11 +10146,11 @@ _mi_stat_increase.exit76:                         ; preds = %129, %131
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.777.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 4, ptr %.sroa.777.0..sroa_idx, align 4, !tbaa !104
-  br label %156
+  br label %155
 
-156:                                              ; preds = %154, %155
-  %157 = phi ptr [ null, %154 ], [ %56, %155 ]
-  ret ptr %157
+155:                                              ; preds = %153, %154
+  %156 = phi ptr [ null, %154 ], [ %56, %155 ]
+  ret ptr %156
 }
 
 ; Function Attrs: nounwind uwtable
@@ -24463,7 +24463,7 @@ define hidden zeroext i1 @_mi_prim_random_buf(ptr noundef %0, i64 noundef %1) lo
 
 .thread42:                                        ; preds = %.thread42.loopexit, %.preheader
   %.025.lcssa = phi i1 [ true, %.preheader ], [ %29, %.thread42.loopexit ]
-  %30 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %16) #55
+  %29 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %16) #55
   br label %.thread
 
 .thread:                                          ; preds = %10, %8, %.thread42, %14

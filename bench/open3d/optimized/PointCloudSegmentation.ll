@@ -2010,7 +2010,7 @@ _ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge: ; preds
 .noexc23:                                         ; preds = %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge, %42
   %.pre-phi49 = phi i64 [ %.pre48, %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge ], [ %49, %42 ]
   %.pre-phi = phi i64 [ %.pre47, %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge ], [ %48, %42 ]
-  %.not.i.i = phi i1 [ %54, %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge ], [ true, %42 ]
+  %54 = phi i1 [ %54, %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge ], [ true, %42 ]
   %55 = phi ptr [ %.pre, %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge ], [ %47, %42 ]
   %56 = phi ptr [ %53, %_ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge ], [ null, %42 ]
   store ptr %56, ptr %17, align 8, !tbaa !14

@@ -2291,9 +2291,9 @@ define internal range(i32 -1, 1) i32 @drm_do_probe_ddc_edid(ptr noundef %0, ptr 
   %35 = add nsw i32 %30, -1
   %36 = icmp eq i32 %35, 0
   %37 = select i1 %34, i1 true, i1 %36
-  br i1 %37, label %.loopexit.loopexit, label %29, !llvm.loop !24
+  br i1 %37, label %.loopexit, label %29, !llvm.loop !24
 
-.loopexit.loopexit:                               ; preds = %33
+.loopexit:                                        ; preds = %33
   %38 = icmp ne i32 %31, %24
   %39 = sext i1 %38 to i32
   br label %.loopexit

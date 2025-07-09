@@ -2967,7 +2967,7 @@ if.then109:                                       ; preds = %for.end102
   %51 = trunc i64 %div11231 to i32
   %conv114 = sub i32 %add110, %51
   %cmp115 = icmp sgt i32 %conv114, 0
-  br i1 %cmp115, label %if.then116, label %if.then136
+  br i1 %cmp115, label %if.then116, label %if.end133
 
 if.then116:                                       ; preds = %if.then109
   %conv117 = zext nneg i32 %conv114 to i64
@@ -3012,14 +3012,14 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   store i32 46, ptr %__first.addr.04.i.i.i.i.ptr, align 4
   %__first.addr.04.i.i.i.i.add = add nuw nsw i64 %__first.addr.04.i.i.i.i.idx, 4
   %cmp.not.i.i.i.i130 = icmp eq i64 %__first.addr.04.i.i.i.i.add, 12
-  br i1 %cmp.not.i.i.i.i130, label %if.end133, label %for.body.i.i.i.i, !llvm.loop !47
+  br i1 %cmp.not.i.i.i.i130, label %if.end133.loopexit, label %for.body.i.i.i.i, !llvm.loop !47
 
-if.end133:                                        ; preds = %for.body.i.i.i.i
+if.end133.loopexit:                               ; preds = %for.body.i.i.i.i
   %.pre = load i64, ptr %_M_string_length.i.i.i, align 8
   %58 = icmp ugt i64 %.pre, %.sroa.speculated175
   br i1 %58, label %if.then136, label %if.end155
 
-if.then136:                                       ; preds = %if.then109, %if.end133
+if.end133:                                        ; preds = %if.then109, %if.end133.loopexit
   %call138 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %caretLine) #24
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %.sroa.speculated175, i64 %call138)
   %call140 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %caretLine, i64 noundef %.sroa.speculated, i64 noundef -1) #24

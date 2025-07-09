@@ -2840,14 +2840,14 @@ define dso_local i32 @oid_object_info_extended(ptr noundef %0, ptr noundef %1, p
 19:                                               ; preds = %17
   %20 = add nuw nsw i64 %.0811.i, 1
   %exitcond.not.i = icmp eq i64 %20, 3
-  br i1 %exitcond.not.i, label %.critedge, label %17, !llvm.loop !118
+  br i1 %exitcond.not.i, label %hash_algo_by_ptr.exit, label %17, !llvm.loop !118
 
 .split.loop.exit9.i:                              ; preds = %17
   %21 = trunc nuw nsw i64 %.0811.i to i32
   %22 = icmp eq i32 %13, %21
   br i1 %22, label %122, label %.critedge
 
-.critedge:                                        ; preds = %19, %.split.loop.exit9.i
+hash_algo_by_ptr.exit:                            ; preds = %19, %.split.loop.exit9.i
   %23 = sext i32 %13 to i64
   %24 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %23
   %25 = and i32 %3, 32

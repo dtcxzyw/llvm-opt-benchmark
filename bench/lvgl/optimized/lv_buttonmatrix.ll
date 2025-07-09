@@ -1846,9 +1846,9 @@ define ptr @lv_buttonmatrix_get_button_text(ptr noundef readonly captures(addres
   %18 = add i32 %.01625, 2
   %spec.select = select i1 %17, i32 %18, i32 %11
   %.not22 = icmp eq i32 %10, %1
-  br i1 %.not22, label %._crit_edge, label %9, !llvm.loop !47
+  br i1 %.not22, label %._crit_edge.loopexit, label %9, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %9
+._crit_edge.loopexit:                             ; preds = %9
   %.pre = load i32, ptr %6, align 8, !tbaa !3
   %19 = icmp eq i32 %1, %.pre
   %20 = zext i32 %spec.select to i64
@@ -1862,8 +1862,8 @@ define ptr @lv_buttonmatrix_get_button_text(ptr noundef readonly captures(addres
   %24 = load ptr, ptr %23, align 8, !tbaa !22
   br label %25
 
-25:                                               ; preds = %5, %._crit_edge, %._crit_edge.thread, %3
-  %.017 = phi ptr [ null, %3 ], [ null, %5 ], [ %24, %._crit_edge.thread ], [ null, %._crit_edge ]
+._crit_edge:                                      ; preds = %5, %._crit_edge.loopexit, %._crit_edge.thread, %3
+  %20 = phi ptr [ null, %3 ], [ null, %5 ], [ %24, %._crit_edge.thread ], [ null, %._crit_edge ]
   ret ptr %.017
 }
 

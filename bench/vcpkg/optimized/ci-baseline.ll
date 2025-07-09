@@ -14849,7 +14849,7 @@ _ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3
   %.not.i.i = icmp eq ptr %8, %9
   br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit, label %10
 
-10:                                               ; preds = %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEbT_SB_T0_.exit
+10:; preds = %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEbT_SB_T0_.exit
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %8 to i64
   %13 = sub i64 %11, %12
@@ -14861,25 +14861,25 @@ _ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3
   %18 = icmp sgt i64 %13, 640
   br i1 %18, label %19, label %22
 
-19:                                               ; preds = %10
+19:; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 640
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SE_T0_(ptr %8, ptr nonnull %20)
   %.not6.i.i.i.i = icmp eq ptr %20, %9
   br i1 %.not6.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %19, %.lr.ph.i.i.i.i
-  %.sroa.0.07.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i ], [ %20, %19 ]
+  %.sroa.0.07.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i ], [ %20, %19 ]
   tail call void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterISt4lessIvEEEEvT_T0_(ptr nonnull %.sroa.0.07.i.i.i.i)
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 40
-  %.not.i.i.i.i = icmp eq ptr %21, %9
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 40
+  %.not.i.i.i.i = icmp eq ptr %23, %9
   br i1 %.not.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !267
 
-22:                                               ; preds = %10
+24:                                               ; preds = %10
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SE_T0_(ptr %8, ptr %9)
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit: ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i.i, %1, %22, %19, %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEbT_SB_T0_.exit
-  %23 = load ptr, ptr %0, align 8, !tbaa !265
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEvT_SB_T0_.exit: ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i.i, %1, %24, %19, %_ZSt9is_sortedIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEESt4lessIvEEbT_SB_T0_.exit
+  %25 = load ptr, ptr %0, align 8, !tbaa !265
   %24 = load ptr, ptr %3, align 8, !tbaa !265
   %25 = tail call ptr @_ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11PackageSpecESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12SortedVectorIS3_St4lessIvEE9uniqueifyEvEUlRKS3_SG_E_EEET_SJ_SJ_T0_(ptr %23, ptr %24)
   %26 = load ptr, ptr %3, align 8, !tbaa !265

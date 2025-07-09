@@ -7965,21 +7965,21 @@ define dso_local void @_ZNSt3__19to_stringEi(ptr dead_on_unwind noalias writable
 _ZNSt3__18to_charsB8ne210000IiTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i: ; preds = %27, %14
   %.pre-phi.i = phi i64 [ %10, %14 ], [ %.pre.i, %27 ]
   %.sroa.0.0.i.i.i.i = phi i1 [ false, %14 ], [ %29, %27 ]
-  %30 = ptrtoint ptr %3 to i64
-  %31 = sub i64 %.pre-phi.i, %30
-  %32 = icmp ugt i64 %31, -10
-  br i1 %32, label %33, label %34
+  %29 = ptrtoint ptr %3 to i64
+  %30 = sub i64 %.pre-phi.i, %29
+  %31 = icmp ugt i64 %30, -10
+  br i1 %31, label %32, label %33
 
-33:                                               ; preds = %_ZNSt3__18to_charsB8ne210000IiTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i
+32:                                               ; preds = %_ZNSt3__18to_charsB8ne210000IiTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE20__throw_length_errorB8ne210000Ev() #25, !noalias !174
   unreachable
 
-34:                                               ; preds = %_ZNSt3__18to_charsB8ne210000IiTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i
-  %35 = icmp ult i64 %31, 23
-  br i1 %35, label %36, label %40
+33:                                               ; preds = %_ZNSt3__18to_charsB8ne210000IiTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typeELi0EEENS_15to_chars_resultEPcS6_S2_.exit.i
+  %34 = icmp ult i64 %30, 23
+  br i1 %34, label %36, label %40
 
-36:                                               ; preds = %34
-  %37 = trunc nuw nsw i64 %31 to i8
+49:                                               ; preds = %34
+  %37 = trunc nuw nsw i64 %30 to i8
   %38 = shl nuw nsw i8 %37, 1
   store i8 %38, ptr %0, align 8, !alias.scope !174
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -8008,8 +8008,8 @@ _ZNSt3__18to_charsB8ne210000IiTnNS_9enable_ifIXsr11is_integralIT_EE5valueEiE4typ
   br label %_ZNSt3__112_GLOBAL__N_111i_to_stringINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEiEET_T0_.exit
 
 _ZNSt3__112_GLOBAL__N_111i_to_stringINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEiEET_T0_.exit: ; preds = %49, %50
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 %31
-  store i8 0, ptr %51, align 1, !tbaa !4
+  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 %30
+  store i8 0, ptr %50, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3) #28, !noalias !174
   ret void
 }

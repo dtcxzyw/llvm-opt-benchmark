@@ -8265,8 +8265,8 @@ _ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapINS0_12RequestTokenEPNS0_11
 
 _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit: ; preds = %33
   %.pre = load i64, ptr %0, align 8, !tbaa !284
-  %.not51 = icmp ult i64 %.014.i21.i, %.pre
-  br i1 %.not51, label %68, label %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit.thread
+  %.not47 = icmp ult i64 %.014.i21.i, %.pre
+  br i1 %.not47, label %68, label %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit.thread
 
 _ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit.thread: ; preds = %20, %.thread15.loopexit.i, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit
   %38 = phi i64 [ %.pre, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit ], [ %.pre24.i, %20 ], [ %.pre.i, %.thread15.loopexit.i ]
@@ -8347,8 +8347,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %62
   unreachable
 
 68:                                               ; preds = %.thread, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit
-  %.4.i.i44 = phi i1 [ true, %.thread ], [ false, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit ]
-  ret i1 %.4.i.i44
+  %69 = phi i1 [ true, %.thread ], [ false, %_ZN5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE11writer_findES1_.exit ]
+  ret i1 %69
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -8437,8 +8437,8 @@ _ZNSt10unique_ptrIA_N5folly24SingleWriterFixedHashMapIPNS0_11RequestDataEiE4Elem
 
 _ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit: ; preds = %34
   %.pre = load i64, ptr %0, align 8, !tbaa !305
-  %.not45 = icmp ult i64 %.016.i16.i, %.pre
-  br i1 %.not45, label %70, label %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit.thread
+  %.not41 = icmp ult i64 %.016.i16.i, %.pre
+  br i1 %.not41, label %70, label %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit.thread
 
 _ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit.thread: ; preds = %21, %.thread10.loopexit.i, %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit
   %41 = phi i64 [ %.pre, %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit ], [ %.pre19.i, %21 ], [ %.pre.i, %.thread10.loopexit.i ]
@@ -8518,8 +8518,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %64
   unreachable
 
 70:                                               ; preds = %.thread, %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit
-  %.4.i.i38 = phi i1 [ true, %.thread ], [ false, %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit ]
-  ret i1 %.4.i.i38
+  %71 = phi i1 [ true, %.thread ], [ false, %_ZN5folly24SingleWriterFixedHashMapIPNS_11RequestDataEiE11writer_findES2_.exit ]
+  ret i1 %71
 }
 
 ; Function Attrs: noreturn
@@ -11863,9 +11863,9 @@ _ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8conta
   br label %_ZNK5folly14RequestContext5State14hasContextDataERKNS_12RequestTokenE.exit
 
 _ZNK5folly14RequestContext5State14hasContextDataERKNS_12RequestTokenE.exit: ; preds = %.critedge.i.i.i.thread, %28, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8containsES1_.exit.loopexit, %23, %18, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit
-  %39 = phi i1 [ false, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit ], [ %38, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8containsES1_.exit.loopexit ], [ false, %23 ], [ false, %18 ], [ false, %28 ], [ false, %.critedge.i.i.i.thread ]
+  %40 = phi i1 [ false, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit ], [ %38, %_ZNK5folly24SingleWriterFixedHashMapINS_12RequestTokenEPNS_11RequestDataEE8containsES1_.exit.loopexit ], [ false, %23 ], [ false, %18 ], [ false, %28 ], [ false, %.critedge.i.i.i.thread ]
   store atomic i64 0, ptr %12 release, align 8
-  ret i1 %39
+  ret i1 %40
 }
 
 ; Function Attrs: mustprogress noinline uwtable

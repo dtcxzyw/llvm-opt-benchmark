@@ -1148,7 +1148,7 @@ define hidden ptr @_glfwGetVideoModesX11(ptr noundef readonly captures(none) %0,
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142100), align 4
   %7 = icmp ne i32 %6, 0
   %or.cond = select i1 %5, i1 true, i1 %7
-  br i1 %or.cond, label %100, label %8
+  br i1 %or.cond, label %101, label %8
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142184), align 8, !tbaa !94
@@ -1185,17 +1185,17 @@ define hidden ptr @_glfwGetVideoModesX11(ptr noundef readonly captures(none) %0,
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %41
 
-._crit_edge42:                                    ; preds = %96, %8
+._crit_edge42:                                    ; preds = %97, %8
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142128), align 8, !tbaa !114
   call void %38(ptr noundef nonnull %22) #9
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
   call void %39(ptr noundef %18) #9
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
   call void %40(ptr noundef %12) #9
-  br label %103
+  br label %104
 
-41:                                               ; preds = %.lr.ph41, %96
-  %42 = phi i32 [ %27, %.lr.ph41 ], [ %97, %96 ]
+41:                                               ; preds = %.lr.ph41, %97
+  %42 = phi i32 [ %27, %.lr.ph41 ], [ %98, %96 ]
   %indvars.iv44 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next45, %96 ]
   %43 = load ptr, ptr %29, align 8, !tbaa !155
   %44 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv44
@@ -1227,7 +1227,7 @@ getModeInfo.exit:                                 ; preds = %48, %49, %41
   %.val35 = load i64, ptr %53, align 8, !tbaa !160
   %54 = and i64 %.val35, 16
   %.not = icmp eq i64 %54, 0
-  br i1 %.not, label %55, label %96
+  br i1 %.not, label %55, label %97
 
 55:                                               ; preds = %getModeInfo.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
@@ -1242,11 +1242,11 @@ getModeInfo.exit:                                 ; preds = %48, %49, %41
   br label %57
 
 57:                                               ; preds = %55, %55, %56
-  %.sink51 = phi i64 [ 8, %56 ], [ 12, %55 ], [ 12, %55 ]
+  %.sink50 = phi i64 [ 8, %56 ], [ 12, %55 ], [ 12, %55 ]
   %.sink = phi i64 [ 12, %56 ], [ 8, %55 ], [ 8, %55 ]
-  %58 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink51
-  %.sink50 = load i32, ptr %58, align 4, !tbaa !93, !noalias !188
-  store i32 %.sink50, ptr %3, align 4, !tbaa !164, !alias.scope !188
+  %58 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink50
+  %.sink49 = load i32, ptr %58, align 4, !tbaa !93, !noalias !188
+  store i32 %.sink49, ptr %3, align 4, !tbaa !164, !alias.scope !188
   %59 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink
   %.sink.i = load i32, ptr %59, align 4, !tbaa !93, !noalias !188
   store i32 %.sink.i, ptr %33, align 4, !tbaa !165, !alias.scope !188
@@ -1294,49 +1294,49 @@ vidmodeFromModeInfo.exit:                         ; preds = %57, %62, %65
   %85 = call i32 @_glfwCompareVideoModes(ptr noundef %84, ptr noundef nonnull %3) #9
   %86 = icmp eq i32 %85, 0
   %.pre.pre = load i32, ptr %1, align 4, !tbaa !93
-  br i1 %86, label %._crit_edge, label %87
+  br i1 %86, label %._crit_edge.loopexit, label %87
 
 87:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = sext i32 %.pre.pre to i64
   %89 = icmp slt i64 %indvars.iv.next, %88
-  br i1 %89, label %.lr.ph, label %._crit_edge
+  br i1 %89, label %.lr.ph, label %._crit_edge.loopexit
 
-._crit_edge:                                      ; preds = %87, %.lr.ph
+._crit_edge.loopexit:                             ; preds = %87, %.lr.ph
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv.next, %87 ], [ %indvars.iv, %.lr.ph ]
   %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
   %90 = icmp sgt i32 %.pre.pre, %.0.lcssa.ph
   br i1 %90, label %95, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %vidmodeFromModeInfo.exit, %._crit_edge
-  %91 = phi i32 [ %.pre.pre, %._crit_edge ], [ %82, %vidmodeFromModeInfo.exit ]
-  %92 = add nsw i32 %91, 1
+._crit_edge.thread: ; preds = %vidmodeFromModeInfo.exit, %._crit_edge.loopexit
+  %.0.lcssa = phi i32 [ %.pre.pre, %._crit_edge ], [ %82, %vidmodeFromModeInfo.exit ]
+  %92 = add nsw i32 %.0.lcssa, 1
   store i32 %92, ptr %1, align 4, !tbaa !93
   %93 = sext i32 %91 to i64
   %94 = getelementptr inbounds %struct.GLFWvidmode, ptr %26, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %94, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !179
   br label %95
 
-95:                                               ; preds = %._crit_edge, %._crit_edge.thread
+95: ; preds = %._crit_edge, %._crit_edge.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
   %.pre48 = load i32, ptr %23, align 8, !tbaa !154
-  br label %96
+  br label %97
 
-96:                                               ; preds = %getModeInfo.exit, %95
-  %97 = phi i32 [ %42, %getModeInfo.exit ], [ %.pre48, %95 ]
+97:                                               ; preds = %getModeInfo.exit, %95
+  %98 = phi i32 [ %42, %getModeInfo.exit ], [ %.pre48, %95 ]
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv.next45, %98
-  br i1 %99, label %41, label %._crit_edge42
+  %99 = sext i32 %98 to i64
+  %100 = icmp slt i64 %indvars.iv.next45, %99
+  br i1 %100, label %41, label %._crit_edge42
 
-100:                                              ; preds = %2
+101:                                              ; preds = %2
   store i32 1, ptr %1, align 4, !tbaa !93
-  %101 = tail call ptr @_glfw_calloc(i64 noundef 1, i64 noundef 24) #9
-  %102 = tail call i32 @_glfwGetVideoModeX11(ptr noundef %0, ptr noundef %101)
-  br label %103
+  %102 = tail call ptr @_glfw_calloc(i64 noundef 1, i64 noundef 24) #9
+  %103 = tail call i32 @_glfwGetVideoModeX11(ptr noundef %0, ptr noundef %102)
+  br label %104
 
-103:                                              ; preds = %100, %._crit_edge42
-  %.032 = phi ptr [ %101, %100 ], [ %26, %._crit_edge42 ]
+104:                                              ; preds = %101, %._crit_edge42
+  %.032 = phi ptr [ %102, %100 ], [ %26, %._crit_edge42 ]
   ret ptr %.032
 }
 

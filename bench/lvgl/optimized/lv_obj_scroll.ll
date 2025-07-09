@@ -1244,18 +1244,18 @@ lv_obj_get_scroll_snap_y.exit:                    ; preds = %7
   %72 = select i1 %71, i32 0, i32 %49
   br label %lv_obj_get_scroll_top.exit
 
-73:                                               ; preds = %62
+lv_obj_get_scroll_top.exit:                       ; preds = %62
   %74 = icmp slt i32 %56, 0
   br i1 %74, label %75, label %lv_obj_get_scroll_top.exit
 
-75:                                               ; preds = %73
+75:; preds = %73
   %76 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %5)
   %77 = add nsw i32 %76, %56
-  %78 = icmp slt i32 %77, 0
-  %spec.store.select2 = select i1 %78, i32 0, i32 %56
+  %73 = icmp slt i32 %77, 0
+  %spec.store.select2 = select i1 %73, i32 0, i32 %56
   br label %lv_obj_get_scroll_top.exit
 
-lv_obj_get_scroll_top.exit:                       ; preds = %67, %64, %20, %75, %73
+lv_obj_get_scroll_top.exit:; preds = %67, %64, %20, %75, %73
   %.0146 = phi i32 [ %spec.store.select2, %75 ], [ 0, %73 ], [ 0, %20 ], [ %72, %67 ], [ 0, %64 ]
   switch i32 %.0.i155177, label %default.unreachable [
     i32 1, label %79

@@ -2741,9 +2741,9 @@ if.end:                                           ; preds = %if.end.loopexit, %s
   %out.3 = phi i32 [ %out.2, %sw.epilog ], [ %39, %if.end.loopexit ]
   %i.3 = phi i32 [ %i.2, %sw.epilog ], [ %40, %if.end.loopexit ]
   %cmp27 = icmp slt i32 %i.3, %41
-  br i1 %cmp27, label %while.cond.preheader, label %for.end, !llvm.loop !20
+  br i1 %cmp27, label %while.cond.preheader, label %for.end.loopexit, !llvm.loop !20
 
-for.end:                                          ; preds = %if.end
+for.end.loopexit:                                 ; preds = %if.end
   %.pre192 = load ptr, ptr %splices10, align 8
   %.pre193 = load ptr, ptr %_M_finish.i.i62, align 8
   %42 = icmp eq ptr %.pre193, %.pre192

@@ -5484,8 +5484,8 @@ onig_scan_unsigned_number.exit:                   ; preds = %100, %113
   br label %._crit_edge181, !llvm.loop !119
 
 ._crit_edge181:                                   ; preds = %123, %.thread, %._crit_edge, %.thread156, %117, %.loopexit
-  %.2119 = phi i32 [ -215, %.loopexit ], [ -215, %117 ], [ -215, %.thread156 ], [ %.1118, %._crit_edge ], [ %.1118, %.thread ], [ %.1118, %123 ]
-  %.3112 = phi ptr [ %2, %.loopexit ], [ %.1110, %117 ], [ %.1110, %.thread156 ], [ %147, %._crit_edge ], [ %2, %.thread ], [ %2, %123 ]
+  %.5 = phi i32 [ -215, %.loopexit ], [ -215, %117 ], [ -215, %.thread156 ], [ %.1118, %._crit_edge ], [ %.1118, %.thread ], [ %.1118, %123 ]
+  %.4 = phi ptr [ %2, %.loopexit ], [ %.1110, %117 ], [ %.1110, %.thread156 ], [ %147, %._crit_edge ], [ %2, %.thread ], [ %2, %123 ]
   %148 = load ptr, ptr %1, align 8, !tbaa !67
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %148, ptr %149, align 8, !tbaa !94

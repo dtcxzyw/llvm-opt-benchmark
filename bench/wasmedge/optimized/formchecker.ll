@@ -13043,9 +13043,9 @@ define void @_ZN8WasmEdge9Validator11FormChecker11unreachableEv(ptr dead_on_unwi
 26:                                               ; preds = %19
   %27 = load i8, ptr %18, align 8, !noalias !293
   %28 = trunc i8 %27 to i1
-  br i1 %28, label %_ZN8WasmEdge9Validator11FormChecker7popTypeEv.exit.thread, label %31
+  br i1 %28, label %_ZN8WasmEdge9Validator11FormChecker7popTypeEv.exit.thread, label %34
 
-_ZN8WasmEdge9Validator11FormChecker7popTypeEv.exit.thread: ; preds = %26
+29:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %._crit_edge
 
@@ -13060,28 +13060,28 @@ _ZN8WasmEdge9Validator11FormChecker7popTypeEv.exit: ; preds = %19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br i1 %30, label %19, label %._crit_edge
 
-31:                                               ; preds = %26
+34:                                               ; preds = %26
   store i32 513, ptr %4, align 4, !noalias !293
-  %32 = tail call noundef ptr @_ZN6spdlog18default_logger_rawEv(), !noalias !293
+  %35 = tail call noundef ptr @_ZN6spdlog18default_logger_rawEv(), !noalias !293
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !293
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !293
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %32, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %3, i32 noundef 4, ptr nonnull @.str.5, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !293
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %35, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %3, i32 noundef 4, ptr nonnull @.str.5, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !293
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !293
-  %33 = call noundef ptr @_ZN6spdlog18default_logger_rawEv(), !noalias !293
-  call void @_ZN6spdlog6logger5errorIA27_cEEvRKT_(ptr noundef nonnull align 8 dereferenceable(208) %33, ptr noundef nonnull align 1 dereferenceable(27) @.str.3), !noalias !293
+  %36 = call noundef ptr @_ZN6spdlog18default_logger_rawEv(), !noalias !293
+  call void @_ZN6spdlog6logger5errorIA27_cEEvRKT_(ptr noundef nonnull align 8 dereferenceable(208) %36, ptr noundef nonnull align 1 dereferenceable(27) @.str.3), !noalias !293
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   store i8 0, ptr %0, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 513, ptr %34, align 4
-  br label %36
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 513, ptr %37, align 4
+  br label %39
 
-._crit_edge:                                      ; preds = %_ZN8WasmEdge9Validator11FormChecker7popTypeEv.exit, %_ZN8WasmEdge9Validator11FormChecker7popTypeEv.exit.thread, %2
-  %35 = getelementptr inbounds i8, ptr %10, i64 -8
-  store i8 1, ptr %35, align 8
+._crit_edge:                                      ; preds = %_ZN8WasmEdge9Validator11FormChecker7popTypeEv.exit, %29, %2
+  %38 = getelementptr inbounds i8, ptr %10, i64 -8
+  store i8 1, ptr %38, align 8
   store i64 1, ptr %0, align 4
-  br label %36
+  br label %39
 
-36:                                               ; preds = %._crit_edge, %31
+39:                                               ; preds = %._crit_edge, %34
   ret void
 }
 

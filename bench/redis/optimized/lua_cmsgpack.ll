@@ -1367,18 +1367,18 @@ define dso_local range(i32 0, 2) i32 @table_is_an_array(ptr noundef %0) local_un
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #10
   %4 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -1) #10
   %.not24 = icmp eq i32 %4, 3
-  br i1 %.not24, label %5, label %._crit_edge
+  br i1 %.not24, label %5, label %21
 
 5:                                                ; preds = %.lr.ph
   %6 = tail call double @lua_tonumber(ptr noundef %0, i32 noundef -1) #10
   %or.cond = tail call i1 @llvm.is.fpclass.f64(double %6, i32 636)
-  br i1 %or.cond, label %._crit_edge, label %7
+  br i1 %or.cond, label %21, label %7
 
 7:                                                ; preds = %5
   %8 = fptosi double %6 to i32
   %9 = sitofp i32 %8 to double
   %10 = fcmp oeq double %6, %9
-  br i1 %10, label %11, label %._crit_edge
+  br i1 %10, label %11, label %21
 
 11:                                               ; preds = %7
   %12 = sitofp i32 %.02229 to double
@@ -1390,12 +1390,12 @@ define dso_local range(i32 0, 2) i32 @table_is_an_array(ptr noundef %0) local_un
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
 
-._crit_edge.loopexit:                             ; preds = %11
-  %18 = icmp eq i32 %16, %15
-  %19 = zext i1 %18 to i32
+._crit_edge.loopexit:; preds = %11
+  %.not = icmp eq i32 %16, %15
+  %19 = zext i1 %.not to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %5, %7, %1, %._crit_edge.loopexit
+21:                                               ; preds = %.lr.ph, %5, %7, %1, %._crit_edge.loopexit
   %.0 = phi i32 [ 1, %1 ], [ %19, %._crit_edge.loopexit ], [ 0, %7 ], [ 0, %5 ], [ 0, %.lr.ph ]
   tail call void @lua_settop(ptr noundef %0, i32 noundef %2) #10
   ret i32 %.0

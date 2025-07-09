@@ -3126,14 +3126,14 @@ define internal fastcc void @rm_read_index(ptr noundef %0) unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !72
   %28 = icmp eq i32 %27, %15
-  br i1 %28, label %._crit_edge, label %29
+  br i1 %28, label %._crit_edge.loopexit, label %29
 
 29:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %23, !llvm.loop !123
 
-._crit_edge:                                      ; preds = %23
+._crit_edge.loopexit:                             ; preds = %23
   %30 = trunc nuw i64 %indvars.iv to i32
   %31 = icmp eq i32 %21, %30
   br i1 %31, label %._crit_edge.thread, label %33

@@ -3594,9 +3594,9 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
   br i1 %.not26, label %.thread, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit
-  %.pr44 = phi ptr [ %.pr.pr, %.loopexit ], [ %58, %.preheader ]
+  %.pr42 = phi ptr [ %.pr.pr, %.loopexit ], [ %58, %.preheader ]
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !130
-  %78 = call i32 %77(ptr noundef nonnull %.pr44) #17
+  %78 = call i32 %77(ptr noundef nonnull %.pr42) #17
   br label %.thread
 
 .thread:                                          ; preds = %57, %.loopexit.thread, %.loopexit

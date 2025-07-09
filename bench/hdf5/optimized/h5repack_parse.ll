@@ -614,20 +614,20 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
   %244 = or i1 %240, %243
   br label %250
 
-245:                                              ; preds = %70
+245:; preds = %70
   br i1 %69, label %246, label %250
 
-246:                                              ; preds = %245
+246:; preds = %245
   %247 = add i64 %indvars.iv426, 1
   %248 = and i64 %247, 4294967295
   %249 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %248
   store i8 0, ptr %249, align 1, !tbaa !8
   br label %250
 
-250:                                              ; preds = %245, %246, %.loopexit
-  %.not308 = phi i1 [ %244, %.loopexit ], [ true, %246 ], [ true, %245 ]
-  %.5287 = phi i1 [ %242, %.loopexit ], [ true, %246 ], [ true, %245 ]
-  %.not309 = phi i1 [ true, %.loopexit ], [ false, %246 ], [ true, %245 ]
+250:; preds = %245, %246, %.loopexit
+  %.5287 = phi i1 [ %244, %.loopexit ], [ true, %246 ], [ true, %245 ]
+  %.not309 = phi i1 [ %242, %.loopexit ], [ true, %246 ], [ true, %245 ]
+  %.10 = phi i1 [ true, %.loopexit ], [ false, %246 ], [ true, %245 ]
   %bcmp300 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %7, ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
   %251 = icmp eq i32 %bcmp300, 0
   br i1 %251, label %252, label %254

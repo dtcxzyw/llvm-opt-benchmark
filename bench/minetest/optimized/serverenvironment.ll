@@ -19534,7 +19534,7 @@ for.cond.cleanup73.loopexit:                      ; preds = %invoke.cont77
   br label %for.cond.cleanup73
 
 for.cond.cleanup73:                               ; preds = %for.cond.cleanup73.loopexit, %invoke.cont65
-  %cmp.i.i = phi i8 [ %19, %for.cond.cleanup73.loopexit ], [ 0, %invoke.cont65 ]
+  %18 = phi i8 [ %19, %for.cond.cleanup73.loopexit ], [ 0, %invoke.cont65 ]
   store i8 %cmp.i.i, ptr %check_required_neighbors, align 8, !tbaa !544
   %vtable85 = load ptr, ptr %5, align 8, !tbaa !19
   %vfn86 = getelementptr inbounds nuw i8, ptr %vtable85, i64 16

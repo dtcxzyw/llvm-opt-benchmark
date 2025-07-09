@@ -1014,22 +1014,22 @@ define hidden void @"_ZN13generic_array25GenericArray$LT$T$C$N$GT$15from_exact_i
   %10 = load i8, ptr %6, align 1, !alias.scope !277, !noalias !282, !noundef !4
   store i8 %10, ptr %.ptr, align 1, !alias.scope !294, !noalias !299
   %11 = icmp eq i64 %8, 16
-  br i1 %11, label %12, label %4
+  br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit.thread, label %4
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit: ; preds = %4
   %.not = icmp eq i64 %5, 16
   br i1 %.not, label %.thread30, label %.thread
 
-12:                                               ; preds = %7
+_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit.thread: ; preds = %7
   %13 = icmp eq ptr %9, %2
-  br i1 %13, label %.thread30, label %.thread
+  br i1 %13, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit.thread, label %.thread
 
-.thread30:                                        ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit, %12
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+12:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit, %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   br label %.thread
 
-.thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit, %12, %.thread30
+.thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit, %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit.thread, %12
   %storemerge = phi i8 [ 1, %.thread30 ], [ 0, %12 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit ]
   store i8 %storemerge, ptr %0, align 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -1056,22 +1056,22 @@ define hidden void @"_ZN13generic_array25GenericArray$LT$T$C$N$GT$15from_exact_i
   %10 = load i8, ptr %6, align 1, !alias.scope !300, !noalias !305, !noundef !4
   store i8 %10, ptr %.ptr, align 1, !alias.scope !317, !noalias !322
   %11 = icmp eq i64 %8, 32
-  br i1 %11, label %12, label %4
+  br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit.thread, label %4
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit: ; preds = %4
   %.not = icmp eq i64 %5, 32
   br i1 %.not, label %.thread30, label %.thread
 
-12:                                               ; preds = %7
+_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit.thread: ; preds = %7
   %13 = icmp eq ptr %9, %2
-  br i1 %13, label %.thread30, label %.thread
+  br i1 %13, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit.thread, label %.thread
 
-.thread30:                                        ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit, %12
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+12:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit, %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %.thread
 
-.thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit, %12, %.thread30
+.thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit, %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit.thread, %12
   %storemerge = phi i8 [ 1, %.thread30 ], [ 0, %12 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit ]
   store i8 %storemerge, ptr %0, align 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)

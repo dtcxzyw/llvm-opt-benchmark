@@ -1235,22 +1235,22 @@ define internal i64 @mObject_to_json(i32 noundef %0, ptr noundef readonly captur
   %4 = load i64, ptr @i_to_s, align 8, !tbaa !6
   %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef %4, i32 noundef 0) #22
   %6 = icmp slt i32 %0, 0
-  br i1 %6, label %9, label %.preheader.split.split
+  br i1 %6, label %11, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %3
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %rb_scan_args_set.exit, label %.split.us
+  br i1 %.not, label %rb_scan_args_set.exit, label %7
 
-.split.us:                                        ; preds = %.preheader.split.split
-  %7 = load i64, ptr %1, align 8, !tbaa !6
+7:                                                ; preds = %.preheader.split.split
+  %8 = load i64, ptr %1, align 8, !tbaa !6
   %8 = icmp eq i32 %0, 1
   br i1 %8, label %rb_scan_args_set.exit, label %9
 
-9:                                                ; preds = %.split.us, %3
+11:                                               ; preds = %.split.us, %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #26
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %.preheader.split.split, %.split.us
+rb_scan_args_set.exit:                            ; preds = %.preheader.split.split, %7
   %10 = phi i64 [ %7, %.split.us ], [ 4, %.preheader.split.split ]
   %11 = icmp eq i64 %5, 0
   %12 = and i64 %5, 7
@@ -1258,7 +1258,7 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.split.sp
   %14 = or i1 %11, %13
   br i1 %14, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %15, !prof !57
 
-15:                                               ; preds = %rb_scan_args_set.exit
+15:; preds = %rb_scan_args_set.exit
   %16 = inttoptr i64 %5 to ptr
   %17 = load i64, ptr %16, align 8, !tbaa !23
   %18 = and i64 %17, 31
@@ -1270,31 +1270,31 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %15, %rb_scan_args_s
   unreachable
 
 Check_Type.exit:                                  ; preds = %15
-  %20 = load i64, ptr @cState, align 8, !tbaa !6
-  %21 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %20) #22
-  %.not.i4 = icmp eq i64 %21, 0
-  br i1 %.not.i4, label %22, label %cState_from_state_s.exit
+  %21 = load i64, ptr @cState, align 8, !tbaa !6
+  %22 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %21) #22
+  %.not.i4 = icmp eq i64 %22, 0
+  br i1 %.not.i4, label %23, label %cState_from_state_s.exit
 
-22:                                               ; preds = %Check_Type.exit
-  %23 = load i64, ptr @rb_cHash, align 8, !tbaa !6
-  %24 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %23) #22
-  %.not7.i = icmp eq i64 %24, 0
-  br i1 %.not7.i, label %28, label %25
+23:                                               ; preds = %Check_Type.exit
+  %24 = load i64, ptr @rb_cHash, align 8, !tbaa !6
+  %25 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %24) #22
+  %.not7.i = icmp eq i64 %25, 0
+  br i1 %.not7.i, label %29, label %26
 
-25:                                               ; preds = %22
-  %26 = load i64, ptr @i_new, align 8, !tbaa !6
-  %27 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %20, i64 noundef %26, i32 noundef 1, i64 noundef %10) #22
+26:                                               ; preds = %23
+  %27 = load i64, ptr @i_new, align 8, !tbaa !6
+  %28 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %21, i64 noundef %27, i32 noundef 1, i64 noundef %10) #22
   br label %cState_from_state_s.exit
 
-28:                                               ; preds = %22
-  %29 = load i64, ptr @cState, align 8, !tbaa !6
-  %30 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %29) #22
+29:                                               ; preds = %23
+  %30 = load i64, ptr @cState, align 8, !tbaa !6
+  %31 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %30) #22
   br label %cState_from_state_s.exit
 
-cState_from_state_s.exit:                         ; preds = %Check_Type.exit, %25, %28
-  %.0.i = phi i64 [ %27, %25 ], [ %30, %28 ], [ %10, %Check_Type.exit ]
-  %31 = tail call fastcc i64 @cState_partial_generate(i64 noundef %.0.i, i64 noundef %5, ptr noundef nonnull @generate_json_string, i64 noundef 0)
-  ret i64 %31
+cState_from_state_s.exit:                         ; preds = %Check_Type.exit, %26, %29
+  %.0.i = phi i64 [ %28, %25 ], [ %31, %28 ], [ %10, %Check_Type.exit ]
+  %32 = tail call fastcc i64 @cState_partial_generate(i64 noundef %.0.i, i64 noundef %5, ptr noundef nonnull @generate_json_string, i64 noundef 0)
+  ret i64 %32
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

@@ -259,18 +259,18 @@ define dso_local ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr n
 
 plugin_get_syms.exit:                             ; preds = %68
   %69 = icmp slt i32 %.1.i, %1
-  br i1 %69, label %74, label %plugin_get_syms.exit.thread
+  br i1 %69, label %74, label %69
 
-plugin_get_syms.exit.thread:                      ; preds = %54, %plugin_get_syms.exit
+69:                                               ; preds = %54, %plugin_get_syms.exit
   %70 = call i32 @get_log_level() #10
   %71 = icmp sgt i32 %70, 6
   br i1 %71, label %72, label %73
 
-72:                                               ; preds = %plugin_get_syms.exit.thread
+72:                                               ; preds = %69
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.8) #10
   br label %73
 
-73:                                               ; preds = %72, %plugin_get_syms.exit.thread
+73:                                               ; preds = %72, %69
   call void @slurm_xfree(ptr noundef nonnull %9) #10
   br label %.loopexit
 

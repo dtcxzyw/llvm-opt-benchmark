@@ -868,10 +868,10 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %67
   %.not68104 = icmp ult i64 %73, %.048
   br i1 %.not68104, label %.thread98, label %.lr.ph105
 
-.lr.ph105:                                        ; preds = %.preheader, %77
+.lr.ph105:                                        ; preds = %.preheader, %75
   %74 = tail call fastcc ptr @cpool_get_oldest_idle(ptr noundef %.0.i.ph)
   %.not69 = icmp eq ptr %74, null
-  br i1 %.not69, label %.lr.ph105..thread98.loopexit_crit_edge, label %77
+  br i1 %.not69, label %.lr.ph105..thread98.loopexit_crit_edge, label %75
 
 .lr.ph105..thread98.loopexit_crit_edge:           ; preds = %.lr.ph105
   %.pre.pre = load i64, ptr %72, align 8, !tbaa !108
@@ -879,14 +879,14 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %67
   %76 = select i1 %75, i32 0, i32 2
   br label %.thread98
 
-77:                                               ; preds = %.lr.ph105
+75:                                               ; preds = %.lr.ph105
   tail call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef nonnull %74, i1 noundef zeroext false)
-  %78 = load i64, ptr %72, align 8, !tbaa !108
-  %.not68 = icmp ult i64 %78, %.048
+  %76 = load i64, ptr %72, align 8, !tbaa !108
+  %.not68 = icmp ult i64 %76, %.048
   br i1 %.not68, label %.thread98, label %.lr.ph105
 
-.thread98:                                        ; preds = %77, %.preheader, %.lr.ph105..thread98.loopexit_crit_edge, %.critedge.thread, %.critedge.thread92
-  %.047 = phi i32 [ 0, %.critedge.thread ], [ %.mux, %.critedge.thread92 ], [ 0, %.preheader ], [ %76, %.lr.ph105..thread98.loopexit_crit_edge ], [ 0, %77 ]
+.thread98:                                        ; preds = %75, %.preheader, %.lr.ph105..thread98.loopexit_crit_edge, %.critedge.thread, %.critedge.thread92
+  %77 = phi i32 [ 0, %.critedge.thread ], [ %.mux, %.critedge.thread92 ], [ 0, %.preheader ], [ %76, %.lr.ph105..thread98.loopexit_crit_edge ], [ 0, %77 ]
   %79 = load i8, ptr %44, align 8
   %80 = and i8 %79, -2
   store i8 %80, ptr %44, align 8

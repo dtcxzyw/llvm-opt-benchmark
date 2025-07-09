@@ -708,12 +708,12 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE5c
   %.0.copyload.i2.i = load i64, ptr %50, align 4
   %51 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
   %.pre = load ptr, ptr %34, align 8
-  %.pre18 = load ptr, ptr %1, align 8
+  %.pre16 = load ptr, ptr %1, align 8
   br i1 %51, label %52, label %86
 
 52:                                               ; preds = %49
   %53 = ptrtoint ptr %.pre to i64
-  %54 = ptrtoint ptr %.pre18 to i64
+  %54 = ptrtoint ptr %.pre16 to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 3
   %57 = add nsw i64 %56, -1
@@ -789,7 +789,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE17
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE12emplace_backIJimEEERS2_DpOT_.exit
 
 86:                                               ; preds = %49, %45, %37
-  %87 = phi ptr [ %.pre18, %49 ], [ %33, %45 ], [ %33, %37 ]
+  %87 = phi ptr [ %.pre16, %49 ], [ %33, %45 ], [ %33, %37 ]
   %88 = phi ptr [ %.pre, %49 ], [ %35, %45 ], [ %35, %37 ]
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %87 to i64
@@ -948,7 +948,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_dea
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE5clearEv.exit, %39, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_deallocateEPS1_m.exit.i
   %.pre-phi = phi ptr [ %28, %39 ], [ %.pre33, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ %28, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE5clearEv.exit ]
-  %.not2428 = phi i1 [ false, %39 ], [ %66, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ true, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE5clearEv.exit ]
+  %66 = phi i1 [ false, %39 ], [ %66, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ true, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE5clearEv.exit ]
   br i1 %.not2428, label %._crit_edge31, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE7reserveEm.exit, %.lr.ph30

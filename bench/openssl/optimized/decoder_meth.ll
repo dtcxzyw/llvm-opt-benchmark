@@ -683,7 +683,7 @@ define range(i32 0, 2) i32 @ossl_decoder_fast_is_a(ptr noundef readonly captures
   %9 = tail call i32 @ossl_namemap_name2num(ptr noundef %8, ptr noundef %1) #8
   store i32 %9, ptr %2, align 4, !tbaa !50
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.thread10, label %ossl_decoder_get_number.exit
+  br i1 %10, label %.thread10, label %17
 
 11:                                               ; preds = %3
   %.not.i = icmp eq ptr %0, null
@@ -701,11 +701,11 @@ define range(i32 0, 2) i32 @ossl_decoder_fast_is_a(ptr noundef readonly captures
   %14 = load i32, ptr %13, align 8, !tbaa !21
   %15 = icmp eq i32 %14, %.0914
   %16 = zext i1 %15 to i32
-  br label %ossl_decoder_get_number.exit
+  br label %17
 
-ossl_decoder_get_number.exit:                     ; preds = %.thread10, %12, %6
-  %17 = phi i32 [ 0, %6 ], [ %16, %.thread10 ], [ 0, %12 ]
-  ret i32 %17
+17:                                               ; preds = %.thread10, %12, %6
+  %18 = phi i32 [ 0, %6 ], [ %16, %.thread10 ], [ 0, %12 ]
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable

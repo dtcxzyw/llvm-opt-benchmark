@@ -1017,41 +1017,41 @@ _ZN8rawspeed12RawImageData17createBadPixelMapEv.exit: ; preds = %_ZN8rawspeed7ro
 
 .lr.ph:                                           ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  br label %45
+  br label %46
 
-._crit_edge:                                      ; preds = %45
+._crit_edge.loopexit:                             ; preds = %46
   %.pre17 = load ptr, ptr %3, align 8, !tbaa !101
   %.pre18 = load ptr, ptr %5, align 8, !tbaa !131
   %43 = icmp eq ptr %.pre18, %.pre17
   br i1 %43, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %44
 
-44:                                               ; preds = %._crit_edge
+45:                                               ; preds = %._crit_edge
   store ptr %.pre17, ptr %5, align 8, !tbaa !131
   br label %_ZNSt6vectorIjSaIjEE5clearEv.exit
 
-45:                                               ; preds = %.lr.ph, %45
-  %.sroa.011.015 = phi ptr [ %40, %.lr.ph ], [ %61, %45 ]
-  %46 = load i32, ptr %.sroa.011.015, align 4, !tbaa !132
-  %47 = lshr i32 %46, 16
-  %48 = and i32 %46, 7
-  %49 = shl nuw nsw i32 1, %48
-  %50 = load i32, ptr %42, align 8, !tbaa !127
-  %51 = mul i32 %50, %47
-  %52 = lshr i32 %46, 3
-  %53 = and i32 %52, 8191
-  %54 = add i32 %51, %53
-  %55 = zext i32 %54 to i64
-  %56 = load ptr, ptr %9, align 8, !tbaa !98
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %55
-  %58 = load i8, ptr %57, align 1, !tbaa !92
-  %59 = trunc nuw i32 %49 to i8
-  %60 = or i8 %58, %59
-  store i8 %60, ptr %57, align 1, !tbaa !92
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 4
-  %62 = icmp eq ptr %61, %39
-  br i1 %62, label %._crit_edge, label %45
+46:                                               ; preds = %.lr.ph, %46
+  %.sroa.011.015 = phi ptr [ %40, %.lr.ph ], [ %62, %45 ]
+  %47 = load i32, ptr %.sroa.011.015, align 4, !tbaa !132
+  %48 = lshr i32 %47, 16
+  %49 = and i32 %47, 7
+  %50 = shl nuw nsw i32 1, %49
+  %51 = load i32, ptr %42, align 8, !tbaa !127
+  %52 = mul i32 %51, %48
+  %53 = lshr i32 %47, 3
+  %54 = and i32 %53, 8191
+  %55 = add i32 %52, %54
+  %56 = zext i32 %55 to i64
+  %57 = load ptr, ptr %9, align 8, !tbaa !98
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %56
+  %59 = load i8, ptr %58, align 1, !tbaa !92
+  %60 = trunc nuw i32 %50 to i8
+  %61 = or i8 %59, %60
+  store i8 %61, ptr %58, align 1, !tbaa !92
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 4
+  %63 = icmp eq ptr %62, %39
+  br i1 %63, label %._crit_edge.loopexit, label %46
 
-_ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %38, %44, %._crit_edge, %1
+_ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %38, %45, %._crit_edge, %1
   ret void
 }
 

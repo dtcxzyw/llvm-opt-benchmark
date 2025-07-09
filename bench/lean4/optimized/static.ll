@@ -31174,11 +31174,11 @@ define hidden noundef zeroext i1 @_Z19_mi_prim_random_bufPvm(ptr noundef %0, i64
 27:                                               ; preds = %22, %22, %25
   %.225 = phi i64 [ %26, %25 ], [ %.02344, %22 ], [ %.02344, %22 ]
   %28 = icmp ult i64 %.225, %1
-  br i1 %28, label %.lr.ph, label %.thread40.loopexit
+  br i1 %28, label %.lr.ph, label %.thread40
 
-.thread40.loopexit:                               ; preds = %22, %27
-  %.023.lcssa.ph = phi i64 [ %.225, %27 ], [ %.02344, %22 ]
-  %29 = icmp eq i64 %.023.lcssa.ph, %1
+.thread40:                                        ; preds = %22, %27
+  %.023.lcssa = phi i64 [ %.225, %27 ], [ %.02344, %22 ]
+  %29 = icmp eq i64 %.023.lcssa, %1
   br label %.thread40
 
 .thread40:                                        ; preds = %.thread40.loopexit, %.preheader

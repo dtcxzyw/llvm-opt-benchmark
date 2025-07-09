@@ -951,7 +951,7 @@ cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
   br i1 %.not95, label %.lr.ph147..thread.loopexit_crit_edge, label %.lr.ph157
 
 .lr.ph147..thread.loopexit_crit_edge:             ; preds = %.lr.ph147, %.lr.ph147.preheader
-  %.3146.lcssa = phi i64 [ %103, %.lr.ph147.preheader ], [ %112, %.lr.ph147 ]
+  %.3146.lcssa = phi i64 [ %103, %.lr.ph147.preheader ], [ %110, %.lr.ph147 ]
   %.pre.pre = load i64, ptr %104, align 8, !tbaa !109
   %.pre153 = add i64 %.pre.pre, %.3146.lcssa
   %109 = icmp ult i64 %.pre153, %.072
@@ -959,16 +959,16 @@ cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
   br label %.thread
 
 .lr.ph157:                                        ; preds = %.lr.ph147.preheader, %.lr.ph147
-  %111 = phi ptr [ %108, %.lr.ph147 ], [ %107, %.lr.ph147.preheader ]
-  tail call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef nonnull %111, i1 noundef zeroext false)
-  %112 = tail call i64 @Curl_llist_count(ptr noundef nonnull %102) #8
-  %113 = load i64, ptr %104, align 8, !tbaa !109
-  %114 = add i64 %113, %112
-  %.not94 = icmp ult i64 %114, %.072
+  %109 = phi ptr [ %108, %.lr.ph147 ], [ %107, %.lr.ph147.preheader ]
+  tail call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef nonnull %109, i1 noundef zeroext false)
+  %110 = tail call i64 @Curl_llist_count(ptr noundef nonnull %102) #8
+  %111 = load i64, ptr %104, align 8, !tbaa !109
+  %112 = add i64 %111, %110
+  %.not94 = icmp ult i64 %112, %.072
   br i1 %.not94, label %.thread, label %.lr.ph147
 
 .thread:                                          ; preds = %.lr.ph157, %101, %.lr.ph147..thread.loopexit_crit_edge, %.critedge, %100
-  %.268 = phi i32 [ 0, %100 ], [ %.mux, %.critedge ], [ 0, %101 ], [ %110, %.lr.ph147..thread.loopexit_crit_edge ], [ 0, %.lr.ph157 ]
+  %.pre-phi = phi i32 [ 0, %100 ], [ %.mux, %.critedge ], [ 0, %101 ], [ %110, %.lr.ph147..thread.loopexit_crit_edge ], [ 0, %.lr.ph157 ]
   %115 = load i8, ptr %44, align 8
   %116 = and i8 %115, -2
   store i8 %116, ptr %44, align 8
@@ -976,14 +976,14 @@ cpool_shutdown_dest_count.exit119:                ; preds = %.lr.ph.i112, %87
   %.not97 = icmp eq ptr %117, null
   br i1 %.not97, label %cpool_get_instance.exit, label %118
 
-118:                                              ; preds = %.thread
+118:; preds = %.thread
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  %120 = load i32, ptr %119, align 4, !tbaa !89
-  %121 = and i32 %120, 32
+  %116 = load i32, ptr %119, align 4, !tbaa !89
+  %121 = and i32 %116, 32
   %.not98 = icmp eq i32 %121, 0
   br i1 %.not98, label %cpool_get_instance.exit, label %122
 
-122:                                              ; preds = %118
+122: ; preds = %118
   %123 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 120
   %124 = load ptr, ptr %123, align 8, !tbaa !3
   %125 = tail call i32 @Curl_share_unlock(ptr noundef %124, i32 noundef 5) #8
