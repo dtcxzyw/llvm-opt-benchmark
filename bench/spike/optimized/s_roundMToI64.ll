@@ -50,7 +50,7 @@ define i64 @softfloat_roundMToI64(i1 noundef zeroext %0, ptr noundef readonly ca
   %35 = and i32 %6, 2147483647
   %36 = icmp eq i32 %35, 0
   %or.cond4 = and i1 %5, %36
-  %37 = and i64 %33, -2
+  %or.cond4 = and i64 %33, -2
   %spec.select = select i1 %or.cond4, i64 %37, i64 %33
   br label %38
 
@@ -59,30 +59,30 @@ define i64 @softfloat_roundMToI64(i1 noundef zeroext %0, ptr noundef readonly ca
   %39 = sub i64 0, %.033
   %40 = select i1 %0, i64 %39, i64 %.033
   %.not37 = icmp eq i64 %.033, 0
-  %41 = icmp sgt i64 %40, -1
-  %.not3839 = xor i1 %0, %41
+  %42 = icmp sgt i64 %40, -1
+  %.not3839 = xor i1 %0, %42
   %or.cond40 = or i1 %.not37, %.not3839
-  br i1 %or.cond40, label %42, label %48
+  br i1 %or.cond40, label %43, label %49
 
-42:                                               ; preds = %38
-  %43 = icmp ne i32 %6, 0
-  %or.cond6 = select i1 %3, i1 %43, i1 false
-  br i1 %or.cond6, label %44, label %50
+43:                                               ; preds = %38
+  %44 = icmp ne i32 %6, 0
+  %or.cond6 = select i1 %3, i1 %44, i1 false
+  br i1 %or.cond6, label %45, label %51
 
-44:                                               ; preds = %42
-  %45 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  %46 = load i8, ptr %45, align 1, !tbaa !7
-  %47 = or i8 %46, 1
-  store i8 %47, ptr %45, align 1, !tbaa !7
-  br label %50
+45:                                               ; preds = %43
+  %46 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %47 = load i8, ptr %46, align 1, !tbaa !7
+  %48 = or i8 %47, 1
+  store i8 %48, ptr %46, align 1, !tbaa !7
+  br label %51
 
-48:                                               ; preds = %38, %31
+49:                                               ; preds = %38, %31
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  %49 = select i1 %0, i64 -9223372036854775808, i64 9223372036854775807
-  br label %50
+  %50 = select i1 %0, i64 -9223372036854775808, i64 9223372036854775807
+  br label %51
 
-50:                                               ; preds = %42, %44, %48
-  %.0 = phi i64 [ %49, %48 ], [ %40, %44 ], [ %40, %42 ]
+51:                                               ; preds = %43, %45, %49
+  %.0 = phi i64 [ %50, %48 ], [ %40, %44 ], [ %40, %42 ]
   ret i64 %.0
 }
 

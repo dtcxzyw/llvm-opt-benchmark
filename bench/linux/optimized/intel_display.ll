@@ -16066,7 +16066,7 @@ define dso_local range(i32 0, 5) i32 @intel_mode_valid_max_plane_size(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %5 = load i16, ptr %4, align 8
   %6 = icmp ult i16 %5, 9
-  br i1 %6, label %22, label %7
+  br i1 %6, label %23, label %7
 
 7:                                                ; preds = %3
   %8 = icmp ugt i16 %5, 10
@@ -16077,7 +16077,7 @@ define dso_local range(i32 0, 5) i32 @intel_mode_valid_max_plane_size(ptr nounde
   %13 = load i16, ptr %12, align 4
   %14 = zext i16 %13 to i32
   %15 = icmp samesign ult i32 %11, %14
-  br i1 %15, label %22, label %16
+  br i1 %15, label %23, label %16
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -16087,9 +16087,9 @@ define dso_local range(i32 0, 5) i32 @intel_mode_valid_max_plane_size(ptr nounde
   %21 = select i1 %20, i32 4, i32 0
   br label %22
 
-22:                                               ; preds = %16, %7, %3
-  %23 = phi i32 [ 0, %3 ], [ 3, %7 ], [ %21, %16 ]
-  ret i32 %23
+23:                                               ; preds = %16, %7, %3
+  %24 = phi i32 [ 0, %3 ], [ 3, %7 ], [ %21, %16 ]
+  ret i32 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)

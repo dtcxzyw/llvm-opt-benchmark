@@ -3129,7 +3129,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 704
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %.loopexit24
+  br i1 %14, label %15, label %.loopexit21
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3217,7 +3217,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %79 = icmp samesign ult i64 %76, %78
   br i1 %79, label %69, label %171, !llvm.loop !78
 
-80:                                               ; preds = %.thread14, %52
+80:                                               ; preds = %.thread42, %52
   %81 = phi i64 [ 0, %52 ], [ %136, %.thread14 ]
   %82 = phi i8 [ 0, %52 ], [ %135, %.thread14 ]
   %83 = phi i32 [ 0, %52 ], [ %137, %.thread14 ]
@@ -3231,7 +3231,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
 
 90:                                               ; preds = %80
   %91 = tail call zeroext i1 @intel_wm_plane_visible(ptr noundef %9, ptr noundef %31) #14
-  br i1 %91, label %92, label %.thread14
+  br i1 %91, label %92, label %.thread42
 
 92:                                               ; preds = %90
   %93 = load i32, ptr %18, align 8
@@ -3282,9 +3282,9 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %127 = tail call i32 @llvm.umin.i32(i32 %126, i32 65535)
   %128 = trunc nuw i32 %127 to i16
   %129 = icmp ult i16 %59, %128
-  br i1 %129, label %.thread, label %.thread14
+  br i1 %129, label %.thread, label %.thread42
 
-.thread14:                                        ; preds = %90, %125
+.thread42:                                        ; preds = %90, %125
   %130 = phi i16 [ %128, %125 ], [ 0, %90 ]
   %131 = getelementptr [3 x %struct.g4x_pipe_wm], ptr %58, i64 0, i64 %81
   %132 = load i16, ptr %131, align 2
@@ -3297,19 +3297,19 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %138 = load i8, ptr %49, align 8
   %139 = zext i8 %138 to i64
   %140 = icmp samesign ult i64 %136, %139
-  br i1 %140, label %80, label %.loopexit23, !llvm.loop !79
+  br i1 %140, label %80, label %.loopexit20, !llvm.loop !79
 
 .thread:                                          ; preds = %80, %125
   %141 = trunc nuw nsw i64 %81 to i32
-  br label %.loopexit23
+  br label %.loopexit20
 
-.loopexit23:                                      ; preds = %.thread14, %.thread
+.loopexit20:                                      ; preds = %.thread42, %.thread
   %142 = phi i8 [ %82, %.thread ], [ %135, %.thread14 ]
   %143 = phi i32 [ %141, %.thread ], [ %137, %.thread14 ]
   %144 = icmp ne i8 %142, 0
   br label %145
 
-145:                                              ; preds = %.loopexit23, %48
+145:                                              ; preds = %.loopexit20, %48
   %146 = phi i32 [ 0, %48 ], [ %143, %.loopexit23 ]
   %147 = phi i1 [ false, %48 ], [ %144, %.loopexit23 ]
   %148 = load ptr, ptr %9, align 8
@@ -3388,9 +3388,9 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %201 = load i32, ptr %200, align 8
   %202 = sext i32 %201 to i64
   %203 = icmp slt i64 %198, %202
-  br i1 %203, label %22, label %.loopexit24, !llvm.loop !80
+  br i1 %203, label %22, label %.loopexit21, !llvm.loop !80
 
-.loopexit24:                                      ; preds = %.critedge, %2
+.loopexit21:                                      ; preds = %.critedge, %2
   %204 = phi i32 [ 0, %2 ], [ %197, %.critedge ]
   %205 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %206 = load i8, ptr %205, align 2
@@ -3398,9 +3398,9 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %208 = icmp eq i8 %207, 0
   %209 = select i1 %208, i32 %204, i32 -1
   %210 = icmp eq i32 %209, 0
-  br i1 %210, label %.thread22, label %211
+  br i1 %210, label %.thread19, label %211
 
-211:                                              ; preds = %.loopexit24
+211:                                              ; preds = %.loopexit21
   %212 = and i32 %209, -129
   %213 = icmp eq i32 %212, 0
   br i1 %213, label %354, label %214
@@ -3436,7 +3436,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %242 = add nuw nsw i32 %241, %237
   %243 = add nuw nsw i32 %242, %240
   %244 = icmp samesign ult i32 %243, 512
-  br i1 %244, label %245, label %.thread22
+  br i1 %244, label %245, label %.thread19
 
 245:                                              ; preds = %214
   %246 = tail call i32 @llvm.umax.i32(i32 %243, i32 1)
@@ -3498,7 +3498,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %286 = sdiv i32 %285, %283
   br label %287
 
-287:                                              ; preds = %.thread17, %276
+287:                                              ; preds = %.thread14, %276
   %288 = phi i64 [ 0, %276 ], [ %308, %.thread17 ]
   %289 = phi i32 [ %281, %276 ], [ %307, %.thread17 ]
   %290 = load i8, ptr %247, align 1
@@ -3506,16 +3506,16 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %292 = shl nuw nsw i64 1, %288
   %293 = and i64 %292, %291
   %294 = icmp eq i64 %293, 0
-  br i1 %294, label %.thread17, label %295
+  br i1 %294, label %.thread14, label %295
 
 295:                                              ; preds = %287
   %296 = icmp eq i32 %289, 0
-  br i1 %296, label %.thread20, label %297
+  br i1 %296, label %.thread17, label %297
 
 297:                                              ; preds = %295
   %298 = and i64 %292, %248
   %299 = icmp eq i64 %298, 0
-  br i1 %299, label %.thread17, label %300
+  br i1 %299, label %.thread14, label %300
 
 300:                                              ; preds = %297
   %301 = tail call i32 @llvm.smin.i32(i32 %286, i32 %289)
@@ -3525,15 +3525,15 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %305 = add i16 %303, %304
   store i16 %305, ptr %302, align 2
   %306 = sub i32 %289, %301
-  br label %.thread17
+  br label %.thread14
 
-.thread17:                                        ; preds = %297, %300, %287
+.thread14:                                        ; preds = %297, %300, %287
   %307 = phi i32 [ %289, %287 ], [ %289, %297 ], [ %306, %300 ]
   %308 = add nuw nsw i64 %288, 1
   %309 = icmp eq i64 %308, 8
   br i1 %309, label %310, label %287, !llvm.loop !82
 
-310:                                              ; preds = %.thread17
+310:                                              ; preds = %.thread14
   %311 = icmp ne i8 %227, 0
   %312 = icmp ne i32 %307, 0
   %313 = select i1 %311, i1 %312, i1 false
@@ -3548,13 +3548,13 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 80
   %320 = load ptr, ptr %319, align 8
   %321 = icmp eq ptr %320, null
-  br i1 %321, label %322, label %.thread19
+  br i1 %321, label %322, label %.thread16
 
 322:                                              ; preds = %314
   %323 = load ptr, ptr %318, align 8
-  br label %.thread19
+  br label %.thread16
 
-.thread19:                                        ; preds = %314, %322
+.thread16:                                        ; preds = %314, %322
   %324 = phi ptr [ %323, %322 ], [ %320, %314 ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %317, ptr noundef %324, ptr noundef nonnull @.str.25) #14
   tail call void asm sideeffect "972: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 972b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 972) #14, !srcloc !85
@@ -3567,15 +3567,15 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %326 = icmp eq i8 %227, 0
   br i1 %326, label %328, label %345
 
-.thread20:                                        ; preds = %295
+.thread17:                                        ; preds = %295
   %327 = icmp eq i8 %227, 0
-  br i1 %327, label %.thread21, label %345
+  br i1 %327, label %.thread18, label %345
 
 328:                                              ; preds = %325
   %329 = icmp eq i32 %307, 511
-  br i1 %329, label %343, label %.thread21, !prof !83
+  br i1 %329, label %343, label %.thread18, !prof !83
 
-.thread21:                                        ; preds = %.thread20, %328
+.thread18:                                        ; preds = %.thread17, %328
   %330 = phi i32 [ %307, %328 ], [ 0, %.thread20 ]
   tail call void asm sideeffect "975: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 975b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 975) #14, !srcloc !89
   %331 = getelementptr inbounds nuw i8, ptr %223, i64 8
@@ -3587,11 +3587,11 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %337 = icmp eq ptr %336, null
   br i1 %337, label %338, label %340
 
-338:                                              ; preds = %.thread21
+338:                                              ; preds = %.thread18
   %339 = load ptr, ptr %334, align 8
   br label %340
 
-340:                                              ; preds = %338, %.thread21
+340:                                              ; preds = %338, %.thread18
   %341 = phi ptr [ %339, %338 ], [ %336, %.thread21 ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %333, ptr noundef %341, ptr noundef nonnull @.str.26) #14
   tail call void asm sideeffect "976: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 976b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 976) #14, !srcloc !90
@@ -3606,7 +3606,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   store i16 %344, ptr %221, align 2
   br label %345
 
-345:                                              ; preds = %325, %343, %.thread19, %.thread20
+345:                                              ; preds = %325, %343, %.thread16, %.thread17
   %346 = load i8, ptr %205, align 2
   %347 = and i8 %346, 14
   %348 = icmp eq i8 %347, 0
@@ -3624,9 +3624,9 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
 
 354:                                              ; preds = %352, %349, %211
   %355 = tail call fastcc i32 @_vlv_compute_pipe_wm(ptr noundef %9), !range !94
-  br label %.thread22
+  br label %.thread19
 
-.thread22:                                        ; preds = %214, %354, %.loopexit24
+.thread19:                                        ; preds = %214, %354, %.loopexit21
   %356 = phi i32 [ %355, %354 ], [ 0, %.loopexit24 ], [ -22, %214 ]
   ret i32 %356
 }

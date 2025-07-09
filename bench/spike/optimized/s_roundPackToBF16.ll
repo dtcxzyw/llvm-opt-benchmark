@@ -17,7 +17,7 @@ define i16 @softfloat_roundPackToBF16(i1 noundef zeroext %0, i64 noundef %1, i64
   %8 = select i1 %0, i8 2, i8 3
   %9 = icmp eq i8 %8, %5
   %10 = select i1 %9, i8 127, i8 0
-  %.046 = select i1 %or.cond, i8 %10, i8 64
+  %11 = select i1 %or.cond, i8 %10, i8 64
   %11 = trunc i64 %2 to i8
   %12 = trunc i64 %1 to i32
   %13 = icmp ugt i32 %12, 252
@@ -36,7 +36,7 @@ define i16 @softfloat_roundPackToBF16(i1 noundef zeroext %0, i64 noundef %1, i64
   br i1 %or.cond4, label %25, label %21
 
 21:                                               ; preds = %16
-  %22 = zext nneg i8 %.046 to i64
+  %22 = zext nneg i8 %11 to i64
   %23 = add i64 %2, %22
   %24 = icmp ult i64 %23, 32768
   br label %25
@@ -59,89 +59,89 @@ define i16 @softfloat_roundPackToBF16(i1 noundef zeroext %0, i64 noundef %1, i64
   %38 = or i32 %32, %37
   br label %softfloat_shiftRightJam32.exit
 
-39:                                               ; preds = %25
-  %40 = icmp ne i32 %27, 0
-  %41 = zext i1 %40 to i32
+40:                                               ; preds = %25
+  %41 = icmp ne i32 %27, 0
+  %42 = zext i1 %41 to i32
   br label %softfloat_shiftRightJam32.exit
 
-softfloat_shiftRightJam32.exit:                   ; preds = %30, %39
-  %42 = phi i32 [ %38, %30 ], [ %41, %39 ]
-  %43 = zext nneg i32 %42 to i64
-  %44 = trunc i32 %42 to i8
-  %45 = and i32 %42, 127
-  %46 = icmp ne i32 %45, 0
-  %or.cond7 = select i1 %26, i1 %46, i1 false
-  br i1 %or.cond7, label %47, label %57
+softfloat_shiftRightJam32.exit:                   ; preds = %30, %40
+  %43 = phi i32 [ %38, %30 ], [ %42, %39 ]
+  %44 = zext nneg i32 %43 to i64
+  %45 = trunc i32 %43 to i8
+  %46 = and i32 %43, 127
+  %47 = icmp ne i32 %46, 0
+  %or.cond7 = select i1 %26, i1 %47, i1 false
+  br i1 %or.cond7, label %48, label %58
 
-47:                                               ; preds = %softfloat_shiftRightJam32.exit
+48:                                               ; preds = %softfloat_shiftRightJam32.exit
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 2) #3
-  br label %57
+  br label %58
 
-48:                                               ; preds = %14
-  %49 = icmp samesign ugt i64 %1, 253
-  br i1 %49, label %54, label %50
+49:                                               ; preds = %14
+  %50 = icmp samesign ugt i64 %1, 253
+  br i1 %50, label %55, label %51
 
-50:                                               ; preds = %48
-  %51 = zext nneg i8 %.046 to i64
-  %52 = add i64 %2, %51
-  %53 = icmp ugt i64 %52, 32767
-  br i1 %53, label %54, label %57
+51:                                               ; preds = %49
+  %52 = zext nneg i8 %.046 to i64
+  %53 = add i64 %2, %52
+  %54 = icmp ugt i64 %53, 32767
+  br i1 %54, label %55, label %58
 
-54:                                               ; preds = %50, %48
+55:                                               ; preds = %51, %49
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 5) #3
-  %55 = select i1 %0, i64 65408, i64 32640
+  %56 = select i1 %0, i64 65408, i64 32640
   %.not = icmp eq i8 %.046, 0
   %.neg = sext i1 %.not to i64
-  %56 = add nsw i64 %55, %.neg
-  br label %79
+  %57 = add nsw i64 %56, %.neg
+  br label %80
 
-57:                                               ; preds = %47, %softfloat_shiftRightJam32.exit, %50, %3
-  %.045.in = phi i8 [ %44, %47 ], [ %44, %softfloat_shiftRightJam32.exit ], [ %11, %50 ], [ %11, %3 ]
-  %.043 = phi i64 [ %43, %47 ], [ %43, %softfloat_shiftRightJam32.exit ], [ %2, %50 ], [ %2, %3 ]
+58:                                               ; preds = %48, %softfloat_shiftRightJam32.exit, %51, %3
+  %.045.in = phi i8 [ %45, %47 ], [ %45, %softfloat_shiftRightJam32.exit ], [ %11, %50 ], [ %11, %3 ]
+  %.043 = phi i64 [ %44, %47 ], [ %44, %softfloat_shiftRightJam32.exit ], [ %2, %50 ], [ %2, %3 ]
   %.0 = phi i64 [ 0, %47 ], [ 0, %softfloat_shiftRightJam32.exit ], [ 253, %50 ], [ %1, %3 ]
   %.045 = and i8 %.045.in, 127
-  %58 = zext nneg i8 %.046 to i64
-  %59 = add i64 %.043, %58
-  %60 = lshr i64 %59, 7
+  %59 = zext nneg i8 %.046 to i64
+  %60 = add i64 %.043, %59
+  %61 = lshr i64 %60, 7
   %.not52 = icmp eq i8 %.045, 0
-  br i1 %.not52, label %68, label %61
+  br i1 %.not52, label %69, label %62
 
-61:                                               ; preds = %57
-  %62 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  %63 = load i8, ptr %62, align 1, !tbaa !3
-  %64 = or i8 %63, 1
-  store i8 %64, ptr %62, align 1, !tbaa !3
-  %65 = icmp eq i8 %5, 5
-  br i1 %65, label %66, label %68
+62:                                               ; preds = %58
+  %63 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %64 = load i8, ptr %63, align 1, !tbaa !3
+  %65 = or i8 %64, 1
+  store i8 %65, ptr %63, align 1, !tbaa !3
+  %66 = icmp eq i8 %5, 5
+  br i1 %66, label %67, label %69
 
-66:                                               ; preds = %61
-  %67 = or i64 %60, 1
-  br label %73
+67:                                               ; preds = %62
+  %68 = or i64 %61, 1
+  br label %74
 
-68:                                               ; preds = %61, %57
+69:                                               ; preds = %62, %58
   %.not53 = icmp eq i8 %.045, 64
-  %69 = and i1 %6, %.not53
-  %70 = zext i1 %69 to i64
-  %71 = xor i64 %70, -1
-  %72 = and i64 %60, %71
-  %.not54 = icmp eq i64 %72, 0
+  %70 = and i1 %6, %.not53
+  %71 = zext i1 %70 to i64
+  %72 = xor i64 %71, -1
+  %73 = and i64 %61, %72
+  %.not54 = icmp eq i64 %73, 0
   %spec.select55 = select i1 %.not54, i64 0, i64 %.0
-  br label %73
+  br label %74
 
-73:                                               ; preds = %68, %66
-  %.144 = phi i64 [ %67, %66 ], [ %72, %68 ]
+74:                                               ; preds = %69, %67
+  %.144 = phi i64 [ %68, %66 ], [ %73, %68 ]
   %.1 = phi i64 [ %.0, %66 ], [ %spec.select55, %68 ]
-  %74 = select i1 %0, i64 32768, i64 0
-  %75 = shl i64 %.1, 7
-  %76 = and i64 %75, 8388480
-  %77 = add nuw nsw i64 %.144, %74
-  %78 = add nuw nsw i64 %77, %76
-  br label %79
+  %75 = select i1 %0, i64 32768, i64 0
+  %76 = shl i64 %.1, 7
+  %77 = and i64 %76, 8388480
+  %78 = add nuw nsw i64 %.144, %75
+  %79 = add nuw nsw i64 %78, %77
+  br label %80
 
-79:                                               ; preds = %73, %54
-  %.042 = phi i64 [ %78, %73 ], [ %56, %54 ]
-  %80 = trunc i64 %.042 to i16
-  ret i16 %80
+80:                                               ; preds = %74, %55
+  %.042 = phi i64 [ %79, %73 ], [ %57, %54 ]
+  %81 = trunc i64 %.042 to i16
+  ret i16 %81
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

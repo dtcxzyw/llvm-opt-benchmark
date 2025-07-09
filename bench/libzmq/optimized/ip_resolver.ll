@@ -1502,7 +1502,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPN
 
 18:                                               ; preds = %.thread41, %.thread41
   store i32 19, ptr %.pre-phi, align 4, !tbaa !33
-  br label %50
+  br label %52
 
 19:                                               ; preds = %.thread41
   %20 = call ptr @strerror(i32 noundef %17) #21
@@ -1559,7 +1559,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPN
   %47 = select i1 %34, i64 28, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 2 dereferenceable(16) %38, i64 %47, i1 false)
   call void @freeifaddrs(ptr noundef nonnull %31) #21
-  br label %50
+  br label %52
 
 .thread44:                                        ; preds = %40, %43, %36
   %.022 = load ptr, ptr %.02255, align 8, !tbaa !52
@@ -1567,13 +1567,13 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPN
   br i1 %.not36, label %._crit_edge, label %36, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.thread44, %26
-  %48 = phi ptr [ null, %26 ], [ %31, %.thread44 ]
-  call void @freeifaddrs(ptr noundef %48) #21
-  %49 = tail call ptr @__errno_location() #23
-  store i32 19, ptr %49, align 4, !tbaa !33
-  br label %50
+  %50 = phi ptr [ null, %26 ], [ %31, %.thread44 ]
+  call void @freeifaddrs(ptr noundef %50) #21
+  %51 = tail call ptr @__errno_location() #23
+  store i32 19, ptr %51, align 4, !tbaa !33
+  br label %52
 
-50:                                               ; preds = %.thread47, %._crit_edge, %18
+52:                                               ; preds = %.thread47, %._crit_edge, %18
   %.0 = phi i32 [ -1, %18 ], [ -1, %._crit_edge ], [ 0, %.thread47 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
   ret i32 %.0

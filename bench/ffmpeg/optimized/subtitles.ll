@@ -1276,24 +1276,24 @@ define range(i32 -2147483647, -2147483648) i32 @ff_smil_extract_next_text_chunk(
   br i1 %or.cond, label %.critedge, label %11, !llvm.loop !66
 
 .critedge:                                        ; preds = %16
-  br i1 %9, label %18, label %19
+  br i1 %9, label %19, label %20
 
-18:                                               ; preds = %.critedge
+19:                                               ; preds = %.critedge
   tail call void @av_bprint_chars(ptr noundef %1, i8 noundef signext 62, i32 noundef 1) #11
   store i8 0, ptr %2, align 1, !tbaa !19
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %.critedge
-  %20 = getelementptr i8, ptr %1, i64 8
-  %.val = load i32, ptr %20, align 8, !tbaa !37
-  %21 = getelementptr i8, ptr %1, i64 12
-  %.val26 = load i32, ptr %21, align 4, !tbaa !39
+20:                                               ; preds = %19, %.critedge
+  %21 = getelementptr i8, ptr %1, i64 8
+  %.val = load i32, ptr %21, align 8, !tbaa !37
+  %22 = getelementptr i8, ptr %1, i64 12
+  %.val26 = load i32, ptr %22, align 4, !tbaa !39
   %.not28 = icmp ult i32 %.val, %.val26
-  %22 = select i1 %.not28, i32 %17, i32 -12
+  %23 = select i1 %.not28, i32 %17, i32 -12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %5, %19
-  %.0 = phi i32 [ %22, %19 ], [ 0, %5 ], [ -1094995529, %11 ]
+.loopexit:                                        ; preds = %11, %5, %20
+  %.0 = phi i32 [ %23, %19 ], [ 0, %5 ], [ -1094995529, %11 ]
   ret i32 %.0
 }
 

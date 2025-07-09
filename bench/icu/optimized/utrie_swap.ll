@@ -333,7 +333,7 @@ define range(i32 0, 4325387) i32 @ucptrie_swap_77(ptr noundef %0, ptr noundef %1
   store i32 3, ptr %4, align 4, !tbaa !3
   br label %.thread
 
-55:                                               ; preds = %50
+56:                                               ; preds = %50
   %56 = zext i16 %30 to i32
   %57 = shl nuw nsw i32 %56, 1
   %narrow = add nuw nsw i32 %57, 16
@@ -343,18 +343,18 @@ define range(i32 0, 4325387) i32 @ucptrie_swap_77(ptr noundef %0, ptr noundef %1
     i32 2, label %62
   ]
 
-58:                                               ; preds = %55
+58:                                               ; preds = %56
   %59 = shl nuw nsw i32 %42, 1
   br label %62
 
-60:                                               ; preds = %55
+60:                                               ; preds = %56
   %61 = shl nuw nsw i32 %42, 2
   br label %62
 
-default.unreachable:                              ; preds = %64, %55
+default.unreachable:                              ; preds = %64, %56
   unreachable
 
-62:                                               ; preds = %55, %60, %58
+62:                                               ; preds = %56, %60, %58
   %.pn = phi i32 [ %59, %58 ], [ %61, %60 ], [ %42, %55 ]
   %.095 = add nuw nsw i32 %narrow, %.pn
   br i1 %12, label %63, label %.thread

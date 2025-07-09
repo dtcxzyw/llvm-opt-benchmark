@@ -718,18 +718,18 @@ define noundef float @_Z8do_wallsRK10t_inputrecRK10t_forcerecPA3_KfN3gmx8ArrayRe
   %.not = icmp eq i32 %8, 0
   %66 = icmp sgt i32 %7, 0
   %.sroa.0182.0.copyload = load ptr, ptr %5, align 8
-  %67 = fsub float 1.000000e+00, %11
-  %68 = load i64, ptr %6, align 8
-  %69 = inttoptr i64 %68 to ptr
-  %70 = load i64, ptr %9, align 8
-  %71 = inttoptr i64 %70 to ptr
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %75 = load i64, ptr %12, align 8
-  %76 = inttoptr i64 %75 to ptr
-  %77 = sitofp i32 %7 to double
-  %78 = getelementptr inbounds nuw i8, ptr %13, i64 672
+  %68 = fsub float 1.000000e+00, %11
+  %69 = load i64, ptr %6, align 8
+  %70 = inttoptr i64 %69 to ptr
+  %71 = load i64, ptr %9, align 8
+  %72 = inttoptr i64 %71 to ptr
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 564
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %76 = load i64, ptr %12, align 8
+  %77 = inttoptr i64 %76 to ptr
+  %78 = sitofp i32 %7 to double
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 672
   br i1 %66, label %.split.us219.preheader, label %.split
 
 .split.us219.preheader:                           ; preds = %._crit_edge
@@ -745,7 +745,7 @@ define noundef float @_Z8do_wallsRK10t_inputrecRK10t_forcerecPA3_KfN3gmx8ArrayRe
   %.0159217.us = phi double [ %.us-phi213.us, %._crit_edge210.us ], [ 0.000000e+00, %.split.us219.preheader ]
   %.0161216.us = phi i32 [ %87, %._crit_edge210.us ], [ 0, %.split.us219.preheader ]
   %80 = icmp eq i32 %.0161216.us, 0
-  %. = select i1 %80, float %67, float %11
+  %. = select i1 %80, float %68, float %11
   %81 = or i1 %.not, %80
   %.sroa.0182.1.us = select i1 %81, ptr %3, ptr %.sroa.0182.0.copyload
   %.0162.us = select i1 %.not, float 1.000000e+00, float %.
@@ -758,9 +758,9 @@ define noundef float @_Z8do_wallsRK10t_inputrecRK10t_forcerecPA3_KfN3gmx8ArrayRe
   %83 = sitofp i32 %82 to float
   %84 = tail call float @llvm.fmuladd.f32(float %83, float %.us-phi.us, float %.0155218.us)
   %.1.us = select i1 %.not, float %.0155218.us, float %84
-  %85 = load double, ptr %78, align 8, !tbaa !261
-  %86 = fadd double %85, %77
-  store double %86, ptr %78, align 8, !tbaa !261
+  %85 = load double, ptr %79, align 8, !tbaa !261
+  %86 = fadd double %85, %78
+  store double %86, ptr %79, align 8, !tbaa !261
   %87 = add nuw nsw i32 %.0161216.us, 1
   %exitcond269.not = icmp eq i32 %.0161216.us, %79
   br i1 %exitcond269.not, label %.split225.us.loopexit, label %.split.us219, !llvm.loop !262
@@ -769,7 +769,7 @@ define noundef float @_Z8do_wallsRK10t_inputrecRK10t_forcerecPA3_KfN3gmx8ArrayRe
   %indvars.iv263 = phi i64 [ %indvars.iv.next264, %._crit_edge205.us.us ], [ 0, %.split.us219 ]
   %.1160209.us.us = phi double [ %.3.us.us, %._crit_edge205.us.us ], [ %.0159217.us, %.split.us219 ]
   %.0165207.us.us = phi float [ %.2167.us.us, %._crit_edge205.us.us ], [ 0.000000e+00, %.split.us219 ]
-  %88 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv263
+  %88 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv263
   %89 = load i16, ptr %88, align 2, !tbaa !263
   %90 = getelementptr inbounds nuw i32, ptr %.sroa.0182.1.us, i64 %indvars.iv263
   %91 = load i32, ptr %90, align 4, !tbaa !214
@@ -778,9 +778,9 @@ define noundef float @_Z8do_wallsRK10t_inputrecRK10t_forcerecPA3_KfN3gmx8ArrayRe
   %94 = add nuw nsw i32 %93, 1
   %95 = mul i32 %94, %22
   %invariant.op.us.us = sub i32 %95, %20
-  %96 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %71, i64 %indvars.iv263, i32 0, i64 2
-  %97 = load i32, ptr %73, align 4
-  %98 = load ptr, ptr %74, align 8
+  %96 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %72, i64 %indvars.iv263, i32 0, i64 2
+  %97 = load i32, ptr %74, align 4
+  %98 = load ptr, ptr %75, align 8
   %99 = zext i16 %89 to i64
   %100 = getelementptr inbounds nuw [3 x float], ptr %65, i64 %indvars.iv263, i64 2
   br label %101
@@ -819,7 +819,7 @@ define noundef float @_Z8do_wallsRK10t_inputrecRK10t_forcerecPA3_KfN3gmx8ArrayRe
   %122 = load float, ptr %96, align 4, !tbaa !233
   %123 = fsub float %64, %122
   %.0157.us.us = select i1 %121, float %122, float %123
-  %124 = load float, ptr %72, align 8, !tbaa !265
+  %124 = load float, ptr %73, align 8, !tbaa !265
   %125 = fcmp olt float %.0157.us.us, %124
   %126 = fsub float %124, %.0157.us.us
   %.1158.us.us = select i1 %125, float %124, float %.0157.us.us
@@ -982,7 +982,7 @@ _ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us: ; preds = %193, %182
   %254 = icmp eq i64 %indvars.iv258, 1
   %255 = fneg float %.0189.us.us
   %.1190.us.us = select i1 %254, float %255, float %.0189.us.us
-  %256 = getelementptr inbounds float, ptr %76, i64 %116
+  %256 = getelementptr inbounds float, ptr %77, i64 %116
   %257 = load float, ptr %256, align 4, !tbaa !233
   %258 = tail call float @llvm.fmuladd.f32(float %.0162.us, float %.1188.us.us, float %257)
   store float %258, ptr %256, align 4, !tbaa !233
@@ -1005,7 +1005,7 @@ _ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us: ; preds = %193, %182
   br i1 %exitcond267.not, label %._crit_edge210.us, label %.preheader.us.us, !llvm.loop !268
 
 .split:                                           ; preds = %._crit_edge
-  %.promoted = load double, ptr %78, align 8, !tbaa !261
+  %.promoted = load double, ptr %79, align 8, !tbaa !261
   br i1 %.not, label %.split225.loopexit, label %.split.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -1020,13 +1020,13 @@ _ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us: ; preds = %193, %182
   br i1 %exitcond254.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !258
 
 .split225.loopexit:                               ; preds = %.split
-  %267 = fadd double %.promoted, %77
+  %267 = fadd double %.promoted, %78
   br label %.split225
 
 .split225:                                        ; preds = %.split.split, %.split225.loopexit
   %.us-phi = phi double [ %267, %.split225.loopexit ], [ %278, %.split.split ]
   %.us-phi236 = phi float [ 0.000000e+00, %.split225.loopexit ], [ %277, %.split.split ]
-  store double %.us-phi, ptr %78, align 8, !tbaa !261
+  store double %.us-phi, ptr %79, align 8, !tbaa !261
   br label %.split225.us
 
 .split225.us.loopexit:                            ; preds = %._crit_edge210.us
@@ -1050,14 +1050,14 @@ _ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us: ; preds = %193, %182
   %275 = select i1 %274, i32 -1, i32 1
   %276 = sitofp i32 %275 to float
   %277 = tail call float @llvm.fmuladd.f32(float %276, float 0.000000e+00, float %.0155218)
-  %278 = fadd double %273, %77
+  %278 = fadd double %273, %78
   %279 = add nuw nsw i32 %.0161216, 1
   %exitcond255.not = icmp eq i32 %279, 2
   br i1 %exitcond255.not, label %.split225, label %.split.split, !llvm.loop !262
 
 .split.us:                                        ; preds = %120
   %280 = trunc nuw nsw i64 %indvars.iv263 to i32
-  tail call fastcc void @_ZL10wall_erroriN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEf(i32 noundef %280, ptr nonnull %71, float noundef %.1158.us.us) #21
+  tail call fastcc void @_ZL10wall_erroriN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEf(i32 noundef %280, ptr nonnull %72, float noundef %.1158.us.us) #21
   unreachable
 
 .preheader.i:                                     ; preds = %.split225.us

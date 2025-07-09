@@ -8176,8 +8176,8 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %151 = zext i32 %.sroa.55.0.lcssa.i.i.i.i.i.i to i64
   %152 = add nsw i64 %3, %151
   %153 = sdiv i64 %152, 64
-  %.idx159 = shl nsw i64 %153, 3
-  %154 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %.idx159
+  %.idx158 = shl nsw i64 %153, 3
+  %154 = getelementptr inbounds i8, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i, i64 %.idx158
   %155 = and i64 %152, -9223372036854775745
   %156 = icmp ugt i64 %155, -9223372036854775808
   %storemerge.idx.i.i.i85 = select i1 %156, i64 -8, i64 0

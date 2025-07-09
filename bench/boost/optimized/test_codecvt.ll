@@ -8143,114 +8143,114 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE5
   %19 = ptrtoint ptr %6 to i64
   br label %20
 
-20:                                               ; preds = %.lr.ph, %54
-  %21 = phi ptr [ %2, %.lr.ph ], [ %56, %54 ]
-  %.195 = phi ptr [ %.032, %.lr.ph ], [ %.0.i, %54 ]
+20:                                               ; preds = %.lr.ph, %55
+  %21 = phi ptr [ %2, %.lr.ph ], [ %57, %54 ]
+  %.194 = phi ptr [ %.032, %.lr.ph ], [ %.0.i, %54 ]
   %22 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %3)
   switch i32 %22, label %23 [
     i32 -1, label %.thread54
-    i32 -2, label %59
+    i32 -2, label %60
   ]
 
 23:                                               ; preds = %20
   %24 = icmp ugt i32 %22, 65535
-  %25 = ptrtoint ptr %.195 to i64
+  %25 = ptrtoint ptr %.194 to i64
   %26 = sub i64 %19, %25
   %spec.select8183 = select i1 %24, i64 4, i64 2
   %.not49 = icmp sgt i64 %spec.select8183, %26
-  %27 = icmp ult i32 %22, 65536
-  br i1 %.not49, label %43, label %30, !prof !144
+  %28 = icmp ult i32 %22, 65536
+  br i1 %.not49, label %44, label %31, !prof !144
 
 .thread54:                                        ; preds = %20
-  %28 = ptrtoint ptr %.195 to i64
-  %29 = sub i64 %19, %28
-  %.not4956 = icmp slt i64 %29, 2
+  %29 = ptrtoint ptr %.194 to i64
+  %30 = sub i64 %19, %29
+  %.not4956 = icmp slt i64 %30, 2
   br i1 %.not4956, label %.thread62, label %.thread59, !prof !144
 
-30:                                               ; preds = %23
-  br i1 %27, label %.thread59, label %33, !prof !149
+31:                                               ; preds = %23
+  br i1 %28, label %.thread59, label %34, !prof !149
 
-.thread59:                                        ; preds = %.thread54, %30
+.thread59:                                        ; preds = %.thread54, %31
   %.031535761 = phi i32 [ %22, %30 ], [ 65533, %.thread54 ]
-  %31 = trunc nuw i32 %.031535761 to i16
-  %32 = getelementptr inbounds nuw i8, ptr %.195, i64 2
-  br label %54
+  %32 = trunc nuw i32 %.031535761 to i16
+  %33 = getelementptr inbounds nuw i8, ptr %.194, i64 2
+  br label %55
 
-33:                                               ; preds = %30
-  %34 = add i32 %22, 16711680
-  %35 = lshr i32 %34, 10
-  %36 = trunc i32 %35 to i16
-  %37 = or i16 %36, -10240
-  %38 = getelementptr inbounds nuw i8, ptr %.195, i64 2
-  %39 = trunc i32 %22 to i16
-  %40 = and i16 %39, 1023
-  %41 = or disjoint i16 %40, -9216
-  %42 = getelementptr inbounds nuw i8, ptr %.195, i64 4
-  store i16 %41, ptr %38, align 2, !tbaa !79
-  br label %54
+34:                                               ; preds = %31
+  %35 = add i32 %22, 16711680
+  %36 = lshr i32 %35, 10
+  %37 = trunc i32 %36 to i16
+  %38 = or i16 %37, -10240
+  %39 = getelementptr inbounds nuw i8, ptr %.194, i64 2
+  %40 = trunc i32 %22 to i16
+  %41 = and i16 %40, 1023
+  %42 = or disjoint i16 %41, -9216
+  %43 = getelementptr inbounds nuw i8, ptr %.194, i64 4
+  store i16 %42, ptr %39, align 2, !tbaa !79
+  br label %55
 
-43:                                               ; preds = %23
-  br i1 %27, label %.thread62, label %45, !prof !149
+44:                                               ; preds = %23
+  br i1 %28, label %.thread62, label %46, !prof !149
 
-.thread62:                                        ; preds = %.thread54, %43
+.thread62:                                        ; preds = %.thread54, %44
   %.031535864 = phi i32 [ %22, %43 ], [ 65533, %.thread54 ]
-  %44 = trunc nuw i32 %.031535864 to i16
+  %45 = trunc nuw i32 %.031535864 to i16
   br label %.thread77
 
-45:                                               ; preds = %43
-  %46 = add i32 %22, 16711680
-  %47 = lshr i32 %46, 10
-  %48 = trunc i32 %47 to i16
-  %49 = or i16 %48, -10240
-  %50 = trunc i32 %22 to i16
-  %51 = and i16 %50, 1023
-  %52 = or disjoint i16 %51, -9216
+46:                                               ; preds = %44
+  %47 = add i32 %22, 16711680
+  %48 = lshr i32 %47, 10
+  %49 = trunc i32 %48 to i16
+  %50 = or i16 %49, -10240
+  %51 = trunc i32 %22 to i16
+  %52 = and i16 %51, 1023
+  %53 = or disjoint i16 %52, -9216
   br label %.thread77
 
-.thread77:                                        ; preds = %45, %.thread62
-  %.sroa.5.0 = phi i16 [ 0, %.thread62 ], [ %52, %45 ]
-  %.sink.i50 = phi i16 [ %44, %.thread62 ], [ %49, %45 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.195, i64 2
-  store i16 %.sink.i50, ptr %.195, align 2, !tbaa !79
+.thread77:                                        ; preds = %46, %.thread62
+  %.sroa.5.0 = phi i16 [ 0, %.thread62 ], [ %53, %45 ]
+  %.sink.i50 = phi i16 [ %45, %.thread62 ], [ %50, %45 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.194, i64 2
+  store i16 %.sink.i50, ptr %.194, align 2, !tbaa !79
   %.pre = load ptr, ptr %9, align 8, !tbaa !55
   br label %.thread71
 
-54:                                               ; preds = %33, %.thread59
-  %.sink.i = phi i16 [ %31, %.thread59 ], [ %37, %33 ]
-  %.0.i = phi ptr [ %32, %.thread59 ], [ %42, %33 ]
-  store i16 %.sink.i, ptr %.195, align 2, !tbaa !79
-  %55 = icmp ult ptr %.0.i, %6
-  %56 = load ptr, ptr %9, align 8
-  %57 = icmp ult ptr %56, %3
-  %58 = select i1 %55, i1 %57, i1 false
-  br i1 %58, label %20, label %.thread71
+55:                                               ; preds = %34, %.thread59
+  %.sink.i = phi i16 [ %32, %.thread59 ], [ %38, %33 ]
+  %.0.i = phi ptr [ %33, %.thread59 ], [ %43, %33 ]
+  store i16 %.sink.i, ptr %.194, align 2, !tbaa !79
+  %56 = icmp ult ptr %.0.i, %6
+  %57 = load ptr, ptr %9, align 8
+  %58 = icmp ult ptr %57, %3
+  %59 = select i1 %56, i1 %58, i1 false
+  br i1 %59, label %20, label %.thread71
 
-59:                                               ; preds = %20
+60:                                               ; preds = %20
   store ptr %21, ptr %4, align 8, !tbaa !55
-  store ptr %.195, ptr %7, align 8, !tbaa !55
-  br label %63
+  store ptr %.194, ptr %7, align 8, !tbaa !55
+  br label %64
 
-.thread71:                                        ; preds = %54, %15, %.thread77
-  %60 = phi ptr [ %.pre, %.thread77 ], [ %2, %15 ], [ %56, %54 ]
-  %storemerge = phi ptr [ %53, %.thread77 ], [ %.032, %15 ], [ %.0.i, %54 ]
+.thread71:                                        ; preds = %55, %15, %.thread77
+  %61 = phi ptr [ %.pre, %.thread77 ], [ %2, %15 ], [ %57, %54 ]
+  %storemerge = phi ptr [ %54, %.thread77 ], [ %.032, %15 ], [ %.0.i, %54 ]
   %.23575 = phi i16 [ %.sroa.5.0, %.thread77 ], [ %.033, %15 ], [ %.033, %54 ]
-  store ptr %60, ptr %4, align 8, !tbaa !55
+  store ptr %61, ptr %4, align 8, !tbaa !55
   store ptr %storemerge, ptr %7, align 8, !tbaa !55
-  %61 = icmp ne ptr %60, %3
-  %62 = icmp ne i16 %.23575, 0
-  %or.cond = select i1 %61, i1 true, i1 %62
+  %62 = icmp ne ptr %61, %3
+  %63 = icmp ne i16 %.23575, 0
+  %or.cond = select i1 %62, i1 true, i1 %63
   %spec.select = zext i1 %or.cond to i32
-  br label %63
+  br label %64
 
-63:                                               ; preds = %59, %.thread71
+64:                                               ; preds = %60, %.thread71
   %.23576 = phi i16 [ %.033, %59 ], [ %.23575, %.thread71 ]
   %.340 = phi i32 [ 1, %59 ], [ %spec.select, %.thread71 ]
   %.sroa.0.0.extract.trunc.i = trunc i16 %.23576 to i8
   %.sroa.2.0.extract.shift.i = lshr i16 %.23576, 8
   %.sroa.2.0.extract.trunc.i = trunc nuw i16 %.sroa.2.0.extract.shift.i to i8
   store i8 %.sroa.0.0.extract.trunc.i, ptr %1, align 4, !tbaa !22
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %.sroa.2.0.extract.trunc.i, ptr %64, align 1, !tbaa !22
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %.sroa.2.0.extract.trunc.i, ptr %65, align 1, !tbaa !22
   ret i32 %.340
 }
 

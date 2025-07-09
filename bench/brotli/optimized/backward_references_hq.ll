@@ -4598,12 +4598,12 @@ ZopfliCostModelSetFromCommands.exit:              ; preds = %.lr.ph86.i, %785, %
   %825 = icmp samesign ult i32 %809, %824
   br i1 %825, label %826, label %829
 
-826:                                              ; preds = %822
+827:                                              ; preds = %822
   %827 = zext nneg i32 %824 to i64
   %828 = call i64 @llvm.umax.i64(i64 %827, i64 %spec.store.select.i)
   br label %829
 
-829:                                              ; preds = %826, %822, %811
+829:                                              ; preds = %827, %822, %811
   %.0.i338 = phi i64 [ %828, %826 ], [ %spec.store.select.i, %822 ], [ %spec.store.select.i, %811 ]
   %830 = icmp ugt i64 %.0.i338, 1
   br i1 %830, label %.lr.ph.preheader.i, label %911

@@ -2537,36 +2537,36 @@ define internal fastcc zeroext i1 @intel_fbc_is_ok(ptr noundef readonly captures
   %48 = icmp eq i16 %9, 7
   br i1 %48, label %49, label %51
 
-49:                                               ; preds = %40
-  %50 = tail call i32 @llvm.smin.i32(i32 %47, i32 2048)
-  br label %55
+50:                                               ; preds = %40
+  %51 = tail call i32 @llvm.smin.i32(i32 %47, i32 2048)
+  br label %56
 
-51:                                               ; preds = %40
-  %52 = icmp ugt i16 %9, 7
-  br i1 %52, label %53, label %55
+52:                                               ; preds = %40
+  %53 = icmp ugt i16 %9, 7
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %51
-  %54 = tail call i32 @llvm.smin.i32(i32 %47, i32 2560)
-  br label %55
+54:                                               ; preds = %52
+  %55 = tail call i32 @llvm.smin.i32(i32 %47, i32 2560)
+  br label %56
 
-55:                                               ; preds = %53, %51, %49
-  %56 = phi i32 [ %50, %49 ], [ %54, %53 ], [ %47, %51 ]
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %60 = load i32, ptr %59, align 4
-  %61 = and i32 %60, 10
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %66
+56:                                               ; preds = %54, %52, %50
+  %57 = phi i32 [ %51, %49 ], [ %55, %53 ], [ %47, %51 ]
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %61 = load i32, ptr %60, align 4
+  %62 = and i32 %61, 10
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %66
 
-63:                                               ; preds = %55
-  %64 = zext i8 %34 to i32
-  %65 = udiv i32 %58, %64
+64:                                               ; preds = %56
+  %65 = zext i8 %34 to i32
+  %66 = udiv i32 %59, %65
   br label %66
 
-66:                                               ; preds = %63, %55
-  %67 = phi i32 [ %58, %55 ], [ %65, %63 ]
-  %68 = shl i32 %67, 2
+95:                                               ; preds = %63, %56
+  %96 = phi i32 [ %58, %55 ], [ %65, %63 ]
+  %68 = shl i32 %96, 2
   br i1 %10, label %69, label %85
 
 69:                                               ; preds = %66

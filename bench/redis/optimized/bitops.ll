@@ -290,7 +290,7 @@ define dso_local i64 @redisBitpos(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %8 = sext i1 %.not to i8
   br label %9
 
-9:                                                ; preds = %.lr.ph, %11
+9:; preds = %.lr.ph, %11
   %.04071 = phi i64 [ 0, %.lr.ph ], [ %14, %11 ]
   %.04470 = phi ptr [ %0, %.lr.ph ], [ %12, %11 ]
   %.05069 = phi i64 [ %1, %.lr.ph ], [ %13, %11 ]

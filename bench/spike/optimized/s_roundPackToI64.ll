@@ -26,7 +26,7 @@ define i64 @softfloat_roundPackToI64(i1 noundef zeroext %0, i64 noundef %1, i64 
 15:                                               ; preds = %8, %13
   %16 = add i64 %1, 1
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %33, label %17
+  br i1 %.not, label %34, label %17
 
 17:                                               ; preds = %15
   %18 = and i64 %2, 9223372036854775807
@@ -42,30 +42,30 @@ define i64 @softfloat_roundPackToI64(i1 noundef zeroext %0, i64 noundef %1, i64 
   %24 = sub i64 0, %.028
   %25 = select i1 %0, i64 %24, i64 %.028
   %.not34 = icmp eq i64 %.028, 0
-  %26 = icmp sgt i64 %25, -1
-  %.not3536 = xor i1 %0, %26
+  %27 = icmp sgt i64 %25, -1
+  %.not3536 = xor i1 %0, %27
   %or.cond37 = or i1 %.not34, %.not3536
-  br i1 %or.cond37, label %27, label %33
+  br i1 %or.cond37, label %28, label %34
 
-27:                                               ; preds = %23
-  %28 = icmp ne i64 %2, 0
-  %or.cond4 = and i1 %28, %4
-  br i1 %or.cond4, label %29, label %35
+28:                                               ; preds = %23
+  %29 = icmp ne i64 %2, 0
+  %or.cond4 = and i1 %29, %4
+  br i1 %or.cond4, label %30, label %36
 
-29:                                               ; preds = %27
-  %30 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  %31 = load i8, ptr %30, align 1, !tbaa !3
-  %32 = or i8 %31, 1
-  store i8 %32, ptr %30, align 1, !tbaa !3
-  br label %35
+30:                                               ; preds = %28
+  %31 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %32 = load i8, ptr %31, align 1, !tbaa !3
+  %33 = or i8 %32, 1
+  store i8 %33, ptr %31, align 1, !tbaa !3
+  br label %36
 
-33:                                               ; preds = %23, %15
+34:                                               ; preds = %23, %15
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  %34 = select i1 %0, i64 -9223372036854775808, i64 9223372036854775807
-  br label %35
+  %35 = select i1 %0, i64 -9223372036854775808, i64 9223372036854775807
+  br label %36
 
-35:                                               ; preds = %27, %29, %33
-  %.0 = phi i64 [ %34, %33 ], [ %25, %29 ], [ %25, %27 ]
+36:                                               ; preds = %28, %30, %34
+  %.0 = phi i64 [ %35, %33 ], [ %25, %29 ], [ %25, %27 ]
   ret i64 %.0
 }
 

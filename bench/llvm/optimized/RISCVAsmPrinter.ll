@@ -9542,13 +9542,13 @@ _ZN4llvm13MCInstBuilderD2Ev.exit:                 ; preds = %_ZN12_GLOBAL__N_115
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %.sroa.22.0..sroa_idx.i.i.i18 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %65 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %.sroa.22.0..sroa_idx.i.i.i23 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %.sroa.22.0..sroa_idx.i.i.i27 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %67 = select i1 %16, i8 32, i8 20
   br label %_ZN4llvm13MCInstBuilder6addImmEl.exit
@@ -9572,25 +9572,25 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit:            ; preds = %_ZN4llvm13MCInstBui
   store i32 11754, ptr %7, align 8, !tbaa !320
   store i8 1, ptr %58, align 8
   store i64 43, ptr %.sroa.22.0..sroa_idx.i.i.i18, align 8
-  store i8 1, ptr %65, align 8
+  store i8 1, ptr %66, align 8
   store i64 43, ptr %.sroa.22.0..sroa_idx.i.i.i23, align 8
   %.val.pre = load ptr, ptr %42, align 8, !tbaa !141
-  store i8 2, ptr %66, align 8
+  store i8 2, ptr %67, align 8
   store i64 0, ptr %.sroa.22.0..sroa_idx.i.i.i27, align 8
   store i32 3, ptr %59, align 8, !tbaa !258
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 16, i1 false)
-  store ptr %62, ptr %61, align 8, !tbaa !257
-  store i32 0, ptr %63, align 8, !tbaa !258
-  store i32 6, ptr %64, align 4, !tbaa !259
+  store ptr %63, ptr %62, align 8, !tbaa !257
+  store i32 0, ptr %64, align 8, !tbaa !258
+  store i32 6, ptr %65, align 4, !tbaa !259
   %74 = call noundef zeroext i1 @_ZN4llvm8RISCVRVC8compressERNS_6MCInstERKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(304) %.val.pre) #17
   %spec.select.i.i28 = select i1 %74, ptr %3, ptr %7
   %75 = load ptr, ptr %73, align 8, !tbaa !13
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 1272
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(296) %73, ptr noundef nonnull align 8 dereferenceable(128) %spec.select.i.i28, ptr noundef nonnull align 8 dereferenceable(304) %.val.pre) #17
-  %78 = load ptr, ptr %61, align 8, !tbaa !257
-  %79 = icmp eq ptr %78, %62
+  %78 = load ptr, ptr %62, align 8, !tbaa !257
+  %79 = icmp eq ptr %78, %63
   br i1 %79, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter14EmitToStreamerERN4llvm10MCStreamerERKNS1_6MCInstE.exit29, label %80
 
 80:                                               ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit

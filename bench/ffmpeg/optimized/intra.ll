@@ -361,9 +361,9 @@ vvc_predict_ibc.exit:                             ; preds = %64, %50, %49, %46, 
   %wide.trip.count72.i = zext i1 %124 to i64
   br label %.lr.ph54.split.i
 
-.lr.ph54.splitthread-pre-split.i:                 ; preds = %._crit_edge.i
+.lr.ph54.split.i:                                 ; preds = %._crit_edge.i
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i60, 1
-  %.01946.pr.i = load ptr, ptr %120, align 8, !tbaa !127
+  %.01946.i = load ptr, ptr %120, align 8, !tbaa !127
   br label %.lr.ph54.split.i
 
 .lr.ph54.split.i:                                 ; preds = %.lr.ph54.splitthread-pre-split.i, %.lr.ph54.split.preheader.i
@@ -380,7 +380,7 @@ vvc_predict_ibc.exit:                             ; preds = %64, %50, %49, %46, 
 
 ._crit_edge.i:                                    ; preds = %itransform.exit.i, %.lr.ph54.split.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.i60, %wide.trip.count72.i
-  br i1 %exitcond.not.i, label %reconstruct.exit, label %.lr.ph54.splitthread-pre-split.i, !llvm.loop !128
+  br i1 %exitcond.not.i, label %reconstruct.exit, label %.lr.ph54.split.i, !llvm.loop !128
 
 128:                                              ; preds = %itransform.exit.i, %.lr.ph.i61
   %.01950.i = phi ptr [ %.01946.i, %.lr.ph.i61 ], [ %.019.i, %itransform.exit.i ]

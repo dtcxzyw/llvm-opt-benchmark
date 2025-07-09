@@ -2053,32 +2053,32 @@ _Z17is_reference_type9BasicTypeb.exit.thread:     ; preds = %15, %15, %15, %25
   %63 = getelementptr inbounds nuw i32, ptr %60, i64 %62
   %64 = load i32, ptr %63, align 4
   store i8 19, ptr %1, align 1
-  %65 = trunc i32 %64 to i16
-  %66 = tail call noundef i16 @llvm.bswap.i16(i16 %65)
-  %67 = ptrtoint ptr %58 to i64
-  %68 = and i64 %67, 1
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %70, label %71
-
-70:                                               ; preds = %61
-  store i16 %66, ptr %58, align 2
-  br label %_Z17is_reference_type9BasicTypeb.exit
+  %66 = trunc i32 %64 to i16
+  %67 = tail call noundef i16 @llvm.bswap.i16(i16 %66)
+  %68 = ptrtoint ptr %58 to i64
+  %69 = and i64 %68, 1
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %71, label %72
 
 71:                                               ; preds = %61
-  store i16 %66, ptr %58, align 1
+  store i16 %67, ptr %58, align 2
   br label %_Z17is_reference_type9BasicTypeb.exit
 
-72:                                               ; preds = %56
-  %73 = load i8, ptr %58, align 1
-  %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %60, i64 %74
-  %76 = load i32, ptr %75, align 4
+72:                                               ; preds = %61
+  store i16 %67, ptr %58, align 1
+  br label %_Z17is_reference_type9BasicTypeb.exit
+
+73:                                               ; preds = %56
+  %74 = load i8, ptr %58, align 1
+  %75 = zext i8 %74 to i64
+  %76 = getelementptr inbounds nuw i32, ptr %60, i64 %75
+  %77 = load i32, ptr %76, align 4
   store i8 18, ptr %1, align 1
-  %77 = trunc i32 %76 to i8
-  store i8 %77, ptr %58, align 1
+  %78 = trunc i32 %77 to i8
+  store i8 %78, ptr %58, align 1
   br label %_Z17is_reference_type9BasicTypeb.exit
 
-_Z17is_reference_type9BasicTypeb.exit:            ; preds = %15, %71, %70, %49, %48, %25, %52, %72, %50
+_Z17is_reference_type9BasicTypeb.exit:            ; preds = %15, %72, %71, %49, %48, %25, %52, %73, %50
   ret void
 }
 

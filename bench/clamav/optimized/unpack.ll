@@ -14221,15 +14221,15 @@ define noundef ptr @_ZN6Unpack11ApplyFilterEPhjP12UnpackFilter(ptr noundef nonnu
   %8 = load i64, ptr %7, align 8, !tbaa !169
   %9 = trunc i64 %8 to i32
   %invariant.op = add i32 %9, 1
-  %10 = icmp ugt i32 %2, 4
-  br i1 %10, label %.lr.ph87, label %.loopexit
+  %12 = icmp ugt i32 %2, 4
+  br i1 %12, label %.lr.ph87, label %.loopexit
 
 .lr.ph87:                                         ; preds = %6
   %11 = icmp eq i8 %5, 2
   %12 = select i1 %11, i8 -23, i8 -24
   br label %13
 
-13:                                               ; preds = %.lr.ph87, %33
+13:; preds = %.lr.ph87, %33
   %.06585 = phi ptr [ %1, %.lr.ph87 ], [ %.166, %33 ]
   %.06784 = phi i32 [ 0, %.lr.ph87 ], [ %.168, %33 ]
   %14 = getelementptr inbounds nuw i8, ptr %.06585, i64 1

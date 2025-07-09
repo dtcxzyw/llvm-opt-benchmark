@@ -139,59 +139,59 @@ define internal fastcc noalias ptr @checkhome(ptr noundef nonnull %0, ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br i1 %2, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %3, %13
+.split.us:                                        ; preds = %3, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %3 ]
-  %5 = getelementptr inbounds nuw [2 x i8], ptr @__const.checkhome.pref, i64 0, i64 %indvars.iv
-  %6 = load i8, ptr %5, align 1, !tbaa !4
-  %7 = sext i8 %6 to i32
-  %8 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.6, ptr noundef nonnull %0, i32 noundef %7, ptr noundef nonnull %4) #5
-  %.not.us = icmp eq ptr %8, null
-  br i1 %.not.us, label %13, label %9
+  %6 = getelementptr inbounds nuw [2 x i8], ptr @__const.checkhome.pref, i64 0, i64 %indvars.iv
+  %7 = load i8, ptr %6, align 1, !tbaa !4
+  %8 = sext i8 %7 to i32
+  %9 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.6, ptr noundef nonnull %0, i32 noundef %8, ptr noundef nonnull %4) #5
+  %.not.us = icmp eq ptr %9, null
+  br i1 %.not.us, label %14, label %10
 
-9:                                                ; preds = %.split.us
-  %10 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %8, i32 noundef 0) #5
-  %11 = icmp slt i32 %10, 0
-  br i1 %11, label %12, label %.split30.us
+10:                                               ; preds = %.split.us
+  %11 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %9, i32 noundef 0) #5
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %13, label %.split30.us
 
-12:                                               ; preds = %9
-  tail call void @curl_free(ptr noundef nonnull %8) #5
-  br label %13
+13:                                               ; preds = %10
+  tail call void @curl_free(ptr noundef nonnull %9) #5
+  br label %14
 
-13:                                               ; preds = %12, %.split.us
+14:                                               ; preds = %13, %.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next, 2
   br i1 %exitcond41.not, label %.loopexit, label %.split.us, !llvm.loop !21
 
-.split:                                           ; preds = %3, %21
-  %.02228 = phi i32 [ %22, %21 ], [ 0, %3 ]
-  %14 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %1) #5
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %21, label %15
+.split:                                           ; preds = %3, %22
+  %.02228 = phi i32 [ %23, %21 ], [ 0, %3 ]
+  %15 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %1) #5
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %22, label %16
 
-15:                                               ; preds = %.split
-  %16 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %14, i32 noundef 0) #5
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %.split30.us
+16:                                               ; preds = %.split
+  %17 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %15, i32 noundef 0) #5
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %19, label %.split30.us
 
-18:                                               ; preds = %15
-  tail call void @curl_free(ptr noundef nonnull %14) #5
-  br label %21
+19:                                               ; preds = %16
+  tail call void @curl_free(ptr noundef nonnull %15) #5
+  br label %22
 
-.split30.us:                                      ; preds = %15, %9
-  %.us-phi = phi i32 [ %10, %9 ], [ %16, %15 ]
-  %.us-phi31 = phi ptr [ %8, %9 ], [ %14, %15 ]
-  %19 = tail call noalias ptr @strdup(ptr noundef nonnull %.us-phi31) #5
-  %20 = tail call i32 @close(i32 noundef %.us-phi) #5
+.split30.us:                                      ; preds = %16, %10
+  %.us-phi = phi i32 [ %11, %9 ], [ %17, %15 ]
+  %.us-phi31 = phi ptr [ %9, %9 ], [ %15, %15 ]
+  %20 = tail call noalias ptr @strdup(ptr noundef nonnull %.us-phi31) #5
+  %21 = tail call i32 @close(i32 noundef %.us-phi) #5
   tail call void @curl_free(ptr noundef nonnull %.us-phi31) #5
   br label %.loopexit
 
-21:                                               ; preds = %.split, %18
-  %22 = add nuw nsw i32 %.02228, 1
+22:                                               ; preds = %.split, %19
+  %23 = add nuw nsw i32 %.02228, 1
   %exitcond.not = icmp eq i32 %.02228, 0
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !21
 
-.loopexit:                                        ; preds = %21, %13, %.split30.us
-  %.4 = phi ptr [ %19, %.split30.us ], [ null, %13 ], [ null, %21 ]
+.loopexit:                                        ; preds = %22, %14, %.split30.us
+  %.4 = phi ptr [ %110, %.split30.us ], [ null, %13 ], [ null, %21 ]
   ret ptr %.4
 }
 

@@ -13820,7 +13820,7 @@ _ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit240: ; preds = %.critedge2
   %144 = trunc i64 %143 to i32
   %145 = load i32, ptr %79, align 8, !tbaa !584
   %.not.i241 = icmp eq i32 %145, 0
-  br i1 %.not.i241, label %227, label %146
+  br i1 %.not.i241, label %226, label %146
 
 146:                                              ; preds = %141
   %.not219 = icmp eq i32 %144, 0
@@ -13949,14 +13949,14 @@ _ZN4llvm3isaINS_19GlobalAddressSDNodeENS_7SDValueEEEbRKT0_.exit: ; preds = %191
   %203 = select i1 %186, i32 1, i32 2
   br label %204
 
-204:                                              ; preds = %.lr.ph295, %222
+204:; preds = %.lr.ph295, %221
   %.0203294 = phi ptr [ %198, %.lr.ph295 ], [ %223, %222 ]
   %.0205293 = phi i32 [ 0, %.lr.ph295 ], [ %.1206.ph, %222 ]
   %205 = getelementptr inbounds nuw i8, ptr %.0203294, i64 8
   %206 = load i8, ptr %205, align 8, !tbaa !621
   br label %207
 
-207:                                              ; preds = %213, %204
+207:; preds = %213, %204
   %.0813.i.i.i249 = phi i64 [ 0, %204 ], [ %214, %213 ]
   %.0912.i.i.i250 = phi i64 [ 3, %204 ], [ %.1.i.i.i251, %213 ]
   %208 = getelementptr inbounds nuw [3 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8RegisterEJS1_ljEEmv.__found, i64 0, i64 %.0813.i.i.i249
@@ -13964,21 +13964,21 @@ _ZN4llvm3isaINS_19GlobalAddressSDNodeENS_7SDValueEEEbRKT0_.exit: ; preds = %191
   %210 = trunc nuw i8 %209 to i1
   br i1 %210, label %211, label %213
 
-211:                                              ; preds = %207
+212:                                              ; preds = %207
   %212 = icmp samesign ult i64 %.0912.i.i.i250, 3
   br i1 %212, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit254, label %213
 
-213:                                              ; preds = %211, %207
+213:; preds = %211, %207
   %.1.i.i.i251 = phi i64 [ %.0912.i.i.i250, %207 ], [ %.0813.i.i.i249, %211 ]
   %214 = add nuw nsw i64 %.0813.i.i.i249, 1
   %exitcond.i.i.i252 = icmp eq i64 %214, 3
   br i1 %exitcond.i.i.i252, label %_ZNK4llvm11CCValAssign8isRegLocEv.exit254, label %207, !llvm.loop !741
 
-_ZNK4llvm11CCValAssign8isRegLocEv.exit254:        ; preds = %211, %213
+_ZNK4llvm11CCValAssign8isRegLocEv.exit254:; preds = %211, %213
   %spec.select.i.i.i253 = phi i64 [ 3, %211 ], [ %.1.i.i.i251, %213 ]
   %215 = zext i8 %206 to i64
-  %216 = icmp eq i64 %spec.select.i.i.i253, %215
-  br i1 %216, label %217, label %222
+  %.not.i.i.i255 = icmp eq i64 %spec.select.i.i.i253, %215
+  br i1 %.not.i.i.i255, label %217, label %221
 
 217:                                              ; preds = %_ZNK4llvm11CCValAssign8isRegLocEv.exit254
   %.not.i.i.i255 = icmp eq i8 %206, 0
@@ -13991,60 +13991,60 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit254:        ; preds = %211, %213
 _ZNK4llvm11CCValAssign9getLocRegEv.exit257:       ; preds = %217
   %.sroa.0.0.copyload.i256 = load i32, ptr %.0203294, align 4, !tbaa !163
   switch i32 %.sroa.0.0.copyload.i256, label %222 [
-    i32 22, label %219
-    i32 27, label %219
-    i32 25, label %219
+    i32 22, label %218
+    i32 27, label %218
+    i32 25, label %218
   ]
 
-219:                                              ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit257, %_ZNK4llvm11CCValAssign9getLocRegEv.exit257, %_ZNK4llvm11CCValAssign9getLocRegEv.exit257
-  %220 = add i32 %.0205293, 1
-  %221 = icmp eq i32 %203, %.0205293
-  br i1 %221, label %.critedge235, label %222
+218:                                              ; preds = %_ZNK4llvm11CCValAssign9getLocRegEv.exit257, %_ZNK4llvm11CCValAssign9getLocRegEv.exit257, %_ZNK4llvm11CCValAssign9getLocRegEv.exit257
+  %219 = add i32 %.0205293, 1
+  %220 = icmp eq i32 %203, %.0205293
+  br i1 %220, label %.critedge235, label %221
 
-222:                                              ; preds = %_ZNK4llvm11CCValAssign8isRegLocEv.exit254, %_ZNK4llvm11CCValAssign9getLocRegEv.exit257, %219
-  %.1206.ph = phi i32 [ %220, %219 ], [ %.0205293, %_ZNK4llvm11CCValAssign9getLocRegEv.exit257 ], [ %.0205293, %_ZNK4llvm11CCValAssign8isRegLocEv.exit254 ]
-  %223 = getelementptr inbounds nuw i8, ptr %.0203294, i64 32
-  %.not221 = icmp eq ptr %223, %202
+221:                                              ; preds = %_ZNK4llvm11CCValAssign8isRegLocEv.exit254, %_ZNK4llvm11CCValAssign9getLocRegEv.exit257, %218
+  %.1206.ph = phi i32 [ %219, %219 ], [ %.0205293, %_ZNK4llvm11CCValAssign9getLocRegEv.exit257 ], [ %.0205293, %_ZNK4llvm11CCValAssign8isRegLocEv.exit254 ]
+  %222 = getelementptr inbounds nuw i8, ptr %.0203294, i64 32
+  %.not221 = icmp eq ptr %222, %202
   br i1 %.not221, label %.loopexit, label %204
 
-.loopexit:                                        ; preds = %222, %197, %_ZN4llvm3isaINS_19GlobalAddressSDNodeENS_7SDValueEEEbRKT0_.exit, %196, %.critedge233
-  %224 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %225 = load ptr, ptr %224, align 8, !tbaa !623
-  %226 = call noundef zeroext i1 @_ZNK4llvm14TargetLowering20parametersInCSRMatchERKNS_19MachineRegisterInfoEPKjRKNS_15SmallVectorImplINS_11CCValAssignEEERKNS6_INS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr noundef nonnull align 8 dereferenceable(504) %225, ptr noundef %135, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %11) #24
-  br i1 %226, label %227, label %.critedge235
+.loopexit:                                        ; preds = %221, %197, %_ZN4llvm3isaINS_19GlobalAddressSDNodeENS_7SDValueEEEbRKT0_.exit, %196, %.critedge233
+  %223 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %224 = load ptr, ptr %223, align 8, !tbaa !623
+  %225 = call noundef zeroext i1 @_ZNK4llvm14TargetLowering20parametersInCSRMatchERKNS_19MachineRegisterInfoEPKjRKNS_15SmallVectorImplINS_11CCValAssignEEERKNS6_INS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr noundef nonnull align 8 dereferenceable(504) %224, ptr noundef %135, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %11) #24
+  br i1 %225, label %226, label %.critedge235
 
-227:                                              ; preds = %.loopexit, %141
-  %228 = load ptr, ptr %48, align 8, !tbaa !12
-  %229 = getelementptr inbounds nuw i8, ptr %228, i64 477
-  %230 = load i8, ptr %229, align 1, !tbaa !152, !range !153, !noundef !154
-  %231 = trunc nuw i8 %230 to i1
-  %232 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %233 = load ptr, ptr %232, align 8, !tbaa !745
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 864
-  %235 = load i16, ptr %234, align 8
-  %236 = and i16 %235, 512
-  %237 = icmp ne i16 %236, 0
-  %238 = call noundef zeroext i1 @_ZN4llvm3X8611isCalleePopEjbbb(i32 noundef %15, i1 noundef zeroext %231, i1 noundef zeroext %19, i1 noundef zeroext %237)
-  %239 = load ptr, ptr %73, align 8, !tbaa !587
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 44
-  %241 = load i32, ptr %240, align 4, !tbaa !589
-  %.not223 = icmp eq i32 %241, 0
-  br i1 %.not223, label %245, label %242
+226:                                              ; preds = %.loopexit, %141
+  %227 = load ptr, ptr %48, align 8, !tbaa !12
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 477
+  %229 = load i8, ptr %228, align 1, !tbaa !152, !range !153, !noundef !154
+  %230 = trunc nuw i8 %229 to i1
+  %231 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %232 = load ptr, ptr %231, align 8, !tbaa !745
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 864
+  %234 = load i16, ptr %233, align 8
+  %235 = and i16 %234, 512
+  %236 = icmp ne i16 %235, 0
+  %237 = call noundef zeroext i1 @_ZN4llvm3X8611isCalleePopEjbbb(i32 noundef %15, i1 noundef zeroext %230, i1 noundef zeroext %19, i1 noundef zeroext %236)
+  %238 = load ptr, ptr %73, align 8, !tbaa !587
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 44
+  %240 = load i32, ptr %239, align 4, !tbaa !589
+  %.not223 = icmp eq i32 %240, 0
+  br i1 %.not223, label %244, label %241
 
-242:                                              ; preds = %227
-  %243 = icmp eq i32 %241, %144
-  %244 = and i1 %238, %243
-  br i1 %244, label %247, label %.critedge235
+241:                                              ; preds = %226
+  %242 = icmp eq i32 %240, %144
+  %243 = and i1 %237, %242
+  br i1 %243, label %246, label %.critedge235
 
-245:                                              ; preds = %227
-  %246 = icmp ne i32 %144, 0
-  %or.cond28 = and i1 %246, %238
-  br i1 %or.cond28, label %.critedge235, label %247
+244:                                              ; preds = %226
+  %245 = icmp ne i32 %144, 0
+  %or.cond28 = and i1 %245, %237
+  br i1 %or.cond28, label %.critedge235, label %246
 
-247:                                              ; preds = %245, %242
+246:                                              ; preds = %244, %241
   br label %.critedge235
 
-.critedge235:                                     ; preds = %_ZNK4llvm11CCValAssign8isRegLocEv.exit, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit, %.lr.ph291, %219, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit, %247, %242, %245, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread, %34, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit, %.critedge276, %.loopexit, %139, %136, %81, %_ZL15canGuaranteeTCOj.exit, %41, %5
+.critedge235:                                     ; preds = %_ZNK4llvm11CCValAssign8isRegLocEv.exit, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit, %.lr.ph291, %218, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit, %246, %241, %244, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread, %34, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit, %.critedge276, %.loopexit, %139, %136, %81, %_ZL15canGuaranteeTCOj.exit, %41, %5
   %.0 = phi i1 [ false, %5 ], [ false, %34 ], [ false, %41 ], [ %or.cond18, %_ZL15canGuaranteeTCOj.exit ], [ false, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit ], [ false, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread ], [ false, %81 ], [ false, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit ], [ false, %.critedge276 ], [ false, %136 ], [ false, %139 ], [ false, %.loopexit ], [ true, %247 ], [ false, %242 ], [ false, %245 ], [ false, %219 ], [ false, %.lr.ph291 ], [ false, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit ], [ false, %_ZNK4llvm11CCValAssign8isRegLocEv.exit ]
   ret i1 %.0
 }

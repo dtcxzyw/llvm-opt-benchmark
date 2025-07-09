@@ -14,32 +14,32 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
   br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3, %10
-  %.061100 = phi i64 [ %.1, %10 ], [ %1, %3 ]
-  %.06799 = phi ptr [ %11, %10 ], [ %0, %3 ]
-  %.06998 = phi i64 [ %12, %10 ], [ %1, %3 ]
-  %5 = load i8, ptr %.06799, align 1, !tbaa !4
+  %.06199 = phi i64 [ %.1, %10 ], [ %1, %3 ]
+  %.06798 = phi ptr [ %11, %10 ], [ %0, %3 ]
+  %.06997 = phi i64 [ %12, %10 ], [ %1, %3 ]
+  %5 = load i8, ptr %.06798, align 1, !tbaa !4
   switch i8 %5, label %10 [
     i8 0, label %.critedge
     i8 61, label %6
   ]
 
 6:                                                ; preds = %.lr.ph
-  %7 = add i64 %.061100, -2
-  %8 = getelementptr inbounds nuw i8, ptr %.06799, i64 1
-  %9 = add i64 %.06998, -1
+  %7 = add i64 %.06199, -2
+  %8 = getelementptr inbounds nuw i8, ptr %.06798, i64 1
+  %9 = add i64 %.06997, -1
   br label %10
 
 10:                                               ; preds = %.lr.ph, %6
-  %.170 = phi i64 [ %9, %6 ], [ %.06998, %.lr.ph ]
-  %.168 = phi ptr [ %8, %6 ], [ %.06799, %.lr.ph ]
-  %.1 = phi i64 [ %7, %6 ], [ %.061100, %.lr.ph ]
+  %.170 = phi i64 [ %9, %6 ], [ %.06997, %.lr.ph ]
+  %.168 = phi ptr [ %8, %6 ], [ %.06798, %.lr.ph ]
+  %.1 = phi i64 [ %7, %6 ], [ %.06199, %.lr.ph ]
   %11 = getelementptr inbounds nuw i8, ptr %.168, i64 1
   %12 = add i64 %.170, -1
   %13 = icmp ugt i64 %12, 1
   br i1 %13, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %10, %3
-  %.061.lcssa = phi i64 [ %1, %3 ], [ %.061100, %.lr.ph ], [ %.1, %10 ]
+  %.061.lcssa = phi i64 [ %1, %3 ], [ %.06199, %.lr.ph ], [ %.1, %10 ]
   %14 = and i64 %.061.lcssa, -8
   %15 = add i64 %14, 32
   %16 = tail call noalias ptr @_emalloc(i64 noundef %15) #8
@@ -51,14 +51,14 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %.061.lcssa, ptr %19, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.not85103 = icmp eq i64 %1, 0
-  br i1 %.not85103, label %.critedge2, label %.lr.ph108
+  %.not85102 = icmp eq i64 %1, 0
+  br i1 %.not85102, label %.critedge2, label %.lr.ph107
 
-.lr.ph108:                                        ; preds = %.critedge
+.lr.ph107:                                        ; preds = %.critedge
   %spec.store.select87 = select i1 %.not, i8 0, i8 95
   br label %21
 
-21:                                               ; preds = %.lr.ph108, %82
+21:; preds = %.lr.ph107, %82
   %.062107 = phi i64 [ 0, %.lr.ph108 ], [ %.163, %82 ]
   %.065106 = phi ptr [ %20, %.lr.ph108 ], [ %.166, %82 ]
   %.2105 = phi ptr [ %0, %.lr.ph108 ], [ %.5, %82 ]
@@ -66,127 +66,127 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
   %22 = load i8, ptr %.2105, align 1, !tbaa !4
   switch i8 %22, label %76 [
     i8 0, label %.critedge2
-    i8 61, label %23
+    i8 61, label %22
   ]
 
-23:                                               ; preds = %21
-  %24 = add i64 %.271104, -1
-  %25 = getelementptr inbounds nuw i8, ptr %.2105, i64 1
-  %26 = icmp eq i64 %24, 0
-  br i1 %26, label %.critedge2, label %27
+22:                                               ; preds = %21
+  %23 = add i64 %.271104, -1
+  %24 = getelementptr inbounds nuw i8, ptr %.2105, i64 1
+  %25 = icmp eq i64 %23, 0
+  br i1 %25, label %.critedge2, label %26
 
-27:                                               ; preds = %23
-  %28 = load i8, ptr %25, align 1, !tbaa !4
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %.critedge2, label %30
+26:                                               ; preds = %22
+  %27 = load i8, ptr %24, align 1, !tbaa !4
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %.critedge2, label %29
 
-30:                                               ; preds = %27
-  %31 = zext i8 %28 to i64
-  %32 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !14
-  %34 = icmp ult i32 %33, 16
-  br i1 %34, label %35, label %53
+29:                                               ; preds = %26
+  %30 = zext i8 %27 to i64
+  %31 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !14
+  %33 = icmp ult i32 %32, 16
+  br i1 %33, label %34, label %52
 
-35:                                               ; preds = %30
-  %36 = icmp eq i64 %.271104, 2
-  br i1 %36, label %44, label %37
+34:                                               ; preds = %29
+  %35 = icmp eq i64 %.271104, 2
+  br i1 %35, label %43, label %36
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %.2105, i64 2
-  %39 = load i8, ptr %38, align 1, !tbaa !4
-  %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !14
-  %43 = icmp ugt i32 %42, 15
-  br i1 %43, label %44, label %45
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr %.2105, i64 2
+  %38 = load i8, ptr %37, align 1, !tbaa !4
+  %39 = zext i8 %38 to i64
+  %40 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %39
+  %41 = load i32, ptr %40, align 4, !tbaa !14
+  %42 = icmp ugt i32 %41, 15
+  br i1 %42, label %43, label %44
 
-44:                                               ; preds = %37, %35
+43:                                               ; preds = %36, %34
   tail call void @_efree(ptr noundef nonnull %16) #9
   br label %83
 
-45:                                               ; preds = %37
-  %46 = shl nuw nsw i32 %33, 4
-  %47 = or disjoint i32 %42, %46
-  %48 = trunc nuw i32 %47 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %.065106, i64 1
-  store i8 %48, ptr %.065106, align 1, !tbaa !4
-  %50 = add i64 %.062107, 1
-  %51 = add i64 %.271104, -3
-  %52 = getelementptr inbounds nuw i8, ptr %.2105, i64 3
+44:                                               ; preds = %36
+  %45 = shl nuw nsw i32 %32, 4
+  %46 = or disjoint i32 %41, %45
+  %47 = trunc nuw i32 %46 to i8
+  %48 = getelementptr inbounds nuw i8, ptr %.065106, i64 1
+  store i8 %47, ptr %.065106, align 1, !tbaa !4
+  %49 = add i64 %.062107, 1
+  %50 = add i64 %.271104, -3
+  %51 = getelementptr inbounds nuw i8, ptr %.2105, i64 3
   br label %82
 
-53:                                               ; preds = %30
-  %54 = icmp ult i32 %33, 64
-  br i1 %54, label %.preheader.preheader, label %75
+52:                                               ; preds = %29
+  %53 = icmp ult i32 %32, 64
+  br i1 %53, label %.preheader.preheader, label %74
 
-.preheader.preheader:                             ; preds = %53
-  switch i8 %28, label %.preheader._crit_edge [
-    i8 32, label %.lr.ph130.preheader
-    i8 9, label %.lr.ph130.preheader
+.preheader.preheader:                             ; preds = %52
+  switch i8 %27, label %.preheader._crit_edge [
+    i8 32, label %.lr.ph129.preheader
+    i8 9, label %.lr.ph129.preheader
   ]
 
-.lr.ph130.preheader:                              ; preds = %.preheader.preheader, %.preheader.preheader
-  br label %.lr.ph130
+.lr.ph129.preheader:                              ; preds = %.preheader.preheader, %.preheader.preheader
+  br label %.lr.ph129
 
-.preheader:                                       ; preds = %57
-  switch i8 %59, label %.preheader._crit_edge [
-    i8 32, label %.lr.ph130.backedge
-    i8 9, label %.lr.ph130.backedge
+.preheader:                                       ; preds = %56
+  switch i8 %58, label %.preheader._crit_edge [
+    i8 32, label %.lr.ph129.backedge
+    i8 9, label %.lr.ph129.backedge
   ]
 
-.lr.ph130.backedge:                               ; preds = %.preheader, %.preheader
-  br label %.lr.ph130
+.lr.ph129.backedge:                               ; preds = %.preheader, %.preheader
+  br label %.lr.ph129
 
-.lr.ph130:                                        ; preds = %.lr.ph130.backedge, %.lr.ph130.preheader
-  %.3129 = phi ptr [ %25, %.lr.ph130.preheader ], [ %58, %.lr.ph130.backedge ]
-  %.372128 = phi i64 [ %24, %.lr.ph130.preheader ], [ %55, %.lr.ph130.backedge ]
-  %55 = add i64 %.372128, -1
-  %56 = icmp eq i64 %55, 0
-  br i1 %56, label %64, label %57
+.lr.ph129:                                        ; preds = %.lr.ph129.backedge, %.lr.ph129.preheader
+  %.3128 = phi ptr [ %24, %.lr.ph130.preheader ], [ %57, %.lr.ph130.backedge ]
+  %.372127 = phi i64 [ %23, %.lr.ph130.preheader ], [ %54, %.lr.ph130.backedge ]
+  %54 = add i64 %.372127, -1
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %63, label %56
 
-57:                                               ; preds = %.lr.ph130
-  %58 = getelementptr inbounds nuw i8, ptr %.3129, i64 1
-  %59 = load i8, ptr %58, align 1, !tbaa !4
-  %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %60
-  %62 = load i32, ptr %61, align 4, !tbaa !14
-  %63 = icmp eq i32 %62, 64
-  br i1 %63, label %64, label %.preheader
+56:                                               ; preds = %.lr.ph129
+  %57 = getelementptr inbounds nuw i8, ptr %.3128, i64 1
+  %58 = load i8, ptr %57, align 1, !tbaa !4
+  %59 = zext i8 %58 to i64
+  %60 = getelementptr inbounds nuw [256 x i32], ptr @php_quot_print_decode.hexval_tbl, i64 0, i64 %59
+  %61 = load i32, ptr %60, align 4, !tbaa !14
+  %62 = icmp eq i32 %61, 64
+  br i1 %62, label %63, label %.preheader
 
-64:                                               ; preds = %57, %.lr.ph130
+63:                                               ; preds = %56, %.lr.ph129
   tail call void @_efree(ptr noundef nonnull %16) #9
   br label %83
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
-  %.lcssa = phi i8 [ %28, %.preheader.preheader ], [ %59, %.preheader ]
-  %.372.lcssa = phi i64 [ %24, %.preheader.preheader ], [ %55, %.preheader ]
-  %.3.lcssa = phi ptr [ %25, %.preheader.preheader ], [ %58, %.preheader ]
-  %65 = icmp eq i8 %.lcssa, 13
-  %66 = icmp ugt i64 %.372.lcssa, 1
-  %or.cond = and i1 %66, %65
-  br i1 %or.cond, label %67, label %72
+  %.lcssa = phi i8 [ %27, %.preheader.preheader ], [ %58, %.preheader ]
+  %.372.lcssa = phi i64 [ %23, %.preheader.preheader ], [ %54, %.preheader ]
+  %.3.lcssa = phi ptr [ %24, %.preheader.preheader ], [ %57, %.preheader ]
+  %64 = icmp eq i8 %.lcssa, 13
+  %65 = icmp ugt i64 %.372.lcssa, 1
+  %or.cond = and i1 %65, %64
+  br i1 %or.cond, label %66, label %71
 
-67:                                               ; preds = %.preheader._crit_edge
-  %68 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 1
-  %69 = load i8, ptr %68, align 1, !tbaa !4
-  %70 = icmp eq i8 %69, 10
-  %71 = sext i1 %70 to i64
-  %spec.select = add i64 %.372.lcssa, %71
-  %spec.select88 = select i1 %70, ptr %68, ptr %.3.lcssa
-  br label %72
+66:                                               ; preds = %.preheader._crit_edge
+  %67 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 1
+  %68 = load i8, ptr %67, align 1, !tbaa !4
+  %69 = icmp eq i8 %68, 10
+  %70 = sext i1 %69 to i64
+  %spec.select = add i64 %.372.lcssa, %70
+  %spec.select87 = select i1 %69, ptr %67, ptr %.3.lcssa
+  br label %71
 
-72:                                               ; preds = %67, %.preheader._crit_edge
+71:                                               ; preds = %66, %.preheader._crit_edge
   %.473 = phi i64 [ %.372.lcssa, %.preheader._crit_edge ], [ %spec.select, %67 ]
-  %.4 = phi ptr [ %.3.lcssa, %.preheader._crit_edge ], [ %spec.select88, %67 ]
-  %73 = add i64 %.473, -1
-  %74 = getelementptr inbounds nuw i8, ptr %.4, i64 1
+  %.4 = phi ptr [ %.3.lcssa, %.preheader._crit_edge ], [ %spec.select87, %67 ]
+  %72 = add i64 %.473, -1
+  %73 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   br label %82
 
-75:                                               ; preds = %53
+74:                                               ; preds = %52
   tail call void @_efree(ptr noundef nonnull %16) #9
   br label %83
 
-76:                                               ; preds = %21
+75:                                               ; preds = %21
   %77 = icmp eq i8 %spec.store.select87, %22
   %spec.select89 = select i1 %77, i8 32, i8 %22
   %78 = getelementptr inbounds nuw i8, ptr %.065106, i64 1
@@ -196,22 +196,22 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
   %81 = add i64 %.062107, 1
   br label %82
 
-82:                                               ; preds = %45, %72, %76
-  %.574 = phi i64 [ %51, %45 ], [ %73, %72 ], [ %79, %76 ]
-  %.5 = phi ptr [ %52, %45 ], [ %74, %72 ], [ %80, %76 ]
-  %.166 = phi ptr [ %49, %45 ], [ %.065106, %72 ], [ %78, %76 ]
-  %.163 = phi i64 [ %50, %45 ], [ %.062107, %72 ], [ %81, %76 ]
+82:                                               ; preds = %44, %71, %75
+  %.574 = phi i64 [ %50, %45 ], [ %72, %72 ], [ %79, %76 ]
+  %.5 = phi ptr [ %51, %45 ], [ %73, %72 ], [ %80, %76 ]
+  %.166 = phi ptr [ %48, %45 ], [ %.065106, %72 ], [ %78, %76 ]
+  %.163 = phi i64 [ %49, %45 ], [ %.062107, %72 ], [ %81, %76 ]
   %.not85 = icmp eq i64 %.574, 0
   br i1 %.not85, label %.critedge2, label %21
 
-.critedge2:                                       ; preds = %27, %23, %82, %21, %.critedge
+.critedge2:                                       ; preds = %26, %22, %82, %21, %.critedge
   %.065.lcssa = phi ptr [ %20, %.critedge ], [ %.065106, %21 ], [ %.166, %82 ], [ %.065106, %23 ], [ %.065106, %27 ]
   %.062.lcssa = phi i64 [ 0, %.critedge ], [ %.062107, %21 ], [ %.163, %82 ], [ %.062107, %23 ], [ %.062107, %27 ]
   store i8 0, ptr %.065.lcssa, align 1, !tbaa !4
   store i64 %.062.lcssa, ptr %19, align 8, !tbaa !13
   br label %83
 
-83:                                               ; preds = %.critedge2, %75, %64, %44
+83:                                               ; preds = %.critedge2, %74, %63, %43
   %.0 = phi ptr [ %16, %.critedge2 ], [ null, %44 ], [ null, %64 ], [ null, %75 ]
   ret ptr %.0
 }

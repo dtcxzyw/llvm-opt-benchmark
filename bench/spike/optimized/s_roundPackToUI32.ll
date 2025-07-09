@@ -13,43 +13,43 @@ define range(i64 0, 4294967296) i64 @softfloat_roundPackToUI32(i1 noundef zeroex
   %7 = select i1 %0, i8 2, i8 3
   %8 = icmp eq i8 %7, %2
   %9 = select i1 %8, i64 127, i64 0
-  %.027 = select i1 %or.cond, i64 %9, i64 64
-  %10 = add i64 %.027, %1
+  %10 = select i1 %or.cond, i64 %9, i64 64
+  %10 = add i64 %10, %1
   %.not = icmp ult i64 %10, 549755813888
-  br i1 %.not, label %11, label %26
+  br i1 %.not, label %11, label %27
 
-11:                                               ; preds = %4
-  %12 = trunc i64 %1 to i32
-  %13 = and i32 %12, 127
-  %14 = lshr i64 %10, 7
-  %.not29 = icmp eq i32 %13, 64
-  %15 = and i1 %5, %.not29
-  %16 = zext i1 %15 to i64
-  %17 = xor i64 %16, -1
-  %18 = and i64 %14, %17
-  %19 = icmp ne i64 %18, 0
-  %or.cond4 = select i1 %0, i1 %19, i1 false
-  br i1 %or.cond4, label %26, label %20
+12:                                               ; preds = %4
+  %13 = trunc i64 %1 to i32
+  %14 = and i32 %13, 127
+  %15 = lshr i64 %10, 7
+  %.not29 = icmp eq i32 %14, 64
+  %16 = and i1 %5, %.not29
+  %17 = zext i1 %16 to i64
+  %18 = xor i64 %17, -1
+  %19 = and i64 %15, %18
+  %20 = icmp ne i64 %19, 0
+  %or.cond4 = select i1 %0, i1 %20, i1 false
+  br i1 %or.cond4, label %27, label %21
 
-20:                                               ; preds = %11
-  %21 = icmp ne i32 %13, 0
-  %or.cond7 = and i1 %3, %21
-  br i1 %or.cond7, label %22, label %28
+21:                                               ; preds = %12
+  %22 = icmp ne i32 %14, 0
+  %or.cond7 = and i1 %3, %22
+  br i1 %or.cond7, label %23, label %29
 
-22:                                               ; preds = %20
-  %23 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  %24 = load i8, ptr %23, align 1, !tbaa !3
-  %25 = or i8 %24, 1
-  store i8 %25, ptr %23, align 1, !tbaa !3
-  br label %28
+23:                                               ; preds = %21
+  %24 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %25 = load i8, ptr %24, align 1, !tbaa !3
+  %26 = or i8 %25, 1
+  store i8 %26, ptr %24, align 1, !tbaa !3
+  br label %29
 
-26:                                               ; preds = %11, %4
+27:                                               ; preds = %12, %4
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  %27 = select i1 %0, i64 0, i64 4294967295
-  br label %28
+  %28 = select i1 %0, i64 0, i64 4294967295
+  br label %29
 
-28:                                               ; preds = %20, %22, %26
-  %.0 = phi i64 [ %27, %26 ], [ %18, %22 ], [ %18, %20 ]
+29:                                               ; preds = %21, %23, %27
+  %.0 = phi i64 [ %28, %26 ], [ %19, %22 ], [ %19, %20 ]
   ret i64 %.0
 }
 

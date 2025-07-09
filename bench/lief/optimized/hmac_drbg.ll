@@ -46,97 +46,97 @@ define hidden i32 @mbedtls_hmac_drbg_update(ptr noundef %0, ptr noundef %1, i64 
   store i8 0, ptr %4, align 1, !tbaa !13
   br i1 %11, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %3, %29
-  %14 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %0) #12
-  %.not.us = icmp eq i32 %14, 0
-  br i1 %.not.us, label %15, label %.split39.us
+.split.us:                                        ; preds = %3, %28
+  %13 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %0) #12
+  %.not.us = icmp eq i32 %13, 0
+  br i1 %.not.us, label %14, label %.split39.us
 
-15:                                               ; preds = %.split.us
-  %16 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef %8) #12
-  %.not31.us = icmp eq i32 %16, 0
-  br i1 %.not31.us, label %17, label %.split39.us
+14:                                               ; preds = %.split.us
+  %15 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef %8) #12
+  %.not31.us = icmp eq i32 %15, 0
+  br i1 %.not31.us, label %16, label %.split39.us
 
-17:                                               ; preds = %15
-  %18 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #12
-  %.not32.us = icmp eq i32 %18, 0
-  br i1 %.not32.us, label %19, label %.split39.us
+16:                                               ; preds = %14
+  %17 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #12
+  %.not32.us = icmp eq i32 %17, 0
+  br i1 %.not32.us, label %18, label %.split39.us
 
-19:                                               ; preds = %17
-  %20 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #12
-  %.not33.us = icmp eq i32 %20, 0
-  br i1 %.not33.us, label %21, label %.split39.us
+18:                                               ; preds = %16
+  %19 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #12
+  %.not33.us = icmp eq i32 %19, 0
+  br i1 %.not33.us, label %20, label %.split39.us
 
-21:                                               ; preds = %19
-  %22 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
-  %.not34.us = icmp eq i32 %22, 0
-  br i1 %.not34.us, label %23, label %.split39.us
+20:                                               ; preds = %18
+  %21 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
+  %.not34.us = icmp eq i32 %21, 0
+  br i1 %.not34.us, label %22, label %.split39.us
 
-23:                                               ; preds = %21
-  %24 = call i32 @mbedtls_md_hmac_starts(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %8) #12
-  %.not35.us = icmp eq i32 %24, 0
-  br i1 %.not35.us, label %25, label %.split39.us
+22:                                               ; preds = %20
+  %23 = call i32 @mbedtls_md_hmac_starts(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %8) #12
+  %.not35.us = icmp eq i32 %23, 0
+  br i1 %.not35.us, label %24, label %.split39.us
 
-25:                                               ; preds = %23
-  %26 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef %8) #12
-  %.not36.us = icmp eq i32 %26, 0
-  br i1 %.not36.us, label %27, label %.split39.us
+24:                                               ; preds = %22
+  %25 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef %8) #12
+  %.not36.us = icmp eq i32 %25, 0
+  br i1 %.not36.us, label %26, label %.split39.us
 
-27:                                               ; preds = %25
-  %28 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %0, ptr noundef nonnull %12) #12
-  %.not37.us = icmp eq i32 %28, 0
-  br i1 %.not37.us, label %29, label %.split39.us
+26:                                               ; preds = %24
+  %27 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %0, ptr noundef nonnull %12) #12
+  %.not37.us = icmp eq i32 %27, 0
+  br i1 %.not37.us, label %28, label %.split39.us
 
-29:                                               ; preds = %27
-  %30 = load i8, ptr %4, align 1, !tbaa !13
-  %31 = add i8 %30, 1
-  store i8 %31, ptr %4, align 1, !tbaa !13
-  %32 = icmp ugt i8 %13, %31
-  br i1 %32, label %.split.us, label %.split39.us, !llvm.loop !14
+28:                                               ; preds = %26
+  %29 = load i8, ptr %4, align 1, !tbaa !13
+  %30 = add i8 %29, 1
+  store i8 %30, ptr %4, align 1, !tbaa !13
+  %31 = icmp ugt i8 %13, %31
+  br i1 %31, label %.split.us, label %.split39.us, !llvm.loop !14
 
-.split:                                           ; preds = %3, %46
-  %33 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %0) #12
-  %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %34, label %.split39.us
+.split:                                           ; preds = %3, %45
+  %32 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %0) #12
+  %.not = icmp eq i32 %32, 0
+  br i1 %.not, label %33, label %.split39.us
 
-34:                                               ; preds = %.split
-  %35 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef %8) #12
-  %.not31 = icmp eq i32 %35, 0
-  br i1 %.not31, label %36, label %.split39.us
+33:                                               ; preds = %.split
+  %34 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef %8) #12
+  %.not31 = icmp eq i32 %34, 0
+  br i1 %.not31, label %35, label %.split39.us
 
-36:                                               ; preds = %34
-  %37 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #12
-  %.not32 = icmp eq i32 %37, 0
-  br i1 %.not32, label %38, label %.split39.us
+35:                                               ; preds = %33
+  %36 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 1) #12
+  %.not32 = icmp eq i32 %36, 0
+  br i1 %.not32, label %37, label %.split39.us
 
-38:                                               ; preds = %36
-  %39 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
-  %.not34 = icmp eq i32 %39, 0
-  br i1 %.not34, label %40, label %.split39.us
+37:                                               ; preds = %35
+  %38 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
+  %.not34 = icmp eq i32 %38, 0
+  br i1 %.not34, label %39, label %.split39.us
 
-40:                                               ; preds = %38
-  %41 = call i32 @mbedtls_md_hmac_starts(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %8) #12
-  %.not35 = icmp eq i32 %41, 0
-  br i1 %.not35, label %42, label %.split39.us
+39:                                               ; preds = %37
+  %40 = call i32 @mbedtls_md_hmac_starts(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %8) #12
+  %.not35 = icmp eq i32 %40, 0
+  br i1 %.not35, label %41, label %.split39.us
 
-42:                                               ; preds = %40
-  %43 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef %8) #12
-  %.not36 = icmp eq i32 %43, 0
-  br i1 %.not36, label %44, label %.split39.us
+41:                                               ; preds = %39
+  %42 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef %8) #12
+  %.not36 = icmp eq i32 %42, 0
+  br i1 %.not36, label %43, label %.split39.us
 
-44:                                               ; preds = %42
-  %45 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %0, ptr noundef nonnull %12) #12
-  %.not37 = icmp eq i32 %45, 0
-  br i1 %.not37, label %46, label %.split39.us
+43:                                               ; preds = %41
+  %44 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %0, ptr noundef nonnull %12) #12
+  %.not37 = icmp eq i32 %44, 0
+  br i1 %.not37, label %45, label %.split39.us
 
-46:                                               ; preds = %44
-  %47 = load i8, ptr %4, align 1, !tbaa !13
-  %48 = add i8 %47, 1
-  store i8 %48, ptr %4, align 1, !tbaa !13
-  %49 = icmp ugt i8 %13, %48
-  br i1 %49, label %.split, label %.split39.us, !llvm.loop !14
+45:                                               ; preds = %43
+  %46 = load i8, ptr %4, align 1, !tbaa !13
+  %47 = add i8 %46, 1
+  store i8 %47, ptr %4, align 1, !tbaa !13
+  %48 = icmp ugt i8 %13, %48
+  br i1 %48, label %.split, label %.split39.us, !llvm.loop !14
 
-.split39.us:                                      ; preds = %.split, %34, %36, %38, %40, %42, %44, %46, %.split.us, %15, %17, %19, %21, %23, %25, %27, %29
-  %.us-phi = phi i32 [ %14, %.split.us ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ 0, %29 ], [ %33, %.split ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ 0, %46 ]
+.split39.us:                                      ; preds = %.split, %33, %35, %37, %39, %41, %43, %45, %.split.us, %14, %16, %18, %20, %22, %24, %26, %28
+  %.us-phi = phi i32 [ %13, %.split.us ], [ %15, %15 ], [ %17, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ 0, %29 ], [ %33, %.split ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ 0, %46 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 64) #12
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12

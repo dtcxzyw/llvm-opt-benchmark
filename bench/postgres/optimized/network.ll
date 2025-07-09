@@ -628,37 +628,37 @@ define dso_local noundef i64 @inet_to_cidr(ptr noundef readonly captures(none) %
   %.lhs.trunc = add nuw nsw i64 %42, 7
   %.zext = lshr i64 %.lhs.trunc, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %41, i64 %.zext, i1 false)
-  %43 = and i32 %11, 7
-  %.not33.i = icmp eq i32 %43, 0
-  br i1 %.not33.i, label %cidr_set_masklen_internal.exit, label %44
+  %44 = and i32 %11, 7
+  %.not33.i = icmp eq i32 %44, 0
+  br i1 %.not33.i, label %cidr_set_masklen_internal.exit, label %45
 
-44:                                               ; preds = %33
-  %45 = ashr exact i32 -256, %43
-  %46 = load i8, ptr %20, align 1
-  %47 = and i8 %46, 1
-  %.not34.i = icmp eq i8 %47, 0
-  %48 = select i1 %.not34.i, ptr %30, ptr %29
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
-  %50 = lshr i32 %11, 3
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 0, i64 %51
-  %53 = load i8, ptr %52, align 1
-  %54 = trunc nsw i32 %45 to i8
-  %55 = and i8 %53, %54
-  store i8 %55, ptr %52, align 1
+45:                                               ; preds = %33
+  %46 = ashr exact i32 -256, %44
+  %47 = load i8, ptr %20, align 1
+  %48 = and i8 %47, 1
+  %.not34.i = icmp eq i8 %48, 0
+  %49 = select i1 %.not34.i, ptr %30, ptr %29
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 2
+  %51 = lshr i32 %11, 3
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 0, i64 %52
+  %54 = load i8, ptr %53, align 1
+  %55 = trunc nsw i32 %46 to i8
+  %56 = and i8 %54, %55
+  store i8 %56, ptr %53, align 1
   br label %cidr_set_masklen_internal.exit
 
-cidr_set_masklen_internal.exit:                   ; preds = %19, %33, %44
-  %56 = load i8, ptr %20, align 1
-  %57 = and i8 %56, 1
-  %.not35.i = icmp eq i8 %57, 0
-  %58 = select i1 %.not35.i, ptr %30, ptr %29
-  %59 = load i8, ptr %58, align 1
-  %60 = icmp eq i8 %59, 2
-  %61 = select i1 %60, i32 40, i32 88
-  store i32 %61, ptr %20, align 4
-  %62 = ptrtoint ptr %20 to i64
-  ret i64 %62
+cidr_set_masklen_internal.exit:                   ; preds = %19, %33, %45
+  %57 = load i8, ptr %20, align 1
+  %58 = and i8 %57, 1
+  %.not35.i = icmp eq i8 %58, 0
+  %59 = select i1 %.not35.i, ptr %30, ptr %29
+  %60 = load i8, ptr %59, align 1
+  %61 = icmp eq i8 %60, 2
+  %62 = select i1 %61, i32 40, i32 88
+  store i32 %62, ptr %20, align 4
+  %63 = ptrtoint ptr %20 to i64
+  ret i64 %63
 }
 
 ; Function Attrs: cold
@@ -2353,7 +2353,7 @@ define dso_local noundef i64 @network_broadcast(ptr noundef readonly captures(no
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %22 = select i1 %.not43, ptr %21, ptr %20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
-  %wide.trip.count52 = select i1 %13, i64 3, i64 15
+  %wide.trip.count = select i1 %13, i64 3, i64 15
   br label %24
 
 24:                                               ; preds = %1, %33
@@ -2384,7 +2384,7 @@ define dso_local noundef i64 @network_broadcast(ptr noundef readonly captures(no
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
   store i8 %36, ptr %37, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %wide.trip.count52, %indvars.iv
+  %exitcond.not = icmp eq i64 %wide.trip.count, %indvars.iv
   br i1 %exitcond.not, label %38, label %24, !llvm.loop !26
 
 38:                                               ; preds = %33
@@ -2954,7 +2954,7 @@ define dso_local double @convert_network_to_scalar(i64 noundef %0, i32 noundef %
   %11 = icmp eq i8 %10, 2
   %12 = uitofp i8 %10 to double
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %wide.trip.count49 = select i1 %11, i64 3, i64 4
+  %wide.trip.count = select i1 %11, i64 3, i64 4
   br label %14
 
 14:                                               ; preds = %4, %14
@@ -2966,7 +2966,7 @@ define dso_local double @convert_network_to_scalar(i64 noundef %0, i32 noundef %
   %18 = uitofp i8 %17 to double
   %19 = fadd double %15, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %wide.trip.count49, %indvars.iv
+  %exitcond.not = icmp eq i64 %wide.trip.count, %indvars.iv
   br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !29
 
 20:                                               ; preds = %3
