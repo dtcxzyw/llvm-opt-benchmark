@@ -57,28 +57,28 @@ define dso_local noundef range(i64 0, 2) i64 @parse_header(ptr noundef readonly 
 28:                                               ; preds = %18
   %.neg = select i1 %21, i64 -8, i64 -7
   %29 = select i1 %26, i64 4, i64 8
-  %30 = select i1 %21, i64 12, i64 8
+  %.neg7 = select i1 %21, i64 12, i64 8
   %31 = add nuw nsw i64 %29, %30
-  %32 = getelementptr i8, ptr %23, i64 %31
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i64
-  %.neg7 = add nsw i64 %2, -10
-  %reass.sub = add i64 %.neg7, %.neg
-  %gepdiff2 = sub i64 %reass.sub, %31
-  %35 = add nuw nsw i64 %34, 4
+  %34 = getelementptr i8, ptr %23, i64 %31
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i64
+  %.neg5 = add nsw i64 %2, -10
+  %.neg6 = add i64 %.neg5, %.neg
+  %gepdiff2 = sub i64 %.neg6, %31
+  %gepdiff2 = add nuw nsw i64 %34, 4
   %36 = icmp slt i64 %gepdiff2, %35
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %28
   %38 = add nuw nsw i64 %22, 14
   %39 = add nuw nsw i64 %38, %31
-  %40 = add nuw nsw i64 %39, %34
-  store i64 %40, ptr %1, align 8
+  %41 = add nuw nsw i64 %39, %34
+  store i64 %41, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %37, %28, %18, %3
-  %41 = phi i64 [ 1, %37 ], [ 0, %3 ], [ 0, %18 ], [ 0, %28 ], [ 0, %7 ]
-  ret i64 %41
+  %43 = phi i64 [ 1, %37 ], [ 0, %3 ], [ 0, %18 ], [ 0, %28 ], [ 0, %7 ]
+  ret i64 %43
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

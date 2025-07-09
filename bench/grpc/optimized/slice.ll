@@ -1509,26 +1509,26 @@ define i32 @grpc_slice_slice(ptr noundef byval(%struct.grpc_slice) align 8 %0, p
   %.not2732 = icmp slt i64 %75, 0
   br i1 %.not2732, label %grpc_slice_eq.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %74, %83
-  %.033 = phi ptr [ %84, %83 ], [ %14, %74 ]
+.lr.ph:                                           ; preds = %74, %85
+  %.033 = phi ptr [ %86, %83 ], [ %14, %74 ]
   %bcmp = call i32 @bcmp(ptr %.033, ptr %23, i64 %19)
-  %77 = icmp eq i32 %bcmp, 0
-  br i1 %77, label %78, label %83
+  %79 = icmp eq i32 %bcmp, 0
+  br i1 %79, label %80, label %85
 
-78:                                               ; preds = %.lr.ph
-  %79 = ptrtoint ptr %.033 to i64
-  %80 = ptrtoint ptr %14 to i64
-  %81 = sub i64 %79, %80
-  %82 = trunc i64 %81 to i32
+80:                                               ; preds = %.lr.ph
+  %81 = ptrtoint ptr %.033 to i64
+  %82 = ptrtoint ptr %14 to i64
+  %83 = sub i64 %81, %82
+  %84 = trunc i64 %83 to i32
   br label %grpc_slice_eq.exit
 
-83:                                               ; preds = %.lr.ph
-  %84 = getelementptr inbounds nuw i8, ptr %.033, i64 1
-  %.not27 = icmp ugt ptr %84, %76
+85:                                               ; preds = %.lr.ph
+  %86 = getelementptr inbounds nuw i8, ptr %.033, i64 1
+  %.not27 = icmp ugt ptr %86, %76
   br i1 %.not27, label %grpc_slice_eq.exit, label %.lr.ph, !llvm.loop !87
 
-grpc_slice_eq.exit:                               ; preds = %83, %74, %78, %42, %40, %29, %2, %55
-  %.022 = phi i32 [ %73, %55 ], [ -1, %2 ], [ %52, %42 ], [ -1, %29 ], [ 0, %40 ], [ %82, %78 ], [ -1, %74 ], [ -1, %83 ]
+grpc_slice_eq.exit:                               ; preds = %85, %74, %80, %42, %40, %29, %2, %55
+  %.022 = phi i32 [ %73, %55 ], [ -1, %2 ], [ %52, %42 ], [ -1, %29 ], [ 0, %40 ], [ %84, %78 ], [ -1, %74 ], [ -1, %83 ]
   ret i32 %.022
 }
 

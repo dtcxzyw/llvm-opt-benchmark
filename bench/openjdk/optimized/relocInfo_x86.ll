@@ -398,12 +398,12 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i32 %18, ptr %19, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef 1) #6
-  br label %74
+  br label %73
 
 20:                                               ; preds = %2
   %21 = and i8 %7, -3
   %spec.select.i = icmp eq i8 %21, -23
-  br i1 %spec.select.i, label %22, label %38
+  br i1 %spec.select.i, label %22, label %37
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -424,78 +424,78 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
   %37 = select i1 %35, i32 -5, i32 %36
   store i32 %37, ptr %23, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef 1) #6
-  br label %74
+  br label %73
 
-38:                                               ; preds = %20
-  %39 = load i32, ptr %6, align 4
-  %40 = and i32 %39, 61695
-  %41 = icmp eq i32 %40, 32783
-  %42 = and i32 %39, 240
-  %43 = icmp eq i32 %42, 112
-  %44 = or i1 %41, %43
-  %45 = trunc i32 %39 to i8
-  %46 = lshr i32 %39, 8
-  %47 = trunc i32 %46 to i8
-  br i1 %44, label %48, label %60
+37:                                               ; preds = %20
+  %38 = load i32, ptr %6, align 4
+  %39 = and i32 %38, 61695
+  %40 = icmp eq i32 %39, 32783
+  %41 = and i32 %38, 240
+  %42 = icmp eq i32 %41, 112
+  %43 = or i1 %40, %42
+  %44 = trunc i32 %38 to i8
+  %45 = lshr i32 %38, 8
+  %46 = trunc i32 %45 to i8
+  br i1 %43, label %47, label %59
 
-48:                                               ; preds = %38
-  %49 = tail call noundef ptr @_ZNK17NativeGeneralJump16jump_destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %6) #6
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %52, i32 noundef 2) #6
-  %54 = ptrtoint ptr %1 to i64
-  %55 = ptrtoint ptr %49 to i64
-  %56 = sub i64 %54, %55
-  %57 = trunc i64 %56 to i32
-  %58 = load i32, ptr %53, align 4
-  %59 = add nsw i32 %58, %57
-  store i32 %59, ptr %53, align 4
-  br label %74
+47:                                               ; preds = %37
+  %48 = tail call noundef ptr @_ZNK17NativeGeneralJump16jump_destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %6) #6
+  %49 = load ptr, ptr %3, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef %51, i32 noundef 2) #6
+  %53 = ptrtoint ptr %1 to i64
+  %54 = ptrtoint ptr %48 to i64
+  %55 = sub i64 %53, %54
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %52, align 4
+  %58 = add nsw i32 %57, %56
+  store i32 %58, ptr %52, align 4
+  br label %73
 
-60:                                               ; preds = %38
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  switch i8 %45, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread [
+59:                                               ; preds = %37
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  switch i8 %44, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread [
     i8 72, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
-    i8 -43, label %62
+    i8 -43, label %61
     i8 73, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
   ]
 
-62:                                               ; preds = %60
-  switch i8 %47, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread [
+61:                                               ; preds = %59
+  switch i8 %46, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread [
     i8 8, label %switch.edge.thread.i
     i8 9, label %switch.edge.thread.i
     i8 24, label %switch.edge.thread.i
   ]
 
-switch.edge.thread.i:                             ; preds = %62, %62, %62
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 2
+switch.edge.thread.i:                             ; preds = %61, %61, %61
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
-_ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %60, %60, %switch.edge.thread.i
-  %.in5.i = phi ptr [ %63, %switch.edge.thread.i ], [ %61, %60 ], [ %61, %60 ]
-  %64 = load i8, ptr %.in5.i, align 1
-  %65 = and i8 %64, -8
-  %66 = icmp eq i8 %65, -72
-  br i1 %66, label %67, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread
+_ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %59, %59, %switch.edge.thread.i
+  %.in5.i = phi ptr [ %62, %switch.edge.thread.i ], [ %60, %60 ], [ %60, %60 ]
+  %63 = load i8, ptr %.in5.i, align 1
+  %64 = and i8 %63, -8
+  %65 = icmp eq i8 %64, -72
+  br i1 %65, label %66, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread
 
-67:                                               ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit
-  %68 = ptrtoint ptr %1 to i64
-  %69 = icmp eq i8 %45, -43
-  %70 = select i1 %69, i32 3, i32 2
-  %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 %71
-  store i64 %68, ptr %72, align 8
-  tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %70) #6
-  br label %74
+66:                                               ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit
+  %67 = ptrtoint ptr %1 to i64
+  %68 = icmp eq i8 %44, -43
+  %69 = select i1 %68, i32 3, i32 2
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 %70
+  store i64 %67, ptr %71, align 8
+  tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %69) #6
+  br label %73
 
-_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread: ; preds = %60, %62, %_ZN17NativeInstruction16is_mov_literal64Ev.exit
-  %73 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %73, align 1
+_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread: ; preds = %59, %61, %_ZN17NativeInstruction16is_mov_literal64Ev.exit
+  %72 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %72, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 142) #5
   unreachable
 
-74:                                               ; preds = %22, %67, %48, %_ZN10NativeCall15set_destinationEPh.exit
+73:                                               ; preds = %22, %66, %47, %_ZN10NativeCall15set_destinationEPh.exit
   ret void
 }
 

@@ -4750,7 +4750,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i15.i.i: ; preds = %._crit_ed
   %243 = add nsw i64 %.idx.i, 8
   %244 = getelementptr inbounds i8, ptr %239, i64 %243
   %245 = ptrtoint ptr %244 to i64
-  %gepdiff.i = sub nsw i64 %243, %.idx170.i
+  %reass.sub.i = sub nsw i64 %243, %.idx170.i
   %246 = ashr i64 %gepdiff.i, 5
   %247 = icmp sgt i64 %246, 0
   br i1 %247, label %.lr.ph.i.i.i.i54.i, label %._crit_edge.i.i.i.i.i
@@ -9264,7 +9264,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i18.i.i: ; preds = %._crit_ed
   %173 = add nsw i64 %.idx.i, 8
   %174 = getelementptr inbounds i8, ptr %169, i64 %173
   %175 = ptrtoint ptr %174 to i64
-  %gepdiff.i = sub nsw i64 %173, %.idx175.i
+  %reass.sub.i = sub nsw i64 %173, %.idx175.i
   %176 = ashr i64 %gepdiff.i, 5
   %177 = icmp sgt i64 %176, 0
   br i1 %177, label %.lr.ph.i.i.i.i55.i, label %._crit_edge.i.i.i.i.i

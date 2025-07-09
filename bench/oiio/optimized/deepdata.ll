@@ -3620,12 +3620,12 @@ _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i: ; preds = %15
   %.pre27.i = load ptr, ptr %0, align 8, !tbaa !35
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre27.i, i64 72
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
-  %.phi.trans.insert34 = getelementptr inbounds nuw i32, ptr %.pre, i64 %1
-  %.pre35 = load i32, ptr %.phi.trans.insert34, align 4, !tbaa !85
+  %.phi.trans.insert35 = getelementptr inbounds nuw i32, ptr %.pre, i64 %1
+  %.pre36 = load i32, ptr %.phi.trans.insert35, align 4, !tbaa !85
   br label %_ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit
 
 _ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i, %24
-  %25 = phi i32 [ %.pre35, %24 ], [ %16, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ]
+  %25 = phi i32 [ %.pre36, %24 ], [ %16, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ]
   %26 = phi ptr [ %.pre, %24 ], [ %13, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ]
   %27 = getelementptr inbounds nuw i32, ptr %26, i64 %1
   %28 = add i32 %18, %25
@@ -3672,14 +3672,14 @@ _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24: ; preds = %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %50, ptr align 1 %53, i64 %gepdiff.i28, i1 false)
   %.pre.i29 = load ptr, ptr %0, align 8, !tbaa !35
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i29, i64 72
-  %.pre23.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !54
-  %.phi.trans.insert24.i = getelementptr inbounds nuw i32, ptr %.pre23.i, i64 %1
-  %.pre25.i = load i32, ptr %.phi.trans.insert24.i, align 4, !tbaa !85
+  %.pre25.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !54
+  %.phi.trans.insert26.i = getelementptr inbounds nuw i32, ptr %.pre25.i, i64 %1
+  %.pre27.i30 = load i32, ptr %.phi.trans.insert26.i, align 4, !tbaa !85
   br label %_ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit
 
 _ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24, %56
-  %58 = phi i32 [ %.pre25.i, %56 ], [ %16, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24 ]
-  %59 = phi ptr [ %.pre23.i, %56 ], [ %13, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24 ]
+  %58 = phi i32 [ %.pre27.i30, %56 ], [ %16, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24 ]
+  %59 = phi ptr [ %.pre25.i, %56 ], [ %13, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24 ]
   %60 = getelementptr inbounds nuw i32, ptr %59, i64 %1
   %61 = sub i32 %58, %.sroa.speculated.i
   store i32 %61, ptr %60, align 4, !tbaa !85
@@ -3840,14 +3840,14 @@ _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit: ; preds = %4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %34, ptr align 1 %37, i64 %gepdiff, i1 false)
   %.pre = load ptr, ptr %0, align 8, !tbaa !35
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 72
-  %.pre23 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
-  %.phi.trans.insert24 = getelementptr inbounds nuw i32, ptr %.pre23, i64 %1
-  %.pre25 = load i32, ptr %.phi.trans.insert24, align 4, !tbaa !85
+  %.pre25 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
+  %.phi.trans.insert26 = getelementptr inbounds nuw i32, ptr %.pre25, i64 %1
+  %.pre27 = load i32, ptr %.phi.trans.insert26, align 4, !tbaa !85
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit: ; preds = %40, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit, %4
-  %42 = phi i32 [ %.pre25, %40 ], [ %9, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit ], [ %9, %4 ]
-  %43 = phi ptr [ %.pre23, %40 ], [ %7, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit ], [ %7, %4 ]
+  %42 = phi i32 [ %.pre27, %40 ], [ %9, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit ], [ %9, %4 ]
+  %43 = phi ptr [ %.pre25, %40 ], [ %7, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit ], [ %7, %4 ]
   %44 = getelementptr inbounds nuw i32, ptr %43, i64 %1
   %45 = sub i32 %42, %.sroa.speculated
   store i32 %45, ptr %44, align 4, !tbaa !85
@@ -7142,14 +7142,14 @@ _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i: ; preds = %._crit_edge
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %499, ptr align 1 %502, i64 %gepdiff.i, i1 false)
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !35
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 72
-  %.pre23.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !54
-  %.phi.trans.insert24.i = getelementptr inbounds nuw i32, ptr %.pre23.i, i64 %1
-  %.pre25.i = load i32, ptr %.phi.trans.insert24.i, align 4, !tbaa !85
+  %.pre25.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !54
+  %.phi.trans.insert26.i = getelementptr inbounds nuw i32, ptr %.pre25.i, i64 %1
+  %.pre27.i = load i32, ptr %.phi.trans.insert26.i, align 4, !tbaa !85
   br label %_ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit
 
 _ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit: ; preds = %._crit_edge, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i, %505
-  %507 = phi i32 [ %.pre25.i, %505 ], [ %476, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ], [ %476, %._crit_edge ]
-  %508 = phi ptr [ %.pre23.i, %505 ], [ %474, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ], [ %474, %._crit_edge ]
+  %507 = phi i32 [ %.pre27.i, %505 ], [ %476, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ], [ %476, %._crit_edge ]
+  %508 = phi ptr [ %.pre25.i, %505 ], [ %474, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ], [ %474, %._crit_edge ]
   %509 = getelementptr inbounds nuw i32, ptr %508, i64 %1
   %510 = sub i32 %507, %.sroa.speculated.i
   store i32 %510, ptr %509, align 4, !tbaa !85

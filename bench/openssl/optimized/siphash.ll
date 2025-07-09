@@ -168,7 +168,7 @@ define void @SipHash_Update(ptr noundef captures(none) %0, ptr noundef readonly 
   %22 = trunc nuw i64 %2 to i32
   %23 = add i32 %15, %22
   store i32 %23, ptr %14, align 8, !tbaa !13
-  br label %145
+  br label %146
 
 24:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %1, i64 %18, i1 false)
@@ -250,126 +250,126 @@ define void @SipHash_Update(ptr noundef captures(none) %0, ptr noundef readonly 
   br i1 %.not160188, label %._crit_edge196, label %.lr.ph195
 
 .lr.ph195:                                        ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %75 = load i32, ptr %74, align 8, !tbaa !11
-  %.not205 = icmp eq i32 %75, 0
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %76 = load i32, ptr %75, align 8, !tbaa !11
+  %.not205 = icmp eq i32 %76, 0
   br i1 %.not205, label %.lr.ph195.split, label %.lr.ph182.us
 
 .lr.ph182.us:                                     ; preds = %.lr.ph195, %._crit_edge183.us
-  %.2193.us = phi ptr [ %116, %._crit_edge183.us ], [ %.0131, %.lr.ph195 ]
-  %.3192.us = phi i64 [ %109, %._crit_edge183.us ], [ %.0132, %.lr.ph195 ]
-  %.3138191.us = phi i64 [ %113, %._crit_edge183.us ], [ %.0135, %.lr.ph195 ]
-  %.3143190.us = phi i64 [ %112, %._crit_edge183.us ], [ %.0140, %.lr.ph195 ]
-  %.3148189.us = phi i64 [ %115, %._crit_edge183.us ], [ %.0145, %.lr.ph195 ]
-  %76 = load i32, ptr %.2193.us, align 1
-  %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %.2193.us, i64 4
-  %79 = load i8, ptr %78, align 1, !tbaa !10
-  %80 = zext i8 %79 to i64
-  %81 = shl nuw nsw i64 %80, 32
-  %82 = or disjoint i64 %81, %77
-  %83 = getelementptr inbounds nuw i8, ptr %.2193.us, i64 5
-  %84 = load i8, ptr %83, align 1, !tbaa !10
-  %85 = zext i8 %84 to i64
-  %86 = shl nuw nsw i64 %85, 40
-  %87 = or disjoint i64 %82, %86
-  %88 = getelementptr inbounds nuw i8, ptr %.2193.us, i64 6
-  %89 = load i8, ptr %88, align 1, !tbaa !10
-  %90 = zext i8 %89 to i64
-  %91 = shl nuw nsw i64 %90, 48
-  %92 = or disjoint i64 %87, %91
-  %93 = getelementptr inbounds nuw i8, ptr %.2193.us, i64 7
-  %94 = load i8, ptr %93, align 1, !tbaa !10
-  %95 = zext i8 %94 to i64
-  %96 = shl nuw i64 %95, 56
-  %97 = or disjoint i64 %92, %96
-  %98 = xor i64 %97, %.3192.us
-  br label %99
+  %.2193.us = phi ptr [ %117, %._crit_edge183.us ], [ %.0131, %.lr.ph195 ]
+  %.3192.us = phi i64 [ %110, %._crit_edge183.us ], [ %.0132, %.lr.ph195 ]
+  %.3138191.us = phi i64 [ %114, %._crit_edge183.us ], [ %.0135, %.lr.ph195 ]
+  %.3143190.us = phi i64 [ %113, %._crit_edge183.us ], [ %.0140, %.lr.ph195 ]
+  %.3148189.us = phi i64 [ %116, %._crit_edge183.us ], [ %.0145, %.lr.ph195 ]
+  %77 = load i32, ptr %.2193.us, align 1
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %.2193.us, i64 4
+  %80 = load i8, ptr %79, align 1, !tbaa !10
+  %81 = zext i8 %80 to i64
+  %82 = shl nuw nsw i64 %81, 32
+  %83 = or disjoint i64 %82, %78
+  %84 = getelementptr inbounds nuw i8, ptr %.2193.us, i64 5
+  %85 = load i8, ptr %84, align 1, !tbaa !10
+  %86 = zext i8 %85 to i64
+  %87 = shl nuw nsw i64 %86, 40
+  %88 = or disjoint i64 %83, %87
+  %89 = getelementptr inbounds nuw i8, ptr %.2193.us, i64 6
+  %90 = load i8, ptr %89, align 1, !tbaa !10
+  %91 = zext i8 %90 to i64
+  %92 = shl nuw nsw i64 %91, 48
+  %93 = or disjoint i64 %88, %92
+  %94 = getelementptr inbounds nuw i8, ptr %.2193.us, i64 7
+  %95 = load i8, ptr %94, align 1, !tbaa !10
+  %96 = zext i8 %95 to i64
+  %97 = shl nuw i64 %96, 56
+  %98 = or disjoint i64 %93, %97
+  %99 = xor i64 %98, %.3192.us
+  br label %100
 
-99:                                               ; preds = %.lr.ph182.us, %99
-  %.4180.us = phi i64 [ %98, %.lr.ph182.us ], [ %109, %99 ]
-  %.4139179.us = phi i64 [ %.3138191.us, %.lr.ph182.us ], [ %113, %99 ]
-  %.4144178.us = phi i64 [ %.3143190.us, %.lr.ph182.us ], [ %112, %99 ]
-  %.4149177.us = phi i64 [ %.3148189.us, %.lr.ph182.us ], [ %107, %99 ]
-  %.1151176.us = phi i32 [ 0, %.lr.ph182.us ], [ %114, %99 ]
-  %100 = add i64 %.4144178.us, %.4149177.us
-  %101 = tail call i64 @llvm.fshl.i64(i64 %.4144178.us, i64 %.4144178.us, i64 13)
-  %102 = xor i64 %101, %100
-  %103 = tail call i64 @llvm.fshl.i64(i64 %100, i64 %100, i64 32)
-  %104 = add i64 %.4180.us, %.4139179.us
-  %105 = tail call i64 @llvm.fshl.i64(i64 %.4180.us, i64 %.4180.us, i64 16)
-  %106 = xor i64 %105, %104
-  %107 = add i64 %106, %103
-  %108 = tail call i64 @llvm.fshl.i64(i64 %106, i64 %106, i64 21)
-  %109 = xor i64 %108, %107
-  %110 = add i64 %104, %102
-  %111 = tail call i64 @llvm.fshl.i64(i64 %102, i64 %102, i64 17)
-  %112 = xor i64 %110, %111
-  %113 = tail call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 32)
-  %114 = add nuw i32 %.1151176.us, 1
-  %exitcond217.not = icmp eq i32 %114, %75
-  br i1 %exitcond217.not, label %._crit_edge183.us, label %99, !llvm.loop !20
+100:                                              ; preds = %.lr.ph182.us, %100
+  %.4180.us = phi i64 [ %99, %.lr.ph182.us ], [ %110, %99 ]
+  %.4139179.us = phi i64 [ %.3138191.us, %.lr.ph182.us ], [ %114, %99 ]
+  %.4144178.us = phi i64 [ %.3143190.us, %.lr.ph182.us ], [ %113, %99 ]
+  %.4149177.us = phi i64 [ %.3148189.us, %.lr.ph182.us ], [ %108, %99 ]
+  %.1151176.us = phi i32 [ 0, %.lr.ph182.us ], [ %115, %99 ]
+  %101 = add i64 %.4144178.us, %.4149177.us
+  %102 = tail call i64 @llvm.fshl.i64(i64 %.4144178.us, i64 %.4144178.us, i64 13)
+  %103 = xor i64 %102, %101
+  %104 = tail call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 32)
+  %105 = add i64 %.4180.us, %.4139179.us
+  %106 = tail call i64 @llvm.fshl.i64(i64 %.4180.us, i64 %.4180.us, i64 16)
+  %107 = xor i64 %106, %105
+  %108 = add i64 %107, %104
+  %109 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 21)
+  %110 = xor i64 %109, %108
+  %111 = add i64 %105, %103
+  %112 = tail call i64 @llvm.fshl.i64(i64 %103, i64 %103, i64 17)
+  %113 = xor i64 %111, %112
+  %114 = tail call i64 @llvm.fshl.i64(i64 %111, i64 %111, i64 32)
+  %115 = add nuw i32 %.1151176.us, 1
+  %exitcond217.not = icmp eq i32 %115, %76
+  br i1 %exitcond217.not, label %._crit_edge183.us, label %100, !llvm.loop !20
 
-._crit_edge183.us:                                ; preds = %99
-  %115 = xor i64 %107, %97
-  %116 = getelementptr inbounds nuw i8, ptr %.2193.us, i64 8
-  %.not160.us = icmp eq ptr %116, %73
+._crit_edge183.us:                                ; preds = %100
+  %116 = xor i64 %108, %98
+  %117 = getelementptr inbounds nuw i8, ptr %.2193.us, i64 8
+  %.not160.us = icmp eq ptr %117, %73
   br i1 %.not160.us, label %._crit_edge196, label %.lr.ph182.us, !llvm.loop !21
 
 .lr.ph195.split:                                  ; preds = %.lr.ph195, %.lr.ph195.split
-  %.2193 = phi ptr [ %141, %.lr.ph195.split ], [ %.0131, %.lr.ph195 ]
-  %.3192 = phi i64 [ %139, %.lr.ph195.split ], [ %.0132, %.lr.ph195 ]
-  %.3148189 = phi i64 [ %140, %.lr.ph195.split ], [ %.0145, %.lr.ph195 ]
-  %117 = load i32, ptr %.2193, align 1
-  %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw i8, ptr %.2193, i64 4
-  %120 = load i8, ptr %119, align 1, !tbaa !10
-  %121 = zext i8 %120 to i64
-  %122 = shl nuw nsw i64 %121, 32
-  %123 = or disjoint i64 %122, %118
-  %124 = getelementptr inbounds nuw i8, ptr %.2193, i64 5
-  %125 = load i8, ptr %124, align 1, !tbaa !10
-  %126 = zext i8 %125 to i64
-  %127 = shl nuw nsw i64 %126, 40
-  %128 = or disjoint i64 %123, %127
-  %129 = getelementptr inbounds nuw i8, ptr %.2193, i64 6
-  %130 = load i8, ptr %129, align 1, !tbaa !10
-  %131 = zext i8 %130 to i64
-  %132 = shl nuw nsw i64 %131, 48
-  %133 = or disjoint i64 %128, %132
-  %134 = getelementptr inbounds nuw i8, ptr %.2193, i64 7
-  %135 = load i8, ptr %134, align 1, !tbaa !10
-  %136 = zext i8 %135 to i64
-  %137 = shl nuw i64 %136, 56
-  %138 = or disjoint i64 %133, %137
-  %139 = xor i64 %138, %.3192
-  %140 = xor i64 %.3148189, %138
-  %141 = getelementptr inbounds nuw i8, ptr %.2193, i64 8
-  %.not160 = icmp eq ptr %141, %73
+  %.2193 = phi ptr [ %142, %.lr.ph195.split ], [ %.0131, %.lr.ph195 ]
+  %.3192 = phi i64 [ %140, %.lr.ph195.split ], [ %.0132, %.lr.ph195 ]
+  %.3148189 = phi i64 [ %141, %.lr.ph195.split ], [ %.0145, %.lr.ph195 ]
+  %118 = load i32, ptr %.2193, align 1
+  %119 = zext i32 %118 to i64
+  %120 = getelementptr inbounds nuw i8, ptr %.2193, i64 4
+  %121 = load i8, ptr %120, align 1, !tbaa !10
+  %122 = zext i8 %121 to i64
+  %123 = shl nuw nsw i64 %122, 32
+  %124 = or disjoint i64 %123, %119
+  %125 = getelementptr inbounds nuw i8, ptr %.2193, i64 5
+  %126 = load i8, ptr %125, align 1, !tbaa !10
+  %127 = zext i8 %126 to i64
+  %128 = shl nuw nsw i64 %127, 40
+  %129 = or disjoint i64 %124, %128
+  %130 = getelementptr inbounds nuw i8, ptr %.2193, i64 6
+  %131 = load i8, ptr %130, align 1, !tbaa !10
+  %132 = zext i8 %131 to i64
+  %133 = shl nuw nsw i64 %132, 48
+  %134 = or disjoint i64 %129, %133
+  %135 = getelementptr inbounds nuw i8, ptr %.2193, i64 7
+  %136 = load i8, ptr %135, align 1, !tbaa !10
+  %137 = zext i8 %136 to i64
+  %138 = shl nuw i64 %137, 56
+  %139 = or disjoint i64 %134, %138
+  %140 = xor i64 %139, %.3192
+  %141 = xor i64 %.3148189, %139
+  %142 = getelementptr inbounds nuw i8, ptr %.2193, i64 8
+  %.not160 = icmp eq ptr %142, %73
   br i1 %.not160, label %._crit_edge196, label %.lr.ph195.split, !llvm.loop !21
 
 ._crit_edge196:                                   ; preds = %._crit_edge183.us, %.lr.ph195.split, %68
-  %.3148.lcssa = phi i64 [ %.0145, %68 ], [ %140, %.lr.ph195.split ], [ %115, %._crit_edge183.us ]
-  %.3143.lcssa = phi i64 [ %.0140, %68 ], [ %.0140, %.lr.ph195.split ], [ %112, %._crit_edge183.us ]
-  %.3138.lcssa = phi i64 [ %.0135, %68 ], [ %.0135, %.lr.ph195.split ], [ %113, %._crit_edge183.us ]
-  %.3.lcssa = phi i64 [ %.0132, %68 ], [ %139, %.lr.ph195.split ], [ %109, %._crit_edge183.us ]
+  %.3148.lcssa = phi i64 [ %.0145, %68 ], [ %141, %.lr.ph195.split ], [ %116, %._crit_edge183.us ]
+  %.3143.lcssa = phi i64 [ %.0140, %68 ], [ %.0140, %.lr.ph195.split ], [ %113, %._crit_edge183.us ]
+  %.3138.lcssa = phi i64 [ %.0135, %68 ], [ %.0135, %.lr.ph195.split ], [ %114, %._crit_edge183.us ]
+  %.3.lcssa = phi i64 [ %.0132, %68 ], [ %140, %.lr.ph195.split ], [ %110, %._crit_edge183.us ]
   %.not161 = icmp eq i32 %70, 0
-  br i1 %.not161, label %144, label %142
+  br i1 %.not161, label %145, label %143
 
-142:                                              ; preds = %._crit_edge196
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %143, ptr align 1 %73, i64 %71, i1 false)
-  br label %144
+143:                                              ; preds = %._crit_edge196
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %144, ptr align 1 %73, i64 %71, i1 false)
+  br label %145
 
-144:                                              ; preds = %142, %._crit_edge196
+145:                                              ; preds = %143, %._crit_edge196
   store i32 %70, ptr %14, align 8, !tbaa !13
   store i64 %.3148.lcssa, ptr %4, align 8, !tbaa !15
   store i64 %.3143.lcssa, ptr %6, align 8, !tbaa !9
   store i64 %.3138.lcssa, ptr %8, align 8, !tbaa !16
   store i64 %.3.lcssa, ptr %10, align 8, !tbaa !17
-  br label %145
+  br label %146
 
-145:                                              ; preds = %.thread, %144
+146:                                              ; preds = %.thread, %145
   ret void
 }
 

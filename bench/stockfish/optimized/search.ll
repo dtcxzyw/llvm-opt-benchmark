@@ -1442,7 +1442,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit: ; preds = %.lr.ph.i.i, %260
   br i1 %303, label %_ZSt13__stable_sortIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit268, label %304
 
 304:                                              ; preds = %297
-  %gepdiff361 = sub nsw i64 %301, %.idx360
+  %reass.sub = sub nsw i64 %301, %.idx360
   %305 = icmp sgt i64 %gepdiff361, 0
   br i1 %305, label %.lr.ph.i.i.preheader.i244, label %.thread.i241
 

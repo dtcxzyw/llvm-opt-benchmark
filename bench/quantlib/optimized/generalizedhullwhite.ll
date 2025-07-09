@@ -11795,8 +11795,8 @@ _ZSt14__fill_bvectorPmjjb.exit22.i.i.i:           ; preds = %if.end.i.i.i
   %sub.i.i.i.i10 = sub nuw nsw i32 64, %conv4.i.i.i
   %sh_prom1.i.i.i.i = zext nneg i32 %sub.i.i.i.i10 to i64
   %shr.i.i.i.i = lshr i64 -1, %sh_prom1.i.i.i.i
-  %12 = load i64, ptr %storemerge.i.i.i, align 8, !tbaa !30
-  %or.i21.i.i.i = or i64 %12, %shr.i.i.i.i
+  %11 = load i64, ptr %storemerge.i.i.i, align 8, !tbaa !30
+  %or.i21.i.i.i = or i64 %11, %shr.i.i.i.i
   store i64 %or.i21.i.i.i, ptr %storemerge.i.i.i, align 8, !tbaa !30
   br label %invoke.cont17
 
@@ -11808,8 +11808,8 @@ _ZSt14__fill_bvectorPmjjb.exit34.i.i.i:           ; preds = %if.else.i.i.i
   %sub.i25.i.i.i = sub nuw nsw i32 64, %conv4.i.i.i
   %sh_prom1.i26.i.i.i = zext nneg i32 %sub.i25.i.i.i to i64
   %shr.i27.i.i.i = lshr i64 -1, %sh_prom1.i26.i.i.i
-  %13 = load i64, ptr %8, align 8, !tbaa !30
-  %or.i33.i.i.i = or i64 %13, %shr.i27.i.i.i
+  %12 = load i64, ptr %8, align 8, !tbaa !30
+  %or.i33.i.i.i = or i64 %12, %shr.i27.i.i.i
   store i64 %or.i33.i.i.i, ptr %8, align 8, !tbaa !30
   br label %invoke.cont17
 

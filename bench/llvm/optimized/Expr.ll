@@ -30557,22 +30557,22 @@ _ZSt4copyIPKN5clang18DesignatedInitExpr10DesignatorEPS2_ET0_T_S7_S6_.exit: ; pre
   %68 = load ptr, ptr %57, align 8, !tbaa !139
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 %63
   %gepdiff33 = sub nsw i64 %.idx31, %63
-  %70 = and i64 %9, 4294967295
-  %71 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %61, i64 %70
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %71, ptr nonnull align 8 %69, i64 %gepdiff33, i1 false)
+  %71 = and i64 %9, 4294967295
+  %72 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %61, i64 %71
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %72, ptr nonnull align 8 %69, i64 %gepdiff33, i1 false)
   %.pre = load i32, ptr %30, align 4
   br label %_ZSt4copyIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit27
 
 _ZSt4copyIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit27: ; preds = %_ZSt4copyIPKN5clang18DesignatedInitExpr10DesignatorEPS2_ET0_T_S7_S6_.exit, %67
-  %72 = phi i32 [ %64, %_ZSt4copyIPKN5clang18DesignatedInitExpr10DesignatorEPS2_ET0_T_S7_S6_.exit ], [ %.pre, %67 ]
+  %73 = phi i32 [ %64, %_ZSt4copyIPKN5clang18DesignatedInitExpr10DesignatorEPS2_ET0_T_S7_S6_.exit ], [ %.pre, %67 ]
   store ptr %.0.i.i.i.i, ptr %57, align 8, !tbaa !139
-  %73 = shl i32 %10, 1
-  %74 = add i32 %73, 65534
-  %75 = add i32 %72, %74
-  %76 = and i32 %75, 65534
-  %77 = and i32 %72, -65535
-  %78 = or disjoint i32 %76, %77
-  store i32 %78, ptr %30, align 4
+  %74 = shl i32 %10, 1
+  %75 = add i32 %74, 65534
+  %76 = add i32 %73, %75
+  %77 = and i32 %76, 65534
+  %78 = and i32 %73, -65535
+  %79 = or disjoint i32 %77, %78
+  store i32 %79, ptr %30, align 4
   br label %_ZSt13copy_backwardIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit
 
 _ZSt13copy_backwardIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit: ; preds = %22, %11, %_ZSt4copyIPN5clang18DesignatedInitExpr10DesignatorES3_ET0_T_S5_S4_.exit27, %24

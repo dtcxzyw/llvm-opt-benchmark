@@ -3491,7 +3491,7 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 1280
   %28 = load ptr, ptr %27, align 64
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %.thread184, !prof !9
+  br i1 %29, label %30, label %.thread185, !prof !9
 
 30:                                               ; preds = %26
   tail call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #13, !srcloc !10
@@ -3499,14 +3499,14 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
   tail call void asm sideeffect "464: nop\0A\09.pushsection .discard.instr_end\0A\09.long 464b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 464) #13, !srcloc !12
   %.pre = load ptr, ptr %18, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 104
-  %.pre148 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert149 = getelementptr inbounds nuw i8, ptr %.pre148, i64 100
-  %.pre150 = load i32, ptr %.phi.trans.insert149, align 4
-  %.pre175 = and i32 %.pre150, 1024
-  %31 = icmp eq i32 %.pre175, 0
-  br i1 %31, label %.thread, label %.thread184
+  %.pre149 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert150 = getelementptr inbounds nuw i8, ptr %.pre149, i64 100
+  %.pre151 = load i32, ptr %.phi.trans.insert150, align 4
+  %.pre176 = and i32 %.pre151, 1024
+  %31 = icmp eq i32 %.pre176, 0
+  br i1 %31, label %.thread, label %.thread185
 
-.thread184:                                       ; preds = %26, %30
+.thread185:                                       ; preds = %26, %30
   %32 = phi ptr [ %.pre, %30 ], [ %19, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1280
   %34 = load ptr, ptr %33, align 64
@@ -3515,7 +3515,7 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
   %spec.select = select i1 %.not, i32 0, i32 -12
   br label %.thread
 
-.thread:                                          ; preds = %3, %.thread184, %30
+.thread:                                          ; preds = %3, %.thread185, %30
   %35 = phi i1 [ true, %30 ], [ %.not, %.thread184 ], [ true, %3 ]
   %36 = phi i32 [ 0, %30 ], [ %spec.select, %.thread184 ], [ 0, %3 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false), !annotation !13
@@ -3556,11 +3556,11 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %60, label %.thread87.thread90, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %59
-  %.pre151 = load ptr, ptr %37, align 8
+  %.pre152 = load ptr, ptr %37, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %.thread, %53
-  %61 = phi ptr [ %.pre151, %..critedge_crit_edge ], [ %38, %.thread ], [ %38, %53 ]
+  %61 = phi ptr [ %.pre152, %..critedge_crit_edge ], [ %38, %.thread ], [ %38, %53 ]
   store i32 0, ptr %11, align 4, !annotation !13
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 872
   %63 = load ptr, ptr %62, align 8
@@ -3591,7 +3591,7 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br label %81
 
-81:                                               ; preds = %.loopexit95, %74
+81:                                               ; preds = %.loopexit96, %74
   %82 = call fastcc ptr @dx_probe(ptr noundef nonnull %10, ptr noundef %15, ptr noundef null, ptr noundef nonnull %7)
   %83 = icmp ugt ptr %82, inttoptr (i64 -4096 to ptr)
   br i1 %83, label %84, label %87
@@ -3599,7 +3599,7 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
 84:                                               ; preds = %81
   %85 = ptrtoint ptr %82 to i64
   %86 = trunc i64 %85 to i32
-  br label %.loopexit96
+  br label %.loopexit97
 
 87:                                               ; preds = %81
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -3877,16 +3877,16 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
   call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #13, !srcloc !10
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 3269, i32 2307, i64 12) #13, !srcloc !11
   call void asm sideeffect "464: nop\0A\09.pushsection .discard.instr_end\0A\09.long 464b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 464) #13, !srcloc !12
-  %.pre152 = load ptr, ptr %259, align 8
-  %.phi.trans.insert153 = getelementptr inbounds nuw i8, ptr %.pre152, i64 104
-  %.pre154 = load ptr, ptr %.phi.trans.insert153, align 8
-  %.phi.trans.insert155 = getelementptr inbounds nuw i8, ptr %.pre154, i64 100
-  %.pre156 = load i32, ptr %.phi.trans.insert155, align 4
+  %.pre153 = load ptr, ptr %259, align 8
+  %.phi.trans.insert154 = getelementptr inbounds nuw i8, ptr %.pre153, i64 104
+  %.pre155 = load ptr, ptr %.phi.trans.insert154, align 8
+  %.phi.trans.insert156 = getelementptr inbounds nuw i8, ptr %.pre155, i64 100
+  %.pre157 = load i32, ptr %.phi.trans.insert156, align 4
   br label %272
 
 272:                                              ; preds = %271, %267, %257
-  %273 = phi i32 [ %.pre156, %271 ], [ %264, %267 ], [ %264, %257 ]
-  %274 = phi ptr [ %.pre152, %271 ], [ %260, %267 ], [ %260, %257 ]
+  %273 = phi i32 [ %.pre157, %271 ], [ %264, %267 ], [ %264, %257 ]
+  %274 = phi ptr [ %.pre153, %271 ], [ %260, %267 ], [ %260, %257 ]
   %275 = and i32 %273, 1024
   %276 = icmp eq i32 %275, 0
   br i1 %276, label %.thread62, label %279
@@ -4005,7 +4005,7 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   %329 = phi i32 [ 0, %.thread78 ], [ %323, %326 ], [ %323, %321 ]
   %330 = load ptr, ptr %7, align 16
   %331 = icmp eq ptr %330, null
-  br i1 %331, label %.loopexit95, label %332
+  br i1 %331, label %.loopexit96, label %332
 
 332:                                              ; preds = %327
   %333 = getelementptr inbounds nuw i8, ptr %330, i64 40
@@ -4020,29 +4020,29 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   %340 = getelementptr %struct.dx_frame, ptr %7, i64 %339
   %341 = load ptr, ptr %340, align 8
   %342 = icmp eq ptr %341, null
-  br i1 %342, label %.loopexit95, label %343
+  br i1 %342, label %.loopexit96, label %343
 
 343:                                              ; preds = %338
   call void @__brelse(ptr noundef nonnull %341) #13
   store ptr null, ptr %340, align 8
   %344 = add nuw nsw i64 %339, 1
   %345 = icmp eq i64 %339, %337
-  br i1 %345, label %.loopexit95, label %338, !llvm.loop !25
+  br i1 %345, label %.loopexit96, label %338, !llvm.loop !25
 
-.loopexit95:                                      ; preds = %343, %338, %327
+.loopexit96:                                      ; preds = %343, %338, %327
   %346 = icmp ne i32 %329, 0
   %347 = icmp eq i32 %328, 0
   %348 = select i1 %346, i1 %347, i1 false
-  br i1 %348, label %81, label %.loopexit96
+  br i1 %348, label %81, label %.loopexit97
 
-.loopexit96:                                      ; preds = %.loopexit95, %84
+.loopexit97:                                      ; preds = %.loopexit96, %84
   %349 = phi i32 [ %86, %84 ], [ %328, %.loopexit95 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #13
   %350 = icmp eq i32 %349, -4094
   br i1 %350, label %351, label %.thread87
 
-351:                                              ; preds = %.loopexit96
+351:                                              ; preds = %.loopexit97
   %352 = getelementptr inbounds nuw i8, ptr %38, i64 872
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 104
@@ -4057,33 +4057,33 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   %361 = getelementptr inbounds nuw i8, ptr %353, i64 1280
   %362 = load ptr, ptr %361, align 64
   %363 = icmp eq ptr %362, null
-  br i1 %363, label %364, label %.thread188, !prof !9
+  br i1 %363, label %364, label %.thread189, !prof !9
 
 364:                                              ; preds = %360
   call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #13, !srcloc !10
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 3269, i32 2307, i64 12) #13, !srcloc !11
   call void asm sideeffect "464: nop\0A\09.pushsection .discard.instr_end\0A\09.long 464b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 464) #13, !srcloc !12
-  %.pre157 = load ptr, ptr %352, align 8
-  %.phi.trans.insert158 = getelementptr inbounds nuw i8, ptr %.pre157, i64 104
-  %.pre159 = load ptr, ptr %.phi.trans.insert158, align 8
-  %.phi.trans.insert160 = getelementptr inbounds nuw i8, ptr %.pre159, i64 100
-  %.pre161 = load i32, ptr %.phi.trans.insert160, align 4
-  %.pre180 = and i32 %.pre161, 1024
-  %365 = icmp eq i32 %.pre180, 0
-  br i1 %365, label %.critedge58, label %.thread188
+  %.pre158 = load ptr, ptr %352, align 8
+  %.phi.trans.insert159 = getelementptr inbounds nuw i8, ptr %.pre158, i64 104
+  %.pre160 = load ptr, ptr %.phi.trans.insert159, align 8
+  %.phi.trans.insert161 = getelementptr inbounds nuw i8, ptr %.pre160, i64 100
+  %.pre162 = load i32, ptr %.phi.trans.insert161, align 4
+  %.pre181 = and i32 %.pre162, 1024
+  %365 = icmp eq i32 %.pre181, 0
+  br i1 %365, label %.critedge58, label %.thread189
 
-.thread188:                                       ; preds = %360, %364
-  %366 = phi ptr [ %.pre157, %364 ], [ %353, %360 ]
+.thread189:                                       ; preds = %360, %364
+  %366 = phi ptr [ %.pre158, %364 ], [ %353, %360 ]
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 1280
   %368 = load ptr, ptr %367, align 64
   %.not55 = icmp eq ptr %368, null
   br i1 %.not55, label %.critedge58, label %369
 
-369:                                              ; preds = %.thread188
+369:                                              ; preds = %.thread189
   call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %15, ptr noundef nonnull @__func__.ext4_add_entry, i32 noundef 2422, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.34) #13
   br label %.thread87.thread
 
-.critedge58:                                      ; preds = %351, %364, %.thread188
+.critedge58:                                      ; preds = %351, %364, %.thread189
   %370 = getelementptr i8, ptr %15, i64 -215
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %370, i32 -17, ptr elementtype(i8) %370) #13, !srcloc !42
   %371 = call i32 @__ext4_mark_inode_dirty(ptr noundef %0, ptr noundef %15, ptr noundef nonnull @__func__.ext4_add_entry, i32 noundef 2428) #13
@@ -4167,23 +4167,23 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   %421 = getelementptr inbounds nuw i8, ptr %413, i64 1280
   %422 = load ptr, ptr %421, align 64
   %423 = icmp eq ptr %422, null
-  br i1 %423, label %424, label %.thread192, !prof !9
+  br i1 %423, label %424, label %.thread193, !prof !9
 
 424:                                              ; preds = %420
   call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #13, !srcloc !10
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 3269, i32 2307, i64 12) #13, !srcloc !11
   call void asm sideeffect "464: nop\0A\09.pushsection .discard.instr_end\0A\09.long 464b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 464) #13, !srcloc !12
-  %.pre162 = load ptr, ptr %412, align 8
-  %.phi.trans.insert163 = getelementptr inbounds nuw i8, ptr %.pre162, i64 104
-  %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8
-  %.phi.trans.insert165 = getelementptr inbounds nuw i8, ptr %.pre164, i64 100
-  %.pre166 = load i32, ptr %.phi.trans.insert165, align 4
-  %.pre176 = and i32 %.pre166, 1024
-  %425 = icmp eq i32 %.pre176, 0
-  br i1 %425, label %.thread80, label %.thread192
+  %.pre163 = load ptr, ptr %412, align 8
+  %.phi.trans.insert164 = getelementptr inbounds nuw i8, ptr %.pre163, i64 104
+  %.pre165 = load ptr, ptr %.phi.trans.insert164, align 8
+  %.phi.trans.insert166 = getelementptr inbounds nuw i8, ptr %.pre165, i64 100
+  %.pre167 = load i32, ptr %.phi.trans.insert166, align 4
+  %.pre177 = and i32 %.pre167, 1024
+  %425 = icmp eq i32 %.pre177, 0
+  br i1 %425, label %.thread80, label %.thread193
 
-.thread192:                                       ; preds = %420, %424
-  %426 = phi ptr [ %.pre162, %424 ], [ %413, %420 ]
+.thread193:                                       ; preds = %420, %424
+  %426 = phi ptr [ %.pre163, %424 ], [ %413, %420 ]
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 1280
   %428 = load ptr, ptr %427, align 64
   %.fr94 = freeze ptr %428
@@ -4191,7 +4191,7 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   %spec.select92 = select i1 %.not56, i64 0, i64 4294967284
   br label %.thread80
 
-.thread80:                                        ; preds = %410, %.thread192, %424
+.thread80:                                        ; preds = %410, %.thread193, %424
   %429 = phi i1 [ true, %424 ], [ %.not56, %.thread192 ], [ true, %410 ]
   %430 = phi i64 [ 0, %424 ], [ %spec.select92, %.thread192 ], [ 0, %410 ]
   %431 = load ptr, ptr %37, align 8
@@ -4385,36 +4385,36 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   %548 = load i32, ptr %547, align 4
   %549 = and i32 %548, 1024
   %550 = icmp eq i32 %549, 0
-  br i1 %550, label %.thread194, label %551
+  br i1 %550, label %.thread195, label %551
 
 551:                                              ; preds = %534
   %552 = getelementptr inbounds nuw i8, ptr %544, i64 1280
   %553 = load ptr, ptr %552, align 64
   %554 = icmp eq ptr %553, null
-  br i1 %554, label %555, label %.thread196, !prof !9
+  br i1 %554, label %555, label %.thread197, !prof !9
 
 555:                                              ; preds = %551
   call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #13, !srcloc !10
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 3269, i32 2307, i64 12) #13, !srcloc !11
   call void asm sideeffect "464: nop\0A\09.pushsection .discard.instr_end\0A\09.long 464b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 464) #13, !srcloc !12
-  %.pre167 = load ptr, ptr %543, align 8
-  %.phi.trans.insert168 = getelementptr inbounds nuw i8, ptr %.pre167, i64 104
-  %.pre169 = load ptr, ptr %.phi.trans.insert168, align 8
-  %.phi.trans.insert170 = getelementptr inbounds nuw i8, ptr %.pre169, i64 100
-  %.pre171 = load i32, ptr %.phi.trans.insert170, align 4
-  %.pre178 = and i32 %.pre171, 1024
-  %556 = icmp eq i32 %.pre178, 0
-  br i1 %556, label %.thread194, label %.thread196
+  %.pre168 = load ptr, ptr %543, align 8
+  %.phi.trans.insert169 = getelementptr inbounds nuw i8, ptr %.pre168, i64 104
+  %.pre170 = load ptr, ptr %.phi.trans.insert169, align 8
+  %.phi.trans.insert171 = getelementptr inbounds nuw i8, ptr %.pre170, i64 100
+  %.pre172 = load i32, ptr %.phi.trans.insert171, align 4
+  %.pre179 = and i32 %.pre172, 1024
+  %556 = icmp eq i32 %.pre179, 0
+  br i1 %556, label %.thread195, label %.thread197
 
-.thread196:                                       ; preds = %551, %555
-  %557 = phi ptr [ %.pre167, %555 ], [ %544, %551 ]
+.thread197:                                       ; preds = %551, %555
+  %557 = phi ptr [ %.pre168, %555 ], [ %544, %551 ]
   %558 = getelementptr inbounds nuw i8, ptr %557, i64 1280
   %559 = load ptr, ptr %558, align 64
   %560 = icmp eq ptr %559, null
   %561 = select i1 %560, i64 -24, i64 4294967264
-  br label %.thread194
+  br label %.thread195
 
-.thread194:                                       ; preds = %534, %.thread196, %555
+.thread195:                                       ; preds = %534, %.thread197, %555
   %562 = phi i64 [ -24, %555 ], [ %561, %.thread196 ], [ -24, %534 ]
   %563 = add i64 %542, 524280
   %564 = add i64 %563, %562
@@ -4427,19 +4427,19 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   %570 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 %568, ptr %570, align 8
   %571 = icmp ult i8 %567, 3
-  %.pre172 = load ptr, ptr %37, align 8
-  %572 = getelementptr inbounds nuw i8, ptr %.pre172, i64 872
+  %.pre173 = load ptr, ptr %37, align 8
+  %572 = getelementptr inbounds nuw i8, ptr %.pre173, i64 872
   %573 = load ptr, ptr %572, align 8
   br i1 %571, label %574, label %._crit_edge
 
-574:                                              ; preds = %.thread194
+574:                                              ; preds = %.thread195
   %575 = getelementptr inbounds nuw i8, ptr %573, i64 216
   %576 = load i32, ptr %575, align 8
   %577 = add i32 %576, %568
   store i32 %577, ptr %570, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread194, %574
+._crit_edge:                                      ; preds = %.thread195, %574
   %578 = getelementptr inbounds nuw i8, ptr %573, i64 196
   %579 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %578, ptr %579, align 8
@@ -4627,7 +4627,7 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   call void @__brelse(ptr noundef nonnull %676) #13
   br label %.thread87
 
-.thread87:                                        ; preds = %635, %395, %645, %.loopexit96, %.thread88, %672
+.thread87:                                        ; preds = %635, %395, %645, %.loopexit97, %.thread88, %672
   %677 = phi i32 [ %675, %.thread88 ], [ %673, %672 ], [ %636, %635 ], [ %397, %395 ], [ %647, %645 ], [ %349, %.loopexit96 ]
   %678 = icmp eq i32 %677, 0
   br i1 %678, label %.thread87.thread90, label %.thread87.thread

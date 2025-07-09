@@ -2853,17 +2853,17 @@ while.body.i.i.preheader:                         ; preds = %entry
   %1 = load ptr, ptr %chars_, align 8
   %conv.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 2
-  %2 = getelementptr i8, ptr %1, i64 %add.ptr.i.idx
-  %__last.addr.08.i.i = getelementptr i8, ptr %2, i64 -4
+  %add.ptr.i = getelementptr i8, ptr %1, i64 %add.ptr.i.idx
+  %__last.addr.08.i.i = getelementptr i8, ptr %add.ptr.i, i64 -4
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.body.i.i
   %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %__last.addr.08.i.i, %while.body.i.i.preheader ]
   %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %1, %while.body.i.i.preheader ]
-  %3 = load i32, ptr %__first.addr.010.i.i, align 4
-  %4 = load i32, ptr %__last.addr.011.i.i, align 4
-  store i32 %4, ptr %__first.addr.010.i.i, align 4
-  store i32 %3, ptr %__last.addr.011.i.i, align 4
+  %2 = load i32, ptr %__first.addr.010.i.i, align 4
+  %3 = load i32, ptr %__last.addr.011.i.i, align 4
+  store i32 %3, ptr %__first.addr.010.i.i, align 4
+  store i32 %2, ptr %__last.addr.011.i.i, align 4
   %incdec.ptr2.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.010.i.i, i64 4
   %__last.addr.0.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i, i64 -4
   %cmp1.i.i = icmp ult ptr %incdec.ptr2.i.i, %__last.addr.0.i.i
