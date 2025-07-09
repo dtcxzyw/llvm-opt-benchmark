@@ -18324,8 +18324,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit55:              ; preds = %208, %214, %221
   %.1 = phi i32 [ %241, %237 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55 ]
   %.fr = freeze i32 %137
   %.not32 = icmp eq i32 %173, 0
-  %242 = call i32 @llvm.usub.sat.i32(i32 %173, i32 %.0129)
-  %.0130 = select i1 %.not32, i32 0, i32 %242
+  %241 = call i32 @llvm.usub.sat.i32(i32 %173, i32 %.0129)
+  %.0130 = select i1 %.not32, i32 0, i32 %241
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.1, i32 %.fr)
   %.0132 = sub i32 %.fr, %.sroa.speculated
   %.not34 = icmp eq i32 %.0130, 0
@@ -18337,11 +18337,11 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit55:              ; preds = %208, %214, %221
   %246 = add i32 %245, %101
   %247 = add i32 %246, %.fr
   %248 = add i32 %244, 1
-  %spec.select = select i1 %.not33, i32 1, i32 %248
-  %249 = add i32 %spec.select, %.1131
-  %250 = lshr i32 %249, 1
-  %251 = add i32 %247, %250
-  ret i32 %251
+  %249 = select i1 %.not33, i32 1, i32 %248
+  %250 = add i32 %249, %.1131
+  %251 = lshr i32 %250, 1
+  %252 = add i32 %247, %251
+  ret i32 %252
 }
 
 ; Function Attrs: mustprogress uwtable
