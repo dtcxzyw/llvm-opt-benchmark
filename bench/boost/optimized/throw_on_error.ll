@@ -4931,7 +4931,7 @@ _ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEEC2ERKS5_.exit: ; 
   %15 = load i32, ptr %14, align 8, !tbaa !145
   store i32 %15, ptr %13, align 8, !tbaa !145
   invoke void @_ZN5boost9algorithm6detail18find_iterator_baseIPcEC2INS1_13token_finderFINS1_10is_any_ofFIcEEEEEET_i(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %5, i32 noundef 0)
-          to label %16 unwind label %46
+          to label %16 unwind label %44
 
 16:                                               ; preds = %_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEEC2ERKS5_.exit
   %17 = load i64, ptr %6, align 8, !tbaa !123
@@ -4959,12 +4959,12 @@ _ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEEC2ERKS5_.exit: ; 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %27, align 8, !tbaa !165
   %.not = icmp eq ptr %1, %2
-  br i1 %.not, label %55, label %28
+  br i1 %.not, label %53, label %28
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %0, align 8, !tbaa !151
   %.not.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i, label %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i, label %_ZNK5boost10function_nINS_14iterator_rangeIPcEEJS2_S2_EEclES2_S2_.exit.i.i
+  br i1 %.not.i.i.i, label %_ZN5boost9algorithm14split_iteratorIPcE9incrementEv.exit, label %_ZNK5boost10function_nINS_14iterator_rangeIPcEEJS2_S2_EEclES2_S2_.exit.i.i
 
 _ZNK5boost10function_nINS_14iterator_rangeIPcEEJS2_S2_EEclES2_S2_.exit.i.i: ; preds = %28
   %30 = ptrtoint ptr %29 to i64
@@ -4974,65 +4974,60 @@ _ZNK5boost10function_nINS_14iterator_rangeIPcEEJS2_S2_EEclES2_S2_.exit.i.i: ; pr
   %34 = load ptr, ptr %33, align 8, !tbaa !171
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = invoke { ptr, ptr } %34(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef %1, ptr noundef %2)
-          to label %.noexc unwind label %53
+          to label %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i unwind label %51
 
-.noexc:                                           ; preds = %_ZNK5boost10function_nINS_14iterator_rangeIPcEEJS2_S2_EEclES2_S2_.exit.i.i
+_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i: ; preds = %_ZNK5boost10function_nINS_14iterator_rangeIPcEEJS2_S2_EEclES2_S2_.exit.i.i
   %37 = extractvalue { ptr, ptr } %36, 0
   %38 = extractvalue { ptr, ptr } %36, 1
   %.pre.i = load ptr, ptr %26, align 8, !tbaa !164
   %.pre = load ptr, ptr %24, align 8
-  br label %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i
+  %39 = icmp eq ptr %.pre, %.pre.i
+  %40 = icmp eq ptr %37, %.pre.i
+  %41 = icmp eq ptr %38, %.pre.i
+  %or.cond.i = select i1 %40, i1 %41, i1 false
+  %or.cond7.i = select i1 %or.cond.i, i1 %39, i1 false
+  br i1 %or.cond7.i, label %42, label %_ZN5boost9algorithm14split_iteratorIPcE9incrementEv.exit
 
-_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i: ; preds = %.noexc, %28
-  %39 = phi ptr [ %.pre, %.noexc ], [ %1, %28 ]
-  %40 = phi ptr [ %.pre.i, %.noexc ], [ %2, %28 ]
-  %.sroa.3.0.i.i = phi ptr [ %38, %.noexc ], [ %2, %28 ]
-  %.sroa.0.0.i.i = phi ptr [ %37, %.noexc ], [ %2, %28 ]
-  %41 = icmp eq ptr %.sroa.0.0.i.i, %40
-  %42 = icmp eq ptr %.sroa.3.0.i.i, %40
-  %or.cond.i = select i1 %41, i1 %42, i1 false
-  %43 = icmp eq ptr %39, %40
-  %or.cond7.i = select i1 %or.cond.i, i1 %43, i1 false
-  br i1 %or.cond7.i, label %44, label %_ZN5boost9algorithm14split_iteratorIPcE9incrementEv.exit
-
-44:                                               ; preds = %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i
+42:                                               ; preds = %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i
   store i8 1, ptr %27, align 8, !tbaa !165
   br label %_ZN5boost9algorithm14split_iteratorIPcE9incrementEv.exit
 
-_ZN5boost9algorithm14split_iteratorIPcE9incrementEv.exit: ; preds = %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i, %44
-  %45 = load ptr, ptr %25, align 8, !tbaa !156
-  store ptr %45, ptr %23, align 8
-  store ptr %.sroa.0.0.i.i, ptr %24, align 8
-  store ptr %.sroa.3.0.i.i, ptr %25, align 8, !tbaa !156
-  br label %55
+_ZN5boost9algorithm14split_iteratorIPcE9incrementEv.exit: ; preds = %28, %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i, %42
+  %.sroa.0.0.i.i17 = phi ptr [ %37, %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i ], [ %37, %42 ], [ %2, %28 ]
+  %.sroa.3.0.i.i16 = phi ptr [ %38, %_ZNK5boost9algorithm6detail18find_iterator_baseIPcE7do_findES3_S3_.exit.i ], [ %38, %42 ], [ %2, %28 ]
+  %43 = load ptr, ptr %25, align 8, !tbaa !156
+  store ptr %43, ptr %23, align 8
+  store ptr %.sroa.0.0.i.i17, ptr %24, align 8
+  store ptr %.sroa.3.0.i.i16, ptr %25, align 8, !tbaa !156
+  br label %53
 
-46:                                               ; preds = %_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEEC2ERKS5_.exit
-  %47 = landingpad { ptr, i32 }
+44:                                               ; preds = %_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEEC2ERKS5_.exit
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %48 = load i64, ptr %6, align 8, !tbaa !123
-  %49 = icmp ult i64 %48, 17
-  br i1 %49, label %_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEED2Ev.exit11, label %50
+  %46 = load i64, ptr %6, align 8, !tbaa !123
+  %47 = icmp ult i64 %46, 17
+  br i1 %47, label %_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEED2Ev.exit11, label %48
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %5, align 8, !tbaa !35
-  %.not.i.i10 = icmp eq ptr %51, null
-  br i1 %.not.i.i10, label %_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEED2Ev.exit11, label %52
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %5, align 8, !tbaa !35
+  %.not.i.i10 = icmp eq ptr %49, null
+  br i1 %.not.i.i10, label %_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEED2Ev.exit11, label %50
 
-52:                                               ; preds = %50
-  call void @_ZdaPv(ptr noundef nonnull %51) #33
+50:                                               ; preds = %48
+  call void @_ZdaPv(ptr noundef nonnull %49) #33
   br label %_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEED2Ev.exit11
 
-53:                                               ; preds = %_ZNK5boost10function_nINS_14iterator_rangeIPcEEJS2_S2_EEclES2_S2_.exit.i.i
-  %54 = landingpad { ptr, i32 }
+51:                                               ; preds = %_ZNK5boost10function_nINS_14iterator_rangeIPcEEJS2_S2_EEclES2_S2_.exit.i.i
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost9algorithm6detail18find_iterator_baseIPcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #31
   br label %_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEED2Ev.exit11
 
-55:                                               ; preds = %_ZN5boost9algorithm14split_iteratorIPcE9incrementEv.exit, %22
+53:                                               ; preds = %_ZN5boost9algorithm14split_iteratorIPcE9incrementEv.exit, %22
   ret void
 
-_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEED2Ev.exit11: ; preds = %52, %50, %46, %53
-  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %47, %46 ], [ %47, %50 ], [ %47, %52 ]
+_ZN5boost9algorithm6detail13token_finderFINS1_10is_any_ofFIcEEED2Ev.exit11: ; preds = %50, %48, %44, %51
+  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %45, %44 ], [ %45, %48 ], [ %45, %50 ]
   resume { ptr, i32 } %.pn
 }
 

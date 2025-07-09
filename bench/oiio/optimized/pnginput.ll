@@ -3255,7 +3255,7 @@ _ZN11OpenImageIO6v3_1_010ImageInput13seek_subimageEii.exit: ; preds = %15
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %54 = load i32, ptr %53, align 8, !tbaa !67
   %55 = icmp sgt i32 %54, %26
-  br i1 %55, label %56, label %178
+  br i1 %55, label %56, label %.lr.ph
 
 56:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7) #28
@@ -3343,7 +3343,7 @@ _ZNK11OpenImageIO6v3_1_08PNGInput16current_subimageEv.exit: ; preds = %.noexc50
 
 _ZN11OpenImageIO6v3_1_010ImageInput13seek_subimageEii.exit53: ; preds = %89
   %94 = icmp eq i32 %2, %93
-  br i1 %94, label %.critedge, label %_ZN11OpenImageIO6v3_1_010ImageInput13seek_subimageEii.exit53.thread
+  br i1 %94, label %178, label %_ZN11OpenImageIO6v3_1_010ImageInput13seek_subimageEii.exit53.thread
 
 95:                                               ; preds = %89, %83, %_ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit, %79, %_ZNK11OpenImageIO6v3_1_08PNGInput16current_subimageEv.exit
   %96 = landingpad { ptr, i32 }
@@ -3351,14 +3351,6 @@ _ZN11OpenImageIO6v3_1_010ImageInput13seek_subimageEii.exit53: ; preds = %89
   call void @_ZN11OpenImageIO6v3_1_09ImageSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %8) #28
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8) #28
   br label %177
-
-.critedge:                                        ; preds = %_ZN11OpenImageIO6v3_1_010ImageInput13seek_subimageEii.exit53
-  call void @_ZN11OpenImageIO6v3_1_09ImageSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %8) #28
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8) #28
-  call void @_ZN11OpenImageIO6v3_1_09ImageSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #28
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #28
-  %.pre = load i32, ptr %53, align 8, !tbaa !67
-  br label %178
 
 _ZN11OpenImageIO6v3_1_010ImageInput13seek_subimageEii.exit53.thread: ; preds = %.noexc51, %82, %_ZN11OpenImageIO6v3_1_010ImageInput13seek_subimageEii.exit53
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 136
@@ -3569,12 +3561,16 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit76:     ; preds = %_ZNSt6vectorINSt7__
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #28
   br label %243
 
-178:                                              ; preds = %.critedge, %52
-  %179 = phi i32 [ %.pre, %.critedge ], [ %54, %52 ]
-  %.not3394 = icmp sgt i32 %179, %26
-  br i1 %.not3394, label %.loopexit, label %.lr.ph
+178:                                              ; preds = %_ZN11OpenImageIO6v3_1_010ImageInput13seek_subimageEii.exit53
+  call void @_ZN11OpenImageIO6v3_1_09ImageSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %8) #28
+  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8) #28
+  call void @_ZN11OpenImageIO6v3_1_09ImageSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #28
+  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #28
+  %.pre = load i32, ptr %53, align 8, !tbaa !67
+  %179 = icmp sgt i32 %.pre, %26
+  br i1 %179, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %178
+.lr.ph:                                           ; preds = %52, %178
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %181 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 295

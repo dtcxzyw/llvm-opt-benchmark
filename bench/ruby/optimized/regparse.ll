@@ -5333,7 +5333,7 @@ get_name_end_code_point.exit:                     ; preds = %7, %11, %12, %13, %
   %.1110 = phi ptr [ %.0172, %71 ], [ %2, %.preheader ], [ %.0172, %80 ]
   %.1 = phi ptr [ %68, %71 ], [ %38, %.preheader ], [ %68, %80 ]
   %.not139 = icmp eq i32 %.1116, %.0.i
-  br i1 %.not139, label %81, label %147
+  br i1 %.not139, label %81, label %._crit_edge181
 
 81:                                               ; preds = %.loopexit
   %.not140 = icmp eq i32 %.1122166, 0
@@ -5345,7 +5345,7 @@ get_name_end_code_point.exit:                     ; preds = %7, %11, %12, %13, %
 
 .thread156:                                       ; preds = %82
   store i32 0, ptr %5, align 4, !tbaa !11
-  br label %147
+  br label %._crit_edge181
 
 .lr.ph.i:                                         ; preds = %82
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -5416,7 +5416,7 @@ onig_scan_unsigned_number.exit:                   ; preds = %100, %113
 
 117:                                              ; preds = %onig_scan_unsigned_number.exit
   %118 = icmp eq i32 %.031.i, 0
-  br i1 %118, label %147, label %119
+  br i1 %118, label %._crit_edge181, label %119
 
 119:                                              ; preds = %117
   %120 = mul nsw i32 %.031.i, %.0120151.ph
@@ -5430,7 +5430,6 @@ onig_scan_unsigned_number.exit:                   ; preds = %100, %113
 
 .thread:                                          ; preds = %47, %44, %77, %71
   %.1118 = phi i32 [ -215, %71 ], [ %.144, %77 ], [ -215, %44 ], [ -215, %47 ]
-  %.2111 = phi ptr [ %.0172, %71 ], [ %.0172, %77 ], [ %2, %44 ], [ %2, %47 ]
   %.2 = phi ptr [ %68, %71 ], [ %68, %77 ], [ %38, %44 ], [ %38, %47 ]
   %.not141176 = icmp ult ptr %.2, %2
   br i1 %.not141176, label %.lr.ph178, label %._crit_edge181
@@ -5440,8 +5439,7 @@ onig_scan_unsigned_number.exit:                   ; preds = %100, %113
   br label %124
 
 123:                                              ; preds = %140
-  %.not141 = icmp ult ptr %143, %2
-  br i1 %.not141, label %124, label %._crit_edge181, !llvm.loop !119
+  br i1 %146, label %124, label %._crit_edge181, !llvm.loop !119
 
 124:                                              ; preds = %.lr.ph178, %123
   %.3177 = phi ptr [ %.2, %.lr.ph178 ], [ %143, %123 ]
@@ -5478,21 +5476,16 @@ onig_scan_unsigned_number.exit:                   ; preds = %100, %113
   %144 = icmp eq i32 %135, %.0.i
   %145 = icmp eq i32 %135, 41
   %or.cond3 = or i1 %144, %145
+  %146 = icmp ult ptr %143, %2
   br i1 %or.cond3, label %._crit_edge, label %123, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %140
+  %147 = select i1 %146, ptr %.3177, ptr %2
   br label %._crit_edge181, !llvm.loop !119
 
-._crit_edge181:                                   ; preds = %123, %._crit_edge, %.thread
-  %.5 = phi ptr [ %.3177, %._crit_edge ], [ %.2111, %.thread ], [ %.3177, %123 ]
-  %.4 = phi ptr [ %143, %._crit_edge ], [ %.2, %.thread ], [ %143, %123 ]
-  %146 = icmp ult ptr %.4, %2
-  %spec.select = select i1 %146, ptr %.5, ptr %2
-  br label %147
-
-147:                                              ; preds = %.thread156, %._crit_edge181, %117, %.loopexit
-  %.2119 = phi i32 [ -215, %.loopexit ], [ -215, %117 ], [ %.1118, %._crit_edge181 ], [ -215, %.thread156 ]
-  %.3112 = phi ptr [ %2, %.loopexit ], [ %.1110, %117 ], [ %spec.select, %._crit_edge181 ], [ %.1110, %.thread156 ]
+._crit_edge181:                                   ; preds = %123, %.thread, %._crit_edge, %.thread156, %117, %.loopexit
+  %.2119 = phi i32 [ -215, %.loopexit ], [ -215, %117 ], [ -215, %.thread156 ], [ %.1118, %._crit_edge ], [ %.1118, %.thread ], [ %.1118, %123 ]
+  %.3112 = phi ptr [ %2, %.loopexit ], [ %.1110, %117 ], [ %.1110, %.thread156 ], [ %147, %._crit_edge ], [ %2, %.thread ], [ %2, %123 ]
   %148 = load ptr, ptr %1, align 8, !tbaa !67
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %148, ptr %149, align 8, !tbaa !94
@@ -5500,8 +5493,8 @@ onig_scan_unsigned_number.exit:                   ; preds = %100, %113
   store ptr %.3112, ptr %150, align 8, !tbaa !95
   br label %151
 
-151:                                              ; preds = %onig_scan_unsigned_number.exit.thread, %onig_scan_unsigned_number.exit, %35, %get_name_end_code_point.exit, %147, %121
-  %.0114 = phi i32 [ %.2119, %147 ], [ 0, %121 ], [ -214, %get_name_end_code_point.exit ], [ -214, %35 ], [ -200, %onig_scan_unsigned_number.exit ], [ -200, %onig_scan_unsigned_number.exit.thread ]
+151:                                              ; preds = %onig_scan_unsigned_number.exit.thread, %onig_scan_unsigned_number.exit, %35, %get_name_end_code_point.exit, %._crit_edge181, %121
+  %.0114 = phi i32 [ %.2119, %._crit_edge181 ], [ 0, %121 ], [ -214, %get_name_end_code_point.exit ], [ -214, %35 ], [ -200, %onig_scan_unsigned_number.exit ], [ -200, %onig_scan_unsigned_number.exit.thread ]
   ret i32 %.0114
 }
 
@@ -10501,24 +10494,24 @@ switch.early.test.i:                              ; preds = %230
   %243 = call i32 @onigenc_mbclen(ptr noundef %224, ptr noundef %4, ptr noundef nonnull %190) #25
   %.pre.i415 = load i32, ptr %233, align 8, !tbaa !68
   %.pre176.i = load i32, ptr %235, align 4, !tbaa !45
-  %244 = sext i32 %243 to i64
-  %245 = getelementptr i8, ptr %224, i64 %244
-  %246 = icmp eq i32 %.pre.i415, %.pre176.i
-  br i1 %246, label %247, label %251
+  %244 = icmp eq i32 %.pre.i415, %.pre176.i
+  %245 = sext i32 %243 to i64
+  %246 = getelementptr i8, ptr %224, i64 %245
+  br i1 %244, label %247, label %251
 
 247:                                              ; preds = %242, %.thread178.i
-  %248 = phi ptr [ %241, %.thread178.i ], [ %245, %242 ]
+  %248 = phi ptr [ %241, %.thread178.i ], [ %246, %242 ]
   %249 = phi i32 [ %234, %.thread178.i ], [ %.pre.i415, %242 ]
   %250 = icmp ult ptr %248, %4
   %spec.select160.i = select i1 %250, i32 %249, i32 0
   br label %parse_posix_bracket.exit.thread460.thread567
 
 251:                                              ; preds = %242
-  %252 = call i32 @onigenc_mbclen(ptr noundef %245, ptr noundef %4, ptr noundef nonnull %190) #25
+  %252 = call i32 @onigenc_mbclen(ptr noundef %246, ptr noundef %4, ptr noundef nonnull %190) #25
   br label %parse_posix_bracket.exit.thread460.thread567
 
 parse_posix_bracket.exit.thread460.thread567:     ; preds = %247, %251
-  %253 = phi ptr [ %245, %251 ], [ %248, %247 ]
+  %253 = phi ptr [ %246, %251 ], [ %248, %247 ]
   %254 = phi i32 [ %252, %251 ], [ %spec.select160.i, %247 ]
   %255 = sext i32 %254 to i64
   %256 = getelementptr i8, ptr %253, i64 %255

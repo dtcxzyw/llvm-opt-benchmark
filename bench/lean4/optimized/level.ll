@@ -4886,7 +4886,7 @@ _ZN4lean4kindERKNS_5levelE.exit.i:                ; preds = %.loopexit288, %tail
   %.val.i.i.i = load i32, ptr %200, align 4
   %201 = lshr i32 %.val.i.i.i, 24
   %trunc.i = trunc nuw i32 %201 to i8
-  switch i8 %trunc.i, label %.invoke350 [
+  switch i8 %trunc.i, label %.invoke347 [
     i8 0, label %_ZN4lean11is_explicitERKNS_5levelE.exit
     i8 4, label %_ZN4lean11is_explicitERKNS_5levelE.exit.thread
     i8 5, label %_ZN4lean11is_explicitERKNS_5levelE.exit.thread
@@ -4925,7 +4925,7 @@ _ZN4lean4kindERKNS_5levelE.exit.i133:             ; preds = %.lr.ph305, %tailrec
   %.val.i.i.i134 = load i32, ptr %215, align 4
   %216 = lshr i32 %.val.i.i.i134, 24
   %trunc.i135 = trunc nuw i32 %216 to i8
-  switch i8 %trunc.i135, label %.invoke350 [
+  switch i8 %trunc.i135, label %.invoke347 [
     i8 0, label %_ZN4lean11is_explicitERKNS_5levelE.exit140
     i8 4, label %.critedge
     i8 5, label %.critedge
@@ -4942,7 +4942,7 @@ tailrecurse.i136:                                 ; preds = %_ZN4lean4kindERKNS_
   %.not.i.i.i137 = icmp eq i64 %220, 0
   br i1 %.not.i.i.i137, label %_ZN4lean4kindERKNS_5levelE.exit.i133, label %_ZN4lean11is_explicitERKNS_5levelE.exit140
 
-.invoke350:                                       ; preds = %_ZN4lean4kindERKNS_5levelE.exit.i, %_ZN4lean4kindERKNS_5levelE.exit.i133
+.invoke347:                                       ; preds = %_ZN4lean4kindERKNS_5levelE.exit.i, %_ZN4lean4kindERKNS_5levelE.exit.i133
   %221 = call ptr @__cxa_allocate_exception(i64 40) #19
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 24
@@ -4952,9 +4952,9 @@ tailrecurse.i136:                                 ; preds = %_ZN4lean4kindERKNS_
   store i8 0, ptr %223, align 1, !tbaa !18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %221, align 8, !tbaa !19
   invoke void @__cxa_throw(ptr nonnull %221, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #20
-          to label %.cont351 unwind label %228
+          to label %.cont348 unwind label %228
 
-.cont351:                                         ; preds = %.invoke350
+.cont348:                                         ; preds = %.invoke347
   unreachable
 
 _ZN4lean11is_explicitERKNS_5levelE.exit140:       ; preds = %_ZN4lean4kindERKNS_5levelE.exit.i133, %tailrecurse.i136, %.lr.ph305
@@ -4963,7 +4963,7 @@ _ZN4lean11is_explicitERKNS_5levelE.exit140:       ; preds = %_ZN4lean4kindERKNS_
   %227 = icmp ugt i64 %206, %226
   br i1 %227, label %.lr.ph305, label %.critedge, !llvm.loop !102
 
-228:                                              ; preds = %.invoke350, %351, %337
+228:                                              ; preds = %.invoke347, %351, %337
   %229 = landingpad { ptr, i32 }
           cleanup
   br label %658
@@ -5084,7 +5084,7 @@ _ZN4lean10object_refD2Ev.exit151:                 ; preds = %_ZNSt4pairIN4lean5l
   %276 = add i32 %.067307, 1
   %277 = zext i32 %276 to i64
   %278 = icmp ugt i64 %.pre.pre, %277
-  br i1 %278, label %279, label %_ZN4lean10object_refD2Ev.exit163._crit_edge, !llvm.loop !103
+  br i1 %278, label %279, label %_ZN4lean10object_refD2Ev.exit163._crit_edge.loopexit, !llvm.loop !103
 
 279:                                              ; preds = %.lr.ph308, %275
   %280 = phi i64 [ %271, %.lr.ph308 ], [ %277, %275 ]
@@ -5190,7 +5190,7 @@ _ZNSt4pairIN4lean5levelEjED2Ev.exit160:           ; preds = %292, %300, %302, %3
 _ZN4lean10object_refD2Ev.exit163:                 ; preds = %_ZNSt4pairIN4lean5levelEjED2Ev.exit160, %313, %315, %316
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #19
   %.pre.pre = load i64, ptr %139, align 8, !tbaa !84
-  br i1 %.not80, label %275, label %_ZN4lean10object_refD2Ev.exit163._crit_edge
+  br i1 %.not80, label %275, label %_ZN4lean10object_refD2Ev.exit163._crit_edge.loopexit
 
 320:                                              ; preds = %241
   %321 = landingpad { ptr, i32 }
@@ -5224,11 +5224,14 @@ _ZN4lean10object_refD2Ev.exit163:                 ; preds = %_ZNSt4pairIN4lean5l
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #19
   br label %658
 
-_ZN4lean10object_refD2Ev.exit163._crit_edge:      ; preds = %275, %_ZN4lean10object_refD2Ev.exit163, %_ZN4lean10object_refD2Ev.exit151
-  %330 = phi i64 [ %272, %_ZN4lean10object_refD2Ev.exit151 ], [ %.pre.pre, %_ZN4lean10object_refD2Ev.exit163 ], [ %.pre.pre, %275 ]
-  %.lcssa = phi i64 [ %271, %_ZN4lean10object_refD2Ev.exit151 ], [ %277, %275 ], [ %280, %_ZN4lean10object_refD2Ev.exit163 ]
-  %331 = icmp ugt i64 %330, %.lcssa
-  %spec.select = select i1 %331, i32 %230, i32 %.170301
+_ZN4lean10object_refD2Ev.exit163._crit_edge.loopexit: ; preds = %_ZN4lean10object_refD2Ev.exit163, %275
+  %.lcssa.ph = phi i64 [ %277, %275 ], [ %280, %_ZN4lean10object_refD2Ev.exit163 ]
+  %330 = icmp ugt i64 %.pre.pre, %.lcssa.ph
+  %331 = select i1 %330, i32 %230, i32 %.170301
+  br label %_ZN4lean10object_refD2Ev.exit163._crit_edge
+
+_ZN4lean10object_refD2Ev.exit163._crit_edge:      ; preds = %_ZN4lean10object_refD2Ev.exit163._crit_edge.loopexit, %_ZN4lean10object_refD2Ev.exit151
+  %spec.select = phi i32 [ %.170301, %_ZN4lean10object_refD2Ev.exit151 ], [ %331, %_ZN4lean10object_refD2Ev.exit163._crit_edge.loopexit ]
   %.pre334 = load ptr, ptr %11, align 8, !tbaa !87
   %.pre335 = load i64, ptr %136, align 8, !tbaa !84
   br label %_ZN4lean11is_explicitERKNS_5levelE.exit.thread
@@ -5726,10 +5729,10 @@ _ZN4lean3incEP11lean_object.exit.i.i.i206:        ; preds = %497, %496, %494, %4
   br label %._crit_edge338.sink.split
 
 ._crit_edge338.sink.split:                        ; preds = %.noexc222, %527, %525, %516, %.noexc203, %474, %472, %463
-  %.sink352 = phi i64 [ %464, %463 ], [ %464, %472 ], [ %464, %474 ], [ %.pre2.i201, %.noexc203 ], [ %517, %516 ], [ %517, %525 ], [ %517, %527 ], [ %.pre2.i220, %.noexc222 ]
+  %.sink349 = phi i64 [ %464, %463 ], [ %464, %472 ], [ %464, %474 ], [ %.pre2.i201, %.noexc203 ], [ %517, %516 ], [ %517, %525 ], [ %517, %527 ], [ %.pre2.i220, %.noexc222 ]
   %.pre-phi.ph = phi i64 [ %418, %463 ], [ %418, %472 ], [ %418, %474 ], [ %418, %.noexc203 ], [ %490, %516 ], [ %490, %525 ], [ %490, %527 ], [ %490, %.noexc222 ]
   %.ph = phi ptr [ %.pre336, %463 ], [ %.pre336, %472 ], [ %.pre336, %474 ], [ %.pre336, %.noexc203 ], [ %489, %516 ], [ %489, %525 ], [ %489, %527 ], [ %489, %.noexc222 ]
-  %529 = add i64 %.sink352, 1
+  %529 = add i64 %.sink349, 1
   store i64 %529, ptr %136, align 8, !tbaa !84
   br label %._crit_edge338
 

@@ -1594,7 +1594,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i51:  ; preds = %_ZN9QtPrivate8RefCo
   %114 = zext i32 %108 to i64
   %115 = sub nsw i64 0, %114
   %.not126 = icmp eq i64 %113, %115
-  br i1 %.not126, label %.preheader, label %.lr.ph
+  br i1 %.not126, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader106
   %116 = sext i32 %38 to i64
@@ -1605,16 +1605,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i51:  ; preds = %_ZN9QtPrivate8RefCo
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %127
 
-.preheader.loopexit:                              ; preds = %203
+.preheader:                                       ; preds = %203
   %.pre = sub nsw i64 0, %212
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.loopexit, %.preheader106
-  %.pre-phi132 = phi i64 [ %.pre, %.preheader.loopexit ], [ %115, %.preheader106 ]
-  %.pre-phi130 = phi i64 [ %211, %.preheader.loopexit ], [ %113, %.preheader106 ]
-  %122 = phi ptr [ %207, %.preheader.loopexit ], [ %109, %.preheader106 ]
-  %.not127 = icmp eq i64 %.pre-phi130, %.pre-phi132
-  br i1 %.not127, label %._crit_edge, label %.lr.ph125
+  %122 = icmp eq i64 %211, %.pre
+  br i1 %122, label %._crit_edge, label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %.preheader
   %123 = sext i32 %38 to i64
@@ -1627,7 +1621,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i51:  ; preds = %_ZN9QtPrivate8RefCo
   %128 = phi ptr [ %109, %.lr.ph ], [ %207, %203 ]
   %.040123 = phi i64 [ 0, %.lr.ph ], [ %204, %203 ]
   %129 = icmp eq i64 %.040123, %116
-  br i1 %129, label %.invoke135, label %146
+  br i1 %129, label %.invoke136, label %146
 
 130:                                              ; preds = %53
   %131 = landingpad { ptr, i32 }
@@ -1690,7 +1684,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i51:  ; preds = %_ZN9QtPrivate8RefCo
           cleanup
   br label %.body64
 
-.loopexit.split-lp.loopexit:                      ; preds = %.invoke135, %_ZN7QStringD2Ev.exit62, %190, %189, %184, %179, %174, %169, %164, %159, %156
+.loopexit.split-lp.loopexit:                      ; preds = %.invoke136, %_ZN7QStringD2Ev.exit62, %190, %189, %184, %179, %174, %169, %164, %159, %156
   %lpad.loopexit107 = landingpad { ptr, i32 }
           cleanup
   br label %.body64
@@ -1718,14 +1712,14 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i51:  ; preds = %_ZN9QtPrivate8RefCo
   %154 = and i64 %153, %152
   %.not102 = icmp eq i64 %154, 0
   %. = select i1 %.not102, i8 75, i8 -106
-  br label %.invoke135
+  br label %.invoke136
 
-.invoke135:                                       ; preds = %127, %146
+.invoke136:                                       ; preds = %127, %146
   %155 = phi i8 [ %., %146 ], [ -1, %127 ]
   invoke void @glColor3ub(i8 noundef zeroext %155, i8 noundef zeroext %155, i8 noundef zeroext 0)
           to label %156 unwind label %.loopexit.split-lp.loopexit
 
-156:                                              ; preds = %.invoke135
+156:                                              ; preds = %.invoke136
   %157 = load ptr, ptr %117, align 8
   %158 = getelementptr inbounds %"class.vcg::Point3", ptr %157, i64 %.040123
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %18, ptr noundef nonnull align 4 dereferenceable(12) %158, i64 12, i1 false)
@@ -1855,16 +1849,16 @@ _ZN3vcg7glLabel4ModeC2Ev.exit.i:                  ; preds = %.noexc63
   %212 = zext i32 %206 to i64
   %213 = add nsw i64 %211, %212
   %214 = icmp ult i64 %204, %213
-  br i1 %214, label %127, label %.preheader.loopexit, !llvm.loop !30
+  br i1 %214, label %127, label %.preheader, !llvm.loop !30
 
 215:                                              ; preds = %.lr.ph125, %344
-  %216 = phi ptr [ %122, %.lr.ph125 ], [ %348, %344 ]
+  %216 = phi ptr [ %207, %.lr.ph125 ], [ %348, %344 ]
   %.039124 = phi i64 [ 0, %.lr.ph125 ], [ %345, %344 ]
   %217 = icmp eq i64 %.039124, %123
   br i1 %217, label %.invoke, label %219
 
 .invoke:                                          ; preds = %219, %215
-  %218 = phi i8 [ -1, %215 ], [ %.136, %219 ]
+  %218 = phi i8 [ -1, %215 ], [ %.137, %219 ]
   invoke void @glColor3ub(i8 noundef zeroext %218, i8 noundef zeroext %218, i8 noundef zeroext 0)
           to label %228 unwind label %.loopexit
 
@@ -1880,7 +1874,7 @@ _ZN3vcg7glLabel4ModeC2Ev.exit.i:                  ; preds = %.noexc63
   %226 = load i64, ptr %storemerge.i.i.i.i.i67, align 8
   %227 = and i64 %226, %225
   %.not = icmp eq i64 %227, 0
-  %.136 = select i1 %.not, i8 75, i8 -106
+  %.137 = select i1 %.not, i8 75, i8 -106
   br label %.invoke
 
 228:                                              ; preds = %.invoke
@@ -2122,7 +2116,7 @@ _ZN7QStringD2Ev.exit79:                           ; preds = %332, %_ZN9QtPrivate
   %355 = icmp ult i64 %345, %354
   br i1 %355, label %215, label %._crit_edge, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %344, %.preheader
+._crit_edge:                                      ; preds = %344, %.preheader106, %.preheader
   invoke void @glEnable(i32 noundef 2896)
           to label %356 unwind label %.loopexit.split-lp.loopexit.split-lp
 

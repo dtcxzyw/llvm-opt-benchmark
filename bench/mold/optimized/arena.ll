@@ -7206,17 +7206,17 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2r111task_streamILNS1_25task_stre
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
-10:                                               ; preds = %95, %3
-  %11 = phi i32 [ %4, %3 ], [ %96, %95 ]
-  %12 = phi i32 [ %6, %3 ], [ %97, %95 ]
-  %.020 = phi i32 [ %8, %3 ], [ %100, %95 ]
-  %.019 = phi ptr [ null, %3 ], [ %.1, %95 ]
+10:                                               ; preds = %92, %3
+  %11 = phi i32 [ %4, %3 ], [ %93, %92 ]
+  %12 = phi i32 [ %6, %3 ], [ %94, %92 ]
+  %.020 = phi i32 [ %8, %3 ], [ %97, %92 ]
+  %.019 = phi ptr [ null, %3 ], [ %.1, %92 ]
   %13 = load atomic i64, ptr %0 monotonic, align 8
   %14 = zext nneg i32 %.020 to i64
   %15 = shl nuw i64 1, %14
   %16 = and i64 %15, %13
   %.not30 = icmp eq i64 %16, 0
-  br i1 %.not30, label %95, label %17
+  br i1 %.not30, label %92, label %17
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %9, align 8, !tbaa !173
@@ -7306,7 +7306,7 @@ _ZNSt15_Deque_iteratorIPN3tbb6detail2d14taskERS4_PS4_EmmEv.exit.i: ; preds = %40
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds i8, ptr %28, i64 -8
-  br label %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE8pop_backEv.exit.i
+  br label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit
 
 73:                                               ; preds = %70
   invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef %33)
@@ -7329,77 +7329,72 @@ _ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE15_M_pop_b
   store ptr %80, ptr %34, align 8, !tbaa !348
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 504
   %.pre.pre = load ptr, ptr %27, align 8, !tbaa !343
-  br label %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE8pop_backEv.exit.i
-
-_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE8pop_backEv.exit.i: ; preds = %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE15_M_pop_back_auxEv.exit.i.i, %71
-  %.pre = phi ptr [ %29, %71 ], [ %.pre.pre, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE15_M_pop_back_auxEv.exit.i.i ]
-  %storemerge.i.i = phi ptr [ %72, %71 ], [ %81, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE15_M_pop_back_auxEv.exit.i.i ]
-  store ptr %storemerge.i.i, ptr %26, align 8, !tbaa !201
   br label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit
 
 82:                                               ; preds = %51
   store ptr null, ptr %45, align 8, !tbaa !196
-  br label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit
+  br label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread
 
 83:                                               ; preds = %47, %_ZNSt15_Deque_iteratorIPN3tbb6detail2d14taskERS4_PS4_EmmEv.exit.i
   %.not23.i = icmp eq ptr %45, %29
-  br i1 %.not23.i, label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit, label %38, !llvm.loop !350
+  br i1 %.not23.i, label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread, label %38, !llvm.loop !350
 
-_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit: ; preds = %83, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE8pop_backEv.exit.i, %82
-  %84 = phi ptr [ %29, %82 ], [ %.pre, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE8pop_backEv.exit.i ], [ %29, %83 ]
-  %85 = phi ptr [ %28, %82 ], [ %storemerge.i.i, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE8pop_backEv.exit.i ], [ %28, %83 ]
-  %.2.i = phi ptr [ %46, %82 ], [ %46, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE8pop_backEv.exit.i ], [ null, %83 ]
-  %86 = icmp eq ptr %85, %84
-  br i1 %86, label %87, label %90
+_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit: ; preds = %71, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE15_M_pop_back_auxEv.exit.i.i
+  %.pre = phi ptr [ %29, %71 ], [ %.pre.pre, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE15_M_pop_back_auxEv.exit.i.i ]
+  %storemerge.i.i = phi ptr [ %72, %71 ], [ %81, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE15_M_pop_back_auxEv.exit.i.i ]
+  store ptr %storemerge.i.i, ptr %26, align 8, !tbaa !201
+  %84 = icmp eq ptr %storemerge.i.i, %.pre
+  br i1 %84, label %85, label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread
 
-87:                                               ; preds = %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit
-  %88 = xor i64 %15, -1
-  %89 = atomicrmw and ptr %0, i64 %88 seq_cst, align 8
-  br label %90
+85:                                               ; preds = %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit
+  %86 = xor i64 %15, -1
+  %87 = atomicrmw and ptr %0, i64 %86 seq_cst, align 8
+  br label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread
 
-90:                                               ; preds = %87, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit
-  %.not = icmp eq ptr %.2.i, null
+_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread: ; preds = %83, %82, %85, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit
+  %.2.i45 = phi ptr [ %46, %85 ], [ %46, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit ], [ %46, %82 ], [ null, %83 ]
+  %.not = icmp eq ptr %.2.i45, null
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread: ; preds = %25, %90
-  %.3 = phi ptr [ %.019, %25 ], [ %.2.i, %90 ]
-  %.0 = phi i1 [ true, %25 ], [ %.not, %90 ]
-  %91 = atomicrmw xchg ptr %20, i8 0 seq_cst, align 1
+_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread: ; preds = %25, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread
+  %.3 = phi ptr [ %.019, %25 ], [ %.2.i45, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
+  %.0 = phi i1 [ true, %25 ], [ %.not, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
+  %88 = atomicrmw xchg ptr %20, i8 0 seq_cst, align 1
   invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %20)
-          to label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit unwind label %92
+          to label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit unwind label %89
 
-92:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread
-  %93 = landingpad { ptr, i32 }
+89:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %94 = extractvalue { ptr, i32 } %93, 0
-  tail call void @__clang_call_terminate(ptr %94) #20
+  %91 = extractvalue { ptr, i32 } %90, 0
+  tail call void @__clang_call_terminate(ptr %91) #20
   unreachable
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread
   br i1 %.0, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge, label %.critedge
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge: ; preds = %17, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit
-  %.34852 = phi ptr [ %.3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ], [ %.019, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i ], [ %.019, %17 ]
+  %.35054 = phi ptr [ %.3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ], [ %.019, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i ], [ %.019, %17 ]
   %.pre41 = load i32, ptr %5, align 8, !tbaa !172
   %.pre42 = load i32, ptr %1, align 4
-  br label %95
+  br label %92
 
-95:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge, %10
-  %96 = phi i32 [ %.pre42, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %11, %10 ]
-  %97 = phi i32 [ %.pre41, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %12, %10 ]
-  %.1 = phi ptr [ %.34852, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %.019, %10 ]
-  %98 = add i32 %.020, -1
-  %99 = add i32 %97, -1
-  %100 = and i32 %99, %98
-  %101 = load atomic i64, ptr %0 monotonic, align 8
-  %.not.i29 = icmp eq i64 %101, 0
-  %.not26 = icmp eq i32 %100, %96
+92:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge, %10
+  %93 = phi i32 [ %.pre42, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %11, %10 ]
+  %94 = phi i32 [ %.pre41, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %12, %10 ]
+  %.1 = phi ptr [ %.35054, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit._crit_edge ], [ %.019, %10 ]
+  %95 = add i32 %.020, -1
+  %96 = add i32 %94, -1
+  %97 = and i32 %96, %95
+  %98 = load atomic i64, ptr %0 monotonic, align 8
+  %.not.i29 = icmp eq i64 %98, 0
+  %.not26 = icmp eq i32 %97, %93
   %or.cond = select i1 %.not.i29, i1 true, i1 %.not26
   br i1 %or.cond, label %.critedge, label %10, !llvm.loop !351
 
-.critedge:                                        ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit, %95
-  %.121 = phi i32 [ %100, %95 ], [ %.020, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ]
-  %.4 = phi ptr [ %.1, %95 ], [ %.3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ]
+.critedge:                                        ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit, %92
+  %.121 = phi i32 [ %97, %92 ], [ %.020, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ]
+  %.4 = phi ptr [ %.1, %92 ], [ %.3, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit ]
   store i32 %.121, ptr %1, align 4, !tbaa !107
   ret ptr %.4
 }

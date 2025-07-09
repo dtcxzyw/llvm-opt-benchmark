@@ -2212,7 +2212,7 @@ define dso_local noundef zeroext i1 @JsonbDeepContains(ptr noundef captures(none
   br i1 %.not78, label %12, label %.thread94
 
 12:                                               ; preds = %2
-  switch i32 %10, label %205 [
+  switch i32 %10, label %206 [
     i32 6, label %13
     i32 4, label %99
   ]
@@ -2413,9 +2413,9 @@ JsonbIteratorInit.exit87:                         ; preds = %76, %86
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %111
 
-111:                                              ; preds = %.lr.ph116, %202
-  %.059115 = phi i32 [ %101, %.lr.ph116 ], [ %.160, %202 ]
-  %.064114 = phi ptr [ null, %.lr.ph116 ], [ %.165, %202 ]
+111:                                              ; preds = %.lr.ph116, %203
+  %.059115 = phi i32 [ %101, %.lr.ph116 ], [ %.160, %203 ]
+  %.064114 = phi ptr [ null, %.lr.ph116 ], [ %.165, %203 ]
   %112 = load i32, ptr %4, align 8
   switch i32 %112, label %117 [
     i32 32, label %113
@@ -2430,7 +2430,7 @@ JsonbIteratorInit.exit87:                         ; preds = %76, %86
   %115 = load ptr, ptr %114, align 8
   %116 = call ptr @findJsonbValueFromContainer(ptr noundef %115, i32 noundef 1073741824, ptr noundef nonnull %4)
   %.not82 = icmp eq ptr %116, null
-  br i1 %.not82, label %.thread94, label %202
+  br i1 %.not82, label %.thread94, label %203
 
 117:                                              ; preds = %111
   %118 = icmp eq ptr %.064114, null
@@ -2470,7 +2470,7 @@ JsonbIteratorInit.exit87:                         ; preds = %76, %86
 
 132:                                              ; preds = %117
   %.not134 = icmp eq i32 %.059115, 0
-  br i1 %.not134, label %._crit_edge110, label %.lr.ph109
+  br i1 %.not134, label %.thread94, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %._crit_edge, %132
   %.261145 = phi i32 [ %.059115, %132 ], [ %.156, %._crit_edge ]
@@ -2610,40 +2610,34 @@ JsonbIteratorInit.exit91:                         ; preds = %174, %184
 199:                                              ; preds = %198, %196
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
-  br i1 %193, label %._crit_edge110.loopexit, label %200
+  br i1 %193, label %._crit_edge110, label %200
 
 200:                                              ; preds = %199
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond136.not, label %.thread94, label %135, !llvm.loop !18
 
-._crit_edge110.loopexit:                          ; preds = %199
+._crit_edge110:                                   ; preds = %199
   %201 = trunc nuw i64 %indvars.iv to i32
-  br label %._crit_edge110
+  %202 = icmp eq i32 %.261145, %201
+  br i1 %202, label %.thread94, label %203
 
-._crit_edge110:                                   ; preds = %._crit_edge110.loopexit, %132
-  %.261146 = phi i32 [ 0, %132 ], [ %.261145, %._crit_edge110.loopexit ]
-  %.266144 = phi ptr [ %.064114, %132 ], [ %.266143, %._crit_edge110.loopexit ]
-  %.158.lcssa = phi i32 [ 0, %132 ], [ %201, %._crit_edge110.loopexit ]
-  %.not99 = icmp eq i32 %.158.lcssa, %.261146
-  br i1 %.not99, label %.thread94, label %202
+203:                                              ; preds = %._crit_edge110, %113
+  %.165 = phi ptr [ %.064114, %113 ], [ %.266143, %._crit_edge110 ]
+  %.160 = phi i32 [ %.059115, %113 ], [ %.261145, %._crit_edge110 ]
+  %204 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %205 = icmp eq i32 %204, 5
+  br i1 %205, label %.thread94, label %111
 
-202:                                              ; preds = %._crit_edge110, %113
-  %.165 = phi ptr [ %.064114, %113 ], [ %.266144, %._crit_edge110 ]
-  %.160 = phi i32 [ %.059115, %113 ], [ %.261146, %._crit_edge110 ]
-  %203 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true)
-  %204 = icmp eq i32 %203, 5
-  br i1 %204, label %.thread94, label %111
-
-205:                                              ; preds = %12
-  %206 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %206)
-  %207 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
+206:                                              ; preds = %12
+  %207 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %207)
+  %208 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1308, ptr noundef nonnull @__func__.JsonbDeepContains) #13
   unreachable
 
-.thread94:                                        ; preds = %119, %113, %202, %._crit_edge110, %._crit_edge, %200, %.preheader100, %.thread, %99, %13, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ false, %99 ], [ %.lcssa, %.thread ], [ true, %.preheader100 ], [ false, %200 ], [ false, %119 ], [ false, %113 ], [ true, %202 ], [ false, %._crit_edge110 ], [ false, %._crit_edge ]
+.thread94:                                        ; preds = %132, %119, %113, %203, %._crit_edge110, %._crit_edge, %200, %.preheader100, %.thread, %99, %13, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ false, %99 ], [ %.lcssa, %.thread ], [ true, %.preheader100 ], [ false, %200 ], [ false, %132 ], [ false, %119 ], [ false, %113 ], [ true, %203 ], [ false, %._crit_edge110 ], [ false, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
   ret i1 %.0

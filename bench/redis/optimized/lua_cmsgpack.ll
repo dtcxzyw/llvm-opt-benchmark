@@ -1361,49 +1361,43 @@ define dso_local range(i32 0, 2) i32 @table_is_an_array(ptr noundef %0) local_un
   %.not28 = icmp eq i32 %3, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %12
-  %.02130 = phi i32 [ %17, %12 ], [ 0, %1 ]
-  %.02229 = phi i32 [ %16, %12 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %11
+  %.02130 = phi i32 [ %16, %11 ], [ 0, %1 ]
+  %.02229 = phi i32 [ %15, %11 ], [ 0, %1 ]
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #10
   %4 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -1) #10
   %.not24 = icmp eq i32 %4, 3
-  br i1 %.not24, label %5, label %11
+  br i1 %.not24, label %5, label %._crit_edge
 
 5:                                                ; preds = %.lr.ph
   %6 = tail call double @lua_tonumber(ptr noundef %0, i32 noundef -1) #10
   %or.cond = tail call i1 @llvm.is.fpclass.f64(double %6, i32 636)
-  br i1 %or.cond, label %11, label %7
+  br i1 %or.cond, label %._crit_edge, label %7
 
 7:                                                ; preds = %5
   %8 = fptosi double %6 to i32
   %9 = sitofp i32 %8 to double
   %10 = fcmp oeq double %6, %9
-  br i1 %10, label %12, label %11
+  br i1 %10, label %11, label %._crit_edge
 
-11:                                               ; preds = %7, %5, %.lr.ph
+11:                                               ; preds = %7
+  %12 = sitofp i32 %.02229 to double
+  %13 = fcmp ogt double %6, %12
+  %14 = select i1 %13, double %6, double %12
+  %15 = fptosi double %14 to i32
+  %16 = add nuw nsw i32 %.02130, 1
+  %17 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #10
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
+
+._crit_edge.loopexit:                             ; preds = %11
+  %18 = icmp eq i32 %16, %15
+  %19 = zext i1 %18 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.lr.ph, %5, %7, %1, %._crit_edge.loopexit
+  %.0 = phi i32 [ 1, %1 ], [ %19, %._crit_edge.loopexit ], [ 0, %7 ], [ 0, %5 ], [ 0, %.lr.ph ]
   tail call void @lua_settop(ptr noundef %0, i32 noundef %2) #10
-  br label %21
-
-12:                                               ; preds = %7
-  %13 = sitofp i32 %.02229 to double
-  %14 = fcmp ogt double %6, %13
-  %15 = select i1 %14, double %6, double %13
-  %16 = fptosi double %15 to i32
-  %17 = add nuw nsw i32 %.02130, 1
-  %18 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #10
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
-
-._crit_edge:                                      ; preds = %12, %1
-  %.022.lcssa = phi i32 [ 0, %1 ], [ %16, %12 ]
-  %.021.lcssa = phi i32 [ 0, %1 ], [ %17, %12 ]
-  tail call void @lua_settop(ptr noundef %0, i32 noundef %2) #10
-  %19 = icmp eq i32 %.022.lcssa, %.021.lcssa
-  %20 = zext i1 %19 to i32
-  br label %21
-
-21:                                               ; preds = %._crit_edge, %11
-  %.0 = phi i32 [ 0, %11 ], [ %20, %._crit_edge ]
   ret i32 %.0
 }
 

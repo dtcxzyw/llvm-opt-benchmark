@@ -4861,7 +4861,7 @@ define dso_local void @_ZN9Stockfish6Search13SearchManager10check_timeERNS0_6Wor
   %5 = add nsw i32 %4, -1
   store i32 %5, ptr %3, align 8
   %6 = icmp sgt i32 %4, 1
-  br i1 %6, label %85, label %7
+  br i1 %6, label %_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36.thread, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 9570408
@@ -4936,7 +4936,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit: ; preds = %.lr.ph.i.i, %20
   %48 = load i32, ptr %47, align 4
   %49 = icmp slt i32 %48, 1
   %or.cond.not = select i1 %46, i1 true, i1 %49
-  br i1 %or.cond.not, label %85, label %50
+  br i1 %or.cond.not, label %_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36.thread, label %50
 
 50:                                               ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 9570328
@@ -4955,7 +4955,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit: ; preds = %.lr.ph.i.i, %20
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
   %or.cond28 = select i1 %59, i1 true, i1 %62
-  br i1 %or.cond28, label %81, label %63
+  br i1 %or.cond28, label %82, label %63
 
 63:                                               ; preds = %57, %50
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 9570368
@@ -4963,12 +4963,12 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit: ; preds = %.lr.ph.i.i, %20
   %.not19 = icmp eq i64 %65, 0
   %.not20 = icmp slt i64 %35, %65
   %or.cond29 = or i1 %.not19, %.not20
-  br i1 %or.cond29, label %66, label %81
+  br i1 %or.cond29, label %66, label %82
 
 66:                                               ; preds = %63
   %67 = load i64, ptr %8, align 8
   %.not21 = icmp eq i64 %67, 0
-  br i1 %.not21, label %85, label %68
+  br i1 %.not21, label %_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36.thread, label %68
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %22, align 16
@@ -4977,7 +4977,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit: ; preds = %.lr.ph.i.i, %20
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %73 = load ptr, ptr %72, align 8
   %.not14.i.i30 = icmp eq ptr %71, %73
-  br i1 %.not14.i.i30, label %_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36, label %.lr.ph.i.i31
+  br i1 %.not14.i.i30, label %_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36.thread, label %.lr.ph.i.i31
 
 .lr.ph.i.i31:                                     ; preds = %68, %.lr.ph.i.i31
   %.01016.i.i32 = phi i64 [ %79, %.lr.ph.i.i31 ], [ 0, %68 ]
@@ -4992,20 +4992,19 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit: ; preds = %.lr.ph.i.i, %20
   %.not.i.i34 = icmp eq ptr %80, %73
   br i1 %.not.i.i34, label %_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36, label %.lr.ph.i.i31
 
-_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36: ; preds = %.lr.ph.i.i31, %68
-  %.010.lcssa.i.i35 = phi i64 [ 0, %68 ], [ %79, %.lr.ph.i.i31 ]
-  %.not22 = icmp ult i64 %.010.lcssa.i.i35, %67
-  br i1 %.not22, label %85, label %81
+_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36: ; preds = %.lr.ph.i.i31
+  %81 = icmp ult i64 %79, %67
+  br i1 %81, label %_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36.thread, label %82
 
-81:                                               ; preds = %63, %_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36, %57
-  %82 = load ptr, ptr %22, align 16
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  store atomic i8 1, ptr %83 seq_cst, align 1
-  %84 = load ptr, ptr %22, align 16
+82:                                               ; preds = %63, %_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36, %57
+  %83 = load ptr, ptr %22, align 16
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   store atomic i8 1, ptr %84 seq_cst, align 1
-  br label %85
+  %85 = load ptr, ptr %22, align 16
+  store atomic i8 1, ptr %85 seq_cst, align 1
+  br label %_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36.thread
 
-85:                                               ; preds = %43, %2, %81, %_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36, %66
+_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36.thread: ; preds = %68, %43, %2, %82, %_ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit36, %66
   ret void
 }
 

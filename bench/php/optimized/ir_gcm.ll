@@ -1621,12 +1621,12 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   %wide.trip.count532.i = zext nneg i32 %564 to i64
   br label %565
 
-565:                                              ; preds = %594, %.lr.ph497.i
-  %indvars.iv529.i = phi i64 [ 1, %.lr.ph497.i ], [ %indvars.iv.next530.i, %594 ]
+565:                                              ; preds = %._crit_edge493.thread.i, %.lr.ph497.i
+  %indvars.iv529.i = phi i64 [ 1, %.lr.ph497.i ], [ %indvars.iv.next530.i, %._crit_edge493.thread.i ]
   %566 = getelementptr inbounds nuw i32, ptr %556, i64 %indvars.iv529.i
   %567 = load i32, ptr %566, align 4, !tbaa !32
   %568 = icmp eq i32 %567, %1
-  br i1 %568, label %569, label %594
+  br i1 %568, label %569, label %._crit_edge493.thread.i
 
 569:                                              ; preds = %565
   %570 = load i32, ptr %563, align 4, !tbaa !33
@@ -1649,7 +1649,7 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   %584 = getelementptr inbounds nuw %struct._ir_block, ptr %580, i64 %583, i32 8
   %585 = load i32, ptr %584, align 4, !tbaa !33
   %586 = icmp ugt i32 %585, %582
-  br i1 %586, label %.lr.ph492.i, label %._crit_edge493.i
+  br i1 %586, label %.lr.ph492.i, label %._crit_edge493.thread.i
 
 .lr.ph492.i:                                      ; preds = %579, %.lr.ph492.i
   %587 = phi i64 [ %590, %.lr.ph492.i ], [ %583, %579 ]
@@ -1661,12 +1661,11 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   %593 = icmp ugt i32 %592, %582
   br i1 %593, label %.lr.ph492.i, label %._crit_edge493.i
 
-._crit_edge493.i:                                 ; preds = %.lr.ph492.i, %579
-  %.3380.lcssa.i = phi i32 [ %578, %579 ], [ %589, %.lr.ph492.i ]
-  %.not410.i = icmp eq i32 %.3380.lcssa.i, %532
-  br i1 %.not410.i, label %.loopexit.sink.split.i, label %594
+._crit_edge493.i:                                 ; preds = %.lr.ph492.i
+  %594 = icmp eq i32 %589, %532
+  br i1 %594, label %.loopexit.sink.split.i, label %._crit_edge493.thread.i
 
-594:                                              ; preds = %._crit_edge493.i, %565
+._crit_edge493.thread.i:                          ; preds = %._crit_edge493.i, %579, %565
   %indvars.iv.next530.i = add nuw nsw i64 %indvars.iv529.i, 1
   %exitcond533.not.i = icmp eq i64 %indvars.iv.next530.i, %wide.trip.count532.i
   br i1 %exitcond533.not.i, label %.loopexit.i, label %565
@@ -1689,7 +1688,7 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   store i32 %519, ptr %599, align 4, !tbaa !32
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %595, %594, %.loopexit.sink.split.i, %.preheader.i108, %.preheader439.i
+.loopexit.i:                                      ; preds = %595, %._crit_edge493.thread.i, %.loopexit.sink.split.i, %.preheader.i108, %.preheader439.i
   %.not405.i = icmp eq i32 %554, -1
   br i1 %.not405.i, label %._crit_edge503.loopexit513.i, label %548
 

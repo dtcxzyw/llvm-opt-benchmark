@@ -31162,7 +31162,7 @@ define hidden noundef zeroext i1 @_Z19_mi_prim_random_bufPvm(ptr noundef %0, i64
 22:                                               ; preds = %.lr.ph
   %23 = tail call ptr @__errno_location() #59
   %24 = load i32, ptr %23, align 4, !tbaa !66
-  switch i32 %24, label %.thread40 [
+  switch i32 %24, label %.thread40.loopexit [
     i32 11, label %27
     i32 4, label %27
   ]
@@ -31174,16 +31174,20 @@ define hidden noundef zeroext i1 @_Z19_mi_prim_random_bufPvm(ptr noundef %0, i64
 27:                                               ; preds = %22, %22, %25
   %.225 = phi i64 [ %26, %25 ], [ %.02344, %22 ], [ %.02344, %22 ]
   %28 = icmp ult i64 %.225, %1
-  br i1 %28, label %.lr.ph, label %.thread40
+  br i1 %28, label %.lr.ph, label %.thread40.loopexit
 
-.thread40:                                        ; preds = %27, %22, %.preheader
-  %.023.lcssa = phi i64 [ 0, %.preheader ], [ %.02344, %22 ], [ %.225, %27 ]
-  %29 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %16) #55
-  %30 = icmp eq i64 %.023.lcssa, %1
+.thread40.loopexit:                               ; preds = %22, %27
+  %.023.lcssa.ph = phi i64 [ %.225, %27 ], [ %.02344, %22 ]
+  %29 = icmp eq i64 %.023.lcssa.ph, %1
+  br label %.thread40
+
+.thread40:                                        ; preds = %.thread40.loopexit, %.preheader
+  %.023.lcssa = phi i1 [ true, %.preheader ], [ %29, %.thread40.loopexit ]
+  %30 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %16) #55
   br label %.thread
 
 .thread:                                          ; preds = %10, %8, %.thread40, %14
-  %.1 = phi i1 [ %30, %.thread40 ], [ false, %14 ], [ false, %10 ], [ %9, %8 ]
+  %.1 = phi i1 [ %.023.lcssa, %.thread40 ], [ false, %14 ], [ false, %10 ], [ %9, %8 ]
   ret i1 %.1
 }
 

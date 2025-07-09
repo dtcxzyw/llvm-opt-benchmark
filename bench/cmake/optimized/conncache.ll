@@ -857,10 +857,10 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %67
   %brmerge.not = select i1 %.not67, i1 %31, i1 false
   %not..not67 = xor i1 %.not67, true
   %.mux = zext i1 %not..not67 to i32
-  br i1 %brmerge.not, label %.preheader, label %78
+  br i1 %brmerge.not, label %.preheader, label %.thread98
 
 .critedge.thread:                                 ; preds = %69, %47, %43
-  br i1 %31, label %.preheader, label %78
+  br i1 %31, label %.preheader, label %.thread98
 
 .preheader:                                       ; preds = %.critedge.thread, %.critedge.thread92
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 48
@@ -868,29 +868,25 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %67
   %.not68104 = icmp ult i64 %73, %.048
   br i1 %.not68104, label %.thread98, label %.lr.ph105
 
-.lr.ph105:                                        ; preds = %.preheader, %75
+.lr.ph105:                                        ; preds = %.preheader, %77
   %74 = tail call fastcc ptr @cpool_get_oldest_idle(ptr noundef %.0.i.ph)
   %.not69 = icmp eq ptr %74, null
-  br i1 %.not69, label %.lr.ph105..thread98.loopexit_crit_edge, label %75
+  br i1 %.not69, label %.lr.ph105..thread98.loopexit_crit_edge, label %77
 
 .lr.ph105..thread98.loopexit_crit_edge:           ; preds = %.lr.ph105
   %.pre.pre = load i64, ptr %72, align 8, !tbaa !108
+  %75 = icmp ult i64 %.pre.pre, %.048
+  %76 = select i1 %75, i32 0, i32 2
   br label %.thread98
 
-75:                                               ; preds = %.lr.ph105
+77:                                               ; preds = %.lr.ph105
   tail call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef nonnull %74, i1 noundef zeroext false)
-  %76 = load i64, ptr %72, align 8, !tbaa !108
-  %.not68 = icmp ult i64 %76, %.048
+  %78 = load i64, ptr %72, align 8, !tbaa !108
+  %.not68 = icmp ult i64 %78, %.048
   br i1 %.not68, label %.thread98, label %.lr.ph105
 
-.thread98:                                        ; preds = %75, %.lr.ph105..thread98.loopexit_crit_edge, %.preheader
-  %77 = phi i64 [ %73, %.preheader ], [ %.pre.pre, %.lr.ph105..thread98.loopexit_crit_edge ], [ %76, %75 ]
-  %.not70 = icmp ult i64 %77, %.048
-  %spec.select = select i1 %.not70, i32 0, i32 2
-  br label %78
-
-78:                                               ; preds = %.thread98, %.critedge.thread, %.critedge.thread92
-  %.047 = phi i32 [ 0, %.critedge.thread ], [ %.mux, %.critedge.thread92 ], [ %spec.select, %.thread98 ]
+.thread98:                                        ; preds = %77, %.preheader, %.lr.ph105..thread98.loopexit_crit_edge, %.critedge.thread, %.critedge.thread92
+  %.047 = phi i32 [ 0, %.critedge.thread ], [ %.mux, %.critedge.thread92 ], [ 0, %.preheader ], [ %76, %.lr.ph105..thread98.loopexit_crit_edge ], [ 0, %77 ]
   %79 = load i8, ptr %44, align 8
   %80 = and i8 %79, -2
   store i8 %80, ptr %44, align 8
@@ -898,7 +894,7 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %67
   %.not71 = icmp eq ptr %81, null
   br i1 %.not71, label %cpool_get_instance.exit, label %82
 
-82:                                               ; preds = %78
+82:                                               ; preds = %.thread98
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %84 = load i32, ptr %83, align 4, !tbaa !90
   %85 = and i32 %84, 32
@@ -911,8 +907,8 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %67
   %89 = tail call i32 @Curl_share_unlock(ptr noundef %88, i32 noundef 5) #7
   br label %cpool_get_instance.exit
 
-cpool_get_instance.exit:                          ; preds = %17, %2, %86, %82, %78, %29
-  %.0 = phi i32 [ 0, %29 ], [ %.047, %78 ], [ %.047, %82 ], [ %.047, %86 ], [ 0, %2 ], [ 0, %17 ]
+cpool_get_instance.exit:                          ; preds = %17, %2, %86, %82, %.thread98, %29
+  %.0 = phi i32 [ 0, %29 ], [ %.047, %.thread98 ], [ %.047, %82 ], [ %.047, %86 ], [ 0, %2 ], [ 0, %17 ]
   ret i32 %.0
 }
 

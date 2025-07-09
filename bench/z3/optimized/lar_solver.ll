@@ -25885,7 +25885,7 @@ _ZNSt13unordered_setI8rationalSt4hashIS0_ESt8equal_toIS0_ESaIS0_EE5clearEv.exit:
   %118 = shl i64 %117, 3
   call void @llvm.memset.p0.i64(ptr align 8 %116, i8 0, i64 %118, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
-  br i1 %.not54, label %_ZN8rationalD2Ev.exit41._crit_edge, label %.lr.ph
+  br i1 %.not54, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_setI8rationalSt4hashIS0_ESt8equal_toIS0_ESaIS0_EE5clearEv.exit, %163
   %indvars.iv = phi i64 [ %indvars.iv.next, %163 ], [ 0, %_ZNSt13unordered_setI8rationalSt4hashIS0_ESt8equal_toIS0_ESaIS0_EE5clearEv.exit ]
@@ -25986,7 +25986,7 @@ _ZN8rationalD2Ev.exit39:                          ; preds = %.noexc.i38
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #30
-  br label %167
+  br label %168
 
 149:                                              ; preds = %.lr.ph
   %150 = landingpad { ptr, i32 }
@@ -26034,7 +26034,7 @@ _ZN8rationalD2Ev.exit39:                          ; preds = %.noexc.i38
 
 _ZN8rationalD2Ev.exit41:                          ; preds = %.noexc.i40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #30
-  br i1 %.not, label %163, label %_ZN8rationalD2Ev.exit41._crit_edge.loopexit
+  br i1 %.not, label %163, label %_ZN8rationalD2Ev.exit41._crit_edge
 
 163:                                              ; preds = %_ZN8rationalD2Ev.exit41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -26049,21 +26049,17 @@ _ZN8rationalD2Ev.exit41:                          ; preds = %.noexc.i40
 165:                                              ; preds = %164, %149
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %164 ], [ %150, %149 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #30
-  br label %167
+  br label %168
 
-_ZN8rationalD2Ev.exit41._crit_edge.loopexit:      ; preds = %_ZN8rationalD2Ev.exit41
+_ZN8rationalD2Ev.exit41._crit_edge:               ; preds = %_ZN8rationalD2Ev.exit41
   %166 = trunc nuw i64 %indvars.iv to i32
-  br label %_ZN8rationalD2Ev.exit41._crit_edge
+  %167 = icmp eq i32 %.0.i, %166
+  br i1 %167, label %.loopexit, label %90, !llvm.loop !598
 
-_ZN8rationalD2Ev.exit41._crit_edge:               ; preds = %_ZN8rationalD2Ev.exit41._crit_edge.loopexit, %_ZNSt13unordered_setI8rationalSt4hashIS0_ESt8equal_toIS0_ESaIS0_EE5clearEv.exit
-  %.024.lcssa = phi i32 [ 0, %_ZNSt13unordered_setI8rationalSt4hashIS0_ESt8equal_toIS0_ESaIS0_EE5clearEv.exit ], [ %166, %_ZN8rationalD2Ev.exit41._crit_edge.loopexit ]
-  %.not29 = icmp eq i32 %.024.lcssa, %.0.i
-  br i1 %.not29, label %.loopexit, label %90, !llvm.loop !598
-
-.loopexit:                                        ; preds = %_ZN8rationalD2Ev.exit41._crit_edge, %163, %1
+.loopexit:                                        ; preds = %_ZNSt13unordered_setI8rationalSt4hashIS0_ESt8equal_toIS0_ESaIS0_EE5clearEv.exit, %_ZN8rationalD2Ev.exit41._crit_edge, %163, %1
   ret i1 %or.cond44
 
-167:                                              ; preds = %165, %147
+168:                                              ; preds = %165, %147
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %165 ], [ %148, %147 ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 }

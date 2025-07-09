@@ -4392,7 +4392,7 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
 
 .preheader:                                       ; preds = %37
   %.not80 = icmp eq i32 %43, 0
-  br i1 %.not80, label %._crit_edge76, label %.lr.ph75.preheader
+  br i1 %.not80, label %._crit_edge76.thread, label %.lr.ph75.preheader
 
 .lr.ph75.preheader:                               ; preds = %.preheader
   %wide.trip.count = zext i32 %43 to i64
@@ -4405,23 +4405,19 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
   %48 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %42, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !44
   %.not66 = icmp eq i32 %47, %49
-  br i1 %.not66, label %50, label %._crit_edge76.loopexit
+  br i1 %.not66, label %50, label %._crit_edge76
 
 50:                                               ; preds = %.lr.ph75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge76.thread, label %.lr.ph75, !llvm.loop !309
 
-._crit_edge76.loopexit:                           ; preds = %.lr.ph75
+._crit_edge76:                                    ; preds = %.lr.ph75
   %51 = trunc nuw i64 %indvars.iv to i32
-  br label %._crit_edge76
-
-._crit_edge76:                                    ; preds = %._crit_edge76.loopexit, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %51, %._crit_edge76.loopexit ]
-  %52 = icmp eq i32 %.0.lcssa, %43
+  %52 = icmp eq i32 %43, %51
   br i1 %52, label %._crit_edge76.thread, label %53
 
-._crit_edge76.thread:                             ; preds = %50, %._crit_edge76
+._crit_edge76.thread:                             ; preds = %50, %.preheader, %._crit_edge76
   call void @hb_buffer_clear_contents(ptr noundef %2) #20
   br label %53
 

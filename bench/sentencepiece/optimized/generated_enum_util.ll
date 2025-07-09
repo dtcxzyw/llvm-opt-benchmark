@@ -114,54 +114,56 @@ define noundef i32 @_ZN6google8protobuf8internal14LookUpEnumNameEPKNS1_9EnumEntr
   %7 = icmp sgt i64 %2, 0
   br i1 %7, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit"
 
-_ZSt7advanceIPKilEvRT_T0_.exit.i.i:               ; preds = %4, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i"
-  %.05.i.i = phi ptr [ %.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ], [ %1, %4 ]
-  %.0114.i.i = phi i64 [ %.112.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ], [ %2, %4 ]
+_ZSt7advanceIPKilEvRT_T0_.exit.i.i:               ; preds = %4, %.thread
+  %.05.i.i = phi ptr [ %19, %.thread ], [ %1, %4 ]
+  %.0114.i.i = phi i64 [ %18, %.thread ], [ %2, %4 ]
   %8 = lshr i64 %.0114.i.i, 1
   %9 = getelementptr inbounds nuw i32, ptr %.05.i.i, i64 %8
   %.val14.i.i = load i32, ptr %9, align 4, !tbaa !16
   %10 = icmp eq i32 %.val14.i.i, -1
-  br i1 %10, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i", label %11
+  br i1 %10, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i"
 
-11:                                               ; preds = %_ZSt7advanceIPKilEvRT_T0_.exit.i.i
-  %12 = sext i32 %.val14.i.i to i64
-  %13 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %0, i64 %12, i32 1
-  %14 = load i32, ptr %13, align 8, !tbaa !12
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i"
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i": ; preds = %_ZSt7advanceIPKilEvRT_T0_.exit.i.i
+  %11 = sext i32 %.val14.i.i to i64
+  %12 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %0, i64 %11, i32 1
+  %13 = load i32, ptr %12, align 8, !tbaa !12
+  %.fr = freeze i32 %13
+  %14 = icmp slt i32 %.fr, %3
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %16 = xor i64 %8, -1
+  %17 = add nsw i64 %.0114.i.i, %16
+  %spec.select = select i1 %14, i64 %17, i64 %8
+  %spec.select22 = select i1 %14, ptr %15, ptr %.05.i.i
+  br label %.thread
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i": ; preds = %_ZSt7advanceIPKilEvRT_T0_.exit.i.i, %11
-  %.0.i.i.i.i.i = phi i32 [ %14, %11 ], [ %3, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i ]
-  %15 = icmp slt i32 %.0.i.i.i.i.i, %3
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %17 = xor i64 %8, -1
-  %18 = add nsw i64 %.0114.i.i, %17
-  %.112.i.i = select i1 %15, i64 %18, i64 %8
-  %.1.i.i = select i1 %15, ptr %16, ptr %.05.i.i
-  %19 = icmp sgt i64 %.112.i.i, 0
-  br i1 %19, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit", !llvm.loop !17
+.thread:                                          ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i", %_ZSt7advanceIPKilEvRT_T0_.exit.i.i
+  %18 = phi i64 [ %8, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ]
+  %19 = phi ptr [ %.05.i.i, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i ], [ %spec.select22, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ]
+  %20 = icmp sgt i64 %18, 0
+  br i1 %20, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit", !llvm.loop !17
 
-"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i", %4
-  %.0.lcssa.i.i = phi ptr [ %1, %4 ], [ %.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ]
+"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit": ; preds = %.thread, %4
+  %.0.lcssa.i.i = phi ptr [ %1, %4 ], [ %19, %.thread ]
   %.not = icmp eq ptr %.0.lcssa.i.i, %5
-  br i1 %.not, label %31, label %20
+  br i1 %.not, label %32, label %21
 
-20:                                               ; preds = %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit"
-  %21 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !16
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %0, i64 %22, i32 1
-  %24 = load i32, ptr %23, align 8, !tbaa !12
-  %25 = icmp eq i32 %24, %3
-  br i1 %25, label %26, label %31
+21:                                               ; preds = %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit"
+  %22 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !16
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %0, i64 %23, i32 1
+  %25 = load i32, ptr %24, align 8, !tbaa !12
+  %26 = icmp eq i32 %25, %3
+  br i1 %26, label %27, label %32
 
-26:                                               ; preds = %20
-  %27 = ptrtoint ptr %.0.lcssa.i.i to i64
-  %28 = sub i64 %27, %6
-  %29 = lshr exact i64 %28, 2
-  %30 = trunc i64 %29 to i32
-  br label %31
+27:                                               ; preds = %21
+  %28 = ptrtoint ptr %.0.lcssa.i.i to i64
+  %29 = sub i64 %28, %6
+  %30 = lshr exact i64 %29, 2
+  %31 = trunc i64 %30 to i32
+  br label %32
 
-31:                                               ; preds = %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit", %20, %26
-  %.0 = phi i32 [ %30, %26 ], [ -1, %20 ], [ -1, %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit" ]
+32:                                               ; preds = %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit", %21, %27
+  %.0 = phi i32 [ %31, %27 ], [ -1, %21 ], [ -1, %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit" ]
   ret i32 %.0
 }
 

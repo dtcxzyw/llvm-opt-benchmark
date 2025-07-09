@@ -2508,7 +2508,7 @@ if.else:                                          ; preds = %for.cond
 for.cond26.preheader:                             ; preds = %if.else
   %4 = load i32, ptr %nsub6, align 4
   %cmp27164 = icmp sgt i32 %4, 0
-  br i1 %cmp27164, label %while.cond.preheader, label %for.end
+  br i1 %cmp27164, label %while.cond.preheader, label %invoke.cont.i.i
 
 if.then15:                                        ; preds = %if.else
   %conv16 = sext i32 %3 to i64
@@ -2741,26 +2741,23 @@ if.end:                                           ; preds = %if.end.loopexit, %s
   %out.3 = phi i32 [ %out.2, %sw.epilog ], [ %39, %if.end.loopexit ]
   %i.3 = phi i32 [ %i.2, %sw.epilog ], [ %40, %if.end.loopexit ]
   %cmp27 = icmp slt i32 %i.3, %41
-  br i1 %cmp27, label %while.cond.preheader, label %for.end.loopexit, !llvm.loop !20
+  br i1 %cmp27, label %while.cond.preheader, label %for.end, !llvm.loop !20
 
-for.end.loopexit:                                 ; preds = %if.end
+for.end:                                          ; preds = %if.end
   %.pre192 = load ptr, ptr %splices10, align 8
   %.pre193 = load ptr, ptr %_M_finish.i.i62, align 8
-  br label %for.end
+  %42 = icmp eq ptr %.pre193, %.pre192
+  br i1 %42, label %_ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit, label %invoke.cont.i.i
 
-for.end:                                          ; preds = %for.end.loopexit, %for.cond26.preheader
-  %42 = phi ptr [ %2, %for.cond26.preheader ], [ %.pre193, %for.end.loopexit ]
-  %43 = phi ptr [ %1, %for.cond26.preheader ], [ %.pre192, %for.end.loopexit ]
-  %out.0.lcssa = phi i32 [ 0, %for.cond26.preheader ], [ %out.3, %for.end.loopexit ]
-  %tobool.not.i.i = icmp eq ptr %42, %43
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit, label %invoke.cont.i.i
-
-invoke.cont.i.i:                                  ; preds = %for.end
+invoke.cont.i.i:                                  ; preds = %for.cond26.preheader, %for.end
+  %out.0.lcssa197 = phi i32 [ %out.3, %for.end ], [ 0, %for.cond26.preheader ]
+  %43 = phi ptr [ %.pre192, %for.end ], [ %1, %for.cond26.preheader ]
   store ptr %43, ptr %_M_finish.i.i62, align 8
   br label %_ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit:  ; preds = %for.end, %invoke.cont.i.i
-  store i32 %out.0.lcssa, ptr %nsub6, align 4
+  %out.0.lcssa198 = phi i32 [ %out.3, %for.end ], [ %out.0.lcssa197, %invoke.cont.i.i ]
+  store i32 %out.0.lcssa198, ptr %nsub6, align 4
   br label %if.end85
 
 if.end85:                                         ; preds = %for.cond, %_ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit

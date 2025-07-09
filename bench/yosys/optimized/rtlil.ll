@@ -35156,7 +35156,7 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module17has_memories_warnEv(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %5 = load ptr, ptr %4, align 8, !tbaa !442
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %10, label %7
+  br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -35164,13 +35164,12 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module17has_memories_warnEv(ptr noun
   tail call void (ptr, ...) @_ZN5Yosys11log_warningEPKcz(ptr noundef nonnull @.str.317, ptr noundef %9)
   %.pre = load ptr, ptr %2, align 8, !tbaa !442
   %.pre1 = load ptr, ptr %4, align 8, !tbaa !442
-  br label %10
+  %10 = icmp ne ptr %.pre, %.pre1
+  br label %11
 
-10:                                               ; preds = %7, %1
-  %11 = phi ptr [ %.pre1, %7 ], [ %3, %1 ]
-  %12 = phi ptr [ %.pre, %7 ], [ %3, %1 ]
-  %13 = icmp ne ptr %12, %11
-  ret i1 %13
+11:                                               ; preds = %7, %1
+  %12 = phi i1 [ %10, %7 ], [ false, %1 ]
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -35180,7 +35179,7 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module18has_processes_warnEv(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %5 = load ptr, ptr %4, align 8, !tbaa !444
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %10, label %7
+  br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -35188,13 +35187,12 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module18has_processes_warnEv(ptr nou
   tail call void (ptr, ...) @_ZN5Yosys11log_warningEPKcz(ptr noundef nonnull @.str.318, ptr noundef %9)
   %.pre = load ptr, ptr %2, align 8, !tbaa !444
   %.pre1 = load ptr, ptr %4, align 8, !tbaa !444
-  br label %10
+  %10 = icmp ne ptr %.pre, %.pre1
+  br label %11
 
-10:                                               ; preds = %7, %1
-  %11 = phi ptr [ %.pre1, %7 ], [ %3, %1 ]
-  %12 = phi ptr [ %.pre, %7 ], [ %3, %1 ]
-  %13 = icmp ne ptr %12, %11
-  ret i1 %13
+11:                                               ; preds = %7, %1
+  %12 = phi i1 [ %10, %7 ], [ false, %1 ]
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -150803,55 +150801,56 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   %184 = sub i64 %182, %183
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i164 = icmp eq ptr %180, %181
-  br i1 %.not.i.i.i.i.i164, label %.noexc167, label %185
+  br i1 %.not.i.i.i.i.i164, label %.noexc167.thread, label %186
 
-185:                                              ; preds = %177
-  %186 = icmp slt i64 %184, 0
-  br i1 %186, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i, !prof !78
+.noexc167.thread:                                 ; preds = %177
+  %185 = getelementptr inbounds nuw i8, ptr null, i64 %184
+  store i64 0, ptr %104, align 8
+  store ptr %185, ptr %106, align 8, !tbaa !69
+  br label %192
 
-.noexc.i.i.i:                                     ; preds = %185
+186:                                              ; preds = %177
+  %187 = icmp slt i64 %184, 0
+  br i1 %187, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i, !prof !78
+
+.noexc.i.i.i:                                     ; preds = %186
   invoke void @_ZSt17__throw_bad_allocv() #40
           to label %.noexc166 unwind label %.loopexit.split-lp336
 
 .noexc166:                                        ; preds = %.noexc.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %185
-  %187 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %184) #41
-          to label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc167_crit_edge unwind label %.loopexit335
+_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %186
+  %188 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %184) #41
+          to label %.noexc167 unwind label %.loopexit335
 
-_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc167_crit_edge: ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i
+.noexc167:                                        ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i
   %.pre570 = load ptr, ptr %178, align 8, !tbaa !79
   %.pre571 = load ptr, ptr %179, align 8, !tbaa !79
+  %189 = icmp eq ptr %.pre571, %.pre570
+  store ptr %188, ptr %104, align 8, !tbaa !66
+  store ptr %188, ptr %105, align 8, !tbaa !68
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 %184
+  store ptr %190, ptr %106, align 8, !tbaa !69
+  br i1 %189, label %192, label %191
+
+191:                                              ; preds = %.noexc167
   %.pre574 = ptrtoint ptr %.pre571 to i64
   %.pre575 = ptrtoint ptr %.pre570 to i64
   %.pre577 = sub i64 %.pre574, %.pre575
-  br label %.noexc167
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %188, ptr align 1 %.pre570, i64 %.pre577, i1 false)
+  br label %192
 
-.noexc167:                                        ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc167_crit_edge, %177
-  %.pre-phi578 = phi i64 [ %.pre577, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc167_crit_edge ], [ 0, %177 ]
-  %188 = phi ptr [ %.pre571, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc167_crit_edge ], [ %180, %177 ]
-  %189 = phi ptr [ %.pre570, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc167_crit_edge ], [ %181, %177 ]
-  %190 = phi ptr [ %187, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i..noexc167_crit_edge ], [ null, %177 ]
-  store ptr %190, ptr %104, align 8, !tbaa !66
-  store ptr %190, ptr %105, align 8, !tbaa !68
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 %184
-  store ptr %191, ptr %106, align 8, !tbaa !69
-  %.not.i.i.i.i.i.i.i.i.i.i165 = icmp eq ptr %188, %189
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i165, label %193, label %192
-
-192:                                              ; preds = %.noexc167
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %190, ptr align 1 %189, i64 %.pre-phi578, i1 false)
-  br label %193
-
-193:                                              ; preds = %192, %.noexc167
-  %194 = getelementptr inbounds i8, ptr %190, i64 %.pre-phi578
+192:                                              ; preds = %.noexc167.thread, %191, %.noexc167
+  %193 = phi ptr [ null, %.noexc167.thread ], [ %188, %191 ], [ %188, %.noexc167 ]
+  %.pre-phi578582 = phi i64 [ 0, %.noexc167.thread ], [ %.pre577, %191 ], [ 0, %.noexc167 ]
+  %194 = getelementptr inbounds i8, ptr %193, i64 %.pre-phi578582
   store ptr %194, ptr %105, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #39
   invoke void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(40) %17)
           to label %.noexc170 unwind label %222
 
-.noexc170:                                        ; preds = %193
+.noexc170:                                        ; preds = %192
   invoke void @_ZN5Yosys5RTLIL7SigSpec6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %10)
           to label %195 unwind label %219
 
@@ -150937,7 +150936,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %
           cleanup
   br label %224
 
-222:                                              ; preds = %193
+222:                                              ; preds = %192
   %223 = landingpad { ptr, i32 }
           cleanup
   br label %.body

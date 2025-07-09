@@ -16149,12 +16149,6 @@ define dso_local range(i32 1, 4) i32 @zend_hash_get_current_key_type_ex(ptr noun
   %exitcond.not = icmp eq i32 %8, %lftr.wideiv
   br i1 %exitcond.not, label %_zend_hash_get_valid_pos.exit.thread, label %21
 
-_zend_hash_get_valid_pos.exit.thread:             ; preds = %25, %20, %.preheader
-  %.1.i.ph = phi i32 [ %3, %.preheader ], [ %8, %20 ], [ %8, %25 ]
-  %.not = icmp ult i32 %.1.i.ph, %8
-  %.mux30 = select i1 %.not, i32 2, i32 3
-  br label %35
-
 _zend_hash_get_valid_pos.exit.loopexit:           ; preds = %16
   %26 = trunc nuw i64 %indvars.iv23 to i32
   br label %_zend_hash_get_valid_pos.exit
@@ -16168,7 +16162,7 @@ _zend_hash_get_valid_pos.exit:                    ; preds = %_zend_hash_get_vali
   %28 = icmp uge i32 %.1.i, %8
   %brmerge = or i1 %.not.i, %28
   %.mux = select i1 %28, i32 3, i32 2
-  br i1 %brmerge, label %35, label %29
+  br i1 %brmerge, label %_zend_hash_get_valid_pos.exit.thread, label %29
 
 29:                                               ; preds = %_zend_hash_get_valid_pos.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16178,10 +16172,10 @@ _zend_hash_get_valid_pos.exit:                    ; preds = %_zend_hash_get_vali
   %34 = load ptr, ptr %33, align 8, !tbaa !18
   %.not9 = icmp eq ptr %34, null
   %. = select i1 %.not9, i32 2, i32 1
-  br label %35
+  br label %_zend_hash_get_valid_pos.exit.thread
 
-35:                                               ; preds = %_zend_hash_get_valid_pos.exit.thread, %_zend_hash_get_valid_pos.exit, %29
-  %.0 = phi i32 [ %., %29 ], [ %.mux, %_zend_hash_get_valid_pos.exit ], [ %.mux30, %_zend_hash_get_valid_pos.exit.thread ]
+_zend_hash_get_valid_pos.exit.thread:             ; preds = %25, %20, %.preheader, %_zend_hash_get_valid_pos.exit, %29
+  %.0 = phi i32 [ %., %29 ], [ %.mux, %_zend_hash_get_valid_pos.exit ], [ 3, %.preheader ], [ 3, %20 ], [ 3, %25 ]
   ret i32 %.0
 }
 

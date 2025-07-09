@@ -11194,12 +11194,10 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit.loopexit:
 
 _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit: ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit.loopexit, %if.then4
   %sub.ptr.lhs.cast.i.pre-phi = phi i64 [ %.pre, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit.loopexit ], [ %sub.ptr.lhs.cast, %if.then4 ]
-  %utf32_output.addr.0.lcssa.i = phi ptr [ %incdec.ptr.i, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit.loopexit ], [ %add.ptr4.i18, %if.then4 ]
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi, %sub.ptr.lhs.cast
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp12 = icmp eq ptr %utf32_output.addr.0.lcssa.i, %add.ptr4.i18
   %add = add nsw i64 %sub.ptr.div.i, %and.i
-  %spec.select = select i1 %cmp12, i64 0, i64 %add
+  %spec.select = select i1 %cmp5.not.i, i64 0, i64 %add
   br label %return
 
 return:                                           ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit, %if.end, %_ZN7simdutf7icelake12_GLOBAL__N_130avx512_convert_latin1_to_utf32EPKcmPDi.exit
@@ -20777,12 +20775,12 @@ if.end21.i:                                       ; preds = %if.end18.i, %cond.e
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit: ; preds = %if.end21.i
   %.pre = ptrtoint ptr %utf16_output.addr.1.i16 to i64
+  %25 = icmp eq ptr %utf16_output.addr.1.i16, %retval.sroa.5.0.i
+  %26 = freeze i1 %25
   %sub.ptr.sub.i21 = sub i64 %.pre, %sub.ptr.lhs.cast
   %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 1
-  %cmp13 = icmp eq ptr %utf16_output.addr.1.i16, %retval.sroa.5.0.i
   %add = add nsw i64 %sub.ptr.div.i22, %sub.ptr.div
-  %cond.fr = freeze i1 %cmp13
-  br i1 %cond.fr, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread, label %return
+  br i1 %26, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread, label %return
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread: ; preds = %if.else.i14, %if.then.i23, %if.then4, %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit
   br label %return
@@ -20989,12 +20987,12 @@ if.end21.i:                                       ; preds = %if.end18.i, %cond.e
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit: ; preds = %if.end21.i
   %.pre = ptrtoint ptr %utf16_output.addr.1.i16 to i64
+  %26 = icmp eq ptr %utf16_output.addr.1.i16, %retval.sroa.5.0.i
+  %27 = freeze i1 %26
   %sub.ptr.sub.i21 = sub i64 %.pre, %sub.ptr.lhs.cast
   %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 1
-  %cmp13 = icmp eq ptr %utf16_output.addr.1.i16, %retval.sroa.5.0.i
   %add = add nsw i64 %sub.ptr.div.i22, %sub.ptr.div
-  %cond.fr = freeze i1 %cmp13
-  br i1 %cond.fr, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread, label %return
+  br i1 %27, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread, label %return
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread: ; preds = %if.else.i14, %if.then.i23, %if.then4, %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit
   br label %return
@@ -21645,12 +21643,12 @@ if.end21.i.i:                                     ; preds = %if.end18.i.i, %cond
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.i: ; preds = %if.end21.i.i
   %.pre.i = ptrtoint ptr %utf16_output.addr.1.i16.i to i64
+  %25 = icmp eq ptr %utf16_output.addr.1.i16.i, %retval.sroa.5.0.i.i
+  %26 = freeze i1 %25
   %sub.ptr.sub.i21.i = sub i64 %.pre.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i22.i = ashr exact i64 %sub.ptr.sub.i21.i, 1
-  %cmp13.i = icmp eq ptr %utf16_output.addr.1.i16.i, %retval.sroa.5.0.i.i
   %add.i = add nsw i64 %sub.ptr.div.i22.i, %sub.ptr.div.i
-  %cond.fr.i = freeze i1 %cmp13.i
-  br i1 %cond.fr.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i, label %_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16leEPKDimPDs.exit
+  br i1 %26, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i, label %_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16leEPKDimPDs.exit
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i: ; preds = %if.else.i14.i, %if.then.i23.i, %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.i, %if.then4.i
   br label %_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16leEPKDimPDs.exit
@@ -21857,12 +21855,12 @@ if.end21.i.i:                                     ; preds = %if.end18.i.i, %cond
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.i: ; preds = %if.end21.i.i
   %.pre.i = ptrtoint ptr %utf16_output.addr.1.i16.i to i64
+  %26 = icmp eq ptr %utf16_output.addr.1.i16.i, %retval.sroa.5.0.i.i
+  %27 = freeze i1 %26
   %sub.ptr.sub.i21.i = sub i64 %.pre.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i22.i = ashr exact i64 %sub.ptr.sub.i21.i, 1
-  %cmp13.i = icmp eq ptr %utf16_output.addr.1.i16.i, %retval.sroa.5.0.i.i
   %add.i = add nsw i64 %sub.ptr.div.i22.i, %sub.ptr.div.i
-  %cond.fr.i = freeze i1 %cmp13.i
-  br i1 %cond.fr.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i, label %_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16beEPKDimPDs.exit
+  br i1 %27, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i, label %_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16beEPKDimPDs.exit
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i: ; preds = %if.else.i14.i, %if.then.i23.i, %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.i, %if.then4.i
   br label %_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16beEPKDimPDs.exit
@@ -26530,12 +26528,10 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEm
 
 _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs.exit: ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs.exit.loopexit, %if.then4
   %sub.ptr.lhs.cast.i.pre-phi = phi i64 [ %.pre, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs.exit.loopexit ], [ %sub.ptr.lhs.cast, %if.then4 ]
-  %utf16_output.addr.0.lcssa.i = phi ptr [ %incdec.ptr.i, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs.exit.loopexit ], [ %add.ptr9.i16, %if.then4 ]
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi, %sub.ptr.lhs.cast
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
-  %cmp12 = icmp eq ptr %utf16_output.addr.0.lcssa.i, %add.ptr9.i16
   %add = add nsw i64 %sub.ptr.div.i, %and.i
-  %spec.select = select i1 %cmp12, i64 0, i64 %add
+  %spec.select = select i1 %cmp6.not.i, i64 0, i64 %add
   br label %return
 
 return:                                           ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs.exit, %if.end, %_ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_latin1_to_utf16ILNS_10endiannessE0EEESt4pairIPKcPDsES6_mS7_.exit
@@ -26605,12 +26601,10 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEm
 
 _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs.exit: ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs.exit.loopexit, %if.then4
   %sub.ptr.lhs.cast.i.pre-phi = phi i64 [ %.pre, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs.exit.loopexit ], [ %sub.ptr.lhs.cast, %if.then4 ]
-  %utf16_output.addr.0.lcssa.i = phi ptr [ %incdec.ptr.i, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs.exit.loopexit ], [ %add.ptr12.i16, %if.then4 ]
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi, %sub.ptr.lhs.cast
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
-  %cmp12 = icmp eq ptr %utf16_output.addr.0.lcssa.i, %add.ptr12.i16
   %add = add nsw i64 %sub.ptr.div.i, %and.i
-  %spec.select = select i1 %cmp12, i64 0, i64 %add
+  %spec.select = select i1 %cmp6.not.i, i64 0, i64 %add
   br label %return
 
 return:                                           ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs.exit, %if.end, %_ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_latin1_to_utf16ILNS_10endiannessE1EEESt4pairIPKcPDsES6_mS7_.exit
@@ -26670,12 +26664,10 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit.loopexit:
 
 _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit: ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit.loopexit, %if.then4
   %sub.ptr.lhs.cast.i.pre-phi = phi i64 [ %.pre, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit.loopexit ], [ %sub.ptr.lhs.cast, %if.then4 ]
-  %utf32_output.addr.0.lcssa.i = phi ptr [ %incdec.ptr.i, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit.loopexit ], [ %add.ptr4.i18, %if.then4 ]
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi, %sub.ptr.lhs.cast
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp12 = icmp eq ptr %utf32_output.addr.0.lcssa.i, %add.ptr4.i18
   %add = add nsw i64 %sub.ptr.div.i, %xor.i
-  %spec.select = select i1 %cmp12, i64 0, i64 %add
+  %spec.select = select i1 %cmp5.not.i, i64 0, i64 %add
   br label %return
 
 return:                                           ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit, %if.end, %_ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_latin1_to_utf32EPKcmPDi.exit
@@ -34757,12 +34749,12 @@ if.end21.i:                                       ; preds = %if.end18.i, %cond.e
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit: ; preds = %if.end21.i
   %.pre = ptrtoint ptr %utf16_output.addr.1.i16 to i64
+  %25 = icmp eq ptr %utf16_output.addr.1.i16, %retval.sroa.5.0.i
+  %26 = freeze i1 %25
   %sub.ptr.sub.i21 = sub i64 %.pre, %sub.ptr.lhs.cast
   %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 1
-  %cmp13 = icmp eq ptr %utf16_output.addr.1.i16, %retval.sroa.5.0.i
   %add = add nsw i64 %sub.ptr.div.i22, %sub.ptr.div
-  %cond.fr = freeze i1 %cmp13
-  br i1 %cond.fr, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread, label %return
+  br i1 %26, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread, label %return
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread: ; preds = %if.else.i14, %if.then.i23, %if.then4, %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit
   br label %return
@@ -34969,12 +34961,12 @@ if.end21.i:                                       ; preds = %if.end18.i, %cond.e
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit: ; preds = %if.end21.i
   %.pre = ptrtoint ptr %utf16_output.addr.1.i16 to i64
+  %26 = icmp eq ptr %utf16_output.addr.1.i16, %retval.sroa.5.0.i
+  %27 = freeze i1 %26
   %sub.ptr.sub.i21 = sub i64 %.pre, %sub.ptr.lhs.cast
   %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 1
-  %cmp13 = icmp eq ptr %utf16_output.addr.1.i16, %retval.sroa.5.0.i
   %add = add nsw i64 %sub.ptr.div.i22, %sub.ptr.div
-  %cond.fr = freeze i1 %cmp13
-  br i1 %cond.fr, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread, label %return
+  br i1 %27, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread, label %return
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread: ; preds = %if.else.i14, %if.then.i23, %if.then4, %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit
   br label %return
@@ -35625,12 +35617,12 @@ if.end21.i.i:                                     ; preds = %if.end18.i.i, %cond
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.i: ; preds = %if.end21.i.i
   %.pre.i = ptrtoint ptr %utf16_output.addr.1.i16.i to i64
+  %25 = icmp eq ptr %utf16_output.addr.1.i16.i, %retval.sroa.5.0.i.i
+  %26 = freeze i1 %25
   %sub.ptr.sub.i21.i = sub i64 %.pre.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i22.i = ashr exact i64 %sub.ptr.sub.i21.i, 1
-  %cmp13.i = icmp eq ptr %utf16_output.addr.1.i16.i, %retval.sroa.5.0.i.i
   %add.i = add nsw i64 %sub.ptr.div.i22.i, %sub.ptr.div.i
-  %cond.fr.i = freeze i1 %cmp13.i
-  br i1 %cond.fr.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i, label %_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16leEPKDimPDs.exit
+  br i1 %26, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i, label %_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16leEPKDimPDs.exit
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i: ; preds = %if.else.i14.i, %if.then.i23.i, %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.i, %if.then4.i
   br label %_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16leEPKDimPDs.exit
@@ -35837,12 +35829,12 @@ if.end21.i.i:                                     ; preds = %if.end18.i.i, %cond
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.i: ; preds = %if.end21.i.i
   %.pre.i = ptrtoint ptr %utf16_output.addr.1.i16.i to i64
+  %26 = icmp eq ptr %utf16_output.addr.1.i16.i, %retval.sroa.5.0.i.i
+  %27 = freeze i1 %26
   %sub.ptr.sub.i21.i = sub i64 %.pre.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i22.i = ashr exact i64 %sub.ptr.sub.i21.i, 1
-  %cmp13.i = icmp eq ptr %utf16_output.addr.1.i16.i, %retval.sroa.5.0.i.i
   %add.i = add nsw i64 %sub.ptr.div.i22.i, %sub.ptr.div.i
-  %cond.fr.i = freeze i1 %cmp13.i
-  br i1 %cond.fr.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i, label %_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16beEPKDimPDs.exit
+  br i1 %27, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i, label %_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16beEPKDimPDs.exit
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i: ; preds = %if.else.i14.i, %if.then.i23.i, %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.i, %if.then4.i
   br label %_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16beEPKDimPDs.exit
@@ -39624,12 +39616,10 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEm
 
 _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs.exit: ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs.exit.loopexit, %if.then4
   %sub.ptr.lhs.cast.i.pre-phi = phi i64 [ %.pre, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs.exit.loopexit ], [ %sub.ptr.lhs.cast, %if.then4 ]
-  %utf16_output.addr.0.lcssa.i = phi ptr [ %incdec.ptr.i, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs.exit.loopexit ], [ %add.ptr9.i17, %if.then4 ]
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi, %sub.ptr.lhs.cast
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
-  %cmp12 = icmp eq ptr %utf16_output.addr.0.lcssa.i, %add.ptr9.i17
   %add = add nsw i64 %sub.ptr.div.i, %and.i
-  %spec.select = select i1 %cmp12, i64 0, i64 %add
+  %spec.select = select i1 %cmp6.not.i, i64 0, i64 %add
   br label %return
 
 return:                                           ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE0EEEmPKcmPDs.exit, %if.end, %_ZN7simdutf8westmere12_GLOBAL__N_127sse_convert_latin1_to_utf16ILNS_10endiannessE0EEESt4pairIPKcPDsES6_mS7_.exit
@@ -39693,12 +39683,10 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEm
 
 _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs.exit: ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs.exit.loopexit, %if.then4
   %sub.ptr.lhs.cast.i.pre-phi = phi i64 [ %.pre, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs.exit.loopexit ], [ %sub.ptr.lhs.cast, %if.then4 ]
-  %utf16_output.addr.0.lcssa.i = phi ptr [ %incdec.ptr.i, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs.exit.loopexit ], [ %add.ptr9.i17, %if.then4 ]
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi, %sub.ptr.lhs.cast
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
-  %cmp12 = icmp eq ptr %utf16_output.addr.0.lcssa.i, %add.ptr9.i17
   %add = add nsw i64 %sub.ptr.div.i, %and.i
-  %spec.select = select i1 %cmp12, i64 0, i64 %add
+  %spec.select = select i1 %cmp6.not.i, i64 0, i64 %add
   br label %return
 
 return:                                           ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf167convertILNS_10endiannessE1EEEmPKcmPDs.exit, %if.end, %_ZN7simdutf8westmere12_GLOBAL__N_127sse_convert_latin1_to_utf16ILNS_10endiannessE1EEESt4pairIPKcPDsES6_mS7_.exit
@@ -39782,12 +39770,10 @@ _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit.loopexit:
 
 _ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit: ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit.loopexit, %if.then4
   %sub.ptr.lhs.cast.i.pre-phi = phi i64 [ %.pre, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit.loopexit ], [ %sub.ptr.lhs.cast, %if.then4 ]
-  %utf32_output.addr.0.lcssa.i12 = phi ptr [ %incdec.ptr.i, %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit.loopexit ], [ %utf32_output.addr.0.lcssa.i19, %if.then4 ]
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi, %sub.ptr.lhs.cast
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp12 = icmp eq ptr %utf32_output.addr.0.lcssa.i12, %utf32_output.addr.0.lcssa.i19
   %add = add nsw i64 %sub.ptr.div.i, %sub.ptr.div
-  %spec.select = select i1 %cmp12, i64 0, i64 %add
+  %spec.select = select i1 %cmp5.not.i, i64 0, i64 %add
   br label %return
 
 return:                                           ; preds = %_ZN7simdutf6scalar12_GLOBAL__N_115latin1_to_utf327convertEPKcmPDi.exit, %if.end, %_ZN7simdutf8westmere12_GLOBAL__N_127sse_convert_latin1_to_utf32EPKcmPDi.exit
@@ -48796,12 +48782,12 @@ if.end21.i:                                       ; preds = %if.end18.i, %cond.e
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit: ; preds = %if.end21.i
   %.pre = ptrtoint ptr %utf16_output.addr.1.i16 to i64
+  %26 = icmp eq ptr %utf16_output.addr.1.i16, %retval.sroa.5.0.i
+  %27 = freeze i1 %26
   %sub.ptr.sub.i21 = sub i64 %.pre, %sub.ptr.lhs.cast
   %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 1
-  %cmp13 = icmp eq ptr %utf16_output.addr.1.i16, %retval.sroa.5.0.i
   %add = add nsw i64 %sub.ptr.div.i22, %sub.ptr.div
-  %cond.fr = freeze i1 %cmp13
-  br i1 %cond.fr, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread, label %return
+  br i1 %27, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread, label %return
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread: ; preds = %if.else.i14, %if.then.i23, %if.then4, %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit
   br label %return
@@ -49011,12 +48997,12 @@ if.end21.i:                                       ; preds = %if.end18.i, %cond.e
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit: ; preds = %if.end21.i
   %.pre = ptrtoint ptr %utf16_output.addr.1.i16 to i64
+  %27 = icmp eq ptr %utf16_output.addr.1.i16, %retval.sroa.5.0.i
+  %28 = freeze i1 %27
   %sub.ptr.sub.i21 = sub i64 %.pre, %sub.ptr.lhs.cast
   %sub.ptr.div.i22 = ashr exact i64 %sub.ptr.sub.i21, 1
-  %cmp13 = icmp eq ptr %utf16_output.addr.1.i16, %retval.sroa.5.0.i
   %add = add nsw i64 %sub.ptr.div.i22, %sub.ptr.div
-  %cond.fr = freeze i1 %cmp13
-  br i1 %cond.fr, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread, label %return
+  br i1 %28, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread, label %return
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread: ; preds = %if.else.i14, %if.then.i23, %if.then4, %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit
   br label %return
@@ -49676,12 +49662,12 @@ if.end21.i.i:                                     ; preds = %if.end18.i.i, %cond
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.i: ; preds = %if.end21.i.i
   %.pre.i = ptrtoint ptr %utf16_output.addr.1.i16.i to i64
+  %26 = icmp eq ptr %utf16_output.addr.1.i16.i, %retval.sroa.5.0.i.i
+  %27 = freeze i1 %26
   %sub.ptr.sub.i21.i = sub i64 %.pre.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i22.i = ashr exact i64 %sub.ptr.sub.i21.i, 1
-  %cmp13.i = icmp eq ptr %utf16_output.addr.1.i16.i, %retval.sroa.5.0.i.i
   %add.i = add nsw i64 %sub.ptr.div.i22.i, %sub.ptr.div.i
-  %cond.fr.i = freeze i1 %cmp13.i
-  br i1 %cond.fr.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i, label %_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16leEPKDimPDs.exit
+  br i1 %27, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i, label %_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16leEPKDimPDs.exit
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.thread.i: ; preds = %if.else.i14.i, %if.then.i23.i, %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE0EEEmPKDimPDs.exit.i, %if.then4.i
   br label %_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16leEPKDimPDs.exit
@@ -49891,12 +49877,12 @@ if.end21.i.i:                                     ; preds = %if.end18.i.i, %cond
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.i: ; preds = %if.end21.i.i
   %.pre.i = ptrtoint ptr %utf16_output.addr.1.i16.i to i64
+  %27 = icmp eq ptr %utf16_output.addr.1.i16.i, %retval.sroa.5.0.i.i
+  %28 = freeze i1 %27
   %sub.ptr.sub.i21.i = sub i64 %.pre.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i22.i = ashr exact i64 %sub.ptr.sub.i21.i, 1
-  %cmp13.i = icmp eq ptr %utf16_output.addr.1.i16.i, %retval.sroa.5.0.i.i
   %add.i = add nsw i64 %sub.ptr.div.i22.i, %sub.ptr.div.i
-  %cond.fr.i = freeze i1 %cmp13.i
-  br i1 %cond.fr.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i, label %_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16beEPKDimPDs.exit
+  br i1 %28, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i, label %_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16beEPKDimPDs.exit
 
 _ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.thread.i: ; preds = %if.else.i14.i, %if.then.i23.i, %_ZN7simdutf6scalar12_GLOBAL__N_114utf32_to_utf167convertILNS_10endiannessE1EEEmPKDimPDs.exit.i, %if.then4.i
   br label %_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16beEPKDimPDs.exit

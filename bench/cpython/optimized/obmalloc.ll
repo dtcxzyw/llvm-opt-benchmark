@@ -9954,9 +9954,9 @@ _mi_clock_start.exit:                             ; preds = %55, %59
   %77 = add nuw i64 %2, 1
   br label %78
 
-78:                                               ; preds = %.lr.ph, %148
-  %.050109 = phi i64 [ 0, %.lr.ph ], [ %115, %148 ]
-  %.052108 = phi i8 [ 1, %.lr.ph ], [ %spec.select, %148 ]
+78:                                               ; preds = %.lr.ph, %149
+  %.050109 = phi i64 [ 0, %.lr.ph ], [ %115, %149 ]
+  %.052108 = phi i8 [ 1, %.lr.ph ], [ %spec.select, %149 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #55
   %79 = shl i64 %.050109, 30
   %80 = getelementptr i8, ptr %56, i64 %79
@@ -10074,7 +10074,7 @@ _mi_stat_increase.exit:                           ; preds = %119, %121
 
 _mi_stat_increase.exit76:                         ; preds = %129, %131
   %135 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 1073741824 monotonic, align 8
-  br i1 %74, label %136, label %148
+  br i1 %74, label %136, label %149
 
 136:                                              ; preds = %_mi_stat_increase.exit76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
@@ -10094,8 +10094,8 @@ _mi_stat_increase.exit76:                         ; preds = %129, %131
   %146 = mul i64 %145, %0
   %147 = icmp sgt i64 %146, %76
   %spec.select73 = select i1 %147, i64 %77, i64 %143
-  %.not70 = icmp sgt i64 %spec.select73, %2
-  br i1 %.not70, label %.thread, label %148
+  %148 = icmp sgt i64 %spec.select73, %2
+  br i1 %148, label %.thread, label %149
 
 .thread:                                          ; preds = %136
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.29, i64 noundef %115)
@@ -10107,34 +10107,34 @@ _mi_stat_increase.exit76:                         ; preds = %129, %131
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #55
   br label %.loopexit
 
-148:                                              ; preds = %_mi_stat_increase.exit76, %136
+149:                                              ; preds = %_mi_stat_increase.exit76, %136
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #55
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #55
   %exitcond.not = icmp eq i64 %115, %0
   br i1 %exitcond.not, label %.loopexit, label %78
 
-.loopexit:                                        ; preds = %148, %_mi_clock_start.exit, %.thread79
-  %.153 = phi i8 [ %spec.select, %.thread79 ], [ 1, %_mi_clock_start.exit ], [ %spec.select, %148 ]
-  %.151 = phi i64 [ %.2.ph, %.thread79 ], [ 0, %_mi_clock_start.exit ], [ %0, %148 ]
-  br i1 %.not66, label %150, label %149
+.loopexit:                                        ; preds = %149, %_mi_clock_start.exit, %.thread79
+  %.153 = phi i8 [ %spec.select, %.thread79 ], [ 1, %_mi_clock_start.exit ], [ %spec.select, %149 ]
+  %.151 = phi i64 [ %.2.ph, %.thread79 ], [ 0, %_mi_clock_start.exit ], [ %0, %149 ]
+  br i1 %.not66, label %151, label %150
 
-149:                                              ; preds = %.loopexit
+150:                                              ; preds = %.loopexit
   store i64 %.151, ptr %3, align 8, !tbaa !99
-  br label %150
+  br label %151
 
-150:                                              ; preds = %149, %.loopexit
-  br i1 %.not, label %153, label %151
+151:                                              ; preds = %150, %.loopexit
+  br i1 %.not, label %154, label %152
 
-151:                                              ; preds = %150
-  %152 = shl i64 %.151, 30
-  store i64 %152, ptr %4, align 8, !tbaa !99
-  br label %153
+152:                                              ; preds = %151
+  %153 = shl i64 %.151, 30
+  store i64 %153, ptr %4, align 8, !tbaa !99
+  br label %154
 
-153:                                              ; preds = %151, %150
+154:                                              ; preds = %152, %151
   %.not72 = icmp eq i64 %.151, 0
-  br i1 %.not72, label %155, label %154
+  br i1 %.not72, label %156, label %155
 
-154:                                              ; preds = %153
+155:                                              ; preds = %154
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !117
@@ -10146,11 +10146,11 @@ _mi_stat_increase.exit76:                         ; preds = %129, %131
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.777.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 4, ptr %.sroa.777.0..sroa_idx, align 4, !tbaa !104
-  br label %155
+  br label %156
 
-155:                                              ; preds = %153, %154
-  %156 = phi ptr [ null, %153 ], [ %56, %154 ]
-  ret ptr %156
+156:                                              ; preds = %154, %155
+  %157 = phi ptr [ null, %154 ], [ %56, %155 ]
+  ret ptr %157
 }
 
 ; Function Attrs: nounwind uwtable
@@ -24442,7 +24442,7 @@ define hidden zeroext i1 @_mi_prim_random_buf(ptr noundef %0, i64 noundef %1) lo
 22:                                               ; preds = %.lr.ph
   %23 = tail call ptr @__errno_location() #64
   %24 = load i32, ptr %23, align 4, !tbaa !96
-  switch i32 %24, label %.thread42 [
+  switch i32 %24, label %.thread42.loopexit [
     i32 11, label %27
     i32 4, label %27
   ]
@@ -24454,16 +24454,20 @@ define hidden zeroext i1 @_mi_prim_random_buf(ptr noundef %0, i64 noundef %1) lo
 27:                                               ; preds = %22, %22, %25
   %.227 = phi i64 [ %26, %25 ], [ %.02546, %22 ], [ %.02546, %22 ]
   %28 = icmp ult i64 %.227, %1
-  br i1 %28, label %.lr.ph, label %.thread42
+  br i1 %28, label %.lr.ph, label %.thread42.loopexit
 
-.thread42:                                        ; preds = %27, %22, %.preheader
-  %.025.lcssa = phi i64 [ 0, %.preheader ], [ %.02546, %22 ], [ %.227, %27 ]
-  %29 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %16) #55
-  %30 = icmp eq i64 %.025.lcssa, %1
+.thread42.loopexit:                               ; preds = %22, %27
+  %.025.lcssa.ph = phi i64 [ %.227, %27 ], [ %.02546, %22 ]
+  %29 = icmp eq i64 %.025.lcssa.ph, %1
+  br label %.thread42
+
+.thread42:                                        ; preds = %.thread42.loopexit, %.preheader
+  %.025.lcssa = phi i1 [ true, %.preheader ], [ %29, %.thread42.loopexit ]
+  %30 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef range(i32 0, -2147483648) %16) #55
   br label %.thread
 
 .thread:                                          ; preds = %10, %8, %.thread42, %14
-  %.1 = phi i1 [ %30, %.thread42 ], [ false, %14 ], [ false, %10 ], [ %9, %8 ]
+  %.1 = phi i1 [ %.025.lcssa, %.thread42 ], [ false, %14 ], [ false, %10 ], [ %9, %8 ]
   ret i1 %.1
 }
 

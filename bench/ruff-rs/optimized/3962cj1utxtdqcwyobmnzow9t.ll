@@ -8513,10 +8513,7 @@ define void @"_ZN177_$LT$ruff_python_formatter..comments..format..FormatEmptyLin
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %48 = add nuw nsw i32 %44, 1
-  br label %49
-
-49:                                               ; preds = %.lr.ph, %49
-  %.sroa.04.012 = phi i32 [ %48, %.lr.ph ], [ 2, %49 ]
+  %49 = icmp samesign ult i32 %48, %.sroa.06.0
   %50 = tail call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store i8 %50, ptr %46, align 1
@@ -8524,10 +8521,19 @@ define void @"_ZN177_$LT$ruff_python_formatter..comments..format..FormatEmptyLin
   %51 = load ptr, ptr %47, align 8, !invariant.load !3, !nonnull !3
   call void %51(ptr noundef nonnull align 1 %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %52 = icmp samesign ult i32 %.sroa.04.012, %.sroa.06.0
-  br i1 %52, label %49, label %.loopexit
+  br i1 %49, label %.loopexit.loopexit.critedge, label %.loopexit
 
-.loopexit:                                        ; preds = %9, %49, %36
+.loopexit.loopexit.critedge:                      ; preds = %.lr.ph
+  %52 = tail call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 3)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  store i8 %52, ptr %46, align 1
+  store i8 1, ptr %4, align 8
+  %53 = load ptr, ptr %47, align 8, !invariant.load !3, !nonnull !3
+  call void %53(ptr noundef nonnull align 1 %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %9, %.lr.ph, %.loopexit.loopexit.critedge, %36
   store i32 4, ptr %0, align 8
   ret void
 }

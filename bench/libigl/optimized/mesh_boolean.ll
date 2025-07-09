@@ -3037,7 +3037,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %298, %_ZNSt6vectorI
   %323 = phi i64 [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %243, %.sink.split.i218 ]
   %324 = phi i64 [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %241, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %241, %.sink.split.i218 ]
   %.sroa.0258.0.lcssa449 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.sroa.0258.1, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.sroa.0258.1, %.sink.split.i218 ]
-  %.sroa.13.0.lcssa448 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.sroa.13.1, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.sroa.13.1, %.sink.split.i218 ]
+  %.sroa.13.0.lcssa448 = phi i1 [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ false, %.sink.split.i218 ]
   %.sroa.20.0.lcssa441 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.sroa.20.1, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.sroa.20.1, %.sink.split.i218 ]
   %.sroa.0274.0426430440 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.sroa.0274.0.ph, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.sroa.0274.0.ph, %.sink.split.i218 ]
   %.095416419423431438 = phi i1 [ %.095415, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.095416418, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.095416418, %.sink.split.i218 ]
@@ -3049,8 +3049,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %298, %_ZNSt6vectorI
           to label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader unwind label %335
 
 _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader: ; preds = %320
-  %.not391 = icmp eq ptr %.sroa.13.0.lcssa448, %.sroa.0258.0.lcssa449
-  br i1 %.not391, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit._crit_edge, label %.lr.ph389
+  br i1 %.sroa.13.0.lcssa448, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit._crit_edge, label %.lr.ph389
 
 .lr.ph389:                                        ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader
   %325 = load ptr, ptr %14, align 8
@@ -7260,7 +7259,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %298, %_ZNSt6vectorI
   %323 = phi i64 [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %243, %.sink.split.i216 ]
   %324 = phi i64 [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %241, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %241, %.sink.split.i216 ]
   %.sroa.0256.0.lcssa443 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.sroa.0256.1, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.sroa.0256.1, %.sink.split.i216 ]
-  %.sroa.13.0.lcssa442 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.sroa.13.1, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.sroa.13.1, %.sink.split.i216 ]
+  %.sroa.13.0.lcssa442 = phi i1 [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ false, %.sink.split.i216 ]
   %.sroa.20.0.lcssa436 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.sroa.20.1, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.sroa.20.1, %.sink.split.i216 ]
   %.sroa.0272.0421425435 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.sroa.0272.0.ph, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.sroa.0272.0.ph, %.sink.split.i216 ]
   %.095411414418426433 = phi i1 [ %.095410, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.095411413, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.095411413, %.sink.split.i216 ]
@@ -7272,8 +7271,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %298, %_ZNSt6vectorI
           to label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader unwind label %335
 
 _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader: ; preds = %320
-  %.not386 = icmp eq ptr %.sroa.13.0.lcssa442, %.sroa.0256.0.lcssa443
-  br i1 %.not386, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit._crit_edge, label %.lr.ph384
+  br i1 %.sroa.13.0.lcssa442, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit._crit_edge, label %.lr.ph384
 
 .lr.ph384:                                        ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader
   %325 = load ptr, ptr %14, align 8
@@ -9578,7 +9576,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %298, %_ZNSt6vectorI
   %323 = phi i64 [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %243, %.sink.split.i218 ]
   %324 = phi i64 [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %241, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %241, %.sink.split.i218 ]
   %.sroa.0258.0.lcssa449 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.sroa.0258.1, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.sroa.0258.1, %.sink.split.i218 ]
-  %.sroa.13.0.lcssa448 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.sroa.13.1, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.sroa.13.1, %.sink.split.i218 ]
+  %.sroa.13.0.lcssa448 = phi i1 [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ false, %.sink.split.i218 ]
   %.sroa.20.0.lcssa441 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.sroa.20.1, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.sroa.20.1, %.sink.split.i218 ]
   %.sroa.0274.0426430440 = phi ptr [ null, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.sroa.0274.0.ph, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.sroa.0274.0.ph, %.sink.split.i218 ]
   %.095416419423431438 = phi i1 [ %.095415, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173.thread ], [ %.095416418, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i173 ], [ %.095416418, %.sink.split.i218 ]
@@ -9590,8 +9588,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %298, %_ZNSt6vectorI
           to label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader unwind label %335
 
 _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader: ; preds = %320
-  %.not391 = icmp eq ptr %.sroa.13.0.lcssa448, %.sroa.0258.0.lcssa449
-  br i1 %.not391, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit._crit_edge, label %.lr.ph389
+  br i1 %.sroa.13.0.lcssa448, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit._crit_edge, label %.lr.ph389
 
 .lr.ph389:                                        ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ImiEERKT_RKT0_.exit.preheader
   %325 = load ptr, ptr %14, align 8

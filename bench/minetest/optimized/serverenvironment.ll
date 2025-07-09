@@ -19529,14 +19529,13 @@ invoke.cont65:                                    ; preds = %invoke.cont60
 for.cond.cleanup73.loopexit:                      ; preds = %invoke.cont77
   %.pre = load ptr, ptr %call66, align 8, !tbaa !21
   %.pre322 = load ptr, ptr %_M_finish.i237, align 8, !tbaa !21
+  %18 = icmp ne ptr %.pre, %.pre322
+  %19 = zext i1 %18 to i8
   br label %for.cond.cleanup73
 
 for.cond.cleanup73:                               ; preds = %for.cond.cleanup73.loopexit, %invoke.cont65
-  %18 = phi ptr [ %.pre322, %for.cond.cleanup73.loopexit ], [ %16, %invoke.cont65 ]
-  %19 = phi ptr [ %.pre, %for.cond.cleanup73.loopexit ], [ %16, %invoke.cont65 ]
-  %cmp.i.i = icmp ne ptr %19, %18
-  %frombool84 = zext i1 %cmp.i.i to i8
-  store i8 %frombool84, ptr %check_required_neighbors, align 8, !tbaa !544
+  %cmp.i.i = phi i8 [ %19, %for.cond.cleanup73.loopexit ], [ 0, %invoke.cont65 ]
+  store i8 %cmp.i.i, ptr %check_required_neighbors, align 8, !tbaa !544
   %vtable85 = load ptr, ptr %5, align 8, !tbaa !19
   %vfn86 = getelementptr inbounds nuw i8, ptr %vtable85, i64 16
   %20 = load ptr, ptr %vfn86, align 8
@@ -39446,7 +39445,7 @@ cond.true.i.i.i:                                  ; preds = %if.end31.i.i.i
   %39 = load ptr, ptr %_M_parent.i.i.i.i300.i.i.i, align 8, !tbaa !83
   %add.ptr.i.i.i.i301.i.i.i = getelementptr inbounds nuw i8, ptr %call.val, i64 424
   %cmp.not11.i.i.i.i302.i.i.i = icmp eq ptr %39, null
-  br i1 %cmp.not11.i.i.i.i302.i.i.i, label %_ZNK15ActiveBlockList8containsEN3irr4core8vector3dIsEE.exit343.i.i.i, label %while.body.i.i.i.i303.i.i.i
+  br i1 %cmp.not11.i.i.i.i302.i.i.i, label %if.end46.i.i.i, label %while.body.i.i.i.i303.i.i.i
 
 while.body.i.i.i.i303.i.i.i:                      ; preds = %cond.true.i.i.i, %if.end.i.i.i.i310.i.i.i
   %__x.addr.013.i.i.i.i304.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i314.i.i.i, %if.end.i.i.i.i310.i.i.i ], [ %39, %cond.true.i.i.i ]
@@ -39489,41 +39488,33 @@ if.end.i.i.i.i310.i.i.i:                          ; preds = %if.else.i.i.i.i342.
 
 _ZNKSt8_Rb_treeIN3irr4core8vector3dIsEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i.i316.i.i.i: ; preds = %if.end.i.i.i.i310.i.i.i
   %cmp.i.i.i.i317.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i312.i.i.i, %add.ptr.i.i.i.i301.i.i.i
-  br i1 %cmp.i.i.i.i317.i.i.i, label %_ZNK15ActiveBlockList8containsEN3irr4core8vector3dIsEE.exit343.i.i.i, label %lor.lhs.false.i.i.i318.i.i.i
+  br i1 %cmp.i.i.i.i317.i.i.i, label %if.end46.i.i.i, label %lor.lhs.false.i.i.i318.i.i.i
 
 lor.lhs.false.i.i.i318.i.i.i:                     ; preds = %_ZNKSt8_Rb_treeIN3irr4core8vector3dIsEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i.i316.i.i.i
   %_M_storage.i.i.i14.i.i.i319.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i312.i.i.i, i64 32
   %43 = load i16, ptr %_M_storage.i.i.i14.i.i.i319.i.i.i, align 2, !tbaa !240
   %cmp.i.i.i.i.i320.i.i.i = icmp sgt i16 %43, %p.sroa.0.0.extract.trunc.i295.i.i.i
-  br i1 %cmp.i.i.i.i.i320.i.i.i, label %_ZNK15ActiveBlockList8containsEN3irr4core8vector3dIsEE.exit343.i.i.i, label %lor.lhs.false.i.i.i.i.i321.i.i.i
+  br i1 %cmp.i.i.i.i.i320.i.i.i, label %if.end46.i.i.i, label %lor.lhs.false.i.i.i.i.i321.i.i.i
 
 lor.lhs.false.i.i.i.i.i321.i.i.i:                 ; preds = %lor.lhs.false.i.i.i318.i.i.i
   %cmp8.i.i.i.i.i322.i.i.i = icmp eq i16 %43, %p.sroa.0.0.extract.trunc.i295.i.i.i
-  br i1 %cmp8.i.i.i.i.i322.i.i.i, label %land.lhs.true.i.i.i.i.i326.i.i.i, label %cond.false.i.i.i323.i.i.i
+  br i1 %cmp8.i.i.i.i.i322.i.i.i, label %land.lhs.true.i.i.i.i.i326.i.i.i, label %cond.end.i.i.i
 
 land.lhs.true.i.i.i.i.i326.i.i.i:                 ; preds = %lor.lhs.false.i.i.i.i.i321.i.i.i
   %Y10.i.i.i.i.i327.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i312.i.i.i, i64 34
   %44 = load i16, ptr %Y10.i.i.i.i.i327.i.i.i, align 2, !tbaa !241
   %cmp12.i.i.i.i.i328.i.i.i = icmp sgt i16 %44, %p.sroa.2.0.extract.trunc.i297.i.i.i
-  br i1 %cmp12.i.i.i.i.i328.i.i.i, label %_ZNK15ActiveBlockList8containsEN3irr4core8vector3dIsEE.exit343.i.i.i, label %land.lhs.true18.i.i.i.i.i329.i.i.i
+  br i1 %cmp12.i.i.i.i.i328.i.i.i, label %if.end46.i.i.i, label %land.lhs.true18.i.i.i.i.i329.i.i.i
 
 land.lhs.true18.i.i.i.i.i329.i.i.i:               ; preds = %land.lhs.true.i.i.i.i.i326.i.i.i
   %cmp23.i.i.i.i.i330.i.i.i = icmp eq i16 %44, %p.sroa.2.0.extract.trunc.i297.i.i.i
-  br i1 %cmp23.i.i.i.i.i330.i.i.i, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i331.i.i.i, label %cond.false.i.i.i323.i.i.i
+  br i1 %cmp23.i.i.i.i.i330.i.i.i, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i331.i.i.i, label %cond.end.i.i.i
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i331.i.i.i: ; preds = %land.lhs.true18.i.i.i.i.i329.i.i.i
   %Z25.i.i.i.i.i332.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i312.i.i.i, i64 36
   %45 = load i16, ptr %Z25.i.i.i.i.i332.i.i.i, align 2, !tbaa !242
   %cmp27.i.i.i.i.i333.i.i.i = icmp sgt i16 %45, %p.sroa.3.0.extract.trunc.i299.i.i.i
-  br i1 %cmp27.i.i.i.i.i333.i.i.i, label %_ZNK15ActiveBlockList8containsEN3irr4core8vector3dIsEE.exit343.i.i.i, label %cond.false.i.i.i323.i.i.i
-
-cond.false.i.i.i323.i.i.i:                        ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i331.i.i.i, %land.lhs.true18.i.i.i.i.i329.i.i.i, %lor.lhs.false.i.i.i.i.i321.i.i.i
-  br label %_ZNK15ActiveBlockList8containsEN3irr4core8vector3dIsEE.exit343.i.i.i
-
-_ZNK15ActiveBlockList8containsEN3irr4core8vector3dIsEE.exit343.i.i.i: ; preds = %cond.false.i.i.i323.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i331.i.i.i, %land.lhs.true.i.i.i.i.i326.i.i.i, %lor.lhs.false.i.i.i318.i.i.i, %_ZNKSt8_Rb_treeIN3irr4core8vector3dIsEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i.i316.i.i.i, %cond.true.i.i.i
-  %retval.sroa.0.0.i.i.i324.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i312.i.i.i, %cond.false.i.i.i323.i.i.i ], [ %add.ptr.i.i.i.i301.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i331.i.i.i ], [ %add.ptr.i.i.i.i301.i.i.i, %_ZNKSt8_Rb_treeIN3irr4core8vector3dIsEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i.i316.i.i.i ], [ %add.ptr.i.i.i.i301.i.i.i, %cond.true.i.i.i ], [ %add.ptr.i.i.i.i301.i.i.i, %land.lhs.true.i.i.i.i.i326.i.i.i ], [ %add.ptr.i.i.i.i301.i.i.i, %lor.lhs.false.i.i.i318.i.i.i ]
-  %cmp.i.i325.i.i.i = icmp ne ptr %retval.sroa.0.0.i.i.i324.i.i.i, %add.ptr.i.i.i.i301.i.i.i
-  br label %cond.end.i.i.i
+  br i1 %cmp27.i.i.i.i.i333.i.i.i, label %if.end46.i.i.i, label %cond.end.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %if.end31.i.i.i
   %m_map.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val, i64 112
@@ -39532,12 +39523,12 @@ cond.false.i.i.i:                                 ; preds = %if.end31.i.i.i
   %cmp.i.i.i = icmp ne ptr %call40.i.i.i, null
   br label %cond.end.i.i.i
 
-cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %_ZNK15ActiveBlockList8containsEN3irr4core8vector3dIsEE.exit343.i.i.i
-  %cond.i.i.i = phi i1 [ %cmp.i.i325.i.i.i, %_ZNK15ActiveBlockList8containsEN3irr4core8vector3dIsEE.exit343.i.i.i ], [ %cmp.i.i.i, %cond.false.i.i.i ]
+cond.end.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i.i.i321.i.i.i, %land.lhs.true18.i.i.i.i.i329.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i331.i.i.i, %cond.false.i.i.i
+  %cond.i.i.i = phi i1 [ %cmp.i.i.i, %cond.false.i.i.i ], [ true, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i331.i.i.i ], [ true, %land.lhs.true18.i.i.i.i.i329.i.i.i ], [ true, %lor.lhs.false.i.i.i.i.i321.i.i.i ]
   %brmerge.demorgan.i.i.i = and i1 %tobool.not.i.i.i, %cond.i.i.i
   br i1 %brmerge.demorgan.i.i.i, label %cleanup185.i.i.i, label %if.end46.i.i.i
 
-if.end46.i.i.i:                                   ; preds = %cond.end.i.i.i
+if.end46.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i318.i.i.i, %land.lhs.true.i.i.i.i.i326.i.i.i, %cond.true.i.i.i, %_ZNKSt8_Rb_treeIN3irr4core8vector3dIsEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i.i316.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i331.i.i.i, %cond.end.i.i.i
   %.not = icmp eq ptr @_ZTH13verbosestream, null
   br i1 %.not, label %_ZTW13verbosestream.exit.i.i.i, label %47
 

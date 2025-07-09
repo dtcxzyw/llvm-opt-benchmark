@@ -1472,13 +1472,19 @@ if.end.i24.i:                                     ; preds = %_ZN8simdjson15simdj
   %idxprom.i73.i.i = zext i32 %30 to i64
   %arrayidx.i74.i.i = getelementptr inbounds nuw i8, ptr %.pre207, i64 %idxprom.i73.i.i
   %31 = load i8, ptr %arrayidx.i74.i.i, align 1
-  switch i8 %31, label %if.end6.i.sink.split [
+  switch i8 %31, label %sw.default.i.i [
     i8 91, label %sw.epilog.i.i
     i8 123, label %sw.epilog.i.i
     i8 58, label %sw.epilog.i.i
     i8 44, label %sw.epilog.i.i
+    i8 93, label %sw.bb4.i.i
+    i8 125, label %sw.bb4.i.i
     i8 34, label %sw.bb9.i.i
   ]
+
+sw.bb4.i.i:                                       ; preds = %if.end.i24.i, %if.end.i24.i
+  store i32 %ref.tmp3.i.sroa.0.sroa.2.0.copyload, ptr %_depth.i.i.i217, align 4
+  br label %if.end6.i
 
 sw.bb9.i.i:                                       ; preds = %if.end.i24.i
   %32 = load i32, ptr %incdec.ptr.i.i.i, align 4
@@ -1486,12 +1492,16 @@ sw.bb9.i.i:                                       ; preds = %if.end.i24.i
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %.pre207, i64 %idxprom.i.i.i
   %33 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp12.i.i293 = icmp eq i8 %33, 58
-  br i1 %cmp12.i.i293, label %if.then13.i.i299, label %if.end6.i.sink.split
+  br i1 %cmp12.i.i293, label %if.then13.i.i299, label %sw.default.i.i
 
 if.then13.i.i299:                                 ; preds = %sw.bb9.i.i
   %incdec.ptr.i78.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %incdec.ptr.i78.i.i, ptr %_position.i103, align 8
   br label %sw.epilog.i.i
+
+sw.default.i.i:                                   ; preds = %sw.bb9.i.i, %if.end.i24.i
+  store i32 %ref.tmp3.i.sroa.0.sroa.2.0.copyload, ptr %_depth.i.i.i217, align 4
+  br label %if.end6.i
 
 sw.epilog.i.i:                                    ; preds = %if.end.i24.i, %if.end.i24.i, %if.end.i24.i, %if.end.i24.i, %if.then13.i.i299
   %_position.i.i281.promoted = phi ptr [ %incdec.ptr.i.i.i, %if.end.i24.i ], [ %incdec.ptr.i.i.i, %if.end.i24.i ], [ %incdec.ptr.i.i.i, %if.end.i24.i ], [ %incdec.ptr.i.i.i, %if.end.i24.i ], [ %incdec.ptr.i78.i.i, %if.then13.i.i299 ]
@@ -1533,7 +1543,7 @@ sw.bb31.i.i:                                      ; preds = %while.body.i.i, %wh
   %dec33.i.i = add nsw i32 %39, -1
   store i32 %dec33.i.i, ptr %_depth.i.i.i217, align 4
   %cmp35.i.i.not = icmp sgt i32 %dec33.i.i, %ref.tmp3.i.sroa.0.sroa.2.0.copyload
-  br i1 %cmp35.i.i.not, label %sw.epilog40.i.i, label %if.end6.i
+  br i1 %cmp35.i.i.not, label %sw.epilog40.i.i, label %if.end6.i.loopexit
 
 sw.epilog40.i.i:                                  ; preds = %while.body.i.i, %sw.bb31.i.i, %sw.bb29.i.i
   %43 = phi i32 [ %38, %while.body.i.i ], [ %dec33.i.i, %sw.bb31.i.i ], [ %inc.i.i, %sw.bb29.i.i ]
@@ -1553,16 +1563,15 @@ while.end.i.i:                                    ; preds = %sw.epilog40.i.i, %s
   store i32 3, ptr %error.i9.i, align 8
   br label %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand14array_iteratorEEppEv.exit
 
-if.end6.i.sink.split:                             ; preds = %if.end.i24.i, %sw.bb9.i.i
-  store i32 %ref.tmp3.i.sroa.0.sroa.2.0.copyload, ptr %_depth.i.i.i217, align 4
+if.end6.i.loopexit:                               ; preds = %sw.bb31.i.i
+  %49 = icmp eq i32 %dec33.i.i, %ref.tmp3.i.sroa.0.sroa.2.0.copyload
   br label %if.end6.i
 
-if.end6.i:                                        ; preds = %sw.bb31.i.i, %if.end6.i.sink.split
-  %49 = phi i32 [ %ref.tmp3.i.sroa.0.sroa.2.0.copyload, %if.end6.i.sink.split ], [ %dec33.i.i, %sw.bb31.i.i ]
-  %50 = phi ptr [ %incdec.ptr.i.i.i, %if.end6.i.sink.split ], [ %incdec.ptr.i84.i.i, %sw.bb31.i.i ]
+if.end6.i:                                        ; preds = %if.end6.i.loopexit, %sw.default.i.i, %sw.bb4.i.i
+  %cmp5.i123 = phi i1 [ true, %sw.bb4.i.i ], [ true, %sw.default.i.i ], [ %49, %if.end6.i.loopexit ]
+  %50 = phi ptr [ %incdec.ptr.i.i.i, %sw.bb4.i.i ], [ %incdec.ptr.i.i.i, %sw.default.i.i ], [ %incdec.ptr.i84.i.i, %if.end6.i.loopexit ]
   %cmp.i120 = icmp ugt ptr %50, %ref.tmp3.i.sroa.0.sroa.4.0.copyload
   call void @llvm.assume(i1 %cmp.i120)
-  %cmp5.i123 = icmp eq i32 %49, %ref.tmp3.i.sroa.0.sroa.2.0.copyload
   call void @llvm.assume(i1 %cmp5.i123)
   %incdec.ptr.i.i328 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store ptr %incdec.ptr.i.i328, ptr %_position.i103, align 8

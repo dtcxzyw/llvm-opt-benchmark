@@ -1814,9 +1814,9 @@ land.rhs.lr.ph:                                   ; preds = %while.cond13.prehea
   %11 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_string_length.i.i.i4.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %12 = getelementptr i8, ptr %7, i64 -24
-  %call15.val4121 = load i64, ptr %12, align 8
-  %cmp.i122 = icmp eq i64 %call15.val4121, 2
-  br i1 %cmp.i122, label %land.lhs.true.i, label %return
+  %call15.val4118 = load i64, ptr %12, align 8
+  %cmp.i119 = icmp eq i64 %call15.val4118, 2
+  br i1 %cmp.i119, label %land.lhs.true.i, label %return
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i.i.lr.ph, %while.cond
   %call4.val371 = phi i64 [ %call4.val366, %land.rhs.i.i.lr.ph ], [ %call4.val3, %while.cond ]
@@ -1988,11 +1988,11 @@ land.rhs:                                         ; preds = %while.end40
   br i1 %cmp.i, label %land.lhs.true.i, label %return, !llvm.loop !14
 
 land.lhs.true.i:                                  ; preds = %land.rhs.lr.ph, %land.rhs
-  %.pn129 = phi ptr [ %116, %land.rhs ], [ %7, %land.rhs.lr.ph ]
-  %hasKeywordOrAttribute.176123 = phi i1 [ true, %land.rhs ], [ %hasKeywordOrAttribute.0.lcssa, %land.rhs.lr.ph ]
-  %add.ptr.i.i.i13124 = getelementptr inbounds i8, ptr %.pn129, i64 -32
-  %call15.val125 = load ptr, ptr %add.ptr.i.i.i13124, align 8
-  %70 = load i16, ptr %call15.val125, align 2
+  %.pn126 = phi ptr [ %116, %land.rhs ], [ %7, %land.rhs.lr.ph ]
+  %hasKeywordOrAttribute.176120 = phi i1 [ true, %land.rhs ], [ %hasKeywordOrAttribute.0.lcssa, %land.rhs.lr.ph ]
+  %add.ptr.i.i.i13121 = getelementptr inbounds i8, ptr %.pn126, i64 -32
+  %call15.val122 = load ptr, ptr %add.ptr.i.i.i13121, align 8
+  %70 = load i16, ptr %call15.val122, align 2
   %71 = and i16 %70, -33
   %72 = add i16 %71, -65
   %73 = icmp ult i16 %72, 26
@@ -2002,7 +2002,7 @@ land.lhs.true.i:                                  ; preds = %land.rhs.lr.ph, %la
   br i1 %76, label %_ZN6hermes13platform_intl12_GLOBAL__N_121isUnicodeExtensionKeyERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit, label %return
 
 _ZN6hermes13platform_intl12_GLOBAL__N_121isUnicodeExtensionKeyERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit: ; preds = %land.lhs.true.i
-  %arrayidx.i.i.i = getelementptr i8, ptr %call15.val125, i64 2
+  %arrayidx.i.i.i = getelementptr i8, ptr %call15.val122, i64 2
   %77 = load i16, ptr %arrayidx.i.i.i, align 2
   %78 = and i16 %77, -33
   %79 = add i16 %78, -65
@@ -2013,7 +2013,7 @@ while.body17:                                     ; preds = %_ZN6hermes13platfor
   store ptr %9, ptr %ref.tmp21, align 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8
   store i16 0, ptr %9, align 8
-  call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_EC2IS6_S5_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISA_SB_EEEbE4typeELb1EEERS6_SE_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i13124, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21)
+  call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEES5_EC2IS6_S5_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISA_SB_EEEbE4typeELb1EEERS6_SE_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i13121, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21)
   %call.i16 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE16_M_insert_uniqueIS8_EES6_ISt17_Rb_tree_iteratorIS8_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %unicodeExtensionKeywords, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
   %call.i16.fr = freeze { ptr, i8 } %call.i16
   %81 = extractvalue { ptr, i8 } %call.i16.fr, 0
@@ -2280,15 +2280,14 @@ if.then.i.i.i48:                                  ; preds = %if.end36.us
 
 while.end40:                                      ; preds = %land.rhs26, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit30, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit30.us, %land.rhs26.us
   %116 = phi ptr [ %94, %land.rhs26.us ], [ %94, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit30.us ], [ %114, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit30 ], [ %114, %land.rhs26 ]
-  %117 = phi ptr [ %95, %land.rhs26.us ], [ %95, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit30.us ], [ %115, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit30 ], [ %115, %land.rhs26 ]
-  %cmp.i.i.i.not = icmp eq ptr %117, %116
+  %cmp.i.i.i.not = phi i1 [ %cmp.i.i.i.i26.not.us, %land.rhs26.us ], [ %cmp.i.i.i.i26.not.us, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit30.us ], [ %cmp.i.i.i.i26.not, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit30 ], [ %cmp.i.i.i.i26.not, %land.rhs26 ]
   br i1 %cmp.i.i.i.not, label %while.end40.return.loopexit_crit_edge, label %land.rhs, !llvm.loop !14
 
 while.end40.return.loopexit_crit_edge:            ; preds = %while.end40
   br label %return, !llvm.loop !14
 
 return:                                           ; preds = %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit, %land.rhs, %land.lhs.true.i, %_ZN6hermes13platform_intl12_GLOBAL__N_121isUnicodeExtensionKeyERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit, %land.rhs.lr.ph, %while.end40.return.loopexit_crit_edge, %while.cond13.preheader, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ %hasKeywordOrAttribute.0.lcssa, %while.cond13.preheader ], [ true, %while.end40.return.loopexit_crit_edge ], [ %hasKeywordOrAttribute.0.lcssa, %land.rhs.lr.ph ], [ %hasKeywordOrAttribute.176123, %_ZN6hermes13platform_intl12_GLOBAL__N_121isUnicodeExtensionKeyERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ], [ %hasKeywordOrAttribute.176123, %land.lhs.true.i ], [ true, %land.rhs ], [ true, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit ]
+  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ %hasKeywordOrAttribute.0.lcssa, %while.cond13.preheader ], [ true, %while.end40.return.loopexit_crit_edge ], [ %hasKeywordOrAttribute.0.lcssa, %land.rhs.lr.ph ], [ %hasKeywordOrAttribute.176120, %_ZN6hermes13platform_intl12_GLOBAL__N_121isUnicodeExtensionKeyERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ], [ %hasKeywordOrAttribute.176120, %land.lhs.true.i ], [ true, %land.rhs ], [ true, %_ZN6hermes13platform_intl17LanguageTagParser10nextSubtagEv.exit ]
   ret i1 %retval.0
 }
 

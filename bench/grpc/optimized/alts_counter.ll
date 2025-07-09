@@ -107,7 +107,7 @@ define noundef range(i32 0, 10) i32 @_Z22alts_counter_incrementP12alts_counterPb
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %.not24 = icmp eq i64 %12, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not24, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.pre = load ptr, ptr %10, align 8, !tbaa !14
@@ -142,17 +142,22 @@ define noundef range(i32 0, 10) i32 @_Z22alts_counter_incrementP12alts_counterPb
   %25 = icmp ult i64 %24, %.pre25.pre
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %23, %.lr.ph, %.preheader
-  %26 = phi i64 [ 0, %.preheader ], [ %.pre25.pre, %.lr.ph ], [ %.pre25.pre, %23 ]
-  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %24, %23 ], [ %.021, %.lr.ph ]
-  %27 = icmp eq i64 %.0.lcssa, %26
-  %. = zext i1 %27 to i8
-  %.18 = select i1 %27, i32 9, i32 0
-  store i8 %., ptr %1, align 1, !tbaa !18
+._crit_edge:                                      ; preds = %23, %.lr.ph
+  %.0.lcssa.ph = phi i64 [ %24, %23 ], [ %.021, %.lr.ph ]
+  %26 = icmp eq i64 %.0.lcssa.ph, %.pre25.pre
+  %cond.fr = freeze i1 %26
+  %. = zext i1 %cond.fr to i8
+  %spec.select = select i1 %cond.fr, i32 9, i32 0
+  br label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader
+  %.29 = phi i8 [ 1, %.preheader ], [ %., %._crit_edge ]
+  %27 = phi i32 [ 9, %.preheader ], [ %spec.select, %._crit_edge ]
+  store i8 %.29, ptr %1, align 1, !tbaa !18
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %14, %13, %6, %5, %._crit_edge
-  %.015 = phi i32 [ %.18, %._crit_edge ], [ 3, %5 ], [ 3, %6 ], [ 3, %13 ], [ 3, %14 ]
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %14, %13, %6, %5, %._crit_edge.thread
+  %.015 = phi i32 [ %27, %._crit_edge.thread ], [ 3, %5 ], [ 3, %6 ], [ 3, %13 ], [ 3, %14 ]
   ret i32 %.015
 }
 

@@ -220,7 +220,7 @@ define dso_local ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr n
 54:                                               ; preds = %50
   %55 = load ptr, ptr %5, align 8
   %56 = icmp sgt i32 %1, 0
-  br i1 %56, label %.lr.ph.preheader.i, label %plugin_get_syms.exit
+  br i1 %56, label %.lr.ph.preheader.i, label %plugin_get_syms.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %54
   %wide.trip.count.i = zext nneg i32 %1 to i64
@@ -257,21 +257,20 @@ define dso_local ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr n
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %plugin_get_syms.exit, label %.lr.ph.i, !llvm.loop !8
 
-plugin_get_syms.exit:                             ; preds = %68, %54
-  %.0.lcssa.i = phi i32 [ 0, %54 ], [ %.1.i, %68 ]
-  %.not35 = icmp slt i32 %.0.lcssa.i, %1
-  br i1 %.not35, label %74, label %69
+plugin_get_syms.exit:                             ; preds = %68
+  %69 = icmp slt i32 %.1.i, %1
+  br i1 %69, label %74, label %plugin_get_syms.exit.thread
 
-69:                                               ; preds = %plugin_get_syms.exit
+plugin_get_syms.exit.thread:                      ; preds = %54, %plugin_get_syms.exit
   %70 = call i32 @get_log_level() #10
   %71 = icmp sgt i32 %70, 6
   br i1 %71, label %72, label %73
 
-72:                                               ; preds = %69
+72:                                               ; preds = %plugin_get_syms.exit.thread
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.8) #10
   br label %73
 
-73:                                               ; preds = %72, %69
+73:                                               ; preds = %72, %plugin_get_syms.exit.thread
   call void @slurm_xfree(ptr noundef nonnull %9) #10
   br label %.loopexit
 

@@ -295,14 +295,14 @@ define hidden void @_ZN8rawspeed10SrwDecoder17decodeRawInternalEv(ptr dead_on_un
 
 27:                                               ; preds = %22
   %28 = icmp eq i32 %15, 32770
-  br i1 %28, label %29, label %41
+  br i1 %28, label %29, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %31 = load ptr, ptr %30, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %.not10.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not10.i.i.i.i, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %29, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %31, %29 ]
@@ -319,27 +319,22 @@ define hidden void @_ZN8rawspeed10SrwDecoder17decodeRawInternalEv(ptr dead_on_un
 
 _ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %36 = icmp eq ptr %.19.i.i.i.i, %32
-  br i1 %36, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit, label %37
+  br i1 %36, label %._crit_edge.i.i, label %37
 
 37:                                               ; preds = %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %39 = load i16, ptr %38, align 2, !tbaa !33
   %40 = icmp ugt i16 %39, -24560
-  %spec.select.i.i.i = select i1 %40, ptr %32, ptr %.19.i.i.i.i
   br label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit
 
-_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit: ; preds = %29, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %37
-  %.sroa.0.0.i.i.i = phi ptr [ %32, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ %32, %29 ], [ %spec.select.i.i.i, %37 ]
-  %.not165 = icmp eq ptr %.sroa.0.0.i.i.i, %32
-  br label %41
-
-41:                                               ; preds = %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit, %27
-  %42 = phi i1 [ false, %27 ], [ %.not165, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit ]
-  %43 = icmp eq i32 %15, 32769
-  %or.cond9 = or i1 %43, %42
+_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit: ; preds = %37, %27
+  %41 = phi i1 [ false, %27 ], [ %40, %37 ]
+  %42 = icmp eq i32 %15, 32769
+  %or.cond9 = or i1 %42, %41
   br i1 %or.cond9, label %._crit_edge.i.i, label %.critedge
 
-._crit_edge.i.i:                                  ; preds = %41
+._crit_edge.i.i:                                  ; preds = %29, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit
+  %43 = phi i1 [ %41, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit ], [ true, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ true, %29 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %44, ptr %3, align 8, !tbaa !37
@@ -350,7 +345,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit: ; preds = %29, %_ZNKSt8_Rb_tre
   store i8 0, ptr %46, align 4, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = icmp eq i32 %17, 12
-  %49 = and i1 %48, %42
+  %49 = and i1 %48, %43
   %50 = invoke noundef zeroext i1 @_ZNK8rawspeed5Hints3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %49)
           to label %51 unwind label %72
 
@@ -424,7 +419,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
   br label %301
 
-.critedge:                                        ; preds = %41
+.critedge:                                        ; preds = %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit
   %80 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD8getEntryENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %13, i16 noundef zeroext 256)
   %81 = tail call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(48) %80, i32 noundef 0)
   %82 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD8getEntryENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %13, i16 noundef zeroext 257)

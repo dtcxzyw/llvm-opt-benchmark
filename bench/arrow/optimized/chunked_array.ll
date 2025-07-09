@@ -5354,7 +5354,13 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_114ValidateChunksERKSt6vector
   %23 = ptrtoint ptr %14 to i64
   %24 = sub i64 %22, %23
   %.not65 = icmp ugt i64 %24, 16
-  br i1 %.not65, label %.lr.ph, label %._crit_edge
+  br i1 %.not65, label %.lr.ph, label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #20
+  store i64 0, ptr %9, align 8, !tbaa !169
+  br label %.lr.ph70
 
 .lr.ph:                                           ; preds = %17, %.critedge
   %25 = phi ptr [ %101, %.critedge ], [ %14, %17 ]
@@ -5549,20 +5555,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   br label %192
 
-._crit_edge:                                      ; preds = %.critedge, %17
-  %107 = phi ptr [ %14, %17 ], [ %101, %.critedge ]
-  %108 = phi ptr [ %13, %17 ], [ %100, %.critedge ]
+._crit_edge:                                      ; preds = %.critedge
+  %107 = icmp eq ptr %100, %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #20
   store i64 0, ptr %9, align 8, !tbaa !169
-  %.not3267.not = icmp eq ptr %108, %107
-  br i1 %.not3267.not, label %._crit_edge71, label %.lr.ph70
+  br i1 %107, label %._crit_edge71, label %.lr.ph70
 
-.lr.ph70:                                         ; preds = %._crit_edge
+.lr.ph70:                                         ; preds = %._crit_edge.thread, %._crit_edge
+  %108 = phi ptr [ %14, %._crit_edge.thread ], [ %101, %._crit_edge ]
   br i1 %2, label %.lr.ph70.split.us, label %.lr.ph70.split
 
 .lr.ph70.split.us:                                ; preds = %.lr.ph70, %115
-  %109 = phi ptr [ %118, %115 ], [ %107, %.lr.ph70 ]
+  %109 = phi ptr [ %118, %115 ], [ %108, %.lr.ph70 ]
   %110 = phi i64 [ %116, %115 ], [ 0, %.lr.ph70 ]
   %111 = getelementptr inbounds nuw %"class.std::shared_ptr.12", ptr %109, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !45
@@ -5586,7 +5591,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
   br i1 %.not32.us, label %.lr.ph70.split.us, label %._crit_edge71, !llvm.loop !265
 
 .lr.ph70.split:                                   ; preds = %.lr.ph70, %182
-  %123 = phi ptr [ %185, %182 ], [ %107, %.lr.ph70 ]
+  %123 = phi ptr [ %185, %182 ], [ %108, %.lr.ph70 ]
   %124 = phi i64 [ %183, %182 ], [ 0, %.lr.ph70 ]
   %125 = getelementptr inbounds nuw %"class.std::shared_ptr.12", ptr %123, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !45

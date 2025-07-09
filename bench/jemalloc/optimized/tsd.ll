@@ -225,7 +225,7 @@ atomic_load_u8.exit:
 atomic_store_u8.exit:                             ; preds = %atomic_load_u8.exit
   store atomic i8 %1, ptr %2 monotonic, align 1
   %5 = icmp ult i8 %1, 3
-  br i1 %5, label %6, label %80
+  br i1 %5, label %6, label %78
 
 6:                                                ; preds = %atomic_store_u8.exit
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -284,11 +284,11 @@ tsd_add_nominal.exit:                             ; preds = %malloc_mutex_lock.e
   store ptr %28, ptr @tsd_nominal_tsds.0, align 8, !tbaa !16
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @tsd_nominal_tsds_lock, i64 64) monotonic, align 8
   %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tsd_nominal_tsds_lock, i64 72)) #7
-  br label %80
+  br label %78
 
 30:                                               ; preds = %atomic_load_u8.exit
   %31 = icmp ugt i8 %1, 2
-  br i1 %31, label %32, label %64
+  br i1 %31, label %32, label %62
 
 32:                                               ; preds = %30
   %33 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tsd_nominal_tsds_lock, i64 72)) #7
@@ -321,90 +321,86 @@ malloc_mutex_trylock_final.exit.i.i18:            ; preds = %32
 malloc_mutex_lock.exit.i17:                       ; preds = %39, %35
   %42 = load ptr, ptr @tsd_nominal_tsds.0, align 8, !tbaa !16
   %43 = icmp eq ptr %42, %0
-  br i1 %43, label %44, label %47
+  br i1 %43, label %44, label %.thread.i
 
 44:                                               ; preds = %malloc_mutex_lock.exit.i17
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 208
   %46 = load ptr, ptr %45, align 8, !tbaa !20
   store ptr %46, ptr @tsd_nominal_tsds.0, align 8, !tbaa !16
-  br label %47
+  %47 = icmp eq ptr %46, %0
+  br i1 %47, label %60, label %.thread.i
 
-47:                                               ; preds = %44, %malloc_mutex_lock.exit.i17
-  %48 = phi ptr [ %46, %44 ], [ %42, %malloc_mutex_lock.exit.i17 ]
-  %.not.i = icmp eq ptr %48, %0
-  br i1 %.not.i, label %62, label %49
-
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %51 = load ptr, ptr %50, align 8, !tbaa !20
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 216
+.thread.i:                                        ; preds = %44, %malloc_mutex_lock.exit.i17
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %49 = load ptr, ptr %48, align 8, !tbaa !20
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 216
+  %51 = load ptr, ptr %50, align 8, !tbaa !50
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %53 = load ptr, ptr %52, align 8, !tbaa !50
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %55 = load ptr, ptr %54, align 8, !tbaa !50
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 208
-  store ptr %53, ptr %56, align 8, !tbaa !20
-  %57 = load ptr, ptr %50, align 8, !tbaa !20
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 216
-  store ptr %55, ptr %58, align 8, !tbaa !50
-  store ptr %53, ptr %54, align 8, !tbaa !50
-  %59 = load ptr, ptr %58, align 8, !tbaa !50
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 208
-  store ptr %57, ptr %60, align 8, !tbaa !20
-  %61 = getelementptr inbounds nuw i8, ptr %53, i64 208
-  store ptr %0, ptr %61, align 8, !tbaa !20
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 208
+  store ptr %51, ptr %54, align 8, !tbaa !20
+  %55 = load ptr, ptr %48, align 8, !tbaa !20
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 216
+  store ptr %53, ptr %56, align 8, !tbaa !50
+  store ptr %51, ptr %52, align 8, !tbaa !50
+  %57 = load ptr, ptr %56, align 8, !tbaa !50
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 208
+  store ptr %55, ptr %58, align 8, !tbaa !20
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 208
+  store ptr %0, ptr %59, align 8, !tbaa !20
   br label %atomic_store_u8.exit11
 
-62:                                               ; preds = %47
+60:                                               ; preds = %44
   store ptr null, ptr @tsd_nominal_tsds.0, align 8, !tbaa !16
   br label %atomic_store_u8.exit11
 
-atomic_store_u8.exit11:                           ; preds = %49, %62
+atomic_store_u8.exit11:                           ; preds = %.thread.i, %60
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @tsd_nominal_tsds_lock, i64 64) monotonic, align 8
-  %63 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tsd_nominal_tsds_lock, i64 72)) #7
+  %61 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tsd_nominal_tsds_lock, i64 72)) #7
   store atomic i8 %1, ptr %2 monotonic, align 1
-  br label %80
+  br label %78
 
-64:                                               ; preds = %30
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  br label %66
+62:                                               ; preds = %30
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  br label %64
 
-66:                                               ; preds = %atomic_exchange_u8.exit.i, %64
+64:                                               ; preds = %atomic_exchange_u8.exit.i, %62
   %.val.i.i = load i8, ptr %2, align 8, !tbaa !44
-  %67 = icmp ult i8 %.val.i.i, 3
-  br i1 %67, label %68, label %atomic_exchange_u8.exit.i
+  %65 = icmp ult i8 %.val.i.i, 3
+  br i1 %65, label %66, label %atomic_exchange_u8.exit.i
 
-68:                                               ; preds = %66
-  %69 = load i8, ptr @je_malloc_slow, align 1, !tbaa !45, !range !46, !noundef !47
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %atomic_exchange_u8.exit.i, label %71
+66:                                               ; preds = %64
+  %67 = load i8, ptr @je_malloc_slow, align 1, !tbaa !45, !range !46, !noundef !47
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %atomic_exchange_u8.exit.i, label %69
 
-71:                                               ; preds = %68
-  %72 = load i8, ptr %0, align 1, !tbaa !45, !range !46, !noundef !47
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %tsd_local_slow.exit.i.i, label %atomic_exchange_u8.exit.i
+69:                                               ; preds = %66
+  %70 = load i8, ptr %0, align 1, !tbaa !45, !range !46, !noundef !47
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %tsd_local_slow.exit.i.i, label %atomic_exchange_u8.exit.i
 
-tsd_local_slow.exit.i.i:                          ; preds = %71
-  %74 = load i8, ptr %65, align 1, !tbaa !44
-  %75 = icmp sgt i8 %74, 0
-  br i1 %75, label %atomic_exchange_u8.exit.i, label %76
+tsd_local_slow.exit.i.i:                          ; preds = %69
+  %72 = load i8, ptr %63, align 1, !tbaa !44
+  %73 = icmp sgt i8 %72, 0
+  br i1 %73, label %atomic_exchange_u8.exit.i, label %74
 
-76:                                               ; preds = %tsd_local_slow.exit.i.i
-  %77 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
-  %.not.i.i19 = icmp ne i32 %77, 0
+74:                                               ; preds = %tsd_local_slow.exit.i.i
+  %75 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
+  %.not.i.i19 = icmp ne i32 %75, 0
   %spec.select.i.i = zext i1 %.not.i.i19 to i8
   br label %atomic_exchange_u8.exit.i
 
-atomic_exchange_u8.exit.i:                        ; preds = %76, %tsd_local_slow.exit.i.i, %71, %68, %66
-  %.0.i5.i = phi i8 [ 1, %tsd_local_slow.exit.i.i ], [ 1, %68 ], [ %spec.select.i.i, %76 ], [ %.val.i.i, %66 ], [ 1, %71 ]
-  %78 = atomicrmw xchg ptr %2, i8 %.0.i5.i acquire, align 1
-  %79 = icmp eq i8 %78, 2
-  br i1 %79, label %66, label %je_tsd_slow_update.exit, !llvm.loop !48
+atomic_exchange_u8.exit.i:                        ; preds = %74, %tsd_local_slow.exit.i.i, %69, %66, %64
+  %.0.i5.i = phi i8 [ 1, %tsd_local_slow.exit.i.i ], [ 1, %66 ], [ %spec.select.i.i, %74 ], [ %.val.i.i, %64 ], [ 1, %69 ]
+  %76 = atomicrmw xchg ptr %2, i8 %.0.i5.i acquire, align 1
+  %77 = icmp eq i8 %76, 2
+  br i1 %77, label %64, label %je_tsd_slow_update.exit, !llvm.loop !48
 
 je_tsd_slow_update.exit:                          ; preds = %atomic_exchange_u8.exit.i
   tail call void @je_te_recompute_fast_threshold(ptr noundef nonnull %0) #7
-  br label %80
+  br label %78
 
-80:                                               ; preds = %atomic_store_u8.exit11, %je_tsd_slow_update.exit, %atomic_store_u8.exit, %tsd_add_nominal.exit
+78:                                               ; preds = %atomic_store_u8.exit11, %je_tsd_slow_update.exit, %atomic_store_u8.exit, %tsd_add_nominal.exit
   tail call void @je_te_recompute_fast_threshold(ptr noundef nonnull %0) #7
   ret void
 }

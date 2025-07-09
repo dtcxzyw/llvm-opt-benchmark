@@ -3037,13 +3037,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %7
   %712 = sub i64 %710, %711
   %713 = sdiv exact i64 %712, 96
   %714 = icmp ugt i64 %713, %709
-  br i1 %714, label %.lr.ph444, label %.loopexit, !llvm.loop !72
+  br i1 %714, label %.lr.ph444, label %.loopexit.loopexit, !llvm.loop !72
 
-.loopexit:                                        ; preds = %705, %._crit_edge441, %._crit_edge433
-  %.pre-phi497 = phi i64 [ %.mux, %._crit_edge441 ], [ 0, %._crit_edge433 ], [ %713, %705 ]
-  %715 = phi ptr [ %448, %._crit_edge441 ], [ %448, %._crit_edge433 ], [ %706, %705 ]
-  %716 = phi ptr [ %447, %._crit_edge441 ], [ %447, %._crit_edge433 ], [ %707, %705 ]
-  %.not455 = icmp eq ptr %716, %715
+.loopexit.loopexit:                               ; preds = %705
+  %715 = icmp eq ptr %707, %706
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge441, %._crit_edge433
+  %.pre-phi497 = phi i64 [ %.mux, %._crit_edge441 ], [ 0, %._crit_edge433 ], [ %713, %.loopexit.loopexit ]
+  %716 = phi ptr [ %448, %._crit_edge441 ], [ %448, %._crit_edge433 ], [ %706, %.loopexit.loopexit ]
+  %.not455 = phi i1 [ false, %._crit_edge441 ], [ true, %._crit_edge433 ], [ %715, %.loopexit.loopexit ]
   br i1 %.not455, label %._crit_edge448, label %.lr.ph447
 
 .lr.ph447:                                        ; preds = %.loopexit
@@ -3151,7 +3154,7 @@ _ZNSt6vectorIN5boost10function_nIS_INS0_15program_options12basic_optionIcEESaIS4
 749:                                              ; preds = %.lr.ph447, %761
   %750 = phi i64 [ 0, %.lr.ph447 ], [ %764, %761 ]
   %.0445 = phi i32 [ 0, %.lr.ph447 ], [ %763, %761 ]
-  %751 = getelementptr inbounds nuw %"class.boost::program_options::basic_option", ptr %715, i64 %750
+  %751 = getelementptr inbounds nuw %"class.boost::program_options::basic_option", ptr %716, i64 %750
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 8
   %753 = load i64, ptr %752, align 8, !tbaa !13
   %754 = icmp ugt i64 %753, 2

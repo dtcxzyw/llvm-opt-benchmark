@@ -7377,16 +7377,15 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i50, i64 %sub.ptr.sub.i
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i50, align 8, !tbaa !90
-  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i50, i64 8
   %sub.i.i.i.i.i = add nsw i64 %sub.ptr.div.i, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %invoke.cont52
 
 invoke.cont52:                                    ; preds = %call5.i.i.i.i2.i.i.noexc
+  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i50, i64 8
   %33 = add nsw i64 %sub.ptr.sub.i, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %33, i1 false), !tbaa !90
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   %sub.ptr.sub.i54 = add nuw i64 %add.ptr.idx.i.i.i.i.i.i.i, 8
   %sub.ptr.div.i55 = ashr exact i64 %sub.ptr.sub.i54, 3
   br label %for.body.preheader
@@ -7394,14 +7393,12 @@ invoke.cont52:                                    ; preds = %call5.i.i.i.i2.i.i.
 for.body.preheader:                               ; preds = %call5.i.i.i.i2.i.i.noexc, %invoke.cont52
   %sub.ptr.div.i55233 = phi i64 [ %sub.ptr.div.i55, %invoke.cont52 ], [ 1, %call5.i.i.i.i2.i.i.noexc ]
   %sub.ptr.sub.i54232 = phi i64 [ %sub.ptr.sub.i54, %invoke.cont52 ], [ 8, %call5.i.i.i.i2.i.i.noexc ]
-  %__first.addr.0.i.i.i.i.i230 = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont52 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   %sub.ptr.rhs.cast.i53231 = ptrtoint ptr %call5.i.i.i.i2.i.i50 to i64
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont65, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %sub.ptr.sub.i54217 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %sub.ptr.sub.i54232, %invoke.cont65 ]
   %sub.ptr.rhs.cast.i53212 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %sub.ptr.rhs.cast.i53231, %invoke.cont65 ]
-  %__first.addr.0.i.i.i.i.i211 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %__first.addr.0.i.i.i.i.i230, %invoke.cont65 ]
   %fixedPayTimes.sroa.0.0209 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i2.i.i50, %invoke.cont65 ]
   %fixedPayTimes.sroa.16.0207 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %add.ptr.i.i.i, %invoke.cont65 ]
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %function) #26
@@ -7589,8 +7586,7 @@ _ZNK8QuantLib9ParameterclEd.exit.i87:             ; preds = %.noexc93, %invoke.c
 
 invoke.cont80:                                    ; preds = %_ZNK8QuantLib9ParameterclEd.exit.i87
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i95 = icmp eq ptr %__first.addr.0.i.i.i.i.i211, %fixedPayTimes.sroa.0.0209
-  br i1 %cmp.not.i.i.i.i95, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %invoke.cont80
   %_M_finish.i.i.i166 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8

@@ -30777,18 +30777,11 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE3
 define linkonce_odr hidden void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE7pop_allEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8, !tbaa !537
-  switch i8 %3, label %..loopexit_crit_edge [
+  switch i8 %3, label %.loopexit [
     i8 1, label %4
     i8 2, label %27
     i8 0, label %27
   ]
-
-..loopexit_crit_edge:                             ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !556
-  %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.pre25 = load ptr, ptr %.phi.trans.insert24, align 8, !tbaa !569
-  br label %.loopexit
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -30829,7 +30822,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE7
 25:                                               ; preds = %17, %14
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.012.019, i64 4
   %.not15 = icmp eq ptr %26, %11
-  br i1 %.not15, label %.loopexit, label %14
+  br i1 %.not15, label %.loopexit.thread29, label %14
 
 27:                                               ; preds = %4, %1, %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -30857,7 +30850,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE7
   store i32 -1, ptr %42, align 4, !tbaa !567
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.08.021, i64 4
   %.not16 = icmp eq ptr %43, %31
-  br i1 %.not16, label %.loopexit, label %34
+  br i1 %.not16, label %.loopexit.thread29, label %34
 
 .loopexit.thread:                                 ; preds = %7, %27
   %.not.i27 = icmp eq i8 %3, 2
@@ -30866,19 +30859,28 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE7
   store i64 %44, ptr %45, align 8, !tbaa !538
   br label %_ZNSt6vectorIN4entt6entityESaIS1_EE5clearEv.exit
 
-.loopexit:                                        ; preds = %25, %34, %..loopexit_crit_edge
-  %46 = phi ptr [ %.pre25, %..loopexit_crit_edge ], [ %31, %34 ], [ %11, %25 ]
-  %47 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %29, %34 ], [ %9, %25 ]
-  %.not.i = icmp eq i8 %3, 2
-  %48 = select i1 %.not.i, i64 0, i64 1048575
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %48, ptr %49, align 8, !tbaa !538
-  %.not.i.i = icmp eq ptr %46, %47
-  br i1 %.not.i.i, label %_ZNSt6vectorIN4entt6entityESaIS1_EE5clearEv.exit, label %50
+.loopexit.thread29:                               ; preds = %25, %34
+  %.ph = phi ptr [ %29, %34 ], [ %9, %25 ]
+  %.not.i31 = icmp eq i8 %3, 2
+  %46 = select i1 %.not.i31, i64 0, i64 1048575
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %46, ptr %47, align 8, !tbaa !538
+  br label %50
 
-50:                                               ; preds = %.loopexit
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %47, ptr %51, align 8, !tbaa !569
+.loopexit:                                        ; preds = %1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !556
+  %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.pre25 = load ptr, ptr %.phi.trans.insert24, align 8, !tbaa !569
+  %48 = icmp eq ptr %.pre25, %.pre
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 1048575, ptr %49, align 8, !tbaa !538
+  br i1 %48, label %_ZNSt6vectorIN4entt6entityESaIS1_EE5clearEv.exit, label %50
+
+50:                                               ; preds = %.loopexit.thread29, %.loopexit
+  %51 = phi ptr [ %.ph, %.loopexit.thread29 ], [ %.pre, %.loopexit ]
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %51, ptr %52, align 8, !tbaa !569
   br label %_ZNSt6vectorIN4entt6entityESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN4entt6entityESaIS1_EE5clearEv.exit: ; preds = %.loopexit.thread, %.loopexit, %50
