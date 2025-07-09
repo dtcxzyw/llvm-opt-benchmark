@@ -1537,7 +1537,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_drm_infoframe_pack(ptr noundef re
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -22, 1) i32 @hdmi_infoframe_check(ptr noundef captures(none) %0) #9 align 16 {
   %2 = load i32, ptr %0, align 4
-  switch i32 %2, label %61 [
+  switch i32 %2, label %60 [
     i32 130, label %3
     i32 131, label %16
     i32 132, label %25
@@ -1548,58 +1548,58 @@ define dso_local range(i32 -22, 1) i32 @hdmi_infoframe_check(ptr noundef capture
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 2
-  br i1 %6, label %7, label %63
+  br i1 %6, label %7, label %62
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 13
-  br i1 %10, label %11, label %63
+  br i1 %10, label %11, label %62
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = icmp ugt i32 %13, 2
   %15 = select i1 %14, i32 -22, i32 0
-  br label %63
+  br label %62
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i8, ptr %17, align 4
   %19 = icmp eq i8 %18, 1
-  br i1 %19, label %20, label %63
+  br i1 %19, label %20, label %62
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 25
   %24 = select i1 %23, i32 0, i32 -22
-  br label %63
+  br label %62
 
 25:                                               ; preds = %1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = load i8, ptr %26, align 4
   %28 = icmp eq i8 %27, 1
-  br i1 %28, label %29, label %63
+  br i1 %28, label %29, label %62
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 10
   %33 = select i1 %32, i32 0, i32 -22
-  br label %63
+  br label %62
 
 34:                                               ; preds = %1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %36 = load i8, ptr %35, align 4
   %37 = icmp eq i8 %36, 1
-  br i1 %37, label %38, label %63
+  br i1 %37, label %38, label %62
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 3075
-  br i1 %41, label %._crit_edge, label %63
+  br i1 %41, label %._crit_edge, label %62
 
 ._crit_edge:                                      ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1617,30 +1617,29 @@ define dso_local range(i32 -22, 1) i32 @hdmi_infoframe_check(ptr noundef capture
   %51 = icmp eq i8 %.pre, 0
   %52 = icmp eq i32 %43, -1
   %53 = or i1 %52, %51
-  br i1 %53, label %54, label %63
+  br i1 %53, label %54, label %62
 
 54:                                               ; preds = %._crit_edge
-  %55 = zext nneg i8 %49 to i32
-  %56 = and i1 %52, %51
-  %57 = select i1 %56, i32 4, i32 5
-  %58 = icmp eq i32 %57, %55
-  %59 = select i1 %44, i1 true, i1 %58
-  %60 = select i1 %59, i32 0, i32 -22
-  br label %63
+  %55 = and i1 %52, %51
+  %56 = select i1 %55, i8 4, i8 5
+  %57 = icmp eq i8 %56, %49
+  %58 = or i1 %44, %57
+  %59 = select i1 %58, i32 0, i32 -22
+  br label %62
 
-61:                                               ; preds = %1
+60:                                               ; preds = %1
   tail call void asm sideeffect "336: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 336b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 336) #15, !srcloc !12
-  %62 = load i32, ptr %0, align 4
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %62) #15
+  %61 = load i32, ptr %0, align 4
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %61) #15
   tail call void asm sideeffect "337: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 337b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 337) #15, !srcloc !13
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 919, i32 2313, i64 12) #15, !srcloc !14
   tail call void asm sideeffect "338: nop\0A\09.pushsection .discard.instr_end\0A\09.long 338b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 338) #15, !srcloc !15
   tail call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_end\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #15, !srcloc !16
-  br label %63
+  br label %62
 
-63:                                               ; preds = %61, %54, %._crit_edge, %38, %34, %29, %25, %20, %16, %11, %7, %3
-  %64 = phi i32 [ -22, %61 ], [ -22, %7 ], [ -22, %3 ], [ %15, %11 ], [ -22, %16 ], [ %24, %20 ], [ -22, %25 ], [ %33, %29 ], [ -22, %34 ], [ -22, %38 ], [ %60, %54 ], [ -22, %._crit_edge ]
-  ret i32 %64
+62:                                               ; preds = %60, %54, %._crit_edge, %38, %34, %29, %25, %20, %16, %11, %7, %3
+  %63 = phi i32 [ -22, %60 ], [ -22, %7 ], [ -22, %3 ], [ %15, %11 ], [ -22, %16 ], [ %24, %20 ], [ -22, %25 ], [ %33, %29 ], [ -22, %34 ], [ -22, %38 ], [ %59, %54 ], [ -22, %._crit_edge ]
+  ret i32 %63
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1854,7 +1853,7 @@ hdmi_audio_infoframe_pack_only.exit:              ; preds = %13, %9, %112, %54, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #9 align 16 {
   %4 = load i32, ptr %0, align 4
-  switch i32 %4, label %162 [
+  switch i32 %4, label %161 [
     i32 130, label %5
     i32 135, label %19
     i32 131, label %29
@@ -2086,30 +2085,29 @@ define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack(ptr noundef captur
   br i1 %153, label %154, label %hdmi_audio_infoframe_pack_only.exit
 
 154:                                              ; preds = %._crit_edge
-  %155 = zext nneg i8 %149 to i32
-  %156 = and i1 %152, %151
-  %157 = select i1 %156, i32 4, i32 5
-  %158 = icmp eq i32 %157, %155
-  %159 = select i1 %144, i1 true, i1 %158
-  br i1 %159, label %160, label %hdmi_audio_infoframe_pack_only.exit
+  %155 = and i1 %152, %151
+  %156 = select i1 %155, i8 4, i8 5
+  %157 = icmp eq i8 %156, %149
+  %158 = or i1 %144, %157
+  br i1 %158, label %159, label %hdmi_audio_infoframe_pack_only.exit
 
-160:                                              ; preds = %154
-  %161 = tail call i64 @hdmi_vendor_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !10
+159:                                              ; preds = %154
+  %160 = tail call i64 @hdmi_vendor_infoframe_pack_only(ptr noundef %0, ptr noundef %1, i64 noundef %2), !range !10
   br label %hdmi_audio_infoframe_pack_only.exit
 
-162:                                              ; preds = %3
+161:                                              ; preds = %3
   tail call void asm sideeffect "346: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 346b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 346) #15, !srcloc !22
-  %163 = load i32, ptr %0, align 4
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %163) #15
+  %162 = load i32, ptr %0, align 4
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %162) #15
   tail call void asm sideeffect "347: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 347b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 347) #15, !srcloc !23
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1015, i32 2313, i64 12) #15, !srcloc !24
   tail call void asm sideeffect "348: nop\0A\09.pushsection .discard.instr_end\0A\09.long 348b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 348) #15, !srcloc !25
   tail call void asm sideeffect "349: nop\0A\09.pushsection .discard.instr_end\0A\09.long 349b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 349) #15, !srcloc !26
   br label %hdmi_audio_infoframe_pack_only.exit
 
-hdmi_audio_infoframe_pack_only.exit:              ; preds = %138, %154, %._crit_edge, %134, %70, %66, %33, %29, %23, %19, %5, %9, %13, %132, %74, %162, %160, %64, %37, %27, %17
-  %164 = phi i64 [ -22, %162 ], [ %18, %17 ], [ %28, %27 ], [ 29, %64 ], [ -28, %37 ], [ %161, %160 ], [ 14, %132 ], [ -28, %74 ], [ -22, %13 ], [ -22, %9 ], [ -22, %5 ], [ -22, %19 ], [ -22, %23 ], [ -22, %29 ], [ -22, %33 ], [ -22, %66 ], [ -22, %70 ], [ -22, %134 ], [ -22, %._crit_edge ], [ -22, %154 ], [ -22, %138 ]
-  ret i64 %164
+hdmi_audio_infoframe_pack_only.exit:              ; preds = %138, %154, %._crit_edge, %134, %70, %66, %33, %29, %23, %19, %5, %9, %13, %132, %74, %161, %159, %64, %37, %27, %17
+  %163 = phi i64 [ -22, %161 ], [ %18, %17 ], [ %28, %27 ], [ 29, %64 ], [ -28, %37 ], [ %160, %159 ], [ 14, %132 ], [ -28, %74 ], [ -22, %13 ], [ -22, %9 ], [ -22, %5 ], [ -22, %19 ], [ -22, %23 ], [ -22, %29 ], [ -22, %33 ], [ -22, %66 ], [ -22, %70 ], [ -22, %134 ], [ -22, %._crit_edge ], [ -22, %154 ], [ -22, %138 ]
+  ret i64 %163
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

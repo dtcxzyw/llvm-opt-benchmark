@@ -10,46 +10,45 @@ define range(i64 0, 4294967296) i64 @softfloat_roundToUI32(i1 noundef zeroext %0
   %5 = icmp eq i8 %2, 0
   %6 = icmp ne i8 %2, 4
   %or.cond = xor i1 %5, %6
-  %7 = zext i8 %2 to i32
-  %8 = select i1 %0, i32 2, i32 3
-  %9 = icmp eq i32 %8, %7
-  %10 = select i1 %9, i64 4095, i64 0
-  %.026 = select i1 %or.cond, i64 %10, i64 2048
-  %11 = and i64 %1, 4095
-  %12 = add i64 %.026, %1
-  %.not = icmp ult i64 %12, 17592186044416
-  br i1 %.not, label %13, label %26
+  %7 = select i1 %0, i8 2, i8 3
+  %8 = icmp eq i8 %7, %2
+  %9 = select i1 %8, i64 4095, i64 0
+  %.026 = select i1 %or.cond, i64 %9, i64 2048
+  %10 = and i64 %1, 4095
+  %11 = add i64 %.026, %1
+  %.not = icmp ult i64 %11, 17592186044416
+  br i1 %.not, label %12, label %25
 
-13:                                               ; preds = %4
-  %14 = lshr i64 %12, 12
-  %.not28 = icmp eq i64 %11, 2048
-  %15 = and i1 %.not28, %5
-  %16 = zext i1 %15 to i64
-  %17 = xor i64 %16, -1
-  %18 = and i64 %14, %17
-  %19 = icmp ne i64 %18, 0
-  %or.cond4 = and i1 %0, %19
-  br i1 %or.cond4, label %26, label %20
+12:                                               ; preds = %4
+  %13 = lshr i64 %11, 12
+  %.not28 = icmp eq i64 %10, 2048
+  %14 = and i1 %.not28, %5
+  %15 = zext i1 %14 to i64
+  %16 = xor i64 %15, -1
+  %17 = and i64 %13, %16
+  %18 = icmp ne i64 %17, 0
+  %or.cond4 = and i1 %0, %18
+  br i1 %or.cond4, label %25, label %19
 
-20:                                               ; preds = %13
-  %21 = icmp ne i64 %11, 0
-  %or.cond6 = and i1 %3, %21
-  br i1 %or.cond6, label %22, label %28
+19:                                               ; preds = %12
+  %20 = icmp ne i64 %10, 0
+  %or.cond6 = and i1 %3, %20
+  br i1 %or.cond6, label %21, label %27
 
-22:                                               ; preds = %20
-  %23 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  %24 = load i8, ptr %23, align 1, !tbaa !3
-  %25 = or i8 %24, 1
-  store i8 %25, ptr %23, align 1, !tbaa !3
-  br label %28
+21:                                               ; preds = %19
+  %22 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %23 = load i8, ptr %22, align 1, !tbaa !3
+  %24 = or i8 %23, 1
+  store i8 %24, ptr %22, align 1, !tbaa !3
+  br label %27
 
-26:                                               ; preds = %13, %4
+25:                                               ; preds = %12, %4
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  %27 = select i1 %0, i64 0, i64 4294967295
-  br label %28
+  %26 = select i1 %0, i64 0, i64 4294967295
+  br label %27
 
-28:                                               ; preds = %20, %22, %26
-  %.0 = phi i64 [ %27, %26 ], [ %18, %22 ], [ %18, %20 ]
+27:                                               ; preds = %19, %21, %25
+  %.0 = phi i64 [ %26, %25 ], [ %17, %21 ], [ %17, %19 ]
   ret i64 %.0
 }
 

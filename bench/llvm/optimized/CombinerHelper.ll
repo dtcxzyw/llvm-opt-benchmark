@@ -7782,18 +7782,16 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14CombinerHelper18matchCombineDivR
   %5 = alloca [1 x %"class.llvm::LLT"], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %7 = load i16, ptr %6, align 4, !tbaa !228
-  %.fr51 = freeze i16 %7
-  %8 = and i16 %.fr51, -2
+  %.fr53 = freeze i16 %7
+  %8 = and i16 %.fr53, -2
   %switch = icmp eq i16 %8, 56
   %.032.in.v = select i1 %switch, i16 56, i16 58
-  %.032.in = icmp eq i16 %.fr51, %.032.in.v
+  %.032.in = icmp eq i16 %.fr53, %.032.in.v
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !241
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %12 = load i32, ptr %11, align 4, !tbaa !204
   %.037 = select i1 %.032.in, i32 60, i32 61
-  %.036 = select i1 %.032.in, i32 58, i32 59
-  %.035 = select i1 %.032.in, i32 56, i32 57
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7889,132 +7887,132 @@ _ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit._
 .lr.ph:                                           ; preds = %52, %49
   %.sroa.0.0.i.i = phi ptr [ %.0.i.i.i, %49 ], [ %storemerge.i.i.i.i, %52 ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.03546 = select i1 %.032.in, i16 56, i16 57
+  %.03647 = select i1 %.032.in, i16 58, i16 59
   br i1 %switch, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.us, %.lr.ph
-  %.sroa.041.050.us = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %storemerge.i.i.us, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.us ]
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.041.050.us, i64 8
+  %.sroa.041.052.us = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %storemerge.i.i.us, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.us ]
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.041.052.us, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !220
   %58 = load ptr, ptr %55, align 8, !tbaa !247
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !247
   %61 = icmp eq ptr %58, %60
-  br i1 %61, label %62, label %80
+  br i1 %61, label %62, label %79
 
 62:                                               ; preds = %.lr.ph.split.us
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 68
   %64 = load i16, ptr %63, align 4, !tbaa !228
-  %65 = zext i16 %64 to i32
-  %66 = icmp eq i32 %.036, %65
-  br i1 %66, label %67, label %80
+  %65 = icmp eq i16 %.03647, %64
+  br i1 %65, label %66, label %79
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %9, align 8, !tbaa !241
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
-  %70 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !241
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
-  %73 = call noundef zeroext i1 @_ZNK4llvm14CombinerHelper14matchEqualDefsERKNS_14MachineOperandES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %72)
-  br i1 %73, label %74, label %80
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %9, align 8, !tbaa !241
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %70 = load ptr, ptr %69, align 8, !tbaa !241
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 64
+  %72 = call noundef zeroext i1 @_ZNK4llvm14CombinerHelper14matchEqualDefsERKNS_14MachineOperandES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %71)
+  br i1 %72, label %73, label %79
 
-74:                                               ; preds = %67
-  %75 = load ptr, ptr %9, align 8, !tbaa !241
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %77 = load ptr, ptr %70, align 8, !tbaa !241
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %79 = call noundef zeroext i1 @_ZNK4llvm14CombinerHelper14matchEqualDefsERKNS_14MachineOperandES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %78)
-  br i1 %79, label %.critedge39, label %80
+73:                                               ; preds = %66
+  %74 = load ptr, ptr %9, align 8, !tbaa !241
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  %76 = load ptr, ptr %69, align 8, !tbaa !241
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  %78 = call noundef zeroext i1 @_ZNK4llvm14CombinerHelper14matchEqualDefsERKNS_14MachineOperandES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %77)
+  br i1 %78, label %.critedge39, label %79
 
-80:                                               ; preds = %74, %67, %62, %.lr.ph.split.us
-  %81 = load ptr, ptr %56, align 8, !tbaa !220
+79:                                               ; preds = %73, %66, %62, %.lr.ph.split.us
+  %80 = load ptr, ptr %56, align 8, !tbaa !220
   br label %.critedge2.i.i.us
 
-.critedge2.i.i.us:                                ; preds = %.critedge2.i.i.us.backedge, %80
-  %.pn.i.i.us = phi ptr [ %.sroa.041.050.us, %80 ], [ %storemerge.i.i.us, %.critedge2.i.i.us.backedge ]
+.critedge2.i.i.us:                                ; preds = %.critedge2.i.i.us.backedge, %79
+  %.pn.i.i.us = phi ptr [ %.sroa.041.052.us, %79 ], [ %storemerge.i.i.us, %.critedge2.i.i.us.backedge ]
   %storemerge.in.i.i.us = getelementptr inbounds nuw i8, ptr %.pn.i.i.us, i64 24
   %storemerge.i.i.us = load ptr, ptr %storemerge.in.i.i.us, align 8, !tbaa !204
   %.not.i.i.us = icmp eq ptr %storemerge.i.i.us, null
-  br i1 %.not.i.i.us, label %.loopexit, label %82
+  br i1 %.not.i.i.us, label %.loopexit, label %81
 
-82:                                               ; preds = %.critedge2.i.i.us
-  %83 = load i32, ptr %storemerge.i.i.us, align 8
-  %84 = and i32 %83, -2130706432
-  %or.cond.not.i.i.us = icmp eq i32 %84, 0
+81:                                               ; preds = %.critedge2.i.i.us
+  %82 = load i32, ptr %storemerge.i.i.us, align 8
+  %83 = and i32 %82, -2130706432
+  %or.cond.not.i.i.us = icmp eq i32 %83, 0
   br i1 %or.cond.not.i.i.us, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.us, label %.critedge2.i.i.us.backedge
 
-.critedge2.i.i.us.backedge:                       ; preds = %82, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.us
+.critedge2.i.i.us.backedge:                       ; preds = %81, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.us
   br label %.critedge2.i.i.us, !llvm.loop !274
 
-_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.us: ; preds = %82
-  %85 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.us, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !220
-  %87 = icmp eq ptr %86, %81
-  br i1 %87, label %.critedge2.i.i.us.backedge, label %.lr.ph.split.us, !llvm.loop !274
+_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.us: ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.us, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !220
+  %86 = icmp eq ptr %85, %80
+  br i1 %86, label %.critedge2.i.i.us.backedge, label %.lr.ph.split.us, !llvm.loop !274
 
 .lr.ph.split:                                     ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i, %.lr.ph
-  %.sroa.041.050 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %storemerge.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.041.050, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !220
-  %90 = load ptr, ptr %55, align 8, !tbaa !247
-  %91 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  %92 = load ptr, ptr %91, align 8, !tbaa !247
-  %93 = icmp eq ptr %90, %92
-  br i1 %93, label %.critedge, label %111
+  %.sroa.041.052 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %storemerge.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i ]
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.041.052, i64 8
+  %88 = load ptr, ptr %87, align 8, !tbaa !220
+  %89 = load ptr, ptr %55, align 8, !tbaa !247
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  %91 = load ptr, ptr %90, align 8, !tbaa !247
+  %92 = icmp eq ptr %89, %91
+  br i1 %92, label %.critedge, label %109
 
 .critedge:                                        ; preds = %.lr.ph.split
-  %94 = getelementptr inbounds nuw i8, ptr %89, i64 68
-  %95 = load i16, ptr %94, align 4, !tbaa !228
-  %96 = zext i16 %95 to i32
-  %97 = icmp eq i32 %.035, %96
-  br i1 %97, label %98, label %111
+  %93 = getelementptr inbounds nuw i8, ptr %88, i64 68
+  %94 = load i16, ptr %93, align 4, !tbaa !228
+  %95 = icmp eq i16 %.03546, %94
+  br i1 %95, label %96, label %109
 
-98:                                               ; preds = %.critedge
-  %99 = load ptr, ptr %9, align 8, !tbaa !241
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 64
-  %101 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %102 = load ptr, ptr %101, align 8, !tbaa !241
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 64
-  %104 = call noundef zeroext i1 @_ZNK4llvm14CombinerHelper14matchEqualDefsERKNS_14MachineOperandES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %103)
-  br i1 %104, label %105, label %111
+96:                                               ; preds = %.critedge
+  %97 = load ptr, ptr %9, align 8, !tbaa !241
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %100 = load ptr, ptr %99, align 8, !tbaa !241
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 64
+  %102 = call noundef zeroext i1 @_ZNK4llvm14CombinerHelper14matchEqualDefsERKNS_14MachineOperandES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %101)
+  br i1 %102, label %103, label %109
 
-105:                                              ; preds = %98
-  %106 = load ptr, ptr %9, align 8, !tbaa !241
+103:                                              ; preds = %96
+  %104 = load ptr, ptr %9, align 8, !tbaa !241
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %106 = load ptr, ptr %99, align 8, !tbaa !241
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
-  %108 = load ptr, ptr %101, align 8, !tbaa !241
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %110 = call noundef zeroext i1 @_ZNK4llvm14CombinerHelper14matchEqualDefsERKNS_14MachineOperandES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 8 dereferenceable(32) %109)
-  br i1 %110, label %.critedge39, label %111
+  %108 = call noundef zeroext i1 @_ZNK4llvm14CombinerHelper14matchEqualDefsERKNS_14MachineOperandES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %107)
+  br i1 %108, label %.critedge39, label %109
 
-.critedge39:                                      ; preds = %105, %74
-  %.us-phi = phi ptr [ %57, %74 ], [ %89, %105 ]
+.critedge39:                                      ; preds = %103, %73
+  %.us-phi = phi ptr [ %57, %73 ], [ %88, %103 ]
   store ptr %.us-phi, ptr %2, align 8, !tbaa !244
   br label %.loopexit
 
-111:                                              ; preds = %105, %98, %.critedge, %.lr.ph.split
-  %112 = load ptr, ptr %88, align 8, !tbaa !220
+109:                                              ; preds = %103, %96, %.critedge, %.lr.ph.split
+  %110 = load ptr, ptr %87, align 8, !tbaa !220
   br label %.critedge2.i.i
 
-.critedge2.i.i:                                   ; preds = %.critedge2.i.i.backedge, %111
-  %.pn.i.i = phi ptr [ %.sroa.041.050, %111 ], [ %storemerge.i.i, %.critedge2.i.i.backedge ]
+.critedge2.i.i:                                   ; preds = %.critedge2.i.i.backedge, %109
+  %.pn.i.i = phi ptr [ %.sroa.041.052, %109 ], [ %storemerge.i.i, %.critedge2.i.i.backedge ]
   %storemerge.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %storemerge.i.i = load ptr, ptr %storemerge.in.i.i, align 8, !tbaa !204
   %.not.i.i = icmp eq ptr %storemerge.i.i, null
-  br i1 %.not.i.i, label %.loopexit, label %113
+  br i1 %.not.i.i, label %.loopexit, label %111
 
-113:                                              ; preds = %.critedge2.i.i
-  %114 = load i32, ptr %storemerge.i.i, align 8
-  %115 = and i32 %114, -2130706432
-  %or.cond.not.i.i = icmp eq i32 %115, 0
+111:                                              ; preds = %.critedge2.i.i
+  %112 = load i32, ptr %storemerge.i.i, align 8
+  %113 = and i32 %112, -2130706432
+  %or.cond.not.i.i = icmp eq i32 %113, 0
   br i1 %or.cond.not.i.i, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i, label %.critedge2.i.i.backedge
 
-.critedge2.i.i.backedge:                          ; preds = %113, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i
+.critedge2.i.i.backedge:                          ; preds = %111, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i
   br label %.critedge2.i.i, !llvm.loop !274
 
-_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i: ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 8
-  %117 = load ptr, ptr %116, align 8, !tbaa !220
-  %118 = icmp eq ptr %117, %112
-  br i1 %118, label %.critedge2.i.i.backedge, label %.lr.ph.split, !llvm.loop !274
+_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i: ; preds = %111
+  %114 = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 8
+  %115 = load ptr, ptr %114, align 8, !tbaa !220
+  %116 = icmp eq ptr %115, %110
+  br i1 %116, label %.critedge2.i.i.backedge, label %.lr.ph.split, !llvm.loop !274
 
 .loopexit:                                        ; preds = %.critedge2.i.i.i.i, %.critedge2.i.i, %.critedge2.i.i.us, %38, %.critedge39, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit
   %.0 = phi i1 [ false, %_ZNK4llvm14CombinerHelper24isLegalOrBeforeLegalizerERKNS_13LegalityQueryE.exit ], [ true, %.critedge39 ], [ false, %38 ], [ false, %.critedge2.i.i.us ], [ false, %.critedge2.i.i ], [ false, %.critedge2.i.i.i.i ]

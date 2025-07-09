@@ -2901,8 +2901,8 @@ _ZN3tbb6detail2d112parallel_forIlZN4moldL17count_num_classesINS3_6X86_64EEElSt4s
   %888 = load atomic i64, ptr %820 acquire, align 8, !noalias !219
   %.0.i.i.i.i.i.i.i.i.i = inttoptr i64 %888 to ptr
   %889 = icmp eq ptr %scevgep.i.i.i.i.i87, %.0.i.i.i.i.i.i.i.i.i
-  %890 = select i1 %889, i64 3, i64 64
-  %891 = load ptr, ptr %819, align 8, !tbaa !205, !noalias !219
+  %890 = load ptr, ptr %819, align 8, !tbaa !205, !noalias !219
+  %891 = select i1 %889, i64 2, i64 63
   br label %892
 
 892:                                              ; preds = %897, %_ZN3tbb6detail2d112parallel_forIlZN4moldL17count_num_classesINS3_6X86_64EEElSt4spanISt5arrayIhLm16EELm18446744073709551615EERNS1_20affinity_partitionerEEUllE_EEvT_SD_RKT0_SB_.exit.i
@@ -2910,7 +2910,7 @@ _ZN3tbb6detail2d112parallel_forIlZN4moldL17count_num_classesINS3_6X86_64EEElSt4s
   %893 = getelementptr inbounds nuw %"struct.std::atomic.255", ptr %.0.i.i.i.i.i.i.i.i.i, i64 %.01015.i.i.i.i.i.i
   %894 = load atomic i64, ptr %893 monotonic, align 8, !noalias !219
   %.0.i.i.i.i.i.i.i.i = inttoptr i64 %894 to ptr
-  %.not.i.i.i.i.i2.i = icmp ult ptr %891, %.0.i.i.i.i.i.i.i.i
+  %.not.i.i.i.i.i2.i = icmp ult ptr %890, %.0.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i2.i, label %897, label %.thread.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i:                              ; preds = %892
@@ -2920,7 +2920,7 @@ _ZN3tbb6detail2d112parallel_forIlZN4moldL17count_num_classesINS3_6X86_64EEElSt4s
 
 897:                                              ; preds = %892
   %898 = add nuw nsw i64 %.01015.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i = icmp eq i64 %898, %890
+  %exitcond.not.i.i.i.i.i.i = icmp eq i64 %891, %.01015.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i, label %892, !llvm.loop !222
 
 _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit.i.i: ; preds = %897, %.thread.i.i.i.i.i.i
@@ -2957,8 +2957,8 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %911 = load atomic i64, ptr %820 acquire, align 8, !noalias !226
   %.0.i.i.i.i.i.i.i2.i.i = inttoptr i64 %911 to ptr
   %912 = icmp eq ptr %scevgep.i.i.i.i.i87, %.0.i.i.i.i.i.i.i2.i.i
-  %913 = select i1 %912, i64 3, i64 64
-  %914 = load ptr, ptr %819, align 8, !tbaa !205, !noalias !226
+  %913 = load ptr, ptr %819, align 8, !tbaa !205, !noalias !226
+  %914 = select i1 %912, i64 2, i64 63
   br label %915
 
 915:                                              ; preds = %920, %908
@@ -2966,7 +2966,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %916 = getelementptr inbounds nuw %"struct.std::atomic.255", ptr %.0.i.i.i.i.i.i.i2.i.i, i64 %.01015.i.i.i.i3.i.i
   %917 = load atomic i64, ptr %916 monotonic, align 8, !noalias !226
   %.0.i.i.i.i.i.i4.i.i = inttoptr i64 %917 to ptr
-  %.not.i.i.i.i5.i.i = icmp ult ptr %914, %.0.i.i.i.i.i.i4.i.i
+  %.not.i.i.i.i5.i.i = icmp ult ptr %913, %.0.i.i.i.i.i.i4.i.i
   br i1 %.not.i.i.i.i5.i.i, label %920, label %.thread.i.i.i.i6.i.i
 
 .thread.i.i.i.i6.i.i:                             ; preds = %915
@@ -2976,7 +2976,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
 
 920:                                              ; preds = %915
   %921 = add nuw nsw i64 %.01015.i.i.i.i3.i.i, 1
-  %exitcond.not.i.i.i.i9.i.i = icmp eq i64 %921, %913
+  %exitcond.not.i.i.i.i9.i.i = icmp eq i64 %914, %.01015.i.i.i.i3.i.i
   br i1 %exitcond.not.i.i.i.i9.i.i, label %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit10.i.i, label %915, !llvm.loop !222
 
 _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit10.i.i: ; preds = %920, %.thread.i.i.i.i6.i.i
@@ -3422,8 +3422,8 @@ _ZN3tbb6detail2d217parallel_for_eachISt6vectorIPN4mold10ObjectFileINS4_6X86_64EE
   %1088 = load atomic i64, ptr %1050 acquire, align 8, !noalias !527
   %.0.i.i.i.i.i.i.i.i112 = inttoptr i64 %1088 to ptr
   %1089 = icmp eq ptr %scevgep.i.i.i.i, %.0.i.i.i.i.i.i.i.i112
-  %1090 = select i1 %1089, i64 3, i64 64
-  %1091 = load ptr, ptr %16, align 8, !tbaa !503, !noalias !527
+  %1090 = load ptr, ptr %16, align 8, !tbaa !503, !noalias !527
+  %1091 = select i1 %1089, i64 2, i64 63
   br label %1092
 
 1092:                                             ; preds = %1097, %_ZN3tbb6detail2d217parallel_for_eachISt6vectorIPN4mold10ObjectFileINS4_6X86_64EEESaIS8_EEZNS4_L18print_icf_sectionsIS6_EEvRNS4_7ContextIT_EEEUlS8_E_EEvRSD_RKT0_.exit.i
@@ -3431,7 +3431,7 @@ _ZN3tbb6detail2d217parallel_for_eachISt6vectorIPN4mold10ObjectFileINS4_6X86_64EE
   %1093 = getelementptr inbounds nuw %"struct.std::atomic.567", ptr %.0.i.i.i.i.i.i.i.i112, i64 %.01015.i.i.i.i.i
   %1094 = load atomic i64, ptr %1093 monotonic, align 8, !noalias !527
   %.0.i.i.i.i.i.i.i = inttoptr i64 %1094 to ptr
-  %.not.i.i.i.i15.i = icmp ult ptr %1091, %.0.i.i.i.i.i.i.i
+  %.not.i.i.i.i15.i = icmp ult ptr %1090, %.0.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i15.i, label %1097, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %1092
@@ -3441,7 +3441,7 @@ _ZN3tbb6detail2d217parallel_for_eachISt6vectorIPN4mold10ObjectFileINS4_6X86_64EE
 
 1097:                                             ; preds = %1092
   %1098 = add nuw nsw i64 %.01015.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %1098, %1090
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %1091, %.01015.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold12InputSectionINS3_6X86_64EEENS1_23cache_aligned_allocatorIS7_EEE3endEv.exit.i, label %1092, !llvm.loop !530
 
 _ZN3tbb6detail2d117concurrent_vectorIPN4mold12InputSectionINS3_6X86_64EEENS1_23cache_aligned_allocatorIS7_EEE3endEv.exit.i: ; preds = %1097, %.thread.i.i.i.i.i
@@ -3703,8 +3703,8 @@ _ZN3tbb6detail2d113parallel_sortINS1_15vector_iteratorINS1_17concurrent_vectorIP
   %1202 = load atomic i64, ptr %1050 acquire, align 8, !noalias !563
   %.0.i.i.i.i.i.i.i18.i = inttoptr i64 %1202 to ptr
   %1203 = icmp eq ptr %scevgep.i.i.i.i, %.0.i.i.i.i.i.i.i18.i
-  %1204 = select i1 %1203, i64 3, i64 64
-  %1205 = load ptr, ptr %16, align 8, !tbaa !503, !noalias !563
+  %1204 = load ptr, ptr %16, align 8, !tbaa !503, !noalias !563
+  %1205 = select i1 %1203, i64 2, i64 63
   br label %1206
 
 1206:                                             ; preds = %1211, %_ZN3tbb6detail2d113parallel_sortINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold12InputSectionINS5_6X86_64EEENS1_23cache_aligned_allocatorIS9_EEEES9_EEZNS5_L18print_icf_sectionsIS7_EEvRNS5_7ContextIT_EEEUlS9_S9_E_EEvSG_SG_RKT0_.exit.i
@@ -3712,7 +3712,7 @@ _ZN3tbb6detail2d113parallel_sortINS1_15vector_iteratorINS1_17concurrent_vectorIP
   %1207 = getelementptr inbounds nuw %"struct.std::atomic.567", ptr %.0.i.i.i.i.i.i.i18.i, i64 %.01015.i.i.i.i19.i
   %1208 = load atomic i64, ptr %1207 monotonic, align 8, !noalias !563
   %.0.i.i.i.i.i.i20.i = inttoptr i64 %1208 to ptr
-  %.not.i.i.i.i21.i = icmp ult ptr %1205, %.0.i.i.i.i.i.i20.i
+  %.not.i.i.i.i21.i = icmp ult ptr %1204, %.0.i.i.i.i.i.i20.i
   br i1 %.not.i.i.i.i21.i, label %1211, label %.thread.i.i.i.i22.i
 
 .thread.i.i.i.i22.i:                              ; preds = %1206
@@ -3722,7 +3722,7 @@ _ZN3tbb6detail2d113parallel_sortINS1_15vector_iteratorINS1_17concurrent_vectorIP
 
 1211:                                             ; preds = %1206
   %1212 = add nuw nsw i64 %.01015.i.i.i.i19.i, 1
-  %exitcond.not.i.i.i.i25.i = icmp eq i64 %1212, %1204
+  %exitcond.not.i.i.i.i25.i = icmp eq i64 %1205, %.01015.i.i.i.i19.i
   br i1 %exitcond.not.i.i.i.i25.i, label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold12InputSectionINS3_6X86_64EEENS1_23cache_aligned_allocatorIS7_EEE3endEv.exit26.i, label %1206, !llvm.loop !530
 
 _ZN3tbb6detail2d117concurrent_vectorIPN4mold12InputSectionINS3_6X86_64EEENS1_23cache_aligned_allocatorIS7_EEE3endEv.exit26.i: ; preds = %1211, %.thread.i.i.i.i22.i
@@ -5050,8 +5050,8 @@ _ZN3tbb6detail2d112parallel_forIlZN4moldL9propagateINS3_6X86_64EEElSt4spanISt6ve
   %85 = load atomic i64, ptr %49 acquire, align 8, !noalias !648
   %.0.i.i.i.i.i.i.i.i = inttoptr i64 %85 to ptr
   %86 = icmp eq ptr %scevgep.i.i.i.i, %.0.i.i.i.i.i.i.i.i
-  %87 = select i1 %86, i64 3, i64 64
-  %88 = load ptr, ptr %48, align 8, !tbaa !205, !noalias !648
+  %87 = load ptr, ptr %48, align 8, !tbaa !205, !noalias !648
+  %88 = select i1 %86, i64 2, i64 63
   br label %89
 
 89:                                               ; preds = %94, %_ZN3tbb6detail2d112parallel_forIlZN4moldL9propagateINS3_6X86_64EEElSt4spanISt6vectorISt5arrayIhLm16EESaIS9_EELm18446744073709551615EES6_IjLm18446744073709551615EESD_RbS6_IhLm18446744073709551615EERNS1_20affinity_partitionerEEUllE_EEvT_SJ_RKT0_SH_.exit
@@ -5059,7 +5059,7 @@ _ZN3tbb6detail2d112parallel_forIlZN4moldL9propagateINS3_6X86_64EEElSt4spanISt6ve
   %90 = getelementptr inbounds nuw %"struct.std::atomic.255", ptr %.0.i.i.i.i.i.i.i.i, i64 %.01015.i.i.i.i.i
   %91 = load atomic i64, ptr %90 monotonic, align 8, !noalias !648
   %.0.i.i.i.i.i.i.i = inttoptr i64 %91 to ptr
-  %.not.i.i.i.i.i4 = icmp ult ptr %88, %.0.i.i.i.i.i.i.i
+  %.not.i.i.i.i.i4 = icmp ult ptr %87, %.0.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i4, label %94, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %89
@@ -5069,7 +5069,7 @@ _ZN3tbb6detail2d112parallel_forIlZN4moldL9propagateINS3_6X86_64EEElSt4spanISt6ve
 
 94:                                               ; preds = %89
   %95 = add nuw nsw i64 %.01015.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %95, %87
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %88, %.01015.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit.i, label %89, !llvm.loop !222
 
 _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit.i: ; preds = %94, %.thread.i.i.i.i.i
@@ -5107,8 +5107,8 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %109 = load atomic i64, ptr %49 acquire, align 8, !noalias !651
   %.0.i.i.i.i.i.i.i2.i = inttoptr i64 %109 to ptr
   %110 = icmp eq ptr %scevgep.i.i.i.i, %.0.i.i.i.i.i.i.i2.i
-  %111 = select i1 %110, i64 3, i64 64
-  %112 = load ptr, ptr %48, align 8, !tbaa !205, !noalias !651
+  %111 = load ptr, ptr %48, align 8, !tbaa !205, !noalias !651
+  %112 = select i1 %110, i64 2, i64 63
   br label %113
 
 113:                                              ; preds = %118, %106
@@ -5116,7 +5116,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %114 = getelementptr inbounds nuw %"struct.std::atomic.255", ptr %.0.i.i.i.i.i.i.i2.i, i64 %.01015.i.i.i.i3.i
   %115 = load atomic i64, ptr %114 monotonic, align 8, !noalias !651
   %.0.i.i.i.i.i.i4.i = inttoptr i64 %115 to ptr
-  %.not.i.i.i.i5.i = icmp ult ptr %112, %.0.i.i.i.i.i.i4.i
+  %.not.i.i.i.i5.i = icmp ult ptr %111, %.0.i.i.i.i.i.i4.i
   br i1 %.not.i.i.i.i5.i, label %118, label %.thread.i.i.i.i6.i
 
 .thread.i.i.i.i6.i:                               ; preds = %113
@@ -5126,7 +5126,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
 
 118:                                              ; preds = %113
   %119 = add nuw nsw i64 %.01015.i.i.i.i3.i, 1
-  %exitcond.not.i.i.i.i9.i = icmp eq i64 %119, %111
+  %exitcond.not.i.i.i.i9.i = icmp eq i64 %112, %.01015.i.i.i.i3.i
   br i1 %exitcond.not.i.i.i.i9.i, label %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit10.i, label %113, !llvm.loop !222
 
 _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit10.i: ; preds = %118, %.thread.i.i.i.i6.i

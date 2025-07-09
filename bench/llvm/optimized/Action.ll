@@ -1287,33 +1287,32 @@ define dso_local noundef ptr @_ZNK5clang6driver13OffloadAction17getHostDependenc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang6driver13OffloadAction25hasSingleDeviceDependenceEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
-  br i1 %1, label %3, label %11
+  br i1 %1, label %3, label %10
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !25
-  %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = load ptr, ptr %7, align 8, !tbaa !51
-  %.not2 = icmp eq ptr %8, null
-  %9 = select i1 %.not2, i64 1, i64 2
-  %10 = icmp eq i64 %9, %6
-  br label %18
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = load ptr, ptr %6, align 8, !tbaa !51
+  %.not2 = icmp eq ptr %7, null
+  %8 = select i1 %.not2, i32 1, i32 2
+  %9 = icmp eq i32 %8, %5
+  br label %17
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %13 = load ptr, ptr %12, align 8, !tbaa !51
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %14, label %18
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = load ptr, ptr %11, align 8, !tbaa !51
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %13, label %17
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !25
-  %17 = icmp eq i32 %16, 1
-  br label %18
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load i32, ptr %14, align 8, !tbaa !25
+  %16 = icmp eq i32 %15, 1
+  br label %17
 
-18:                                               ; preds = %11, %14, %3
-  %.0 = phi i1 [ %10, %3 ], [ false, %11 ], [ %17, %14 ]
+17:                                               ; preds = %10, %13, %3
+  %.0 = phi i1 [ %9, %3 ], [ false, %10 ], [ %16, %13 ]
   ret i1 %.0
 }
 

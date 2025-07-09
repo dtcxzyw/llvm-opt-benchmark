@@ -358,12 +358,17 @@ vvc_predict_ibc.exit:                             ; preds = %64, %50, %49, %46, 
 .lr.ph54.split.preheader.i:                       ; preds = %.lr.ph54.i
   %123 = zext i1 %112 to i64
   %124 = or i1 %112, %narrow.i
-  %wide.trip.count.i = select i1 %124, i64 2, i64 1
+  %wide.trip.count72.i = zext i1 %124 to i64
   br label %.lr.ph54.split.i
 
-.lr.ph54.split.i:                                 ; preds = %._crit_edge.i, %.lr.ph54.split.preheader.i
-  %indvars.iv.i60 = phi i64 [ %123, %.lr.ph54.split.preheader.i ], [ %indvars.iv.next.i62, %._crit_edge.i ]
-  %.01946.i = load ptr, ptr %120, align 8, !tbaa !127
+.lr.ph54.splitthread-pre-split.i:                 ; preds = %._crit_edge.i
+  %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i60, 1
+  %.01946.pr.i = load ptr, ptr %120, align 8, !tbaa !127
+  br label %.lr.ph54.split.i
+
+.lr.ph54.split.i:                                 ; preds = %.lr.ph54.splitthread-pre-split.i, %.lr.ph54.split.preheader.i
+  %.01946.i = phi ptr [ %.01946.pr.i, %.lr.ph54.splitthread-pre-split.i ], [ %121, %.lr.ph54.split.preheader.i ]
+  %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i62, %.lr.ph54.splitthread-pre-split.i ], [ %123, %.lr.ph54.split.preheader.i ]
   %.not2247.i = icmp eq ptr %.01946.i, null
   br i1 %.not2247.i, label %._crit_edge.i, label %.lr.ph.i61
 
@@ -374,9 +379,8 @@ vvc_predict_ibc.exit:                             ; preds = %64, %50, %49, %46, 
   br label %128
 
 ._crit_edge.i:                                    ; preds = %itransform.exit.i, %.lr.ph54.split.i
-  %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i60, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i62, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %reconstruct.exit, label %.lr.ph54.split.i, !llvm.loop !128
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i60, %wide.trip.count72.i
+  br i1 %exitcond.not.i, label %reconstruct.exit, label %.lr.ph54.splitthread-pre-split.i, !llvm.loop !128
 
 128:                                              ; preds = %itransform.exit.i, %.lr.ph.i61
   %.01950.i = phi ptr [ %.01946.i, %.lr.ph.i61 ], [ %.019.i, %itransform.exit.i ]

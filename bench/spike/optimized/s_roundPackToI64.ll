@@ -10,63 +10,62 @@ define i64 @softfloat_roundPackToI64(i1 noundef zeroext %0, i64 noundef %1, i64 
   %6 = icmp eq i8 %3, 0
   %7 = icmp ne i8 %3, 4
   %or.cond = xor i1 %6, %7
-  br i1 %or.cond, label %8, label %14
+  br i1 %or.cond, label %8, label %13
 
 8:                                                ; preds = %5
-  %9 = zext i8 %3 to i32
-  %10 = select i1 %0, i32 2, i32 3
-  %11 = icmp eq i32 %10, %9
-  %12 = icmp ne i64 %2, 0
-  %13 = and i1 %12, %11
-  br i1 %13, label %16, label %24
+  %9 = select i1 %0, i8 2, i8 3
+  %10 = icmp eq i8 %9, %3
+  %11 = icmp ne i64 %2, 0
+  %12 = and i1 %11, %10
+  br i1 %12, label %15, label %23
 
-14:                                               ; preds = %5
-  %15 = icmp slt i64 %2, 0
-  br i1 %15, label %16, label %24
+13:                                               ; preds = %5
+  %14 = icmp slt i64 %2, 0
+  br i1 %14, label %15, label %23
 
-16:                                               ; preds = %8, %14
-  %17 = add i64 %1, 1
-  %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %34, label %18
+15:                                               ; preds = %8, %13
+  %16 = add i64 %1, 1
+  %.not = icmp eq i64 %16, 0
+  br i1 %.not, label %33, label %17
 
-18:                                               ; preds = %16
-  %19 = and i64 %2, 9223372036854775807
-  %.not33 = icmp eq i64 %19, 0
-  %20 = and i1 %.not33, %6
-  %21 = zext i1 %20 to i64
-  %22 = xor i64 %21, -1
-  %23 = and i64 %17, %22
-  br label %24
+17:                                               ; preds = %15
+  %18 = and i64 %2, 9223372036854775807
+  %.not33 = icmp eq i64 %18, 0
+  %19 = and i1 %.not33, %6
+  %20 = zext i1 %19 to i64
+  %21 = xor i64 %20, -1
+  %22 = and i64 %16, %21
+  br label %23
 
-24:                                               ; preds = %8, %18, %14
-  %.028 = phi i64 [ %23, %18 ], [ %1, %14 ], [ %1, %8 ]
-  %25 = sub i64 0, %.028
-  %26 = select i1 %0, i64 %25, i64 %.028
+23:                                               ; preds = %8, %17, %13
+  %.028 = phi i64 [ %22, %17 ], [ %1, %13 ], [ %1, %8 ]
+  %24 = sub i64 0, %.028
+  %25 = select i1 %0, i64 %24, i64 %.028
   %.not34 = icmp eq i64 %.028, 0
-  %27 = icmp sgt i64 %26, -1
-  %.not3536 = xor i1 %0, %27
+  %26 = icmp sgt i64 %25, -1
+  %.not3536 = xor i1 %0, %26
   %or.cond37 = or i1 %.not34, %.not3536
-  br i1 %or.cond37, label %28, label %34
+  br i1 %or.cond37, label %27, label %33
 
-28:                                               ; preds = %24
-  %29 = icmp ne i64 %2, 0
-  %or.cond4 = and i1 %29, %4
-  br i1 %or.cond4, label %30, label %36
+27:                                               ; preds = %23
+  %28 = icmp ne i64 %2, 0
+  %or.cond4 = and i1 %28, %4
+  br i1 %or.cond4, label %29, label %35
 
-30:                                               ; preds = %28
-  %31 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  %32 = load i8, ptr %31, align 1, !tbaa !3
-  %33 = or i8 %32, 1
-  store i8 %33, ptr %31, align 1, !tbaa !3
-  br label %36
+29:                                               ; preds = %27
+  %30 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %31 = load i8, ptr %30, align 1, !tbaa !3
+  %32 = or i8 %31, 1
+  store i8 %32, ptr %30, align 1, !tbaa !3
+  br label %35
 
-34:                                               ; preds = %24, %16
+33:                                               ; preds = %23, %15
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  %35 = select i1 %0, i64 -9223372036854775808, i64 9223372036854775807
-  br label %36
+  %34 = select i1 %0, i64 -9223372036854775808, i64 9223372036854775807
+  br label %35
 
-36:                                               ; preds = %28, %30, %34
-  %.0 = phi i64 [ %35, %34 ], [ %26, %30 ], [ %26, %28 ]
+35:                                               ; preds = %27, %29, %33
+  %.0 = phi i64 [ %34, %33 ], [ %25, %29 ], [ %25, %27 ]
   ret i64 %.0
 }
 

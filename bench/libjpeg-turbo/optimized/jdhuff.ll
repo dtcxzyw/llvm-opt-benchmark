@@ -309,33 +309,32 @@ define void @jpeg_make_d_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %wide.trip.count = zext nneg i32 %.1.lcssa to i64
   br label %136
 
-136:                                              ; preds = %.lr.ph159, %149
-  %indvars.iv189 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next190, %149 ]
+136:                                              ; preds = %.lr.ph159, %148
+  %indvars.iv189 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next190, %148 ]
   %137 = getelementptr inbounds nuw [256 x i8], ptr %107, i64 0, i64 %indvars.iv189
   %138 = load i8, ptr %137, align 1, !tbaa !33
-  %139 = zext i8 %138 to i32
-  %140 = load ptr, ptr %135, align 8, !tbaa !52
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 20
-  %142 = load i32, ptr %141, align 4, !tbaa !53
-  %.not118 = icmp eq i32 %142, 0
-  %143 = select i1 %.not118, i32 15, i32 16
-  %144 = icmp samesign ult i32 %143, %139
-  br i1 %144, label %145, label %149
+  %139 = load ptr, ptr %135, align 8, !tbaa !52
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 20
+  %141 = load i32, ptr %140, align 4, !tbaa !53
+  %.not118 = icmp eq i32 %141, 0
+  %142 = select i1 %.not118, i8 15, i8 16
+  %143 = icmp ult i8 %142, %138
+  br i1 %143, label %144, label %148
 
-145:                                              ; preds = %136
-  %146 = load ptr, ptr %0, align 8, !tbaa !3
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 40
-  store i32 8, ptr %147, align 8, !tbaa !30
-  %148 = load ptr, ptr %146, align 8, !tbaa !34
-  tail call void %148(ptr noundef nonnull %0) #5
-  br label %149
+144:                                              ; preds = %136
+  %145 = load ptr, ptr %0, align 8, !tbaa !3
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 40
+  store i32 8, ptr %146, align 8, !tbaa !30
+  %147 = load ptr, ptr %145, align 8, !tbaa !34
+  tail call void %147(ptr noundef nonnull %0) #5
+  br label %148
 
-149:                                              ; preds = %145, %136
+148:                                              ; preds = %144, %136
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count
   br i1 %exitcond192.not, label %.loopexit, label %136, !llvm.loop !55
 
-.loopexit:                                        ; preds = %149, %133
+.loopexit:                                        ; preds = %148, %133
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %5) #5
   ret void

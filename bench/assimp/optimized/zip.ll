@@ -25875,8 +25875,8 @@ define internal fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull ca
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %6, i64 1024
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 16
   %36 = freeze i32 %.pre.i
-  %37 = icmp eq i32 %.173, %36
-  %spec.select.i = select i1 %37, i64 1, i64 2
+  %37 = icmp ne i32 %.173, %36
+  %spec.select89.i = zext i1 %37 to i64
   br label %.critedge.preheader.split55.us.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -25947,7 +25947,7 @@ define internal fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull ca
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #35
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %71 = add nuw nsw i32 %.03854.us.i, 8
-  %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %spec.select.i
+  %exitcond74.not.i = icmp eq i64 %indvars.iv70.i, %spec.select89.i
   br i1 %exitcond74.not.i, label %tdefl_radix_sort_syms.exit, label %.critedge.preheader.split55.us.i
 
 tdefl_radix_sort_syms.exit.thread:                ; preds = %72

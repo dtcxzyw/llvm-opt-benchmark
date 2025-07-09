@@ -46615,16 +46615,16 @@ define internal fastcc noundef i32 @dissect_ieee80211_block_ack_details(ptr noun
 
 116:                                              ; preds = %114, %113
   %117 = lshr i16 %10, 12
-  %narrow303 = add nuw nsw i16 %117, 1
-  %118 = zext nneg i16 %narrow303 to i32
+  %narrow304 = add nuw nsw i16 %117, 1
+  %118 = zext nneg i16 %narrow304 to i32
   %119 = shl nuw nsw i32 %118, 2
   %120 = load i32, ptr @ett_block_ack, align 4
   %121 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %21, i32 noundef %119, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.9856)
-  br i1 %5, label %.preheader304, label %.preheader305
+  br i1 %5, label %.preheader305, label %.preheader306
 
-.preheader304:                                    ; preds = %116, %.preheader304
-  %.1276 = phi i32 [ %135, %.preheader304 ], [ %21, %116 ]
-  %.1253275 = phi i32 [ %136, %.preheader304 ], [ 0, %116 ]
+.preheader305:                                    ; preds = %116, %.preheader305
+  %.1276 = phi i32 [ %135, %.preheader305 ], [ %21, %116 ]
+  %.1253275 = phi i32 [ %136, %.preheader305 ], [ 0, %116 ]
   %122 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1276)
   %123 = and i8 %122, 15
   %124 = load i32, ptr @ett_block_ack_tid, align 4
@@ -46641,11 +46641,11 @@ define internal fastcc noundef i32 @dissect_ieee80211_block_ack_details(ptr noun
   %135 = add i32 %.1276, 4
   %136 = add nuw nsw i32 %.1253275, 1
   %exitcond288.not = icmp eq i32 %136, %118
-  br i1 %exitcond288.not, label %.loopexit, label %.preheader304, !llvm.loop !228
+  br i1 %exitcond288.not, label %.loopexit, label %.preheader305, !llvm.loop !228
 
-.preheader305:                                    ; preds = %116, %.preheader305
-  %.2274 = phi i32 [ %153, %.preheader305 ], [ %21, %116 ]
-  %.2254273 = phi i32 [ %154, %.preheader305 ], [ 0, %116 ]
+.preheader306:                                    ; preds = %116, %.preheader306
+  %.2274 = phi i32 [ %153, %.preheader306 ], [ %21, %116 ]
+  %.2254273 = phi i32 [ %154, %.preheader306 ], [ 0, %116 ]
   %137 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2274)
   %138 = and i8 %137, 15
   %139 = load i32, ptr @ett_block_ack_tid, align 4
@@ -46665,7 +46665,7 @@ define internal fastcc noundef i32 @dissect_ieee80211_block_ack_details(ptr noun
   %153 = add i32 %.2274, 12
   %154 = add nuw nsw i32 %.2254273, 1
   %exitcond287.not = icmp eq i32 %154, %118
-  br i1 %exitcond287.not, label %.loopexit, label %.preheader305, !llvm.loop !229
+  br i1 %exitcond287.not, label %.loopexit, label %.preheader306, !llvm.loop !229
 
 155:                                              ; preds = %7
   %156 = load i32, ptr @hf_ieee80211_ff_block_ack_ssc, align 4
@@ -46738,9 +46738,9 @@ define internal fastcc noundef i32 @dissect_ieee80211_block_ack_details(ptr noun
   %197 = call ptr @proto_item_add_subtree(ptr noundef %195, i32 noundef %196)
   %198 = shl nuw nsw i32 %.0, 3
   %199 = icmp eq i32 %.0, 4
-  %spec.select = select i1 %199, i64 32, i64 64
   %200 = zext nneg i16 %183 to i64
   %201 = zext nneg i32 %198 to i64
+  %wide.trip.count300 = select i1 %199, i64 31, i64 63
   br label %202
 
 202:                                              ; preds = %193, %222
@@ -46773,7 +46773,7 @@ define internal fastcc noundef i32 @dissect_ieee80211_block_ack_details(ptr noun
 
 221:                                              ; preds = %208, %211
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %spec.select
+  %exitcond.not = icmp eq i64 %wide.trip.count300, %indvars.iv
   br i1 %exitcond.not, label %222, label %208, !llvm.loop !230
 
 222:                                              ; preds = %221
@@ -46808,8 +46808,8 @@ define internal fastcc noundef i32 @dissect_ieee80211_block_ack_details(ptr noun
   %241 = icmp sgt i32 %240, %23
   br i1 %241, label %.lr.ph, label %.loopexit, !llvm.loop !232
 
-.loopexit:                                        ; preds = %237, %.preheader305, %.preheader304, %.preheader, %155, %163, %82, %108, %37, %77, %28, %33, %7
-  %.0251 = phi i32 [ %21, %7 ], [ %32, %28 ], [ %36, %33 ], [ %42, %37 ], [ %78, %77 ], [ %86, %82 ], [ %112, %108 ], [ %162, %155 ], [ %166, %163 ], [ %21, %.preheader ], [ %135, %.preheader304 ], [ %153, %.preheader305 ], [ %.4, %237 ]
+.loopexit:                                        ; preds = %237, %.preheader306, %.preheader305, %.preheader, %155, %163, %82, %108, %37, %77, %28, %33, %7
+  %.0251 = phi i32 [ %21, %7 ], [ %32, %28 ], [ %36, %33 ], [ %42, %37 ], [ %78, %77 ], [ %86, %82 ], [ %112, %108 ], [ %162, %155 ], [ %166, %163 ], [ %21, %.preheader ], [ %135, %.preheader305 ], [ %153, %.preheader306 ], [ %.4, %237 ]
   %242 = load ptr, ptr %8, align 8
   %243 = sub i32 %.0251, %3
   call void @proto_item_set_len(ptr noundef %242, i32 noundef %243)

@@ -2464,39 +2464,38 @@ define dso_local ptr @_PyLong_FromByteArray(ptr noundef readonly captures(none) 
   %.078 = select i1 %.not, i64 -1, i64 1
   %.073 = select i1 %.not, ptr %8, ptr %0
   %.not88 = icmp eq i32 %3, 0
-  br i1 %.not88, label %.thread, label %9
+  br i1 %.not88, label %12, label %9
 
 9:                                                ; preds = %6
   %10 = load i8, ptr %.079, align 1, !tbaa !29
   %.fr = freeze i8 %10
   %11 = icmp sgt i8 %.fr, -1
-  %spec.select123 = select i1 %11, i32 0, i32 255
-  br label %.thread
+  br label %12
 
-.thread:                                          ; preds = %9, %6
-  %.072110 = phi i1 [ true, %6 ], [ %11, %9 ]
-  %12 = phi i32 [ 0, %6 ], [ %spec.select123, %9 ]
-  br label %13
+12:                                               ; preds = %9, %6
+  %.072 = phi i1 [ %11, %9 ], [ true, %6 ]
+  %not..072 = xor i1 %.072, true
+  %13 = sext i1 %not..072 to i8
+  br label %14
 
-13:                                               ; preds = %.thread, %16
-  %.07495 = phi ptr [ %.079, %.thread ], [ %18, %16 ]
-  %.07594 = phi i64 [ 0, %.thread ], [ %17, %16 ]
-  %14 = load i8, ptr %.07495, align 1, !tbaa !29
-  %15 = zext i8 %14 to i32
-  %.not90 = icmp eq i32 %12, %15
+14:                                               ; preds = %12, %16
+  %.07495 = phi ptr [ %.079, %12 ], [ %18, %16 ]
+  %.07594 = phi i64 [ 0, %12 ], [ %17, %16 ]
+  %15 = load i8, ptr %.07495, align 1, !tbaa !29
+  %.not90 = icmp eq i8 %15, %13
   br i1 %.not90, label %16, label %19
 
-16:                                               ; preds = %13
+16:                                               ; preds = %14
   %17 = add nuw i64 %.07594, 1
   %18 = getelementptr i8, ptr %.07495, i64 %.078.neg
   %exitcond.not = icmp eq i64 %17, %1
-  br i1 %exitcond.not, label %19, label %13, !llvm.loop !57
+  br i1 %exitcond.not, label %19, label %14, !llvm.loop !57
 
-19:                                               ; preds = %13, %16
-  %.075.lcssa = phi i64 [ %.07594, %13 ], [ %1, %16 ]
+19:                                               ; preds = %14, %16
+  %.075.lcssa = phi i64 [ %.07594, %14 ], [ %1, %16 ]
   %20 = sub i64 %1, %.075.lcssa
   %21 = icmp uge i64 %20, %1
-  %or.cond.not = or i1 %.072110, %21
+  %or.cond.not = or i1 %.072, %21
   %not.or.cond.not = xor i1 %or.cond.not, true
   %22 = zext i1 %not.or.cond.not to i64
   %.080 = add nuw i64 %20, %22
@@ -2518,11 +2517,11 @@ define dso_local ptr @_PyLong_FromByteArray(ptr noundef readonly captures(none) 
 
 .preheader:                                       ; preds = %26
   %.not106 = icmp eq i64 %.080, 0
-  br i1 %.not106, label %.thread116, label %.lr.ph
+  br i1 %.not106, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  br i1 %.072110, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.072, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %47
   %.065101.us = phi ptr [ %49, %47 ], [ %.073, %.lr.ph ]
@@ -2616,23 +2615,23 @@ define dso_local ptr @_PyLong_FromByteArray(ptr noundef readonly captures(none) 
   %.2 = phi i64 [ %77, %73 ], [ %.076.lcssa, %._crit_edge ]
   %.2.fr = freeze i64 %.2
   %79 = icmp eq i64 %.2.fr, 0
-  %80 = select i1 %.072110, i64 0, i64 2
-  %spec.select124 = select i1 %79, i64 1, i64 %80
-  br label %.thread116
+  %80 = select i1 %.072, i64 0, i64 2
+  %spec.select = select i1 %79, i64 1, i64 %80
+  br label %.thread
 
-.thread116:                                       ; preds = %78, %.preheader
-  %.2119 = phi i64 [ 0, %.preheader ], [ %.2.fr, %78 ]
-  %81 = phi i64 [ 1, %.preheader ], [ %spec.select124, %78 ]
-  %82 = shl i64 %.2119, 3
+.thread:                                          ; preds = %78, %.preheader
+  %.2115 = phi i64 [ 0, %.preheader ], [ %.2.fr, %78 ]
+  %81 = phi i64 [ 1, %.preheader ], [ %spec.select, %78 ]
+  %82 = shl i64 %.2115, 3
   %83 = or disjoint i64 %81, %82
   %84 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 %83, ptr %84, align 8, !tbaa !30
-  %85 = and i64 %.2119, 2305843009213693951
+  %85 = and i64 %.2115, 2305843009213693951
   %86 = getelementptr inbounds nuw i8, ptr %30, i64 24
   br label %87
 
-87:                                               ; preds = %88, %.thread116
-  %.0.i = phi i64 [ %85, %.thread116 ], [ %89, %88 ]
+87:                                               ; preds = %88, %.thread
+  %.0.i = phi i64 [ %85, %.thread ], [ %89, %88 ]
   %.not13.i = icmp eq i64 %.0.i, 0
   br i1 %.not13.i, label %.critedge.thread.i, label %88
 
@@ -3300,86 +3299,84 @@ _PyLong_NumBits.exit.thread:                      ; preds = %80, %_PyLong_NumBit
   %100 = and i64 %.val.i177180, 3
   %101 = icmp eq i64 %100, 2
   %102 = add nsw i64 %2, -1
-  br i1 %101, label %.lr.ph169, label %124
+  br i1 %101, label %.lr.ph169, label %122
 
 .lr.ph169:                                        ; preds = %99
-  %103 = select i1 %11, i32 128, i32 0
-  %104 = select i1 %11, i32 0, i32 128
+  %103 = select i1 %11, i8 -128, i8 0
+  %104 = select i1 %11, i8 0, i8 -128
   br label %105
 
-._crit_edge:                                      ; preds = %119
+._crit_edge:                                      ; preds = %117
   %spec.select = select i1 %.188.in, i64 %2, i64 %94
   br label %_fits_in_n_bits.exit.thread
 
-105:                                              ; preds = %.lr.ph169, %119
-  %.085168 = phi i64 [ 0, %.lr.ph169 ], [ %120, %119 ]
-  %.086167 = phi ptr [ %1, %.lr.ph169 ], [ %121, %119 ]
+105:                                              ; preds = %.lr.ph169, %117
+  %.085168 = phi i64 [ 0, %.lr.ph169 ], [ %118, %117 ]
+  %.086167 = phi ptr [ %1, %.lr.ph169 ], [ %119, %117 ]
   %106 = icmp eq i64 %.085168, 0
-  br i1 %106, label %107, label %111
+  br i1 %106, label %107, label %110
 
 107:                                              ; preds = %105
   %108 = load i8, ptr %.086167, align 1, !tbaa !29
-  %109 = zext i8 %108 to i32
-  %110 = icmp eq i32 %104, %109
-  br label %119
+  %109 = icmp eq i8 %104, %108
+  br label %117
 
-111:                                              ; preds = %105
-  %112 = icmp slt i64 %.085168, %102
-  %113 = load i8, ptr %.086167, align 1, !tbaa !29
-  br i1 %112, label %114, label %116
+110:                                              ; preds = %105
+  %111 = icmp slt i64 %.085168, %102
+  %112 = load i8, ptr %.086167, align 1, !tbaa !29
+  br i1 %111, label %113, label %115
 
-114:                                              ; preds = %111
-  %115 = icmp eq i8 %113, 0
-  br label %119
+113:                                              ; preds = %110
+  %114 = icmp eq i8 %112, 0
+  br label %117
 
-116:                                              ; preds = %111
-  %117 = zext i8 %113 to i32
-  %118 = icmp eq i32 %103, %117
-  br label %119
+115:                                              ; preds = %110
+  %116 = icmp eq i8 %103, %112
+  br label %117
 
-119:                                              ; preds = %107, %116, %114
-  %.188.in = phi i1 [ %110, %107 ], [ %115, %114 ], [ %118, %116 ]
-  %120 = add nuw nsw i64 %.085168, 1
-  %121 = getelementptr i8, ptr %.086167, i64 1
-  %122 = icmp slt i64 %120, %2
-  %123 = select i1 %122, i1 %.188.in, i1 false
-  br i1 %123, label %105, label %._crit_edge, !llvm.loop !69
+117:                                              ; preds = %107, %115, %113
+  %.188.in = phi i1 [ %109, %107 ], [ %114, %113 ], [ %116, %115 ]
+  %118 = add nuw nsw i64 %.085168, 1
+  %119 = getelementptr i8, ptr %.086167, i64 1
+  %120 = icmp slt i64 %118, %2
+  %121 = select i1 %120, i1 %.188.in, i1 false
+  br i1 %121, label %105, label %._crit_edge, !llvm.loop !69
 
-124:                                              ; preds = %99
-  %125 = select i1 %11, i64 %102, i64 0
-  %126 = getelementptr i8, ptr %1, i64 %125
-  %127 = load i8, ptr %126, align 1, !tbaa !29
-  %.not115 = icmp sgt i8 %127, -1
-  br i1 %.not115, label %_fits_in_n_bits.exit.thread, label %128
+122:                                              ; preds = %99
+  %123 = select i1 %11, i64 %102, i64 0
+  %124 = getelementptr i8, ptr %1, i64 %123
+  %125 = load i8, ptr %124, align 1, !tbaa !29
+  %.not115 = icmp sgt i8 %125, -1
+  br i1 %.not115, label %_fits_in_n_bits.exit.thread, label %126
 
-128:                                              ; preds = %124
-  %129 = and i32 %3, 4
-  %.not116 = icmp eq i32 %129, 0
-  %130 = zext i1 %.not116 to i64
-  %spec.select132 = add nuw nsw i64 %2, %130
+126:                                              ; preds = %122
+  %127 = and i32 %3, 4
+  %.not116 = icmp eq i32 %127, 0
+  %128 = zext i1 %.not116 to i64
+  %spec.select132 = add nuw nsw i64 %2, %128
   br label %_fits_in_n_bits.exit.thread
 
-_fits_in_n_bits.exit.thread:                      ; preds = %73, %.loopexit, %128, %_fits_in_n_bits.exit142.thread, %_PyLong_NumBits.exit, %_PyLong_NumBits.exit.thread, %._crit_edge, %124, %69, %_fits_in_n_bits.exit, %37, %62
-  %.096 = phi i64 [ 8, %37 ], [ 8, %62 ], [ %2, %_fits_in_n_bits.exit ], [ 8, %69 ], [ %spec.select, %._crit_edge ], [ %94, %_PyLong_NumBits.exit.thread ], [ %93, %_PyLong_NumBits.exit ], [ %94, %124 ], [ %spec.select131, %_fits_in_n_bits.exit142.thread ], [ %spec.select132, %128 ], [ 8, %.loopexit ], [ 8, %73 ]
-  br i1 %.not.not.not, label %131, label %Py_DECREF.exit134
+_fits_in_n_bits.exit.thread:                      ; preds = %73, %.loopexit, %126, %_fits_in_n_bits.exit142.thread, %_PyLong_NumBits.exit, %_PyLong_NumBits.exit.thread, %._crit_edge, %122, %69, %_fits_in_n_bits.exit, %37, %62
+  %.096 = phi i64 [ 8, %37 ], [ 8, %62 ], [ %2, %_fits_in_n_bits.exit ], [ 8, %69 ], [ %spec.select, %._crit_edge ], [ %94, %_PyLong_NumBits.exit.thread ], [ %93, %_PyLong_NumBits.exit ], [ %94, %122 ], [ %spec.select131, %_fits_in_n_bits.exit142.thread ], [ %spec.select132, %126 ], [ 8, %.loopexit ], [ 8, %73 ]
+  br i1 %.not.not.not, label %129, label %Py_DECREF.exit134
 
-131:                                              ; preds = %_fits_in_n_bits.exit.thread
-  %132 = load i32, ptr %.089, align 8, !tbaa !29
-  %.not.i = icmp sgt i32 %132, -1
-  br i1 %.not.i, label %133, label %Py_DECREF.exit134
+129:                                              ; preds = %_fits_in_n_bits.exit.thread
+  %130 = load i32, ptr %.089, align 8, !tbaa !29
+  %.not.i = icmp sgt i32 %130, -1
+  br i1 %.not.i, label %131, label %Py_DECREF.exit134
 
-133:                                              ; preds = %131
-  %134 = add nsw i32 %132, -1
-  store i32 %134, ptr %.089, align 8, !tbaa !29
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %136, label %Py_DECREF.exit134
+131:                                              ; preds = %129
+  %132 = add nsw i32 %130, -1
+  store i32 %132, ptr %.089, align 8, !tbaa !29
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %134, label %Py_DECREF.exit134
 
-136:                                              ; preds = %133
+134:                                              ; preds = %131
   tail call void @_Py_Dealloc(ptr noundef nonnull %.089) #16
   br label %Py_DECREF.exit134
 
-Py_DECREF.exit134:                                ; preds = %20, %17, %27, %_fits_in_n_bits.exit.thread, %29, %31, %34, %131, %133, %136, %8
-  %.0 = phi i64 [ -1, %8 ], [ -1, %20 ], [ -1, %17 ], [ -1, %27 ], [ %.096, %_fits_in_n_bits.exit.thread ], [ -1, %29 ], [ -1, %31 ], [ -1, %34 ], [ %.096, %131 ], [ %.096, %133 ], [ %.096, %136 ]
+Py_DECREF.exit134:                                ; preds = %20, %17, %27, %_fits_in_n_bits.exit.thread, %29, %31, %34, %129, %131, %134, %8
+  %.0 = phi i64 [ -1, %8 ], [ -1, %20 ], [ -1, %17 ], [ -1, %27 ], [ %.096, %_fits_in_n_bits.exit.thread ], [ -1, %29 ], [ -1, %31 ], [ -1, %34 ], [ %.096, %129 ], [ %.096, %131 ], [ %.096, %134 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   ret i64 %.0
 }

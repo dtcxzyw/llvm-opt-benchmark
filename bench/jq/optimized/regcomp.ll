@@ -11051,16 +11051,16 @@ define internal fastcc i32 @is_exclusive(ptr noundef nonnull readonly captures(n
   %53 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
   %54 = load i32, ptr %53, align 8, !tbaa !20
   %.not152 = icmp eq i32 %54, 0
-  %55 = select i1 %.not152, i32 256, i32 128
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %57 = getelementptr inbounds nuw i8, ptr %.0114, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %.0114, i64 20
+  %57 = select i1 %.not152, i32 255, i32 127
   br label %58
 
 58:                                               ; preds = %52, %71
   %.0116206 = phi i32 [ 0, %52 ], [ %72, %71 ]
   %59 = lshr i32 %.0116206, 5
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw [8 x i32], ptr %57, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i32], ptr %56, i64 0, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !4
   %63 = and i32 %.0116206, 31
   %64 = shl nuw i32 1, %63
@@ -11069,7 +11069,7 @@ define internal fastcc i32 @is_exclusive(ptr noundef nonnull readonly captures(n
   br i1 %.not153, label %71, label %66
 
 66:                                               ; preds = %58
-  %67 = load ptr, ptr %56, align 8, !tbaa !13
+  %67 = load ptr, ptr %55, align 8, !tbaa !13
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 88
   %69 = load ptr, ptr %68, align 8, !tbaa !266
   %70 = tail call i32 %69(i32 noundef %.0116206, i32 noundef 12) #22
@@ -11078,7 +11078,7 @@ define internal fastcc i32 @is_exclusive(ptr noundef nonnull readonly captures(n
 
 71:                                               ; preds = %58, %66
   %72 = add nuw nsw i32 %.0116206, 1
-  %exitcond233.not = icmp eq i32 %72, %55
+  %exitcond233.not = icmp eq i32 %57, %.0116206
   br i1 %exitcond233.not, label %.thread160, label %58, !llvm.loop !267
 
 73:                                               ; preds = %40
@@ -11095,9 +11095,9 @@ define internal fastcc i32 @is_exclusive(ptr noundef nonnull readonly captures(n
   %79 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
   %80 = load i32, ptr %79, align 8, !tbaa !20
   %.not147.not = icmp eq i32 %80, 0
-  %81 = select i1 %.not147.not, i32 256, i32 128
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %83 = getelementptr inbounds nuw i8, ptr %.0114, i64 20
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %82 = getelementptr inbounds nuw i8, ptr %.0114, i64 20
+  %83 = select i1 %.not147.not, i32 255, i32 127
   br label %84
 
 .preheader:                                       ; preds = %97
@@ -11105,7 +11105,7 @@ define internal fastcc i32 @is_exclusive(ptr noundef nonnull readonly captures(n
 
 84:                                               ; preds = %78, %97
   %.1117200 = phi i32 [ 0, %78 ], [ %98, %97 ]
-  %85 = load ptr, ptr %82, align 8, !tbaa !13
+  %85 = load ptr, ptr %81, align 8, !tbaa !13
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 88
   %87 = load ptr, ptr %86, align 8, !tbaa !266
   %88 = tail call i32 %87(i32 noundef %.1117200, i32 noundef 12) #22
@@ -11115,7 +11115,7 @@ define internal fastcc i32 @is_exclusive(ptr noundef nonnull readonly captures(n
 89:                                               ; preds = %84
   %90 = lshr i32 %.1117200, 5
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw [8 x i32], ptr %83, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i32], ptr %82, i64 0, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !4
   %94 = and i32 %.1117200, 31
   %95 = shl nuw i32 1, %94
@@ -11125,7 +11125,7 @@ define internal fastcc i32 @is_exclusive(ptr noundef nonnull readonly captures(n
 
 97:                                               ; preds = %84, %89
   %98 = add nuw nsw i32 %.1117200, 1
-  %exitcond229.not = icmp eq i32 %98, %81
+  %exitcond229.not = icmp eq i32 %83, %.1117200
   br i1 %exitcond229.not, label %.preheader, label %84, !llvm.loop !268
 
 99:                                               ; preds = %.lr.ph202
@@ -11137,7 +11137,7 @@ define internal fastcc i32 @is_exclusive(ptr noundef nonnull readonly captures(n
   %.2118201 = phi i32 [ %100, %99 ], [ 128, %.preheader ]
   %101 = lshr i32 %.2118201, 5
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw [8 x i32], ptr %83, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i32], ptr %82, i64 0, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !4
   %105 = and i32 %.2118201, 31
   %106 = shl nuw i32 1, %105

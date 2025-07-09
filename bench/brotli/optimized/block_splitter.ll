@@ -386,9 +386,9 @@ RefineEntropyCodesLiteral.exit.i:                 ; preds = %HistogramAddHistogr
   %188 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %189 = load i32, ptr %188, align 4, !tbaa !37
   %.inv.i = icmp sgt i32 %189, 10
-  %190 = select i1 %.inv.i, i64 10, i64 3
-  %191 = add i64 %14, -1
-  %192 = getelementptr inbounds nuw i8, ptr %174, i64 %191
+  %190 = add i64 %14, -1
+  %191 = getelementptr inbounds nuw i8, ptr %174, i64 %190
+  %192 = select i1 %.inv.i, i64 9, i64 2
   br label %193
 
 193:                                              ; preds = %BuildBlockHistogramsLiteral.exit.i, %184
@@ -561,15 +561,15 @@ BitCost.exit.i.i:                                 ; preds = %226, %223, %215
   br i1 %exitcond148.not.i.i, label %.lr.ph.preheader.i.i, label %236, !llvm.loop !59
 
 .lr.ph.preheader.i.i:                             ; preds = %276
-  %278 = load i8, ptr %192, align 1, !tbaa !26
-  %279 = mul i64 %195, %191
+  %278 = load i8, ptr %191, align 1, !tbaa !26
+  %279 = mul i64 %195, %190
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %294, %.lr.ph.preheader.i.i
   %.0107142.i.i = phi i8 [ %.1.i159.i, %294 ], [ %278, %.lr.ph.preheader.i.i ]
   %.0108141.i.i = phi i64 [ %283, %294 ], [ %279, %.lr.ph.preheader.i.i ]
   %.0109140.i.i = phi i64 [ %.1110.i.i, %294 ], [ 1, %.lr.ph.preheader.i.i ]
-  %.1117139.i.i = phi i64 [ %282, %294 ], [ %191, %.lr.ph.preheader.i.i ]
+  %.1117139.i.i = phi i64 [ %282, %294 ], [ %190, %.lr.ph.preheader.i.i ]
   %280 = and i8 %.0107142.i.i, 7
   %281 = shl nuw i8 1, %280
   %282 = add i64 %.1117139.i.i, -1
@@ -691,7 +691,7 @@ ClearHistogramsLiteral.exit.i.i:                  ; preds = %ClearHistogramsLite
 
 BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLiteral.exit.i.i
   %333 = add nuw nsw i64 %.0179.i, 1
-  %exitcond.not.i65 = icmp eq i64 %333, %190
+  %exitcond.not.i65 = icmp eq i64 %192, %.0179.i
   br i1 %exitcond.not.i65, label %334, label %193, !llvm.loop !66
 
 334:                                              ; preds = %BuildBlockHistogramsLiteral.exit.i
@@ -1570,9 +1570,9 @@ RefineEntropyCodesCommand.exit.i:                 ; preds = %HistogramAddHistogr
   %750 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %751 = load i32, ptr %750, align 4, !tbaa !37
   %.inv.i90 = icmp sgt i32 %751, 10
-  %752 = select i1 %.inv.i90, i64 10, i64 3
-  %753 = add i64 %2, -1
-  %754 = getelementptr inbounds nuw i8, ptr %736, i64 %753
+  %752 = add i64 %2, -1
+  %753 = getelementptr inbounds nuw i8, ptr %736, i64 %752
+  %754 = select i1 %.inv.i90, i64 9, i64 2
   br label %755
 
 755:                                              ; preds = %BuildBlockHistogramsCommand.exit.i, %746
@@ -1745,15 +1745,15 @@ BitCost.exit.i.i100:                              ; preds = %788, %785, %777
   br i1 %exitcond148.not.i.i112, label %.lr.ph.preheader.i.i113, label %798, !llvm.loop !101
 
 .lr.ph.preheader.i.i113:                          ; preds = %838
-  %840 = load i8, ptr %754, align 1, !tbaa !26
-  %841 = mul i64 %757, %753
+  %840 = load i8, ptr %753, align 1, !tbaa !26
+  %841 = mul i64 %757, %752
   br label %.lr.ph.i.i114
 
 .lr.ph.i.i114:                                    ; preds = %856, %.lr.ph.preheader.i.i113
   %.0107142.i.i115 = phi i8 [ %.1.i159.i123, %856 ], [ %840, %.lr.ph.preheader.i.i113 ]
   %.0108141.i.i116 = phi i64 [ %845, %856 ], [ %841, %.lr.ph.preheader.i.i113 ]
   %.0109140.i.i117 = phi i64 [ %.1110.i.i122, %856 ], [ 1, %.lr.ph.preheader.i.i113 ]
-  %.1117139.i.i118 = phi i64 [ %844, %856 ], [ %753, %.lr.ph.preheader.i.i113 ]
+  %.1117139.i.i118 = phi i64 [ %844, %856 ], [ %752, %.lr.ph.preheader.i.i113 ]
   %842 = and i8 %.0107142.i.i115, 7
   %843 = shl nuw i8 1, %842
   %844 = add i64 %.1117139.i.i118, -1
@@ -1875,7 +1875,7 @@ ClearHistogramsCommand.exit.i.i:                  ; preds = %ClearHistogramsComm
 
 BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsCommand.exit.i.i
   %895 = add nuw nsw i64 %.0180.i, 1
-  %exitcond.not.i145 = icmp eq i64 %895, %752
+  %exitcond.not.i145 = icmp eq i64 %754, %.0180.i
   br i1 %exitcond.not.i145, label %896, label %755, !llvm.loop !107
 
 896:                                              ; preds = %BuildBlockHistogramsCommand.exit.i
@@ -2778,9 +2778,9 @@ RefineEntropyCodesDistance.exit.i:                ; preds = %HistogramAddHistogr
   %1327 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %1328 = load i32, ptr %1327, align 4, !tbaa !37
   %.inv.i265 = icmp sgt i32 %1328, 10
-  %1329 = select i1 %.inv.i265, i64 10, i64 3
-  %1330 = add i64 %.1, -1
-  %1331 = getelementptr inbounds nuw i8, ptr %1313, i64 %1330
+  %1329 = add i64 %.1, -1
+  %1330 = getelementptr inbounds nuw i8, ptr %1313, i64 %1329
+  %1331 = select i1 %.inv.i265, i64 9, i64 2
   br label %1332
 
 1332:                                             ; preds = %BuildBlockHistogramsDistance.exit.i, %1323
@@ -2953,15 +2953,15 @@ BitCost.exit.i.i277:                              ; preds = %1365, %1362, %1354
   br i1 %exitcond148.not.i.i289, label %.lr.ph.preheader.i.i290, label %1375, !llvm.loop !141
 
 .lr.ph.preheader.i.i290:                          ; preds = %1415
-  %1417 = load i8, ptr %1331, align 1, !tbaa !26
-  %1418 = mul i64 %1334, %1330
+  %1417 = load i8, ptr %1330, align 1, !tbaa !26
+  %1418 = mul i64 %1334, %1329
   br label %.lr.ph.i.i291
 
 .lr.ph.i.i291:                                    ; preds = %1433, %.lr.ph.preheader.i.i290
   %.0107142.i.i292 = phi i8 [ %.1.i159.i300, %1433 ], [ %1417, %.lr.ph.preheader.i.i290 ]
   %.0108141.i.i293 = phi i64 [ %1422, %1433 ], [ %1418, %.lr.ph.preheader.i.i290 ]
   %.0109140.i.i294 = phi i64 [ %.1110.i.i299, %1433 ], [ 1, %.lr.ph.preheader.i.i290 ]
-  %.1117139.i.i295 = phi i64 [ %1421, %1433 ], [ %1330, %.lr.ph.preheader.i.i290 ]
+  %.1117139.i.i295 = phi i64 [ %1421, %1433 ], [ %1329, %.lr.ph.preheader.i.i290 ]
   %1419 = and i8 %.0107142.i.i292, 7
   %1420 = shl nuw i8 1, %1419
   %1421 = add i64 %.1117139.i.i295, -1
@@ -3083,7 +3083,7 @@ ClearHistogramsDistance.exit.i.i:                 ; preds = %ClearHistogramsDist
 
 BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDistance.exit.i.i
   %1472 = add nuw nsw i64 %.0180.i266, 1
-  %exitcond.not.i322 = icmp eq i64 %1472, %1329
+  %exitcond.not.i322 = icmp eq i64 %1331, %.0180.i266
   br i1 %exitcond.not.i322, label %1473, label %1332, !llvm.loop !147
 
 1473:                                             ; preds = %BuildBlockHistogramsDistance.exit.i

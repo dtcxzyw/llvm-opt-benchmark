@@ -21777,7 +21777,7 @@ _ZL10HelpMarkerPKc.exit639:                       ; preds = %1411, %1413
   call void @_ZN5ImGui16TableSetupColumnEPKcifj(ptr noundef nonnull @.str.1465, i32 noundef 0, float noundef 0.000000e+00, i32 noundef 0)
   call void @_ZN5ImGui15TableHeadersRowEv()
   %1431 = icmp eq i32 %.0452835, 1
-  %1432 = select i1 %1431, i32 27, i32 9
+  %1432 = select i1 %1431, i32 26, i32 8
   br label %1434
 
 1433:                                             ; preds = %1434
@@ -21789,7 +21789,7 @@ _ZL10HelpMarkerPKc.exit639:                       ; preds = %1411, %1413
   %1435 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1701, i32 noundef %.0449834)
   %1436 = add nuw nsw i32 %.0449834, 1
-  %exitcond939.not = icmp eq i32 %1436, %1432
+  %exitcond939.not = icmp eq i32 %1432, %.0449834
   br i1 %exitcond939.not, label %1433, label %1434, !llvm.loop !348
 
 .critedge:                                        ; preds = %1422

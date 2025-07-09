@@ -1105,7 +1105,7 @@ Vec_StrPrintStr.exit110.preheader.i:              ; preds = %Vec_StrPush.exit.i1
 .lr.ph.i111.i:                                    ; preds = %.lr.ph.i
   %.not54.i = icmp eq i32 %.049236.i, 0
   %203 = select i1 %.not54.i, ptr @.str.10, ptr @.str.65
-  %204 = select i1 %.not54.i, i64 1, i64 3
+  %204 = select i1 %.not54.i, i64 0, i64 2
   br label %205
 
 205:                                              ; preds = %Vec_StrPush.exit.i117.i, %.lr.ph.i111.i
@@ -1174,7 +1174,7 @@ Vec_StrPush.exit.i117.i:                          ; preds = %228, %Vec_StrGrow.e
   %234 = getelementptr inbounds i8, ptr %230, i64 %233
   store i8 %207, ptr %234, align 1, !tbaa !43
   %indvars.iv.next.i118.i = add nuw nsw i64 %indvars.iv.i114.i, 1
-  %exitcond.not.i119.i = icmp eq i64 %indvars.iv.next.i118.i, %204
+  %exitcond.not.i119.i = icmp eq i64 %204, %indvars.iv.i114.i
   br i1 %exitcond.not.i119.i, label %Vec_StrPrintStr.exit123.i, label %205, !llvm.loop !46
 
 Vec_StrPrintStr.exit123.i:                        ; preds = %Vec_StrPush.exit.i117.i
@@ -1421,7 +1421,7 @@ Bac_BoxBiNum.exit.i:                              ; preds = %333, %.preheader.i
   %.0.lcssa.i.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.i164.i, %333 ]
   %.not53.i = icmp eq i64 %indvars.iv687, %.0.lcssa.i.i
   %337 = select i1 %.not53.i, ptr @.str.10, ptr @.str.65
-  %338 = select i1 %.not53.i, i64 1, i64 3
+  %338 = select i1 %.not53.i, i64 0, i64 2
   br label %339
 
 339:                                              ; preds = %Vec_StrPush.exit.i172.i, %Bac_BoxBiNum.exit.i
@@ -1490,7 +1490,7 @@ Vec_StrPush.exit.i172.i:                          ; preds = %362, %Vec_StrGrow.e
   %368 = getelementptr inbounds i8, ptr %364, i64 %367
   store i8 %341, ptr %368, align 1, !tbaa !43
   %indvars.iv.next.i173.i = add nuw nsw i64 %indvars.iv.i169.i, 1
-  %exitcond.not.i174.i = icmp eq i64 %indvars.iv.next.i173.i, %338
+  %exitcond.not.i174.i = icmp eq i64 %338, %indvars.iv.i169.i
   br i1 %exitcond.not.i174.i, label %Vec_StrPrintStr.exit178.i, label %339, !llvm.loop !46
 
 Vec_StrPrintStr.exit178.i:                        ; preds = %Vec_StrPush.exit.i172.i

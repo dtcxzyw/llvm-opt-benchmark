@@ -201,23 +201,23 @@ define void @dgsvj0_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %.012731697 = phi double [ 0.000000e+00, %.lr.ph1703 ], [ %.111284, %.loopexit1426 ]
   %indvars.iv1760 = add i32 %indvars.iv1760.in, -1
   %103 = sext i32 %indvars.iv to i64
-  %.inv1786 = icmp slt i32 %indvars.iv1760, 1
-  %104 = select i1 %.inv1786, i32 1, i32 2
-  %105 = add nsw i32 %.012361701, -1
-  %106 = mul nsw i32 %105, %spec.select
-  %107 = sub nsw i32 %.0, %.012361701
-  store i32 %107, ptr %20, align 4, !tbaa !3
-  %.not13611552 = icmp slt i32 %107, 0
+  %104 = add nsw i32 %.012361701, -1
+  %105 = mul nsw i32 %104, %spec.select
+  %106 = sub nsw i32 %.0, %.012361701
+  store i32 %106, ptr %20, align 4, !tbaa !3
+  %.not13611552 = icmp slt i32 %106, 0
   br i1 %.not13611552, label %._crit_edge1561, label %.lr.ph1560.preheader
 
 .lr.ph1560.preheader:                             ; preds = %102
-  %108 = add nsw i32 %106, 1
+  %.inv1786 = icmp sgt i32 %indvars.iv1760, 0
+  %107 = add nsw i32 %105, 1
+  %108 = zext i1 %.inv1786 to i32
   br label %.lr.ph1560
 
 .lr.ph1560:                                       ; preds = %.lr.ph1560.preheader, %._crit_edge
   %indvars.iv1752 = phi i32 [ %indvars.iv, %.lr.ph1560.preheader ], [ %indvars.iv.next1753, %._crit_edge ]
   %indvars.iv1750 = phi i32 [ %spec.select, %.lr.ph1560.preheader ], [ %indvars.iv.next1751, %._crit_edge ]
-  %.012371558 = phi i32 [ %108, %.lr.ph1560.preheader ], [ %110, %._crit_edge ]
+  %.012371558 = phi i32 [ %107, %.lr.ph1560.preheader ], [ %110, %._crit_edge ]
   %.11557 = phi i32 [ %.012391700, %.lr.ph1560.preheader ], [ %.2.lcssa, %._crit_edge ]
   %.112411556 = phi i32 [ %.012401699, %.lr.ph1560.preheader ], [ %.21242.lcssa, %._crit_edge ]
   %.012551555 = phi i32 [ 0, %.lr.ph1560.preheader ], [ %449, %._crit_edge ]
@@ -892,7 +892,7 @@ thread-pre-split:                                 ; preds = %144, %158
   %449 = add nuw nsw i32 %.012551555, 1
   %indvars.iv.next1751 = add i32 %indvars.iv1750, %spec.select
   %indvars.iv.next1753 = add i32 %indvars.iv1752, %indvars.iv1750
-  %exitcond.not = icmp eq i32 %449, %104
+  %exitcond.not = icmp eq i32 %.012551555, %108
   br i1 %exitcond.not, label %._crit_edge1561, label %.lr.ph1560, !llvm.loop !13
 
 ._crit_edge1561:                                  ; preds = %._crit_edge, %102
@@ -918,7 +918,7 @@ thread-pre-split:                                 ; preds = %144, %158
   store i32 %451, ptr %20, align 4, !tbaa !3
   %455 = load i32, ptr %2, align 4, !tbaa !3
   %.1392 = call i32 @llvm.smin.i32(i32 %451, i32 %455)
-  %.not13641663.not = icmp slt i32 %106, %.1392
+  %.not13641663.not = icmp slt i32 %105, %.1392
   br i1 %.not13641663.not, label %.lr.ph1673, label %._crit_edge1674
 
 .lr.ph1673:                                       ; preds = %.lr.ph1686
@@ -1577,7 +1577,7 @@ thread-pre-split:                                 ; preds = %144, %158
   %.12 = phi i32 [ %.11, %767 ], [ %.1.lcssa, %._crit_edge1561 ], [ %.9.lcssa, %._crit_edge1674 ]
   %786 = load i32, ptr %2, align 4, !tbaa !3
   %.1401 = call i32 @llvm.smin.i32(i32 %451, i32 %786)
-  %.not13721691.not = icmp slt i32 %106, %.1401
+  %.not13721691.not = icmp slt i32 %105, %.1401
   br i1 %.not13721691.not, label %.lr.ph1694.preheader, label %.loopexit1426
 
 .lr.ph1694.preheader:                             ; preds = %.loopexit1427

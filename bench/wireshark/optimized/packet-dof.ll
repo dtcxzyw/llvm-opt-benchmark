@@ -5858,28 +5858,31 @@ dof_oid_create_standard_string.exit:              ; preds = %6, %12, %18
 22:                                               ; preds = %dof_oid_create_standard_string.exit, %4
   %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %24 = icmp slt i8 %23, 0
-  %25 = and i8 %23, 64
-  %.not80 = icmp eq i8 %25, 0
-  %26 = and i8 %23, 63
-  %..i = select i1 %.not80, i32 2, i32 4
-  %.020.i = select i1 %24, i8 %26, i8 %23
-  %27 = zext nneg i8 %.020.i to i32
-  br i1 %24, label %.lr.ph.i, label %read_c4.exit
+  %25 = and i8 %23, 63
+  %.020.i = select i1 %24, i8 %25, i8 %23
+  %26 = zext nneg i8 %.020.i to i32
+  br i1 %24, label %.lr.ph.i.preheader, label %read_c4.exit
 
-.lr.ph.i:                                         ; preds = %22, %.lr.ph.i
-  %.02331.i = phi i32 [ %.023.i, %.lr.ph.i ], [ 1, %22 ]
-  %.02229.i = phi i32 [ %31, %.lr.ph.i ], [ %27, %22 ]
+.lr.ph.i.preheader:                               ; preds = %22
+  %27 = and i8 %23, 64
+  %.not81 = icmp eq i8 %27, 0
+  %..i80 = select i1 %.not81, i32 1, i32 3
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.02331.i = phi i32 [ %.023.i, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
+  %.02229.i = phi i32 [ %31, %.lr.ph.i ], [ %26, %.lr.ph.i.preheader ]
   %28 = shl i32 %.02229.i, 8
   %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02331.i)
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %28, %30
-  %.023.i = add nuw i32 %.02331.i, 1
-  %exitcond.not.i = icmp eq i32 %.023.i, %..i
+  %.023.i = add nuw nsw i32 %.02331.i, 1
+  %exitcond.not.i = icmp eq i32 %..i80, %.02331.i
   br i1 %exitcond.not.i, label %read_c4.exit, label %.lr.ph.i, !llvm.loop !33
 
 read_c4.exit:                                     ; preds = %.lr.ph.i, %22
-  %.022.lcssa.i = phi i32 [ %27, %22 ], [ %31, %.lr.ph.i ]
-  %.023.lcssa.i = phi i32 [ 1, %22 ], [ %..i, %.lr.ph.i ]
+  %.022.lcssa.i = phi i32 [ %26, %22 ], [ %31, %.lr.ph.i ]
+  %.023.lcssa.i = phi i32 [ 1, %22 ], [ %.023.i, %.lr.ph.i ]
   %32 = load i32, ptr @hf_oid_class, align 4
   %33 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef %.023.lcssa.i, i32 noundef %.022.lcssa.i, ptr noundef nonnull @.str.696, i32 noundef %.022.lcssa.i)
   %34 = icmp ult i32 %.022.lcssa.i, 128
@@ -7129,7 +7132,7 @@ DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
 
 DOFObjectID_GetIDClass.exit.thread:               ; preds = %DOFObjectID_GetIDClass.exit
   %switch = icmp eq i8 %9, 2
-  %spec.select151 = select i1 %switch, i64 2, i64 4
+  %spec.select151152 = select i1 %switch, i64 1, i64 3
   br label %.lr.ph.i.i49
 
 .lr.ph.i.i49:                                     ; preds = %.lr.ph.i.i49, %DOFObjectID_GetIDClass.exit.thread
@@ -7141,7 +7144,7 @@ DOFObjectID_GetIDClass.exit.thread:               ; preds = %DOFObjectID_GetIDCl
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
-  %exitcond.not.i.i53 = icmp eq i64 %indvars.iv.next.i.i52, %spec.select151
+  %exitcond.not.i.i53 = icmp eq i64 %spec.select151152, %indvars.iv.i.i50
   br i1 %exitcond.not.i.i53, label %DOFObjectID_GetIDClass.exit56, label %.lr.ph.i.i49, !llvm.loop !38
 
 DOFObjectID_GetIDClass.exit56:                    ; preds = %.lr.ph.i.i49
@@ -8421,14 +8424,14 @@ define internal i32 @dissect_dnp_1(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0112173 = phi i32 [ %31, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0116172 = phi i32 [ %32, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %27 = shl i32 %.0112173, 8
-  %28 = add nuw nsw i32 %.0116172, 2
+  %.0112175 = phi i32 [ %31, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0116174 = phi i32 [ %32, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %27 = shl i32 %.0112175, 8
+  %28 = add nuw nsw i32 %.0116174, 2
   %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %28)
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
-  %32 = add nuw nsw i32 %.0116172, 1
+  %32 = add nuw nsw i32 %.0116174, 1
   %exitcond.not = icmp eq i32 %32, %24
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
@@ -8445,39 +8448,42 @@ define internal i32 @dissect_dnp_1(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 37:                                               ; preds = %._crit_edge, %34
   %38 = phi i32 [ %.0108167.ph, %34 ], [ %33, %._crit_edge ]
-  %.0111166183188 = phi i32 [ %.0111166.ph, %34 ], [ %17, %._crit_edge ]
+  %.0111166185190 = phi i32 [ %.0111166.ph, %34 ], [ %17, %._crit_edge ]
   %.1113 = phi i32 [ %36, %34 ], [ %31, %._crit_edge ]
-  %39 = and i32 %.0111166183188, 4
+  %39 = and i32 %.0111166185190, 4
   %.not125 = icmp eq i32 %39, 0
   br i1 %.not125, label %63, label %40
 
 40:                                               ; preds = %37
   %41 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %38)
   %42 = icmp slt i8 %41, 0
-  %43 = and i8 %41, 64
-  %.not169 = icmp eq i8 %43, 0
-  %44 = and i8 %41, 63
-  %..i = select i1 %.not169, i32 2, i32 3
-  %.020.i = select i1 %42, i8 %44, i8 %41
-  %45 = zext nneg i8 %.020.i to i32
+  %43 = and i8 %41, 63
+  %.020.i = select i1 %42, i8 %43, i8 %41
+  %44 = zext nneg i8 %.020.i to i32
   %.02328.i = add nuw nsw i32 %38, 1
-  br i1 %42, label %.lr.ph.i, label %read_c3.exit
+  br i1 %42, label %.lr.ph.i.preheader, label %read_c3.exit
 
-.lr.ph.i:                                         ; preds = %40, %.lr.ph.i
-  %.02331.i = phi i32 [ %.023.i, %.lr.ph.i ], [ %.02328.i, %40 ]
-  %.030.i = phi i32 [ %50, %.lr.ph.i ], [ 1, %40 ]
-  %.02229.i = phi i32 [ %49, %.lr.ph.i ], [ %45, %40 ]
+.lr.ph.i.preheader:                               ; preds = %40
+  %45 = and i8 %41, 64
+  %.not170 = icmp eq i8 %45, 0
+  %..i169 = select i1 %.not170, i32 1, i32 2
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.02331.i = phi i32 [ %.023.i, %.lr.ph.i ], [ %.02328.i, %.lr.ph.i.preheader ]
+  %.030.i = phi i32 [ %50, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
+  %.02229.i = phi i32 [ %49, %.lr.ph.i ], [ %44, %.lr.ph.i.preheader ]
   %46 = shl i32 %.02229.i, 8
   %47 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02331.i)
   %48 = zext i8 %47 to i32
   %49 = or disjoint i32 %46, %48
   %50 = add nuw nsw i32 %.030.i, 1
-  %.023.i = add nuw nsw i32 %.02331.i, 1
-  %exitcond.not.i = icmp eq i32 %50, %..i
+  %.023.i = add i32 %.02331.i, 1
+  %exitcond.not.i = icmp eq i32 %..i169, %.030.i
   br i1 %exitcond.not.i, label %read_c3.exit, label %.lr.ph.i, !llvm.loop !52
 
 read_c3.exit:                                     ; preds = %.lr.ph.i, %40
-  %.022.lcssa.i = phi i32 [ %45, %40 ], [ %49, %.lr.ph.i ]
+  %.022.lcssa.i = phi i32 [ %44, %40 ], [ %49, %.lr.ph.i ]
   %.023.lcssa.i = phi i32 [ %.02328.i, %40 ], [ %.023.i, %.lr.ph.i ]
   %51 = load i32, ptr @hf_2009_9_dnp_1_srcport, align 4
   %52 = sub i32 %.023.lcssa.i, %38
@@ -8527,37 +8533,40 @@ proto_item_set_generated.exit:                    ; preds = %69, %66, %63, %vali
   %.0161 = phi i32 [ %.022.lcssa.i, %validate_c3.exit ], [ 0, %63 ], [ 0, %66 ], [ 0, %69 ]
   %.0114 = phi i32 [ %62, %validate_c3.exit ], [ %.1113, %63 ], [ %.1113, %66 ], [ %.1113, %69 ]
   %.1 = phi i32 [ %.023.lcssa.i, %validate_c3.exit ], [ %38, %63 ], [ %38, %66 ], [ %38, %69 ]
-  %73 = and i32 %.0111166183188, 8
+  %73 = and i32 %.0111166185190, 8
   %.not126 = icmp eq i32 %73, 0
   br i1 %.not126, label %97, label %74
 
 74:                                               ; preds = %proto_item_set_generated.exit
   %75 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1)
   %76 = icmp slt i8 %75, 0
-  %77 = and i8 %75, 64
-  %.not170 = icmp eq i8 %77, 0
-  %78 = and i8 %75, 63
-  %..i128 = select i1 %.not170, i32 2, i32 3
-  %.020.i130 = select i1 %76, i8 %78, i8 %75
-  %79 = zext nneg i8 %.020.i130 to i32
+  %77 = and i8 %75, 63
+  %.020.i130 = select i1 %76, i8 %77, i8 %75
+  %78 = zext nneg i8 %.020.i130 to i32
   %.02328.i131 = add i32 %.1, 1
-  br i1 %76, label %.lr.ph.i135, label %read_c3.exit141
+  br i1 %76, label %.lr.ph.i135.preheader, label %read_c3.exit141
 
-.lr.ph.i135:                                      ; preds = %74, %.lr.ph.i135
-  %.02331.i136 = phi i32 [ %.023.i139, %.lr.ph.i135 ], [ %.02328.i131, %74 ]
-  %.030.i137 = phi i32 [ %84, %.lr.ph.i135 ], [ 1, %74 ]
-  %.02229.i138 = phi i32 [ %83, %.lr.ph.i135 ], [ %79, %74 ]
+.lr.ph.i135.preheader:                            ; preds = %74
+  %79 = and i8 %75, 64
+  %.not172 = icmp eq i8 %79, 0
+  %..i128171 = select i1 %.not172, i32 1, i32 2
+  br label %.lr.ph.i135
+
+.lr.ph.i135:                                      ; preds = %.lr.ph.i135.preheader, %.lr.ph.i135
+  %.02331.i136 = phi i32 [ %.023.i139, %.lr.ph.i135 ], [ %.02328.i131, %.lr.ph.i135.preheader ]
+  %.030.i137 = phi i32 [ %84, %.lr.ph.i135 ], [ 1, %.lr.ph.i135.preheader ]
+  %.02229.i138 = phi i32 [ %83, %.lr.ph.i135 ], [ %78, %.lr.ph.i135.preheader ]
   %80 = shl i32 %.02229.i138, 8
   %81 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02331.i136)
   %82 = zext i8 %81 to i32
   %83 = or disjoint i32 %80, %82
   %84 = add nuw nsw i32 %.030.i137, 1
-  %.023.i139 = add nuw nsw i32 %.02331.i136, 1
-  %exitcond.not.i140 = icmp eq i32 %84, %..i128
+  %.023.i139 = add i32 %.02331.i136, 1
+  %exitcond.not.i140 = icmp eq i32 %..i128171, %.030.i137
   br i1 %exitcond.not.i140, label %read_c3.exit141, label %.lr.ph.i135, !llvm.loop !52
 
 read_c3.exit141:                                  ; preds = %.lr.ph.i135, %74
-  %.022.lcssa.i132 = phi i32 [ %79, %74 ], [ %83, %.lr.ph.i135 ]
+  %.022.lcssa.i132 = phi i32 [ %78, %74 ], [ %83, %.lr.ph.i135 ]
   %.023.lcssa.i133 = phi i32 [ %.02328.i131, %74 ], [ %.023.i139, %.lr.ph.i135 ]
   %85 = load i32, ptr @hf_2009_9_dnp_1_dstport, align 4
   %86 = sub i32 %.023.lcssa.i133, %.1
@@ -9166,7 +9175,7 @@ proto_item_set_generated.exit527:                 ; preds = %176, %173, %dof_oid
   %213 = lshr i32 %184, 5
   %214 = and i32 %213, 3
   %215 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  switch i32 %214, label %default.unreachable680 [
+  switch i32 %214, label %default.unreachable682 [
     i32 0, label %.thread608
     i32 1, label %242
     i32 2, label %216
@@ -9176,7 +9185,7 @@ proto_item_set_generated.exit527:                 ; preds = %176, %173, %dof_oid
 216:                                              ; preds = %210
   br label %242
 
-default.unreachable680:                           ; preds = %210
+default.unreachable682:                           ; preds = %210
   unreachable
 
 .thread608:                                       ; preds = %210
@@ -9225,12 +9234,12 @@ default.unreachable680:                           ; preds = %210
   br label %proto_item_set_generated.exit530
 
 242:                                              ; preds = %210, %216
-  %.sink693.in = phi ptr [ %143, %216 ], [ %105, %210 ]
+  %.sink695.in = phi ptr [ %143, %216 ], [ %105, %210 ]
   %.sink.in = phi ptr [ %153, %216 ], [ %115, %210 ]
   store i8 1, ptr %215, align 8
-  %.sink693 = load i32, ptr %.sink693.in, align 4
+  %.sink695 = load i32, ptr %.sink695.in, align 4
   %243 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  store i32 %.sink693, ptr %243, align 8
+  store i32 %.sink695, ptr %243, align 8
   %.sink = load ptr, ptr %.sink.in, align 8
   %244 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store ptr %.sink, ptr %244, align 8
@@ -9449,31 +9458,31 @@ validate_c4.exit:                                 ; preds = %282, %285
 360:                                              ; preds = %355, %353, %350
   %361 = load ptr, ptr %327, align 8
   %362 = icmp eq ptr %328, %15
-  %or.cond509667 = or i1 %.not478, %362
-  br i1 %or.cond509667, label %.preheader.preheader, label %.lr.ph
+  %or.cond509669 = or i1 %.not478, %362
+  br i1 %or.cond509669, label %.preheader.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %360
   %363 = load i32, ptr @globals.8, align 4
   br label %364
 
 364:                                              ; preds = %.lr.ph, %372
-  %.0434670 = phi ptr [ %328, %.lr.ph ], [ %366, %372 ]
-  %.0436669 = phi ptr [ %361, %.lr.ph ], [ %.1437, %372 ]
-  %.0442668 = phi i32 [ 0, %.lr.ph ], [ %.1443, %372 ]
-  %365 = getelementptr inbounds nuw i8, ptr %.0434670, i64 152
+  %.0434672 = phi ptr [ %328, %.lr.ph ], [ %366, %372 ]
+  %.0436671 = phi ptr [ %361, %.lr.ph ], [ %.1437, %372 ]
+  %.0442670 = phi i32 [ 0, %.lr.ph ], [ %.1443, %372 ]
+  %365 = getelementptr inbounds nuw i8, ptr %.0434672, i64 152
   %366 = load ptr, ptr %365, align 8
-  %367 = add i32 %.0442668, 1
+  %367 = add i32 %.0442670, 1
   %368 = icmp ugt i32 %367, %363
   br i1 %368, label %369, label %372
 
 369:                                              ; preds = %364
-  %370 = getelementptr inbounds nuw i8, ptr %.0436669, i64 152
+  %370 = getelementptr inbounds nuw i8, ptr %.0436671, i64 152
   %371 = load ptr, ptr %370, align 8
   br label %372
 
 372:                                              ; preds = %369, %364
-  %.1443 = phi i32 [ %.0442668, %369 ], [ %367, %364 ]
-  %.1437 = phi ptr [ %371, %369 ], [ %.0436669, %364 ]
+  %.1443 = phi i32 [ %.0442670, %369 ], [ %367, %364 ]
+  %.1437 = phi ptr [ %371, %369 ], [ %.0436671, %364 ]
   %.not484 = icmp eq ptr %366, null
   %373 = icmp eq ptr %366, %15
   %or.cond509 = or i1 %.not484, %373
@@ -9603,30 +9612,33 @@ validate_c4.exit:                                 ; preds = %282, %285
 444:                                              ; preds = %423
   %445 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %442)
   %446 = icmp slt i8 %445, 0
-  %447 = and i8 %445, 64
-  %.not659 = icmp eq i8 %447, 0
-  %448 = and i8 %445, 63
-  %..i532 = select i1 %.not659, i32 2, i32 4
-  %.020.i534 = select i1 %446, i8 %448, i8 %445
-  %449 = zext nneg i8 %.020.i534 to i32
+  %447 = and i8 %445, 63
+  %.020.i534 = select i1 %446, i8 %447, i8 %445
+  %448 = zext nneg i8 %.020.i534 to i32
   %.02328.i535 = add i32 %.5426, 2
-  br i1 %446, label %.lr.ph.i539, label %read_c4.exit545
+  br i1 %446, label %.lr.ph.i539.preheader, label %read_c4.exit545
 
-.lr.ph.i539:                                      ; preds = %444, %.lr.ph.i539
-  %.02331.i540 = phi i32 [ %.023.i543, %.lr.ph.i539 ], [ %.02328.i535, %444 ]
-  %.030.i541 = phi i32 [ %454, %.lr.ph.i539 ], [ 1, %444 ]
-  %.02229.i542 = phi i32 [ %453, %.lr.ph.i539 ], [ %449, %444 ]
+.lr.ph.i539.preheader:                            ; preds = %444
+  %449 = and i8 %445, 64
+  %.not660 = icmp eq i8 %449, 0
+  %..i532659 = select i1 %.not660, i32 1, i32 3
+  br label %.lr.ph.i539
+
+.lr.ph.i539:                                      ; preds = %.lr.ph.i539.preheader, %.lr.ph.i539
+  %.02331.i540 = phi i32 [ %.023.i543, %.lr.ph.i539 ], [ %.02328.i535, %.lr.ph.i539.preheader ]
+  %.030.i541 = phi i32 [ %454, %.lr.ph.i539 ], [ 1, %.lr.ph.i539.preheader ]
+  %.02229.i542 = phi i32 [ %453, %.lr.ph.i539 ], [ %448, %.lr.ph.i539.preheader ]
   %450 = shl i32 %.02229.i542, 8
   %451 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02331.i540)
   %452 = zext i8 %451 to i32
   %453 = or disjoint i32 %450, %452
   %454 = add nuw nsw i32 %.030.i541, 1
   %.023.i543 = add i32 %.02331.i540, 1
-  %exitcond.not.i544 = icmp eq i32 %454, %..i532
+  %exitcond.not.i544 = icmp eq i32 %..i532659, %.030.i541
   br i1 %exitcond.not.i544, label %read_c4.exit545, label %.lr.ph.i539, !llvm.loop !33
 
 read_c4.exit545:                                  ; preds = %.lr.ph.i539, %444
-  %.022.lcssa.i536 = phi i32 [ %449, %444 ], [ %453, %.lr.ph.i539 ]
+  %.022.lcssa.i536 = phi i32 [ %448, %444 ], [ %453, %.lr.ph.i539 ]
   %.023.lcssa.i537 = phi i32 [ %.02328.i535, %444 ], [ %.023.i543, %.lr.ph.i539 ]
   %455 = load i32, ptr @hf_2009_12_dpp_2_3_sec_ssid, align 4
   %456 = sub i32 %.023.lcssa.i537, %442
@@ -9667,27 +9679,27 @@ validate_c4.exit548:                              ; preds = %464, %461, %423
 
 472:                                              ; preds = %469
   %473 = getelementptr inbounds nuw i8, ptr %468, i64 8
-  %.0418671 = load ptr, ptr %473, align 8
-  %.not496672 = icmp eq ptr %.0418671, null
-  br i1 %.not496672, label %.critedge, label %.lr.ph674
+  %.0418673 = load ptr, ptr %473, align 8
+  %.not496674 = icmp eq ptr %.0418673, null
+  br i1 %.not496674, label %.critedge, label %.lr.ph676
 
-.lr.ph674:                                        ; preds = %472, %476
-  %.0418673 = phi ptr [ %.0418, %476 ], [ %.0418671, %472 ]
-  %474 = load i32, ptr %.0418673, align 8
+.lr.ph676:                                        ; preds = %472, %476
+  %.0418675 = phi ptr [ %.0418, %476 ], [ %.0418673, %472 ]
+  %474 = load i32, ptr %.0418675, align 8
   %475 = icmp eq i32 %spec.select, %474
   br i1 %475, label %478, label %476
 
-476:                                              ; preds = %.lr.ph674
-  %477 = getelementptr inbounds nuw i8, ptr %.0418673, i64 32
+476:                                              ; preds = %.lr.ph676
+  %477 = getelementptr inbounds nuw i8, ptr %.0418675, i64 32
   %.0418 = load ptr, ptr %477, align 8
   %.not496 = icmp eq ptr %.0418, null
-  br i1 %.not496, label %.critedge, label %.lr.ph674, !llvm.loop !56
+  br i1 %.not496, label %.critedge, label %.lr.ph676, !llvm.loop !56
 
-478:                                              ; preds = %.lr.ph674
-  %479 = getelementptr inbounds nuw i8, ptr %.0418673, i64 40
+478:                                              ; preds = %.lr.ph676
+  %479 = getelementptr inbounds nuw i8, ptr %.0418675, i64 40
   %480 = load ptr, ptr %479, align 8
   store ptr %480, ptr %18, align 8
-  store ptr %.0418673, ptr %470, align 8
+  store ptr %.0418675, ptr %470, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %476, %472, %478, %469, %validate_c4.exit548
@@ -9698,30 +9710,33 @@ validate_c4.exit548:                              ; preds = %464, %461, %423
 482:                                              ; preds = %.critedge
   %483 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.7428)
   %484 = icmp slt i8 %483, 0
-  %485 = and i8 %483, 64
-  %.not660 = icmp eq i8 %485, 0
-  %486 = and i8 %483, 63
-  %..i549 = select i1 %.not660, i32 2, i32 4
-  %.020.i551 = select i1 %484, i8 %486, i8 %483
-  %487 = zext nneg i8 %.020.i551 to i32
+  %485 = and i8 %483, 63
+  %.020.i551 = select i1 %484, i8 %485, i8 %483
+  %486 = zext nneg i8 %.020.i551 to i32
   %.02328.i552 = add i32 %.7428, 1
-  br i1 %484, label %.lr.ph.i556, label %read_c4.exit562
+  br i1 %484, label %.lr.ph.i556.preheader, label %read_c4.exit562
 
-.lr.ph.i556:                                      ; preds = %482, %.lr.ph.i556
-  %.02331.i557 = phi i32 [ %.023.i560, %.lr.ph.i556 ], [ %.02328.i552, %482 ]
-  %.030.i558 = phi i32 [ %492, %.lr.ph.i556 ], [ 1, %482 ]
-  %.02229.i559 = phi i32 [ %491, %.lr.ph.i556 ], [ %487, %482 ]
+.lr.ph.i556.preheader:                            ; preds = %482
+  %487 = and i8 %483, 64
+  %.not662 = icmp eq i8 %487, 0
+  %..i549661 = select i1 %.not662, i32 1, i32 3
+  br label %.lr.ph.i556
+
+.lr.ph.i556:                                      ; preds = %.lr.ph.i556.preheader, %.lr.ph.i556
+  %.02331.i557 = phi i32 [ %.023.i560, %.lr.ph.i556 ], [ %.02328.i552, %.lr.ph.i556.preheader ]
+  %.030.i558 = phi i32 [ %492, %.lr.ph.i556 ], [ 1, %.lr.ph.i556.preheader ]
+  %.02229.i559 = phi i32 [ %491, %.lr.ph.i556 ], [ %486, %.lr.ph.i556.preheader ]
   %488 = shl i32 %.02229.i559, 8
   %489 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02331.i557)
   %490 = zext i8 %489 to i32
   %491 = or disjoint i32 %488, %490
   %492 = add nuw nsw i32 %.030.i558, 1
   %.023.i560 = add i32 %.02331.i557, 1
-  %exitcond.not.i561 = icmp eq i32 %492, %..i549
+  %exitcond.not.i561 = icmp eq i32 %..i549661, %.030.i558
   br i1 %exitcond.not.i561, label %read_c4.exit562, label %.lr.ph.i556, !llvm.loop !33
 
 read_c4.exit562:                                  ; preds = %.lr.ph.i556, %482
-  %.022.lcssa.i553 = phi i32 [ %487, %482 ], [ %491, %.lr.ph.i556 ]
+  %.022.lcssa.i553 = phi i32 [ %486, %482 ], [ %491, %.lr.ph.i556 ]
   %.023.lcssa.i554 = phi i32 [ %.02328.i552, %482 ], [ %.023.i560, %.lr.ph.i556 ]
   %493 = load i32, ptr @hf_2009_12_dpp_2_3_sec_rdid, align 4
   %494 = sub i32 %.023.lcssa.i554, %.7428
@@ -10381,39 +10396,42 @@ read_c2.exit:                                     ; preds = %6, %13
   br label %validate_c2.exit
 
 validate_c2.exit:                                 ; preds = %read_c2.exit, %19
-  %.not33 = icmp eq i16 %.0.ph.i, 0
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq i16 %.0.ph.i, 0
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %validate_c2.exit, %validate_c4.exit
   %.in = phi i16 [ %21, %validate_c4.exit ], [ %.0.ph.i, %validate_c2.exit ]
-  %.034 = phi i32 [ %.023.lcssa.i, %validate_c4.exit ], [ %.sink.i, %validate_c2.exit ]
+  %.035 = phi i32 [ %.023.lcssa.i, %validate_c4.exit ], [ %.sink.i, %validate_c2.exit ]
   %21 = add nsw i16 %.in, -1
-  %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.034)
+  %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.035)
   %23 = icmp slt i8 %22, 0
-  %24 = and i8 %22, 64
-  %.not32 = icmp eq i8 %24, 0
-  %25 = and i8 %22, 63
-  %..i = select i1 %.not32, i32 2, i32 4
-  %.020.i = select i1 %23, i8 %25, i8 %22
-  %26 = zext nneg i8 %.020.i to i32
-  %.02328.i = add i32 %.034, 1
-  br i1 %23, label %.lr.ph.i, label %read_c4.exit
+  %24 = and i8 %22, 63
+  %.020.i = select i1 %23, i8 %24, i8 %22
+  %25 = zext nneg i8 %.020.i to i32
+  %.02328.i = add i32 %.035, 1
+  br i1 %23, label %.lr.ph.i.preheader, label %read_c4.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
-  %.02331.i = phi i32 [ %.023.i, %.lr.ph.i ], [ %.02328.i, %.lr.ph ]
-  %.030.i = phi i32 [ %31, %.lr.ph.i ], [ 1, %.lr.ph ]
-  %.02229.i = phi i32 [ %30, %.lr.ph.i ], [ %26, %.lr.ph ]
+.lr.ph.i.preheader:                               ; preds = %.lr.ph
+  %26 = and i8 %22, 64
+  %.not33 = icmp eq i8 %26, 0
+  %..i32 = select i1 %.not33, i32 1, i32 3
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.02331.i = phi i32 [ %.023.i, %.lr.ph.i ], [ %.02328.i, %.lr.ph.i.preheader ]
+  %.030.i = phi i32 [ %31, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
+  %.02229.i = phi i32 [ %30, %.lr.ph.i ], [ %25, %.lr.ph.i.preheader ]
   %27 = shl i32 %.02229.i, 8
   %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02331.i)
   %29 = zext i8 %28 to i32
   %30 = or disjoint i32 %27, %29
   %31 = add nuw nsw i32 %.030.i, 1
   %.023.i = add i32 %.02331.i, 1
-  %exitcond.not.i = icmp eq i32 %31, %..i
+  %exitcond.not.i = icmp eq i32 %..i32, %.030.i
   br i1 %exitcond.not.i, label %read_c4.exit, label %.lr.ph.i, !llvm.loop !33
 
 read_c4.exit:                                     ; preds = %.lr.ph.i, %.lr.ph
-  %.022.lcssa.i = phi i32 [ %26, %.lr.ph ], [ %30, %.lr.ph.i ]
+  %.022.lcssa.i = phi i32 [ %25, %.lr.ph ], [ %30, %.lr.ph.i ]
   %.023.lcssa.i = phi i32 [ %.02328.i, %.lr.ph ], [ %.023.i, %.lr.ph.i ]
   %switch.tableidx = add i32 %.022.lcssa.i, -1073741821
   %32 = icmp ult i32 %switch.tableidx, 3
@@ -10428,8 +10446,8 @@ switch.lookup:                                    ; preds = %read_c4.exit
 34:                                               ; preds = %switch.lookup, %read_c4.exit
   %.023 = phi ptr [ @.str.180, %read_c4.exit ], [ %switch.load, %switch.lookup ]
   %35 = load i32, ptr @hf_security_10_permission_group_identifier, align 4
-  %36 = sub i32 %.023.lcssa.i, %.034
-  %37 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %.034, i32 noundef %36, i32 noundef %.022.lcssa.i, ptr noundef nonnull @.str.736, i32 noundef %.022.lcssa.i, ptr noundef nonnull %.023)
+  %36 = sub i32 %.023.lcssa.i, %.035
+  %37 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %.035, i32 noundef %36, i32 noundef %.022.lcssa.i, ptr noundef nonnull @.str.736, i32 noundef %.022.lcssa.i, ptr noundef nonnull %.023)
   %38 = icmp ult i32 %.022.lcssa.i, 128
   %or.cond.i25 = and i1 %23, %38
   br i1 %or.cond.i25, label %39, label %41
@@ -14847,28 +14865,31 @@ define internal fastcc range(i32 0, 32774) i32 @dissect_2008_4_tep_2_2_1(ptr nou
 10:                                               ; preds = %6
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %12 = icmp slt i8 %11, 0
-  %13 = and i8 %11, 64
-  %.not = icmp eq i8 %13, 0
-  %14 = and i8 %11, 63
-  %..i = select i1 %.not, i32 2, i32 4
-  %.020.i = select i1 %12, i8 %14, i8 %11
-  %15 = zext nneg i8 %.020.i to i32
-  br i1 %12, label %.lr.ph.i, label %._crit_edge.i
+  %13 = and i8 %11, 63
+  %.020.i = select i1 %12, i8 %13, i8 %11
+  %14 = zext nneg i8 %.020.i to i32
+  br i1 %12, label %.lr.ph.i.preheader, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %10, %.lr.ph.i
-  %.02331.i = phi i32 [ %.023.i, %.lr.ph.i ], [ 1, %10 ]
-  %.02229.i = phi i32 [ %19, %.lr.ph.i ], [ %15, %10 ]
+.lr.ph.i.preheader:                               ; preds = %10
+  %15 = and i8 %11, 64
+  %.not = icmp eq i8 %15, 0
+  %..i1 = select i1 %.not, i32 1, i32 3
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.02331.i = phi i32 [ %.023.i, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
+  %.02229.i = phi i32 [ %19, %.lr.ph.i ], [ %14, %.lr.ph.i.preheader ]
   %16 = shl i32 %.02229.i, 8
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02331.i)
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %16, %18
-  %.023.i = add nuw i32 %.02331.i, 1
-  %exitcond.not.i = icmp eq i32 %.023.i, %..i
+  %.023.i = add nuw nsw i32 %.02331.i, 1
+  %exitcond.not.i = icmp eq i32 %..i1, %.02331.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
-  %.022.lcssa.i = phi i32 [ %15, %10 ], [ %19, %.lr.ph.i ]
-  %.023.lcssa.i = phi i32 [ 1, %10 ], [ %..i, %.lr.ph.i ]
+  %.022.lcssa.i = phi i32 [ %14, %10 ], [ %19, %.lr.ph.i ]
+  %.023.lcssa.i = phi i32 [ 1, %10 ], [ %.023.i, %.lr.ph.i ]
   %.not27.i = icmp eq ptr %3, null
   br i1 %.not27.i, label %._crit_edge.i.read_c4.exit_crit_edge, label %20
 
@@ -15111,8 +15132,8 @@ validate_c2.exit:                                 ; preds = %read_c2.exit, %19
   %32 = load i32, ptr @hf_security_12_count, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %32, ptr noundef %26, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %34 = icmp ult i8 %27, 64
-  %.not5.i = icmp eq i8 %29, 0
-  %or.cond.i25 = select i1 %34, i1 true, i1 %.not5.i
+  %.not6.i = icmp eq i8 %29, 0
+  %or.cond.i25 = select i1 %34, i1 true, i1 %.not6.i
   br i1 %or.cond.i25, label %dissect_2008_16_security_12.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph
@@ -15121,34 +15142,37 @@ validate_c2.exit:                                 ; preds = %read_c2.exit, %19
 
 .lr.ph.i:                                         ; preds = %validate_c4.exit.i, %.lr.ph.preheader.i
   %.in.i = phi i16 [ %36, %validate_c4.exit.i ], [ %35, %.lr.ph.preheader.i ]
-  %.0276.i = phi i32 [ %.023.lcssa.i.i, %validate_c4.exit.i ], [ 1, %.lr.ph.preheader.i ]
+  %.0277.i = phi i32 [ %.023.lcssa.i.i, %validate_c4.exit.i ], [ 1, %.lr.ph.preheader.i ]
   %36 = add nsw i16 %.in.i, -1
-  %37 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %26, i32 noundef %.0276.i)
+  %37 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %26, i32 noundef %.0277.i)
   %38 = icmp slt i8 %37, 0
-  %39 = and i8 %37, 64
-  %.not4.i = icmp eq i8 %39, 0
-  %40 = and i8 %37, 63
-  %..i.i = select i1 %.not4.i, i32 2, i32 4
-  %.020.i.i = select i1 %38, i8 %40, i8 %37
-  %41 = zext nneg i8 %.020.i.i to i32
-  %.02328.i.i = add i32 %.0276.i, 1
-  br i1 %38, label %.lr.ph.i.i, label %read_c4.exit.i
+  %39 = and i8 %37, 63
+  %.020.i.i = select i1 %38, i8 %39, i8 %37
+  %40 = zext nneg i8 %.020.i.i to i32
+  %.02328.i.i = add i32 %.0277.i, 1
+  br i1 %38, label %.lr.ph.i.preheader.i, label %read_c4.exit.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %.lr.ph.i.i
-  %.02331.i.i = phi i32 [ %.023.i.i, %.lr.ph.i.i ], [ %.02328.i.i, %.lr.ph.i ]
-  %.030.i.i = phi i32 [ %46, %.lr.ph.i.i ], [ 1, %.lr.ph.i ]
-  %.02229.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ %41, %.lr.ph.i ]
+.lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i
+  %41 = and i8 %37, 64
+  %.not5.i = icmp eq i8 %41, 0
+  %..i4.i = select i1 %.not5.i, i32 1, i32 3
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
+  %.02331.i.i = phi i32 [ %.023.i.i, %.lr.ph.i.i ], [ %.02328.i.i, %.lr.ph.i.preheader.i ]
+  %.030.i.i = phi i32 [ %46, %.lr.ph.i.i ], [ 1, %.lr.ph.i.preheader.i ]
+  %.02229.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ %40, %.lr.ph.i.preheader.i ]
   %42 = shl i32 %.02229.i.i, 8
   %43 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %26, i32 noundef %.02331.i.i)
   %44 = zext i8 %43 to i32
   %45 = or disjoint i32 %42, %44
   %46 = add nuw nsw i32 %.030.i.i, 1
   %.023.i.i = add i32 %.02331.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %46, %..i.i
+  %exitcond.not.i.i = icmp eq i32 %..i4.i, %.030.i.i
   br i1 %exitcond.not.i.i, label %read_c4.exit.i, label %.lr.ph.i.i, !llvm.loop !33
 
 read_c4.exit.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i
-  %.022.lcssa.i.i = phi i32 [ %41, %.lr.ph.i ], [ %45, %.lr.ph.i.i ]
+  %.022.lcssa.i.i = phi i32 [ %40, %.lr.ph.i ], [ %45, %.lr.ph.i.i ]
   %.023.lcssa.i.i = phi i32 [ %.02328.i.i, %.lr.ph.i ], [ %.023.i.i, %.lr.ph.i.i ]
   %switch.tableidx = add i32 %.022.lcssa.i.i, -1073741821
   %47 = icmp ult i32 %switch.tableidx, 3
@@ -15163,8 +15187,8 @@ switch.lookup:                                    ; preds = %read_c4.exit.i
 49:                                               ; preds = %switch.lookup, %read_c4.exit.i
   %.026.i = phi ptr [ @.str.180, %read_c4.exit.i ], [ %switch.load, %switch.lookup ]
   %50 = load i32, ptr @hf_security_12_permission_group_identifier, align 4
-  %51 = sub i32 %.023.lcssa.i.i, %.0276.i
-  %52 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %25, i32 noundef %50, ptr noundef %26, i32 noundef %.0276.i, i32 noundef %51, i32 noundef %.022.lcssa.i.i, ptr noundef nonnull @.str.736, i32 noundef %.022.lcssa.i.i, ptr noundef nonnull %.026.i)
+  %51 = sub i32 %.023.lcssa.i.i, %.0277.i
+  %52 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %25, i32 noundef %50, ptr noundef %26, i32 noundef %.0277.i, i32 noundef %51, i32 noundef %.022.lcssa.i.i, ptr noundef nonnull @.str.736, i32 noundef %.022.lcssa.i.i, ptr noundef nonnull %.026.i)
   %53 = icmp ult i32 %.022.lcssa.i.i, 128
   %or.cond.i.i = and i1 %38, %53
   br i1 %or.cond.i.i, label %54, label %56

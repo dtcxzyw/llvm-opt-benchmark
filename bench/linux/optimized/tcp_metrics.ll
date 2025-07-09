@@ -409,7 +409,7 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   br label %40
 
 40:                                               ; preds = %31, %24, %8
-  %41 = phi i64 [ 2, %8 ], [ 2, %24 ], [ 4, %31 ]
+  %41 = phi i64 [ 1, %8 ], [ 1, %24 ], [ 3, %31 ]
   %42 = phi i16 [ 2, %8 ], [ 2, %24 ], [ 10, %31 ]
   %43 = phi i32 [ %13, %8 ], [ %29, %24 ], [ %39, %31 ]
   %44 = load ptr, ptr %1, align 8
@@ -446,8 +446,8 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %67, %69
   %71 = add nuw nsw i64 %65, 1
-  %72 = icmp ne i64 %71, %41
-  %73 = select i1 %70, i1 %72, i1 false
+  %72 = icmp ne i64 %41, %65
+  %73 = and i1 %72, %70
   br i1 %73, label %.preheader60, label %74, !llvm.loop !6
 
 74:                                               ; preds = %.preheader60
@@ -468,8 +468,8 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %82, %84
   %86 = add nuw nsw i64 %80, 1
-  %87 = icmp ne i64 %86, %41
-  %88 = select i1 %85, i1 %87, i1 false
+  %87 = icmp ne i64 %41, %80
+  %88 = and i1 %87, %85
   br i1 %88, label %.preheader59, label %89, !llvm.loop !6
 
 89:                                               ; preds = %.preheader59
@@ -528,8 +528,8 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %124 = load i32, ptr %123, align 4
   %125 = icmp eq i32 %122, %124
   %126 = add nuw nsw i64 %120, 1
-  %127 = icmp ne i64 %126, %41
-  %128 = select i1 %125, i1 %127, i1 false
+  %127 = icmp ne i64 %41, %120
+  %128 = and i1 %127, %125
   br i1 %128, label %.preheader57, label %129, !llvm.loop !6
 
 129:                                              ; preds = %.preheader57
@@ -550,8 +550,8 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %137, %139
   %141 = add nuw nsw i64 %135, 1
-  %142 = icmp ne i64 %141, %41
-  %143 = select i1 %140, i1 %142, i1 false
+  %142 = icmp ne i64 %41, %135
+  %143 = and i1 %142, %140
   br i1 %143, label %.preheader56, label %144, !llvm.loop !6
 
 144:                                              ; preds = %.preheader56
@@ -897,7 +897,7 @@ define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr noundef readonly cap
 
 45:                                               ; preds = %28
   %46 = icmp eq i16 %10, 2
-  %47 = select i1 %46, i64 2, i64 4
+  %47 = select i1 %46, i64 1, i64 3
   br label %48
 
 48:                                               ; preds = %83, %45
@@ -916,8 +916,8 @@ define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr noundef readonly cap
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %56, %58
   %60 = add nuw nsw i64 %54, 1
-  %61 = icmp ne i64 %60, %47
-  %62 = select i1 %59, i1 %61, i1 false
+  %61 = icmp ne i64 %47, %54
+  %62 = and i1 %61, %59
   br i1 %62, label %.preheader17, label %63, !llvm.loop !6
 
 63:                                               ; preds = %.preheader17
@@ -938,8 +938,8 @@ define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr noundef readonly cap
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %71, %73
   %75 = add nuw nsw i64 %69, 1
-  %76 = icmp ne i64 %75, %47
-  %77 = select i1 %74, i1 %76, i1 false
+  %76 = icmp ne i64 %47, %69
+  %77 = and i1 %76, %74
   br i1 %77, label %.preheader, label %78, !llvm.loop !6
 
 78:                                               ; preds = %.preheader
@@ -1584,12 +1584,12 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readno
   br i1 %88, label %.thread12, label %89
 
 89:                                               ; preds = %76
-  %90 = select i1 %.not.not, i64 4, i64 2
+  %90 = select i1 %.not.not, i64 3, i64 1
   br i1 %64, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %89
   %91 = icmp eq i16 %63, 2
-  %92 = select i1 %91, i64 2, i64 4
+  %92 = select i1 %91, i64 1, i64 3
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %127
@@ -1608,8 +1608,8 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readno
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %100, %102
   %104 = add nuw nsw i64 %98, 1
-  %105 = icmp ne i64 %104, %90
-  %106 = select i1 %103, i1 %105, i1 false
+  %105 = icmp ne i64 %90, %98
+  %106 = and i1 %105, %103
   br i1 %106, label %.preheader34, label %107, !llvm.loop !6
 
 107:                                              ; preds = %.preheader34
@@ -1630,8 +1630,8 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readno
   %117 = load i32, ptr %116, align 4
   %118 = icmp eq i32 %115, %117
   %119 = add nuw nsw i64 %113, 1
-  %120 = icmp ne i64 %119, %92
-  %121 = select i1 %118, i1 %120, i1 false
+  %120 = icmp ne i64 %92, %113
+  %121 = and i1 %120, %118
   br i1 %121, label %.preheader, label %122, !llvm.loop !6
 
 122:                                              ; preds = %.preheader
@@ -1664,8 +1664,8 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readno
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %137, %139
   %141 = add nuw nsw i64 %135, 1
-  %142 = icmp ne i64 %141, %90
-  %143 = select i1 %140, i1 %142, i1 false
+  %142 = icmp ne i64 %90, %135
+  %143 = and i1 %142, %140
   br i1 %143, label %.preheader35, label %144, !llvm.loop !6
 
 144:                                              ; preds = %.preheader35
@@ -2096,7 +2096,7 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
 
 142:                                              ; preds = %.split.us
   %143 = icmp eq i16 %139, 2
-  %144 = select i1 %143, i64 2, i64 4
+  %144 = select i1 %143, i64 1, i64 3
   br label %145
 
 145:                                              ; preds = %145, %142
@@ -2107,8 +2107,8 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
   %150 = load i32, ptr %149, align 4
   %151 = icmp eq i32 %148, %150
   %152 = add nuw nsw i64 %146, 1
-  %153 = icmp ne i64 %152, %144
-  %154 = select i1 %151, i1 %153, i1 false
+  %153 = icmp ne i64 %144, %146
+  %154 = and i1 %153, %151
   br i1 %154, label %145, label %155, !llvm.loop !6
 
 155:                                              ; preds = %145
@@ -2124,7 +2124,7 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
 
 162:                                              ; preds = %156
   %163 = icmp eq i16 %159, 2
-  %164 = select i1 %163, i64 2, i64 4
+  %164 = select i1 %163, i64 1, i64 3
   br label %165
 
 165:                                              ; preds = %165, %162
@@ -2135,8 +2135,8 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
   %170 = load i32, ptr %169, align 4
   %171 = icmp eq i32 %168, %170
   %172 = add nuw nsw i64 %166, 1
-  %173 = icmp ne i64 %172, %164
-  %174 = select i1 %171, i1 %173, i1 false
+  %173 = icmp ne i64 %164, %166
+  %174 = and i1 %173, %171
   br i1 %174, label %165, label %175, !llvm.loop !6
 
 175:                                              ; preds = %165
@@ -2176,7 +2176,7 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
 
 196:                                              ; preds = %.split
   %197 = icmp eq i16 %193, 2
-  %198 = select i1 %197, i64 2, i64 4
+  %198 = select i1 %197, i64 1, i64 3
   br label %199
 
 199:                                              ; preds = %199, %196
@@ -2187,8 +2187,8 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
   %204 = load i32, ptr %203, align 4
   %205 = icmp eq i32 %202, %204
   %206 = add nuw nsw i64 %200, 1
-  %207 = icmp ne i64 %206, %198
-  %208 = select i1 %205, i1 %207, i1 false
+  %207 = icmp ne i64 %198, %200
+  %208 = and i1 %207, %205
   br i1 %208, label %199, label %209, !llvm.loop !6
 
 209:                                              ; preds = %199

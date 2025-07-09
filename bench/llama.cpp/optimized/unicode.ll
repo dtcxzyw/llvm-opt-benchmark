@@ -15345,8 +15345,8 @@ _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %8, %17, %22
   store i64 0, ptr %77, align 8, !tbaa !13
   %78 = load ptr, ptr %76, align 8, !tbaa !7
   store i8 0, ptr %78, align 1, !tbaa !12
-  %79 = select i1 %74, i32 2, i32 4
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %80 = select i1 %74, i32 1, i32 3
   br label %83
 
 81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit
@@ -15385,7 +15385,7 @@ _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %8, %17, %22
   %101 = load i64, ptr %77, align 8, !tbaa !13
   %102 = add i64 %101, 1
   %103 = load ptr, ptr %76, align 8, !tbaa !7
-  %104 = icmp eq ptr %103, %80
+  %104 = icmp eq ptr %103, %79
   br i1 %104, label %105, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
 
 105:                                              ; preds = %98
@@ -15394,7 +15394,7 @@ _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %8, %17, %22
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; preds = %105, %98
-  %107 = load i64, ptr %80, align 8
+  %107 = load i64, ptr %79, align 8
   %108 = select i1 %104, i64 15, i64 %107
   %109 = icmp ugt i64 %102, %108
   br i1 %109, label %110, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit
@@ -15413,7 +15413,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 %102
   store i8 0, ptr %114, align 1, !tbaa !12
   %115 = add nuw nsw i32 %.060, 1
-  %exitcond.not = icmp eq i32 %115, %79
+  %exitcond.not = icmp eq i32 %80, %.060
   br i1 %exitcond.not, label %81, label %83, !llvm.loop !433
 
 116:                                              ; preds = %73
@@ -45523,8 +45523,8 @@ define linkonce_odr void @_ZNSt8__detail8_ScannerIwE18_M_eat_escape_ecmaEv(ptr n
   store i64 0, ptr %72, align 8, !tbaa !199
   %73 = load ptr, ptr %71, align 8, !tbaa !206
   store i32 0, ptr %73, align 4, !tbaa !201
-  %74 = select i1 %69, i32 2, i32 4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %75 = select i1 %69, i32 1, i32 3
   br label %78
 
 76:                                               ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEpLEw.exit
@@ -45561,7 +45561,7 @@ define linkonce_odr void @_ZNSt8__detail8_ScannerIwE18_M_eat_escape_ecmaEv(ptr n
   %95 = load i64, ptr %72, align 8, !tbaa !199
   %96 = add i64 %95, 1
   %97 = load ptr, ptr %71, align 8, !tbaa !206
-  %98 = icmp eq ptr %97, %75
+  %98 = icmp eq ptr %97, %74
   br i1 %98, label %99, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i
 
 99:                                               ; preds = %91
@@ -45570,7 +45570,7 @@ define linkonce_odr void @_ZNSt8__detail8_ScannerIwE18_M_eat_escape_ecmaEv(ptr n
   br label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i: ; preds = %99, %91
-  %101 = load i64, ptr %75, align 8
+  %101 = load i64, ptr %74, align 8
   %102 = select i1 %98, i64 3, i64 %101
   %103 = icmp ugt i64 %96, %102
   br i1 %103, label %104, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEpLEw.exit
@@ -45588,7 +45588,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEpLEw.exit: ; preds = %_ZNKS
   %107 = getelementptr inbounds nuw i32, ptr %105, i64 %96
   store i32 0, ptr %107, align 4, !tbaa !201
   %108 = add nuw nsw i32 %.051, 1
-  %exitcond.not = icmp eq i32 %108, %74
+  %exitcond.not = icmp eq i32 %75, %.051
   br i1 %exitcond.not, label %76, label %78, !llvm.loop !1004
 
 109:                                              ; preds = %68

@@ -591,11 +591,10 @@ entry:
 
 do.body.i:                                        ; preds = %entry
   %0 = load i32, ptr %len.i, align 4, !noalias !5
-  %conv.i = sext i32 %0 to i64
   %1 = load i16, ptr %address_.i.i, align 8, !alias.scope !5
   %cmp.i.i.i.i = icmp eq i16 %1, 2
-  %cond.i.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 28
-  %cmp3.not.i = icmp eq i64 %cond.i.i.i.i, %conv.i
+  %cond.i.i.i3.i = select i1 %cmp.i.i.i.i, i32 16, i32 28
+  %cmp3.not.i = icmp eq i32 %cond.i.i.i3.i, %0
   br i1 %cmp3.not.i, label %_ZN4node12_GLOBAL__N_112FromUVHandleI8uv_tcp_sPFiPKS2_P8sockaddrPiEEENS_13SocketAddressET0_RKT_.exit, label %do.body8.i
 
 do.body8.i:                                       ; preds = %do.body.i
@@ -629,11 +628,10 @@ entry:
 
 do.body.i:                                        ; preds = %entry
   %0 = load i32, ptr %len.i, align 4, !noalias !9
-  %conv.i = sext i32 %0 to i64
   %1 = load i16, ptr %address_.i.i, align 8, !alias.scope !9
   %cmp.i.i.i.i = icmp eq i16 %1, 2
-  %cond.i.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 28
-  %cmp3.not.i = icmp eq i64 %cond.i.i.i.i, %conv.i
+  %cond.i.i.i3.i = select i1 %cmp.i.i.i.i, i32 16, i32 28
+  %cmp3.not.i = icmp eq i32 %cond.i.i.i3.i, %0
   br i1 %cmp3.not.i, label %_ZN4node12_GLOBAL__N_112FromUVHandleI8uv_udp_sPFiPKS2_P8sockaddrPiEEENS_13SocketAddressET0_RKT_.exit, label %do.body8.i
 
 do.body8.i:                                       ; preds = %do.body.i
@@ -667,11 +665,10 @@ entry:
 
 do.body.i:                                        ; preds = %entry
   %0 = load i32, ptr %len.i, align 4, !noalias !13
-  %conv.i = sext i32 %0 to i64
   %1 = load i16, ptr %address_.i.i, align 8, !alias.scope !13
   %cmp.i.i.i.i = icmp eq i16 %1, 2
-  %cond.i.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 28
-  %cmp3.not.i = icmp eq i64 %cond.i.i.i.i, %conv.i
+  %cond.i.i.i3.i = select i1 %cmp.i.i.i.i, i32 16, i32 28
+  %cmp3.not.i = icmp eq i32 %cond.i.i.i3.i, %0
   br i1 %cmp3.not.i, label %_ZN4node12_GLOBAL__N_112FromUVHandleI8uv_tcp_sPFiPKS2_P8sockaddrPiEEENS_13SocketAddressET0_RKT_.exit, label %do.body8.i
 
 do.body8.i:                                       ; preds = %do.body.i
@@ -705,11 +702,10 @@ entry:
 
 do.body.i:                                        ; preds = %entry
   %0 = load i32, ptr %len.i, align 4, !noalias !16
-  %conv.i = sext i32 %0 to i64
   %1 = load i16, ptr %address_.i.i, align 8, !alias.scope !16
   %cmp.i.i.i.i = icmp eq i16 %1, 2
-  %cond.i.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 28
-  %cmp3.not.i = icmp eq i64 %cond.i.i.i.i, %conv.i
+  %cond.i.i.i3.i = select i1 %cmp.i.i.i.i, i32 16, i32 28
+  %cmp3.not.i = icmp eq i32 %cond.i.i.i3.i, %0
   br i1 %cmp3.not.i, label %_ZN4node12_GLOBAL__N_112FromUVHandleI8uv_udp_sPFiPKS2_P8sockaddrPiEEENS_13SocketAddressET0_RKT_.exit, label %do.body8.i
 
 do.body8.i:                                       ; preds = %do.body.i

@@ -3081,8 +3081,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit200: ; preds = %1
 144:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit200, %_Z4hashPKvm.exit
   %145 = tail call ptr @zfp_stream_open(ptr noundef null)
   %146 = lshr exact i32 2, %64
-  %147 = select i1 %63, i32 64, i32 32
-  %148 = icmp eq i32 %1, 1
+  %147 = icmp eq i32 %1, 1
+  %148 = select i1 %63, i32 16, i32 8
   br label %151
 
 149:                                              ; preds = %151
@@ -3099,11 +3099,11 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit200: ; preds = %1
   %154 = getelementptr inbounds nuw [2 x [2 x [4 x [4 x double]]]], ptr @__const._Z4testIdEjj9ArraySize.emax, i64 0, i64 %103, i64 %104, i64 %106, i64 %153
   %155 = load double, ptr %154, align 8, !tbaa !46
   %156 = fptrunc double %155 to float
-  %157 = tail call noundef i32 @_Z9test_rateIfEjP10zfp_streamPK9zfp_fielddT_b(ptr noundef %145, ptr noundef %18, double noundef %152, float noundef %156, i1 noundef zeroext %148)
+  %157 = tail call noundef i32 @_Z9test_rateIfEjP10zfp_streamPK9zfp_fielddT_b(ptr noundef %145, ptr noundef %18, double noundef %152, float noundef %156, i1 noundef zeroext %147)
   %158 = add i32 %157, %.0173250
   %159 = shl nuw nsw i32 %.0172251, 2
   %160 = add i32 %.0171252, 1
-  %.not179 = icmp samesign ugt i32 %159, %147
+  %.not179 = icmp samesign ult i32 %148, %.0172251
   br i1 %.not179, label %149, label %151
 
 161:                                              ; preds = %149
@@ -3716,8 +3716,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit200: ; preds = %1
 144:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit200, %_Z4hashPKvm.exit
   %145 = tail call ptr @zfp_stream_open(ptr noundef null)
   %146 = lshr exact i32 2, %64
-  %147 = select i1 %63, i32 64, i32 32
-  %148 = icmp eq i32 %1, 1
+  %147 = icmp eq i32 %1, 1
+  %148 = select i1 %63, i32 16, i32 8
   br label %151
 
 149:                                              ; preds = %151
@@ -3733,11 +3733,11 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit200: ; preds = %1
   %153 = zext i32 %.0171252 to i64
   %154 = getelementptr inbounds nuw [2 x [2 x [4 x [4 x double]]]], ptr @__const._Z4testIdEjj9ArraySize.emax, i64 0, i64 %103, i64 %104, i64 %106, i64 %153
   %155 = load double, ptr %154, align 8, !tbaa !46
-  %156 = tail call noundef i32 @_Z9test_rateIdEjP10zfp_streamPK9zfp_fielddT_b(ptr noundef %145, ptr noundef %18, double noundef %152, double noundef %155, i1 noundef zeroext %148)
+  %156 = tail call noundef i32 @_Z9test_rateIdEjP10zfp_streamPK9zfp_fielddT_b(ptr noundef %145, ptr noundef %18, double noundef %152, double noundef %155, i1 noundef zeroext %147)
   %157 = add i32 %156, %.0173250
   %158 = shl nuw nsw i32 %.0172251, 2
   %159 = add i32 %.0171252, 1
-  %.not179 = icmp samesign ugt i32 %158, %147
+  %.not179 = icmp samesign ult i32 %148, %.0172251
   br i1 %.not179, label %149, label %151
 
 160:                                              ; preds = %149

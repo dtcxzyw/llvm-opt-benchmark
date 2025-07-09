@@ -310,32 +310,32 @@ define range(i32 0, 4325387) i32 @ucptrie_swap_77(ptr noundef %0, ptr noundef %1
   %41 = zext i16 %34 to i32
   %42 = or disjoint i32 %40, %41
   %43 = icmp eq i32 %37, 0
-  %44 = select i1 %43, i32 1024, i32 64
-  %45 = icmp ne i32 %21, 1416784179
-  %46 = icmp samesign ugt i32 %37, 1
-  %or.cond7 = select i1 %45, i1 true, i1 %46
-  br i1 %or.cond7, label %55, label %47
+  %44 = icmp ne i32 %21, 1416784179
+  %45 = icmp samesign ugt i32 %37, 1
+  %or.cond7 = select i1 %44, i1 true, i1 %45
+  br i1 %or.cond7, label %54, label %46
 
-47:                                               ; preds = %17
-  %48 = and i32 %35, 56
-  %49 = icmp ne i32 %48, 0
-  %50 = icmp samesign ugt i32 %38, 2
-  %or.cond9 = select i1 %49, i1 true, i1 %50
-  br i1 %or.cond9, label %55, label %51
+46:                                               ; preds = %17
+  %47 = and i32 %35, 56
+  %48 = icmp ne i32 %47, 0
+  %49 = icmp samesign ugt i32 %38, 2
+  %or.cond9 = select i1 %48, i1 true, i1 %49
+  br i1 %or.cond9, label %54, label %50
 
-51:                                               ; preds = %47
-  %52 = zext i16 %30 to i32
-  %53 = icmp samesign ugt i32 %44, %52
-  %54 = icmp samesign ult i32 %42, 128
-  %or.cond11 = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond11, label %55, label %56
+50:                                               ; preds = %46
+  %51 = select i1 %43, i16 1024, i16 64
+  %52 = icmp ugt i16 %51, %30
+  %53 = icmp samesign ult i32 %42, 128
+  %or.cond11 = select i1 %52, i1 true, i1 %53
+  br i1 %or.cond11, label %54, label %55
 
-55:                                               ; preds = %51, %47, %17
+54:                                               ; preds = %50, %46, %17
   store i32 3, ptr %4, align 4, !tbaa !3
   br label %.thread
 
-56:                                               ; preds = %51
-  %57 = shl nuw nsw i32 %52, 1
+55:                                               ; preds = %50
+  %56 = zext i16 %30 to i32
+  %57 = shl nuw nsw i32 %56, 1
   %narrow = add nuw nsw i32 %57, 16
   switch i32 %38, label %default.unreachable [
     i32 0, label %58
@@ -343,19 +343,19 @@ define range(i32 0, 4325387) i32 @ucptrie_swap_77(ptr noundef %0, ptr noundef %1
     i32 2, label %62
   ]
 
-58:                                               ; preds = %56
+58:                                               ; preds = %55
   %59 = shl nuw nsw i32 %42, 1
   br label %62
 
-60:                                               ; preds = %56
+60:                                               ; preds = %55
   %61 = shl nuw nsw i32 %42, 2
   br label %62
 
-default.unreachable:                              ; preds = %64, %56
+default.unreachable:                              ; preds = %64, %55
   unreachable
 
-62:                                               ; preds = %56, %60, %58
-  %.pn = phi i32 [ %59, %58 ], [ %61, %60 ], [ %42, %56 ]
+62:                                               ; preds = %55, %60, %58
+  %.pn = phi i32 [ %59, %58 ], [ %61, %60 ], [ %42, %55 ]
   %.095 = add nuw nsw i32 %narrow, %.pn
   br i1 %12, label %63, label %.thread
 
@@ -409,8 +409,8 @@ default.unreachable:                              ; preds = %64, %56
   store i32 8, ptr %4, align 4, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %79, %83, %88, %87, %62, %90, %55, %5, %16, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %16 ], [ 0, %5 ], [ 0, %55 ], [ 0, %90 ], [ %.095, %62 ], [ %.095, %87 ], [ %.095, %88 ], [ %.095, %83 ], [ %.095, %79 ]
+.thread:                                          ; preds = %79, %83, %88, %87, %62, %90, %54, %5, %16, %14
+  %.0 = phi i32 [ 0, %14 ], [ 0, %16 ], [ 0, %5 ], [ 0, %54 ], [ 0, %90 ], [ %.095, %62 ], [ %.095, %87 ], [ %.095, %88 ], [ %.095, %83 ], [ %.095, %79 ]
   ret i32 %.0
 }
 

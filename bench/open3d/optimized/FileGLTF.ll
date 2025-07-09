@@ -205167,19 +205167,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit222: ; preds = %
   store i32 %389, ptr %361, align 4, !tbaa !521
   %390 = mul nsw i64 %134, 3
   store i64 %390, ptr %362, align 8, !tbaa !522
-  %391 = select i1 %162, i64 4, i64 2
-  %392 = select i1 %162, i64 2, i64 1
-  %393 = shl nsw i64 %390, %392
-  %394 = trunc i64 %184 to i32
-  store i32 %394, ptr %18, align 8, !tbaa !486
-  %395 = load ptr, ptr %168, align 8, !tbaa !648
-  %396 = getelementptr inbounds nuw %"struct.tinygltf::BufferView", ptr %395, i64 %184, i32 4
-  %397 = load i64, ptr %396, align 8, !tbaa !556
-  store i64 %397, ptr %359, align 8, !tbaa !520
-  %398 = add i64 %397, %393
-  store i64 %398, ptr %396, align 8, !tbaa !556
+  %391 = select i1 %162, i64 2, i64 1
+  %392 = shl nsw i64 %390, %391
+  %393 = trunc i64 %184 to i32
+  store i32 %393, ptr %18, align 8, !tbaa !486
+  %394 = load ptr, ptr %168, align 8, !tbaa !648
+  %395 = getelementptr inbounds nuw %"struct.tinygltf::BufferView", ptr %394, i64 %184, i32 4
+  %396 = load i64, ptr %395, align 8, !tbaa !556
+  store i64 %396, ptr %359, align 8, !tbaa !520
+  %397 = add i64 %396, %392
+  store i64 %397, ptr %395, align 8, !tbaa !556
   %.not = icmp eq ptr %129, %130
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit222
+  %398 = select i1 %162, i64 3, i64 1
+  br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %442
   %399 = ptrtoint ptr %.sroa.13.3 to i64
@@ -205291,11 +205294,11 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS
           cleanup
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit398
 
-.lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit222, %442
-  %.0152585 = phi i64 [ %443, %442 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit222 ]
-  %.sroa.0422.0584 = phi ptr [ %.sroa.0422.4, %442 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit222 ]
-  %.sroa.13.0583 = phi ptr [ %.sroa.13.3, %442 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit222 ]
-  %.sroa.21.0582 = phi ptr [ %.sroa.21.4, %442 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit222 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %442
+  %.0152585 = phi i64 [ %443, %442 ], [ 0, %.lr.ph.preheader ]
+  %.sroa.0422.0584 = phi ptr [ %.sroa.0422.4, %442 ], [ null, %.lr.ph.preheader ]
+  %.sroa.13.0583 = phi ptr [ %.sroa.13.3, %442 ], [ null, %.lr.ph.preheader ]
+  %.sroa.21.0582 = phi ptr [ %.sroa.21.4, %442 ], [ null, %.lr.ph.preheader ]
   %440 = load ptr, ptr %127, align 8, !tbaa !3938
   %441 = getelementptr inbounds nuw %"class.Eigen::Matrix.502", ptr %440, i64 %.0152585
   br label %444
@@ -205389,7 +205392,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit:          ; preds = %_ZNSt6vectorIhSaIhE
   %.sroa.0422.4 = phi ptr [ %464, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i ], [ %.sroa.0422.2576, %450 ]
   %.sroa.13.3 = getelementptr inbounds nuw i8, ptr %.pn460, i64 1
   %471 = add nuw nsw i64 %.0156577, 1
-  %exitcond.not = icmp eq i64 %471, %391
+  %exitcond.not = icmp eq i64 %398, %.0156577
   br i1 %exitcond.not, label %446, label %448, !llvm.loop !4612
 
 .loopexit471:                                     ; preds = %462

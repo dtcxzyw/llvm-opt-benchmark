@@ -14220,28 +14220,30 @@ define noundef ptr @_ZN6Unpack11ApplyFilterEPhjP12UnpackFilter(ptr noundef nonnu
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 19856
   %8 = load i64, ptr %7, align 8, !tbaa !169
   %9 = trunc i64 %8 to i32
-  %10 = icmp eq i8 %5, 2
-  %11 = select i1 %10, i32 233, i32 232
   %invariant.op = add i32 %9, 1
-  %12 = icmp ugt i32 %2, 4
-  br i1 %12, label %.lr.ph87, label %.loopexit
+  %10 = icmp ugt i32 %2, 4
+  br i1 %10, label %.lr.ph87, label %.loopexit
 
-.lr.ph87:                                         ; preds = %6, %33
-  %.06585 = phi ptr [ %.166, %33 ], [ %1, %6 ]
-  %.06784 = phi i32 [ %.168, %33 ], [ 0, %6 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.06585, i64 1
-  %14 = load i8, ptr %.06585, align 1, !tbaa !27
-  %15 = add i32 %.06784, 1
-  %16 = icmp eq i8 %14, -24
-  %17 = zext i8 %14 to i32
-  %18 = icmp eq i32 %11, %17
-  %or.cond = or i1 %16, %18
+.lr.ph87:                                         ; preds = %6
+  %11 = icmp eq i8 %5, 2
+  %12 = select i1 %11, i8 -23, i8 -24
+  br label %13
+
+13:                                               ; preds = %.lr.ph87, %33
+  %.06585 = phi ptr [ %1, %.lr.ph87 ], [ %.166, %33 ]
+  %.06784 = phi i32 [ 0, %.lr.ph87 ], [ %.168, %33 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.06585, i64 1
+  %15 = load i8, ptr %.06585, align 1, !tbaa !27
+  %16 = add i32 %.06784, 1
+  %17 = icmp eq i8 %15, -24
+  %18 = icmp eq i8 %12, %15
+  %or.cond = or i1 %17, %18
   br i1 %or.cond, label %19, label %33
 
-19:                                               ; preds = %.lr.ph87
+19:                                               ; preds = %13
   %.reass = add i32 %.06784, %invariant.op
   %20 = and i32 %.reass, 16777215
-  %21 = load i32, ptr %13, align 4, !tbaa !93
+  %21 = load i32, ptr %14, align 4, !tbaa !93
   %.not = icmp sgt i32 %21, -1
   br i1 %.not, label %27, label %22
 
@@ -14264,7 +14266,7 @@ define noundef ptr @_ZN6Unpack11ApplyFilterEPhjP12UnpackFilter(ptr noundef nonnu
 
 .sink.split:                                      ; preds = %25, %28
   %.sink = phi i32 [ %29, %28 ], [ %26, %25 ]
-  store i32 %.sink, ptr %13, align 4, !tbaa !93
+  store i32 %.sink, ptr %14, align 4, !tbaa !93
   br label %30
 
 30:                                               ; preds = %.sink.split, %27, %22
@@ -14272,12 +14274,12 @@ define noundef ptr @_ZN6Unpack11ApplyFilterEPhjP12UnpackFilter(ptr noundef nonnu
   %32 = add i32 %.06784, 5
   br label %33
 
-33:                                               ; preds = %.lr.ph87, %30
-  %.168 = phi i32 [ %32, %30 ], [ %15, %.lr.ph87 ]
-  %.166 = phi ptr [ %31, %30 ], [ %13, %.lr.ph87 ]
+33:                                               ; preds = %13, %30
+  %.168 = phi i32 [ %32, %30 ], [ %16, %13 ]
+  %.166 = phi ptr [ %31, %30 ], [ %14, %13 ]
   %34 = add i32 %.168, 4
   %35 = icmp ult i32 %34, %2
-  br i1 %35, label %.lr.ph87, label %.loopexit, !llvm.loop !322
+  br i1 %35, label %13, label %.loopexit, !llvm.loop !322
 
 36:                                               ; preds = %4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 19856

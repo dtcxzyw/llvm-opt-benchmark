@@ -15,7 +15,7 @@ define i64 @f64_roundToInt(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
 7:                                                ; preds = %3
   %8 = and i64 %0, 9223372036854775807
   %.not53 = icmp eq i64 %8, 0
-  br i1 %.not53, label %58, label %9
+  br i1 %.not53, label %57, label %9
 
 9:                                                ; preds = %7
   br i1 %2, label %10, label %14
@@ -29,7 +29,7 @@ define i64 @f64_roundToInt(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
 
 14:                                               ; preds = %10, %9
   %15 = and i64 %0, -9223372036854775808
-  switch i8 %1, label %58 [
+  switch i8 %1, label %57 [
     i8 0, label %16
     i8 4, label %20
     i8 2, label %23
@@ -41,25 +41,25 @@ define i64 @f64_roundToInt(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   %18 = icmp ne i64 %17, 0
   %19 = icmp eq i64 %5, 1022
   %or.cond = and i1 %18, %19
-  br i1 %or.cond, label %21, label %58
+  br i1 %or.cond, label %21, label %57
 
 20:                                               ; preds = %14
   %.old2 = icmp eq i64 %5, 1022
-  br i1 %.old2, label %21, label %58
+  br i1 %.old2, label %21, label %57
 
 21:                                               ; preds = %16, %20
   %22 = or disjoint i64 %15, 4607182418800017408
-  br label %58
+  br label %57
 
 23:                                               ; preds = %14
   %.not55 = icmp eq i64 %15, 0
   %spec.store.select = select i1 %.not55, i64 0, i64 -4616189618054758400
-  br label %58
+  br label %57
 
 24:                                               ; preds = %14
   %.not54 = icmp eq i64 %15, 0
   %spec.store.select1 = select i1 %.not54, i64 4607182418800017408, i64 -9223372036854775808
-  br label %58
+  br label %57
 
 25:                                               ; preds = %3
   %26 = icmp samesign ugt i64 %5, 1074
@@ -70,11 +70,11 @@ define i64 @f64_roundToInt(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
   %29 = and i64 %0, 4503599627370495
   %.not52 = icmp eq i64 %29, 0
   %or.cond56 = or i1 %.not52, %28
-  br i1 %or.cond56, label %58, label %30
+  br i1 %or.cond56, label %57, label %30
 
 30:                                               ; preds = %27
   %31 = tail call i64 @softfloat_propagateNaNF64UI(i64 noundef %0, i64 noundef 0) #3
-  br label %58
+  br label %57
 
 32:                                               ; preds = %25
   %33 = sub nuw nsw i64 1075, %5
@@ -88,46 +88,45 @@ define i64 @f64_roundToInt(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2)
 36:                                               ; preds = %32
   %37 = lshr i64 %34, 1
   %38 = add i64 %37, %0
-  br label %51
+  br label %50
 
 39:                                               ; preds = %32
   %40 = lshr i64 %34, 1
   %41 = add i64 %40, %0
   %42 = and i64 %41, %35
   %.not50 = icmp eq i64 %42, 0
-  br i1 %.not50, label %43, label %51
+  br i1 %.not50, label %43, label %50
 
 43:                                               ; preds = %39
   %44 = xor i64 %34, -1
   %45 = and i64 %41, %44
-  br label %51
+  br label %50
 
 46:                                               ; preds = %32
-  %47 = zext i8 %1 to i32
   %.not = icmp sgt i64 %0, -1
-  %48 = select i1 %.not, i32 3, i32 2
-  %49 = icmp eq i32 %48, %47
-  %50 = select i1 %49, i64 %35, i64 0
-  %spec.select = add i64 %50, %0
-  br label %51
+  %47 = select i1 %.not, i8 3, i8 2
+  %48 = icmp eq i8 %47, %1
+  %49 = select i1 %48, i64 %35, i64 0
+  %spec.select = add i64 %49, %0
+  br label %50
 
-51:                                               ; preds = %46, %43, %39, %36
+50:                                               ; preds = %46, %43, %39, %36
   %.1 = phi i64 [ %38, %36 ], [ %41, %39 ], [ %45, %43 ], [ %spec.select, %46 ]
-  %52 = sub nsw i64 0, %34
-  %53 = and i64 %.1, %52
-  %.not51 = icmp ne i64 %53, %0
+  %51 = sub nsw i64 0, %34
+  %52 = and i64 %.1, %51
+  %.not51 = icmp ne i64 %52, %0
   %or.cond58.not = select i1 %2, i1 %.not51, i1 false
-  br i1 %or.cond58.not, label %54, label %58
+  br i1 %or.cond58.not, label %53, label %57
 
-54:                                               ; preds = %51
-  %55 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  %56 = load i8, ptr %55, align 1, !tbaa !3
-  %57 = or i8 %56, 1
-  store i8 %57, ptr %55, align 1, !tbaa !3
-  br label %58
+53:                                               ; preds = %50
+  %54 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %55 = load i8, ptr %54, align 1, !tbaa !3
+  %56 = or i8 %55, 1
+  store i8 %56, ptr %54, align 1, !tbaa !3
+  br label %57
 
-58:                                               ; preds = %30, %20, %21, %16, %24, %23, %14, %54, %51, %27, %7
-  %.sroa.044.0 = phi i64 [ %0, %7 ], [ %0, %27 ], [ %15, %14 ], [ %22, %21 ], [ %15, %16 ], [ %15, %20 ], [ %spec.store.select, %23 ], [ %spec.store.select1, %24 ], [ %31, %30 ], [ %53, %54 ], [ %53, %51 ]
+57:                                               ; preds = %30, %20, %21, %16, %24, %23, %14, %53, %50, %27, %7
+  %.sroa.044.0 = phi i64 [ %0, %7 ], [ %0, %27 ], [ %15, %14 ], [ %22, %21 ], [ %15, %16 ], [ %15, %20 ], [ %spec.store.select, %23 ], [ %spec.store.select1, %24 ], [ %31, %30 ], [ %52, %53 ], [ %52, %50 ]
   ret i64 %.sroa.044.0
 }
 

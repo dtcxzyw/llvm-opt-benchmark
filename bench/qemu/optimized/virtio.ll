@@ -10169,21 +10169,20 @@ define internal zeroext i1 @virtio_device_endian_needed(ptr noundef readonly cap
   %.val = load i64, ptr %6, align 8
   %7 = and i64 %.val, 4294967296
   %.not6 = icmp eq i64 %7, 0
-  br i1 %.not6, label %8, label %12
+  br i1 %.not6, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = zext i8 %3 to i32
-  %10 = tail call zeroext i1 @target_words_bigendian() #24
-  %..i = select i1 %10, i32 2, i32 1
-  %11 = icmp ne i32 %..i, %9
-  br label %14
+  %9 = tail call zeroext i1 @target_words_bigendian() #24
+  %..i7 = select i1 %9, i8 2, i8 1
+  %10 = icmp ne i8 %..i7, %3
+  br label %13
 
-12:                                               ; preds = %5
-  %13 = icmp ne i8 %3, 1
-  br label %14
+11:                                               ; preds = %5
+  %12 = icmp ne i8 %3, 1
+  br label %13
 
-14:                                               ; preds = %12, %8
-  %.0 = phi i1 [ %13, %12 ], [ %11, %8 ]
+13:                                               ; preds = %11, %8
+  %.0 = phi i1 [ %12, %11 ], [ %10, %8 ]
   ret i1 %.0
 }
 

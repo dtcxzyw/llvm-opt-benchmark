@@ -4085,7 +4085,7 @@ define void @Cba_ManWriteVerilogNtk(ptr noundef %0, i32 noundef %1) local_unname
   %10 = getelementptr i8, ptr %0, i64 44
   %.val871 = load i32, ptr %10, align 4, !tbaa !22
   %11 = add nsw i32 %.val871, %.val870
-  %12 = icmp sgt i32 %11, 5
+  %12 = icmp slt i32 %11, 6
   %13 = getelementptr i8, ptr %0, i64 156
   %.val872 = load i32, ptr %13, align 4, !tbaa !22
   %14 = ashr i32 %.val872, 5
@@ -4486,8 +4486,8 @@ Vec_StrPush.exit.i1022:                           ; preds = %187, %Vec_StrGrow.e
   br i1 %exitcond.not.i1024, label %Vec_StrPrintStr.exit1028, label %164, !llvm.loop !59
 
 Vec_StrPrintStr.exit1028:                         ; preds = %Vec_StrPush.exit.i1022, %Vec_StrPrintStr.exit
-  %194 = select i1 %12, ptr @.str.73, ptr @.str.74
-  %195 = select i1 %12, i64 7, i64 3
+  %194 = select i1 %12, ptr @.str.74, ptr @.str.73
+  %195 = select i1 %12, i64 2, i64 6
   br label %196
 
 196:                                              ; preds = %Vec_StrPush.exit.i1035, %Vec_StrPrintStr.exit1028
@@ -4556,7 +4556,7 @@ Vec_StrPush.exit.i1035:                           ; preds = %219, %Vec_StrGrow.e
   %225 = getelementptr inbounds i8, ptr %221, i64 %224
   store i8 %198, ptr %225, align 1, !tbaa !15
   %indvars.iv.next.i1036 = add nuw nsw i64 %indvars.iv.i1032, 1
-  %exitcond.not.i1037 = icmp eq i64 %indvars.iv.next.i1036, %195
+  %exitcond.not.i1037 = icmp eq i64 %195, %indvars.iv.i1032
   br i1 %exitcond.not.i1037, label %Vec_StrPrintStr.exit1041, label %196, !llvm.loop !59
 
 Vec_StrPrintStr.exit1041:                         ; preds = %Vec_StrPush.exit.i1035
@@ -4817,8 +4817,8 @@ Vec_StrPrintStr.exit1080:                         ; preds = %Vec_StrPush.exit.i1
   br i1 %328, label %229, label %.critedge2, !llvm.loop !68
 
 .critedge2:                                       ; preds = %Vec_StrPrintStr.exit1080, %Vec_StrPrintStr.exit1041
-  %329 = select i1 %12, ptr @.str.76, ptr @.str.77
-  %330 = select i1 %12, i64 5, i64 3
+  %329 = select i1 %12, ptr @.str.77, ptr @.str.76
+  %330 = select i1 %12, i64 2, i64 4
   br label %331
 
 331:                                              ; preds = %Vec_StrPush.exit.i1087, %.critedge2
@@ -4887,7 +4887,7 @@ Vec_StrPush.exit.i1087:                           ; preds = %354, %Vec_StrGrow.e
   %360 = getelementptr inbounds i8, ptr %356, i64 %359
   store i8 %333, ptr %360, align 1, !tbaa !15
   %indvars.iv.next.i1088 = add nuw nsw i64 %indvars.iv.i1084, 1
-  %exitcond.not.i1089 = icmp eq i64 %indvars.iv.next.i1088, %330
+  %exitcond.not.i1089 = icmp eq i64 %330, %indvars.iv.i1084
   br i1 %exitcond.not.i1089, label %Vec_StrPrintStr.exit1093, label %331, !llvm.loop !59
 
 Vec_StrPrintStr.exit1093:                         ; preds = %Vec_StrPush.exit.i1087
@@ -4911,8 +4911,8 @@ Vec_StrPrintStr.exit1093:                         ; preds = %Vec_StrPush.exit.i1
   br label %Cba_ManWriteLineFile.exit
 
 Cba_ManWriteLineFile.exit:                        ; preds = %Vec_StrPrintStr.exit1093, %363, %365
-  %370 = select i1 %12, ptr @.str.78, ptr @.str.79
-  %371 = select i1 %12, i64 1, i64 2
+  %370 = select i1 %12, ptr @.str.79, ptr @.str.78
+  %371 = zext i1 %12 to i64
   br label %372
 
 372:                                              ; preds = %Vec_StrPush.exit.i1100, %Cba_ManWriteLineFile.exit
@@ -4981,7 +4981,7 @@ Vec_StrPush.exit.i1100:                           ; preds = %395, %Vec_StrGrow.e
   %401 = getelementptr inbounds i8, ptr %397, i64 %400
   store i8 %374, ptr %401, align 1, !tbaa !15
   %indvars.iv.next.i1101 = add nuw nsw i64 %indvars.iv.i1097, 1
-  %exitcond.not.i1102 = icmp eq i64 %indvars.iv.next.i1101, %371
+  %exitcond.not.i1102 = icmp eq i64 %indvars.iv.i1097, %371
   br i1 %exitcond.not.i1102, label %Vec_StrPrintStr.exit1106.preheader, label %372, !llvm.loop !59
 
 Vec_StrPrintStr.exit1106.preheader:               ; preds = %Vec_StrPush.exit.i1100
@@ -5085,7 +5085,7 @@ Vec_StrPrintStr.exit1119:                         ; preds = %Vec_StrPush.exit.i1
   %442 = load i8, ptr %441, align 1, !tbaa !15
   %.not2580 = icmp eq i8 %442, 1
   %443 = select i1 %.not2580, ptr @.str.81, ptr @.str.82
-  %444 = select i1 %.not2580, i64 6, i64 7
+  %444 = select i1 %.not2580, i64 5, i64 6
   br label %445
 
 445:                                              ; preds = %Vec_StrPush.exit.i1126, %Vec_StrPrintStr.exit1119
@@ -5154,7 +5154,7 @@ Vec_StrPush.exit.i1126:                           ; preds = %468, %Vec_StrGrow.e
   %474 = getelementptr inbounds i8, ptr %470, i64 %473
   store i8 %447, ptr %474, align 1, !tbaa !15
   %indvars.iv.next.i1127 = add nuw nsw i64 %indvars.iv.i1123, 1
-  %exitcond.not.i1128 = icmp eq i64 %indvars.iv.next.i1127, %444
+  %exitcond.not.i1128 = icmp eq i64 %444, %indvars.iv.i1123
   br i1 %exitcond.not.i1128, label %Vec_StrPrintStr.exit1132, label %445, !llvm.loop !59
 
 Vec_StrPrintStr.exit1132:                         ; preds = %Vec_StrPush.exit.i1126
@@ -10292,7 +10292,7 @@ Vec_StrPush.exit.i1935:                           ; preds = %2636, %Vec_StrGrow.
 Vec_StrPrintStr.exit1941:                         ; preds = %Vec_StrPush.exit.i1935
   tail call void @Cba_ManWriteFonName(ptr noundef nonnull %0, i32 noundef %2329, i32 noundef 0, i32 noundef 0)
   %2643 = select i1 %2327, ptr @.str.131, ptr @.str.132
-  %2644 = select i1 %2327, i64 4, i64 3
+  %2644 = select i1 %2327, i64 3, i64 2
   br label %2645
 
 2645:                                             ; preds = %Vec_StrPush.exit.i1949, %Vec_StrPrintStr.exit1941
@@ -10361,7 +10361,7 @@ Vec_StrPush.exit.i1949:                           ; preds = %2668, %Vec_StrGrow.
   %2674 = getelementptr inbounds i8, ptr %2670, i64 %2673
   store i8 %2647, ptr %2674, align 1, !tbaa !15
   %indvars.iv.next.i1950 = add nuw nsw i64 %indvars.iv.i1946, 1
-  %exitcond.not.i1951 = icmp eq i64 %indvars.iv.next.i1950, %2644
+  %exitcond.not.i1951 = icmp eq i64 %2644, %indvars.iv.i1946
   br i1 %exitcond.not.i1951, label %Vec_StrPrintStr.exit1955, label %2645, !llvm.loop !59
 
 Vec_StrPrintStr.exit1955:                         ; preds = %Vec_StrPush.exit.i1949
@@ -10592,7 +10592,7 @@ Vec_StrPrintStr.exit1997:                         ; preds = %Vec_StrPush.exit.i1
 
 .lr.ph.i1999:                                     ; preds = %Vec_StrPrintStr.exit1997
   %2761 = select i1 %2490, ptr @.str.134, ptr @.str.129
-  %2762 = select i1 %2490, i64 13, i64 8
+  %2762 = select i1 %2490, i64 12, i64 7
   br label %2763
 
 2763:                                             ; preds = %Vec_StrPush.exit.i2005, %.lr.ph.i1999
@@ -10661,7 +10661,7 @@ Vec_StrPush.exit.i2005:                           ; preds = %2786, %Vec_StrGrow.
   %2792 = getelementptr inbounds i8, ptr %2788, i64 %2791
   store i8 %2765, ptr %2792, align 1, !tbaa !15
   %indvars.iv.next.i2006 = add nuw nsw i64 %indvars.iv.i2002, 1
-  %exitcond.not.i2007 = icmp eq i64 %indvars.iv.next.i2006, %2762
+  %exitcond.not.i2007 = icmp eq i64 %2762, %indvars.iv.i2002
   br i1 %exitcond.not.i2007, label %Vec_StrPrintStr.exit2011, label %2763, !llvm.loop !59
 
 Vec_StrPrintStr.exit2011:                         ; preds = %Vec_StrPush.exit.i2005
@@ -10740,7 +10740,7 @@ Vec_StrPush.exit.i2019:                           ; preds = %2816, %Vec_StrGrow.
 Vec_StrPrintStr.exit2025:                         ; preds = %Vec_StrPush.exit.i2019
   tail call void @Cba_ManWriteFonName(ptr noundef nonnull %0, i32 noundef %2329, i32 noundef 0, i32 noundef 0)
   %2823 = select i1 %2327, ptr @.str.131, ptr @.str.132
-  %2824 = select i1 %2327, i64 4, i64 3
+  %2824 = select i1 %2327, i64 3, i64 2
   br label %2825
 
 2825:                                             ; preds = %Vec_StrPush.exit.i2033, %Vec_StrPrintStr.exit2025
@@ -10809,7 +10809,7 @@ Vec_StrPush.exit.i2033:                           ; preds = %2848, %Vec_StrGrow.
   %2854 = getelementptr inbounds i8, ptr %2850, i64 %2853
   store i8 %2827, ptr %2854, align 1, !tbaa !15
   %indvars.iv.next.i2034 = add nuw nsw i64 %indvars.iv.i2030, 1
-  %exitcond.not.i2035 = icmp eq i64 %indvars.iv.next.i2034, %2824
+  %exitcond.not.i2035 = icmp eq i64 %2824, %indvars.iv.i2030
   br i1 %exitcond.not.i2035, label %Vec_StrPrintStr.exit2039, label %2825, !llvm.loop !59
 
 Vec_StrPrintStr.exit2039:                         ; preds = %Vec_StrPush.exit.i2033
@@ -11038,7 +11038,7 @@ Vec_StrPush.exit.i2075:                           ; preds = %2934, %Vec_StrGrow.
 Vec_StrPrintStr.exit2081:                         ; preds = %Vec_StrPush.exit.i2075, %Vec_StrPrintStr.exit1997
   %2941 = or i1 %2490, %2523
   %2942 = select i1 %2941, ptr @.str.135, ptr @.str.136
-  %2943 = select i1 %2941, i64 9, i64 4
+  %2943 = select i1 %2941, i64 8, i64 3
   br label %2944
 
 2944:                                             ; preds = %Vec_StrPush.exit.i2089, %Vec_StrPrintStr.exit2081
@@ -11107,7 +11107,7 @@ Vec_StrPush.exit.i2089:                           ; preds = %2967, %Vec_StrGrow.
   %2973 = getelementptr inbounds i8, ptr %2969, i64 %2972
   store i8 %2946, ptr %2973, align 1, !tbaa !15
   %indvars.iv.next.i2090 = add nuw nsw i64 %indvars.iv.i2086, 1
-  %exitcond.not.i2091 = icmp eq i64 %indvars.iv.next.i2090, %2943
+  %exitcond.not.i2091 = icmp eq i64 %2943, %indvars.iv.i2086
   br i1 %exitcond.not.i2091, label %Vec_StrPrintStr.exit2095, label %2944, !llvm.loop !59
 
 Vec_StrPrintStr.exit2095:                         ; preds = %Vec_StrPush.exit.i2089

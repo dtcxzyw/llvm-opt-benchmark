@@ -4562,8 +4562,6 @@ ZopfliCostModelSetFromCommands.exit:              ; preds = %.lr.ph86.i, %785, %
   %805 = shl nuw i64 1, %804
   %806 = add i64 %805, -16
   %807 = load i32, ptr %690, align 4, !tbaa !44
-  %808 = icmp slt i32 %807, 11
-  %809 = select i1 %808, i64 150, i64 325
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %16) #13
   store i32 0, ptr %671, align 4, !tbaa !31
   store float 0.000000e+00, ptr %691, align 4, !tbaa !7
@@ -4571,6 +4569,8 @@ ZopfliCostModelSetFromCommands.exit:              ; preds = %.lr.ph86.i, %785, %
   br i1 %645, label %.lr.ph78.i, label %._crit_edge.i334
 
 .lr.ph78.i:                                       ; preds = %ZopfliCostModelSetFromCommands.exit
+  %808 = icmp slt i32 %807, 11
+  %809 = select i1 %808, i32 150, i32 325
   %810 = add i64 %693, %802
   %.reass633 = add i64 %805, %invariant.op
   br label %811
@@ -4595,16 +4595,16 @@ ZopfliCostModelSetFromCommands.exit:              ; preds = %.lr.ph86.i, %785, %
   %gep75.i = getelementptr %struct.BackwardMatch, ptr %invariant.gep74.i, i64 %820
   %823 = load i32, ptr %gep75.i, align 4, !tbaa !70
   %824 = lshr i32 %823, 5
-  %825 = zext nneg i32 %824 to i64
-  %826 = icmp samesign ult i64 %809, %825
-  br i1 %826, label %827, label %829
+  %825 = icmp samesign ult i32 %809, %824
+  br i1 %825, label %826, label %829
 
-827:                                              ; preds = %822
-  %828 = call i64 @llvm.umax.i64(i64 %825, i64 %spec.store.select.i)
+826:                                              ; preds = %822
+  %827 = zext nneg i32 %824 to i64
+  %828 = call i64 @llvm.umax.i64(i64 %827, i64 %spec.store.select.i)
   br label %829
 
-829:                                              ; preds = %827, %822, %811
-  %.0.i338 = phi i64 [ %828, %827 ], [ %spec.store.select.i, %822 ], [ %spec.store.select.i, %811 ]
+829:                                              ; preds = %826, %822, %811
+  %.0.i338 = phi i64 [ %828, %826 ], [ %spec.store.select.i, %822 ], [ %spec.store.select.i, %811 ]
   %830 = icmp ugt i64 %.0.i338, 1
   br i1 %830, label %.lr.ph.preheader.i, label %911
 

@@ -841,17 +841,17 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
 
 180:                                              ; preds = %173
   %181 = load i8, ptr %6, align 1
-  %182 = zext i8 %181 to i32
-  %183 = load i32, ptr %74, align 4
-  %184 = icmp eq i32 %183, 0
-  %185 = select i1 %184, i32 54, i32 51
-  %186 = icmp eq i32 %185, %182
-  br i1 %186, label %187, label %.critedge35
+  %182 = load i32, ptr %74, align 4
+  %183 = icmp eq i32 %182, 0
+  %184 = select i1 %183, i8 54, i8 51
+  %185 = icmp eq i8 %184, %181
+  br i1 %185, label %186, label %.critedge35
 
-187:                                              ; preds = %180
+186:                                              ; preds = %180
+  %187 = zext nneg i8 %181 to i32
   %188 = load i8, ptr %5, align 1
   %189 = zext i8 %188 to i32
-  %190 = shl nuw nsw i32 %182, 3
+  %190 = shl nuw nsw i32 %187, 3
   %191 = add nuw nsw i32 %190, -489
   %192 = add nsw i32 %191, %189
   %193 = load ptr, ptr %9, align 8
@@ -878,7 +878,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %.not27 = icmp eq i64 %212, 0
   br i1 %.not27, label %.critedge35, label %213
 
-213:                                              ; preds = %187
+213:                                              ; preds = %186
   %214 = getelementptr inbounds nuw [2 x i64], ptr %204, i64 0, i64 %200
   %215 = load i64, ptr %214, align 8
   %216 = icmp eq i32 %195, 1
@@ -905,7 +905,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %.not29 = icmp eq i64 %233, 0
   br i1 %.not29, label %236, label %.critedge35
 
-.critedge35:                                      ; preds = %180, %173, %.critedge2, %213, %187, %223
+.critedge35:                                      ; preds = %180, %173, %.critedge2, %213, %186, %223
   %234 = load ptr, ptr %9, align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 36
   store i32 64, ptr %235, align 4

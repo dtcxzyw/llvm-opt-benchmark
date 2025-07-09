@@ -279,24 +279,26 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @redisBitpos(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %.not = icmp eq i32 %2, 0
-  %4 = select i1 %.not, i64 255, i64 0
-  %5 = ptrtoint ptr %0 to i64
-  %6 = and i64 %5, 7
-  %7 = icmp eq i64 %6, 0
-  %8 = icmp eq i64 %1, 0
-  %.not5868 = or i1 %7, %8
+  %4 = ptrtoint ptr %0 to i64
+  %5 = and i64 %4, 7
+  %6 = icmp eq i64 %5, 0
+  %7 = icmp eq i64 %1, 0
+  %.not5868 = or i1 %6, %7
   br i1 %.not5868, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %11
-  %.04071 = phi i64 [ %14, %11 ], [ 0, %3 ]
-  %.04470 = phi ptr [ %12, %11 ], [ %0, %3 ]
-  %.05069 = phi i64 [ %13, %11 ], [ %1, %3 ]
-  %9 = load i8, ptr %.04470, align 1, !tbaa !5
-  %10 = zext i8 %9 to i64
-  %.not54 = icmp eq i64 %4, %10
+.lr.ph:                                           ; preds = %3
+  %8 = sext i1 %.not to i8
+  br label %9
+
+9:                                                ; preds = %.lr.ph, %11
+  %.04071 = phi i64 [ 0, %.lr.ph ], [ %14, %11 ]
+  %.04470 = phi ptr [ %0, %.lr.ph ], [ %12, %11 ]
+  %.05069 = phi i64 [ %1, %.lr.ph ], [ %13, %11 ]
+  %10 = load i8, ptr %.04470, align 1, !tbaa !5
+  %.not54 = icmp eq i8 %10, %8
   br i1 %.not54, label %11, label %.loopexit62
 
-11:                                               ; preds = %.lr.ph
+11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %.04470, i64 1
   %13 = add i64 %.05069, -1
   %14 = add nuw nsw i64 %.04071, 8
@@ -305,7 +307,7 @@ define dso_local i64 @redisBitpos(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %17 = icmp eq i64 %16, 0
   %18 = icmp eq i64 %13, 0
   %.not58 = select i1 %17, i1 true, i1 %18
-  br i1 %.not58, label %.critedge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not58, label %.critedge, label %9, !llvm.loop !18
 
 .critedge:                                        ; preds = %11, %3
   %.050.lcssa = phi i64 [ %1, %3 ], [ %13, %11 ]
@@ -330,10 +332,10 @@ define dso_local i64 @redisBitpos(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %26 = icmp ugt i64 %24, 7
   br i1 %26, label %.lr.ph77, label %.loopexit62, !llvm.loop !19
 
-.loopexit62:                                      ; preds = %.lr.ph, %.lr.ph77, %22, %.critedge
-  %.151 = phi i64 [ %.050.lcssa, %.critedge ], [ %.25274, %.lr.ph77 ], [ %24, %22 ], [ %.05069, %.lr.ph ]
-  %.047 = phi ptr [ %.044.lcssa, %.critedge ], [ %.14875, %.lr.ph77 ], [ %23, %22 ], [ %.04470, %.lr.ph ]
-  %.1 = phi i64 [ %.040.lcssa, %.critedge ], [ %.276, %.lr.ph77 ], [ %25, %22 ], [ %.04071, %.lr.ph ]
+.loopexit62:                                      ; preds = %9, %.lr.ph77, %22, %.critedge
+  %.151 = phi i64 [ %.050.lcssa, %.critedge ], [ %.25274, %.lr.ph77 ], [ %24, %22 ], [ %.05069, %9 ]
+  %.047 = phi ptr [ %.044.lcssa, %.critedge ], [ %.14875, %.lr.ph77 ], [ %23, %22 ], [ %.04470, %9 ]
+  %.1 = phi i64 [ %.040.lcssa, %.critedge ], [ %.276, %.lr.ph77 ], [ %25, %22 ], [ %.04071, %9 ]
   br label %27
 
 27:                                               ; preds = %.loopexit62, %35

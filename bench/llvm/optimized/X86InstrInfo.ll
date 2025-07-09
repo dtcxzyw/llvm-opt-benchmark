@@ -13356,69 +13356,68 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit: ; preds =
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 477
   %81 = load i8, ptr %80, align 1, !tbaa !88, !range !68, !noundef !69
   %82 = trunc nuw i8 %81 to i1
-  %83 = select i1 %82, i32 5016, i32 5011
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.072.093, i64 68
-  %85 = load i16, ptr %84, align 4, !tbaa !221
-  %86 = zext i16 %85 to i32
-  %87 = icmp eq i32 %83, %86
-  br i1 %87, label %88, label %.thread80
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.072.093, i64 68
+  %84 = load i16, ptr %83, align 4, !tbaa !221
+  %85 = select i1 %82, i16 5016, i16 5011
+  %86 = icmp eq i16 %85, %84
+  br i1 %86, label %87, label %.thread80
 
-88:                                               ; preds = %.loopexit
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.072.093, i64 40
-  %90 = load i24, ptr %89, align 8
-  %91 = icmp eq i24 %90, 3
-  br i1 %91, label %92, label %.thread80
+87:                                               ; preds = %.loopexit
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.072.093, i64 40
+  %89 = load i24, ptr %88, align 8
+  %90 = icmp eq i24 %89, 3
+  br i1 %90, label %91, label %.thread80
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.072.093, i64 32
-  %94 = load ptr, ptr %93, align 8, !tbaa !239
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  %96 = call noundef zeroext i1 @_ZNK4llvm14MachineOperand13isIdenticalToERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %95) #32
-  br i1 %96, label %97, label %.thread80
+91:                                               ; preds = %87
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.072.093, i64 32
+  %93 = load ptr, ptr %92, align 8, !tbaa !239
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
+  %95 = call noundef zeroext i1 @_ZNK4llvm14MachineOperand13isIdenticalToERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %94) #32
+  br i1 %95, label %96, label %.thread80
 
-97:                                               ; preds = %92
-  %98 = load ptr, ptr %5, align 8, !tbaa !45
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %100 = load i64, ptr %99, align 8, !tbaa !240
-  %101 = and i64 %100, -2
-  %switch = icmp eq i64 %101, 4
-  br i1 %switch, label %102, label %.thread80
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %5, align 8, !tbaa !45
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %99 = load i64, ptr %98, align 8, !tbaa !240
+  %100 = and i64 %99, -2
+  %switch = icmp eq i64 %100, 4
+  br i1 %switch, label %101, label %.thread80
 
-102:                                              ; preds = %97
-  %103 = load ptr, ptr %93, align 8, !tbaa !239
-  %104 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull align 8 dereferenceable(32) %103, i64 32, i1 false), !tbaa.struct !418
-  %105 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 1, ptr %105, align 8, !tbaa !240
+101:                                              ; preds = %96
+  %102 = load ptr, ptr %92, align 8, !tbaa !239
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %102, i64 32, i1 false), !tbaa.struct !418
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 1, ptr %104, align 8, !tbaa !240
   %.sroa.566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.566.0..sroa_idx, i8 0, i64 16, i1 false)
-  %106 = load i64, ptr %99, align 8, !tbaa !240
-  %107 = icmp eq i64 %106, 5
-  %108 = zext i1 %107 to i32
-  store i32 %108, ptr %2, align 8, !tbaa !824
+  %105 = load i64, ptr %98, align 8, !tbaa !240
+  %106 = icmp eq i64 %105, 5
+  %107 = zext i1 %106 to i32
+  store i32 %107, ptr %2, align 8, !tbaa !824
   br label %.thread80
 
-.thread80:                                        ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i, %97, %.loopexit, %88, %92, %102, %4
-  %.0 = phi i1 [ true, %4 ], [ false, %102 ], [ true, %92 ], [ true, %88 ], [ true, %.loopexit ], [ true, %97 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
-  %109 = load ptr, ptr %6, align 8, !tbaa !45
-  %110 = icmp eq ptr %109, %10
-  br i1 %110, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit, label %111
+.thread80:                                        ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i, %96, %.loopexit, %87, %91, %101, %4
+  %.0 = phi i1 [ true, %4 ], [ false, %101 ], [ true, %91 ], [ true, %87 ], [ true, %.loopexit ], [ true, %96 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
+  %108 = load ptr, ptr %6, align 8, !tbaa !45
+  %109 = icmp eq ptr %108, %10
+  br i1 %109, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit, label %110
 
-111:                                              ; preds = %.thread80
-  call void @free(ptr noundef %109) #32
+110:                                              ; preds = %.thread80
+  call void @free(ptr noundef %108) #32
   br label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit: ; preds = %.thread80, %111
+_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit: ; preds = %.thread80, %110
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #32
-  %112 = load ptr, ptr %5, align 8, !tbaa !45
-  %113 = icmp eq ptr %112, %7
-  br i1 %113, label %_ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit, label %114
+  %111 = load ptr, ptr %5, align 8, !tbaa !45
+  %112 = icmp eq ptr %111, %7
+  br i1 %112, label %_ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit, label %113
 
-114:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit
-  call void @free(ptr noundef %112) #32
+113:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit
+  call void @free(ptr noundef %111) #32
   br label %_ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit, %114
+_ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit, %113
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #32
   ret i1 %.0
 }

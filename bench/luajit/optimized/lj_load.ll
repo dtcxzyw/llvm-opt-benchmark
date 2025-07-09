@@ -73,7 +73,7 @@ define internal noalias noundef ptr @cpparser(ptr noundef %0, ptr readnone captu
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %9 = load ptr, ptr %8, align 8, !tbaa !21
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %29, label %.preheader
+  br i1 %.not, label %28, label %.preheader
 
 .preheader:                                       ; preds = %3
   %10 = load i8, ptr %9, align 1, !tbaa !40
@@ -82,82 +82,81 @@ define internal noalias noundef ptr @cpparser(ptr noundef %0, ptr readnone captu
 
 .lr.ph:                                           ; preds = %.preheader
   %.not34 = icmp eq i32 %7, 0
-  %11 = select i1 %.not34, i32 116, i32 98
+  %11 = select i1 %.not34, i8 116, i8 98
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 180
   br label %13
 
-13:                                               ; preds = %.lr.ph, %20
-  %14 = phi i8 [ %10, %.lr.ph ], [ %21, %20 ]
-  %.pn = phi ptr [ %9, %.lr.ph ], [ %15, %20 ]
-  %.036 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %20 ]
+13:                                               ; preds = %.lr.ph, %19
+  %14 = phi i8 [ %10, %.lr.ph ], [ %20, %19 ]
+  %.pn = phi ptr [ %9, %.lr.ph ], [ %15, %19 ]
+  %.036 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %19 ]
   %15 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
-  %16 = sext i8 %14 to i32
-  %17 = icmp eq i32 %11, %16
-  %spec.select = select i1 %17, i32 0, i32 %.036
-  %18 = icmp eq i8 %14, 87
-  br i1 %18, label %19, label %20
+  %16 = icmp eq i8 %11, %14
+  %spec.select = select i1 %16, i32 0, i32 %.036
+  %17 = icmp eq i8 %14, 87
+  br i1 %17, label %18, label %19
 
-19:                                               ; preds = %13
+18:                                               ; preds = %13
   store i32 0, ptr %12, align 4, !tbaa !41
-  br label %20
+  br label %19
 
-20:                                               ; preds = %19, %13
-  %21 = load i8, ptr %15, align 1, !tbaa !40
-  %.not31 = icmp eq i8 %21, 0
+19:                                               ; preds = %18, %13
+  %20 = load i8, ptr %15, align 1, !tbaa !40
+  %.not31 = icmp eq i8 %20, 0
   br i1 %.not31, label %._crit_edge, label %13, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %20
-  %22 = icmp eq i32 %spec.select, 0
-  br i1 %22, label %29, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %19
+  %21 = icmp eq i32 %spec.select, 0
+  br i1 %21, label %28, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !44
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %25, ptr %23, align 8, !tbaa !44
-  %26 = tail call ptr @lj_err_str(ptr noundef %0, i32 noundef 2140) #12
-  %27 = ptrtoint ptr %26 to i64
-  %28 = or i64 %27, -703687441776640
-  store i64 %28, ptr %24, align 8, !tbaa !40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %23 = load ptr, ptr %22, align 8, !tbaa !44
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %24, ptr %22, align 8, !tbaa !44
+  %25 = tail call ptr @lj_err_str(ptr noundef %0, i32 noundef 2140) #12
+  %26 = ptrtoint ptr %25 to i64
+  %27 = or i64 %26, -703687441776640
+  store i64 %27, ptr %23, align 8, !tbaa !40
   tail call void @lj_err_throw(ptr noundef %0, i32 noundef 3) #13
   unreachable
 
-29:                                               ; preds = %._crit_edge, %3
+28:                                               ; preds = %._crit_edge, %3
   %.not33 = icmp eq i32 %7, 0
-  br i1 %.not33, label %32, label %30
+  br i1 %.not33, label %31, label %29
 
-30:                                               ; preds = %29
-  %31 = tail call ptr @lj_bcread(ptr noundef %2) #12
-  br label %34
+29:                                               ; preds = %28
+  %30 = tail call ptr @lj_bcread(ptr noundef %2) #12
+  br label %33
 
-32:                                               ; preds = %29
-  %33 = tail call ptr @lj_parse(ptr noundef %2) #12
-  br label %34
+31:                                               ; preds = %28
+  %32 = tail call ptr @lj_parse(ptr noundef %2) #12
+  br label %33
 
-34:                                               ; preds = %32, %30
-  %35 = phi ptr [ %31, %30 ], [ %33, %32 ]
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 180
-  %37 = load i32, ptr %36, align 4, !tbaa !41
-  %38 = icmp eq i32 %37, 1
-  br i1 %38, label %39, label %44
+33:                                               ; preds = %31, %29
+  %34 = phi ptr [ %30, %29 ], [ %32, %31 ]
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 180
+  %36 = load i32, ptr %35, align 4, !tbaa !41
+  %37 = icmp eq i32 %36, 1
+  br i1 %37, label %38, label %43
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %41 = load i64, ptr %40, align 8, !tbaa !45
-  %42 = inttoptr i64 %41 to ptr
-  %43 = tail call ptr @lj_func_newL_empty(ptr noundef %0, ptr noundef %35, ptr noundef %42) #12
-  br label %44
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %40 = load i64, ptr %39, align 8, !tbaa !45
+  %41 = inttoptr i64 %40 to ptr
+  %42 = tail call ptr @lj_func_newL_empty(ptr noundef %0, ptr noundef %34, ptr noundef %41) #12
+  br label %43
 
-44:                                               ; preds = %34, %39
-  %.sink = phi ptr [ %43, %39 ], [ %35, %34 ]
-  %.sink40 = phi i64 [ -1266637395197952, %39 ], [ -1125899906842624, %34 ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %46 = load ptr, ptr %45, align 8, !tbaa !44
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %47, ptr %45, align 8, !tbaa !44
-  %48 = ptrtoint ptr %.sink to i64
-  %49 = or i64 %.sink40, %48
-  store i64 %49, ptr %46, align 8, !tbaa !40
+43:                                               ; preds = %33, %38
+  %.sink = phi ptr [ %42, %38 ], [ %34, %33 ]
+  %.sink40 = phi i64 [ -1266637395197952, %38 ], [ -1125899906842624, %33 ]
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %45 = load ptr, ptr %44, align 8, !tbaa !44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store ptr %46, ptr %44, align 8, !tbaa !44
+  %47 = ptrtoint ptr %.sink to i64
+  %48 = or i64 %.sink40, %47
+  store i64 %48, ptr %45, align 8, !tbaa !40
   ret ptr null
 }
 

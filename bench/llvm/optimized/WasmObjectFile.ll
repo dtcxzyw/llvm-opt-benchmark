@@ -2662,8 +2662,8 @@ switch.early.test.i.i.i.i:                        ; preds = %317
 
 .critedge.i.i.i.i:                                ; preds = %317
   %319 = icmp slt i64 %.048.i.i.i.i, 0
-  %320 = select i1 %319, i64 127, i64 0
-  %.not57.i.i.i.i = icmp eq i64 %320, %315
+  %320 = select i1 %319, i8 127, i8 0
+  %.not57.i.i.i.i = icmp eq i8 %320, %314
   br i1 %.not57.i.i.i.i, label %321, label %328
 
 321:                                              ; preds = %.critedge.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %312
@@ -2838,8 +2838,8 @@ switch.early.test.i.i.i.i149:                     ; preds = %384
 
 .critedge.i.i.i.i146:                             ; preds = %384
   %386 = icmp slt i64 %.048.i.i.i.i140, 0
-  %387 = select i1 %386, i64 127, i64 0
-  %.not57.i.i.i.i147 = icmp eq i64 %387, %382
+  %387 = select i1 %386, i8 127, i8 0
+  %.not57.i.i.i.i147 = icmp eq i8 %387, %381
   br i1 %.not57.i.i.i.i147, label %388, label %395
 
 388:                                              ; preds = %.critedge.i.i.i.i146, %switch.early.test.i.i.i.i149, %switch.early.test.i.i.i.i149, %switch.early.test.i.i.i.i149, %switch.early.test.i.i.i.i149, %379
@@ -5211,8 +5211,8 @@ switch.early.test.i.i.i.i:                        ; preds = %119
 
 .critedge.i.i.i.i:                                ; preds = %119
   %121 = icmp slt i64 %.048.i.i.i.i, 0
-  %122 = select i1 %121, i64 127, i64 0
-  %.not57.i.i.i.i = icmp eq i64 %122, %117
+  %122 = select i1 %121, i8 127, i8 0
+  %.not57.i.i.i.i = icmp eq i8 %122, %116
   br i1 %.not57.i.i.i.i, label %123, label %130
 
 123:                                              ; preds = %.critedge.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %114
@@ -6594,8 +6594,8 @@ switch.early.test.i.i.i.i:                        ; preds = %210
 
 .critedge.i.i.i.i:                                ; preds = %210
   %212 = icmp slt i64 %.048.i.i.i.i, 0
-  %213 = select i1 %212, i64 127, i64 0
-  %.not57.i.i.i.i = icmp eq i64 %213, %208
+  %213 = select i1 %212, i8 127, i8 0
+  %.not57.i.i.i.i = icmp eq i8 %213, %207
   br i1 %.not57.i.i.i.i, label %214, label %221
 
 214:                                              ; preds = %.critedge.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %205
@@ -6766,8 +6766,8 @@ switch.early.test.i.i.i.i116:                     ; preds = %269
 
 .critedge.i.i.i.i113:                             ; preds = %269
   %271 = icmp slt i64 %.048.i.i.i.i107, 0
-  %272 = select i1 %271, i64 127, i64 0
-  %.not57.i.i.i.i114 = icmp eq i64 %272, %267
+  %272 = select i1 %271, i8 127, i8 0
+  %.not57.i.i.i.i114 = icmp eq i8 %272, %266
   br i1 %.not57.i.i.i.i114, label %273, label %280
 
 273:                                              ; preds = %.critedge.i.i.i.i113, %switch.early.test.i.i.i.i116, %switch.early.test.i.i.i.i116, %switch.early.test.i.i.i.i116, %switch.early.test.i.i.i.i116, %264
@@ -17154,8 +17154,8 @@ switch.early.test.i.i.i:                          ; preds = %364
 
 .critedge.i.i.i:                                  ; preds = %364
   %366 = icmp slt i64 %.048.i.i.i, 0
-  %367 = select i1 %366, i64 127, i64 0
-  %.not57.i.i.i = icmp eq i64 %367, %362
+  %367 = select i1 %366, i8 127, i8 0
+  %.not57.i.i.i = icmp eq i8 %367, %361
   br i1 %.not57.i.i.i, label %368, label %375
 
 368:                                              ; preds = %.critedge.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %359
@@ -17321,8 +17321,8 @@ switch.early.test.i.i.i160:                       ; preds = %438
 
 .critedge.i.i.i157:                               ; preds = %438
   %440 = icmp slt i64 %.048.i.i.i149, 0
-  %441 = select i1 %440, i64 127, i64 0
-  %.not57.i.i.i158 = icmp eq i64 %441, %436
+  %441 = select i1 %440, i8 127, i8 0
+  %.not57.i.i.i158 = icmp eq i8 %441, %435
   br i1 %.not57.i.i.i158, label %442, label %449
 
 442:                                              ; preds = %.critedge.i.i.i157, %switch.early.test.i.i.i160, %switch.early.test.i.i.i160, %switch.early.test.i.i.i160, %switch.early.test.i.i.i160, %433
@@ -17775,8 +17775,8 @@ switch.early.test.i.i:                            ; preds = %13
 
 .critedge.i.i:                                    ; preds = %13
   %15 = icmp slt i64 %.048.i.i, 0
-  %16 = select i1 %15, i64 127, i64 0
-  %.not57.i.i = icmp eq i64 %16, %11
+  %16 = select i1 %15, i8 127, i8 0
+  %.not57.i.i = icmp eq i8 %16, %10
   br i1 %.not57.i.i, label %17, label %24
 
 17:                                               ; preds = %.critedge.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %8
@@ -18037,8 +18037,8 @@ switch.early.test.i.i.i.i:                        ; preds = %37
 
 .critedge.i.i.i.i:                                ; preds = %37
   %39 = icmp slt i64 %.048.i.i.i.i, 0
-  %40 = select i1 %39, i64 127, i64 0
-  %.not57.i.i.i.i = icmp eq i64 %40, %35
+  %40 = select i1 %39, i8 127, i8 0
+  %.not57.i.i.i.i = icmp eq i8 %40, %34
   br i1 %.not57.i.i.i.i, label %41, label %48
 
 41:                                               ; preds = %.critedge.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %32
@@ -18157,8 +18157,8 @@ switch.early.test.i.i:                            ; preds = %13
 
 .critedge.i.i:                                    ; preds = %13
   %15 = icmp slt i64 %.048.i.i, 0
-  %16 = select i1 %15, i64 127, i64 0
-  %.not57.i.i = icmp eq i64 %16, %11
+  %16 = select i1 %15, i8 127, i8 0
+  %.not57.i.i = icmp eq i8 %16, %10
   br i1 %.not57.i.i, label %17, label %24
 
 17:                                               ; preds = %.critedge.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %8
@@ -18465,8 +18465,8 @@ switch.early.test.i.i.i.i:                        ; preds = %40
 
 .critedge.i.i.i.i:                                ; preds = %40
   %42 = icmp slt i64 %.048.i.i.i.i, 0
-  %43 = select i1 %42, i64 127, i64 0
-  %.not57.i.i.i.i = icmp eq i64 %43, %38
+  %43 = select i1 %42, i8 127, i8 0
+  %.not57.i.i.i.i = icmp eq i8 %43, %37
   br i1 %.not57.i.i.i.i, label %44, label %51
 
 44:                                               ; preds = %.critedge.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %35
@@ -18587,8 +18587,8 @@ switch.early.test.i.i.i:                          ; preds = %20
 
 .critedge.i.i.i:                                  ; preds = %20
   %22 = icmp slt i64 %.048.i.i.i, 0
-  %23 = select i1 %22, i64 127, i64 0
-  %.not57.i.i.i = icmp eq i64 %23, %18
+  %23 = select i1 %22, i8 127, i8 0
+  %.not57.i.i.i = icmp eq i8 %23, %17
   br i1 %.not57.i.i.i, label %24, label %31
 
 24:                                               ; preds = %.critedge.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %15
@@ -18797,8 +18797,8 @@ switch.early.test.i.i.i.i:                        ; preds = %103
 
 .critedge.i.i.i.i:                                ; preds = %103
   %105 = icmp slt i64 %.048.i.i.i.i, 0
-  %106 = select i1 %105, i64 127, i64 0
-  %.not57.i.i.i.i = icmp eq i64 %106, %101
+  %106 = select i1 %105, i8 127, i8 0
+  %.not57.i.i.i.i = icmp eq i8 %106, %100
   br i1 %.not57.i.i.i.i, label %107, label %114
 
 107:                                              ; preds = %.critedge.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %switch.early.test.i.i.i.i, %98

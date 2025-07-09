@@ -7968,7 +7968,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState9AllInHo
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw %"class.std::vector.6", ptr %33, i64 %12
   %35 = load ptr, ptr %34, align 8
-  %wide.trip.count = select i1 %30, i64 18, i64 24
+  %wide.trip.count20 = select i1 %30, i64 17, i64 23
   br label %36
 
 36:                                               ; preds = %36, %29
@@ -7977,8 +7977,8 @@ define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState9AllInHo
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %38, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %39, i1 %exitcond.not, i1 false
+  %exitcond.not = icmp ne i64 %wide.trip.count20, %indvars.iv
+  %or.cond.not = and i1 %exitcond.not, %39
   br i1 %or.cond.not, label %36, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %36, %2
@@ -9061,12 +9061,12 @@ define noundef range(i32 0, 2) i32 @_ZNK10open_spiel10backgammon15BackgammonStat
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds %"class.std::vector.6", ptr %23, i64 %8
   %25 = load ptr, ptr %24, align 8
-  %wide.trip.count = select i1 %20, i64 6, i64 24
+  %wide.trip.count14 = select i1 %20, i64 5, i64 23
   br label %27
 
 26:                                               ; preds = %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %wide.trip.count14, %indvars.iv
   br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !38
 
 27:                                               ; preds = %19, %26
@@ -12484,12 +12484,12 @@ _ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit.thread: ; preds
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw %"class.std::vector.6", ptr %41, i64 %.013
   %43 = load ptr, ptr %42, align 8
-  %wide.trip.count.i = select i1 %.not29, i64 24, i64 6
+  %wide.trip.count14.i = select i1 %.not29, i64 23, i64 5
   br label %45
 
 44:                                               ; preds = %45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %wide.trip.count14.i, %indvars.iv.i
   br i1 %exitcond.not.i, label %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18, label %45, !llvm.loop !38
 
 45:                                               ; preds = %44, %38

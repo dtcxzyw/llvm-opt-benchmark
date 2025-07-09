@@ -923,21 +923,21 @@ CopyLoadInputBuf.exit._crit_edge.i:               ; preds = %CopyLoadInputBuf.ex
   br i1 %210, label %211, label %232
 
 211:                                              ; preds = %202
-  %212 = sext i8 %209 to i32
-  %213 = icmp ne i8 %209, 13
-  %214 = icmp slt i32 %206, %.1188.i
-  %215 = trunc nuw i8 %.1180.i to i1
-  %216 = or i1 %213, %214
-  %or.cond198.i = select i1 %216, i1 true, i1 %215
-  br i1 %or.cond198.i, label %217, label %.thread.i.backedge
+  %212 = icmp ne i8 %209, 13
+  %213 = icmp slt i32 %206, %.1188.i
+  %214 = trunc nuw i8 %.1180.i to i1
+  %215 = or i1 %212, %213
+  %or.cond198.i = select i1 %215, i1 true, i1 %214
+  br i1 %or.cond198.i, label %216, label %.thread.i.backedge
 
-217:                                              ; preds = %211
+216:                                              ; preds = %211
+  %217 = sext i8 %209 to i32
   %218 = trunc nuw i8 %.0171.i to i1
-  %219 = icmp eq i32 %.0164.i, %212
+  %219 = icmp eq i32 %.0164.i, %217
   %or.cond199.i = select i1 %218, i1 %219, i1 false
   %220 = zext i1 %or.cond199.i to i8
   %.3169.i = xor i8 %.0166.i, %220
-  %.not.i = icmp eq i32 %.0165.i, %212
+  %.not.i = icmp eq i32 %.0165.i, %217
   %221 = xor i8 %.3169.i, -1
   %222 = select i1 %.not.i, i8 %221, i8 0
   %.3174.i = xor i8 %222, %.0171.i
@@ -945,11 +945,11 @@ CopyLoadInputBuf.exit._crit_edge.i:               ; preds = %CopyLoadInputBuf.ex
   %223 = trunc i8 %.3174.i to i1
   br i1 %223, label %224, label %232
 
-224:                                              ; preds = %217
+224:                                              ; preds = %216
   %225 = load i32, ptr %34, align 8
   %226 = icmp eq i32 %225, 1
-  %227 = select i1 %226, i32 10, i32 13
-  %228 = icmp eq i32 %227, %212
+  %227 = select i1 %226, i8 10, i8 13
+  %228 = icmp eq i8 %227, %209
   br i1 %228, label %229, label %232
 
 229:                                              ; preds = %224
@@ -958,9 +958,9 @@ CopyLoadInputBuf.exit._crit_edge.i:               ; preds = %CopyLoadInputBuf.ex
   store i64 %231, ptr %35, align 8
   br label %232
 
-232:                                              ; preds = %229, %224, %217, %202
-  %.2173.i = phi i8 [ 1, %229 ], [ 1, %224 ], [ 0, %217 ], [ %.0171.i, %202 ]
-  %.2168.i = phi i8 [ %.4170.i, %229 ], [ %.4170.i, %224 ], [ %.4170.i, %217 ], [ %.0166.i, %202 ]
+232:                                              ; preds = %229, %224, %216, %202
+  %.2173.i = phi i8 [ 1, %229 ], [ 1, %224 ], [ 0, %216 ], [ %.0171.i, %202 ]
+  %.2168.i = phi i8 [ %.4170.i, %229 ], [ %.4170.i, %224 ], [ %.4170.i, %216 ], [ %.0166.i, %202 ]
   switch i8 %209, label %.thread.i.backedge [
     i8 13, label %233
     i8 10, label %267

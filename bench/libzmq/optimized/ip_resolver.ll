@@ -1502,7 +1502,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPN
 
 18:                                               ; preds = %.thread41, %.thread41
   store i32 19, ptr %.pre-phi, align 4, !tbaa !33
-  br label %52
+  br label %50
 
 19:                                               ; preds = %.thread41
   %20 = call ptr @strerror(i32 noundef %17) #21
@@ -1533,7 +1533,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPN
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %33 = load i8, ptr %32, align 2, !range !22
   %34 = trunc nuw i8 %33 to i1
-  %35 = select i1 %34, i32 10, i32 2
+  %35 = select i1 %34, i16 10, i16 2
   br label %36
 
 36:                                               ; preds = %.lr.ph, %.thread44
@@ -1545,37 +1545,35 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPN
 
 40:                                               ; preds = %36
   %41 = load i16, ptr %38, align 2, !tbaa !62
-  %42 = zext i16 %41 to i32
-  %43 = icmp eq i32 %35, %42
-  br i1 %43, label %44, label %.thread44
+  %42 = icmp eq i16 %35, %41
+  br i1 %42, label %43, label %.thread44
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %.02255, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !64
-  %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %46) #22
-  %.not37 = icmp eq i32 %47, 0
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %.02255, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !64
+  %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %45) #22
+  %.not37 = icmp eq i32 %46, 0
   br i1 %.not37, label %.thread47, label %.thread44
 
-.thread47:                                        ; preds = %44
-  %48 = icmp eq i16 %41, 2
-  %49 = select i1 %48, i64 16, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 2 dereferenceable(16) %38, i64 %49, i1 false)
+.thread47:                                        ; preds = %43
+  %47 = select i1 %34, i64 28, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 2 dereferenceable(16) %38, i64 %47, i1 false)
   call void @freeifaddrs(ptr noundef nonnull %31) #21
-  br label %52
+  br label %50
 
-.thread44:                                        ; preds = %40, %44, %36
+.thread44:                                        ; preds = %40, %43, %36
   %.022 = load ptr, ptr %.02255, align 8, !tbaa !52
   %.not36 = icmp eq ptr %.022, null
   br i1 %.not36, label %._crit_edge, label %36, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.thread44, %26
-  %50 = phi ptr [ null, %26 ], [ %31, %.thread44 ]
-  call void @freeifaddrs(ptr noundef %50) #21
-  %51 = tail call ptr @__errno_location() #23
-  store i32 19, ptr %51, align 4, !tbaa !33
-  br label %52
+  %48 = phi ptr [ null, %26 ], [ %31, %.thread44 ]
+  call void @freeifaddrs(ptr noundef %48) #21
+  %49 = tail call ptr @__errno_location() #23
+  store i32 19, ptr %49, align 4, !tbaa !33
+  br label %50
 
-52:                                               ; preds = %.thread47, %._crit_edge, %18
+50:                                               ; preds = %.thread47, %._crit_edge, %18
   %.0 = phi i32 [ -1, %18 ], [ -1, %._crit_edge ], [ 0, %.thread47 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
   ret i32 %.0

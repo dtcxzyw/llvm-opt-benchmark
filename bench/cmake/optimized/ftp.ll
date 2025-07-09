@@ -4763,13 +4763,13 @@ _ftp_state.exit:                                  ; preds = %16, %20, %26, %32, 
   %41 = load i32, ptr %40, align 1
   %42 = and i32 %41, 131072
   %.not.i16 = icmp eq i32 %42, 0
-  br i1 %.not.i16, label %59, label %43
+  br i1 %.not.i16, label %58, label %43
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 1240
   %45 = load ptr, ptr %44, align 8, !tbaa !145
   %.not18.i = icmp eq ptr %45, null
-  br i1 %.not18.i, label %59, label %46
+  br i1 %.not18.i, label %58, label %46
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4876
@@ -4778,26 +4778,25 @@ _ftp_state.exit:                                  ; preds = %16, %20, %26, %32, 
   %.not19 = icmp eq i32 %49, 0
   %50 = getelementptr i8, ptr %3, i64 1272
   %.val.i = load i8, ptr %50, align 8, !tbaa !21
-  %51 = sext i8 %.val.i to i32
-  %52 = select i1 %.not19, i32 73, i32 65
-  %.not20 = icmp eq i32 %52, %51
-  br i1 %.not20, label %59, label %53
+  %51 = select i1 %.not19, i8 73, i8 65
+  %.not20 = icmp eq i8 %51, %.val.i
+  br i1 %.not20, label %58, label %52
 
-53:                                               ; preds = %46
-  %54 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store i32 1, ptr %54, align 8, !tbaa !97
-  %55 = load i32, ptr %47, align 4
-  %56 = and i32 %55, 16384
-  %57 = icmp ne i32 %56, 0
-  %58 = tail call fastcc i32 @ftp_nb_type(ptr noundef nonnull %0, ptr noundef nonnull %3, i1 noundef zeroext %57, i8 noundef zeroext 19)
+52:                                               ; preds = %46
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store i32 1, ptr %53, align 8, !tbaa !97
+  %54 = load i32, ptr %47, align 4
+  %55 = and i32 %54, 16384
+  %56 = icmp ne i32 %55, 0
+  %57 = tail call fastcc i32 @ftp_nb_type(ptr noundef nonnull %0, ptr noundef nonnull %3, i1 noundef zeroext %56, i8 noundef zeroext 19)
   br label %ftp_state_type.exit
 
-59:                                               ; preds = %46, %43, %37
-  %60 = tail call fastcc i32 @ftp_state_size(ptr noundef nonnull %0, ptr noundef %3)
+58:                                               ; preds = %46, %43, %37
+  %59 = tail call fastcc i32 @ftp_state_size(ptr noundef nonnull %0, ptr noundef %3)
   br label %ftp_state_type.exit
 
-ftp_state_type.exit:                              ; preds = %59, %53, %14, %_ftp_state.exit
-  %.0 = phi i32 [ %15, %14 ], [ 0, %_ftp_state.exit ], [ %60, %59 ], [ %58, %53 ]
+ftp_state_type.exit:                              ; preds = %58, %52, %14, %_ftp_state.exit
+  %.0 = phi i32 [ %15, %14 ], [ 0, %_ftp_state.exit ], [ %59, %58 ], [ %57, %52 ]
   ret i32 %.0
 }
 
@@ -5235,13 +5234,13 @@ _ftp_state.exit126:                               ; preds = %205, %213, %219, %2
   %246 = load i32, ptr %245, align 1
   %247 = and i32 %246, 131072
   %.not.i127 = icmp eq i32 %247, 0
-  br i1 %.not.i127, label %264, label %248
+  br i1 %.not.i127, label %263, label %248
 
 248:                                              ; preds = %242
   %249 = getelementptr inbounds nuw i8, ptr %244, i64 1240
   %250 = load ptr, ptr %249, align 8, !tbaa !145
   %.not18.i = icmp eq ptr %250, null
-  br i1 %.not18.i, label %264, label %251
+  br i1 %.not18.i, label %263, label %251
 
 251:                                              ; preds = %248
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 4876
@@ -5250,26 +5249,25 @@ _ftp_state.exit126:                               ; preds = %205, %213, %219, %2
   %.not21.i = icmp eq i32 %254, 0
   %255 = getelementptr i8, ptr %244, i64 1272
   %.val.i128 = load i8, ptr %255, align 8, !tbaa !21
-  %256 = sext i8 %.val.i128 to i32
-  %257 = select i1 %.not21.i, i32 73, i32 65
-  %.not22.i = icmp eq i32 %257, %256
-  br i1 %.not22.i, label %264, label %258
+  %256 = select i1 %.not21.i, i8 73, i8 65
+  %.not22.i = icmp eq i8 %256, %.val.i128
+  br i1 %.not22.i, label %263, label %257
 
-258:                                              ; preds = %251
-  %259 = getelementptr inbounds nuw i8, ptr %243, i64 16
-  store i32 1, ptr %259, align 8, !tbaa !97
-  %260 = load i32, ptr %252, align 4
-  %261 = and i32 %260, 16384
-  %262 = icmp ne i32 %261, 0
-  %263 = call fastcc i32 @ftp_nb_type(ptr noundef nonnull %0, ptr noundef nonnull %244, i1 noundef zeroext %262, i8 noundef zeroext 19)
+257:                                              ; preds = %251
+  %258 = getelementptr inbounds nuw i8, ptr %243, i64 16
+  store i32 1, ptr %258, align 8, !tbaa !97
+  %259 = load i32, ptr %252, align 4
+  %260 = and i32 %259, 16384
+  %261 = icmp ne i32 %260, 0
+  %262 = call fastcc i32 @ftp_nb_type(ptr noundef nonnull %0, ptr noundef nonnull %244, i1 noundef zeroext %261, i8 noundef zeroext 19)
   br label %ftp_state_type.exit
 
-264:                                              ; preds = %251, %248, %242
-  %265 = call fastcc i32 @ftp_state_size(ptr noundef nonnull %0, ptr noundef %244)
+263:                                              ; preds = %251, %248, %242
+  %264 = call fastcc i32 @ftp_state_size(ptr noundef nonnull %0, ptr noundef %244)
   br label %ftp_state_type.exit
 
-ftp_state_type.exit:                              ; preds = %264, %258, %.thread155, %_ftp_state.exit126, %_ftp_state.exit
-  %.3 = phi i32 [ 0, %_ftp_state.exit126 ], [ 0, %_ftp_state.exit ], [ %.175.ph, %.thread155 ], [ %265, %264 ], [ %263, %258 ]
+ftp_state_type.exit:                              ; preds = %263, %257, %.thread155, %_ftp_state.exit126, %_ftp_state.exit
+  %.3 = phi i32 [ 0, %_ftp_state.exit126 ], [ 0, %_ftp_state.exit ], [ %.175.ph, %.thread155 ], [ %264, %263 ], [ %262, %257 ]
   ret i32 %.3
 }
 

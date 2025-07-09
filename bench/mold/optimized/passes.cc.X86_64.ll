@@ -11677,8 +11677,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.0.i.i.i.i.i.i.i.i.i = inttoptr i64 %27 to ptr
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %29 = icmp eq ptr %28, %.0.i.i.i.i.i.i.i.i.i
-  %30 = select i1 %29, i64 3, i64 64
-  %31 = load ptr, ptr %22, align 8, !tbaa !790, !noalias !789
+  %30 = load ptr, ptr %22, align 8, !tbaa !790, !noalias !789
+  %31 = select i1 %29, i64 2, i64 63
   br label %32
 
 32:                                               ; preds = %37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -11686,7 +11686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %33 = getelementptr inbounds nuw %"struct.std::atomic.106", ptr %.0.i.i.i.i.i.i.i.i.i, i64 %.01015.i.i.i.i.i.i
   %34 = load atomic i64, ptr %33 monotonic, align 8, !noalias !789
   %.0.i.i.i.i.i.i.i.i = inttoptr i64 %34 to ptr
-  %.not.i.i.i.i.i.i = icmp ult ptr %31, %.0.i.i.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp ult ptr %30, %.0.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %37, label %.thread.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i:                              ; preds = %32
@@ -11696,7 +11696,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 37:                                               ; preds = %32
   %38 = add nuw nsw i64 %.01015.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i = icmp eq i64 %38, %30
+  %exitcond.not.i.i.i.i.i.i = icmp eq i64 %31, %.01015.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN3tbb6detail2d217parallel_for_eachINS0_2d117concurrent_vectorISt10unique_ptrIN4mold13MergedSectionINS6_6X86_64EEESt14default_deleteIS9_EENS3_23cache_aligned_allocatorISC_EEEEZNS6_22create_merged_sectionsIS8_EEvRNS6_7ContextIT_EEEUlRSC_E_EEvRSI_RKT0_.exit, label %32, !llvm.loop !791
 
 _ZN3tbb6detail2d217parallel_for_eachINS0_2d117concurrent_vectorISt10unique_ptrIN4mold13MergedSectionINS6_6X86_64EEESt14default_deleteIS9_EENS3_23cache_aligned_allocatorISC_EEEEZNS6_22create_merged_sectionsIS8_EEvRNS6_7ContextIT_EEEUlRSC_E_EEvRSI_RKT0_.exit: ; preds = %37, %.thread.i.i.i.i.i.i
@@ -11915,8 +11915,8 @@ _ZN3tbb6detail2d126enumerable_thread_specificISt13unordered_mapIN4mold16OutputSe
   %.0.i.i.i.i.i.i.i = inttoptr i64 %69 to ptr
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 3096
   %71 = icmp eq ptr %70, %.0.i.i.i.i.i.i.i
-  %72 = select i1 %71, i64 3, i64 64
-  %73 = load ptr, ptr %65, align 8, !tbaa !826, !noalias !823
+  %72 = load ptr, ptr %65, align 8, !tbaa !826, !noalias !823
+  %73 = select i1 %71, i64 2, i64 63
   br label %74
 
 74:                                               ; preds = %79, %_ZN3tbb6detail2d126enumerable_thread_specificISt13unordered_mapIN4mold16OutputSectionKeyEPNS4_13OutputSectionINS4_6X86_64EEENS5_4HashESt8equal_toIS5_ESaISt4pairIKS5_S9_EEENS1_23cache_aligned_allocatorISH_EELNS1_18ets_key_usage_typeE1EEC2Ev.exit
@@ -11924,7 +11924,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificISt13unordered_mapIN4mold16OutputSe
   %75 = getelementptr inbounds nuw %"struct.std::atomic.170", ptr %.0.i.i.i.i.i.i.i, i64 %.01015.i.i.i.i
   %76 = load atomic i64, ptr %75 monotonic, align 8, !noalias !823
   %.0.i.i.i.i.i.i = inttoptr i64 %76 to ptr
-  %.not.i.i.i.i = icmp ult ptr %73, %.0.i.i.i.i.i.i
+  %.not.i.i.i.i = icmp ult ptr %72, %.0.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %79, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %74
@@ -11934,7 +11934,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificISt13unordered_mapIN4mold16OutputSe
 
 79:                                               ; preds = %74
   %80 = add nuw nsw i64 %.01015.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %80, %72
+  %exitcond.not.i.i.i.i = icmp eq i64 %73, %.01015.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13OutputSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit, label %74, !llvm.loop !827
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13OutputSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit: ; preds = %79, %.thread.i.i.i.i
@@ -11981,8 +11981,8 @@ _ZN3tbb6detail2d112parallel_forIlZN4mold22create_output_sectionsINS3_6X86_64EEEv
   %94 = load atomic i64, ptr %68 acquire, align 8, !noalias !835
   %.0.i.i.i.i.i.i.i39 = inttoptr i64 %94 to ptr
   %95 = icmp eq ptr %70, %.0.i.i.i.i.i.i.i39
-  %96 = select i1 %95, i64 3, i64 64
-  %97 = load ptr, ptr %65, align 8, !tbaa !826, !noalias !835
+  %96 = load ptr, ptr %65, align 8, !tbaa !826, !noalias !835
+  %97 = select i1 %95, i64 2, i64 63
   br label %98
 
 98:                                               ; preds = %103, %_ZN3tbb6detail2d112parallel_forIlZN4mold22create_output_sectionsINS3_6X86_64EEEvRNS3_7ContextIT_EEEUllE_EEvS7_S7_RKT0_.exit
@@ -11990,7 +11990,7 @@ _ZN3tbb6detail2d112parallel_forIlZN4mold22create_output_sectionsINS3_6X86_64EEEv
   %99 = getelementptr inbounds nuw %"struct.std::atomic.170", ptr %.0.i.i.i.i.i.i.i39, i64 %.01015.i.i.i.i40
   %100 = load atomic i64, ptr %99 monotonic, align 8, !noalias !835
   %.0.i.i.i.i.i.i41 = inttoptr i64 %100 to ptr
-  %.not.i.i.i.i42 = icmp ult ptr %97, %.0.i.i.i.i.i.i41
+  %.not.i.i.i.i42 = icmp ult ptr %96, %.0.i.i.i.i.i.i41
   br i1 %.not.i.i.i.i42, label %103, label %.thread.i.i.i.i43
 
 .thread.i.i.i.i43:                                ; preds = %98
@@ -12000,7 +12000,7 @@ _ZN3tbb6detail2d112parallel_forIlZN4mold22create_output_sectionsINS3_6X86_64EEEv
 
 103:                                              ; preds = %98
   %104 = add nuw nsw i64 %.01015.i.i.i.i40, 1
-  %exitcond.not.i.i.i.i46 = icmp eq i64 %104, %96
+  %exitcond.not.i.i.i.i46 = icmp eq i64 %97, %.01015.i.i.i.i40
   br i1 %exitcond.not.i.i.i.i46, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13OutputSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit47, label %98, !llvm.loop !827
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13OutputSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit47: ; preds = %103, %.thread.i.i.i.i43
@@ -12094,8 +12094,8 @@ _ZNSt6vectorIS_IPN4mold12InputSectionINS0_6X86_64EEESaIS4_EESaIS6_EE6resizeEm.ex
   %149 = load atomic i64, ptr %68 acquire, align 8, !noalias !847
   %.0.i.i.i.i.i.i.i52 = inttoptr i64 %149 to ptr
   %150 = icmp eq ptr %70, %.0.i.i.i.i.i.i.i52
-  %151 = select i1 %150, i64 3, i64 64
-  %152 = load ptr, ptr %65, align 8, !tbaa !826, !noalias !847
+  %151 = load ptr, ptr %65, align 8, !tbaa !826, !noalias !847
+  %152 = select i1 %150, i64 2, i64 63
   br label %153
 
 153:                                              ; preds = %158, %._crit_edge250
@@ -12103,7 +12103,7 @@ _ZNSt6vectorIS_IPN4mold12InputSectionINS0_6X86_64EEESaIS4_EESaIS6_EE6resizeEm.ex
   %154 = getelementptr inbounds nuw %"struct.std::atomic.170", ptr %.0.i.i.i.i.i.i.i52, i64 %.01015.i.i.i.i53
   %155 = load atomic i64, ptr %154 monotonic, align 8, !noalias !847
   %.0.i.i.i.i.i.i54 = inttoptr i64 %155 to ptr
-  %.not.i.i.i.i55 = icmp ult ptr %152, %.0.i.i.i.i.i.i54
+  %.not.i.i.i.i55 = icmp ult ptr %151, %.0.i.i.i.i.i.i54
   br i1 %.not.i.i.i.i55, label %158, label %.thread.i.i.i.i56
 
 .thread.i.i.i.i56:                                ; preds = %153
@@ -12113,7 +12113,7 @@ _ZNSt6vectorIS_IPN4mold12InputSectionINS0_6X86_64EEESaIS4_EESaIS6_EE6resizeEm.ex
 
 158:                                              ; preds = %153
   %159 = add nuw nsw i64 %.01015.i.i.i.i53, 1
-  %exitcond.not.i.i.i.i59 = icmp eq i64 %159, %151
+  %exitcond.not.i.i.i.i59 = icmp eq i64 %152, %.01015.i.i.i.i53
   br i1 %exitcond.not.i.i.i.i59, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13OutputSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit60, label %153, !llvm.loop !827
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13OutputSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit60: ; preds = %158, %.thread.i.i.i.i56
@@ -12210,8 +12210,8 @@ _ZN3tbb6detail2d112parallel_forIlZN4mold22create_output_sectionsINS3_6X86_64EEEv
   %204 = load atomic i64, ptr %68 acquire, align 8, !noalias !856
   %.0.i.i.i.i.i.i.i70 = inttoptr i64 %204 to ptr
   %205 = icmp eq ptr %70, %.0.i.i.i.i.i.i.i70
-  %206 = select i1 %205, i64 3, i64 64
-  %207 = load ptr, ptr %65, align 8, !tbaa !826, !noalias !856
+  %206 = load ptr, ptr %65, align 8, !tbaa !826, !noalias !856
+  %207 = select i1 %205, i64 2, i64 63
   br label %208
 
 208:                                              ; preds = %213, %._crit_edge255
@@ -12219,7 +12219,7 @@ _ZN3tbb6detail2d112parallel_forIlZN4mold22create_output_sectionsINS3_6X86_64EEEv
   %209 = getelementptr inbounds nuw %"struct.std::atomic.170", ptr %.0.i.i.i.i.i.i.i70, i64 %.01015.i.i.i.i71
   %210 = load atomic i64, ptr %209 monotonic, align 8, !noalias !856
   %.0.i.i.i.i.i.i72 = inttoptr i64 %210 to ptr
-  %.not.i.i.i.i73 = icmp ult ptr %207, %.0.i.i.i.i.i.i72
+  %.not.i.i.i.i73 = icmp ult ptr %206, %.0.i.i.i.i.i.i72
   br i1 %.not.i.i.i.i73, label %213, label %.thread.i.i.i.i74
 
 .thread.i.i.i.i74:                                ; preds = %208
@@ -12229,7 +12229,7 @@ _ZN3tbb6detail2d112parallel_forIlZN4mold22create_output_sectionsINS3_6X86_64EEEv
 
 213:                                              ; preds = %208
   %214 = add nuw nsw i64 %.01015.i.i.i.i71, 1
-  %exitcond.not.i.i.i.i77 = icmp eq i64 %214, %206
+  %exitcond.not.i.i.i.i77 = icmp eq i64 %207, %.01015.i.i.i.i71
   br i1 %exitcond.not.i.i.i.i77, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13OutputSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit78, label %208, !llvm.loop !827
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13OutputSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit78: ; preds = %213, %.thread.i.i.i.i74
@@ -12525,8 +12525,8 @@ _ZNSt6vectorIS_IPN4mold12InputSectionINS0_6X86_64EEESaIS4_EESaIS6_EE5clearEv.exi
   %.0.i.i.i.i.i.i.i99 = inttoptr i64 %344 to ptr
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %346 = icmp eq ptr %345, %.0.i.i.i.i.i.i.i99
-  %347 = select i1 %346, i64 3, i64 64
-  %348 = load ptr, ptr %340, align 8, !tbaa !790, !noalias !865
+  %347 = load ptr, ptr %340, align 8, !tbaa !790, !noalias !865
+  %348 = select i1 %346, i64 2, i64 63
   br label %349
 
 349:                                              ; preds = %354, %._crit_edge263
@@ -12534,7 +12534,7 @@ _ZNSt6vectorIS_IPN4mold12InputSectionINS0_6X86_64EEESaIS4_EESaIS6_EE5clearEv.exi
   %350 = getelementptr inbounds nuw %"struct.std::atomic.106", ptr %.0.i.i.i.i.i.i.i99, i64 %.01015.i.i.i.i100
   %351 = load atomic i64, ptr %350 monotonic, align 8, !noalias !865
   %.0.i.i.i.i.i.i101 = inttoptr i64 %351 to ptr
-  %.not.i.i.i.i102 = icmp ult ptr %348, %.0.i.i.i.i.i.i101
+  %.not.i.i.i.i102 = icmp ult ptr %347, %.0.i.i.i.i.i.i101
   br i1 %.not.i.i.i.i102, label %354, label %.thread.i.i.i.i103
 
 .thread.i.i.i.i103:                               ; preds = %349
@@ -12544,7 +12544,7 @@ _ZNSt6vectorIS_IPN4mold12InputSectionINS0_6X86_64EEESaIS4_EESaIS6_EE5clearEv.exi
 
 354:                                              ; preds = %349
   %355 = add nuw nsw i64 %.01015.i.i.i.i100, 1
-  %exitcond.not.i.i.i.i106 = icmp eq i64 %355, %347
+  %exitcond.not.i.i.i.i106 = icmp eq i64 %348, %.01015.i.i.i.i100
   br i1 %exitcond.not.i.i.i.i106, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13MergedSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit, label %349, !llvm.loop !791
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13MergedSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit: ; preds = %354, %.thread.i.i.i.i103
@@ -16955,8 +16955,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   %.0.i.i.i.i.i.i.i = inttoptr i64 %367 to ptr
   %368 = getelementptr inbounds nuw i8, ptr %0, i64 2952
   %369 = icmp eq ptr %368, %.0.i.i.i.i.i.i.i
-  %370 = select i1 %369, i64 3, i64 64
-  %371 = load ptr, ptr %363, align 8, !tbaa !1053, !noalias !1050
+  %370 = load ptr, ptr %363, align 8, !tbaa !1053, !noalias !1050
+  %371 = select i1 %369, i64 2, i64 63
   br label %372
 
 372:                                              ; preds = %377, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64
@@ -16964,7 +16964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
   %373 = getelementptr inbounds nuw %"struct.std::atomic.154", ptr %.0.i.i.i.i.i.i.i, i64 %.01015.i.i.i.i
   %374 = load atomic i64, ptr %373 monotonic, align 8, !noalias !1050
   %.0.i.i.i.i.i.i = inttoptr i64 %374 to ptr
-  %.not.i.i.i.i65 = icmp ult ptr %371, %.0.i.i.i.i.i.i
+  %.not.i.i.i.i65 = icmp ult ptr %370, %.0.i.i.i.i.i.i
   br i1 %.not.i.i.i.i65, label %377, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %372
@@ -16974,7 +16974,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
 
 377:                                              ; preds = %372
   %378 = add nuw nsw i64 %.01015.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %378, %370
+  %exitcond.not.i.i.i.i = icmp eq i64 %371, %.01015.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold10MappedFileESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv.exit, label %372, !llvm.loop !1054
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold10MappedFileESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv.exit: ; preds = %377, %.thread.i.i.i.i
@@ -22120,8 +22120,8 @@ _ZN3tbb6detail2d112parallel_forIlZN4mold12sort_dynsymsINS3_6X86_64EEEvRNS3_7Cont
   %105 = load atomic i64, ptr %89 acquire, align 8, !noalias !1217
   %.0.i.i.i.i.i.i.i.i = inttoptr i64 %105 to ptr
   %106 = icmp eq ptr %scevgep.i.i.i.i, %.0.i.i.i.i.i.i.i.i
-  %107 = select i1 %106, i64 3, i64 64
-  %108 = load ptr, ptr %88, align 8, !tbaa !1208, !noalias !1217
+  %107 = load ptr, ptr %88, align 8, !tbaa !1208, !noalias !1217
+  %108 = select i1 %106, i64 2, i64 63
   br label %109
 
 109:                                              ; preds = %114, %_ZN3tbb6detail2d112parallel_forIlZN4mold12sort_dynsymsINS3_6X86_64EEEvRNS3_7ContextIT_EEEUllE_EEvS7_S7_RKT0_.exit
@@ -22129,7 +22129,7 @@ _ZN3tbb6detail2d112parallel_forIlZN4mold12sort_dynsymsINS3_6X86_64EEEvRNS3_7Cont
   %110 = getelementptr inbounds nuw %"struct.std::atomic.598", ptr %.0.i.i.i.i.i.i.i.i, i64 %.01015.i.i.i.i.i
   %111 = load atomic i64, ptr %110 monotonic, align 8, !noalias !1217
   %.0.i.i.i.i.i.i.i = inttoptr i64 %111 to ptr
-  %.not.i.i.i.i.i22 = icmp ult ptr %108, %.0.i.i.i.i.i.i.i
+  %.not.i.i.i.i.i22 = icmp ult ptr %107, %.0.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i22, label %114, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %109
@@ -22139,7 +22139,7 @@ _ZN3tbb6detail2d112parallel_forIlZN4mold12sort_dynsymsINS3_6X86_64EEEvRNS3_7Cont
 
 114:                                              ; preds = %109
   %115 = add nuw nsw i64 %.01015.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %115, %107
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %108, %.01015.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit.i, label %109, !llvm.loop !1220
 
 _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit.i: ; preds = %114, %.thread.i.i.i.i.i
@@ -22177,8 +22177,8 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %129 = load atomic i64, ptr %89 acquire, align 8, !noalias !1224
   %.0.i.i.i.i.i.i.i2.i = inttoptr i64 %129 to ptr
   %130 = icmp eq ptr %scevgep.i.i.i.i, %.0.i.i.i.i.i.i.i2.i
-  %131 = select i1 %130, i64 3, i64 64
-  %132 = load ptr, ptr %88, align 8, !tbaa !1208, !noalias !1224
+  %131 = load ptr, ptr %88, align 8, !tbaa !1208, !noalias !1224
+  %132 = select i1 %130, i64 2, i64 63
   br label %133
 
 133:                                              ; preds = %138, %126
@@ -22186,7 +22186,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %134 = getelementptr inbounds nuw %"struct.std::atomic.598", ptr %.0.i.i.i.i.i.i.i2.i, i64 %.01015.i.i.i.i3.i
   %135 = load atomic i64, ptr %134 monotonic, align 8, !noalias !1224
   %.0.i.i.i.i.i.i4.i = inttoptr i64 %135 to ptr
-  %.not.i.i.i.i5.i = icmp ult ptr %132, %.0.i.i.i.i.i.i4.i
+  %.not.i.i.i.i5.i = icmp ult ptr %131, %.0.i.i.i.i.i.i4.i
   br i1 %.not.i.i.i.i5.i, label %138, label %.thread.i.i.i.i6.i
 
 .thread.i.i.i.i6.i:                               ; preds = %133
@@ -22196,7 +22196,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
 
 138:                                              ; preds = %133
   %139 = add nuw nsw i64 %.01015.i.i.i.i3.i, 1
-  %exitcond.not.i.i.i.i9.i = icmp eq i64 %139, %131
+  %exitcond.not.i.i.i.i9.i = icmp eq i64 %132, %.01015.i.i.i.i3.i
   br i1 %exitcond.not.i.i.i.i9.i, label %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit10.i, label %133, !llvm.loop !1220
 
 _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit10.i: ; preds = %138, %.thread.i.i.i.i6.i
@@ -27249,8 +27249,8 @@ define weak_odr dso_local void @_ZN4mold21write_dependency_fileINS_6X86_64EEEvRN
   %.0.i.i.i.i.i.i.i = inttoptr i64 %18 to ptr
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2952
   %20 = icmp eq ptr %19, %.0.i.i.i.i.i.i.i
-  %21 = select i1 %20, i64 3, i64 64
-  %22 = load ptr, ptr %14, align 8, !tbaa !1053, !noalias !1360
+  %21 = load ptr, ptr %14, align 8, !tbaa !1053, !noalias !1360
+  %22 = select i1 %20, i64 2, i64 63
   br label %23
 
 23:                                               ; preds = %28, %1
@@ -27258,7 +27258,7 @@ define weak_odr dso_local void @_ZN4mold21write_dependency_fileINS_6X86_64EEEvRN
   %24 = getelementptr inbounds nuw %"struct.std::atomic.154", ptr %.0.i.i.i.i.i.i.i, i64 %.01015.i.i.i.i
   %25 = load atomic i64, ptr %24 monotonic, align 8, !noalias !1360
   %.0.i.i.i.i.i.i = inttoptr i64 %25 to ptr
-  %.not.i.i.i.i = icmp ult ptr %22, %.0.i.i.i.i.i.i
+  %.not.i.i.i.i = icmp ult ptr %21, %.0.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %28, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %23
@@ -27268,7 +27268,7 @@ define weak_odr dso_local void @_ZN4mold21write_dependency_fileINS_6X86_64EEEvRN
 
 28:                                               ; preds = %23
   %29 = add nuw nsw i64 %.01015.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %29, %21
+  %exitcond.not.i.i.i.i = icmp eq i64 %22, %.01015.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold10MappedFileESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv.exit, label %23, !llvm.loop !1054
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold10MappedFileESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv.exit: ; preds = %28, %.thread.i.i.i.i
@@ -28411,8 +28411,8 @@ _ZN4mold7CounterpLEi.exit81:                      ; preds = %288, %291
   %.0.i.i.i.i.i.i.i = inttoptr i64 %314 to ptr
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 2952
   %316 = icmp eq ptr %315, %.0.i.i.i.i.i.i.i
-  %317 = select i1 %316, i64 3, i64 64
-  %318 = load ptr, ptr %310, align 8, !tbaa !1053, !noalias !1392
+  %317 = load ptr, ptr %310, align 8, !tbaa !1053, !noalias !1392
+  %318 = select i1 %316, i64 2, i64 63
   br label %319
 
 319:                                              ; preds = %324, %309
@@ -28420,7 +28420,7 @@ _ZN4mold7CounterpLEi.exit81:                      ; preds = %288, %291
   %320 = getelementptr inbounds nuw %"struct.std::atomic.154", ptr %.0.i.i.i.i.i.i.i, i64 %.01015.i.i.i.i
   %321 = load atomic i64, ptr %320 monotonic, align 8, !noalias !1392
   %.0.i.i.i.i.i.i = inttoptr i64 %321 to ptr
-  %.not.i.i.i.i = icmp ult ptr %318, %.0.i.i.i.i.i.i
+  %.not.i.i.i.i = icmp ult ptr %317, %.0.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %324, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %319
@@ -28430,7 +28430,7 @@ _ZN4mold7CounterpLEi.exit81:                      ; preds = %288, %291
 
 324:                                              ; preds = %319
   %325 = add nuw nsw i64 %.01015.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %325, %317
+  %exitcond.not.i.i.i.i = icmp eq i64 %318, %.01015.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold10MappedFileESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv.exit, label %319, !llvm.loop !1054
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold10MappedFileESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv.exit: ; preds = %324, %.thread.i.i.i.i
@@ -28625,8 +28625,8 @@ _ZN4mold7CounterpLEi.exit84:                      ; preds = %.lr.ph267.split, %3
   %.0.i.i.i.i.i.i.i85 = inttoptr i64 %428 to ptr
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %430 = icmp eq ptr %429, %.0.i.i.i.i.i.i.i85
-  %431 = select i1 %430, i64 3, i64 64
-  %432 = load ptr, ptr %424, align 8, !tbaa !790, !noalias !1399
+  %431 = load ptr, ptr %424, align 8, !tbaa !790, !noalias !1399
+  %432 = select i1 %430, i64 2, i64 63
   br label %433
 
 433:                                              ; preds = %438, %423
@@ -28634,7 +28634,7 @@ _ZN4mold7CounterpLEi.exit84:                      ; preds = %.lr.ph267.split, %3
   %434 = getelementptr inbounds nuw %"struct.std::atomic.106", ptr %.0.i.i.i.i.i.i.i85, i64 %.01015.i.i.i.i86
   %435 = load atomic i64, ptr %434 monotonic, align 8, !noalias !1399
   %.0.i.i.i.i.i.i87 = inttoptr i64 %435 to ptr
-  %.not.i.i.i.i88 = icmp ult ptr %432, %.0.i.i.i.i.i.i87
+  %.not.i.i.i.i88 = icmp ult ptr %431, %.0.i.i.i.i.i.i87
   br i1 %.not.i.i.i.i88, label %438, label %.thread.i.i.i.i89
 
 .thread.i.i.i.i89:                                ; preds = %433
@@ -28644,7 +28644,7 @@ _ZN4mold7CounterpLEi.exit84:                      ; preds = %.lr.ph267.split, %3
 
 438:                                              ; preds = %433
   %439 = add nuw nsw i64 %.01015.i.i.i.i86, 1
-  %exitcond.not.i.i.i.i92 = icmp eq i64 %439, %431
+  %exitcond.not.i.i.i.i92 = icmp eq i64 %432, %.01015.i.i.i.i86
   br i1 %exitcond.not.i.i.i.i92, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13MergedSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit, label %433, !llvm.loop !791
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13MergedSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit: ; preds = %438, %.thread.i.i.i.i89
@@ -28659,8 +28659,8 @@ _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13MergedSectionINS4_6X
   %441 = load atomic i64, ptr %427 acquire, align 8, !noalias !1402
   %.0.i.i.i.i.i.i.i94 = inttoptr i64 %441 to ptr
   %442 = icmp eq ptr %429, %.0.i.i.i.i.i.i.i94
-  %443 = select i1 %442, i64 3, i64 64
-  %444 = load ptr, ptr %424, align 8, !tbaa !790, !noalias !1402
+  %443 = load ptr, ptr %424, align 8, !tbaa !790, !noalias !1402
+  %444 = select i1 %442, i64 2, i64 63
   br label %445
 
 445:                                              ; preds = %450, %._crit_edge275
@@ -28668,7 +28668,7 @@ _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13MergedSectionINS4_6X
   %446 = getelementptr inbounds nuw %"struct.std::atomic.106", ptr %.0.i.i.i.i.i.i.i94, i64 %.01015.i.i.i.i95
   %447 = load atomic i64, ptr %446 monotonic, align 8, !noalias !1402
   %.0.i.i.i.i.i.i96 = inttoptr i64 %447 to ptr
-  %.not.i.i.i.i97 = icmp ult ptr %444, %.0.i.i.i.i.i.i96
+  %.not.i.i.i.i97 = icmp ult ptr %443, %.0.i.i.i.i.i.i96
   br i1 %.not.i.i.i.i97, label %450, label %.thread.i.i.i.i98
 
 .thread.i.i.i.i98:                                ; preds = %445
@@ -28678,7 +28678,7 @@ _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13MergedSectionINS4_6X
 
 450:                                              ; preds = %445
   %451 = add nuw nsw i64 %.01015.i.i.i.i95, 1
-  %exitcond.not.i.i.i.i101 = icmp eq i64 %451, %443
+  %exitcond.not.i.i.i.i101 = icmp eq i64 %444, %.01015.i.i.i.i95
   br i1 %exitcond.not.i.i.i.i101, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13MergedSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit102, label %445, !llvm.loop !791
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold13MergedSectionINS4_6X86_64EEESt14default_deleteIS7_EENS1_23cache_aligned_allocatorISA_EEE3endEv.exit102: ; preds = %450, %.thread.i.i.i.i98
@@ -64308,8 +64308,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc.exit99: ; preds 
   store i64 0, ptr %116, align 8, !tbaa !17
   %117 = load ptr, ptr %115, align 8, !tbaa !343
   store i8 0, ptr %117, align 1, !tbaa !19
-  %118 = select i1 %114, i32 2, i32 4
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %119 = select i1 %114, i32 1, i32 3
   br label %122
 
 120:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit
@@ -64347,7 +64347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc.exit99: ; preds 
   %139 = load i64, ptr %116, align 8, !tbaa !17
   %140 = add i64 %139, 1
   %141 = load ptr, ptr %115, align 8, !tbaa !343
-  %142 = icmp eq ptr %141, %119
+  %142 = icmp eq ptr %141, %118
   br i1 %142, label %143, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i101
 
 143:                                              ; preds = %136
@@ -64356,7 +64356,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc.exit99: ; preds 
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i101
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i101: ; preds = %143, %136
-  %145 = load i64, ptr %119, align 8
+  %145 = load i64, ptr %118, align 8
   %146 = select i1 %142, i64 15, i64 %145
   %147 = icmp ugt i64 %140, %146
   br i1 %147, label %148, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit
@@ -64375,7 +64375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 %140
   store i8 0, ptr %152, align 1, !tbaa !19
   %153 = add nuw nsw i32 %.0110, 1
-  %exitcond.not = icmp eq i32 %153, %118
+  %exitcond.not = icmp eq i32 %119, %.0110
   br i1 %exitcond.not, label %120, label %122, !llvm.loop !2335
 
 154:                                              ; preds = %.loopexit

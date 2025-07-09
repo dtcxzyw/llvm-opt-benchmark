@@ -1855,41 +1855,41 @@ define hidden noundef ptr @_ZNK16CompressBitsNode5ValueEP8PhaseGVN(ptr noundef n
   %34 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %33, i32 1
   %35 = load i8, ptr %34, align 4
   %36 = icmp eq i8 %35, 10
-  %37 = select i1 %36, i32 32, i32 64
-  %38 = load ptr, ptr %15, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 184
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(22) %15) #5
-  %42 = load ptr, ptr %15, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 176
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(22) %15) #5
-  %46 = icmp eq i64 %41, %45
-  br i1 %46, label %47, label %74
+  %37 = load ptr, ptr %15, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 184
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(22) %15) #5
+  %41 = load ptr, ptr %15, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 176
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(22) %15) #5
+  %45 = icmp eq i64 %40, %44
+  br i1 %45, label %46, label %74
 
-47:                                               ; preds = %26
-  %48 = load ptr, ptr %22, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef i64 %50(ptr noundef nonnull align 8 dereferenceable(22) %22) #5
-  %52 = load ptr, ptr %22, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 176
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef i64 %54(ptr noundef nonnull align 8 dereferenceable(22) %22) #5
-  %56 = icmp eq i64 %51, %55
-  br i1 %56, label %57, label %74
+46:                                               ; preds = %26
+  %47 = load ptr, ptr %22, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(22) %22) #5
+  %51 = load ptr, ptr %22, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 176
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call noundef i64 %53(ptr noundef nonnull align 8 dereferenceable(22) %22) #5
+  %55 = icmp eq i64 %50, %54
+  br i1 %55, label %56, label %74
 
-57:                                               ; preds = %47
-  %58 = tail call noundef i64 @_ZNK11TypeInteger15get_con_as_longE9BasicType(ptr noundef nonnull align 8 dereferenceable(22) %15, i8 noundef zeroext %35) #5
-  %59 = tail call noundef i64 @_ZNK11TypeInteger15get_con_as_longE9BasicType(ptr noundef nonnull align 8 dereferenceable(22) %22, i8 noundef zeroext %35) #5
+56:                                               ; preds = %46
+  %57 = tail call noundef i64 @_ZNK11TypeInteger15get_con_as_longE9BasicType(ptr noundef nonnull align 8 dereferenceable(22) %15, i8 noundef zeroext %35) #5
+  %58 = tail call noundef i64 @_ZNK11TypeInteger15get_con_as_longE9BasicType(ptr noundef nonnull align 8 dereferenceable(22) %22, i8 noundef zeroext %35) #5
+  %59 = select i1 %36, i32 31, i32 63
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %57, %.lr.ph.i
-  %.019.i = phi i32 [ %.1.i, %.lr.ph.i ], [ 0, %57 ]
-  %.01018.i = phi i32 [ %68, %.lr.ph.i ], [ 0, %57 ]
-  %.01117.i = phi i64 [ %.112.i, %.lr.ph.i ], [ 0, %57 ]
-  %.01316.i = phi i64 [ %66, %.lr.ph.i ], [ %58, %57 ]
-  %.01415.i = phi i64 [ %67, %.lr.ph.i ], [ %59, %57 ]
+.lr.ph.i:                                         ; preds = %56, %.lr.ph.i
+  %.019.i = phi i32 [ %.1.i, %.lr.ph.i ], [ 0, %56 ]
+  %.01018.i = phi i32 [ %68, %.lr.ph.i ], [ 0, %56 ]
+  %.01117.i = phi i64 [ %.112.i, %.lr.ph.i ], [ 0, %56 ]
+  %.01316.i = phi i64 [ %66, %.lr.ph.i ], [ %57, %56 ]
+  %.01415.i = phi i64 [ %67, %.lr.ph.i ], [ %58, %56 ]
   %60 = and i64 %.01415.i, 1
   %.not.i = icmp eq i64 %60, 0
   %61 = and i64 %.01316.i, 1
@@ -1902,7 +1902,7 @@ define hidden noundef ptr @_ZNK16CompressBitsNode5ValueEP8PhaseGVN(ptr noundef n
   %66 = ashr i64 %.01316.i, 1
   %67 = ashr i64 %.01415.i, 1
   %68 = add nuw nsw i32 %.01018.i, 1
-  %exitcond.not.i = icmp eq i32 %68, %37
+  %exitcond.not.i = icmp eq i32 %59, %.01018.i
   br i1 %exitcond.not.i, label %_ZN16CompressBitsNode13compress_bitsElli.exit, label %.lr.ph.i, !llvm.loop !6
 
 _ZN16CompressBitsNode13compress_bitsElli.exit:    ; preds = %.lr.ph.i
@@ -1917,7 +1917,7 @@ _ZN16CompressBitsNode13compress_bitsElli.exit:    ; preds = %.lr.ph.i
   %73 = tail call noundef ptr @_ZN8TypeLong4makeEl(i64 noundef %.112.i) #5
   br label %76
 
-74:                                               ; preds = %47, %26
+74:                                               ; preds = %46, %26
   %75 = tail call fastcc noundef ptr @_ZL16bitshuffle_valuePK11TypeIntegerS1_i9BasicType(ptr noundef nonnull %15, ptr noundef %22, i32 noundef 65, i8 noundef zeroext %35)
   br label %76
 
@@ -2186,7 +2186,7 @@ define hidden noundef ptr @_ZNK14ExpandBitsNode5ValueEP8PhaseGVN(ptr noundef non
 56:                                               ; preds = %46
   %57 = tail call noundef i64 @_ZNK11TypeInteger15get_con_as_longE9BasicType(ptr noundef nonnull align 8 dereferenceable(22) %15, i8 noundef zeroext %35) #5
   %58 = tail call noundef i64 @_ZNK11TypeInteger15get_con_as_longE9BasicType(ptr noundef nonnull align 8 dereferenceable(22) %22, i8 noundef zeroext %35) #5
-  %wide.trip.count.i = select i1 %36, i64 32, i64 64
+  %wide.trip.count.i28 = select i1 %36, i64 31, i64 63
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %56
@@ -2203,7 +2203,7 @@ define hidden noundef ptr @_ZNK14ExpandBitsNode5ValueEP8PhaseGVN(ptr noundef non
   %.1.i = or i64 %62, %.01016.i
   %63 = ashr i64 %.01314.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %wide.trip.count.i28, %indvars.iv.i
   br i1 %exitcond.not.i, label %_ZN14ExpandBitsNode11expand_bitsElli.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN14ExpandBitsNode11expand_bitsElli.exit:        ; preds = %.lr.ph.i

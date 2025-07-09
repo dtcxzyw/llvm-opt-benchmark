@@ -1254,7 +1254,7 @@ define range(i32 -2147483647, -2147483648) i32 @ff_smil_extract_next_text_chunk(
 .thread:                                          ; preds = %3, %5
   %8 = phi i8 [ %7, %5 ], [ %4, %3 ]
   %9 = icmp eq i8 %8, 60
-  %10 = select i1 %9, i32 62, i32 60
+  %10 = select i1 %9, i32 1040187392, i32 1006632960
   br label %11
 
 11:                                               ; preds = %16, %.thread
@@ -1270,31 +1270,30 @@ define range(i32 -2147483647, -2147483648) i32 @ff_smil_extract_next_text_chunk(
 16:                                               ; preds = %11
   %17 = add nuw nsw i32 %.019, 1
   %sext = shl i32 %13, 24
-  %18 = ashr exact i32 %sext, 24
-  %.not23 = icmp eq i32 %18, %10
+  %.not23 = icmp eq i32 %10, %sext
   %.not24 = icmp eq i32 %sext, 0
-  %or.cond = or i1 %.not24, %.not23
+  %or.cond = or i1 %.not23, %.not24
   br i1 %or.cond, label %.critedge, label %11, !llvm.loop !66
 
 .critedge:                                        ; preds = %16
-  br i1 %9, label %19, label %20
+  br i1 %9, label %18, label %19
 
-19:                                               ; preds = %.critedge
+18:                                               ; preds = %.critedge
   tail call void @av_bprint_chars(ptr noundef %1, i8 noundef signext 62, i32 noundef 1) #11
   store i8 0, ptr %2, align 1, !tbaa !19
-  br label %20
+  br label %19
 
-20:                                               ; preds = %19, %.critedge
-  %21 = getelementptr i8, ptr %1, i64 8
-  %.val = load i32, ptr %21, align 8, !tbaa !37
-  %22 = getelementptr i8, ptr %1, i64 12
-  %.val26 = load i32, ptr %22, align 4, !tbaa !39
+19:                                               ; preds = %18, %.critedge
+  %20 = getelementptr i8, ptr %1, i64 8
+  %.val = load i32, ptr %20, align 8, !tbaa !37
+  %21 = getelementptr i8, ptr %1, i64 12
+  %.val26 = load i32, ptr %21, align 4, !tbaa !39
   %.not28 = icmp ult i32 %.val, %.val26
-  %23 = select i1 %.not28, i32 %17, i32 -12
+  %22 = select i1 %.not28, i32 %17, i32 -12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %5, %20
-  %.0 = phi i32 [ %23, %20 ], [ 0, %5 ], [ -1094995529, %11 ]
+.loopexit:                                        ; preds = %11, %5, %19
+  %.0 = phi i32 [ %22, %19 ], [ 0, %5 ], [ -1094995529, %11 ]
   ret i32 %.0
 }
 
