@@ -13095,82 +13095,73 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unche
   br i1 %.not72.i, label %_ZN8smallvec10infallible17h3543849fa99aaa17E.llvm.10324051761969068468.exit, label %24
 
 23:                                               ; preds = %20
-  br i1 %17, label %_ZN8smallvec10infallible17h3543849fa99aaa17E.llvm.10324051761969068468.exit, label %43
+  br i1 %17, label %_ZN8smallvec10infallible17h3543849fa99aaa17E.llvm.10324051761969068468.exit, label %37
 
 24:                                               ; preds = %22
-  %25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %14, i64 24)
-  %26 = extractvalue { i64, i1 } %25, 0
-  %27 = extractvalue { i64, i1 } %25, 1
-  %28 = icmp ugt i64 %26, 9223372036854775800
-  %or.cond.i = or i1 %27, %28
-  br i1 %or.cond.i, label %51, label %29
+  %25 = mul i64 %14, 24
+  %or.cond.i = icmp ugt i64 %.sroa.01.0.i.i, 384307168202282324
+  br i1 %or.cond.i, label %42, label %26
 
-29:                                               ; preds = %24
-  br i1 %17, label %35, label %30
+26:                                               ; preds = %24
+  br i1 %17, label %28, label %27
 
-30:                                               ; preds = %29
-  %31 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i.i, i64 24)
-  %32 = extractvalue { i64, i1 } %31, 0
-  %33 = extractvalue { i64, i1 } %31, 1
-  %34 = icmp ugt i64 %32, 9223372036854775800
-  %or.cond98.i = or i1 %33, %34
-  br i1 %or.cond98.i, label %51, label %38
+27:                                               ; preds = %26
+  %or.cond98.i = icmp ugt i64 %3, 384307168202282325
+  br i1 %or.cond98.i, label %42, label %31
 
-35:                                               ; preds = %29
-  %36 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2240
-  %37 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %26, i64 noundef 8) #25, !noalias !2240
-  %.not100.i = icmp eq ptr %37, null
-  br i1 %.not100.i, label %52, label %41
+28:                                               ; preds = %26
+  %29 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2240
+  %30 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %25, i64 noundef 8) #25, !noalias !2240
+  %.not100.i = icmp eq ptr %30, null
+  br i1 %.not100.i, label %43, label %35
 
-38:                                               ; preds = %30
-  %39 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %6, i64 noundef %32, i64 noundef 8, i64 noundef %26) #25, !noalias !2240
-  %.not99.i = icmp eq ptr %39, null
-  br i1 %.not99.i, label %52, label %40
+31:                                               ; preds = %27
+  %32 = mul nuw i64 %.sink.i.i, 24
+  %33 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %6, i64 noundef %32, i64 noundef 8, i64 noundef %25) #25, !noalias !2240
+  %.not99.i = icmp eq ptr %33, null
+  br i1 %.not99.i, label %43, label %34
 
-40:                                               ; preds = %38, %41
-  %.sroa.053.0.i = phi ptr [ %37, %41 ], [ %39, %38 ]
+34:                                               ; preds = %31, %35
+  %.sroa.053.0.i = phi ptr [ %30, %35 ], [ %33, %31 ]
   store ptr %.sroa.053.0.i, ptr %5, align 8, !alias.scope !2240
   store i64 %18, ptr %7, align 8, !alias.scope !2240
   store i64 %14, ptr %0, align 8, !alias.scope !2240
   br label %_ZN8smallvec10infallible17h3543849fa99aaa17E.llvm.10324051761969068468.exit
 
-41:                                               ; preds = %35
-  %42 = mul i64 %18, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull align 8 %5, i64 %42, i1 false)
-  br label %40
+35:                                               ; preds = %28
+  %36 = mul i64 %18, 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr nonnull align 8 %5, i64 %36, i1 false)
+  br label %34
 
-43:                                               ; preds = %23
-  %44 = mul i64 %18, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %6, i64 %44, i1 false)
+37:                                               ; preds = %23
+  %38 = mul i64 %18, 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %6, i64 %38, i1 false)
   store i64 %18, ptr %0, align 8, !alias.scope !2240
-  %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i.i, i64 24)
-  %46 = extractvalue { i64, i1 } %45, 0
-  %47 = extractvalue { i64, i1 } %45, 1
-  %48 = icmp ugt i64 %46, 9223372036854775800
-  %or.cond.i.i = or i1 %47, %48
-  br i1 %or.cond.i.i, label %49, label %_ZN8smallvec10deallocate17h235593ba21607254E.exit.i
+  %39 = mul i64 %.sink.i.i, 24
+  %or.cond.i.i = icmp ugt i64 %3, 384307168202282325
+  br i1 %or.cond.i.i, label %40, label %_ZN8smallvec10deallocate17h235593ba21607254E.exit.i
 
-49:                                               ; preds = %43
+40:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !2243
   store i64 0, ptr %2, align 8, !noalias !2243
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %46, ptr %50, align 8, !noalias !2243
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %39, ptr %41, align 8, !noalias !2243
   call void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.d9b1544ef394adff406c0d00b4bad668.38, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d9b1544ef394adff406c0d00b4bad668.37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d9b1544ef394adff406c0d00b4bad668.65) #26, !noalias !2243
   unreachable
 
-_ZN8smallvec10deallocate17h235593ba21607254E.exit.i: ; preds = %43
-  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %46, i64 noundef 8) #25, !noalias !2240
+_ZN8smallvec10deallocate17h235593ba21607254E.exit.i: ; preds = %37
+  tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %39, i64 noundef 8) #25, !noalias !2240
   br label %_ZN8smallvec10infallible17h3543849fa99aaa17E.llvm.10324051761969068468.exit
 
-51:                                               ; preds = %30, %24
+42:                                               ; preds = %27, %24
   tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.d9b1544ef394adff406c0d00b4bad668.66.llvm.10324051761969068468, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d9b1544ef394adff406c0d00b4bad668.67.llvm.10324051761969068468) #26
   unreachable
 
-52:                                               ; preds = %38, %35
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef %26) #26
+43:                                               ; preds = %31, %28
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef %25) #26
   unreachable
 
-_ZN8smallvec10infallible17h3543849fa99aaa17E.llvm.10324051761969068468.exit: ; preds = %22, %40, %_ZN8smallvec10deallocate17h235593ba21607254E.exit.i, %23
+_ZN8smallvec10infallible17h3543849fa99aaa17E.llvm.10324051761969068468.exit: ; preds = %22, %34, %_ZN8smallvec10deallocate17h235593ba21607254E.exit.i, %23
   ret void
 }
 
@@ -13485,79 +13476,70 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   br i1 %.not72, label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread, label %16
 
 15:                                               ; preds = %12
-  br i1 %6, label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread, label %35
+  br i1 %6, label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread, label %29
 
 16:                                               ; preds = %14
-  %17 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 24)
-  %18 = extractvalue { i64, i1 } %17, 0
-  %19 = extractvalue { i64, i1 } %17, 1
-  %20 = icmp ugt i64 %18, 9223372036854775800
-  %or.cond = or i1 %19, %20
-  br i1 %or.cond, label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread, label %21
+  %17 = mul i64 %1, 24
+  %or.cond = icmp ugt i64 %1, 384307168202282325
+  br i1 %or.cond, label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread, label %18
 
-21:                                               ; preds = %16
-  br i1 %6, label %27, label %22
+18:                                               ; preds = %16
+  br i1 %6, label %21, label %19
 
-22:                                               ; preds = %21
-  %23 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i, i64 24)
-  %24 = extractvalue { i64, i1 } %23, 0
-  %25 = extractvalue { i64, i1 } %23, 1
-  %26 = icmp ugt i64 %24, 9223372036854775800
-  %or.cond98 = or i1 %25, %26
-  br i1 %or.cond98, label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread, label %30
+19:                                               ; preds = %18
+  %20 = mul i64 %.sink.i, 24
+  %or.cond98 = icmp ugt i64 %5, 384307168202282325
+  br i1 %or.cond98, label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread, label %24
 
-27:                                               ; preds = %21
-  %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %29 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %18, i64 noundef 8) #25
-  %.not101 = icmp eq ptr %29, null
-  br i1 %.not101, label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread, label %33
+21:                                               ; preds = %18
+  %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %23 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %17, i64 noundef 8) #25
+  %.not101 = icmp eq ptr %23, null
+  br i1 %.not101, label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread, label %27
 
-30:                                               ; preds = %22
-  %31 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %8, i64 noundef %24, i64 noundef 8, i64 noundef %18) #25
-  %.not100 = icmp eq ptr %31, null
-  br i1 %.not100, label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread, label %32
+24:                                               ; preds = %19
+  %25 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %8, i64 noundef %20, i64 noundef 8, i64 noundef %17) #25
+  %.not100 = icmp eq ptr %25, null
+  br i1 %.not100, label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread, label %26
 
-32:                                               ; preds = %30, %33
-  %.sroa.053.0 = phi ptr [ %29, %33 ], [ %31, %30 ]
+26:                                               ; preds = %24, %27
+  %.sroa.053.0 = phi ptr [ %23, %27 ], [ %25, %24 ]
   store ptr %.sroa.053.0, ptr %0, align 8
   store i64 %10, ptr %9, align 8
   store i64 %1, ptr %4, align 8
   br label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread
 
-33:                                               ; preds = %27
-  %34 = mul nuw nsw i64 %5, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %0, i64 %34, i1 false)
-  br label %32
+27:                                               ; preds = %21
+  %28 = mul nuw nsw i64 %5, 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %0, i64 %28, i1 false)
+  br label %26
 
-35:                                               ; preds = %15
-  %36 = mul i64 %.val, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %8, i64 %36, i1 false)
+29:                                               ; preds = %15
+  %30 = mul i64 %.val, 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %8, i64 %30, i1 false)
   store i64 %.val, ptr %4, align 8
-  %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sink.i, i64 24)
-  %38 = extractvalue { i64, i1 } %37, 0
-  %39 = extractvalue { i64, i1 } %37, 1
-  %40 = icmp ugt i64 %38, 9223372036854775800
-  %or.cond.i = or i1 %39, %40
-  br i1 %or.cond.i, label %41, label %_ZN8smallvec10deallocate17h3badac7d4a9d5db8E.exit
+  %31 = mul i64 %.sink.i, 24
+  %or.cond.i = icmp ugt i64 %5, 384307168202282325
+  br i1 %or.cond.i, label %32, label %_ZN8smallvec10deallocate17h3badac7d4a9d5db8E.exit
 
-41:                                               ; preds = %35
+32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2272
   store i64 0, ptr %3, align 8, !noalias !2272
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %38, ptr %42, align 8, !noalias !2272
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %31, ptr %33, align 8, !noalias !2272
   call void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.d9b1544ef394adff406c0d00b4bad668.38, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d9b1544ef394adff406c0d00b4bad668.37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d9b1544ef394adff406c0d00b4bad668.65) #26, !noalias !2272
   unreachable
 
-_ZN8smallvec10deallocate17h3badac7d4a9d5db8E.exit: ; preds = %35
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %38, i64 noundef 8) #25
+_ZN8smallvec10deallocate17h3badac7d4a9d5db8E.exit: ; preds = %29
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %31, i64 noundef 8) #25
   br label %_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread
 
-_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread: ; preds = %22, %16, %15, %_ZN8smallvec10deallocate17h3badac7d4a9d5db8E.exit, %32, %14, %27, %30
-  %.sroa.7.0 = phi i64 [ %18, %30 ], [ %18, %27 ], [ undef, %14 ], [ undef, %32 ], [ undef, %_ZN8smallvec10deallocate17h3badac7d4a9d5db8E.exit ], [ undef, %15 ], [ %18, %16 ], [ %24, %22 ]
-  %.sroa.0.0 = phi i64 [ 8, %30 ], [ 8, %27 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %32 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h3badac7d4a9d5db8E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %22 ]
-  %43 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %44 = insertvalue { i64, i64 } %43, i64 %.sroa.7.0, 1
-  ret { i64, i64 } %44
+_ZN8smallvec12layout_array17h27b33a3c2650c2daE.exit80.thread: ; preds = %19, %16, %15, %_ZN8smallvec10deallocate17h3badac7d4a9d5db8E.exit, %26, %14, %21, %24
+  %.sroa.7.0 = phi i64 [ %17, %24 ], [ %17, %21 ], [ undef, %14 ], [ undef, %26 ], [ undef, %_ZN8smallvec10deallocate17h3badac7d4a9d5db8E.exit ], [ undef, %15 ], [ %17, %16 ], [ %20, %19 ]
+  %.sroa.0.0 = phi i64 [ 8, %24 ], [ 8, %21 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %26 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17h3badac7d4a9d5db8E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %19 ]
+  %34 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %35 = insertvalue { i64, i64 } %34, i64 %.sroa.7.0, 1
+  ret { i64, i64 } %35
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14201,9 +14183,6 @@ declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #14
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17hfb35fb27212e3b06E"(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef readonly align 8 dereferenceable(32), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
