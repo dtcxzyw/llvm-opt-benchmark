@@ -38927,7 +38927,7 @@ define dso_local void @_ZN5Catch17parseReporterSpecENS_9StringRefE(ptr dead_on_u
   %35 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %34, i64 %.013108
   %36 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #56
   %37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #56
-  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  %38 = getelementptr i8, ptr %36, i64 %37
   %39 = ptrtoint ptr %38 to i64
   %40 = ptrtoint ptr %36 to i64
   %41 = ashr i64 %37, 2
@@ -39031,7 +39031,6 @@ define dso_local void @_ZN5Catch17parseReporterSpecENS_9StringRefE(ptr dead_on_u
   %.not.i = icmp eq i64 %37, 0
   %81 = call i64 @llvm.umin.i64(i64 %37, i64 %80)
   %.sroa.0.0.i.i = select i1 %.not.i, ptr @.str.14, ptr %36
-  %.sroa.4.0.i.i = select i1 %.not.i, i64 0, i64 %81
   %82 = add i64 %80, 1
   %83 = icmp ult i64 %82, %37
   %84 = sub nuw i64 %37, %82
@@ -39039,7 +39038,7 @@ define dso_local void @_ZN5Catch17parseReporterSpecENS_9StringRefE(ptr dead_on_u
   %86 = call i64 @llvm.umin.i64(i64 %84, i64 %37)
   %.sroa.0.0.i2.i = select i1 %83, ptr %85, ptr @.str.14
   %.sroa.4.0.i3.i = select i1 %83, i64 %86, i64 0
-  %87 = icmp eq i64 %.sroa.4.0.i.i, 0
+  %87 = icmp eq i64 %81, 0
   %88 = icmp eq i64 %.sroa.4.0.i3.i, 0
   %or.cond = select i1 %87, i1 true, i1 %88
   br i1 %or.cond, label %89, label %90
@@ -39054,7 +39053,7 @@ define dso_local void @_ZN5Catch17parseReporterSpecENS_9StringRefE(ptr dead_on_u
   br i1 %92, label %93, label %121
 
 93:                                               ; preds = %90
-  %94 = icmp eq i64 %.sroa.4.0.i.i, 1
+  %94 = icmp eq i64 %81, 1
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %93
@@ -39064,7 +39063,7 @@ define dso_local void @_ZN5Catch17parseReporterSpecENS_9StringRefE(ptr dead_on_u
 96:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #56, !noalias !547
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %.sroa.0.0.i.i, i64 noundef %81, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %99 unwind label %97
 
 97:                                               ; preds = %96
@@ -39166,7 +39165,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.body
 
 121:                                              ; preds = %90
-  switch i64 %.sroa.4.0.i.i, label %_ZNK5Catch9StringRefeqES0_.exit28.thread [
+  switch i64 %81, label %_ZNK5Catch9StringRefeqES0_.exit28.thread [
     i64 3, label %_ZNK5Catch9StringRefeqES0_.exit
     i64 11, label %_ZNK5Catch9StringRefeqES0_.exit28
   ]

@@ -18316,31 +18316,32 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit55:              ; preds = %208, %214, %221
   %.sroa.speculated70 = call i32 @llvm.umin.i32(i32 %238, i32 %101)
   %239 = sub i32 %101, %.sroa.speculated70
   %240 = sub i32 %238, %.sroa.speculated70
+  %241 = freeze i32 %240
   br label %.thread
 
 .thread:                                          ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55, %237
   %.0129 = phi i32 [ %239, %237 ], [ %101, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55 ]
-  %.1 = phi i32 [ %240, %237 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55 ]
+  %.1 = phi i32 [ %241, %237 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55 ]
+  %.fr = freeze i32 %137
   %.not32 = icmp eq i32 %173, 0
-  %241 = call i32 @llvm.usub.sat.i32(i32 %173, i32 %.0129)
-  %.0130 = select i1 %.not32, i32 0, i32 %241
-  %.not33 = icmp eq i32 %.1, 0
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.1, i32 %137)
-  %242 = select i1 %.not33, i32 0, i32 %.sroa.speculated
-  %.0132 = sub i32 %137, %242
+  %242 = call i32 @llvm.usub.sat.i32(i32 %173, i32 %.0129)
+  %.0130 = select i1 %.not32, i32 0, i32 %242
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.1, i32 %.fr)
+  %.0132 = sub i32 %.fr, %.sroa.speculated
   %.not34 = icmp eq i32 %.0130, 0
   %243 = call i32 @llvm.usub.sat.i32(i32 %.0130, i32 %.0132)
   %.1131 = select i1 %.not34, i32 0, i32 %243
+  %.not33 = icmp eq i32 %.1, 0
   %244 = sub i32 %.1, %.sroa.speculated
   %245 = add i32 %65, %29
   %246 = add i32 %245, %101
-  %247 = add i32 %246, %137
+  %247 = add i32 %246, %.fr
   %248 = add i32 %244, 1
-  %249 = select i1 %.not33, i32 1, i32 %248
-  %250 = add i32 %249, %.1131
-  %251 = lshr i32 %250, 1
-  %252 = add i32 %247, %251
-  ret i32 %252
+  %spec.select = select i1 %.not33, i32 1, i32 %248
+  %249 = add i32 %spec.select, %.1131
+  %250 = lshr i32 %249, 1
+  %251 = add i32 %247, %250
+  ret i32 %251
 }
 
 ; Function Attrs: mustprogress uwtable
