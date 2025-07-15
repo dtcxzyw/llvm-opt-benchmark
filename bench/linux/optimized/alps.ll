@@ -4275,7 +4275,7 @@ define internal noundef i32 @alps_decode_dolphin(ptr noundef captures(none) %0, 
   %81 = and i8 %77, 125
   %82 = or disjoint i8 %81, %80
   store i8 %82, ptr %6, align 4
-  br label %147
+  br label %142
 
 83:                                               ; preds = %3
   %84 = load i8, ptr %1, align 1
@@ -4319,34 +4319,29 @@ define internal noundef i32 @alps_decode_dolphin(ptr noundef captures(none) %0, 
   %121 = zext nneg i8 %120 to i64
   %122 = shl nuw nsw i64 %121, 27
   %123 = or disjoint i64 %119, %122
-  %124 = load i8, ptr %1, align 1
-  %125 = and i8 %124, 1
-  %126 = zext nneg i8 %125 to i64
-  %127 = shl nuw nsw i64 %126, 34
-  %128 = or i64 %123, %127
-  %129 = getelementptr inbounds nuw i8, ptr %4, i64 216
-  %130 = load i32, ptr %129, align 8
-  %131 = zext nneg i32 %130 to i64
-  %132 = shl nsw i64 -1, %131
-  %133 = xor i64 %132, -1
-  %134 = and i64 %123, %133
-  %135 = trunc i64 %134 to i32
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %135, ptr %136, align 4
-  %137 = load i32, ptr %129, align 8
-  %138 = zext nneg i32 %137 to i64
-  %139 = lshr i64 %128, %138
-  %140 = getelementptr inbounds nuw i8, ptr %4, i64 212
-  %141 = load i32, ptr %140, align 4
-  %142 = zext nneg i32 %141 to i64
-  %143 = shl nsw i64 -1, %142
-  %144 = xor i64 %143, -1
-  %145 = and i64 %139, %144
-  %146 = trunc i64 %145 to i32
-  store i32 %146, ptr %0, align 4
-  br label %147
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 216
+  %125 = load i32, ptr %124, align 8
+  %126 = zext nneg i32 %125 to i64
+  %127 = shl nsw i64 -1, %126
+  %128 = xor i64 %127, -1
+  %129 = and i64 %123, %128
+  %130 = trunc i64 %129 to i32
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %130, ptr %131, align 4
+  %132 = load i32, ptr %124, align 8
+  %133 = zext nneg i32 %132 to i64
+  %134 = lshr i64 %123, %133
+  %135 = getelementptr inbounds nuw i8, ptr %4, i64 212
+  %136 = load i32, ptr %135, align 4
+  %137 = zext nneg i32 %136 to i64
+  %138 = shl nsw i64 -1, %137
+  %139 = xor i64 %138, -1
+  %140 = and i64 %134, %139
+  %141 = trunc i64 %140 to i32
+  store i32 %141, ptr %0, align 4
+  br label %142
 
-147:                                              ; preds = %83, %49
+142:                                              ; preds = %83, %49
   ret i32 0
 }
 

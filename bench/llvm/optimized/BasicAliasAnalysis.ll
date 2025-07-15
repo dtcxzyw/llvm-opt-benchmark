@@ -4668,119 +4668,113 @@ _ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit:     ; preds = %_ZN4llvm14CastIsPos
   %33 = load ptr, ptr %3, align 8, !tbaa !209
   %34 = call i32 @_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull %30) #24
   %35 = call noundef zeroext i1 @_ZNK4llvm8CallBase24hasReadingOperandBundlesEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #24
-  %36 = or i32 %34, 21
-  %spec.select.i = select i1 %35, i32 %36, i32 %34
-  %37 = call noundef zeroext i1 @_ZNK4llvm8CallBase27hasClobberingOperandBundlesEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #24
-  %38 = or i32 %spec.select.i, 42
-  %.sroa.0.1.i = select i1 %37, i32 %38, i32 %spec.select.i
-  %39 = and i32 %.sroa.0.1.i, %28
+  %36 = call noundef zeroext i1 @_ZNK4llvm8CallBase27hasClobberingOperandBundlesEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #24
+  %.sroa.0.1.i = select i1 %36, i32 42, i32 %34
+  %37 = and i32 %.sroa.0.1.i, %28
   br label %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit
 
 _ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit: ; preds = %26, %32
-  %.sroa.011.0.i = phi i32 [ %28, %26 ], [ %39, %32 ]
-  br label %40
+  %.sroa.011.0.i = phi i32 [ %28, %26 ], [ %37, %32 ]
+  br label %38
 
-40:                                               ; preds = %40, %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit
-  %.010.i = phi i8 [ 0, %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit ], [ %46, %40 ]
-  %.sroa.04.09.i = phi i64 [ 0, %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit ], [ %47, %40 ]
-  %41 = trunc i64 %.sroa.04.09.i to i32
-  %42 = shl i32 %41, 1
-  %43 = lshr i32 %.sroa.011.0.i, %42
-  %44 = trunc i32 %43 to i8
-  %45 = and i8 %44, 3
-  %46 = or i8 %45, %.010.i
-  %47 = add nuw nsw i64 %.sroa.04.09.i, 1
-  %.not.i7 = icmp eq i64 %47, 3
-  br i1 %.not.i7, label %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit, label %40
+38:                                               ; preds = %38, %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit
+  %.010.i = phi i8 [ 0, %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit ], [ %44, %38 ]
+  %.sroa.04.09.i = phi i64 [ 0, %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit ], [ %45, %38 ]
+  %39 = trunc i64 %.sroa.04.09.i to i32
+  %40 = shl i32 %39, 1
+  %41 = lshr i32 %.sroa.011.0.i, %40
+  %42 = trunc i32 %41 to i8
+  %43 = and i8 %42, 3
+  %44 = or i8 %43, %.010.i
+  %45 = add nuw nsw i64 %.sroa.04.09.i, 1
+  %.not.i7 = icmp eq i64 %45, 3
+  br i1 %.not.i7, label %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit, label %38
 
-_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit: ; preds = %40
-  %48 = lshr i8 %46, 1
+_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit: ; preds = %38
+  %46 = lshr i8 %44, 1
   br label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread
 
 _ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit.thread: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_8CallBaseEvE10isPossibleERKS4_.exit.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i, %9, %12, %4, %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit
-  %49 = load i8, ptr %2, align 8, !tbaa !118
-  %50 = icmp eq i8 %49, 85
-  br i1 %50, label %51, label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread
+  %47 = load i8, ptr %2, align 8, !tbaa !118
+  %48 = icmp eq i8 %47, 85
+  br i1 %48, label %49, label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread
 
-51:                                               ; preds = %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit.thread
-  %52 = getelementptr inbounds i8, ptr %2, i64 -32
-  %53 = load ptr, ptr %52, align 8, !tbaa !131
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i8 = icmp eq ptr %53, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i8, label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread, label %54
+49:                                               ; preds = %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit.thread
+  %50 = getelementptr inbounds i8, ptr %2, i64 -32
+  %51 = load ptr, ptr %50, align 8, !tbaa !131
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i8 = icmp eq ptr %51, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i8, label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread, label %52
 
-54:                                               ; preds = %51
-  %55 = load i8, ptr %53, align 8, !tbaa !118
-  %56 = icmp eq i8 %55, 0
-  br i1 %56, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i9, label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread
+52:                                               ; preds = %49
+  %53 = load i8, ptr %51, align 8, !tbaa !118
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i9, label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread
 
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i9: ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %58 = load ptr, ptr %57, align 8, !tbaa !277
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %60 = load ptr, ptr %59, align 8, !tbaa !278
-  %61 = icmp eq ptr %58, %60
-  br i1 %61, label %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_8CallBaseEvE10isPossibleERKS4_.exit.i.i.i10, label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i9: ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %56 = load ptr, ptr %55, align 8, !tbaa !277
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %58 = load ptr, ptr %57, align 8, !tbaa !278
+  %59 = icmp eq ptr %56, %58
+  br i1 %59, label %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_8CallBaseEvE10isPossibleERKS4_.exit.i.i.i10, label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread
 
 _ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_8CallBaseEvE10isPossibleERKS4_.exit.i.i.i10: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i9
-  %62 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %63 = load i32, ptr %62, align 8
-  %64 = and i32 %63, 8192
-  %.not.i.i.i11 = icmp eq i32 %64, 0
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %61 = load i32, ptr %60, align 8
+  %62 = and i32 %61, 8192
+  %.not.i.i.i11 = icmp eq i32 %62, 0
   br i1 %.not.i.i.i11, label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread, label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13
 
 _ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13:   ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_8CallBaseEvE10isPossibleERKS4_.exit.i.i.i10
-  %65 = getelementptr inbounds nuw i8, ptr %53, i64 36
-  %66 = load i32, ptr %65, align 4, !tbaa !220
-  %67 = icmp eq i32 %66, 153
-  br i1 %67, label %68, label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread
+  %63 = getelementptr inbounds nuw i8, ptr %51, i64 36
+  %64 = load i32, ptr %63, align 4, !tbaa !220
+  %65 = icmp eq i32 %64, 153
+  br i1 %65, label %66, label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread
 
-68:                                               ; preds = %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13
+66:                                               ; preds = %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sroa.0.0.copyload.i.i14 = load ptr, ptr %69, align 8, !tbaa !207
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.sroa.0.0.copyload.i.i14 = load ptr, ptr %67, align 8, !tbaa !207
   store ptr %.sroa.0.0.copyload.i.i14, ptr %5, align 8
-  %70 = call i32 @_ZNK4llvm13AttributeList16getMemoryEffectsEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
+  %68 = call i32 @_ZNK4llvm13AttributeList16getMemoryEffectsEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
-  %71 = getelementptr inbounds i8, ptr %1, i64 -32
-  %72 = load ptr, ptr %71, align 8, !tbaa !131
-  %73 = load i8, ptr %72, align 8, !tbaa !118
-  %.not.i15 = icmp eq i8 %73, 0
-  br i1 %.not.i15, label %74, label %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit19
+  %69 = getelementptr inbounds i8, ptr %1, i64 -32
+  %70 = load ptr, ptr %69, align 8, !tbaa !131
+  %71 = load i8, ptr %70, align 8, !tbaa !118
+  %.not.i15 = icmp eq i8 %71, 0
+  br i1 %.not.i15, label %72, label %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit19
 
-74:                                               ; preds = %68
-  %75 = load ptr, ptr %3, align 8, !tbaa !209
-  %76 = call i32 @_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull %72) #24
-  %77 = call noundef zeroext i1 @_ZNK4llvm8CallBase24hasReadingOperandBundlesEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #24
-  %78 = or i32 %76, 21
-  %spec.select.i17 = select i1 %77, i32 %78, i32 %76
-  %79 = call noundef zeroext i1 @_ZNK4llvm8CallBase27hasClobberingOperandBundlesEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #24
-  %80 = or i32 %spec.select.i17, 42
-  %.sroa.0.1.i18 = select i1 %79, i32 %80, i32 %spec.select.i17
-  %81 = and i32 %.sroa.0.1.i18, %70
+72:                                               ; preds = %66
+  %73 = load ptr, ptr %3, align 8, !tbaa !209
+  %74 = call i32 @_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull %70) #24
+  %75 = call noundef zeroext i1 @_ZNK4llvm8CallBase24hasReadingOperandBundlesEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #24
+  %76 = call noundef zeroext i1 @_ZNK4llvm8CallBase27hasClobberingOperandBundlesEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #24
+  %.sroa.0.1.i18 = select i1 %76, i32 42, i32 %74
+  %77 = and i32 %.sroa.0.1.i18, %68
   br label %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit19
 
-_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit19: ; preds = %68, %74
-  %.sroa.011.0.i16 = phi i32 [ %70, %68 ], [ %81, %74 ]
-  br label %82
+_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit19: ; preds = %66, %72
+  %.sroa.011.0.i16 = phi i32 [ %68, %66 ], [ %77, %72 ]
+  br label %78
 
-82:                                               ; preds = %82, %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit19
-  %.010.i20 = phi i8 [ 0, %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit19 ], [ %87, %82 ]
-  %.sroa.04.09.i21 = phi i64 [ 0, %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit19 ], [ %88, %82 ]
-  %83 = trunc i64 %.sroa.04.09.i21 to i32
-  %84 = shl i32 %83, 1
-  %85 = lshr i32 %.sroa.011.0.i16, %84
-  %86 = trunc i32 %85 to i8
-  %87 = or i8 %.010.i20, %86
-  %88 = add nuw nsw i64 %.sroa.04.09.i21, 1
-  %.not.i22 = icmp eq i64 %88, 3
-  br i1 %.not.i22, label %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit23, label %82
+78:                                               ; preds = %78, %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit19
+  %.010.i20 = phi i8 [ 0, %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit19 ], [ %83, %78 ]
+  %.sroa.04.09.i21 = phi i64 [ 0, %_ZN4llvm13BasicAAResult16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit19 ], [ %84, %78 ]
+  %79 = trunc i64 %.sroa.04.09.i21 to i32
+  %80 = shl i32 %79, 1
+  %81 = lshr i32 %.sroa.011.0.i16, %80
+  %82 = trunc i32 %81 to i8
+  %83 = or i8 %.010.i20, %82
+  %84 = add nuw nsw i64 %.sroa.04.09.i21, 1
+  %.not.i22 = icmp eq i64 %84, 3
+  br i1 %.not.i22, label %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit23, label %78
 
-_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit23: ; preds = %82
-  %89 = and i8 %87, 2
+_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit23: ; preds = %78
+  %85 = and i8 %83, 2
   br label %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread
 
-_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_8CallBaseEvE10isPossibleERKS4_.exit.i.i.i10, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i9, %51, %54, %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit.thread, %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit23, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit
-  %.0 = phi i8 [ %48, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit ], [ %89, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit23 ], [ 3, %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13 ], [ 3, %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit.thread ], [ 3, %54 ], [ 3, %51 ], [ 3, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i9 ], [ 3, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_8CallBaseEvE10isPossibleERKS4_.exit.i.i.i10 ]
+_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13.thread: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_8CallBaseEvE10isPossibleERKS4_.exit.i.i.i10, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i9, %49, %52, %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit.thread, %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit23, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit
+  %.0 = phi i8 [ %46, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit ], [ %85, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit23 ], [ 3, %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit13 ], [ 3, %_ZL15isIntrinsicCallPKN4llvm8CallBaseEj.exit.thread ], [ 3, %52 ], [ 3, %49 ], [ 3, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i9 ], [ 3, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_8CallBaseEvE10isPossibleERKS4_.exit.i.i.i10 ]
   ret i8 %.0
 }
 

@@ -2921,10 +2921,10 @@ define dso_local void @_ZNK4llvm15RISCVAsmBackend10applyFixupERKNS_11MCAssembler
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !322
   %27 = load i32, ptr %17, align 4, !tbaa !72
   switch i32 %27, label %28 [
-    i32 145, label %130
-    i32 144, label %105
-    i32 147, label %100
-    i32 146, label %100
+    i32 145, label %103
+    i32 144, label %81
+    i32 147, label %79
+    i32 146, label %79
     i32 1, label %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
     i32 2, label %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
     i32 3, label %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
@@ -2938,11 +2938,11 @@ define dso_local void @_ZNK4llvm15RISCVAsmBackend10applyFixupERKNS_11MCAssembler
     i32 131, label %40
     i32 134, label %40
     i32 138, label %40
-    i32 128, label %46
-    i32 132, label %46
-    i32 136, label %46
-    i32 142, label %50
-    i32 143, label %75
+    i32 128, label %43
+    i32 132, label %43
+    i32 136, label %43
+    i32 142, label %47
+    i32 143, label %63
   ]
 
 28:                                               ; preds = %26
@@ -2975,232 +2975,199 @@ define dso_local void @_ZNK4llvm15RISCVAsmBackend10applyFixupERKNS_11MCAssembler
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
 
 40:                                               ; preds = %26, %26, %26
-  %41 = shl i64 %6, 20
-  %42 = and i64 %41, 4261412864
-  %43 = shl i64 %6, 7
-  %44 = and i64 %43, 3968
-  %45 = or disjoint i64 %42, %44
+  %41 = shl i64 %6, 7
+  %42 = and i64 %41, 3968
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
 
-46:                                               ; preds = %26, %26, %26
-  %47 = add i64 %6, 2048
-  %48 = lshr i64 %47, 12
-  %49 = and i64 %48, 1048575
+43:                                               ; preds = %26, %26, %26
+  %44 = add i64 %6, 2048
+  %45 = lshr i64 %44, 12
+  %46 = and i64 %45, 1048575
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
 
-50:                                               ; preds = %26
-  %51 = add i64 %6, 1048576
-  %52 = icmp ult i64 %51, 2097152
-  br i1 %52, label %57, label %53
+47:                                               ; preds = %26
+  %48 = add i64 %6, 1048576
+  %49 = icmp ult i64 %48, 2097152
+  br i1 %49, label %54, label %50
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i86.i = load ptr, ptr %54, align 8, !tbaa !54
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.0.0.copyload.i86.i = load ptr, ptr %51, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #21
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %56 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 1, ptr %56, align 1, !tbaa !341
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  store i8 1, ptr %53, align 1, !tbaa !341
   store ptr @.str.165, ptr %11, align 8, !tbaa !89
-  store i8 3, ptr %55, align 8, !tbaa !344
+  store i8 3, ptr %52, align 8, !tbaa !344
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %21, ptr %.sroa.0.0.copyload.i86.i, ptr noundef nonnull align 8 dereferenceable(34) %11) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #21
-  br label %57
+  br label %54
 
-57:                                               ; preds = %53, %50
-  %58 = and i64 %6, 1
-  %.not84.i = icmp eq i64 %58, 0
-  br i1 %.not84.i, label %63, label %59
+54:                                               ; preds = %50, %47
+  %55 = and i64 %6, 1
+  %.not84.i = icmp eq i64 %55, 0
+  br i1 %.not84.i, label %60, label %56
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i87.i = load ptr, ptr %60, align 8, !tbaa !54
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.0.0.copyload.i87.i = load ptr, ptr %57, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #21
-  %61 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %62 = getelementptr inbounds nuw i8, ptr %12, i64 33
-  store i8 1, ptr %62, align 1, !tbaa !341
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 33
+  store i8 1, ptr %59, align 1, !tbaa !341
   store ptr @.str.166, ptr %12, align 8, !tbaa !89
-  store i8 3, ptr %61, align 8, !tbaa !344
+  store i8 3, ptr %58, align 8, !tbaa !344
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %21, ptr %.sroa.0.0.copyload.i87.i, ptr noundef nonnull align 8 dereferenceable(34) %12) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #21
-  br label %63
+  br label %60
 
-63:                                               ; preds = %59, %57
-  %64 = lshr i64 %6, 12
-  %65 = and i64 %64, 255
-  %66 = lshr i64 %6, 1
-  %67 = and i64 %66, 524288
-  %68 = shl i64 %6, 8
-  %69 = and i64 %68, 523776
-  %70 = or disjoint i64 %67, %69
-  %71 = lshr i64 %6, 3
-  %72 = and i64 %71, 256
-  %73 = or disjoint i64 %70, %72
-  %74 = or disjoint i64 %73, %65
+60:                                               ; preds = %56, %54
+  %61 = lshr i64 %6, 12
+  %62 = and i64 %61, 255
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
 
-75:                                               ; preds = %26
-  %76 = add i64 %6, 4096
-  %77 = icmp ult i64 %76, 8192
-  br i1 %77, label %82, label %78
+63:                                               ; preds = %26
+  %64 = add i64 %6, 4096
+  %65 = icmp ult i64 %64, 8192
+  br i1 %65, label %70, label %66
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i88.i = load ptr, ptr %79, align 8, !tbaa !54
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.0.0.copyload.i88.i = load ptr, ptr %67, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #21
-  %80 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %81 = getelementptr inbounds nuw i8, ptr %13, i64 33
-  store i8 1, ptr %81, align 1, !tbaa !341
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  store i8 1, ptr %69, align 1, !tbaa !341
   store ptr @.str.165, ptr %13, align 8, !tbaa !89
-  store i8 3, ptr %80, align 8, !tbaa !344
+  store i8 3, ptr %68, align 8, !tbaa !344
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %21, ptr %.sroa.0.0.copyload.i88.i, ptr noundef nonnull align 8 dereferenceable(34) %13) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #21
-  br label %82
+  br label %70
 
-82:                                               ; preds = %78, %75
-  %83 = and i64 %6, 1
-  %.not.i = icmp eq i64 %83, 0
-  br i1 %.not.i, label %88, label %84
+70:                                               ; preds = %66, %63
+  %71 = and i64 %6, 1
+  %.not.i = icmp eq i64 %71, 0
+  br i1 %.not.i, label %76, label %72
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i89.i = load ptr, ptr %85, align 8, !tbaa !54
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.0.0.copyload.i89.i = load ptr, ptr %73, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #21
-  %86 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %87 = getelementptr inbounds nuw i8, ptr %14, i64 33
-  store i8 1, ptr %87, align 1, !tbaa !341
+  %74 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %14, i64 33
+  store i8 1, ptr %75, align 1, !tbaa !341
   store ptr @.str.166, ptr %14, align 8, !tbaa !89
-  store i8 3, ptr %86, align 8, !tbaa !344
+  store i8 3, ptr %74, align 8, !tbaa !344
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %21, ptr %.sroa.0.0.copyload.i89.i, ptr noundef nonnull align 8 dereferenceable(34) %14) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #21
-  br label %88
+  br label %76
 
-88:                                               ; preds = %84, %82
-  %89 = shl i64 %6, 19
-  %90 = and i64 %89, 2147483648
-  %91 = shl i64 %6, 20
-  %92 = and i64 %91, 2113929216
-  %93 = or disjoint i64 %90, %92
-  %94 = shl i64 %6, 7
-  %95 = and i64 %94, 3840
-  %96 = or disjoint i64 %93, %95
-  %97 = lshr i64 %6, 4
-  %98 = and i64 %97, 128
-  %99 = or disjoint i64 %96, %98
+76:                                               ; preds = %72, %70
+  %77 = lshr i64 %6, 4
+  %78 = and i64 %77, 128
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
 
-100:                                              ; preds = %26, %26
-  %101 = add i64 %6, 2048
-  %102 = and i64 %101, 4294963200
-  %103 = shl i64 %6, 52
-  %104 = or disjoint i64 %102, %103
+79:                                               ; preds = %26, %26
+  %80 = shl i64 %6, 52
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
 
-105:                                              ; preds = %26
-  %106 = add i64 %6, 2048
-  %107 = icmp ult i64 %106, 4096
-  br i1 %107, label %112, label %108
+81:                                               ; preds = %26
+  %82 = add i64 %6, 2048
+  %83 = icmp ult i64 %82, 4096
+  br i1 %83, label %88, label %84
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i90.i = load ptr, ptr %109, align 8, !tbaa !54
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.0.0.copyload.i90.i = load ptr, ptr %85, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #21
-  %110 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %111 = getelementptr inbounds nuw i8, ptr %15, i64 33
-  store i8 1, ptr %111, align 1, !tbaa !341
+  %86 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %15, i64 33
+  store i8 1, ptr %87, align 1, !tbaa !341
   store ptr @.str.165, ptr %15, align 8, !tbaa !89
-  store i8 3, ptr %110, align 8, !tbaa !344
+  store i8 3, ptr %86, align 8, !tbaa !344
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %21, ptr %.sroa.0.0.copyload.i90.i, ptr noundef nonnull align 8 dereferenceable(34) %15) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #21
-  br label %112
+  br label %88
 
-112:                                              ; preds = %108, %105
-  %113 = and i64 %6, 14
-  %114 = lshr i64 %6, 5
-  %115 = and i64 %114, 1
-  %116 = lshr i64 %6, 1
-  %117 = shl i64 %6, 5
-  %118 = and i64 %117, 512
-  %119 = and i64 %116, 1408
-  %120 = lshr i64 %6, 4
-  %121 = and i64 %120, 64
-  %122 = and i64 %116, 32
-  %123 = lshr i64 %6, 3
-  %124 = and i64 %123, 16
-  %125 = or disjoint i64 %118, %113
-  %126 = or disjoint i64 %125, %119
-  %127 = or disjoint i64 %126, %121
-  %128 = or disjoint i64 %127, %122
-  %.masked.i = or disjoint i64 %128, %124
-  %129 = or i64 %.masked.i, %115
+88:                                               ; preds = %84, %81
+  %89 = and i64 %6, 14
+  %90 = lshr i64 %6, 5
+  %91 = and i64 %90, 1
+  %92 = lshr i64 %6, 1
+  %93 = and i64 %92, 1408
+  %94 = lshr i64 %6, 4
+  %95 = and i64 %94, 64
+  %96 = and i64 %92, 32
+  %97 = lshr i64 %6, 3
+  %98 = and i64 %97, 16
+  %99 = or disjoint i64 %89, %93
+  %100 = or disjoint i64 %99, %95
+  %101 = or disjoint i64 %100, %96
+  %.masked.i = or disjoint i64 %101, %98
+  %102 = or disjoint i64 %.masked.i, %91
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
 
-130:                                              ; preds = %26
-  %131 = add i64 %6, 256
-  %132 = icmp ult i64 %131, 512
-  br i1 %132, label %137, label %133
+103:                                              ; preds = %26
+  %104 = add i64 %6, 256
+  %105 = icmp ult i64 %104, 512
+  br i1 %105, label %110, label %106
 
-133:                                              ; preds = %130
-  %134 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i91.i = load ptr, ptr %134, align 8, !tbaa !54
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.0.0.copyload.i91.i = load ptr, ptr %107, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #21
-  %135 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %136 = getelementptr inbounds nuw i8, ptr %16, i64 33
-  store i8 1, ptr %136, align 1, !tbaa !341
+  %108 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %16, i64 33
+  store i8 1, ptr %109, align 1, !tbaa !341
   store ptr @.str.165, ptr %16, align 8, !tbaa !89
-  store i8 3, ptr %135, align 8, !tbaa !344
+  store i8 3, ptr %108, align 8, !tbaa !344
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %21, ptr %.sroa.0.0.copyload.i91.i, ptr noundef nonnull align 8 dereferenceable(34) %16) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #21
-  br label %137
+  br label %110
 
-137:                                              ; preds = %133, %130
-  %138 = shl i64 %6, 4
-  %139 = and i64 %138, 4096
-  %140 = shl i64 %6, 7
-  %141 = and i64 %140, 3072
-  %142 = or disjoint i64 %139, %141
-  %143 = lshr i64 %6, 1
-  %144 = and i64 %143, 96
-  %145 = or disjoint i64 %142, %144
-  %146 = shl i64 %6, 2
-  %147 = and i64 %146, 24
-  %148 = or disjoint i64 %145, %147
-  %149 = lshr i64 %6, 3
-  %150 = and i64 %149, 4
-  %151 = or disjoint i64 %148, %150
+110:                                              ; preds = %106, %103
+  %111 = lshr i64 %6, 1
+  %112 = and i64 %111, 96
+  %113 = shl i64 %6, 2
+  %114 = and i64 %113, 24
+  %115 = or disjoint i64 %112, %114
+  %116 = lshr i64 %6, 3
+  %117 = and i64 %116, 4
+  %118 = or disjoint i64 %115, %117
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit
 
-_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit: ; preds = %26, %26, %26, %26, %26, %29, %38, %40, %46, %63, %88, %100, %112, %137
-  %.0.i = phi i64 [ %151, %137 ], [ %129, %112 ], [ %104, %100 ], [ %30, %29 ], [ %39, %38 ], [ %45, %40 ], [ %49, %46 ], [ %74, %63 ], [ %99, %88 ], [ %6, %26 ], [ %6, %26 ], [ %6, %26 ], [ %6, %26 ], [ %6, %26 ]
-  %152 = zext nneg i32 %.sroa.3.0.copyload to i64
-  %153 = shl i64 %.0.i, %152
-  %154 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %155 = load i32, ptr %154, align 8, !tbaa !314
-  %156 = add i32 %.sroa.3.0.copyload, %.sroa.5.0.copyload
-  %157 = icmp ne i32 %156, 0
-  %.neg = sext i1 %157 to i32
-  %158 = add i32 %156, %.neg
-  %159 = select i1 %157, i32 8, i32 0
-  %160 = add i32 %158, %159
-  %161 = lshr i32 %160, 3
-  %.not2021 = icmp ult i32 %160, 8
+_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit: ; preds = %26, %26, %26, %26, %26, %29, %38, %40, %43, %60, %76, %79, %88, %110
+  %.0.i = phi i64 [ %118, %110 ], [ %102, %88 ], [ %80, %79 ], [ %30, %29 ], [ %39, %38 ], [ %42, %40 ], [ %46, %43 ], [ %62, %60 ], [ %78, %76 ], [ %6, %26 ], [ %6, %26 ], [ %6, %26 ], [ %6, %26 ], [ %6, %26 ]
+  %119 = zext nneg i32 %.sroa.3.0.copyload to i64
+  %120 = shl i64 %.0.i, %119
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %122 = load i32, ptr %121, align 8, !tbaa !314
+  %123 = add i32 %.sroa.3.0.copyload, %.sroa.5.0.copyload
+  %124 = icmp ne i32 %123, 0
+  %.neg = sext i1 %124 to i32
+  %125 = add i32 %123, %.neg
+  %126 = select i1 %124, i32 8, i32 0
+  %127 = add i32 %125, %126
+  %128 = lshr i32 %127, 3
+  %.not2021 = icmp ult i32 %127, 8
   br i1 %.not2021, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit ]
-  %162 = trunc nuw i64 %indvars.iv to i32
-  %163 = shl i64 %indvars.iv, 3
-  %164 = and i64 %163, 4294967288
-  %165 = lshr i64 %153, %164
-  %166 = trunc i64 %165 to i8
-  %167 = add i32 %155, %162
-  %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw i8, ptr %4, i64 %168
-  %170 = load i8, ptr %169, align 1, !tbaa !89
-  %171 = or i8 %170, %166
-  store i8 %171, ptr %169, align 1, !tbaa !89
+  %129 = trunc nuw i64 %indvars.iv to i32
+  %130 = shl i64 %indvars.iv, 3
+  %131 = and i64 %130, 4294967288
+  %132 = lshr i64 %120, %131
+  %133 = trunc i64 %132 to i8
+  %134 = add i32 %122, %129
+  %135 = zext i32 %134 to i64
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 %135
+  %137 = load i8, ptr %136, align 1, !tbaa !89
+  %138 = or i8 %137, %133
+  store i8 %138, ptr %136, align 1, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond = icmp eq i32 %161, %lftr.wideiv
+  %exitcond = icmp eq i32 %128, %lftr.wideiv
   br i1 %exitcond, label %.loopexit, label %.lr.ph, !llvm.loop !360
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZL16adjustFixupValueRKN4llvm7MCFixupEmRNS_9MCContextE.exit, %20, %9

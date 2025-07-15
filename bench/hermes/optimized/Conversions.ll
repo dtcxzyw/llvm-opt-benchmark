@@ -40,11 +40,10 @@ if.then6:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %and4 = and i64 %0, 4503599627370495
-  %or = or disjoint i64 %and4, 4503599627370496
   %cmp10 = icmp samesign ugt i32 %and, 1022
   %sub13 = sub nuw nsw i32 1075, %and
   %sh_prom14 = zext nneg i32 %sub13 to i64
-  %shr15 = lshr i64 %or, %sh_prom14
+  %shr15 = lshr i64 %and4, %sh_prom14
   %3 = trunc i64 %shr15 to i32
   %4 = mul i32 %sub, %3
   %cond19 = select i1 %cmp10, i32 %4, i32 0

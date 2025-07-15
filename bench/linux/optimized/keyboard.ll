@@ -471,12 +471,11 @@ define dso_local range(i32 0, 2) i32 @vt_get_leds(i32 noundef %0, i32 noundef %1
   %5 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3, i32 2
   %6 = load i8, ptr %5, align 1
   %7 = lshr i8 %6, 1
-  %8 = and i8 %7, 15
-  %9 = zext nneg i8 %8 to i32
-  %10 = lshr i32 %9, %1
-  %11 = and i32 %10, 1
+  %8 = zext nneg i8 %7 to i32
+  %9 = lshr i32 %8, %1
+  %10 = and i32 %9, 1
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @led_lock, i64 noundef %4) #19
-  ret i32 %11
+  ret i32 %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1757,11 +1756,10 @@ define dso_local range(i32 0, 2) i32 @vt_get_kbd_mode_bit(i32 noundef %0, i32 no
   %3 = zext i32 %0 to i64
   %4 = getelementptr [63 x %struct.kbd_struct], ptr @kbd_table, i64 0, i64 %3, i32 4
   %5 = load i8, ptr %4, align 1
-  %6 = and i8 %5, 31
-  %7 = zext nneg i8 %6 to i32
-  %8 = lshr i32 %7, %1
-  %9 = and i32 %8, 1
-  ret i32 %9
+  %6 = zext i8 %5 to i32
+  %7 = lshr i32 %6, %1
+  %8 = and i32 %7, 1
+  ret i32 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

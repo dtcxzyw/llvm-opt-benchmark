@@ -1991,16 +1991,15 @@ define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr noundef nonnull readonly a
   br label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit
 
 19:                                               ; preds = %8
-  %20 = or disjoint i64 %5, 4503599627370496
-  %21 = lshr i64 %20, %6
-  %22 = sub nsw i64 0, %21
-  %23 = select i1 %9, i64 %22, i64 %21
+  %20 = lshr i64 %5, %6
+  %21 = sub nsw i64 0, %20
+  %22 = select i1 %9, i64 %21, i64 %20
   br label %_ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit
 
 _ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit: ; preds = %1, %11, %14, %19
-  %.0.i = phi i64 [ %18, %14 ], [ %23, %19 ], [ 0, %1 ], [ -2147483648, %11 ]
-  %24 = trunc nsw i64 %.0.i to i32
-  ret i32 %24
+  %.0.i = phi i64 [ %18, %14 ], [ %22, %19 ], [ 0, %1 ], [ -2147483648, %11 ]
+  %23 = trunc i64 %.0.i to i32
+  ret i32 %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

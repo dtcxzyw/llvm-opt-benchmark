@@ -41,83 +41,77 @@ define void @Ree_TruthPrecompute() local_unnamed_addr #0 {
   %1 = getelementptr inbounds nuw [8 x i64], ptr @__const.Ree_TruthPrecompute.Truths, i64 0, i64 %indvars.iv
   %2 = load i64, ptr %1, align 8, !tbaa !3
   %3 = and i64 %2, -4340410370284600381
-  %4 = shl i64 %2, 2
-  %5 = and i64 %4, 3472328296227680304
-  %6 = or disjoint i64 %5, %3
-  %7 = lshr i64 %2, 2
-  %8 = and i64 %7, 868082074056920076
-  %9 = or disjoint i64 %6, %8
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !7
-  br label %11
+  %4 = lshr i64 %2, 2
+  %5 = and i64 %4, 868082074056920076
+  %6 = or disjoint i64 %3, %5
+  %7 = load ptr, ptr @stdout, align 8, !tbaa !7
+  br label %8
 
-11:                                               ; preds = %11, %.preheader.i
-  %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %11 ]
-  %12 = shl nuw nsw i64 %indvars.iv.i, 2
-  %13 = lshr i64 %9, %12
-  %14 = trunc i64 %13 to i32
-  %15 = and i32 %14, 15
-  %16 = icmp samesign ult i32 %15, 10
-  %17 = or disjoint i32 %15, 48
-  %18 = add nuw nsw i32 %15, 55
-  %.0.i.i = select i1 %16, i32 %17, i32 %18
-  %fputc.i = tail call i32 @fputc(i32 %.0.i.i, ptr %10)
+8:                                                ; preds = %8, %.preheader.i
+  %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
+  %9 = shl nuw nsw i64 %indvars.iv.i, 2
+  %10 = lshr i64 %6, %9
+  %11 = trunc i64 %10 to i32
+  %12 = and i32 %11, 15
+  %13 = icmp samesign ult i32 %12, 10
+  %14 = or disjoint i32 %12, 48
+  %15 = add nuw nsw i32 %12, 55
+  %.0.i.i = select i1 %13, i32 %14, i32 %15
+  %fputc.i = tail call i32 @fputc(i32 %.0.i.i, ptr %7)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not20.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not20.i, label %Abc_TtPrintHexRev.exit, label %11, !llvm.loop !10
+  br i1 %.not20.i, label %Abc_TtPrintHexRev.exit, label %8, !llvm.loop !10
 
-Abc_TtPrintHexRev.exit:                           ; preds = %11
+Abc_TtPrintHexRev.exit:                           ; preds = %8
   %putchar8 = tail call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %19, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond.not, label %16, label %.preheader.i, !llvm.loop !12
 
-19:                                               ; preds = %Abc_TtPrintHexRev.exit
+16:                                               ; preds = %Abc_TtPrintHexRev.exit
   %putchar = tail call i32 @putchar(i32 10)
   br label %.preheader.i9
 
-.preheader.i9:                                    ; preds = %19, %Abc_TtPrintHexRev.exit17
-  %indvars.iv21 = phi i64 [ 0, %19 ], [ %indvars.iv.next22, %Abc_TtPrintHexRev.exit17 ]
-  %20 = getelementptr inbounds nuw [8 x i64], ptr @__const.Ree_TruthPrecompute.Truths, i64 0, i64 %indvars.iv21
-  %21 = load i64, ptr %20, align 8, !tbaa !3
-  %22 = and i64 %21, -4340410370284600381
-  %23 = shl i64 %21, 2
-  %24 = and i64 %23, 3472328296227680304
-  %25 = or disjoint i64 %24, %22
-  %26 = lshr i64 %21, 2
-  %27 = and i64 %26, 868082074056920076
-  %28 = or disjoint i64 %25, %27
-  %29 = and i64 %28, -7378697629483820647
-  %30 = shl i64 %25, 1
-  %31 = and i64 %30, 4919131752989213764
-  %32 = or disjoint i64 %31, %29
-  %33 = lshr i64 %28, 1
-  %34 = and i64 %33, 2459565876494606882
-  %35 = or disjoint i64 %32, %34
-  %36 = load ptr, ptr @stdout, align 8, !tbaa !7
-  br label %37
+.preheader.i9:                                    ; preds = %16, %Abc_TtPrintHexRev.exit17
+  %indvars.iv21 = phi i64 [ 0, %16 ], [ %indvars.iv.next22, %Abc_TtPrintHexRev.exit17 ]
+  %17 = getelementptr inbounds nuw [8 x i64], ptr @__const.Ree_TruthPrecompute.Truths, i64 0, i64 %indvars.iv21
+  %18 = load i64, ptr %17, align 8, !tbaa !3
+  %19 = and i64 %18, -4340410370284600381
+  %20 = lshr i64 %18, 2
+  %21 = and i64 %20, 868082074056920076
+  %22 = or disjoint i64 %19, %21
+  %23 = and i64 %22, -8536140394893047415
+  %24 = shl i64 %18, 1
+  %25 = and i64 %24, 289360691352306692
+  %26 = or disjoint i64 %25, %23
+  %27 = lshr i64 %22, 1
+  %28 = and i64 %27, 2459565876494606882
+  %29 = or disjoint i64 %26, %28
+  %30 = load ptr, ptr @stdout, align 8, !tbaa !7
+  br label %31
 
-37:                                               ; preds = %37, %.preheader.i9
-  %indvars.iv.i11 = phi i64 [ 1, %.preheader.i9 ], [ %indvars.iv.next.i14, %37 ]
-  %38 = shl nuw nsw i64 %indvars.iv.i11, 2
-  %39 = lshr i64 %35, %38
-  %40 = trunc i64 %39 to i32
-  %41 = and i32 %40, 15
-  %42 = icmp samesign ult i32 %41, 10
-  %43 = or disjoint i32 %41, 48
-  %44 = add nuw nsw i32 %41, 55
-  %.0.i.i12 = select i1 %42, i32 %43, i32 %44
-  %fputc.i13 = tail call i32 @fputc(i32 %.0.i.i12, ptr %36)
+31:                                               ; preds = %31, %.preheader.i9
+  %indvars.iv.i11 = phi i64 [ 1, %.preheader.i9 ], [ %indvars.iv.next.i14, %31 ]
+  %32 = shl nuw nsw i64 %indvars.iv.i11, 2
+  %33 = lshr i64 %29, %32
+  %34 = trunc i64 %33 to i32
+  %35 = and i32 %34, 15
+  %36 = icmp samesign ult i32 %35, 10
+  %37 = or disjoint i32 %35, 48
+  %38 = add nuw nsw i32 %35, 55
+  %.0.i.i12 = select i1 %36, i32 %37, i32 %38
+  %fputc.i13 = tail call i32 @fputc(i32 %.0.i.i12, ptr %30)
   %indvars.iv.next.i14 = add nsw i64 %indvars.iv.i11, -1
   %.not20.i15 = icmp eq i64 %indvars.iv.i11, 0
-  br i1 %.not20.i15, label %Abc_TtPrintHexRev.exit17, label %37, !llvm.loop !10
+  br i1 %.not20.i15, label %Abc_TtPrintHexRev.exit17, label %31, !llvm.loop !10
 
-Abc_TtPrintHexRev.exit17:                         ; preds = %37
+Abc_TtPrintHexRev.exit17:                         ; preds = %31
   %putchar7 = tail call i32 @putchar(i32 10)
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 8
-  br i1 %exitcond24.not, label %45, label %.preheader.i9, !llvm.loop !13
+  br i1 %exitcond24.not, label %39, label %.preheader.i9, !llvm.loop !13
 
-45:                                               ; preds = %Abc_TtPrintHexRev.exit17
+39:                                               ; preds = %Abc_TtPrintHexRev.exit17
   %putchar6 = tail call i32 @putchar(i32 10)
   ret void
 }

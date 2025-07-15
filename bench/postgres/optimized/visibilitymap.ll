@@ -523,9 +523,9 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %31 = zext nneg i32 %6 to i64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %33 = load i8, ptr %32, align 1
-  %34 = sext i8 %33 to i32
-  %35 = ashr i32 %34, %8
-  %36 = trunc nsw i32 %35 to i8
+  %34 = zext i8 %33 to i32
+  %35 = lshr i32 %34, %8
+  %36 = trunc nuw i32 %35 to i8
   %37 = and i8 %36, 3
   br label %38
 
