@@ -389,64 +389,64 @@ _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i: ; preds = %102, %.
   br i1 %26, label %107, label %113
 
 107:                                              ; preds = %106
-  %.not11.i.i215.i = icmp eq i128 %90, 0
-  br i1 %.not11.i.i215.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit222.i, label %.lr.ph.i.i216.i
+  %.not11.i.i214.i = icmp eq i128 %90, 0
+  br i1 %.not11.i.i214.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit221.i, label %.lr.ph.i.i215.i
 
-.lr.ph.i.i216.i:                                  ; preds = %107, %110
-  %.0713.i.i217.i = phi i32 [ %111, %110 ], [ 0, %107 ]
-  %.0812.i.i218.i = phi i128 [ %108, %110 ], [ %90, %107 ]
-  %.0812.i.i218.i.frozen = freeze i128 %.0812.i.i218.i
-  %108 = udiv i128 %.0812.i.i218.i.frozen, 5
+.lr.ph.i.i215.i:                                  ; preds = %107, %110
+  %.0713.i.i216.i = phi i32 [ %111, %110 ], [ 0, %107 ]
+  %.0812.i.i217.i = phi i128 [ %108, %110 ], [ %90, %107 ]
+  %.0812.i.i217.i.frozen = freeze i128 %.0812.i.i217.i
+  %108 = udiv i128 %.0812.i.i217.i.frozen, 5
   %109 = mul i128 %108, 5
-  %.decomposed67 = sub i128 %.0812.i.i218.i.frozen, %109
-  %.not10.i.i219.i = icmp eq i128 %.decomposed67, 0
-  br i1 %.not10.i.i219.i, label %110, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit222.i
+  %.decomposed67 = sub i128 %.0812.i.i217.i.frozen, %109
+  %.not10.i.i218.i = icmp eq i128 %.decomposed67, 0
+  br i1 %.not10.i.i218.i, label %110, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit221.i
 
-110:                                              ; preds = %.lr.ph.i.i216.i
-  %111 = add i32 %.0713.i.i217.i, 1
-  %.not.i.i221.i = icmp ult i128 %.0812.i.i218.i, 5
-  br i1 %.not.i.i221.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit222.i, label %.lr.ph.i.i216.i, !llvm.loop !16
+110:                                              ; preds = %.lr.ph.i.i215.i
+  %111 = add i32 %.0713.i.i216.i, 1
+  %.not.i.i220.i = icmp ult i128 %.0812.i.i217.i, 5
+  br i1 %.not.i.i220.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit221.i, label %.lr.ph.i.i215.i, !llvm.loop !16
 
-_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit222.i: ; preds = %110, %.lr.ph.i.i216.i, %107
-  %spec.select.i.i220.i = phi i32 [ 0, %107 ], [ 0, %110 ], [ %.0713.i.i217.i, %.lr.ph.i.i216.i ]
-  %112 = icmp uge i32 %spec.select.i.i220.i, %37
+_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit221.i: ; preds = %110, %.lr.ph.i.i215.i, %107
+  %spec.select.i.i219.i = phi i32 [ 0, %107 ], [ 0, %110 ], [ %.0713.i.i216.i, %.lr.ph.i.i215.i ]
+  %112 = icmp uge i32 %spec.select.i.i219.i, %37
   br label %120
 
 113:                                              ; preds = %106
-  %.sroa.2.0.insert.ext.i.i223.i = zext nneg i64 %.sroa.256.0.extract.shift.i to i128
-  %.sroa.2.0.insert.shift.i.i224.i = shl nuw nsw i128 %.sroa.2.0.insert.ext.i.i223.i, 64
-  %.sroa.0.0.insert.ext.i.i225.i = zext i64 %.sroa.051.0.extract.trunc.i to i128
-  %.sroa.0.0.insert.insert.i.i226.i = or disjoint i128 %.sroa.2.0.insert.shift.i.i224.i, %.sroa.0.0.insert.ext.i.i225.i
-  br label %.lr.ph.i.i228.i
+  %.sroa.2.0.insert.ext.i.i222.i = zext nneg i64 %.sroa.256.0.extract.shift.i to i128
+  %.sroa.2.0.insert.shift.i.i223.i = shl nuw nsw i128 %.sroa.2.0.insert.ext.i.i222.i, 64
+  %.sroa.0.0.insert.ext.i.i224.i = zext i64 %.sroa.051.0.extract.trunc.i to i128
+  %.sroa.0.0.insert.insert.i.i225.i = or disjoint i128 %.sroa.2.0.insert.shift.i.i223.i, %.sroa.0.0.insert.ext.i.i224.i
+  br label %.lr.ph.i.i227.i
 
-.lr.ph.i.i228.i:                                  ; preds = %116, %113
-  %.0713.i.i229.i = phi i32 [ %117, %116 ], [ 0, %113 ]
-  %.0812.i.i230.i = phi i128 [ %114, %116 ], [ %.sroa.0.0.insert.insert.i.i226.i, %113 ]
-  %.0812.i.i230.i.frozen = freeze i128 %.0812.i.i230.i
-  %114 = udiv i128 %.0812.i.i230.i.frozen, 5
+.lr.ph.i.i227.i:                                  ; preds = %116, %113
+  %.0713.i.i228.i = phi i32 [ %117, %116 ], [ 0, %113 ]
+  %.0812.i.i229.i = phi i128 [ %114, %116 ], [ %.sroa.0.0.insert.insert.i.i225.i, %113 ]
+  %.0812.i.i229.i.frozen = freeze i128 %.0812.i.i229.i
+  %114 = udiv i128 %.0812.i.i229.i.frozen, 5
   %115 = mul i128 %114, 5
-  %.decomposed68 = sub i128 %.0812.i.i230.i.frozen, %115
-  %.not10.i.i231.i = icmp eq i128 %.decomposed68, 0
-  br i1 %.not10.i.i231.i, label %116, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit234.i
+  %.decomposed68 = sub i128 %.0812.i.i229.i.frozen, %115
+  %.not10.i.i230.i = icmp eq i128 %.decomposed68, 0
+  br i1 %.not10.i.i230.i, label %116, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i
 
-116:                                              ; preds = %.lr.ph.i.i228.i
-  %117 = add i32 %.0713.i.i229.i, 1
-  %.not.i.i233.i = icmp samesign ult i128 %.0812.i.i230.i, 5
-  br i1 %.not.i.i233.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit234.i, label %.lr.ph.i.i228.i, !llvm.loop !16
+116:                                              ; preds = %.lr.ph.i.i227.i
+  %117 = add i32 %.0713.i.i228.i, 1
+  %.not.i.i232.i = icmp samesign ult i128 %.0812.i.i229.i, 5
+  br i1 %.not.i.i232.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i, label %.lr.ph.i.i227.i, !llvm.loop !16
 
-_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit234.i: ; preds = %116, %.lr.ph.i.i228.i
-  %spec.select.i.i232.i = phi i32 [ 0, %116 ], [ %.0713.i.i229.i, %.lr.ph.i.i228.i ]
-  %118 = icmp uge i32 %spec.select.i.i232.i, %37
+_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i: ; preds = %116, %.lr.ph.i.i227.i
+  %spec.select.i.i231.i = phi i32 [ 0, %116 ], [ %.0713.i.i228.i, %.lr.ph.i.i227.i ]
+  %118 = icmp uge i32 %spec.select.i.i231.i, %37
   %.neg202.i = sext i1 %118 to i128
   %119 = add i128 %.sroa.049.0.insert.insert.i, %.neg202.i
   br label %120
 
-120:                                              ; preds = %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit234.i, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit222.i, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i, %_ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i
-  %.0189.i = phi i8 [ %105, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i ], [ 0, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit222.i ], [ 0, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit234.i ], [ 0, %_ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i ]
-  %.0185.i = phi i1 [ false, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i ], [ %112, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit222.i ], [ false, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit234.i ], [ false, %_ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i ]
-  %.0176.i = phi i128 [ %.sroa.049.0.insert.insert.i, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i ], [ %.sroa.049.0.insert.insert.i, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit222.i ], [ %119, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit234.i ], [ %.sroa.049.0.insert.insert.i, %_ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i ]
+120:                                              ; preds = %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit221.i, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i, %_ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i
+  %.0189.i = phi i8 [ %105, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i ], [ 0, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit221.i ], [ 0, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i ], [ 0, %_ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i ]
+  %.0185.i = phi i1 [ false, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i ], [ %112, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit221.i ], [ false, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i ], [ false, %_ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i ]
+  %.0176.i = phi i128 [ %.sroa.049.0.insert.insert.i, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i ], [ %.sroa.049.0.insert.insert.i, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit221.i ], [ %119, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i ], [ %.sroa.049.0.insert.insert.i, %_ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15, !noalias !3
-  br label %195
+  br label %196
 
 121:                                              ; preds = %23
   %122 = sub nsw i32 0, %.0.i
@@ -463,8 +463,8 @@ _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit234.i: ; preds = %116,
   %132 = mul i64 %131, 163391164108059
   %133 = lshr i64 %132, 46
   %134 = trunc nuw nsw i64 %133 to i32
-  %.neg244.i = add nsw i32 %128, 248
-  %135 = sub nsw i32 %.neg244.i, %134
+  %.neg243.i = add nsw i32 %128, 248
+  %135 = sub nsw i32 %.neg243.i, %134
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #15, !noalias !3
   %136 = udiv i32 %130, 56
   %.recomposed = urem i32 %130, 56
@@ -509,10 +509,10 @@ _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit234.i: ; preds = %116,
   %167 = lshr i64 %163, %166
   %168 = trunc i64 %167 to i32
   %169 = and i32 %168, 3
-  %.val.i235.i = load i64, ptr %154, align 16, !tbaa !14, !noalias !3
+  %.val.i234.i = load i64, ptr %154, align 16, !tbaa !14, !noalias !3
   %170 = getelementptr i8, ptr %154, i64 8
-  %.val25.i236.i = load i64, ptr %170, align 8, !tbaa !14, !noalias !3
-  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.val.i235.i, i64 %.val25.i236.i, ptr noundef nonnull %139, i32 noundef %159, i32 noundef %169, ptr noundef nonnull %10) #15, !noalias !3
+  %.val25.i235.i = load i64, ptr %170, align 8, !tbaa !14, !noalias !3
+  call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.val.i234.i, i64 %.val25.i235.i, ptr noundef nonnull %139, i32 noundef %159, i32 noundef %169, ptr noundef nonnull %10) #15, !noalias !3
   br label %_ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i
 
 _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %152, %141
@@ -556,162 +556,162 @@ _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %152, 
   %.sroa.015.0.insert.ext.i = zext i64 %181 to i128
   %.sroa.015.0.insert.insert.i = or disjoint i128 %.sroa.216.0.insert.shift.i, %.sroa.015.0.insert.ext.i
   %182 = icmp ult i32 %128, 2
-  br i1 %182, label %183, label %185
+  br i1 %182, label %183, label %186
 
 183:                                              ; preds = %_ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i
-  %spec.select.i = and i1 %26, %29
-  %not..i = xor i1 %26, true
-  %184 = sext i1 %not..i to i128
-  %spec.select206.i = add i128 %.sroa.019.0.insert.insert.i, %184
-  br label %194
+  br i1 %26, label %195, label %184
 
-185:                                              ; preds = %_ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i
-  %186 = icmp ult i32 %128, 127
-  br i1 %186, label %187, label %194
+184:                                              ; preds = %183
+  %185 = add i128 %.sroa.019.0.insert.insert.i, -1
+  br label %195
 
-187:                                              ; preds = %185
-  %188 = add nsw i32 %128, -1
+186:                                              ; preds = %_ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i
+  %187 = icmp ult i32 %128, 127
+  br i1 %187, label %188, label %195
+
+188:                                              ; preds = %186
+  %189 = add nsw i32 %128, -1
   %.sroa.2.0.insert.ext.i.i = zext nneg i64 %.sroa.226.0.extract.shift.i to i128
   %.sroa.2.0.insert.shift.i.i = shl nuw nsw i128 %.sroa.2.0.insert.ext.i.i, 64
   %.sroa.0.0.insert.ext.i.i = and i128 %27, 18446744073709551612
   %.sroa.0.0.insert.insert.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
-  %189 = zext nneg i32 %188 to i128
-  %notmask.i.i = shl nsw i128 -1, %189
-  %190 = xor i128 %notmask.i.i, -1
-  %191 = and i128 %.sroa.0.0.insert.insert.i.i, %190
-  %192 = icmp eq i128 %191, 0
-  %193 = zext i1 %192 to i8
-  br label %194
-
-194:                                              ; preds = %187, %185, %183
-  %.2191.i = phi i8 [ %193, %187 ], [ 0, %185 ], [ 1, %183 ]
-  %.2187.i = phi i1 [ false, %187 ], [ false, %185 ], [ %spec.select.i, %183 ]
-  %.2178.i = phi i128 [ %.sroa.019.0.insert.insert.i, %187 ], [ %.sroa.019.0.insert.insert.i, %185 ], [ %spec.select206.i, %183 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #15, !noalias !3
+  %190 = zext nneg i32 %189 to i128
+  %notmask.i.i = shl nsw i128 -1, %190
+  %191 = xor i128 %notmask.i.i, -1
+  %192 = and i128 %.sroa.0.0.insert.insert.i.i, %191
+  %193 = icmp eq i128 %192, 0
+  %194 = zext i1 %193 to i8
   br label %195
 
-195:                                              ; preds = %194, %120
-  %.1190.i = phi i8 [ %.0189.i, %120 ], [ %.2191.i, %194 ]
-  %.1186.i = phi i1 [ %.0185.i, %120 ], [ %.2187.i, %194 ]
-  %.0184.i = phi i32 [ %37, %120 ], [ %129, %194 ]
-  %.0180.i = phi i128 [ %.sroa.045.0.insert.insert.i, %120 ], [ %.sroa.015.0.insert.insert.i, %194 ]
-  %.1177.i = phi i128 [ %.0176.i, %120 ], [ %.2178.i, %194 ]
-  %.0172.i = phi i128 [ %.sroa.053.0.insert.insert.i, %120 ], [ %.sroa.023.0.insert.insert.i, %194 ]
-  %196 = udiv i128 %.1177.i, 10
-  %197 = udiv i128 %.0180.i, 10
-  %198 = icmp samesign ugt i128 %196, %197
-  br i1 %198, label %.lr.ph.preheader.i, label %._crit_edge.i
+195:                                              ; preds = %188, %186, %184, %183
+  %.2191.i = phi i8 [ 1, %184 ], [ %194, %188 ], [ 0, %186 ], [ 1, %183 ]
+  %.2187.i = phi i1 [ false, %184 ], [ false, %188 ], [ false, %186 ], [ %29, %183 ]
+  %.2178.i = phi i128 [ %185, %184 ], [ %.sroa.019.0.insert.insert.i, %188 ], [ %.sroa.019.0.insert.insert.i, %186 ], [ %.sroa.019.0.insert.insert.i, %183 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #15, !noalias !3
+  br label %196
 
-.lr.ph.preheader.i:                               ; preds = %195
-  %199 = icmp ne i8 %.1190.i, 0
+196:                                              ; preds = %195, %120
+  %.1190.i = phi i8 [ %.0189.i, %120 ], [ %.2191.i, %195 ]
+  %.1186.i = phi i1 [ %.0185.i, %120 ], [ %.2187.i, %195 ]
+  %.0184.i = phi i32 [ %37, %120 ], [ %129, %195 ]
+  %.0180.i = phi i128 [ %.sroa.045.0.insert.insert.i, %120 ], [ %.sroa.015.0.insert.insert.i, %195 ]
+  %.1177.i = phi i128 [ %.0176.i, %120 ], [ %.2178.i, %195 ]
+  %.0172.i = phi i128 [ %.sroa.053.0.insert.insert.i, %120 ], [ %.sroa.023.0.insert.insert.i, %195 ]
+  %197 = udiv i128 %.1177.i, 10
+  %198 = udiv i128 %.0180.i, 10
+  %199 = icmp samesign ugt i128 %197, %198
+  br i1 %199, label %.lr.ph.preheader.i, label %._crit_edge.i
+
+.lr.ph.preheader.i:                               ; preds = %196
+  %200 = icmp ne i8 %.1190.i, 0
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %200 = phi i128 [ %212, %.lr.ph.i ], [ %197, %.lr.ph.preheader.i ]
-  %201 = phi i128 [ %211, %.lr.ph.i ], [ %196, %.lr.ph.preheader.i ]
-  %.0166250.i = phi i8 [ %209, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.0168249.i = phi i32 [ %210, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.1173248.i = phi i128 [ %207, %.lr.ph.i ], [ %.0172.i, %.lr.ph.preheader.i ]
-  %.1181247.i = phi i128 [ %200, %.lr.ph.i ], [ %.0180.i, %.lr.ph.preheader.i ]
-  %.3188246.i = phi i1 [ %204, %.lr.ph.i ], [ %.1186.i, %.lr.ph.preheader.i ]
-  %.3192245.i = phi i1 [ %206, %.lr.ph.i ], [ %199, %.lr.ph.preheader.i ]
-  %202 = urem i128 %.1181247.i, 10
-  %203 = icmp eq i128 %202, 0
-  %204 = and i1 %.3188246.i, %203
-  %205 = icmp eq i8 %.0166250.i, 0
-  %206 = select i1 %205, i1 %.3192245.i, i1 false
-  %.1173248.i.frozen = freeze i128 %.1173248.i
-  %207 = udiv i128 %.1173248.i.frozen, 10
-  %208 = mul i128 %207, 10
-  %.decomposed69 = sub i128 %.1173248.i.frozen, %208
-  %209 = trunc nuw nsw i128 %.decomposed69 to i8
-  %210 = add i32 %.0168249.i, 1
-  %211 = udiv i128 %201, 10
-  %212 = udiv i128 %200, 10
-  %213 = icmp samesign ugt i128 %211, %212
-  br i1 %213, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !18
+  %201 = phi i128 [ %213, %.lr.ph.i ], [ %198, %.lr.ph.preheader.i ]
+  %202 = phi i128 [ %212, %.lr.ph.i ], [ %197, %.lr.ph.preheader.i ]
+  %.0166249.i = phi i8 [ %210, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.0168248.i = phi i32 [ %211, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.1173247.i = phi i128 [ %208, %.lr.ph.i ], [ %.0172.i, %.lr.ph.preheader.i ]
+  %.1181246.i = phi i128 [ %201, %.lr.ph.i ], [ %.0180.i, %.lr.ph.preheader.i ]
+  %.3188245.i = phi i1 [ %205, %.lr.ph.i ], [ %.1186.i, %.lr.ph.preheader.i ]
+  %.3192244.i = phi i1 [ %207, %.lr.ph.i ], [ %200, %.lr.ph.preheader.i ]
+  %203 = urem i128 %.1181246.i, 10
+  %204 = icmp eq i128 %203, 0
+  %205 = and i1 %.3188245.i, %204
+  %206 = icmp eq i8 %.0166249.i, 0
+  %207 = select i1 %206, i1 %.3192244.i, i1 false
+  %.1173247.i.frozen = freeze i128 %.1173247.i
+  %208 = udiv i128 %.1173247.i.frozen, 10
+  %209 = mul i128 %208, 10
+  %.decomposed69 = sub i128 %.1173247.i.frozen, %209
+  %210 = trunc nuw nsw i128 %.decomposed69 to i8
+  %211 = add i32 %.0168248.i, 1
+  %212 = udiv i128 %202, 10
+  %213 = udiv i128 %201, 10
+  %214 = icmp samesign ugt i128 %212, %213
+  br i1 %214, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !18
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %214 = zext i1 %206 to i8
+  %215 = zext i1 %207 to i8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %195
-  %.3192.lcssa.i = phi i8 [ %.1190.i, %195 ], [ %214, %._crit_edge.loopexit.i ]
-  %.3188.lcssa.i = phi i1 [ %.1186.i, %195 ], [ %204, %._crit_edge.loopexit.i ]
-  %.1181.lcssa.i = phi i128 [ %.0180.i, %195 ], [ %200, %._crit_edge.loopexit.i ]
-  %.1173.lcssa.i = phi i128 [ %.0172.i, %195 ], [ %207, %._crit_edge.loopexit.i ]
-  %.0168.lcssa.i = phi i32 [ 0, %195 ], [ %210, %._crit_edge.loopexit.i ]
-  %.0166.lcssa.i = phi i8 [ 0, %195 ], [ %209, %._crit_edge.loopexit.i ]
-  %215 = urem i128 %.1181.lcssa.i, 10
-  %216 = icmp eq i128 %215, 0
-  %or.cond268.i = and i1 %.3188.lcssa.i, %216
-  br i1 %or.cond268.i, label %.lr.ph261.preheader.i, label %.loopexit.i
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %196
+  %.3192.lcssa.i = phi i8 [ %.1190.i, %196 ], [ %215, %._crit_edge.loopexit.i ]
+  %.3188.lcssa.i = phi i1 [ %.1186.i, %196 ], [ %205, %._crit_edge.loopexit.i ]
+  %.1181.lcssa.i = phi i128 [ %.0180.i, %196 ], [ %201, %._crit_edge.loopexit.i ]
+  %.1173.lcssa.i = phi i128 [ %.0172.i, %196 ], [ %208, %._crit_edge.loopexit.i ]
+  %.0168.lcssa.i = phi i32 [ 0, %196 ], [ %211, %._crit_edge.loopexit.i ]
+  %.0166.lcssa.i = phi i8 [ 0, %196 ], [ %210, %._crit_edge.loopexit.i ]
+  %216 = urem i128 %.1181.lcssa.i, 10
+  %217 = icmp eq i128 %216, 0
+  %or.cond267.i = and i1 %.3188.lcssa.i, %217
+  br i1 %or.cond267.i, label %.lr.ph260.preheader.i, label %.loopexit.i
 
-.lr.ph261.preheader.i:                            ; preds = %._crit_edge.i
-  %217 = icmp ne i8 %.3192.lcssa.i, 0
-  br label %.lr.ph261.i
+.lr.ph260.preheader.i:                            ; preds = %._crit_edge.i
+  %218 = icmp ne i8 %.3192.lcssa.i, 0
+  br label %.lr.ph260.i
 
-.lr.ph261.i:                                      ; preds = %.lr.ph261.i, %.lr.ph261.preheader.i
-  %.2260.i = phi i8 [ %222, %.lr.ph261.i ], [ %.0166.lcssa.i, %.lr.ph261.preheader.i ]
-  %.2170259.i = phi i32 [ %224, %.lr.ph261.i ], [ %.0168.lcssa.i, %.lr.ph261.preheader.i ]
-  %.3175258.i = phi i128 [ %220, %.lr.ph261.i ], [ %.1173.lcssa.i, %.lr.ph261.preheader.i ]
-  %.3183257.i = phi i128 [ %223, %.lr.ph261.i ], [ %.1181.lcssa.i, %.lr.ph261.preheader.i ]
-  %.5256.i = phi i1 [ %219, %.lr.ph261.i ], [ %217, %.lr.ph261.preheader.i ]
-  %218 = icmp eq i8 %.2260.i, 0
-  %219 = select i1 %218, i1 %.5256.i, i1 false
-  %.3175258.i.frozen = freeze i128 %.3175258.i
-  %220 = udiv i128 %.3175258.i.frozen, 10
-  %221 = mul i128 %220, 10
-  %.decomposed70 = sub i128 %.3175258.i.frozen, %221
-  %222 = trunc nuw nsw i128 %.decomposed70 to i8
-  %223 = udiv i128 %.3183257.i, 10
-  %224 = add i32 %.2170259.i, 1
-  %225 = urem i128 %223, 10
-  %226 = icmp eq i128 %225, 0
-  br i1 %226, label %.lr.ph261.i, label %.loopexit.loopexit.i, !llvm.loop !19
+.lr.ph260.i:                                      ; preds = %.lr.ph260.i, %.lr.ph260.preheader.i
+  %.2259.i = phi i8 [ %223, %.lr.ph260.i ], [ %.0166.lcssa.i, %.lr.ph260.preheader.i ]
+  %.2170258.i = phi i32 [ %225, %.lr.ph260.i ], [ %.0168.lcssa.i, %.lr.ph260.preheader.i ]
+  %.3175257.i = phi i128 [ %221, %.lr.ph260.i ], [ %.1173.lcssa.i, %.lr.ph260.preheader.i ]
+  %.3183256.i = phi i128 [ %224, %.lr.ph260.i ], [ %.1181.lcssa.i, %.lr.ph260.preheader.i ]
+  %.5255.i = phi i1 [ %220, %.lr.ph260.i ], [ %218, %.lr.ph260.preheader.i ]
+  %219 = icmp eq i8 %.2259.i, 0
+  %220 = select i1 %219, i1 %.5255.i, i1 false
+  %.3175257.i.frozen = freeze i128 %.3175257.i
+  %221 = udiv i128 %.3175257.i.frozen, 10
+  %222 = mul i128 %221, 10
+  %.decomposed70 = sub i128 %.3175257.i.frozen, %222
+  %223 = trunc nuw nsw i128 %.decomposed70 to i8
+  %224 = udiv i128 %.3183256.i, 10
+  %225 = add i32 %.2170258.i, 1
+  %226 = urem i128 %224, 10
+  %227 = icmp eq i128 %226, 0
+  br i1 %227, label %.lr.ph260.i, label %.loopexit.loopexit.i, !llvm.loop !19
 
-.loopexit.loopexit.i:                             ; preds = %.lr.ph261.i
-  %227 = zext i1 %219 to i8
+.loopexit.loopexit.i:                             ; preds = %.lr.ph260.i
+  %228 = zext i1 %220 to i8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %._crit_edge.i
-  %.4193.i = phi i8 [ %.3192.lcssa.i, %._crit_edge.i ], [ %227, %.loopexit.loopexit.i ]
-  %.2182.i = phi i128 [ %.1181.lcssa.i, %._crit_edge.i ], [ %223, %.loopexit.loopexit.i ]
-  %.2174.i = phi i128 [ %.1173.lcssa.i, %._crit_edge.i ], [ %220, %.loopexit.loopexit.i ]
-  %.1169.i = phi i32 [ %.0168.lcssa.i, %._crit_edge.i ], [ %224, %.loopexit.loopexit.i ]
-  %.1167.i = phi i8 [ %.0166.lcssa.i, %._crit_edge.i ], [ %222, %.loopexit.loopexit.i ]
-  %228 = icmp ne i128 %.2174.i, %.2182.i
+  %.4193.i = phi i8 [ %.3192.lcssa.i, %._crit_edge.i ], [ %228, %.loopexit.loopexit.i ]
+  %.2182.i = phi i128 [ %.1181.lcssa.i, %._crit_edge.i ], [ %224, %.loopexit.loopexit.i ]
+  %.2174.i = phi i128 [ %.1173.lcssa.i, %._crit_edge.i ], [ %221, %.loopexit.loopexit.i ]
+  %.1169.i = phi i32 [ %.0168.lcssa.i, %._crit_edge.i ], [ %225, %.loopexit.loopexit.i ]
+  %.1167.i = phi i8 [ %.0166.lcssa.i, %._crit_edge.i ], [ %223, %.loopexit.loopexit.i ]
+  %229 = icmp ne i128 %.2174.i, %.2182.i
   %or.cond6.i = and i1 %26, %.3188.lcssa.i
-  %or.cond205.i = or i1 %or.cond6.i, %228
-  br i1 %or.cond205.i, label %229, label %236
+  %or.cond205.i = or i1 %or.cond6.i, %229
+  br i1 %or.cond205.i, label %230, label %237
 
-229:                                              ; preds = %.loopexit.i
-  %230 = trunc nuw i8 %.4193.i to i1
-  %231 = icmp eq i8 %.1167.i, 5
-  %or.cond4.i = select i1 %230, i1 %231, i1 false
-  %232 = and i128 %.2174.i, 1
-  %233 = icmp eq i128 %232, 0
-  %or.cond204.i = and i1 %233, %or.cond4.i
-  %234 = icmp samesign ugt i8 %.1167.i, 4
+230:                                              ; preds = %.loopexit.i
+  %231 = trunc nuw i8 %.4193.i to i1
+  %232 = icmp eq i8 %.1167.i, 5
+  %or.cond4.i = select i1 %231, i1 %232, i1 false
+  %233 = and i128 %.2174.i, 1
+  %234 = icmp eq i128 %233, 0
+  %or.cond204.i = and i1 %234, %or.cond4.i
+  %235 = icmp samesign ugt i8 %.1167.i, 4
   %not.or.cond204.i = xor i1 %or.cond204.i, true
-  %235 = select i1 %not.or.cond204.i, i1 %234, i1 false
-  br label %236
+  %236 = select i1 %not.or.cond204.i, i1 %235, i1 false
+  br label %237
 
-236:                                              ; preds = %229, %.loopexit.i
-  %237 = phi i1 [ %235, %229 ], [ true, %.loopexit.i ]
-  %238 = zext i1 %237 to i128
-  %239 = add i128 %.2174.i, %238
-  %240 = add nsw i32 %.1169.i, %.0184.i
-  store i128 %239, ptr %0, align 16, !tbaa !6, !alias.scope !3
-  %241 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %240, ptr %241, align 16, !tbaa !13, !alias.scope !3
+237:                                              ; preds = %230, %.loopexit.i
+  %238 = phi i1 [ %236, %230 ], [ true, %.loopexit.i ]
+  %239 = zext i1 %238 to i128
+  %240 = add i128 %.2174.i, %239
+  %241 = add nsw i32 %.1169.i, %.0184.i
+  store i128 %240, ptr %0, align 16, !tbaa !6, !alias.scope !3
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %241, ptr %242, align 16, !tbaa !13, !alias.scope !3
   br label %_ZN5boost8charconv6detail3ryuL25generic_binary_to_decimalEojjb.exit
 
-_ZN5boost8charconv6detail3ryuL25generic_binary_to_decimalEojjb.exit: ; preds = %17, %20, %236
+_ZN5boost8charconv6detail3ryuL25generic_binary_to_decimalEojjb.exit: ; preds = %17, %20, %237
   %.lobit = lshr i80 %11, 79
-  %242 = trunc nuw nsw i80 %.lobit to i8
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 %242, ptr %243, align 4, !tbaa !20, !alias.scope !3
+  %243 = trunc nuw nsw i80 %.lobit to i8
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 %243, ptr %244, align 4, !tbaa !20, !alias.scope !3
   ret void
 }
 

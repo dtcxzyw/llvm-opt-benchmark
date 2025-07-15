@@ -78116,7 +78116,7 @@ define hidden void @_ZN9polars_io6ndjson6buffer18deserialize_number17h3b6650e762
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i8, ptr %15, align 8, !range !7799, !noundef !6
-  switch i8 %16, label %default.unreachable162 [
+  switch i8 %16, label %default.unreachable161 [
     i8 0, label %18
     i8 1, label %24
     i8 2, label %"_ZN50_$LT$i128$u20$as$u20$num_traits..cast..NumCast$GT$4from17h54637edf39c88909E.exit"
@@ -78127,7 +78127,7 @@ define hidden void @_ZN9polars_io6ndjson6buffer18deserialize_number17h3b6650e762
 17:                                               ; preds = %3
   br i1 %2, label %50, label %48
 
-default.unreachable162:                           ; preds = %14
+default.unreachable161:                           ; preds = %14
   unreachable
 
 18:                                               ; preds = %14
@@ -78182,13 +78182,13 @@ default.unreachable162:                           ; preds = %14
   ret void
 
 43:                                               ; preds = %"_ZN50_$LT$i128$u20$as$u20$num_traits..cast..NumCast$GT$4from17h54637edf39c88909E.exit"
-  %spec.select161 = zext i1 %or.cond.i.i to i128
+  %storemerge.i.i = zext i1 %or.cond.i.i to i128
   %44 = fptosi double %31 to i128
-  %spec.select = select i1 %or.cond.i.i, i128 %44, i128 undef
+  %.sroa.4.1 = select i1 %or.cond.i.i, i128 %44, i128 undef
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i128 %spec.select161, ptr %45, align 16
+  store i128 %storemerge.i.i, ptr %45, align 16
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i128 %spec.select, ptr %46, align 16
+  store i128 %.sroa.4.1, ptr %46, align 16
   store i64 17, ptr %0, align 16
   br label %42
 

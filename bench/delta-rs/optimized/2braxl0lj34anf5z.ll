@@ -10278,10 +10278,10 @@ define hidden { i128, i128 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   %10 = extractvalue { i128, i128 } %9, 0
   %11 = icmp eq i128 %10, 3
   %12 = extractvalue { i128, i128 } %9, 1
-  %spec.select6.i = select i1 %11, i128 2, i128 %10
-  %13 = insertvalue { i128, i128 } poison, i128 %spec.select6.i, 0
+  %.sroa.0.0.i = select i1 %11, i128 2, i128 %10
+  %13 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0.i, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  %14 = icmp eq i128 %spec.select6.i, 2
+  %14 = icmp eq i128 %.sroa.0.0.i, 2
   %.sroa.3.0 = select i1 %14, i128 undef, i128 %12
   %15 = insertvalue { i128, i128 } %13, i128 %.sroa.3.0, 1
   ret { i128, i128 } %15
@@ -11032,10 +11032,10 @@ define hidden { i128, i128 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   %9 = extractvalue { i128, i128 } %8, 0
   %10 = icmp eq i128 %9, 3
   %11 = extractvalue { i128, i128 } %8, 1
-  %spec.select6.i = select i1 %10, i128 2, i128 %9
-  %12 = insertvalue { i128, i128 } poison, i128 %spec.select6.i, 0
+  %.sroa.0.0.i = select i1 %10, i128 2, i128 %9
+  %12 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0.i, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  %13 = icmp eq i128 %spec.select6.i, 2
+  %13 = icmp eq i128 %.sroa.0.0.i, 2
   %.sroa.3.0 = select i1 %13, i128 undef, i128 %11
   %14 = insertvalue { i128, i128 } %12, i128 %.sroa.3.0, 1
   ret { i128, i128 } %14
@@ -11289,10 +11289,10 @@ define hidden { i128, i128 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   %10 = extractvalue { i128, i128 } %9, 0
   %11 = icmp eq i128 %10, 3
   %12 = extractvalue { i128, i128 } %9, 1
-  %spec.select6.i = select i1 %11, i128 2, i128 %10
-  %13 = insertvalue { i128, i128 } poison, i128 %spec.select6.i, 0
+  %.sroa.0.0.i = select i1 %11, i128 2, i128 %10
+  %13 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0.i, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  %14 = icmp eq i128 %spec.select6.i, 2
+  %14 = icmp eq i128 %.sroa.0.0.i, 2
   %.sroa.3.0 = select i1 %14, i128 undef, i128 %12
   %15 = insertvalue { i128, i128 } %13, i128 %.sroa.3.0, 1
   ret { i128, i128 } %15
@@ -11439,10 +11439,10 @@ define hidden { i128, i128 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   %9 = extractvalue { i128, i128 } %8, 0
   %10 = icmp eq i128 %9, 3
   %11 = extractvalue { i128, i128 } %8, 1
-  %spec.select6.i = select i1 %10, i128 2, i128 %9
-  %12 = insertvalue { i128, i128 } poison, i128 %spec.select6.i, 0
+  %.sroa.0.0.i = select i1 %10, i128 2, i128 %9
+  %12 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0.i, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  %13 = icmp eq i128 %spec.select6.i, 2
+  %13 = icmp eq i128 %.sroa.0.0.i, 2
   %.sroa.3.0 = select i1 %13, i128 undef, i128 %11
   %14 = insertvalue { i128, i128 } %12, i128 %.sroa.3.0, 1
   ret { i128, i128 } %14
@@ -13055,10 +13055,10 @@ define hidden { i128, i128 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   %9 = extractvalue { i128, i128 } %8, 0
   %10 = icmp eq i128 %9, 3
   %11 = extractvalue { i128, i128 } %8, 1
-  %spec.select6.i = select i1 %10, i128 2, i128 %9
-  %12 = insertvalue { i128, i128 } poison, i128 %spec.select6.i, 0
+  %.sroa.0.0.i = select i1 %10, i128 2, i128 %9
+  %12 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0.i, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  %13 = icmp eq i128 %spec.select6.i, 2
+  %13 = icmp eq i128 %.sroa.0.0.i, 2
   %.sroa.3.0 = select i1 %13, i128 undef, i128 %11
   %14 = insertvalue { i128, i128 } %12, i128 %.sroa.3.0, 1
   ret { i128, i128 } %14
@@ -14494,10 +14494,10 @@ define hidden { i128, i128 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   %10 = extractvalue { i128, i128 } %9, 0
   %11 = icmp eq i128 %10, 3
   %12 = extractvalue { i128, i128 } %9, 1
-  %spec.select6.i = select i1 %11, i128 2, i128 %10
-  %13 = insertvalue { i128, i128 } poison, i128 %spec.select6.i, 0
+  %.sroa.0.0.i = select i1 %11, i128 2, i128 %10
+  %13 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0.i, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  %14 = icmp eq i128 %spec.select6.i, 2
+  %14 = icmp eq i128 %.sroa.0.0.i, 2
   %.sroa.3.0 = select i1 %14, i128 undef, i128 %12
   %15 = insertvalue { i128, i128 } %13, i128 %.sroa.3.0, 1
   ret { i128, i128 } %15
@@ -18654,10 +18654,10 @@ define hidden { i128, i128 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   %10 = extractvalue { i128, i128 } %9, 0
   %11 = icmp eq i128 %10, 3
   %12 = extractvalue { i128, i128 } %9, 1
-  %spec.select = select i1 %11, i128 undef, i128 %12
-  %spec.select6 = select i1 %11, i128 2, i128 %10
-  %13 = insertvalue { i128, i128 } poison, i128 %spec.select6, 0
-  %14 = insertvalue { i128, i128 } %13, i128 %spec.select, 1
+  %.sroa.3.0 = select i1 %11, i128 undef, i128 %12
+  %.sroa.0.0 = select i1 %11, i128 2, i128 %10
+  %13 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0, 0
+  %14 = insertvalue { i128, i128 } %13, i128 %.sroa.3.0, 1
   ret { i128, i128 } %14
 }
 
@@ -18744,10 +18744,10 @@ define hidden { i128, i128 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   %10 = extractvalue { i128, i128 } %9, 0
   %11 = icmp eq i128 %10, 3
   %12 = extractvalue { i128, i128 } %9, 1
-  %spec.select = select i1 %11, i128 undef, i128 %12
-  %spec.select6 = select i1 %11, i128 2, i128 %10
-  %13 = insertvalue { i128, i128 } poison, i128 %spec.select6, 0
-  %14 = insertvalue { i128, i128 } %13, i128 %spec.select, 1
+  %.sroa.3.0 = select i1 %11, i128 undef, i128 %12
+  %.sroa.0.0 = select i1 %11, i128 2, i128 %10
+  %13 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0, 0
+  %14 = insertvalue { i128, i128 } %13, i128 %.sroa.3.0, 1
   ret { i128, i128 } %14
 }
 
@@ -19476,10 +19476,10 @@ define hidden { i128, i128 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   %9 = extractvalue { i128, i128 } %8, 0
   %10 = icmp eq i128 %9, 3
   %11 = extractvalue { i128, i128 } %8, 1
-  %spec.select = select i1 %10, i128 undef, i128 %11
-  %spec.select6 = select i1 %10, i128 2, i128 %9
-  %12 = insertvalue { i128, i128 } poison, i128 %spec.select6, 0
-  %13 = insertvalue { i128, i128 } %12, i128 %spec.select, 1
+  %.sroa.3.0 = select i1 %10, i128 undef, i128 %11
+  %.sroa.0.0 = select i1 %10, i128 2, i128 %9
+  %12 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0, 0
+  %13 = insertvalue { i128, i128 } %12, i128 %.sroa.3.0, 1
   ret { i128, i128 } %13
 }
 
@@ -23715,10 +23715,10 @@ define hidden { i128, i128 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   %9 = extractvalue { i128, i128 } %8, 0
   %10 = icmp eq i128 %9, 3
   %11 = extractvalue { i128, i128 } %8, 1
-  %spec.select = select i1 %10, i128 undef, i128 %11
-  %spec.select6 = select i1 %10, i128 2, i128 %9
-  %12 = insertvalue { i128, i128 } poison, i128 %spec.select6, 0
-  %13 = insertvalue { i128, i128 } %12, i128 %spec.select, 1
+  %.sroa.3.0 = select i1 %10, i128 undef, i128 %11
+  %.sroa.0.0 = select i1 %10, i128 2, i128 %9
+  %12 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0, 0
+  %13 = insertvalue { i128, i128 } %12, i128 %.sroa.3.0, 1
   ret { i128, i128 } %13
 }
 
@@ -23740,10 +23740,10 @@ define hidden { i128, i128 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   %10 = extractvalue { i128, i128 } %9, 0
   %11 = icmp eq i128 %10, 3
   %12 = extractvalue { i128, i128 } %9, 1
-  %spec.select = select i1 %11, i128 undef, i128 %12
-  %spec.select6 = select i1 %11, i128 2, i128 %10
-  %13 = insertvalue { i128, i128 } poison, i128 %spec.select6, 0
-  %14 = insertvalue { i128, i128 } %13, i128 %spec.select, 1
+  %.sroa.3.0 = select i1 %11, i128 undef, i128 %12
+  %.sroa.0.0 = select i1 %11, i128 2, i128 %10
+  %13 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0, 0
+  %14 = insertvalue { i128, i128 } %13, i128 %.sroa.3.0, 1
   ret { i128, i128 } %14
 }
 
@@ -27673,10 +27673,10 @@ define hidden { i128, i128 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   %9 = extractvalue { i128, i128 } %8, 0
   %10 = icmp eq i128 %9, 3
   %11 = extractvalue { i128, i128 } %8, 1
-  %spec.select = select i1 %10, i128 undef, i128 %11
-  %spec.select6 = select i1 %10, i128 2, i128 %9
-  %12 = insertvalue { i128, i128 } poison, i128 %spec.select6, 0
-  %13 = insertvalue { i128, i128 } %12, i128 %spec.select, 1
+  %.sroa.3.0 = select i1 %10, i128 undef, i128 %11
+  %.sroa.0.0 = select i1 %10, i128 2, i128 %9
+  %12 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0, 0
+  %13 = insertvalue { i128, i128 } %12, i128 %.sroa.3.0, 1
   ret { i128, i128 } %13
 }
 

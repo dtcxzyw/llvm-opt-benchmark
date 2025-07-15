@@ -91595,10 +91595,10 @@ define internal fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isl
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5f416f43ea3a81f1E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h5f416f43ea3a81f1E.exit": ; preds = %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$18get_immediate_data17h0e7daaa4cbfa43d4E.exit", %14
-  %spec.select = phi i128 [ undef, %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$18get_immediate_data17h0e7daaa4cbfa43d4E.exit" ], [ %.val.i1, %14 ]
-  %spec.select8 = zext i1 %.not.not to i128
-  %17 = insertvalue { i128, i128 } poison, i128 %spec.select8, 0
-  %18 = insertvalue { i128, i128 } %17, i128 %spec.select, 1
+  %.sroa.3.0 = phi i128 [ undef, %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$18get_immediate_data17h0e7daaa4cbfa43d4E.exit" ], [ %.val.i1, %14 ]
+  %.sroa.0.0 = zext i1 %.not.not to i128
+  %17 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0, 0
+  %18 = insertvalue { i128, i128 } %17, i128 %.sroa.3.0, 1
   ret { i128, i128 } %18
 }
 
@@ -91691,10 +91691,10 @@ define internal fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isl
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5f416f43ea3a81f1E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h5f416f43ea3a81f1E.exit": ; preds = %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$17get_constant_data17hb3a0725de0691e78E.exit", %15
-  %spec.select = phi i128 [ undef, %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$17get_constant_data17hb3a0725de0691e78E.exit" ], [ %.val.i1, %15 ]
-  %spec.select8 = zext i1 %.not.not to i128
-  %18 = insertvalue { i128, i128 } poison, i128 %spec.select8, 0
-  %19 = insertvalue { i128, i128 } %18, i128 %spec.select, 1
+  %.sroa.3.0 = phi i128 [ undef, %"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$17get_constant_data17hb3a0725de0691e78E.exit" ], [ %.val.i1, %15 ]
+  %.sroa.0.0 = zext i1 %.not.not to i128
+  %18 = insertvalue { i128, i128 } poison, i128 %.sroa.0.0, 0
+  %19 = insertvalue { i128, i128 } %18, i128 %.sroa.3.0, 1
   ret { i128, i128 } %19
 }
 

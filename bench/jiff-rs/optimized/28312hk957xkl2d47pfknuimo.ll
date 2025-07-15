@@ -10011,81 +10011,90 @@ define internal fastcc { i64, i32 } @_ZN4jiff4span4Span21to_duration_invariant17
 "_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit": ; preds = %81, %80, %73, %1
   %.sroa.01.0.off0 = phi i64 [ 0, %1 ], [ %extract.t13, %81 ], [ %extract.t14, %80 ], [ %extract.t15, %73 ]
   %82 = tail call noundef i64 @_ZN4jiff4util1t8Constant5value17h092493ee115b2c3bE(i64 noundef 1000000000)
-  switch i64 %82, label %84 [
-    i64 -1, label %_ZN4jiff15signed_duration14SignedDuration3new17hab89f5c9e9369320E.exit
-    i64 0, label %83
-  ], !prof !970
-
-83:                                               ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit"
-  tail call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h1d770b6a397dd885E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.445edfb3d893364410e0537e46991e65.32) #15
-  unreachable
+  %83 = icmp eq i64 %82, -1
+  br i1 %83, label %_ZN4jiff15signed_duration14SignedDuration3new17hab89f5c9e9369320E.exit, label %84, !prof !51
 
 84:                                               ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit"
   %85 = sext i64 %82 to i128
-  %86 = srem i128 %65, %85
-  %87 = icmp slt i128 %86, 0
+  %86 = icmp eq i64 %82, 0
+  br i1 %86, label %87, label %88
+
+87:                                               ; preds = %84
+  tail call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h1d770b6a397dd885E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.445edfb3d893364410e0537e46991e65.32) #15
+  unreachable
+
+88:                                               ; preds = %84
+  %89 = srem i128 %65, %85
+  %90 = icmp slt i128 %89, 0
+  %extract.t16 = trunc i128 %89 to i32
+  br i1 %90, label %91, label %93
+
+91:                                               ; preds = %88
   %.sroa.01.0.i = tail call i128 @llvm.abs.i128(i128 range(i128 -9223372036854775808, 9223372036854775808) %85, i1 true)
-  %88 = select i1 %87, i128 %.sroa.01.0.i, i128 0
-  %.sroa.0.0.i5 = add nsw i128 %88, %86
-  %extract.t4 = trunc i128 %.sroa.0.0.i5 to i32
-  %89 = add i32 %extract.t4, 999999999
-  %or.cond.i = icmp ult i32 %89, 1999999999
-  br i1 %or.cond.i, label %103, label %90
+  %92 = add nsw i128 %89, %.sroa.01.0.i
+  %extract.t = trunc i128 %92 to i32
+  br label %93
 
-90:                                               ; preds = %84
-  %91 = sdiv i32 %extract.t4, 1000000000
-  %92 = srem i32 %extract.t4, 1000000000
-  %93 = sext i32 %91 to i64
-  %94 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %.sroa.01.0.off0, i64 %93)
-  %95 = extractvalue { i64, i1 } %94, 1
-  br i1 %95, label %98, label %96, !prof !51
+93:                                               ; preds = %91, %88
+  %.sroa.0.0.i5.off0 = phi i32 [ %extract.t, %91 ], [ %extract.t16, %88 ]
+  %94 = add i32 %.sroa.0.0.i5.off0, 999999999
+  %or.cond.i = icmp ult i32 %94, 1999999999
+  br i1 %or.cond.i, label %108, label %95
 
-96:                                               ; preds = %90
-  %97 = extractvalue { i64, i1 } %94, 0
-  br label %103
+95:                                               ; preds = %93
+  %96 = sdiv i32 %.sroa.0.0.i5.off0, 1000000000
+  %97 = srem i32 %.sroa.0.0.i5.off0, 1000000000
+  %98 = sext i32 %96 to i64
+  %99 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %.sroa.01.0.off0, i64 %98)
+  %100 = extractvalue { i64, i1 } %99, 1
+  br i1 %100, label %103, label %101, !prof !51
 
-98:                                               ; preds = %90
+101:                                              ; preds = %95
+  %102 = extractvalue { i64, i1 } %99, 0
+  br label %108
+
+103:                                              ; preds = %95
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   store ptr @anon.445edfb3d893364410e0537e46991e65.28, ptr %2, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 1, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 0, ptr %102, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 1, ptr %104, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr null, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %106, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 0, ptr %107, align 8
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.445edfb3d893364410e0537e46991e65.30) #15
   unreachable
 
-103:                                              ; preds = %96, %84
-  %.sroa.011.0.i = phi i32 [ %extract.t4, %84 ], [ %92, %96 ]
-  %.sroa.0.0.i6 = phi i64 [ %.sroa.01.0.off0, %84 ], [ %97, %96 ]
-  %104 = icmp eq i32 %.sroa.011.0.i, 0
-  %105 = icmp eq i64 %.sroa.0.0.i6, 0
-  %or.cond3.i = or i1 %104, %105
-  br i1 %or.cond3.i, label %_ZN4jiff15signed_duration14SignedDuration3new17hab89f5c9e9369320E.exit, label %106
+108:                                              ; preds = %101, %93
+  %.sroa.011.0.i = phi i32 [ %.sroa.0.0.i5.off0, %93 ], [ %97, %101 ]
+  %.sroa.0.0.i6 = phi i64 [ %.sroa.01.0.off0, %93 ], [ %102, %101 ]
+  %109 = icmp eq i32 %.sroa.011.0.i, 0
+  %110 = icmp eq i64 %.sroa.0.0.i6, 0
+  %or.cond3.i = or i1 %109, %110
+  br i1 %or.cond3.i, label %_ZN4jiff15signed_duration14SignedDuration3new17hab89f5c9e9369320E.exit, label %111
 
-106:                                              ; preds = %103
-  %107 = tail call i8 @llvm.scmp.i8.i64(i64 %.sroa.0.0.i6, i64 0)
-  %108 = tail call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 0)
-  %109 = icmp eq i8 %107, %108
-  br i1 %109, label %_ZN4jiff15signed_duration14SignedDuration3new17hab89f5c9e9369320E.exit, label %110
+111:                                              ; preds = %108
+  %112 = tail call i8 @llvm.scmp.i8.i64(i64 %.sroa.0.0.i6, i64 0)
+  %113 = tail call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 0)
+  %114 = icmp eq i8 %112, %113
+  br i1 %114, label %_ZN4jiff15signed_duration14SignedDuration3new17hab89f5c9e9369320E.exit, label %115
 
-110:                                              ; preds = %106
-  %111 = icmp slt i64 %.sroa.0.0.i6, 0
-  %.sroa.011.1.v.i = select i1 %111, i32 -1000000000, i32 1000000000
+115:                                              ; preds = %111
+  %116 = icmp slt i64 %.sroa.0.0.i6, 0
+  %.sroa.011.1.v.i = select i1 %116, i32 -1000000000, i32 1000000000
   %.sroa.011.1.i = add nsw i32 %.sroa.011.1.v.i, %.sroa.011.0.i
-  %.sroa.0.1.v.i = select i1 %111, i64 1, i64 -1
+  %.sroa.0.1.v.i = select i1 %116, i64 1, i64 -1
   %.sroa.0.1.i = add nsw i64 %.sroa.0.1.v.i, %.sroa.0.0.i6
   br label %_ZN4jiff15signed_duration14SignedDuration3new17hab89f5c9e9369320E.exit
 
-_ZN4jiff15signed_duration14SignedDuration3new17hab89f5c9e9369320E.exit: ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit", %103, %106, %110
-  %.sroa.3.0.i = phi i32 [ %.sroa.011.1.i, %110 ], [ %.sroa.011.0.i, %106 ], [ %.sroa.011.0.i, %103 ], [ 0, %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit" ]
-  %.sroa.021.0.i = phi i64 [ %.sroa.0.1.i, %110 ], [ %.sroa.0.0.i6, %106 ], [ %.sroa.0.0.i6, %103 ], [ %.sroa.01.0.off0, %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit" ]
-  %112 = insertvalue { i64, i32 } poison, i64 %.sroa.021.0.i, 0
-  %113 = insertvalue { i64, i32 } %112, i32 %.sroa.3.0.i, 1
-  ret { i64, i32 } %113
+_ZN4jiff15signed_duration14SignedDuration3new17hab89f5c9e9369320E.exit: ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit", %108, %111, %115
+  %.sroa.3.0.i = phi i32 [ %.sroa.011.1.i, %115 ], [ %.sroa.011.0.i, %111 ], [ %.sroa.011.0.i, %108 ], [ 0, %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit" ]
+  %.sroa.021.0.i = phi i64 [ %.sroa.0.1.i, %115 ], [ %.sroa.0.0.i6, %111 ], [ %.sroa.0.0.i6, %108 ], [ %.sroa.01.0.off0, %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit" ]
+  %117 = insertvalue { i64, i32 } poison, i64 %.sroa.021.0.i, 0
+  %118 = insertvalue { i64, i32 } %117, i32 %.sroa.3.0.i, 1
+  ret { i64, i32 } %118
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -10543,7 +10552,7 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
   %40 = load i8, ptr %.sroa.045.0, align 1, !noundef !3
   %41 = icmp ugt i8 %40, 47
   %42 = add i8 %40, -48
-  br i1 %41, label %58, label %60, !prof !971
+  br i1 %41, label %58, label %60, !prof !970
 
 .preheader:                                       ; preds = %37, %44
   %.sroa.021.1 = phi i64 [ %48, %44 ], [ %.sroa.021.0, %37 ]
@@ -10630,7 +10639,7 @@ define hidden { i64, ptr } @_ZN4jiff4util5parse8fraction17h29a875d99298212aE(ptr
   %72 = extractvalue { i64, i1 } %71, 1
   %73 = extractvalue { i64, i1 } %71, 0
   %74 = select i1 %69, i1 true, i1 %72
-  br i1 %74, label %.thread59, label %37, !prof !972
+  br i1 %74, label %.thread59, label %37, !prof !971
 
 75:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
@@ -11957,6 +11966,5 @@ attributes #15 = { noreturn }
 !967 = !{!968}
 !968 = distinct !{!968, !969, !"_ZN4jiff4span4Span24to_invariant_nanoseconds17h76ceb1a6f87bdeb2E: argument 0"}
 !969 = distinct !{!969, !"_ZN4jiff4span4Span24to_invariant_nanoseconds17h76ceb1a6f87bdeb2E"}
-!970 = !{!"branch_weights", i32 2000, i32 2, i32 2000}
-!971 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!972 = !{!"branch_weights", i32 2146410, i32 -2146410}
+!970 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!971 = !{!"branch_weights", i32 2146410, i32 -2146410}

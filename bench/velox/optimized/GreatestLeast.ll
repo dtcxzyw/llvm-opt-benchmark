@@ -23193,14 +23193,14 @@ _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit: ; preds = %entry, %if.th
   %value.i.0.copyload.i = load i128, ptr %add.ptr.i, align 1
   %8 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %9 = load ptr, ptr %8, align 8
-  %_M_finish.i34 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %10 = load ptr, ptr %_M_finish.i34, align 8
+  %_M_finish.i33 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %10 = load ptr, ptr %_M_finish.i33, align 8
   %11 = load ptr, ptr %9, align 8
-  %sub.ptr.lhs.cast.i35 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i36 = ptrtoint ptr %11 to i64
-  %sub.ptr.sub.i37 = sub i64 %sub.ptr.lhs.cast.i35, %sub.ptr.rhs.cast.i36
-  %cmp39 = icmp ugt i64 %sub.ptr.sub.i37, 16
-  br i1 %cmp39, label %for.body.lr.ph, label %for.end
+  %sub.ptr.lhs.cast.i34 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i35 = ptrtoint ptr %11 to i64
+  %sub.ptr.sub.i36 = sub i64 %sub.ptr.lhs.cast.i34, %sub.ptr.rhs.cast.i35
+  %cmp38 = icmp ugt i64 %sub.ptr.sub.i36, 16
+  br i1 %cmp38, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit
   %idxprom.i.i16 = sext i32 %row to i64
@@ -23208,8 +23208,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK8facebook5velox
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
-  %valueIndex.041 = phi i64 [ 0, %for.body.lr.ph ], [ %spec.select33, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
-  %currentValue.040 = phi i128 [ %value.i.0.copyload.i, %for.body.lr.ph ], [ %spec.select, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
+  %valueIndex.040 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
+  %currentValue.039 = phi i128 [ %value.i.0.copyload.i, %for.body.lr.ph ], [ %currentValue.1, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
   %12 = load ptr, ptr %this, align 8
   %13 = load ptr, ptr %12, align 8
   %add.ptr.i.i = getelementptr inbounds nuw %"class.facebook::velox::exec::LocalDecodedVector", ptr %13, i64 %indvars.iv
@@ -23245,9 +23245,9 @@ _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30: ; preds = %for.body, %
   %mul.i20 = shl nsw i64 %conv.i19, 4
   %add.ptr.i21 = getelementptr inbounds i8, ptr %14, i64 %mul.i20
   %value.i.0.copyload.i22 = load i128, ptr %add.ptr.i21, align 1
-  %cmp7 = icmp slt i128 %value.i.0.copyload.i22, %currentValue.040
-  %spec.select = tail call i128 @llvm.smin.i128(i128 %value.i.0.copyload.i22, i128 %currentValue.040)
-  %spec.select33 = select i1 %cmp7, i64 %indvars.iv, i64 %valueIndex.041
+  %cmp7 = icmp slt i128 %value.i.0.copyload.i22, %currentValue.039
+  %currentValue.1 = tail call i128 @llvm.smin.i128(i128 %value.i.0.copyload.i22, i128 %currentValue.039)
+  %valueIndex.1 = select i1 %cmp7, i64 %indvars.iv, i64 %valueIndex.040
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %8, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -23261,8 +23261,8 @@ _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30: ; preds = %for.body, %
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !229
 
 for.end:                                          ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit
-  %currentValue.0.lcssa = phi i128 [ %value.i.0.copyload.i, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit ], [ %spec.select, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
-  %valueIndex.0.lcssa = phi i64 [ 0, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit ], [ %spec.select33, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
+  %currentValue.0.lcssa = phi i128 [ %value.i.0.copyload.i, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit ], [ %currentValue.1, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
+  %valueIndex.0.lcssa = phi i64 [ 0, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit ], [ %valueIndex.1, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
   %23 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %24 = load ptr, ptr %23, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -39509,14 +39509,14 @@ _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit: ; preds = %entry, %if.th
   %value.i.0.copyload.i = load i128, ptr %add.ptr.i, align 1
   %8 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %9 = load ptr, ptr %8, align 8
-  %_M_finish.i34 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %10 = load ptr, ptr %_M_finish.i34, align 8
+  %_M_finish.i33 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %10 = load ptr, ptr %_M_finish.i33, align 8
   %11 = load ptr, ptr %9, align 8
-  %sub.ptr.lhs.cast.i35 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i36 = ptrtoint ptr %11 to i64
-  %sub.ptr.sub.i37 = sub i64 %sub.ptr.lhs.cast.i35, %sub.ptr.rhs.cast.i36
-  %cmp39 = icmp ugt i64 %sub.ptr.sub.i37, 16
-  br i1 %cmp39, label %for.body.lr.ph, label %for.end
+  %sub.ptr.lhs.cast.i34 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i35 = ptrtoint ptr %11 to i64
+  %sub.ptr.sub.i36 = sub i64 %sub.ptr.lhs.cast.i34, %sub.ptr.rhs.cast.i35
+  %cmp38 = icmp ugt i64 %sub.ptr.sub.i36, 16
+  br i1 %cmp38, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit
   %idxprom.i.i16 = sext i32 %row to i64
@@ -39524,8 +39524,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK8facebook5velox
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
-  %valueIndex.041 = phi i64 [ 0, %for.body.lr.ph ], [ %spec.select33, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
-  %currentValue.040 = phi i128 [ %value.i.0.copyload.i, %for.body.lr.ph ], [ %spec.select, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
+  %valueIndex.040 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
+  %currentValue.039 = phi i128 [ %value.i.0.copyload.i, %for.body.lr.ph ], [ %currentValue.1, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
   %12 = load ptr, ptr %this, align 8
   %13 = load ptr, ptr %12, align 8
   %add.ptr.i.i = getelementptr inbounds nuw %"class.facebook::velox::exec::LocalDecodedVector", ptr %13, i64 %indvars.iv
@@ -39561,9 +39561,9 @@ _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30: ; preds = %for.body, %
   %mul.i20 = shl nsw i64 %conv.i19, 4
   %add.ptr.i21 = getelementptr inbounds i8, ptr %14, i64 %mul.i20
   %value.i.0.copyload.i22 = load i128, ptr %add.ptr.i21, align 1
-  %cmp7 = icmp sgt i128 %value.i.0.copyload.i22, %currentValue.040
-  %spec.select = tail call i128 @llvm.smax.i128(i128 %value.i.0.copyload.i22, i128 %currentValue.040)
-  %spec.select33 = select i1 %cmp7, i64 %indvars.iv, i64 %valueIndex.041
+  %cmp7 = icmp sgt i128 %value.i.0.copyload.i22, %currentValue.039
+  %currentValue.1 = tail call i128 @llvm.smax.i128(i128 %value.i.0.copyload.i22, i128 %currentValue.039)
+  %valueIndex.1 = select i1 %cmp7, i64 %indvars.iv, i64 %valueIndex.040
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %8, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -39577,8 +39577,8 @@ _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30: ; preds = %for.body, %
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !367
 
 for.end:                                          ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit
-  %currentValue.0.lcssa = phi i128 [ %value.i.0.copyload.i, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit ], [ %spec.select, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
-  %valueIndex.0.lcssa = phi i64 [ 0, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit ], [ %spec.select33, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
+  %currentValue.0.lcssa = phi i128 [ %value.i.0.copyload.i, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit ], [ %currentValue.1, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
+  %valueIndex.0.lcssa = phi i64 [ 0, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit ], [ %valueIndex.1, %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30 ]
   %23 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %24 = load ptr, ptr %23, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 16

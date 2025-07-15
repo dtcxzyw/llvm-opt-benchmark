@@ -303,11 +303,20 @@ define hidden noundef zeroext i1 @_ZN4core3net7ip_addr6IpAddr14is_unspecified17h
   %2 = load i8, ptr %0, align 1, !range !27, !noundef !4
   %trunc = trunc nuw i8 %2 to i1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %4 = load i32, ptr %3, align 1
-  %5 = icmp eq i32 %4, 0
-  %6 = load i128, ptr %3, align 1
-  %7 = icmp eq i128 %6, 0
-  %.0.in = select i1 %trunc, i1 %7, i1 %5
+  br i1 %trunc, label %7, label %4
+
+4:                                                ; preds = %1
+  %5 = load i32, ptr %3, align 1
+  %6 = icmp eq i32 %5, 0
+  br label %10
+
+7:                                                ; preds = %1
+  %8 = load i128, ptr %3, align 1
+  %9 = icmp eq i128 %8, 0
+  br label %10
+
+10:                                               ; preds = %7, %4
+  %.0.in = phi i1 [ %6, %4 ], [ %9, %7 ]
   ret i1 %.0.in
 }
 
@@ -5585,7 +5594,7 @@ define noundef ptr @_ZN13wasmtime_wasi4host7network4util23validate_remote_addres
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.0.0.copyload = load i32, ptr %4, align 2
-  br label %24
+  br label %21
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5626,39 +5635,39 @@ define noundef ptr @_ZN13wasmtime_wasi4host7network4util23validate_remote_addres
   %.sroa.033.11.vec.extract.i.i = extractelement <16 x i8> %7, i64 11
   %19 = icmp eq i8 %.sroa.033.11.vec.extract.i.i, -1
   %or.cond32.i.i = select i1 %or.cond29.i.i, i1 %19, i1 false
-  br i1 %or.cond32.i.i, label %20, label %21
+  br i1 %or.cond32.i.i, label %20, label %_ZN4core3net7ip_addr6IpAddr14is_unspecified17he51380bd6e383c8cE.llvm.11181120138937278269.exit
 
 20:                                               ; preds = %5
   %.sroa.035.3.vec.insert.extract.i.i = extractelement <4 x i32> %.sroa.02.sroa.0.0.copyload, i64 3
-  br label %24
+  br label %21
 
-21:                                               ; preds = %5
-  %22 = bitcast <4 x i32> %.sroa.02.sroa.0.0.copyload to i128
-  %23 = icmp eq i128 %22, 0
-  br i1 %23, label %28, label %26
+21:                                               ; preds = %20, %3
+  %.sroa.7.0.ph.in = phi i32 [ %.sroa.0.0.copyload, %3 ], [ %.sroa.035.3.vec.insert.extract.i.i, %20 ]
+  %22 = icmp eq i32 %.sroa.7.0.ph.in, 0
+  br i1 %22, label %27, label %25
 
-24:                                               ; preds = %20, %3
-  %.sroa.035.3.vec.insert.extract.i.i.sink = phi i32 [ %.sroa.035.3.vec.insert.extract.i.i, %20 ], [ %.sroa.0.0.copyload, %3 ]
-  %25 = icmp eq i32 %.sroa.035.3.vec.insert.extract.i.i.sink, 0
-  br i1 %25, label %28, label %26
+_ZN4core3net7ip_addr6IpAddr14is_unspecified17he51380bd6e383c8cE.llvm.11181120138937278269.exit: ; preds = %5
+  %23 = bitcast <4 x i32> %.sroa.02.sroa.0.0.copyload to i128
+  %24 = icmp eq i128 %23, 0
+  br i1 %24, label %27, label %25
 
-26:                                               ; preds = %21, %24
+25:                                               ; preds = %21, %_ZN4core3net7ip_addr6IpAddr14is_unspecified17he51380bd6e383c8cE.llvm.11181120138937278269.exit
   %.03.in.v = select i1 %trunc, i64 28, i64 6
   %.03.in = getelementptr inbounds nuw i8, ptr %0, i64 %.03.in.v
   %.03 = load i16, ptr %.03.in, align 2, !noundef !4
-  %27 = icmp eq i16 %.03, 0
-  br i1 %27, label %30, label %32
+  %26 = icmp eq i16 %.03, 0
+  br i1 %26, label %29, label %31
 
-28:                                               ; preds = %21, %24
-  %29 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.72.llvm.11181120138937278269, i64 noundef 43)
-  br label %32
+27:                                               ; preds = %21, %_ZN4core3net7ip_addr6IpAddr14is_unspecified17he51380bd6e383c8cE.llvm.11181120138937278269.exit
+  %28 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.72.llvm.11181120138937278269, i64 noundef 43)
+  br label %31
 
-30:                                               ; preds = %26
-  %31 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.71.llvm.11181120138937278269, i64 noundef 24)
-  br label %32
+29:                                               ; preds = %25
+  %30 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.71.llvm.11181120138937278269, i64 noundef 24)
+  br label %31
 
-32:                                               ; preds = %26, %30, %28
-  %.0 = phi ptr [ %29, %28 ], [ %31, %30 ], [ null, %26 ]
+31:                                               ; preds = %25, %29, %27
+  %.0 = phi ptr [ %28, %27 ], [ %30, %29 ], [ null, %25 ]
   ret ptr %.0
 }
 

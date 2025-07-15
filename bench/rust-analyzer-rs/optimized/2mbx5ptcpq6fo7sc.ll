@@ -29615,12 +29615,12 @@ _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exi
 
 151:                                              ; preds = %144
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val.i9.i = load i64, ptr %152, align 8, !noalias !13300
+  %.val.i8.i = load i64, ptr %152, align 8, !noalias !13300
   %153 = ptrtoint ptr %107 to i64
   %154 = ptrtoint ptr %129 to i64
   %155 = sub nuw i64 %153, %154
   %156 = lshr exact i64 %155, 3
-  %.fr51.i.i.i.i = freeze i64 %.val.i9.i
+  %.fr51.i.i.i.i = freeze i64 %.val.i8.i
   %157 = icmp ugt i64 %.fr51.i.i.i.i, 2305843009213693951
   %.neg6.i.i.i.i.i.i.i.i = mul i64 %.fr51.i.i.i.i, 120
   br i1 %157, label %.split.us.i.i.i.i, label %.split.i.i.i.i

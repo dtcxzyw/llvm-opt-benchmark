@@ -5628,14 +5628,14 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
-  %brmerge720 = select i1 %switch192, i1 true, i1 %42
-  %brmerge719 = select i1 %or.cond.i.i.i331, i1 true, i1 %45
-  %brmerge718 = select i1 %or.cond.i.i.i328, i1 true, i1 %48
-  %brmerge717 = select i1 %or.cond.i.i.i326, i1 true, i1 %51
-  %brmerge716 = select i1 %or.cond.i.i.i323, i1 true, i1 %61
-  %brmerge715 = select i1 %or.cond.i.i.i320, i1 true, i1 %65
+  %brmerge717 = select i1 %switch192, i1 true, i1 %42
+  %brmerge716 = select i1 %or.cond.i.i.i331, i1 true, i1 %45
+  %brmerge715 = select i1 %or.cond.i.i.i328, i1 true, i1 %48
+  %brmerge714 = select i1 %or.cond.i.i.i326, i1 true, i1 %51
+  %brmerge713 = select i1 %or.cond.i.i.i323, i1 true, i1 %61
+  %brmerge712 = select i1 %or.cond.i.i.i320, i1 true, i1 %65
   %brmerge = select i1 %or.cond.i.i.i, i1 true, i1 %69
-  %brmerge721 = select i1 %switch192, i1 true, i1 %73
+  %brmerge718 = select i1 %switch192, i1 true, i1 %73
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
 
 74:                                               ; preds = %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i599, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i570, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i541, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i512, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i483, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i454, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i425, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i396, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i367, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i
@@ -5658,7 +5658,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %77 = add nuw nsw i64 %76, 1
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %76
   %79 = load i8, ptr %78, align 1, !range !5, !alias.scope !468, !noundef !3
-  switch i8 %79, label %default.unreachable733 [
+  switch i8 %79, label %default.unreachable730 [
     i8 9, label %"_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17he05d68d1a82d49c7E.exit337"
     i8 0, label %115
     i8 1, label %152
@@ -5671,7 +5671,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %403
   ]
 
-default.unreachable733:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
+default.unreachable730:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   unreachable
 
 .body338:                                         ; preds = %466, %443, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i584", %432, %409, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i555", %397, %374, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i526", %361, %338, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i497", %325, %302, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i468", %289, %266, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i439", %253, %230, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i410", %218, %195, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i381", %182, %159, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i352", %145, %122, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i", %74, %81
@@ -5793,7 +5793,7 @@ default.unreachable733:                           ; preds = %"_ZN99_$LT$core..ar
   br label %86
 
 "_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17he05d68d1a82d49c7E.exit337": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge721, label %151, label %438
+  br i1 %brmerge718, label %151, label %438
 
 115:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   br i1 %brmerge, label %151, label %116
@@ -5892,7 +5892,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i: ; preds = %144
   br i1 %.not.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit.thread", label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
 
 152:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge715, label %151, label %153
+  br i1 %brmerge712, label %151, label %153
 
 153:                                              ; preds = %152
   store i64 %77, ptr %39, align 8, !alias.scope !468
@@ -5984,7 +5984,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i367: ; preds = %181
   br label %186
 
 188:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge716, label %151, label %189
+  br i1 %brmerge713, label %151, label %189
 
 189:                                              ; preds = %188
   store i64 %77, ptr %39, align 8, !alias.scope !468
@@ -6259,7 +6259,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i454: ; preds = %288
   br label %293
 
 295:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge717, label %151, label %296
+  br i1 %brmerge714, label %151, label %296
 
 296:                                              ; preds = %295
   store i64 %77, ptr %39, align 8, !alias.scope !468
@@ -6351,7 +6351,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i483: ; preds = %324
   br label %329
 
 331:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge718, label %151, label %332
+  br i1 %brmerge715, label %151, label %332
 
 332:                                              ; preds = %331
   store i64 %77, ptr %39, align 8, !alias.scope !468
@@ -6443,7 +6443,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i512: ; preds = %360
   br label %365
 
 367:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge719, label %151, label %368
+  br i1 %brmerge716, label %151, label %368
 
 368:                                              ; preds = %367
   store i64 %77, ptr %39, align 8, !alias.scope !468
@@ -6535,7 +6535,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i541: ; preds = %396
   br label %401
 
 403:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge720, label %151, label %404
+  br i1 %brmerge717, label %151, label %404
 
 404:                                              ; preds = %403
   store i64 %77, ptr %39, align 8, !alias.scope !468
@@ -8358,11 +8358,11 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
-  %brmerge710 = select i1 %switch192, i1 true, i1 %42
-  %brmerge709 = select i1 %switch192, i1 true, i1 %45
-  %brmerge708 = select i1 %switch192, i1 true, i1 %48
+  %brmerge707 = select i1 %switch192, i1 true, i1 %42
+  %brmerge706 = select i1 %switch192, i1 true, i1 %45
+  %brmerge705 = select i1 %switch192, i1 true, i1 %48
   %brmerge = select i1 %switch192, i1 true, i1 %51
-  %brmerge712 = select i1 %switch192, i1 true, i1 %70
+  %brmerge709 = select i1 %switch192, i1 true, i1 %70
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
 
 71:                                               ; preds = %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i592, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i563, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i534, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i505, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i476, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i447, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i418, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i389, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i360, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i
@@ -8385,7 +8385,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %74 = add nuw nsw i64 %73, 1
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %73
   %76 = load i8, ptr %75, align 1, !range !5, !alias.scope !697, !noundef !3
-  switch i8 %76, label %default.unreachable724 [
+  switch i8 %76, label %default.unreachable721 [
     i8 9, label %"_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17h98a6da49a89e08a2E.exit330"
     i8 0, label %114
     i8 1, label %150
@@ -8398,7 +8398,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %401
   ]
 
-default.unreachable724:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
+default.unreachable721:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   unreachable
 
 .body331:                                         ; preds = %465, %442, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i577", %431, %408, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i548", %395, %372, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i519", %359, %336, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i490", %323, %300, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i461", %288, %265, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i432", %252, %229, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i403", %216, %193, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i374", %180, %157, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i345", %143, %120, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i", %71, %78
@@ -8522,7 +8522,7 @@ default.unreachable724:                           ; preds = %"_ZN99_$LT$core..ar
   br label %84
 
 "_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17h98a6da49a89e08a2E.exit330": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge712, label %149, label %437
+  br i1 %brmerge709, label %149, label %437
 
 114:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   br i1 %66, label %149, label %115
@@ -9079,7 +9079,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i476: ; preds = %322
   br label %327
 
 329:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge708, label %149, label %330
+  br i1 %brmerge705, label %149, label %330
 
 330:                                              ; preds = %329
   store i64 %74, ptr %39, align 8, !alias.scope !697
@@ -9171,7 +9171,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i505: ; preds = %358
   br label %363
 
 365:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge709, label %149, label %366
+  br i1 %brmerge706, label %149, label %366
 
 366:                                              ; preds = %365
   store i64 %74, ptr %39, align 8, !alias.scope !697
@@ -9263,7 +9263,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i534: ; preds = %394
   br label %399
 
 401:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge710, label %149, label %402
+  br i1 %brmerge707, label %149, label %402
 
 402:                                              ; preds = %401
   store i64 %74, ptr %39, align 8, !alias.scope !697
@@ -11093,13 +11093,13 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
-  %brmerge717 = select i1 %switch192, i1 true, i1 %42
-  %brmerge716 = select i1 %switch192, i1 true, i1 %45
-  %brmerge715 = select i1 %or.cond.i.i.i326, i1 true, i1 %48
-  %brmerge714 = select i1 %or.cond.i.i.i324, i1 true, i1 %51
-  %brmerge713 = select i1 %or.cond.i.i.i321, i1 true, i1 %64
+  %brmerge714 = select i1 %switch192, i1 true, i1 %42
+  %brmerge713 = select i1 %switch192, i1 true, i1 %45
+  %brmerge712 = select i1 %or.cond.i.i.i326, i1 true, i1 %48
+  %brmerge711 = select i1 %or.cond.i.i.i324, i1 true, i1 %51
+  %brmerge710 = select i1 %or.cond.i.i.i321, i1 true, i1 %64
   %brmerge = select i1 %or.cond.i.i.i, i1 true, i1 %68
-  %brmerge718 = select i1 %switch192, i1 true, i1 %72
+  %brmerge715 = select i1 %switch192, i1 true, i1 %72
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
 
 73:                                               ; preds = %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i597, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i568, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i539, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i510, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i481, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i452, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i423, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i394, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i365, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i
@@ -11122,7 +11122,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %76 = add nuw nsw i64 %75, 1
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %75
   %78 = load i8, ptr %77, align 1, !range !5, !alias.scope !926, !noundef !3
-  switch i8 %78, label %default.unreachable730 [
+  switch i8 %78, label %default.unreachable727 [
     i8 9, label %"_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17hd897f2a2dfe27526E.exit335"
     i8 0, label %116
     i8 1, label %153
@@ -11135,7 +11135,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %403
   ]
 
-default.unreachable730:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
+default.unreachable727:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   unreachable
 
 .body336:                                         ; preds = %467, %444, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i582", %433, %410, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i553", %397, %374, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i524", %362, %339, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i495", %326, %303, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i466", %290, %267, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i437", %254, %231, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i408", %218, %195, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i379", %183, %160, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i350", %146, %123, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i", %73, %80
@@ -11259,7 +11259,7 @@ default.unreachable730:                           ; preds = %"_ZN99_$LT$core..ar
   br label %86
 
 "_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17hd897f2a2dfe27526E.exit335": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge718, label %152, label %439
+  br i1 %brmerge715, label %152, label %439
 
 116:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   br i1 %brmerge, label %152, label %117
@@ -11358,7 +11358,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i: ; preds = %145
   br i1 %.not.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit.thread", label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
 
 153:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge713, label %152, label %154
+  br i1 %brmerge710, label %152, label %154
 
 154:                                              ; preds = %153
   store i64 %76, ptr %39, align 8, !alias.scope !926
@@ -11725,7 +11725,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i452: ; preds = %289
   br label %294
 
 296:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge714, label %152, label %297
+  br i1 %brmerge711, label %152, label %297
 
 297:                                              ; preds = %296
   store i64 %76, ptr %39, align 8, !alias.scope !926
@@ -11817,7 +11817,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i481: ; preds = %325
   br label %330
 
 332:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge715, label %152, label %333
+  br i1 %brmerge712, label %152, label %333
 
 333:                                              ; preds = %332
   store i64 %76, ptr %39, align 8, !alias.scope !926
@@ -11909,7 +11909,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i510: ; preds = %361
   br label %366
 
 368:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge716, label %152, label %369
+  br i1 %brmerge713, label %152, label %369
 
 369:                                              ; preds = %368
   store i64 %76, ptr %39, align 8, !alias.scope !926
@@ -12000,7 +12000,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i539: ; preds = %396
   br label %401
 
 403:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge717, label %152, label %404
+  br i1 %brmerge714, label %152, label %404
 
 404:                                              ; preds = %403
   store i64 %76, ptr %39, align 8, !alias.scope !926
@@ -13827,12 +13827,12 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
-  %brmerge713 = select i1 %switch192, i1 true, i1 %42
-  %brmerge712 = select i1 %switch192, i1 true, i1 %45
-  %brmerge711 = select i1 %switch192, i1 true, i1 %48
-  %brmerge710 = select i1 %or.cond.i.i.i321, i1 true, i1 %51
+  %brmerge710 = select i1 %switch192, i1 true, i1 %42
+  %brmerge709 = select i1 %switch192, i1 true, i1 %45
+  %brmerge708 = select i1 %switch192, i1 true, i1 %48
+  %brmerge707 = select i1 %or.cond.i.i.i321, i1 true, i1 %51
   %brmerge = select i1 %or.cond.i.i.i, i1 true, i1 %67
-  %brmerge714 = select i1 %switch192, i1 true, i1 %71
+  %brmerge711 = select i1 %switch192, i1 true, i1 %71
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
 
 72:                                               ; preds = %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i594, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i565, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i536, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i507, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i478, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i449, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i420, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i391, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i362, %_ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i
@@ -13855,7 +13855,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %75 = add nuw nsw i64 %74, 1
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %74
   %77 = load i8, ptr %76, align 1, !range !5, !alias.scope !1155, !noundef !3
-  switch i8 %77, label %default.unreachable726 [
+  switch i8 %77, label %default.unreachable723 [
     i8 9, label %"_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17h2eea5c4f9ff12c3dE.exit332"
     i8 0, label %115
     i8 1, label %152
@@ -13868,7 +13868,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %402
   ]
 
-default.unreachable726:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
+default.unreachable723:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   unreachable
 
 .body333:                                         ; preds = %466, %443, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i579", %432, %409, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i550", %396, %373, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i521", %360, %337, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i492", %325, %302, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i463", %289, %266, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i434", %253, %230, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i405", %217, %194, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i376", %181, %158, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i347", %145, %122, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.18051169988359501616.exit.i.i", %72, %79
@@ -13992,7 +13992,7 @@ default.unreachable726:                           ; preds = %"_ZN99_$LT$core..ar
   br label %85
 
 "_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17h2eea5c4f9ff12c3dE.exit332": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge714, label %151, label %438
+  br i1 %brmerge711, label %151, label %438
 
 115:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
   br i1 %brmerge, label %151, label %116
@@ -14458,7 +14458,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i449: ; preds = %288
   br label %293
 
 295:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge710, label %151, label %296
+  br i1 %brmerge707, label %151, label %296
 
 296:                                              ; preds = %295
   store i64 %75, ptr %39, align 8, !alias.scope !1155
@@ -14550,7 +14550,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i478: ; preds = %324
   br label %329
 
 331:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge711, label %151, label %332
+  br i1 %brmerge708, label %151, label %332
 
 332:                                              ; preds = %331
   store i64 %75, ptr %39, align 8, !alias.scope !1155
@@ -14641,7 +14641,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i507: ; preds = %359
   br label %364
 
 366:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge712, label %151, label %367
+  br i1 %brmerge709, label %151, label %367
 
 367:                                              ; preds = %366
   store i64 %75, ptr %39, align 8, !alias.scope !1155
@@ -14733,7 +14733,7 @@ _ZN14serde_untagged5error7unerase17hd8974c22547b3458E.exit.i536: ; preds = %395
   br label %400
 
 402:                                              ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67776f5460fe192cE.exit"
-  br i1 %brmerge713, label %151, label %403
+  br i1 %brmerge710, label %151, label %403
 
 403:                                              ; preds = %402
   store i64 %75, ptr %39, align 8, !alias.scope !1155
