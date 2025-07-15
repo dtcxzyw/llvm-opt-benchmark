@@ -649,7 +649,7 @@ define weak_odr void @_ZN5boost7archive21basic_text_oprimitiveISt13basic_ostream
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit11, label %6
 
-6:                                                ; preds = %3
+6:; preds = %3
   %7 = load ptr, ptr %0, align 8, !tbaa !3
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = getelementptr i8, ptr %8, i64 -24
@@ -661,57 +661,57 @@ define weak_odr void @_ZN5boost7archive21basic_text_oprimitiveISt13basic_ostream
   %.not25 = icmp eq i32 %14, 0
   br i1 %.not25, label %19, label %15
 
-15:                                               ; preds = %6
+15:; preds = %6
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #14
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %4, i32 noundef 13, ptr noundef null, ptr noundef null) #14
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %4) #15
           to label %16 unwind label %17
 
-16:                                               ; preds = %15
+16:         ; preds = %15
   unreachable
 
-17:                                               ; preds = %15
-  %18 = landingpad { ptr, i32 }
+21:                                               ; preds = %15
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %4) #14
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #14
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %22
 
-19:                                               ; preds = %6
-  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef signext 10)
-  %21 = load ptr, ptr %0, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %2
+23:                                               ; preds = %6
+  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef signext 10)
+  %25 = load ptr, ptr %0, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   br label %23
 
-23:                                               ; preds = %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit.i.i.i.i.i, %19
+23:   ; preds = %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit.i.i.i.i.i, %19
   %.sroa.04.0.i.i.i.i = phi ptr [ %1, %19 ], [ %.sroa.04.5.i.i.i.i, %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit.i.i.i.i.i ]
   %.sroa.12.0.i.i.i.i = phi i8 [ 0, %19 ], [ %.sroa.12.5.i.i.i.i, %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit.i.i.i.i.i ]
   %.sroa.16.0.i.i.i.i = phi i32 [ 0, %19 ], [ %.sroa.16.3.i.i.i.i, %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit.i.i.i.i.i ]
   %.sroa.21.0.i.i.i.i = phi i1 [ false, %19 ], [ %.sroa.21.1.i.i.i.i33, %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit.i.i.i.i.i ]
   %.sroa.24.0.i.i.i.i = phi i32 [ 0, %19 ], [ %spec.select10.i.i.i.i, %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit.i.i.i.i.i ]
   %.sroa.0.0.i.i.i.i = phi ptr [ %21, %19 ], [ %.sroa.0.1.i.i.i.i, %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit.i.i.i.i.i ]
-  %24 = icmp eq ptr %.sroa.04.0.i.i.i.i, %22
+  %24 = icmp eq ptr %.sroa.04.0.i.i.i.i, %26
   br i1 %24, label %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.i.i.i.i.i, label %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread.i.i.i.i.i
 
-_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.i.i.i.i.i: ; preds = %23
+_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.i.i.i.i.i:; preds = %23
   %.not.i.i.i.i.i = icmp eq i32 %.sroa.16.0.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIwEEET0_T_SE_SD_.exit, label %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread.i.i.i.i.i.thread
 
-_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread.i.i.i.i.i: ; preds = %23
+_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread.i.i.i.i.i:; preds = %23
   %25 = icmp eq i32 %.sroa.24.0.i.i.i.i, 76
   br i1 %25, label %_ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators17insert_linebreaksINS4_18base64_from_binaryINS4_15transform_widthIPKcLi6ELi8EcEEcEELi76ES8_EES8_NS0_25single_pass_traversal_tagES8_lLb0ELb0EEdeEv.exit.i.i.i.i.i, label %27
 
-_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread.i.i.i.i.i.thread: ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.i.i.i.i.i
+_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread.i.i.i.i.i.thread:; preds = %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.i.i.i.i.i
   %26 = icmp eq i32 %.sroa.24.0.i.i.i.i, 76
   br i1 %26, label %_ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators17insert_linebreaksINS4_18base64_from_binaryINS4_15transform_widthIPKcLi6ELi8EcEEcEELi76ES8_EES8_NS0_25single_pass_traversal_tagES8_lLb0ELb0EEdeEv.exit.i.i.i.i.i, label %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader
 
-27:                                               ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread.i.i.i.i.i
+27: ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread.i.i.i.i.i
   br i1 %.sroa.21.0.i.i.i.i, label %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, label %.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader: ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread.i.i.i.i.i.thread, %27
+.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader:; preds = %_ZN5boost9iteratorsneINS_7archive9iterators17insert_linebreaksINS3_18base64_from_binaryINS3_15transform_widthIPKcLi6ELi8EcEEcEELi76ES7_EES7_NS0_25single_pass_traversal_tagES7_lSB_S7_SC_S7_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSD_12always_bool2ESF_SG_E4typeEE4typeERKNS0_15iterator_facadeISF_T0_T1_T2_T3_EERKNSO_ISG_T5_T6_T7_T8_EE.exit.thread.i.i.i.i.i.thread, %27
   br label %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:; preds = %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.12.6.i.i.i.i = phi i8 [ %.sroa.12.7.i.i.i.i, %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.12.0.i.i.i.i, %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader ]
   %28 = phi i8 [ %32, %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.12.0.i.i.i.i, %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader ]
   %29 = phi i32 [ %sext78.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.split.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader ]
@@ -820,15 +820,15 @@ _ZSt4copyIN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryI
   br i1 %or.cond, label %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit11, label %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit
 
 _ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit: ; preds = %_ZSt4copyIN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIwEEET0_T_SE_SD_.exit
-  %77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef signext 61)
-  %.not26 = icmp eq i64 %76, 1
-  br i1 %.not26, label %78, label %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit11
+  %77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw(ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef signext 61)
+  %.not28 = icmp eq i64 %76, 1
+  br i1 %.not28, label %41, label %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit11
 
-78:                                               ; preds = %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit
-  %79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef signext 61)
+41:                                               ; preds = %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit
+  %79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw(ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef signext 61)
   br label %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit11
 
-_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit11: ; preds = %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit, %78, %_ZSt4copyIN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIwEEET0_T_SE_SD_.exit, %3
+_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit11: ; preds = %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit, %41, %_ZSt4copyIN5boost7archive9iterators17insert_linebreaksINS2_18base64_from_binaryINS2_15transform_widthIPKcLi6ELi8EcEEcEELi76ES6_EENS2_16ostream_iteratorIwEEET0_T_SE_SD_.exit, %3
   ret void
 }
 

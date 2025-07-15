@@ -4331,8 +4331,8 @@ define internal noundef i32 @alps_decode_dolphin(ptr noundef captures(none) %0, 
   %132 = load i32, ptr %124, align 8
   %133 = zext nneg i32 %132 to i64
   %134 = lshr i64 %123, %133
-  %135 = getelementptr inbounds nuw i8, ptr %4, i64 212
-  %136 = load i32, ptr %135, align 4
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 212
+  %136 = load i32, ptr %136, align 4
   %137 = zext nneg i32 %136 to i64
   %138 = shl nsw i64 -1, %137
   %139 = xor i64 %138, -1
@@ -4341,7 +4341,7 @@ define internal noundef i32 @alps_decode_dolphin(ptr noundef captures(none) %0, 
   store i32 %141, ptr %0, align 4
   br label %142
 
-142:                                              ; preds = %83, %49
+142:; preds = %83, %49
   ret i32 0
 }
 

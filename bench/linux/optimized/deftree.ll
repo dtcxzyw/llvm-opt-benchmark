@@ -30,7 +30,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   %3 = alloca [16 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
   %4 = load i1, ptr @tr_static_init.static_init_done, align 4
-  br i1 %4, label %151, label %.preheader7
+  br i1 %4, label %160, label %.preheader7
 
 .preheader7:                                      ; preds = %1, %21
   %5 = phi i64 [ %22, %21 ], [ 0, %1 ]
@@ -237,93 +237,93 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   store i16 %135, ptr %117, align 4
   br label %136
 
-136:                                              ; preds = %121, %115
+136:; preds = %121, %115
   %137 = add nuw nsw i64 %116, 1
   %138 = icmp eq i64 %137, 288
   br i1 %138, label %139, label %115, !llvm.loop !19
 
-139:                                              ; preds = %136
+139:; preds = %136
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #9
-  br label %140
+  br label %149
 
-140:                                              ; preds = %140, %139
-  %141 = phi i64 [ 0, %139 ], [ %148, %140 ]
-  %142 = getelementptr [30 x %struct.ct_data_s], ptr @static_dtree, i64 0, i64 %141
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 2
-  store i16 5, ptr %143, align 2
-  %144 = getelementptr [256 x i8], ptr @byte_rev_table, i64 0, i64 %141
-  %145 = load i8, ptr %144, align 1
-  %146 = lshr i8 %145, 3
-  %147 = zext nneg i8 %146 to i16
-  store i16 %147, ptr %142, align 4
-  %148 = add nuw nsw i64 %141, 1
-  %149 = icmp eq i64 %148, 30
-  br i1 %149, label %150, label %140, !llvm.loop !20
+149:                                              ; preds = %149, %139
+  %150 = phi i64 [ 0, %139 ], [ %157, %140 ]
+  %151 = getelementptr [30 x %struct.ct_data_s], ptr @static_dtree, i64 0, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 2
+  store i16 5, ptr %152, align 2
+  %153 = getelementptr [256 x i8], ptr @byte_rev_table, i64 0, i64 %150
+  %154 = load i8, ptr %153, align 1
+  %155 = lshr i8 %154, 3
+  %156 = zext nneg i8 %155 to i16
+  store i16 %156, ptr %151, align 4
+  %157 = add nuw nsw i64 %150, 1
+  %158 = icmp eq i64 %157, 30
+  br i1 %158, label %159, label %149, !llvm.loop !20
 
-150:                                              ; preds = %140
+159:                                              ; preds = %149
   store i1 true, ptr @tr_static_init.static_init_done, align 4
-  br label %151
+  br label %160
 
-151:                                              ; preds = %150, %1
+160:                                              ; preds = %159, %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 5904
-  store i64 0, ptr %152, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 2880
-  store ptr %153, ptr %154, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 2896
-  store ptr @static_l_desc, ptr %155, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 2904
-  store ptr %156, ptr %157, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 2920
-  store ptr @static_d_desc, ptr %158, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 2724
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 2928
-  store ptr %159, ptr %160, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 2944
-  store ptr @static_bl_desc, ptr %161, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 5920
-  store i16 0, ptr %162, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 5924
-  store i32 0, ptr %163, align 4
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 5916
-  store i32 8, ptr %164, align 4
-  br label %165
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 5904
+  store i64 0, ptr %161, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 2880
+  store ptr %162, ptr %163, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 2896
+  store ptr @static_l_desc, ptr %164, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 2904
+  store ptr %165, ptr %166, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 2920
+  store ptr @static_d_desc, ptr %167, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 2724
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 2928
+  store ptr %168, ptr %169, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 2944
+  store ptr @static_bl_desc, ptr %170, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 5920
+  store i16 0, ptr %171, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 5924
+  store i32 0, ptr %172, align 4
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 5916
+  store i32 8, ptr %173, align 4
+  br label %174
 
-165:                                              ; preds = %165, %151
-  %166 = phi i64 [ 0, %151 ], [ %168, %165 ]
-  %167 = getelementptr [573 x %struct.ct_data_s], ptr %153, i64 0, i64 %166
-  store i16 0, ptr %167, align 4
-  %168 = add nuw nsw i64 %166, 1
-  %169 = icmp eq i64 %168, 286
-  br i1 %169, label %.preheader6, label %165, !llvm.loop !21
+174:                                              ; preds = %174, %160
+  %175 = phi i64 [ 0, %151 ], [ %177, %165 ]
+  %176 = getelementptr [573 x %struct.ct_data_s], ptr %162, i64 0, i64 %175
+  store i16 0, ptr %176, align 4
+  %177 = add nuw nsw i64 %175, 1
+  %178 = icmp eq i64 %177, 286
+  br i1 %178, label %.preheader6, label %174, !llvm.loop !21
 
-.preheader6:                                      ; preds = %165, %.preheader6
-  %170 = phi i64 [ %172, %.preheader6 ], [ 0, %165 ]
-  %171 = getelementptr [61 x %struct.ct_data_s], ptr %156, i64 0, i64 %170
-  store i16 0, ptr %171, align 4
-  %172 = add nuw nsw i64 %170, 1
-  %173 = icmp eq i64 %172, 30
-  br i1 %173, label %.preheader, label %.preheader6, !llvm.loop !22
+.preheader6:                                      ; preds = %174, %.preheader6
+  %179 = phi i64 [ %181, %.preheader6 ], [ 0, %165 ]
+  %180 = getelementptr [61 x %struct.ct_data_s], ptr %165, i64 0, i64 %179
+  store i16 0, ptr %180, align 4
+  %181 = add nuw nsw i64 %179, 1
+  %182 = icmp eq i64 %181, 30
+  br i1 %182, label %.preheader, label %.preheader6, !llvm.loop !22
 
 .preheader:                                       ; preds = %.preheader6, %.preheader
-  %174 = phi i64 [ %176, %.preheader ], [ 0, %.preheader6 ]
-  %175 = getelementptr [39 x %struct.ct_data_s], ptr %159, i64 0, i64 %174
-  store i16 0, ptr %175, align 4
-  %176 = add nuw nsw i64 %174, 1
-  %177 = icmp eq i64 %176, 19
-  br i1 %177, label %178, label %.preheader, !llvm.loop !23
+  %183 = phi i64 [ %185, %.preheader ], [ 0, %.preheader6 ]
+  %184 = getelementptr [39 x %struct.ct_data_s], ptr %168, i64 0, i64 %183
+  store i16 0, ptr %184, align 4
+  %185 = add nuw nsw i64 %183, 1
+  %186 = icmp eq i64 %185, 19
+  br i1 %186, label %187, label %.preheader, !llvm.loop !23
 
-178:                                              ; preds = %.preheader
-  %179 = getelementptr i8, ptr %0, i64 1212
-  store i16 1, ptr %179, align 4
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 5888
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 5912
-  store i32 0, ptr %181, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 5876
-  store i32 0, ptr %182, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, i8 0, i64 16, i1 false)
+187:                                              ; preds = %.preheader
+  %188 = getelementptr i8, ptr %0, i64 1212
+  store i16 1, ptr %188, align 4
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 5888
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 5912
+  store i32 0, ptr %190, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 5876
+  store i32 0, ptr %191, align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, i8 0, i64 16, i1 false)
   ret void
 }
 
@@ -2447,12 +2447,12 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   store i16 %493, ptr %475, align 2
   br label %494
 
-494:                                              ; preds = %479, %473
+494:; preds = %479, %473
   %495 = add nuw nsw i64 %474, 1
   %496 = icmp eq i64 %495, %462
   br i1 %496, label %.loopexit, label %473, !llvm.loop !19
 
-.loopexit:                                        ; preds = %494, %454
+.loopexit: ; preds = %494, %454
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
   ret void
 }

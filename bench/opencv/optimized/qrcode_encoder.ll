@@ -3348,7 +3348,7 @@ _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i:     ; preds = %6
 
 common.resume:                                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit12.i44, %_ZNSt6vectorIhSaIhEED2Ev.exit12.i38, %_ZNSt6vectorIhSaIhEED2Ev.exit12.i
   %.lcssa.sink = phi ptr [ %62, %_ZNSt6vectorIhSaIhEED2Ev.exit12.i44 ], [ %26, %_ZNSt6vectorIhSaIhEED2Ev.exit12.i38 ], [ %4, %_ZNSt6vectorIhSaIhEED2Ev.exit12.i ]
-  %common.resume.op = phi { ptr, i32 } [ %76, %_ZNSt6vectorIhSaIhEED2Ev.exit12.i44 ], [ %43, %_ZNSt6vectorIhSaIhEED2Ev.exit12.i38 ], [ %19, %_ZNSt6vectorIhSaIhEED2Ev.exit12.i ]
+  %common.resume.op = phi { ptr, i32 } [ %77, %_ZNSt6vectorIhSaIhEED2Ev.exit12.i44 ], [ %43, %_ZNSt6vectorIhSaIhEED2Ev.exit12.i38 ], [ %19, %_ZNSt6vectorIhSaIhEED2Ev.exit12.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %.lcssa.sink) #30
   resume { ptr, i32 } %common.resume.op
 
@@ -3454,8 +3454,8 @@ _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit39: ; preds = %_ZN2cvL8decToBin
   br i1 %exitcond.not.i.i42, label %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i43, label %64, !llvm.loop !98
 
 _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i43:   ; preds = %64
-  %70 = load ptr, ptr %12, align 8, !tbaa !103
-  %71 = load ptr, ptr %2, align 8, !tbaa !103
+  %71 = load ptr, ptr %12, align 8, !tbaa !103
+  %72 = load ptr, ptr %2, align 8, !tbaa !103
   %72 = ptrtoint ptr %70 to i64
   %73 = ptrtoint ptr %71 to i64
   %74 = sub i64 %72, %73
@@ -3464,15 +3464,15 @@ _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i43:   ; preds = %64
           to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit45 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit12.i44
 
 _ZNSt6vectorIhSaIhEED2Ev.exit12.i44:              ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i43
-  %76 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit45: ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i43
   tail call void @_ZdlPv(ptr noundef nonnull %62) #30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %77 = icmp samesign ult i64 %indvars.iv.next, %46
-  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !110
+  %78 = icmp samesign ult i64 %indvars.iv.next, %46
+  br i1 %78, label %.lr.ph, label %._crit_edge, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit45, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit39
   ret i1 true

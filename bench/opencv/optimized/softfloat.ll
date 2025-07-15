@@ -1998,8 +1998,8 @@ define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr noundef nonnull readonly a
 
 _ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit: ; preds = %1, %11, %14, %19
   %.0.i = phi i64 [ %18, %14 ], [ %22, %19 ], [ 0, %1 ], [ -2147483648, %11 ]
-  %23 = trunc i64 %.0.i to i32
-  ret i32 %23
+  %24 = trunc i64 %.0.i to i32
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

@@ -2933,8 +2933,8 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %29, %8
-  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %35, %29 ]
+._crit_edge:                                      ; preds = %30, %8
+  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %36, %29 ]
   %11 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %12 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %13 = fadd <4 x float> %11, %12
@@ -2946,9 +2946,9 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   store float %17, ptr %1, align 4, !tbaa !13
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv108 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next109, %29 ]
-  %.0104 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %35, %29 ]
+  %.0104 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %36, %29 ]
   %18 = getelementptr inbounds nuw %struct.block_iq3_s, ptr %3, i64 %indvars.iv108
   %19 = load i16, ptr %18, align 2, !tbaa !71
   %20 = zext i16 %19 to i64
@@ -2962,31 +2962,31 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 106
   br label %36
 
-29:                                               ; preds = %36
-  %30 = fmul float %22, %24
-  %31 = insertelement <8 x float> poison, float %30, i64 0
-  %32 = shufflevector <8 x float> %31, <8 x float> poison, <8 x i32> zeroinitializer
-  %33 = add <8 x i32> %150, %151
-  %34 = sitofp <8 x i32> %33 to <8 x float>
-  %35 = tail call <8 x float> @llvm.fma.v8f32(<8 x float> %32, <8 x float> %34, <8 x float> %.0104)
+30:                                               ; preds = %37
+  %31 = fmul float %22, %24
+  %32 = insertelement <8 x float> poison, float %31, i64 0
+  %33 = shufflevector <8 x float> %32, <8 x float> poison, <8 x i32> zeroinitializer
+  %34 = add <8 x i32> %150, %151
+  %35 = sitofp <8 x i32> %34 to <8 x float>
+  %36 = tail call <8 x float> @llvm.fma.v8f32(<8 x float> %33, <8 x float> %35, <8 x float> %.0104)
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
-36:                                               ; preds = %.lr.ph, %36
+37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.091102 = phi ptr [ %25, %.lr.ph ], [ %45, %36 ]
+  %.091102 = phi ptr [ %25, %.lr.ph ], [ %46, %36 ]
   %.092101 = phi ptr [ %26, %.lr.ph ], [ %129, %36 ]
-  %.093100 = phi ptr [ %27, %.lr.ph ], [ %42, %36 ]
-  %37 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %150, %36 ]
-  %38 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %151, %36 ]
-  %39 = load <32 x i8>, ptr %.093100, align 1, !tbaa !4
-  %40 = getelementptr inbounds nuw i8, ptr %.093100, i64 32
-  %41 = load <32 x i8>, ptr %40, align 1, !tbaa !4
-  %42 = getelementptr inbounds nuw i8, ptr %.093100, i64 64
-  %43 = load <16 x i8>, ptr %.091102, align 1, !tbaa !4
-  %44 = zext <16 x i8> %43 to <16 x i16>
-  %45 = getelementptr inbounds nuw i8, ptr %.091102, i64 16
+  %.093100 = phi ptr [ %27, %.lr.ph ], [ %43, %36 ]
+  %38 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %150, %36 ]
+  %39 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %151, %36 ]
+  %40 = load <32 x i8>, ptr %.093100, align 1, !tbaa !4
+  %41 = getelementptr inbounds nuw i8, ptr %.093100, i64 32
+  %42 = load <32 x i8>, ptr %41, align 1, !tbaa !4
+  %43 = getelementptr inbounds nuw i8, ptr %.093100, i64 64
+  %44 = load <16 x i8>, ptr %.091102, align 1, !tbaa !4
+  %45 = zext <16 x i8> %44 to <16 x i16>
+  %46 = getelementptr inbounds nuw i8, ptr %.091102, i64 16
   %46 = shufflevector <16 x i16> %44, <16 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %47 = zext nneg <8 x i16> %46 to <8 x i32>
   %48 = shufflevector <16 x i16> %44, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
@@ -3000,29 +3000,29 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %54 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !68
   %.sroa.0.20.vec.extract = extractelement <8 x i32> %47, i64 5
-  %56 = zext nneg i32 %.sroa.0.20.vec.extract to i64
-  %57 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %56
+  %60 = zext nneg i32 %.sroa.0.20.vec.extract to i64
+  %57 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %60
   %58 = load i32, ptr %57, align 4, !tbaa !68
   %.sroa.0.16.vec.extract = extractelement <8 x i32> %47, i64 4
-  %59 = zext nneg i32 %.sroa.0.16.vec.extract to i64
-  %60 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %59
+  %64 = zext nneg i32 %.sroa.0.16.vec.extract to i64
+  %60 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %64
   %61 = load i32, ptr %60, align 4, !tbaa !68
-  %.sroa.0.12.vec.extract = extractelement <8 x i32> %47, i64 3
-  %62 = zext nneg i32 %.sroa.0.12.vec.extract to i64
-  %63 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !68
-  %.sroa.0.8.vec.extract = extractelement <8 x i32> %47, i64 2
-  %65 = zext nneg i32 %.sroa.0.8.vec.extract to i64
-  %66 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !68
-  %.sroa.0.4.vec.extract = extractelement <8 x i32> %47, i64 1
-  %68 = zext nneg i32 %.sroa.0.4.vec.extract to i64
-  %69 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %68
-  %70 = load i32, ptr %69, align 4, !tbaa !68
-  %.sroa.0.0.vec.extract = extractelement <8 x i32> %47, i64 0
-  %71 = zext nneg i32 %.sroa.0.0.vec.extract to i64
-  %72 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %71
-  %73 = load i32, ptr %72, align 4, !tbaa !68
+  %.sroa.0.28.vec.extract = extractelement <8 x i32> %47, i64 3
+  %67 = zext nneg i32 %.sroa.0.28.vec.extract to i64
+  %68 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %67
+  %69 = load i32, ptr %68, align 4, !tbaa !68
+  %.sroa.0.24.vec.extract = extractelement <8 x i32> %47, i64 2
+  %70 = zext nneg i32 %.sroa.0.24.vec.extract to i64
+  %71 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !68
+  %.sroa.0.20.vec.extract = extractelement <8 x i32> %47, i64 1
+  %73 = zext nneg i32 %.sroa.0.20.vec.extract to i64
+  %74 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %73
+  %75 = load i32, ptr %74, align 4, !tbaa !68
+  %.sroa.0.16.vec.extract = extractelement <8 x i32> %47, i64 0
+  %76 = zext nneg i32 %.sroa.0.16.vec.extract to i64
+  %77 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %76
+  %78 = load i32, ptr %77, align 4, !tbaa !68
   %74 = insertelement <8 x i32> poison, i32 %73, i64 0
   %75 = insertelement <8 x i32> %74, i32 %70, i64 1
   %76 = insertelement <8 x i32> %75, i32 %67, i64 2
@@ -3035,12 +3035,12 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %82 = zext nneg i32 %.sroa.15.60.vec.extract to i64
   %83 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !68
-  %.sroa.15.56.vec.extract = extractelement <8 x i32> %49, i64 6
-  %85 = zext nneg i32 %.sroa.15.56.vec.extract to i64
+  %.sroa.0.4.vec.extract = extractelement <8 x i32> %49, i64 6
+  %85 = zext nneg i32 %.sroa.0.4.vec.extract to i64
   %86 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !68
-  %.sroa.15.52.vec.extract = extractelement <8 x i32> %49, i64 5
-  %88 = zext nneg i32 %.sroa.15.52.vec.extract to i64
+  %.sroa.0.0.vec.extract = extractelement <8 x i32> %49, i64 5
+  %88 = zext nneg i32 %.sroa.0.0.vec.extract to i64
   %89 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !68
   %.sroa.15.48.vec.extract = extractelement <8 x i32> %49, i64 4
@@ -3051,20 +3051,20 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %94 = zext nneg i32 %.sroa.15.44.vec.extract to i64
   %95 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !68
-  %.sroa.15.40.vec.extract = extractelement <8 x i32> %49, i64 2
-  %97 = zext nneg i32 %.sroa.15.40.vec.extract to i64
-  %98 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %97
-  %99 = load i32, ptr %98, align 4, !tbaa !68
-  %.sroa.15.36.vec.extract = extractelement <8 x i32> %49, i64 1
-  %100 = zext nneg i32 %.sroa.15.36.vec.extract to i64
-  %101 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %100
-  %102 = load i32, ptr %101, align 4, !tbaa !68
-  %.sroa.15.32.vec.extract = extractelement <8 x i32> %49, i64 0
-  %103 = zext nneg i32 %.sroa.15.32.vec.extract to i64
-  %104 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %103
-  %105 = load i32, ptr %104, align 4, !tbaa !68
+  %.sroa.15.60.vec.extract = extractelement <8 x i32> %49, i64 2
+  %99 = zext nneg i32 %.sroa.15.60.vec.extract to i64
+  %100 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %99
+  %101 = load i32, ptr %100, align 4, !tbaa !68
+  %.sroa.15.56.vec.extract = extractelement <8 x i32> %49, i64 1
+  %102 = zext nneg i32 %.sroa.15.56.vec.extract to i64
+  %103 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %102
+  %104 = load i32, ptr %103, align 4, !tbaa !68
+  %.sroa.15.52.vec.extract = extractelement <8 x i32> %49, i64 0
+  %105 = zext nneg i32 %.sroa.15.52.vec.extract to i64
+  %106 = getelementptr inbounds nuw [512 x i32], ptr @iq3s_grid, i64 0, i64 %105
+  %107 = load i32, ptr %106, align 4, !tbaa !68
   %106 = insertelement <8 x i32> poison, i32 %105, i64 0
-  %107 = insertelement <8 x i32> %106, i32 %102, i64 1
+  %107 = insertelement <8 x i32> %106, i32 %104, i64 1
   %108 = insertelement <8 x i32> %107, i32 %99, i64 2
   %109 = insertelement <8 x i32> %108, i32 %96, i64 3
   %110 = insertelement <8 x i32> %109, i32 %93, i64 4
@@ -3091,7 +3091,7 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %129 = getelementptr inbounds nuw i8, ptr %.092101, i64 8
   %130 = bitcast <8 x i32> %81 to <32 x i8>
   %131 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %130, <32 x i8> %120)
-  %132 = bitcast <8 x i32> %113 to <32 x i8>
+  %133 = bitcast <8 x i32> %113 to <32 x i8>
   %133 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %132, <32 x i8> %128)
   %134 = lshr exact i64 %indvars.iv, 1
   %135 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 0, i64 %134
@@ -3108,12 +3108,12 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %146 = zext nneg i8 %145 to i16
   %147 = insertelement <16 x i16> poison, i16 %146, i64 0
   %148 = shufflevector <16 x i16> %147, <16 x i16> poison, <16 x i32> zeroinitializer
-  %149 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %133, <16 x i16> %148)
-  %150 = add <8 x i32> %143, %37
+  %148 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %133, <16 x i16> %148)
+  %150 = add <8 x i32> %143, %38
   %151 = add <8 x i32> %149, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %152 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %152, label %36, label %29, !llvm.loop !74
+  %169 = icmp samesign ult i64 %indvars.iv, 6
+  br i1 %169, label %37, label %30, !llvm.loop !74
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
